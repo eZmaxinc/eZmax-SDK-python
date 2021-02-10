@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**ezsignsignature_create_object_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_create_object_v1) | **POST** /1/object/ezsignsignature | Create a new Ezsignsignature
 [**ezsignsignature_delete_object_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_delete_object_v1) | **DELETE** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Delete an existing Ezsignsignature
 [**ezsignsignature_edit_object_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_edit_object_v1) | **PUT** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Modify an existing Ezsignsignature
-[**ezsignsignature_get_object_get_children_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_get_object_get_children_v1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
+[**ezsignsignature_get_children_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_get_children_v1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID}/getChildren | Retrieve an existing Ezsignsignature&#39;s children IDs
 [**ezsignsignature_get_object_v1**](ObjectEzsignsignatureApi.md#ezsignsignature_get_object_v1) | **GET** /1/object/ezsignsignature/{pkiEzsignsignatureID} | Retrieve an existing Ezsignsignature
 
 
@@ -261,8 +261,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignsignature_get_object_get_children_v1**
-> ezsignsignature_get_object_get_children_v1(pki_ezsignsignature_id)
+# **ezsignsignature_get_children_v1**
+> ezsignsignature_get_children_v1(pki_ezsignsignature_id)
 
 Retrieve an existing Ezsignsignature's children IDs
 
@@ -301,9 +301,9 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Retrieve an existing Ezsignsignature's children IDs
-        api_instance.ezsignsignature_get_object_get_children_v1(pki_ezsignsignature_id)
+        api_instance.ezsignsignature_get_children_v1(pki_ezsignsignature_id)
     except eZmaxinc/eZmax-SDK-python.ApiException as e:
-        print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_get_object_get_children_v1: %s\n" % e)
+        print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_get_children_v1: %s\n" % e)
 ```
 
 ### Parameters

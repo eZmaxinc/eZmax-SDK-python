@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**ezsigndocument_create_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_create_object_v1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocument_delete_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_delete_object_v1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**ezsigndocument_edit_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_edit_object_v1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Modify an existing Ezsigndocument
+[**ezsigndocument_get_children_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_children_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**ezsigndocument_get_download_url_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_download_url_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
-[**ezsigndocument_get_object_get_children_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_object_get_children_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 [**ezsigndocument_get_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_object_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 
 
@@ -353,6 +353,77 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocument_get_children_v1**
+> ezsigndocument_get_children_v1(pki_ezsigndocument_id)
+
+Retrieve an existing Ezsigndocument's children IDs
+
+### Example
+
+* Api Key Authentication (Authorization):
+```python
+import time
+import eZmaxinc/eZmax-SDK-python
+from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
+from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve an existing Ezsigndocument's children IDs
+        api_instance.ezsigndocument_get_children_v1(pki_ezsigndocument_id)
+    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_children_v1: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**| The unique ID of the Ezsigndocument |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**404** | The element you are trying to work on does not exist |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocument_get_download_url_v1**
 > EzsigndocumentGetDownloadUrlV1Response ezsigndocument_get_download_url_v1(pki_ezsigndocument_id, e_document_type)
 
@@ -429,77 +500,6 @@ Name | Type | Description  | Notes
 **200** | Successful response |  -  |
 **404** | The element you are trying to work on does not exist |  -  |
 **422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsigndocument_get_object_get_children_v1**
-> ezsigndocument_get_object_get_children_v1(pki_ezsigndocument_id)
-
-Retrieve an existing Ezsigndocument's children IDs
-
-### Example
-
-* Api Key Authentication (Authorization):
-```python
-import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from pprint import pprint
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve an existing Ezsigndocument's children IDs
-        api_instance.ezsigndocument_get_object_get_children_v1(pki_ezsigndocument_id)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
-        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_object_get_children_v1: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_ezsigndocument_id** | **int**| The unique ID of the Ezsigndocument |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**404** | The element you are trying to work on does not exist |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

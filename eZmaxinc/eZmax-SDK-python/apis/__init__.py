@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.module_user_api import ModuleUserApi
+#   from .api.global_customer_api import GlobalCustomerApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from eZmaxinc/eZmax-SDK-python.api.global_customer_api import GlobalCustomerApi
 from eZmaxinc/eZmax-SDK-python.api.module_user_api import ModuleUserApi
 from eZmaxinc/eZmax-SDK-python.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxinc/eZmax-SDK-python.api.object_apikey_api import ObjectApikeyApi
