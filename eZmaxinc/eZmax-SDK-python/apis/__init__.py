@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from eZmaxinc/eZmax-SDK-python.api.global_customer_api import GlobalCustomerApi
+from eZmaxinc/eZmax-SDK-python.api.module_sspr_api import ModuleSsprApi
 from eZmaxinc/eZmax-SDK-python.api.module_user_api import ModuleUserApi
 from eZmaxinc/eZmax-SDK-python.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxinc/eZmax-SDK-python.api.object_apikey_api import ObjectApikeyApi

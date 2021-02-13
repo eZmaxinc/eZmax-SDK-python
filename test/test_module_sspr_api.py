@@ -9,26 +9,26 @@
 """
 
 
-import sys
 import unittest
 
 import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.model.common_audit import CommonAudit
+from eZmaxinc/eZmax-SDK-python.api.module_sspr_api import ModuleSsprApi  # noqa: E501
 
 
-class TestCommonAudit(unittest.TestCase):
-    """CommonAudit unit test stubs"""
+class TestModuleSsprApi(unittest.TestCase):
+    """ModuleSsprApi unit test stubs"""
 
     def setUp(self):
-        pass
+        self.api = ModuleSsprApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def testCommonAudit(self):
-        """Test CommonAudit"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = CommonAudit()  # noqa: E501
+    def test_sspr_remind_usernames_v1(self):
+        """Test case for sspr_remind_usernames_v1
+
+        Remind of forgotten username(s)  # noqa: E501
+        """
         pass
 
 

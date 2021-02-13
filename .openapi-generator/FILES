@@ -98,6 +98,7 @@ docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionApi.md
@@ -127,6 +128,7 @@ docs/WebsiteRequest.md
 eZmaxinc/eZmax-SDK-python/__init__.py
 eZmaxinc/eZmax-SDK-python/api/__init__.py
 eZmaxinc/eZmax-SDK-python/api/global_customer_api.py
+eZmaxinc/eZmax-SDK-python/api/module_sspr_api.py
 eZmaxinc/eZmax-SDK-python/api/module_user_api.py
 eZmaxinc/eZmax-SDK-python/api/object_activesession_api.py
 eZmaxinc/eZmax-SDK-python/api/object_apikey_api.py
@@ -357,6 +359,7 @@ test/test_franchisereferalincome_request.py
 test/test_franchisereferalincome_request_compound.py
 test/test_global_customer_api.py
 test/test_global_customer_get_endpoint_v1_response.py
+test/test_module_sspr_api.py
 test/test_module_user_api.py
 test/test_multilingual_apikey_description.py
 test/test_object_activesession_api.py
