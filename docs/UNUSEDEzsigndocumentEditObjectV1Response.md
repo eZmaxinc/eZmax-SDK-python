@@ -1,6 +1,6 @@
-# EzsignsignatureEditObjectV1Response
+# UNUSEDEzsigndocumentEditObjectV1Response
 
-Response for the /1/object/ezsignsignature/editObject API Request
+Response for the /1/object/ezsigndocument/editObject API Request
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

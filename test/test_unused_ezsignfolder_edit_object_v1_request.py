@@ -14,14 +14,12 @@ import unittest
 
 import eZmaxinc/eZmax-SDK-python
 from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_request import EzsignfolderRequest
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_request_compound import EzsignfolderRequestCompound
 globals()['EzsignfolderRequest'] = EzsignfolderRequest
-globals()['EzsignfolderRequestCompound'] = EzsignfolderRequestCompound
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_create_object_v1_request import EzsignfolderCreateObjectV1Request
+from eZmaxinc/eZmax-SDK-python.model.unused_ezsignfolder_edit_object_v1_request import UNUSEDEzsignfolderEditObjectV1Request
 
 
-class TestEzsignfolderCreateObjectV1Request(unittest.TestCase):
-    """EzsignfolderCreateObjectV1Request unit test stubs"""
+class TestUNUSEDEzsignfolderEditObjectV1Request(unittest.TestCase):
+    """UNUSEDEzsignfolderEditObjectV1Request unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestEzsignfolderCreateObjectV1Request(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsignfolderCreateObjectV1Request(self):
-        """Test EzsignfolderCreateObjectV1Request"""
+    def testUNUSEDEzsignfolderEditObjectV1Request(self):
+        """Test UNUSEDEzsignfolderEditObjectV1Request"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsignfolderCreateObjectV1Request()  # noqa: E501
+        # model = UNUSEDEzsignfolderEditObjectV1Request()  # noqa: E501
         pass
 
 

@@ -14,10 +14,12 @@ import unittest
 
 import eZmaxinc/eZmax-SDK-python
 from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_request import EzsignfoldersignerassociationRequest
+globals()['EzsignfoldersignerassociationRequest'] = EzsignfoldersignerassociationRequest
+from eZmaxinc/eZmax-SDK-python.model.unused_ezsignfoldersignerassociation_edit_object_v1_request import UNUSEDEzsignfoldersignerassociationEditObjectV1Request
 
 
-class TestEzsignfoldersignerassociationRequest(unittest.TestCase):
-    """EzsignfoldersignerassociationRequest unit test stubs"""
+class TestUNUSEDEzsignfoldersignerassociationEditObjectV1Request(unittest.TestCase):
+    """UNUSEDEzsignfoldersignerassociationEditObjectV1Request unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestEzsignfoldersignerassociationRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsignfoldersignerassociationRequest(self):
-        """Test EzsignfoldersignerassociationRequest"""
+    def testUNUSEDEzsignfoldersignerassociationEditObjectV1Request(self):
+        """Test UNUSEDEzsignfoldersignerassociationEditObjectV1Request"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsignfoldersignerassociationRequest()  # noqa: E501
+        # model = UNUSEDEzsignfoldersignerassociationEditObjectV1Request()  # noqa: E501
         pass
 
 

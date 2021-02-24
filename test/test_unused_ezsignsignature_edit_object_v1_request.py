@@ -15,11 +15,11 @@ import unittest
 import eZmaxinc/eZmax-SDK-python
 from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_request import EzsignsignatureRequest
 globals()['EzsignsignatureRequest'] = EzsignsignatureRequest
-from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_request_compound import EzsignsignatureRequestCompound
+from eZmaxinc/eZmax-SDK-python.model.unused_ezsignsignature_edit_object_v1_request import UNUSEDEzsignsignatureEditObjectV1Request
 
 
-class TestEzsignsignatureRequestCompound(unittest.TestCase):
-    """EzsignsignatureRequestCompound unit test stubs"""
+class TestUNUSEDEzsignsignatureEditObjectV1Request(unittest.TestCase):
+    """UNUSEDEzsignsignatureEditObjectV1Request unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestEzsignsignatureRequestCompound(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsignsignatureRequestCompound(self):
-        """Test EzsignsignatureRequestCompound"""
+    def testUNUSEDEzsignsignatureEditObjectV1Request(self):
+        """Test UNUSEDEzsignsignatureEditObjectV1Request"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsignsignatureRequestCompound()  # noqa: E501
+        # model = UNUSEDEzsignsignatureEditObjectV1Request()  # noqa: E501
         pass
 
 

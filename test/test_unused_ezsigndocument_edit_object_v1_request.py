@@ -14,14 +14,12 @@ import unittest
 
 import eZmaxinc/eZmax-SDK-python
 from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_request import EzsigndocumentRequest
-from eZmaxinc/eZmax-SDK-python.model.field_pki_language_id import FieldPkiLanguageID
 globals()['EzsigndocumentRequest'] = EzsigndocumentRequest
-globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_request_compound import EzsigndocumentRequestCompound
+from eZmaxinc/eZmax-SDK-python.model.unused_ezsigndocument_edit_object_v1_request import UNUSEDEzsigndocumentEditObjectV1Request
 
 
-class TestEzsigndocumentRequestCompound(unittest.TestCase):
-    """EzsigndocumentRequestCompound unit test stubs"""
+class TestUNUSEDEzsigndocumentEditObjectV1Request(unittest.TestCase):
+    """UNUSEDEzsigndocumentEditObjectV1Request unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestEzsigndocumentRequestCompound(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsigndocumentRequestCompound(self):
-        """Test EzsigndocumentRequestCompound"""
+    def testUNUSEDEzsigndocumentEditObjectV1Request(self):
+        """Test UNUSEDEzsigndocumentEditObjectV1Request"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsigndocumentRequestCompound()  # noqa: E501
+        # model = UNUSEDEzsigndocumentEditObjectV1Request()  # noqa: E501
         pass
 
 

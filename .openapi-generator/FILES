@@ -34,8 +34,6 @@ docs/EzsigndocumentCreateObjectV1Request.md
 docs/EzsigndocumentCreateObjectV1Response.md
 docs/EzsigndocumentCreateObjectV1ResponseMPayload.md
 docs/EzsigndocumentDeleteObjectV1Response.md
-docs/EzsigndocumentEditObjectV1Request.md
-docs/EzsigndocumentEditObjectV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1ResponseMPayload.md
 docs/EzsigndocumentGetObjectV1Response.md
@@ -49,8 +47,6 @@ docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
 docs/EzsignfolderCreateObjectV1ResponseMPayload.md
 docs/EzsignfolderDeleteObjectV1Response.md
-docs/EzsignfolderEditObjectV1Request.md
-docs/EzsignfolderEditObjectV1Response.md
 docs/EzsignfolderGetObjectV1Response.md
 docs/EzsignfolderGetObjectV1ResponseMPayload.md
 docs/EzsignfolderRequest.md
@@ -64,8 +60,6 @@ docs/EzsignfoldersignerassociationCreateObjectV1Request.md
 docs/EzsignfoldersignerassociationCreateObjectV1Response.md
 docs/EzsignfoldersignerassociationCreateObjectV1ResponseMPayload.md
 docs/EzsignfoldersignerassociationDeleteObjectV1Response.md
-docs/EzsignfoldersignerassociationEditObjectV1Request.md
-docs/EzsignfoldersignerassociationEditObjectV1Response.md
 docs/EzsignfoldersignerassociationGetInPersonLoginUrlV1Response.md
 docs/EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload.md
 docs/EzsignfoldersignerassociationGetObjectV1Response.md
@@ -75,8 +69,6 @@ docs/EzsignsignatureCreateObjectV1Request.md
 docs/EzsignsignatureCreateObjectV1Response.md
 docs/EzsignsignatureCreateObjectV1ResponseMPayload.md
 docs/EzsignsignatureDeleteObjectV1Response.md
-docs/EzsignsignatureEditObjectV1Request.md
-docs/EzsignsignatureEditObjectV1Response.md
 docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
@@ -112,6 +104,14 @@ docs/ObjectFranchiseofficeApi.md
 docs/ObjectFranchisereferalincomeApi.md
 docs/ObjectPeriodApi.md
 docs/PhoneRequest.md
+docs/UNUSEDEzsigndocumentEditObjectV1Request.md
+docs/UNUSEDEzsigndocumentEditObjectV1Response.md
+docs/UNUSEDEzsignfolderEditObjectV1Request.md
+docs/UNUSEDEzsignfolderEditObjectV1Response.md
+docs/UNUSEDEzsignfoldersignerassociationEditObjectV1Request.md
+docs/UNUSEDEzsignfoldersignerassociationEditObjectV1Response.md
+docs/UNUSEDEzsignsignatureEditObjectV1Request.md
+docs/UNUSEDEzsignsignatureEditObjectV1Response.md
 docs/UserCreateEzsignuserV1Request.md
 docs/UserCreateEzsignuserV1Response.md
 docs/UserCreateEzsignuserV1ResponseMPayload.md
@@ -176,8 +176,6 @@ eZmaxinc/eZmax-SDK-python/model/ezsigndocument_create_object_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_create_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_create_object_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_delete_object_v1_response.py
-eZmaxinc/eZmax-SDK-python/model/ezsigndocument_edit_object_v1_request.py
-eZmaxinc/eZmax-SDK-python/model/ezsigndocument_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_get_download_url_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_get_download_url_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsigndocument_get_object_v1_response.py
@@ -191,8 +189,6 @@ eZmaxinc/eZmax-SDK-python/model/ezsignfolder_create_object_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_create_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_create_object_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_delete_object_v1_response.py
-eZmaxinc/eZmax-SDK-python/model/ezsignfolder_edit_object_v1_request.py
-eZmaxinc/eZmax-SDK-python/model/ezsignfolder_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_get_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_get_object_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfolder_request.py
@@ -206,8 +202,6 @@ eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_create_object_v1_r
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_create_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_create_object_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_delete_object_v1_response.py
-eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_edit_object_v1_request.py
-eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_get_in_person_login_url_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsignfoldersignerassociation_get_object_v1_response.py
@@ -217,8 +211,6 @@ eZmaxinc/eZmax-SDK-python/model/ezsignsignature_create_object_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_create_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_create_object_v1_response_m_payload.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_delete_object_v1_response.py
-eZmaxinc/eZmax-SDK-python/model/ezsignsignature_edit_object_v1_request.py
-eZmaxinc/eZmax-SDK-python/model/ezsignsignature_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_get_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_request.py
 eZmaxinc/eZmax-SDK-python/model/ezsignsignature_request_compound.py
@@ -241,6 +233,14 @@ eZmaxinc/eZmax-SDK-python/model/franchisereferalincome_request_compound.py
 eZmaxinc/eZmax-SDK-python/model/global_customer_get_endpoint_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/multilingual_apikey_description.py
 eZmaxinc/eZmax-SDK-python/model/phone_request.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsigndocument_edit_object_v1_request.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsigndocument_edit_object_v1_response.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignfolder_edit_object_v1_request.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignfolder_edit_object_v1_response.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignfoldersignerassociation_edit_object_v1_request.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignfoldersignerassociation_edit_object_v1_response.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignsignature_edit_object_v1_request.py
+eZmaxinc/eZmax-SDK-python/model/unused_ezsignsignature_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/user_create_ezsignuser_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/user_create_ezsignuser_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/user_create_ezsignuser_v1_response_m_payload.py
@@ -295,8 +295,6 @@ test/test_ezsigndocument_create_object_v1_request.py
 test/test_ezsigndocument_create_object_v1_response.py
 test/test_ezsigndocument_create_object_v1_response_m_payload.py
 test/test_ezsigndocument_delete_object_v1_response.py
-test/test_ezsigndocument_edit_object_v1_request.py
-test/test_ezsigndocument_edit_object_v1_response.py
 test/test_ezsigndocument_get_download_url_v1_response.py
 test/test_ezsigndocument_get_download_url_v1_response_m_payload.py
 test/test_ezsigndocument_get_object_v1_response.py
@@ -310,8 +308,6 @@ test/test_ezsignfolder_create_object_v1_request.py
 test/test_ezsignfolder_create_object_v1_response.py
 test/test_ezsignfolder_create_object_v1_response_m_payload.py
 test/test_ezsignfolder_delete_object_v1_response.py
-test/test_ezsignfolder_edit_object_v1_request.py
-test/test_ezsignfolder_edit_object_v1_response.py
 test/test_ezsignfolder_get_object_v1_response.py
 test/test_ezsignfolder_get_object_v1_response_m_payload.py
 test/test_ezsignfolder_request.py
@@ -325,8 +321,6 @@ test/test_ezsignfoldersignerassociation_create_object_v1_request.py
 test/test_ezsignfoldersignerassociation_create_object_v1_response.py
 test/test_ezsignfoldersignerassociation_create_object_v1_response_m_payload.py
 test/test_ezsignfoldersignerassociation_delete_object_v1_response.py
-test/test_ezsignfoldersignerassociation_edit_object_v1_request.py
-test/test_ezsignfoldersignerassociation_edit_object_v1_response.py
 test/test_ezsignfoldersignerassociation_get_in_person_login_url_v1_response.py
 test/test_ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload.py
 test/test_ezsignfoldersignerassociation_get_object_v1_response.py
@@ -336,8 +330,6 @@ test/test_ezsignsignature_create_object_v1_request.py
 test/test_ezsignsignature_create_object_v1_response.py
 test/test_ezsignsignature_create_object_v1_response_m_payload.py
 test/test_ezsignsignature_delete_object_v1_response.py
-test/test_ezsignsignature_edit_object_v1_request.py
-test/test_ezsignsignature_edit_object_v1_response.py
 test/test_ezsignsignature_get_object_v1_response.py
 test/test_ezsignsignature_request.py
 test/test_ezsignsignature_request_compound.py
@@ -373,6 +365,14 @@ test/test_object_franchiseoffice_api.py
 test/test_object_franchisereferalincome_api.py
 test/test_object_period_api.py
 test/test_phone_request.py
+test/test_unused_ezsigndocument_edit_object_v1_request.py
+test/test_unused_ezsigndocument_edit_object_v1_response.py
+test/test_unused_ezsignfolder_edit_object_v1_request.py
+test/test_unused_ezsignfolder_edit_object_v1_response.py
+test/test_unused_ezsignfoldersignerassociation_edit_object_v1_request.py
+test/test_unused_ezsignfoldersignerassociation_edit_object_v1_response.py
+test/test_unused_ezsignsignature_edit_object_v1_request.py
+test/test_unused_ezsignsignature_edit_object_v1_response.py
 test/test_user_create_ezsignuser_v1_request.py
 test/test_user_create_ezsignuser_v1_response.py
 test/test_user_create_ezsignuser_v1_response_m_payload.py
