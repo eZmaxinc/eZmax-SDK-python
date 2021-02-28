@@ -86,9 +86,11 @@ from eZmaxinc/eZmax-SDK-python.model.field_e_ezsignfolder_sendreminderfrequency 
 from eZmaxinc/eZmax-SDK-python.model.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from eZmaxinc/eZmax-SDK-python.model.field_e_phone_type import FieldEPhoneType
 from eZmaxinc/eZmax-SDK-python.model.field_e_user_type import FieldEUserType
+from eZmaxinc/eZmax-SDK-python.model.field_e_user_type_sspr import FieldEUserTypeSSPR
 from eZmaxinc/eZmax-SDK-python.model.field_pki_ezsigntsarequirement_id import FieldPkiEzsigntsarequirementID
 from eZmaxinc/eZmax-SDK-python.model.field_pki_language_id import FieldPkiLanguageID
 from eZmaxinc/eZmax-SDK-python.model.field_pki_taxassignment_id import FieldPkiTaxassignmentID
+from eZmaxinc/eZmax-SDK-python.model.field_pks_customer_code import FieldPksCustomerCode
 from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_create_object_v1_request import FranchisereferalincomeCreateObjectV1Request
 from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_create_object_v1_response import FranchisereferalincomeCreateObjectV1Response
 from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_create_object_v1_response_m_payload import FranchisereferalincomeCreateObjectV1ResponseMPayload
@@ -97,6 +99,11 @@ from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_request_compound imp
 from eZmaxinc/eZmax-SDK-python.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 from eZmaxinc/eZmax-SDK-python.model.multilingual_apikey_description import MultilingualApikeyDescription
 from eZmaxinc/eZmax-SDK-python.model.phone_request import PhoneRequest
+from eZmaxinc/eZmax-SDK-python.model.sspr_reset_password_request_v1_request import SsprResetPasswordRequestV1Request
+from eZmaxinc/eZmax-SDK-python.model.sspr_reset_password_v1_request import SsprResetPasswordV1Request
+from eZmaxinc/eZmax-SDK-python.model.sspr_send_usernames_v1_request import SsprSendUsernamesV1Request
+from eZmaxinc/eZmax-SDK-python.model.sspr_unlock_account_request_v1_request import SsprUnlockAccountRequestV1Request
+from eZmaxinc/eZmax-SDK-python.model.sspr_unlock_account_v1_request import SsprUnlockAccountV1Request
 from eZmaxinc/eZmax-SDK-python.model.unused_ezsigndocument_edit_object_v1_request import UNUSEDEzsigndocumentEditObjectV1Request
 from eZmaxinc/eZmax-SDK-python.model.unused_ezsigndocument_edit_object_v1_response import UNUSEDEzsigndocumentEditObjectV1Response
 from eZmaxinc/eZmax-SDK-python.model.unused_ezsignfolder_edit_object_v1_request import UNUSEDEzsignfolderEditObjectV1Request

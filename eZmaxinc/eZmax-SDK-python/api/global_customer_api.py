@@ -114,24 +114,7 @@ class GlobalCustomerApi(object):
                 'endpoint_path': '/1/customer/{pksCustomerCode}/endpoint',
                 'operation_id': 'global_customer_get_endpoint_v1',
                 'http_method': 'GET',
-                'servers': [
-                    {
-                        'url': "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
-                        'description': "The server endpoint where to send your API requests.",
-                        'variables': {
-                            'sInfrastructureenvironmenttypeDescription': {
-                                'description': "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
-                                'default_value': "prod",
-                                'enum_values': [
-                                    "prod",
-                                    "stg",
-                                    "qa",
-                                    "dev"
-                                ]
-                                }
-                            }
-                    },
-                ]
+                'servers': None,
             },
             params_map={
                 'all': [

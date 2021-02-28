@@ -24,10 +24,38 @@ class TestModuleSsprApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_sspr_remind_usernames_v1(self):
-        """Test case for sspr_remind_usernames_v1
+    def test_sspr_reset_password_request_v1(self):
+        """Test case for sspr_reset_password_request_v1
 
-        Remind of forgotten username(s)  # noqa: E501
+        Reset Password Request  # noqa: E501
+        """
+        pass
+
+    def test_sspr_reset_password_v1(self):
+        """Test case for sspr_reset_password_v1
+
+        Reset Password  # noqa: E501
+        """
+        pass
+
+    def test_sspr_send_usernames_v1(self):
+        """Test case for sspr_send_usernames_v1
+
+        Send username(s)  # noqa: E501
+        """
+        pass
+
+    def test_sspr_unlock_account_request_v1(self):
+        """Test case for sspr_unlock_account_request_v1
+
+        Unlock Account Request  # noqa: E501
+        """
+        pass
+
+    def test_sspr_unlock_account_v1(self):
+        """Test case for sspr_unlock_account_v1
+
+        Unlock Account  # noqa: E501
         """
         pass
 
