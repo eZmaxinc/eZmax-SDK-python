@@ -111,6 +111,7 @@ docs/SsprResetPasswordV1Request.md
 docs/SsprSendUsernamesV1Request.md
 docs/SsprUnlockAccountRequestV1Request.md
 docs/SsprUnlockAccountV1Request.md
+docs/SsprValidateTokenV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Request.md
 docs/UNUSEDEzsigndocumentEditObjectV1Response.md
 docs/UNUSEDEzsignfolderEditObjectV1Request.md
@@ -247,6 +248,7 @@ eZmaxinc/eZmax-SDK-python/model/sspr_reset_password_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/sspr_send_usernames_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/sspr_unlock_account_request_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/sspr_unlock_account_v1_request.py
+eZmaxinc/eZmax-SDK-python/model/sspr_validate_token_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/unused_ezsigndocument_edit_object_v1_request.py
 eZmaxinc/eZmax-SDK-python/model/unused_ezsigndocument_edit_object_v1_response.py
 eZmaxinc/eZmax-SDK-python/model/unused_ezsignfolder_edit_object_v1_request.py
@@ -386,6 +388,7 @@ test/test_sspr_reset_password_v1_request.py
 test/test_sspr_send_usernames_v1_request.py
 test/test_sspr_unlock_account_request_v1_request.py
 test/test_sspr_unlock_account_v1_request.py
+test/test_sspr_validate_token_v1_request.py
 test/test_unused_ezsigndocument_edit_object_v1_request.py
 test/test_unused_ezsigndocument_edit_object_v1_response.py
 test/test_unused_ezsignfolder_edit_object_v1_request.py

@@ -147,7 +147,6 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
                 fki_ezsignfolder_id=1,
                 dt_ezsigndocument_duedate="2020-12-31 23:59:59",
                 fki_language_id=FieldPkiLanguageID(2),
-                s_ezsigndocument_filename="s_ezsigndocument_filename_example",
                 s_ezsigndocument_name="s_ezsigndocument_name_example",
             ),
             obj_ezsigndocument_compound=EzsigndocumentRequestCompound(),

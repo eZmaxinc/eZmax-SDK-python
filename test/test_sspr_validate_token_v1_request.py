@@ -13,13 +13,17 @@ import sys
 import unittest
 
 import eZmaxinc/eZmax-SDK-python
+from eZmaxinc/eZmax-SDK-python.model.field_e_user_type_sspr import FieldEUserTypeSSPR
+from eZmaxinc/eZmax-SDK-python.model.field_pki_language_id import FieldPkiLanguageID
 from eZmaxinc/eZmax-SDK-python.model.field_pks_customer_code import FieldPksCustomerCode
+globals()['FieldEUserTypeSSPR'] = FieldEUserTypeSSPR
+globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 globals()['FieldPksCustomerCode'] = FieldPksCustomerCode
-from eZmaxinc/eZmax-SDK-python.model.webhook_response import WebhookResponse
+from eZmaxinc/eZmax-SDK-python.model.sspr_validate_token_v1_request import SsprValidateTokenV1Request
 
 
-class TestWebhookResponse(unittest.TestCase):
-    """WebhookResponse unit test stubs"""
+class TestSsprValidateTokenV1Request(unittest.TestCase):
+    """SsprValidateTokenV1Request unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +31,10 @@ class TestWebhookResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testWebhookResponse(self):
-        """Test WebhookResponse"""
+    def testSsprValidateTokenV1Request(self):
+        """Test SsprValidateTokenV1Request"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = WebhookResponse()  # noqa: E501
+        # model = SsprValidateTokenV1Request()  # noqa: E501
         pass
 
 
