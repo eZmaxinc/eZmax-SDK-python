@@ -78,6 +78,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_create_object_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -151,6 +153,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_delete_object_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -169,6 +172,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -224,6 +228,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_get_children_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -242,6 +247,7 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -297,6 +303,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_get_object_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -315,6 +322,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -375,6 +383,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_send_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -394,6 +403,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

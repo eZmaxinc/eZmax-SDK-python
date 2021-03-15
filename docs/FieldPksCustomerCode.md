@@ -1,6 +1,7 @@
 # FieldPksCustomerCode
 
 The customer code assigned to your account
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

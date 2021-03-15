@@ -1,6 +1,7 @@
 # EzsignfolderGetObjectV1Response
 
 Response for the /1/object/ezsignfolder/getObject API Request
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

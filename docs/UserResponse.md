@@ -1,6 +1,7 @@
 # UserResponse
 
 A User Object
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

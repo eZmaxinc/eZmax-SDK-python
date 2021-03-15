@@ -1,6 +1,7 @@
 # SsprResetPasswordV1Request
 
 Request for the /1/module/sspr/resetPassword API Request
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

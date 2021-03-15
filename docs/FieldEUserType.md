@@ -1,6 +1,7 @@
 # FieldEUserType
 
 The user type of the User.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

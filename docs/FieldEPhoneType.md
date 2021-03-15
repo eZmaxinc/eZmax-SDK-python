@@ -1,6 +1,7 @@
 # FieldEPhoneType
 
 The type of phone number.  **Local** refers to a north American phone number. You would then need to specify sPhoneRegion, sPhoneExchange, sPhoneNumber. **International** would be used for numbers outside of north america. You would then need to specify sPhoneInternational
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

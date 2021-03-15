@@ -1,6 +1,7 @@
 # FieldEEzsignfolderSendreminderfrequency
 
 Frequency at which reminders will be sent to signers that haven't signed the documents
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,7 @@
 # CommonResponseObjDebug
 
 This is a generic debug object that is returned by all API requests
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

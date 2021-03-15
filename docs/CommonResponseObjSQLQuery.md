@@ -1,6 +1,7 @@
 # CommonResponseObjSQLQuery
 
 Definition of objSQLQuery Object
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

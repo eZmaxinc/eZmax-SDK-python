@@ -66,6 +66,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling GlobalCustomerApi->global_customer_get_endpoint_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -85,6 +86,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

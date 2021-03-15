@@ -1,6 +1,7 @@
 # PhoneRequest
 
 A Phone Object
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

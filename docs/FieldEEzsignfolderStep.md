@@ -1,6 +1,7 @@
 # FieldEEzsignfolderStep
 
 The signature step of the Ezsignfolder.
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sspr_reset_password_request_v1**](ModuleSsprApi.md#sspr_reset_password_request_v1) | **POST** /1/module/sspr/resetPasswordRequest/ | Reset Password Request
+[**sspr_reset_password_request_v1**](ModuleSsprApi.md#sspr_reset_password_request_v1) | **POST** /1/module/sspr/resetPasswordRequest | Reset Password Request
 [**sspr_reset_password_v1**](ModuleSsprApi.md#sspr_reset_password_v1) | **POST** /1/module/sspr/resetPassword | Reset Password
 [**sspr_send_usernames_v1**](ModuleSsprApi.md#sspr_send_usernames_v1) | **POST** /1/module/sspr/sendUsernames | Send username(s)
 [**sspr_unlock_account_request_v1**](ModuleSsprApi.md#sspr_unlock_account_request_v1) | **POST** /1/module/sspr/unlockAccountRequest | Unlock Account Request
@@ -66,6 +66,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ModuleSsprApi->sspr_reset_password_request_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -84,6 +85,7 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -139,7 +141,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         e_user_type_sspr=FieldEUserTypeSSPR("Native"),
         s_email_address="example@domain.com",
         s_user_loginname="JohnDoe",
-        bin_user_ssp_rtoken="012345678901234567890123456789ab",
+        bin_user_ssp_rtoken="012345678901234567890123456789012345678901234567890123456789abcd",
         s_password="Qwerty1234!",
     ) # SsprResetPasswordV1Request | 
 
@@ -150,6 +152,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     except eZmaxinc/eZmax-SDK-python.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_reset_password_v1: %s\n" % e)
 ```
+
 
 ### Parameters
 
@@ -169,6 +172,7 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -233,6 +237,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ModuleSsprApi->sspr_send_usernames_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -251,6 +256,7 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -316,6 +322,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         print("Exception when calling ModuleSsprApi->sspr_unlock_account_request_v1: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -334,6 +341,7 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -389,7 +397,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         e_user_type_sspr=FieldEUserTypeSSPR("Native"),
         s_email_address="example@domain.com",
         s_user_loginname="JohnDoe",
-        bin_user_ssp_rtoken="012345678901234567890123456789ab",
+        bin_user_ssp_rtoken="012345678901234567890123456789012345678901234567890123456789abcd",
     ) # SsprUnlockAccountV1Request | 
 
     # example passing only required values which don't have defaults set
@@ -399,6 +407,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     except eZmaxinc/eZmax-SDK-python.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_unlock_account_v1: %s\n" % e)
 ```
+
 
 ### Parameters
 
@@ -419,6 +428,7 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -434,7 +444,7 @@ void (empty response body)
 
 Validate Token
 
-This endpoint validates if a Token is valid and not expired. If the token has less than an hour to its life, the TTL is reset to 1 hour.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
+This endpoint validates if a Token is valid and not expired.  sEmailAddress must be set if eUserTypeSSPR = EzsignUser  sUserLoginname must be set if eUserTypeSSPR = Native
 
 ### Example
 
@@ -473,7 +483,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         e_user_type_sspr=FieldEUserTypeSSPR("Native"),
         s_email_address="example@domain.com",
         s_user_loginname="JohnDoe",
-        bin_user_ssp_rtoken="012345678901234567890123456789ab",
+        bin_user_ssp_rtoken="012345678901234567890123456789012345678901234567890123456789abcd",
     ) # SsprValidateTokenV1Request | 
 
     # example passing only required values which don't have defaults set
@@ -483,6 +493,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     except eZmaxinc/eZmax-SDK-python.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_validate_token_v1: %s\n" % e)
 ```
+
 
 ### Parameters
 
@@ -502,6 +513,7 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

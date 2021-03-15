@@ -1,6 +1,7 @@
 # ContactinformationsRequest
 
 A Contactinformations Object
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

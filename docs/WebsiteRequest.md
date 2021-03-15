@@ -1,6 +1,7 @@
 # WebsiteRequest
 
 A Website Object
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
