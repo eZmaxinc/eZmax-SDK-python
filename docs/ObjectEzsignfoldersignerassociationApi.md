@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectEzsignfoldersignerassociationApi
+# eZmaxApi.ObjectEzsignfoldersignerassociationApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -23,14 +23,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfoldersignerassociation_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_create_object_v1_request import EzsignfoldersignerassociationCreateObjectV1Request
-from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_create_object_v1_response import EzsignfoldersignerassociationCreateObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfoldersignerassociation_api
+from eZmaxApi.model.ezsignfoldersignerassociation_create_object_v1_response import EzsignfoldersignerassociationCreateObjectV1Response
+from eZmaxApi.model.ezsignfoldersignerassociation_create_object_v1_request import EzsignfoldersignerassociationCreateObjectV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
     ezsignfoldersignerassociation_create_object_v1_request = [
@@ -75,7 +75,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Ezsignfoldersignerassociation
         api_response = api_instance.ezsignfoldersignerassociation_create_object_v1(ezsignfoldersignerassociation_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldersignerassociationApi->ezsignfoldersignerassociation_create_object_v1: %s\n" % e)
 ```
 
@@ -117,14 +117,14 @@ Delete an existing Ezsignfoldersignerassociation
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfoldersignerassociation_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_delete_object_v1_response import EzsignfoldersignerassociationDeleteObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfoldersignerassociation_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfoldersignerassociation_delete_object_v1_response import EzsignfoldersignerassociationDeleteObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -140,7 +140,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
     pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
@@ -150,7 +150,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Delete an existing Ezsignfoldersignerassociation
         api_response = api_instance.ezsignfoldersignerassociation_delete_object_v1(pki_ezsignfoldersignerassociation_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldersignerassociationApi->ezsignfoldersignerassociation_delete_object_v1: %s\n" % e)
 ```
 
@@ -194,13 +194,13 @@ Retrieve an existing Ezsignfoldersignerassociation's children IDs
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfoldersignerassociation_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfoldersignerassociation_api
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -216,7 +216,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
     pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
@@ -225,7 +225,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Retrieve an existing Ezsignfoldersignerassociation's children IDs
         api_instance.ezsignfoldersignerassociation_get_children_v1(pki_ezsignfoldersignerassociation_id)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldersignerassociationApi->ezsignfoldersignerassociation_get_children_v1: %s\n" % e)
 ```
 
@@ -269,14 +269,14 @@ This endpoint returns a Login Url that can be used in a browser or embedded in a
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfoldersignerassociation_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_get_in_person_login_url_v1_response import EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfoldersignerassociation_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfoldersignerassociation_get_in_person_login_url_v1_response import EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -292,7 +292,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
     pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
@@ -302,7 +302,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve a Login Url to allow In-Person signing
         api_response = api_instance.ezsignfoldersignerassociation_get_in_person_login_url_v1(pki_ezsignfoldersignerassociation_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldersignerassociationApi->ezsignfoldersignerassociation_get_in_person_login_url_v1: %s\n" % e)
 ```
 
@@ -346,14 +346,14 @@ Retrieve an existing Ezsignfoldersignerassociation
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfoldersignerassociation_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfoldersignerassociation_get_object_v1_response import EzsignfoldersignerassociationGetObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfoldersignerassociation_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfoldersignerassociation_get_object_v1_response import EzsignfoldersignerassociationGetObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -369,7 +369,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
     pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
@@ -379,7 +379,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve an existing Ezsignfoldersignerassociation
         api_response = api_instance.ezsignfoldersignerassociation_get_object_v1(pki_ezsignfoldersignerassociation_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldersignerassociationApi->ezsignfoldersignerassociation_get_object_v1: %s\n" % e)
 ```
 

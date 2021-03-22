@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectEzsigndocumentApi
+# eZmaxApi.ObjectEzsigndocumentApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -24,15 +24,15 @@ This endpoint applies a predefined template to the ezsign document. This allows 
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_apply_ezsigntemplate_v1_request import EzsigndocumentApplyEzsigntemplateV1Request
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigndocument_apply_ezsigntemplate_v1_request import EzsigndocumentApplyEzsigntemplateV1Request
+from eZmaxApi.model.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -48,7 +48,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
@@ -67,7 +67,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Apply an Ezsign Template to the Ezsigndocument.
         api_response = api_instance.ezsigndocument_apply_ezsigntemplate_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_apply_ezsigntemplate_v1: %s\n" % e)
 ```
 
@@ -114,14 +114,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
+from eZmaxApi.model.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -137,7 +137,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     ezsigndocument_create_object_v1_request = [
@@ -160,7 +160,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Ezsigndocument
         api_response = api_instance.ezsigndocument_create_object_v1(ezsigndocument_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_create_object_v1: %s\n" % e)
 ```
 
@@ -202,14 +202,14 @@ Delete an existing Ezsigndocument
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_delete_object_v1_response import EzsigndocumentDeleteObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigndocument_delete_object_v1_response import EzsigndocumentDeleteObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -225,7 +225,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
@@ -235,7 +235,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Delete an existing Ezsigndocument
         api_response = api_instance.ezsigndocument_delete_object_v1(pki_ezsigndocument_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_delete_object_v1: %s\n" % e)
 ```
 
@@ -279,13 +279,13 @@ Retrieve an existing Ezsigndocument's children IDs
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -301,7 +301,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
@@ -310,7 +310,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Retrieve an existing Ezsigndocument's children IDs
         api_instance.ezsigndocument_get_children_v1(pki_ezsigndocument_id)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_children_v1: %s\n" % e)
 ```
 
@@ -354,14 +354,14 @@ This endpoint returns URLs to different files that can be downloaded during the 
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_get_download_url_v1_response import EzsigndocumentGetDownloadUrlV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.ezsigndocument_get_download_url_v1_response import EzsigndocumentGetDownloadUrlV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -377,7 +377,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
@@ -388,7 +388,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve a URL to download documents.
         api_response = api_instance.ezsigndocument_get_download_url_v1(pki_ezsigndocument_id, e_document_type)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_download_url_v1: %s\n" % e)
 ```
 
@@ -433,14 +433,14 @@ Retrieve an existing Ezsigndocument
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsigndocument_api
-from eZmaxinc/eZmax-SDK-python.model.ezsigndocument_get_object_v1_response import EzsigndocumentGetObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigndocument_get_object_v1_response import EzsigndocumentGetObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -456,7 +456,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 1 # int | The unique ID of the Ezsigndocument
@@ -466,7 +466,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve an existing Ezsigndocument
         api_response = api_instance.ezsigndocument_get_object_v1(pki_ezsigndocument_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_object_v1: %s\n" % e)
 ```
 

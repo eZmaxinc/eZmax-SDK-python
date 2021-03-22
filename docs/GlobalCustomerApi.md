@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.GlobalCustomerApi
+# eZmaxApi.GlobalCustomerApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,14 +19,14 @@ Retrieve the customer's specific server endpoint where to send requests. This wi
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import global_customer_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
+import eZmaxApi
+from eZmaxApi.api import global_customer_api
+from eZmaxApi.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_customer_api.GlobalCustomerApi(api_client)
     pks_customer_code = "pksCustomerCode_example" # str | The customer code assigned to your account
@@ -53,7 +53,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Get customer endpoint
         api_response = api_instance.global_customer_get_endpoint_v1(pks_customer_code)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling GlobalCustomerApi->global_customer_get_endpoint_v1: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -62,7 +62,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Get customer endpoint
         api_response = api_instance.global_customer_get_endpoint_v1(pks_customer_code, s_infrastructureproduct_code=s_infrastructureproduct_code)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling GlobalCustomerApi->global_customer_get_endpoint_v1: %s\n" % e)
 ```
 

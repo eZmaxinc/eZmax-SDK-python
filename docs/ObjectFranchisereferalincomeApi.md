@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectFranchisereferalincomeApi
+# eZmaxApi.ObjectFranchisereferalincomeApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,14 +19,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_franchisereferalincome_api
-from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_create_object_v1_response import FranchisereferalincomeCreateObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.franchisereferalincome_create_object_v1_request import FranchisereferalincomeCreateObjectV1Request
+import eZmaxApi
+from eZmaxApi.api import object_franchisereferalincome_api
+from eZmaxApi.model.franchisereferalincome_create_object_v1_response import FranchisereferalincomeCreateObjectV1Response
+from eZmaxApi.model.franchisereferalincome_create_object_v1_request import FranchisereferalincomeCreateObjectV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_franchisereferalincome_api.ObjectFranchisereferalincomeApi(api_client)
     franchisereferalincome_create_object_v1_request = [
@@ -83,7 +83,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Franchisereferalincome
         api_response = api_instance.franchisereferalincome_create_object_v1(franchisereferalincome_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectFranchisereferalincomeApi->franchisereferalincome_create_object_v1: %s\n" % e)
 ```
 

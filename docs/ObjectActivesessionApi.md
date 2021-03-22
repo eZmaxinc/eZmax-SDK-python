@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectActivesessionApi
+# eZmaxApi.ObjectActivesessionApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,13 +19,13 @@ Retrieve the details about the current activesession
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_activesession_api
-from eZmaxinc/eZmax-SDK-python.model.activesession_get_current_v1_response import ActivesessionGetCurrentV1Response
+import eZmaxApi
+from eZmaxApi.api import object_activesession_api
+from eZmaxApi.model.activesession_get_current_v1_response import ActivesessionGetCurrentV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -41,7 +41,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_activesession_api.ObjectActivesessionApi(api_client)
 
@@ -50,7 +50,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Get Current Activesession
         api_response = api_instance.activesession_get_current_v1()
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectActivesessionApi->activesession_get_current_v1: %s\n" % e)
 ```
 

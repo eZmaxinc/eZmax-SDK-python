@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectEzsignfolderApi
+# eZmaxApi.ObjectEzsignfolderApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -23,14 +23,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfolder_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_create_object_v1_request import EzsignfolderCreateObjectV1Request
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
+from eZmaxApi.model.ezsignfolder_create_object_v1_request import EzsignfolderCreateObjectV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     ezsignfolder_create_object_v1_request = [
@@ -74,7 +74,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Ezsignfolder
         api_response = api_instance.ezsignfolder_create_object_v1(ezsignfolder_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_create_object_v1: %s\n" % e)
 ```
 
@@ -116,14 +116,14 @@ Delete an existing Ezsignfolder
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfolder_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -139,7 +139,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 1 # int | The unique ID of the Ezsignfolder
@@ -149,7 +149,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Delete an existing Ezsignfolder
         api_response = api_instance.ezsignfolder_delete_object_v1(pki_ezsignfolder_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_delete_object_v1: %s\n" % e)
 ```
 
@@ -193,13 +193,13 @@ Retrieve an existing Ezsignfolder's children IDs
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfolder_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -215,7 +215,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 1 # int | The unique ID of the Ezsignfolder
@@ -224,7 +224,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Retrieve an existing Ezsignfolder's children IDs
         api_instance.ezsignfolder_get_children_v1(pki_ezsignfolder_id)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_get_children_v1: %s\n" % e)
 ```
 
@@ -266,14 +266,14 @@ Retrieve an existing Ezsignfolder
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfolder_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -289,7 +289,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 1 # int | The unique ID of the Ezsignfolder
@@ -299,7 +299,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve an existing Ezsignfolder
         api_response = api_instance.ezsignfolder_get_object_v1(pki_ezsignfolder_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_get_object_v1: %s\n" % e)
 ```
 
@@ -342,15 +342,15 @@ Send the Ezsignfolder to the signatories for signature
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignfolder_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -366,7 +366,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 1 # int | The unique ID of the Ezsignfolder
@@ -379,7 +379,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Send the Ezsignfolder to the signatories for signature
         api_response = api_instance.ezsignfolder_send_v1(pki_ezsignfolder_id, ezsignfolder_send_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_send_v1: %s\n" % e)
 ```
 

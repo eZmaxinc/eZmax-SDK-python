@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectApikeyApi
+# eZmaxApi.ObjectApikeyApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,14 +19,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_apikey_api
-from eZmaxinc/eZmax-SDK-python.model.apikey_create_object_v1_response import ApikeyCreateObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.apikey_create_object_v1_request import ApikeyCreateObjectV1Request
+import eZmaxApi
+from eZmaxApi.api import object_apikey_api
+from eZmaxApi.model.apikey_create_object_v1_request import ApikeyCreateObjectV1Request
+from eZmaxApi.model.apikey_create_object_v1_response import ApikeyCreateObjectV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_apikey_api.ObjectApikeyApi(api_client)
     apikey_create_object_v1_request = [
@@ -63,7 +63,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Apikey
         api_response = api_instance.apikey_create_object_v1(apikey_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectApikeyApi->apikey_create_object_v1: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectFranchisebrokerApi
+# eZmaxApi.ObjectFranchisebrokerApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,13 +19,13 @@ Get the list of Franchisebrokers to be used in a dropdown or autocomplete contro
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_franchisebroker_api
-from eZmaxinc/eZmax-SDK-python.model.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
+import eZmaxApi
+from eZmaxApi.api import object_franchisebroker_api
+from eZmaxApi.model.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -41,7 +41,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_franchisebroker_api.ObjectFranchisebrokerApi(api_client)
     s_selector = "Active" # str | The type of Franchisebrokers to return
@@ -52,7 +52,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve Franchisebrokers and IDs
         api_response = api_instance.franchisebroker_get_autocomplete_v1(s_selector)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectFranchisebrokerApi->franchisebroker_get_autocomplete_v1: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -61,7 +61,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve Franchisebrokers and IDs
         api_response = api_instance.franchisebroker_get_autocomplete_v1(s_selector, s_query=s_query)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectFranchisebrokerApi->franchisebroker_get_autocomplete_v1: %s\n" % e)
 ```
 

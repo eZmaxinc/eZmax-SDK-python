@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ModuleUserApi
+# eZmaxApi.ModuleUserApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -19,14 +19,14 @@ The endpoint allows to initiate the creation or a user of type Ezsignuser.  The 
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_user_api
-from eZmaxinc/eZmax-SDK-python.model.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
-from eZmaxinc/eZmax-SDK-python.model.user_create_ezsignuser_v1_response import UserCreateEzsignuserV1Response
+import eZmaxApi
+from eZmaxApi.api import module_user_api
+from eZmaxApi.model.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
+from eZmaxApi.model.user_create_ezsignuser_v1_response import UserCreateEzsignuserV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -42,7 +42,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_user_api.ModuleUserApi(api_client)
     user_create_ezsignuser_v1_request = [
@@ -63,7 +63,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new User of type Ezsignuser
         api_response = api_instance.user_create_ezsignuser_v1(user_create_ezsignuser_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleUserApi->user_create_ezsignuser_v1: %s\n" % e)
 ```
 

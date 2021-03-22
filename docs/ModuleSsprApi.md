@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ModuleSsprApi
+# eZmaxApi.ModuleSsprApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -24,14 +24,14 @@ This endpoint sends an email with a link to reset the user's password.  sEmailAd
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.sspr_reset_password_request_v1_request import SsprResetPasswordRequestV1Request
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.sspr_reset_password_request_v1_request import SsprResetPasswordRequestV1Request
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -47,7 +47,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_reset_password_request_v1_request = SsprResetPasswordRequestV1Request(
@@ -62,7 +62,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Reset Password Request
         api_instance.sspr_reset_password_request_v1(sspr_reset_password_request_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_reset_password_request_v1: %s\n" % e)
 ```
 
@@ -109,14 +109,14 @@ This endpoint resets the user's password.  sEmailAddress must be set if eUserTyp
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.sspr_reset_password_v1_request import SsprResetPasswordV1Request
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.sspr_reset_password_v1_request import SsprResetPasswordV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -132,7 +132,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_reset_password_v1_request = SsprResetPasswordV1Request(
@@ -149,7 +149,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Reset Password
         api_instance.sspr_reset_password_v1(sspr_reset_password_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_reset_password_v1: %s\n" % e)
 ```
 
@@ -196,14 +196,14 @@ This endpoint returns an email with the username(s) matching the email address p
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.sspr_send_usernames_v1_request import SsprSendUsernamesV1Request
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.sspr_send_usernames_v1_request import SsprSendUsernamesV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -219,7 +219,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_send_usernames_v1_request = SsprSendUsernamesV1Request(
@@ -233,7 +233,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Send username(s)
         api_instance.sspr_send_usernames_v1(sspr_send_usernames_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_send_usernames_v1: %s\n" % e)
 ```
 
@@ -280,14 +280,14 @@ This endpoint sends an email with a link to unlock the user account.  sEmailAddr
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.sspr_unlock_account_request_v1_request import SsprUnlockAccountRequestV1Request
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.sspr_unlock_account_request_v1_request import SsprUnlockAccountRequestV1Request
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -303,7 +303,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_unlock_account_request_v1_request = SsprUnlockAccountRequestV1Request(
@@ -318,7 +318,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Unlock Account Request
         api_instance.sspr_unlock_account_request_v1(sspr_unlock_account_request_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_unlock_account_request_v1: %s\n" % e)
 ```
 
@@ -365,14 +365,14 @@ This endpoint unlocks the user account.  sEmailAddress must be set if eUserTypeS
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.sspr_unlock_account_v1_request import SsprUnlockAccountV1Request
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.sspr_unlock_account_v1_request import SsprUnlockAccountV1Request
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -388,7 +388,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_unlock_account_v1_request = SsprUnlockAccountV1Request(
@@ -404,7 +404,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Unlock Account
         api_instance.sspr_unlock_account_v1(sspr_unlock_account_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_unlock_account_v1: %s\n" % e)
 ```
 
@@ -451,14 +451,14 @@ This endpoint validates if a Token is valid and not expired.  sEmailAddress must
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import module_sspr_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.sspr_validate_token_v1_request import SsprValidateTokenV1Request
+import eZmaxApi
+from eZmaxApi.api import module_sspr_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.sspr_validate_token_v1_request import SsprValidateTokenV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -474,7 +474,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_sspr_api.ModuleSsprApi(api_client)
     sspr_validate_token_v1_request = SsprValidateTokenV1Request(
@@ -490,7 +490,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Validate Token
         api_instance.sspr_validate_token_v1(sspr_validate_token_v1_request)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ModuleSsprApi->sspr_validate_token_v1: %s\n" % e)
 ```
 

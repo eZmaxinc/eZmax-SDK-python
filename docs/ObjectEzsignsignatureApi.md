@@ -1,4 +1,4 @@
-# eZmaxinc/eZmax-SDK-python.ObjectEzsignsignatureApi
+# eZmaxApi.ObjectEzsignsignatureApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
@@ -22,14 +22,14 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignsignature_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_create_object_v1_request import EzsignsignatureCreateObjectV1Request
-from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_create_object_v1_response import EzsignsignatureCreateObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsignsignature_api
+from eZmaxApi.model.ezsignsignature_create_object_v1_response import EzsignsignatureCreateObjectV1Response
+from eZmaxApi.model.ezsignsignature_create_object_v1_request import EzsignsignatureCreateObjectV1Request
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -45,7 +45,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
     ezsignsignature_create_object_v1_request = [
@@ -68,7 +68,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Create a new Ezsignsignature
         api_response = api_instance.ezsignsignature_create_object_v1(ezsignsignature_create_object_v1_request)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_create_object_v1: %s\n" % e)
 ```
 
@@ -110,14 +110,14 @@ Delete an existing Ezsignsignature
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignsignature_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
-from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
+import eZmaxApi
+from eZmaxApi.api import object_ezsignsignature_api
+from eZmaxApi.model.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -133,7 +133,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
     pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
@@ -143,7 +143,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Delete an existing Ezsignsignature
         api_response = api_instance.ezsignsignature_delete_object_v1(pki_ezsignsignature_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_delete_object_v1: %s\n" % e)
 ```
 
@@ -187,13 +187,13 @@ Retrieve an existing Ezsignsignature's children IDs
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignsignature_api
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignsignature_api
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -209,7 +209,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
     pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
@@ -218,7 +218,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
     try:
         # Retrieve an existing Ezsignsignature's children IDs
         api_instance.ezsignsignature_get_children_v1(pki_ezsignsignature_id)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_get_children_v1: %s\n" % e)
 ```
 
@@ -260,14 +260,14 @@ Retrieve an existing Ezsignsignature
 * Api Key Authentication (Authorization):
 ```python
 import time
-import eZmaxinc/eZmax-SDK-python
-from eZmaxinc/eZmax-SDK-python.api import object_ezsignsignature_api
-from eZmaxinc/eZmax-SDK-python.model.ezsignsignature_get_object_v1_response import EzsignsignatureGetObjectV1Response
-from eZmaxinc/eZmax-SDK-python.model.common_response_error import CommonResponseError
+import eZmaxApi
+from eZmaxApi.api import object_ezsignsignature_api
+from eZmaxApi.model.ezsignsignature_get_object_v1_response import EzsignsignatureGetObjectV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxinc/eZmax-SDK-python.Configuration(
+configuration = eZmaxApi.Configuration(
     host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
 )
 
@@ -283,7 +283,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
+with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
     pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
@@ -293,7 +293,7 @@ with eZmaxinc/eZmax-SDK-python.ApiClient(configuration) as api_client:
         # Retrieve an existing Ezsignsignature
         api_response = api_instance.ezsignsignature_get_object_v1(pki_ezsignsignature_id)
         pprint(api_response)
-    except eZmaxinc/eZmax-SDK-python.ApiException as e:
+    except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignsignatureApi->ezsignsignature_get_object_v1: %s\n" % e)
 ```
 
