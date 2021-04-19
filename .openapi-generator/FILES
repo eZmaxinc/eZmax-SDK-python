@@ -272,7 +272,6 @@ eZmaxApi/model/webhook_user_user_created_all_of.py
 eZmaxApi/model/website_request.py
 eZmaxApi/model_utils.py
 eZmaxApi/models/__init__.py
-eZmaxApi/models/__init__.py
 eZmaxApi/rest.py
 git_push.sh
 requirements.txt
