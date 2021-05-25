@@ -13,6 +13,9 @@ docs/ApikeyRequest.md
 docs/ApikeyRequestCompound.md
 docs/ApikeyResponse.md
 docs/AttemptResponse.md
+docs/AuthenticateAuthenticateV2Request.md
+docs/AuthenticateAuthenticateV2Response.md
+docs/AuthenticateAuthenticateV2ResponseMPayload.md
 docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
@@ -92,6 +95,7 @@ docs/FranchisereferalincomeRequest.md
 docs/FranchisereferalincomeRequestCompound.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/ModuleAuthenticateApi.md
 docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
@@ -136,6 +140,7 @@ docs/WebsiteRequest.md
 eZmaxApi/__init__.py
 eZmaxApi/api/__init__.py
 eZmaxApi/api/global_customer_api.py
+eZmaxApi/api/module_authenticate_api.py
 eZmaxApi/api/module_sspr_api.py
 eZmaxApi/api/module_user_api.py
 eZmaxApi/api/object_activesession_api.py
@@ -163,6 +168,9 @@ eZmaxApi/model/apikey_request.py
 eZmaxApi/model/apikey_request_compound.py
 eZmaxApi/model/apikey_response.py
 eZmaxApi/model/attempt_response.py
+eZmaxApi/model/authenticate_authenticate_v2_request.py
+eZmaxApi/model/authenticate_authenticate_v2_response.py
+eZmaxApi/model/authenticate_authenticate_v2_response_m_payload.py
 eZmaxApi/model/common_audit.py
 eZmaxApi/model/common_get_autocomplete_v1_response.py
 eZmaxApi/model/common_get_autocomplete_v1_response_m_payload.py
@@ -289,6 +297,9 @@ test/test_apikey_request.py
 test/test_apikey_request_compound.py
 test/test_apikey_response.py
 test/test_attempt_response.py
+test/test_authenticate_authenticate_v2_request.py
+test/test_authenticate_authenticate_v2_response.py
+test/test_authenticate_authenticate_v2_response_m_payload.py
 test/test_common_audit.py
 test/test_common_get_autocomplete_v1_response.py
 test/test_common_get_autocomplete_v1_response_m_payload.py
@@ -368,6 +379,7 @@ test/test_franchisereferalincome_request.py
 test/test_franchisereferalincome_request_compound.py
 test/test_global_customer_api.py
 test/test_global_customer_get_endpoint_v1_response.py
+test/test_module_authenticate_api.py
 test/test_module_sspr_api.py
 test/test_module_user_api.py
 test/test_multilingual_apikey_description.py

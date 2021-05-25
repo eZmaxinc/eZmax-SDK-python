@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **s_webhook_emailfailed** | **str** | The email that will receive the webhook in case all attempts fail. | 
 **e_webhook_ezsignevent** | **str** | This Ezsign Event. This property will be set only if the Module is \&quot;Ezsign\&quot;. | [optional] 
 **e_webhook_managementevent** | **str** | This Management Event. This property will be set only if the Module is \&quot;Management\&quot;. | [optional]  if omitted the server will use the default value of "UserCreated"
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

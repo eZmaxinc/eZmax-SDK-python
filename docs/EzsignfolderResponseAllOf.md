@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **dt_ezsignfolder_close** | **str** | The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

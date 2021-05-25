@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **s_ezsignfolder_description** | **str** | The description of the Ezsign Folder | 
 **t_ezsignfolder_note** | **str** | Somes extra notes about the eZsign Folder | 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
