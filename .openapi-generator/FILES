@@ -81,6 +81,7 @@ docs/EzsignsignerRequestCompoundContact.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
+docs/FieldEEzsignsignatureType.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
 docs/FieldEUserTypeSSPR.md
@@ -236,6 +237,7 @@ eZmaxApi/model/ezsignsigner_request_compound_contact.py
 eZmaxApi/model/field_e_ezsigndocument_step.py
 eZmaxApi/model/field_e_ezsignfolder_sendreminderfrequency.py
 eZmaxApi/model/field_e_ezsignfolder_step.py
+eZmaxApi/model/field_e_ezsignsignature_type.py
 eZmaxApi/model/field_e_phone_type.py
 eZmaxApi/model/field_e_user_type.py
 eZmaxApi/model/field_e_user_type_sspr.py
@@ -365,6 +367,7 @@ test/test_ezsignsigner_request_compound_contact.py
 test/test_field_e_ezsigndocument_step.py
 test/test_field_e_ezsignfolder_sendreminderfrequency.py
 test/test_field_e_ezsignfolder_step.py
+test/test_field_e_ezsignsignature_type.py
 test/test_field_e_phone_type.py
 test/test_field_e_user_type.py
 test/test_field_e_user_type_sspr.py

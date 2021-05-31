@@ -87,6 +87,7 @@ from eZmaxApi.model.ezsignsigner_request_compound_contact import EzsignsignerReq
 from eZmaxApi.model.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
 from eZmaxApi.model.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.model.field_e_ezsignfolder_step import FieldEEzsignfolderStep
+from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 from eZmaxApi.model.field_e_phone_type import FieldEPhoneType
 from eZmaxApi.model.field_e_user_type import FieldEUserType
 from eZmaxApi.model.field_e_user_type_sspr import FieldEUserTypeSSPR

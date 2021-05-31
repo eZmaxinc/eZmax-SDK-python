@@ -51,6 +51,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
         s_email_address="example@domain.com",
         s_user_loginname="JohnDoe",
         s_password="Qwerty1234!",
+        s_password_encrypted="VGhpcyBpcyBhbiBlbmNyeXB0ZWQgcGFzc3dvcmQ=",
     ) # AuthenticateAuthenticateV2Request | 
 
     # example passing only required values which don't have defaults set

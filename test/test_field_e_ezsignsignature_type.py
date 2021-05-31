@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.address_request import AddressRequest
+from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 
 
-class TestAddressRequest(unittest.TestCase):
-    """AddressRequest unit test stubs"""
+class TestFieldEEzsignsignatureType(unittest.TestCase):
+    """FieldEEzsignsignatureType unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestAddressRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAddressRequest(self):
-        """Test AddressRequest"""
+    def testFieldEEzsignsignatureType(self):
+        """Test FieldEEzsignsignatureType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = AddressRequest()  # noqa: E501
+        # model = FieldEEzsignsignatureType()  # noqa: E501
         pass
 
 

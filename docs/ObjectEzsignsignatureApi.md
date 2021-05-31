@@ -51,13 +51,13 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsignsignature_create_object_v1_request = [
         EzsignsignatureCreateObjectV1Request(
             obj_ezsignsignature=EzsignsignatureRequest(
-                fki_ezsignfoldersignerassociation_id=1,
+                fki_ezsignfoldersignerassociation_id=20,
                 i_ezsignpage_pagenumber=1,
-                i_ezsignsignature_x=1,
-                i_ezsignsignature_y=1,
+                i_ezsignsignature_x=200,
+                i_ezsignsignature_y=300,
                 i_ezsignsignature_step=1,
-                e_ezsignsignature_type="Acknowledgement",
-                fki_ezsigndocument_id=1,
+                e_ezsignsignature_type=FieldEEzsignsignatureType("Name"),
+                fki_ezsigndocument_id=97,
             ),
             obj_ezsignsignature_compound=EzsignsignatureRequestCompound(),
         ),
