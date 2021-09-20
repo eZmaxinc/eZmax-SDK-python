@@ -22,6 +22,7 @@ This endpoint sends an email with a link to reset the user's password.  sEmailAd
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -88,6 +89,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The request was accepted.  Do not misinterpret as \&quot;the account exists\&quot;. It only means an email will be sent if (and only if) an account exists. |  -  |
@@ -106,6 +108,7 @@ This endpoint resets the user's password.  sEmailAddress must be set if eUserTyp
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -174,6 +177,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The password was reset Successfully |  -  |
@@ -192,6 +196,7 @@ This endpoint returns an email with the username(s) matching the email address p
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -257,6 +262,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The request was accepted.  Do not misinterpret as \&quot;the email address has an account attached to it\&quot;. It only means an email will be sent if (and only if) an account exists for that email address. |  -  |
@@ -275,6 +281,7 @@ This endpoint sends an email with a link to unlock the user account.  sEmailAddr
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -341,6 +348,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The request was accepted.  Do not misinterpret as \&quot;the account exists\&quot;. It only means an email will be sent if (and only if) an account exists. |  -  |
@@ -359,6 +367,7 @@ This endpoint unlocks the user account.  sEmailAddress must be set if eUserTypeS
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -426,6 +435,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The account was unlocked Successfully |  -  |
@@ -444,6 +454,7 @@ This endpoint validates if a Token is valid and not expired.  sEmailAddress must
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -511,6 +522,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The token is valid |  -  |

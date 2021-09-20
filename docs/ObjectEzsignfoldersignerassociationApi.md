@@ -21,6 +21,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -55,18 +56,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 fki_user_id=1,
                 fki_ezsignfolder_id=1,
             ),
-            obj_ezsignfoldersignerassociation_compound=EzsignfoldersignerassociationRequestCompound(
-                obj_ezsignsigner=EzsignsignerRequestCompound(
-                    obj_contact=EzsignsignerRequestCompoundContact(
-                        s_contact_firstname="s_contact_firstname_example",
-                        s_contact_lastname="s_contact_lastname_example",
-                        fki_language_id=FieldPkiLanguageID(2),
-                        s_email_address="s_email_address_example",
-                        s_phone_number="s_phone_number_example",
-                        s_phone_number_cell="s_phone_number_cell_example",
-                    ),
-                ),
-            ),
+            obj_ezsignfoldersignerassociation_compound=EzsignfoldersignerassociationRequestCompound(),
         ),
     ] # [EzsignfoldersignerassociationCreateObjectV1Request] | 
 
@@ -101,6 +91,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
@@ -115,6 +106,7 @@ Delete an existing Ezsignfoldersignerassociation
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -176,6 +168,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -189,9 +182,12 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfoldersignerassociation's children IDs
 
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -251,6 +247,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** | The element you are trying to work on does not exist |  -  |
@@ -267,6 +264,7 @@ This endpoint returns a Login Url that can be used in a browser or embedded in a
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -328,6 +326,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -341,9 +340,12 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfoldersignerassociation
 
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -405,6 +407,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

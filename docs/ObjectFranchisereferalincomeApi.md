@@ -17,6 +17,7 @@ The endpoint allows to create one or many elements at once.  The array can conta
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import eZmaxApi
@@ -60,21 +61,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 fki_franchiseoffice_id=50,
                 s_franchisereferalincome_remoteid="s_franchisereferalincome_remoteid_example",
             ),
-            obj_franchisereferalincome_compound=FranchisereferalincomeRequestCompound(
-                obj_address=AddressRequest(
-                    fki_addresstype_id=1,
-                    s_address_civic="2540",
-                    s_address_street="Daniel-Johnson Blvd.",
-                    s_address_suite="610",
-                    s_address_city="Laval",
-                    fki_province_id=11,
-                    fki_country_id=1,
-                    s_address_zip="H7T2S3",
-                ),
-                a_obj_contact=[
-                    ContactRequestCompound(),
-                ],
-            ),
+            obj_franchisereferalincome_compound=FranchisereferalincomeRequestCompound(),
         ),
     ] # [FranchisereferalincomeCreateObjectV1Request] | 
 
@@ -109,6 +96,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
