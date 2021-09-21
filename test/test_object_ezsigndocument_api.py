@@ -59,6 +59,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_get_ezsignpages_v1(self):
+        """Test case for ezsigndocument_get_ezsignpages_v1
+
+        Retrieve an existing Ezsigndocument's Ezsignpages  # noqa: E501
+        """
+        pass
+
     def test_ezsigndocument_get_form_data_v1(self):
         """Test case for ezsigndocument_get_form_data_v1
 

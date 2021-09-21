@@ -52,6 +52,7 @@ import eZmaxApi
 from pprint import pprint
 from eZmaxApi.api import global_customer_api
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.field_pks_customer_code import FieldPksCustomerCode
 from eZmaxApi.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -75,7 +76,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_customer_api.GlobalCustomerApi(api_client)
-    pks_customer_code = "pksCustomerCode_example" # str | The customer code assigned to your account
+    pks_customer_code = FieldPksCustomerCode("demo") # FieldPksCustomerCode | 
 s_infrastructureproduct_code = "appcluster01" # str | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
     try:
@@ -108,12 +109,14 @@ Class | Method | HTTP request | Description
 *ObjectEzsigndocumentApi* | [**ezsigndocument_delete_object_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_delete_object_v1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_children_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_children_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getChildren | Retrieve an existing Ezsigndocument&#39;s children IDs
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_download_url_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_download_url_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
+*ObjectEzsigndocumentApi* | [**ezsigndocument_get_ezsignpages_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_ezsignpages_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_form_data_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_form_data_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_object_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_object_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Retrieve an existing Ezsigndocument
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_words_positions_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_words_positions_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 *ObjectEzsignfolderApi* | [**ezsignfolder_create_object_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_create_object_v1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 *ObjectEzsignfolderApi* | [**ezsignfolder_delete_object_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_delete_object_v1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_children_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_children_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getChildren | Retrieve an existing Ezsignfolder&#39;s children IDs
+*ObjectEzsignfolderApi* | [**ezsignfolder_get_forms_data_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_forms_data_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData | Retrieve an existing Ezsignfolder&#39;s forms data
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_object_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_object_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID} | Retrieve an existing Ezsignfolder
 *ObjectEzsignfolderApi* | [**ezsignfolder_send_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_send_v1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/send | Send the Ezsignfolder to the signatories for signature
 *ObjectEzsignfoldersignerassociationApi* | [**ezsignfoldersignerassociation_create_object_v1**](docs/ObjectEzsignfoldersignerassociationApi.md#ezsignfoldersignerassociation_create_object_v1) | **POST** /1/object/ezsignfoldersignerassociation | Create a new Ezsignfoldersignerassociation
@@ -176,6 +179,9 @@ Class | Method | HTTP request | Description
  - [EzsigndocumentGetDownloadUrlV1Response](docs/EzsigndocumentGetDownloadUrlV1Response.md)
  - [EzsigndocumentGetDownloadUrlV1ResponseAllOf](docs/EzsigndocumentGetDownloadUrlV1ResponseAllOf.md)
  - [EzsigndocumentGetDownloadUrlV1ResponseMPayload](docs/EzsigndocumentGetDownloadUrlV1ResponseMPayload.md)
+ - [EzsigndocumentGetEzsignpagesV1Response](docs/EzsigndocumentGetEzsignpagesV1Response.md)
+ - [EzsigndocumentGetEzsignpagesV1ResponseAllOf](docs/EzsigndocumentGetEzsignpagesV1ResponseAllOf.md)
+ - [EzsigndocumentGetEzsignpagesV1ResponseMPayload](docs/EzsigndocumentGetEzsignpagesV1ResponseMPayload.md)
  - [EzsigndocumentGetObjectV1Response](docs/EzsigndocumentGetObjectV1Response.md)
  - [EzsigndocumentGetObjectV1ResponseAllOf](docs/EzsigndocumentGetObjectV1ResponseAllOf.md)
  - [EzsigndocumentGetObjectV1ResponseMPayload](docs/EzsigndocumentGetObjectV1ResponseMPayload.md)
@@ -186,7 +192,6 @@ Class | Method | HTTP request | Description
  - [EzsigndocumentRequest](docs/EzsigndocumentRequest.md)
  - [EzsigndocumentRequestCompound](docs/EzsigndocumentRequestCompound.md)
  - [EzsigndocumentResponse](docs/EzsigndocumentResponse.md)
- - [EzsigndocumentResponseAllOf](docs/EzsigndocumentResponseAllOf.md)
  - [EzsigndocumentResponseCompound](docs/EzsigndocumentResponseCompound.md)
  - [EzsignfolderCreateObjectV1Request](docs/EzsignfolderCreateObjectV1Request.md)
  - [EzsignfolderCreateObjectV1Response](docs/EzsignfolderCreateObjectV1Response.md)
@@ -215,6 +220,7 @@ Class | Method | HTTP request | Description
  - [EzsignfoldersignerassociationRequest](docs/EzsignfoldersignerassociationRequest.md)
  - [EzsignfoldersignerassociationRequestCompound](docs/EzsignfoldersignerassociationRequestCompound.md)
  - [EzsignfoldersignerassociationRequestCompoundAllOf](docs/EzsignfoldersignerassociationRequestCompoundAllOf.md)
+ - [EzsignpageResponse](docs/EzsignpageResponse.md)
  - [EzsignsignatureCreateObjectV1Request](docs/EzsignsignatureCreateObjectV1Request.md)
  - [EzsignsignatureCreateObjectV1Response](docs/EzsignsignatureCreateObjectV1Response.md)
  - [EzsignsignatureCreateObjectV1ResponseAllOf](docs/EzsignsignatureCreateObjectV1ResponseAllOf.md)

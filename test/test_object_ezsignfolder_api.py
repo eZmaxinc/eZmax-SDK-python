@@ -45,6 +45,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_get_forms_data_v1(self):
+        """Test case for ezsignfolder_get_forms_data_v1
+
+        Retrieve an existing Ezsignfolder's forms data  # noqa: E501
+        """
+        pass
+
     def test_ezsignfolder_get_object_v1(self):
         """Test case for ezsignfolder_get_object_v1
 

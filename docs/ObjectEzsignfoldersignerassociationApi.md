@@ -135,7 +135,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
-    pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
+    pki_ezsignfoldersignerassociation_id = 20 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -151,7 +151,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignfoldersignerassociation_id** | **int**| The unique ID of the Ezsignfoldersignerassociation |
+ **pki_ezsignfoldersignerassociation_id** | **int**|  |
 
 ### Return type
 
@@ -215,7 +215,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
-    pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
+    pki_ezsignfoldersignerassociation_id = 20 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -230,7 +230,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignfoldersignerassociation_id** | **int**| The unique ID of the Ezsignfoldersignerassociation |
+ **pki_ezsignfoldersignerassociation_id** | **int**|  |
 
 ### Return type
 
@@ -293,7 +293,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
-    pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
+    pki_ezsignfoldersignerassociation_id = 20 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -309,7 +309,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignfoldersignerassociation_id** | **int**| The unique ID of the Ezsignfoldersignerassociation |
+ **pki_ezsignfoldersignerassociation_id** | **int**|  |
 
 ### Return type
 
@@ -374,7 +374,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldersignerassociation_api.ObjectEzsignfoldersignerassociationApi(api_client)
-    pki_ezsignfoldersignerassociation_id = 1 # int | The unique ID of the Ezsignfoldersignerassociation
+    pki_ezsignfoldersignerassociation_id = 20 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -390,7 +390,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignfoldersignerassociation_id** | **int**| The unique ID of the Ezsignfoldersignerassociation |
+ **pki_ezsignfoldersignerassociation_id** | **int**|  |
 
 ### Return type
 

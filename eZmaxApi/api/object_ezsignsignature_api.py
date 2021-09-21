@@ -326,7 +326,7 @@ class ObjectEzsignsignatureApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature
+            pki_ezsignsignature_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -392,7 +392,7 @@ class ObjectEzsignsignatureApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature
+            pki_ezsignsignature_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -458,7 +458,7 @@ class ObjectEzsignsignatureApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature
+            pki_ezsignsignature_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

@@ -23,6 +23,7 @@ from eZmaxApi.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.field_pks_customer_code import FieldPksCustomerCode
 from eZmaxApi.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 
 
@@ -76,7 +77,7 @@ class GlobalCustomerApi(object):
                 },
                 'openapi_types': {
                     'pks_customer_code':
-                        (str,),
+                        (FieldPksCustomerCode,),
                     's_infrastructureproduct_code':
                         (str,),
                 },
@@ -115,7 +116,7 @@ class GlobalCustomerApi(object):
         >>> result = thread.get()
 
         Args:
-            pks_customer_code (str): The customer code assigned to your account
+            pks_customer_code (FieldPksCustomerCode):
 
         Keyword Args:
             s_infrastructureproduct_code (str): The infrastructure product Code  If undefined, \"appcluster01\" is assumed. [optional]

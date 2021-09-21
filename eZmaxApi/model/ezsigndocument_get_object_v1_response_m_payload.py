@@ -147,7 +147,7 @@ class EzsigndocumentGetObjectV1ResponseMPayload(ModelComposed):
             dt_ezsigndocument_duedate (str): The maximum date and time at which the document can be signed.
             fki_language_id (FieldPkiLanguageID):
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
-            pki_ezsigndocument_id (int): The unique ID of the Ezsigntemplate
+            pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             e_ezsigndocument_step (FieldEEzsigndocumentStep):
             dt_ezsigndocument_firstsend (str): The date and time when the Ezsigndocument was first sent.
             dt_ezsigndocument_lastsend (str): The date and time when the Ezsigndocument was sent the last time.
@@ -261,7 +261,7 @@ class EzsigndocumentGetObjectV1ResponseMPayload(ModelComposed):
             dt_ezsigndocument_duedate (str): The maximum date and time at which the document can be signed.
             fki_language_id (FieldPkiLanguageID):
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
-            pki_ezsigndocument_id (int): The unique ID of the Ezsigntemplate
+            pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             e_ezsigndocument_step (FieldEEzsigndocumentStep):
             dt_ezsigndocument_firstsend (str): The date and time when the Ezsigndocument was first sent.
             dt_ezsigndocument_lastsend (str): The date and time when the Ezsigndocument was sent the last time.

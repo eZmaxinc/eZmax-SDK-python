@@ -378,7 +378,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
+            pki_ezsignfoldersignerassociation_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -444,7 +444,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
+            pki_ezsignfoldersignerassociation_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -510,7 +510,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
+            pki_ezsignfoldersignerassociation_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -576,7 +576,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
         >>> result = thread.get()
 
         Args:
-            pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
+            pki_ezsignfoldersignerassociation_id (int):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

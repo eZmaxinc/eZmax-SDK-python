@@ -139,7 +139,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
+    pki_ezsignsignature_id = 49 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -155,7 +155,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignsignature_id** | **int**| The unique ID of the Ezsignsignature |
+ **pki_ezsignsignature_id** | **int**|  |
 
 ### Return type
 
@@ -219,7 +219,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
+    pki_ezsignsignature_id = 49 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -234,7 +234,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignsignature_id** | **int**| The unique ID of the Ezsignsignature |
+ **pki_ezsignsignature_id** | **int**|  |
 
 ### Return type
 
@@ -297,7 +297,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 1 # int | The unique ID of the Ezsignsignature
+    pki_ezsignsignature_id = 49 # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -313,7 +313,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_ezsignsignature_id** | **int**| The unique ID of the Ezsignsignature |
+ **pki_ezsignsignature_id** | **int**|  |
 
 ### Return type
 
