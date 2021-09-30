@@ -259,7 +259,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_get_forms_data_v1**
-> file_type ezsignfolder_get_forms_data_v1(pki_ezsignfolder_id)
+> EzsignfolderGetFormsDataV1Response ezsignfolder_get_forms_data_v1(pki_ezsignfolder_id)
 
 Retrieve an existing Ezsignfolder's forms data
 
@@ -274,6 +274,7 @@ import time
 import eZmaxApi
 from eZmaxApi.api import object_ezsignfolder_api
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -316,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**file_type**
+[**EzsignfolderGetFormsDataV1Response**](EzsignfolderGetFormsDataV1Response.md)
 
 ### Authorization
 
@@ -325,7 +326,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/zip, application/json
+ - **Accept**: application/json, application/zip
 
 
 ### HTTP response details
@@ -334,6 +335,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The element you are trying to work on does not exist |  -  |
+**406** | Accept header is not defined or invalid. |  -  |
 **422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
