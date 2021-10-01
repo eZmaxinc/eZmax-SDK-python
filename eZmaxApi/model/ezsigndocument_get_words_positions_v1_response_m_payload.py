@@ -88,7 +88,6 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
         """
         lazy_import()
         return {
-            'a_s_words': ([CustomWordPositionResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +96,6 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
 
 
     attribute_map = {
-        'a_s_words': 'a_sWords',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,11 +105,8 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, a_s_words, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetWordsPositionsV1ResponseMPayload - a model defined in OpenAPI
-
-        Args:
-            a_s_words ([CustomWordPositionResponse]): An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,7 +166,6 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.a_s_words = a_s_words
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,11 +186,8 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, a_s_words, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetWordsPositionsV1ResponseMPayload - a model defined in OpenAPI
-
-        Args:
-            a_s_words ([CustomWordPositionResponse]): An array of words with an array of pages and positions X,Y  They are returned with the sames words that was sent in the request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -254,7 +245,6 @@ class EzsigndocumentGetWordsPositionsV1ResponseMPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.a_s_words = a_s_words
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

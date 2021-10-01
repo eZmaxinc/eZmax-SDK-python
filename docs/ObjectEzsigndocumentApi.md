@@ -814,8 +814,9 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 97 # int | 
     ezsigndocument_get_words_positions_v1_request = EzsigndocumentGetWordsPositionsV1Request(
-        a_s_words=[
-            "a_s_words_example",
+        e_get="All",
+        a_s_word=[
+            "a_s_word_example",
         ],
     ) # EzsigndocumentGetWordsPositionsV1Request | 
 

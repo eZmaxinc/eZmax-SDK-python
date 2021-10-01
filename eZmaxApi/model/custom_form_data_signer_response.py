@@ -124,7 +124,7 @@ class CustomFormDataSignerResponse(ModelNormal):
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
-            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]): This array contains the labels or each Form fields in the form but WITHOUT the values
+            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,7 +216,7 @@ class CustomFormDataSignerResponse(ModelNormal):
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
-            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]): This array contains the labels or each Form fields in the form but WITHOUT the values
+            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

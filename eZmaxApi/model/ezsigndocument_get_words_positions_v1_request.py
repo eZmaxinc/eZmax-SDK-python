@@ -56,6 +56,10 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
     """
 
     allowed_values = {
+        ('e_get',): {
+            'ALL': "All",
+            'WORDS': "Words",
+        },
     }
 
     validations = {
@@ -82,7 +86,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'a_s_words': ([str],),  # noqa: E501
+            'e_get': (str,),  # noqa: E501
+            'a_s_word': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -91,7 +96,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
 
 
     attribute_map = {
-        'a_s_words': 'a_sWords',  # noqa: E501
+        'e_get': 'eGet',  # noqa: E501
+        'a_s_word': 'a_sWord',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,11 +107,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, a_s_words, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetWordsPositionsV1Request - a model defined in OpenAPI
-
-        Args:
-            a_s_words ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,6 +141,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            e_get (str): Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*.. [optional]  # noqa: E501
+            a_s_word ([str]): Array of words to find in the document. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -165,7 +170,6 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.a_s_words = a_s_words
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -186,11 +190,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, a_s_words, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetWordsPositionsV1Request - a model defined in OpenAPI
-
-        Args:
-            a_s_words ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,6 +224,8 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            e_get (str): Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search in *a_sWord*.. [optional]  # noqa: E501
+            a_s_word ([str]): Array of words to find in the document. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,7 +251,6 @@ class EzsigndocumentGetWordsPositionsV1Request(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.a_s_words = a_s_words
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
