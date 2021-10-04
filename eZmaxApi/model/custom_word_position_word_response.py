@@ -89,7 +89,7 @@ class CustomWordPositionWordResponse(ModelNormal):
         lazy_import()
         return {
             's_word': (str,),  # noqa: E501
-            'obj_word_position_occurence': ([CustomWordPositionOccurenceResponse],),  # noqa: E501
+            'a_obj_word_position_occurence': ([CustomWordPositionOccurenceResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +99,7 @@ class CustomWordPositionWordResponse(ModelNormal):
 
     attribute_map = {
         's_word': 'sWord',  # noqa: E501
-        'obj_word_position_occurence': 'objWordPositionOccurence',  # noqa: E501
+        'a_obj_word_position_occurence': 'a_objWordPositionOccurence',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,12 +109,12 @@ class CustomWordPositionWordResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, s_word, obj_word_position_occurence, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, s_word, a_obj_word_position_occurence, *args, **kwargs):  # noqa: E501
         """CustomWordPositionWordResponse - a model defined in OpenAPI
 
         Args:
             s_word (str): The searched word
-            obj_word_position_occurence ([CustomWordPositionOccurenceResponse]): The found occurences for the seached word
+            a_obj_word_position_occurence ([CustomWordPositionOccurenceResponse]): The found occurences for the seached word
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -175,7 +175,7 @@ class CustomWordPositionWordResponse(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.s_word = s_word
-        self.obj_word_position_occurence = obj_word_position_occurence
+        self.a_obj_word_position_occurence = a_obj_word_position_occurence
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -196,12 +196,12 @@ class CustomWordPositionWordResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, s_word, obj_word_position_occurence, *args, **kwargs):  # noqa: E501
+    def __init__(self, s_word, a_obj_word_position_occurence, *args, **kwargs):  # noqa: E501
         """CustomWordPositionWordResponse - a model defined in OpenAPI
 
         Args:
             s_word (str): The searched word
-            obj_word_position_occurence ([CustomWordPositionOccurenceResponse]): The found occurences for the seached word
+            a_obj_word_position_occurence ([CustomWordPositionOccurenceResponse]): The found occurences for the seached word
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,7 +260,7 @@ class CustomWordPositionWordResponse(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.s_word = s_word
-        self.obj_word_position_occurence = obj_word_position_occurence
+        self.a_obj_word_position_occurence = a_obj_word_position_occurence
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
