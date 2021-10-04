@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.custom_word_position_response import CustomWordPositionResponse
+from eZmaxApi.model.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse
 
 
-class TestCustomWordPositionResponse(unittest.TestCase):
-    """CustomWordPositionResponse unit test stubs"""
+class TestCustomWordPositionOccurenceResponse(unittest.TestCase):
+    """CustomWordPositionOccurenceResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestCustomWordPositionResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCustomWordPositionResponse(self):
-        """Test CustomWordPositionResponse"""
+    def testCustomWordPositionOccurenceResponse(self):
+        """Test CustomWordPositionOccurenceResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CustomWordPositionResponse()  # noqa: E501
+        # model = CustomWordPositionOccurenceResponse()  # noqa: E501
         pass
 
 

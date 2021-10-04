@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse
+globals()['CustomWordPositionOccurenceResponse'] = CustomWordPositionOccurenceResponse
 from eZmaxApi.model.custom_word_position_word_response import CustomWordPositionWordResponse
-globals()['CustomWordPositionWordResponse'] = CustomWordPositionWordResponse
-from eZmaxApi.model.ezsigndocument_get_words_positions_v1_response_m_payload import EzsigndocumentGetWordsPositionsV1ResponseMPayload
 
 
-class TestEzsigndocumentGetWordsPositionsV1ResponseMPayload(unittest.TestCase):
-    """EzsigndocumentGetWordsPositionsV1ResponseMPayload unit test stubs"""
+class TestCustomWordPositionWordResponse(unittest.TestCase):
+    """CustomWordPositionWordResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestEzsigndocumentGetWordsPositionsV1ResponseMPayload(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsigndocumentGetWordsPositionsV1ResponseMPayload(self):
-        """Test EzsigndocumentGetWordsPositionsV1ResponseMPayload"""
+    def testCustomWordPositionWordResponse(self):
+        """Test CustomWordPositionWordResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsigndocumentGetWordsPositionsV1ResponseMPayload()  # noqa: E501
+        # model = CustomWordPositionWordResponse()  # noqa: E501
         pass
 
 

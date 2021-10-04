@@ -38,7 +38,8 @@ docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataFolderResponse.md
 docs/CustomFormDataSignerResponse.md
-docs/CustomWordPositionResponse.md
+docs/CustomWordPositionOccurenceResponse.md
+docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
@@ -236,7 +237,8 @@ eZmaxApi/model/contactinformations_request_compound_all_of.py
 eZmaxApi/model/custom_form_data_document_response.py
 eZmaxApi/model/custom_form_data_folder_response.py
 eZmaxApi/model/custom_form_data_signer_response.py
-eZmaxApi/model/custom_word_position_response.py
+eZmaxApi/model/custom_word_position_occurence_response.py
+eZmaxApi/model/custom_word_position_word_response.py
 eZmaxApi/model/email_request.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_request.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_response.py
@@ -408,7 +410,8 @@ test/test_contactinformations_request_compound_all_of.py
 test/test_custom_form_data_document_response.py
 test/test_custom_form_data_folder_response.py
 test/test_custom_form_data_signer_response.py
-test/test_custom_word_position_response.py
+test/test_custom_word_position_occurence_response.py
+test/test_custom_word_position_word_response.py
 test/test_email_request.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_request.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_response.py
