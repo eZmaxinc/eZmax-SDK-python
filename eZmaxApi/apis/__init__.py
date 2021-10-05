@@ -23,6 +23,7 @@ from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_ezsigndocument_api import ObjectEzsigndocumentApi
 from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi
 from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfoldersignerassociationApi
+from eZmaxApi.api.object_ezsignfoldertype_api import ObjectEzsignfoldertypeApi
 from eZmaxApi.api.object_ezsignsignature_api import ObjectEzsignsignatureApi
 from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi
 from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi

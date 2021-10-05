@@ -687,8 +687,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The element you are trying to work on does not exist |  -  |
-**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
 **406** | Accept header is not defined or invalid. |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -815,6 +815,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     pki_ezsigndocument_id = 97 # int | 
     ezsigndocument_get_words_positions_v1_request = EzsigndocumentGetWordsPositionsV1Request(
         e_get="All",
+        b_word_case_sensitive=True,
         a_s_word=[
             "a_s_word_example",
         ],

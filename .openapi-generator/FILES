@@ -23,6 +23,7 @@ docs/CommonAudit.md
 docs/CommonGetAutocompleteV1Response.md
 docs/CommonGetAutocompleteV1ResponseAllOf.md
 docs/CommonGetAutocompleteV1ResponseMPayload.md
+docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
 docs/CommonResponseObjDebug.md
@@ -100,6 +101,11 @@ docs/EzsignfoldersignerassociationGetObjectV1ResponseAllOf.md
 docs/EzsignfoldersignerassociationRequest.md
 docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
+docs/EzsignfoldertypeGetListV1Response.md
+docs/EzsignfoldertypeGetListV1ResponseAllOf.md
+docs/EzsignfoldertypeGetListV1ResponseMPayload.md
+docs/EzsignfoldertypeGetListV1ResponseMPayloadAllOf.md
+docs/EzsignfoldertypeListElement.md
 docs/EzsignformfieldResponse.md
 docs/EzsignformfieldResponseCompound.md
 docs/EzsignformfieldgroupResponse.md
@@ -148,6 +154,7 @@ docs/ObjectApikeyApi.md
 docs/ObjectEzsigndocumentApi.md
 docs/ObjectEzsignfolderApi.md
 docs/ObjectEzsignfoldersignerassociationApi.md
+docs/ObjectEzsignfoldertypeApi.md
 docs/ObjectEzsignsignatureApi.md
 docs/ObjectFranchisebrokerApi.md
 docs/ObjectFranchiseofficeApi.md
@@ -192,6 +199,7 @@ eZmaxApi/api/object_apikey_api.py
 eZmaxApi/api/object_ezsigndocument_api.py
 eZmaxApi/api/object_ezsignfolder_api.py
 eZmaxApi/api/object_ezsignfoldersignerassociation_api.py
+eZmaxApi/api/object_ezsignfoldertype_api.py
 eZmaxApi/api/object_ezsignsignature_api.py
 eZmaxApi/api/object_franchisebroker_api.py
 eZmaxApi/api/object_franchiseoffice_api.py
@@ -222,6 +230,7 @@ eZmaxApi/model/common_audit.py
 eZmaxApi/model/common_get_autocomplete_v1_response.py
 eZmaxApi/model/common_get_autocomplete_v1_response_all_of.py
 eZmaxApi/model/common_get_autocomplete_v1_response_m_payload.py
+eZmaxApi/model/common_get_list_v1_response_m_payload.py
 eZmaxApi/model/common_response.py
 eZmaxApi/model/common_response_error.py
 eZmaxApi/model/common_response_obj_debug.py
@@ -299,6 +308,11 @@ eZmaxApi/model/ezsignfoldersignerassociation_get_object_v1_response_all_of.py
 eZmaxApi/model/ezsignfoldersignerassociation_request.py
 eZmaxApi/model/ezsignfoldersignerassociation_request_compound.py
 eZmaxApi/model/ezsignfoldersignerassociation_request_compound_all_of.py
+eZmaxApi/model/ezsignfoldertype_get_list_v1_response.py
+eZmaxApi/model/ezsignfoldertype_get_list_v1_response_all_of.py
+eZmaxApi/model/ezsignfoldertype_get_list_v1_response_m_payload.py
+eZmaxApi/model/ezsignfoldertype_get_list_v1_response_m_payload_all_of.py
+eZmaxApi/model/ezsignfoldertype_list_element.py
 eZmaxApi/model/ezsignformfield_response.py
 eZmaxApi/model/ezsignformfield_response_compound.py
 eZmaxApi/model/ezsignformfieldgroup_response.py
@@ -395,6 +409,7 @@ test/test_common_audit.py
 test/test_common_get_autocomplete_v1_response.py
 test/test_common_get_autocomplete_v1_response_all_of.py
 test/test_common_get_autocomplete_v1_response_m_payload.py
+test/test_common_get_list_v1_response_m_payload.py
 test/test_common_response.py
 test/test_common_response_error.py
 test/test_common_response_obj_debug.py
@@ -472,6 +487,11 @@ test/test_ezsignfoldersignerassociation_get_object_v1_response_all_of.py
 test/test_ezsignfoldersignerassociation_request.py
 test/test_ezsignfoldersignerassociation_request_compound.py
 test/test_ezsignfoldersignerassociation_request_compound_all_of.py
+test/test_ezsignfoldertype_get_list_v1_response.py
+test/test_ezsignfoldertype_get_list_v1_response_all_of.py
+test/test_ezsignfoldertype_get_list_v1_response_m_payload.py
+test/test_ezsignfoldertype_get_list_v1_response_m_payload_all_of.py
+test/test_ezsignfoldertype_list_element.py
 test/test_ezsignformfield_response.py
 test/test_ezsignformfield_response_compound.py
 test/test_ezsignformfieldgroup_response.py
@@ -520,6 +540,7 @@ test/test_object_apikey_api.py
 test/test_object_ezsigndocument_api.py
 test/test_object_ezsignfolder_api.py
 test/test_object_ezsignfoldersignerassociation_api.py
+test/test_object_ezsignfoldertype_api.py
 test/test_object_ezsignsignature_api.py
 test/test_object_franchisebroker_api.py
 test/test_object_franchiseoffice_api.py
