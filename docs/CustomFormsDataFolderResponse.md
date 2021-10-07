@@ -1,6 +1,6 @@
-# CustomFormDataFolderResponse
+# CustomFormsDataFolderResponse
 
-A form Data Folder Object
+A forms Data Folder Object
 
 ## Properties
 Name | Type | Description | Notes

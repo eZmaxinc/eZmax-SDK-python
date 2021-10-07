@@ -15,11 +15,11 @@ import unittest
 import eZmaxApi
 from eZmaxApi.model.custom_form_data_document_response import CustomFormDataDocumentResponse
 globals()['CustomFormDataDocumentResponse'] = CustomFormDataDocumentResponse
-from eZmaxApi.model.custom_form_data_folder_response import CustomFormDataFolderResponse
+from eZmaxApi.model.custom_forms_data_folder_response import CustomFormsDataFolderResponse
 
 
-class TestCustomFormDataFolderResponse(unittest.TestCase):
-    """CustomFormDataFolderResponse unit test stubs"""
+class TestCustomFormsDataFolderResponse(unittest.TestCase):
+    """CustomFormsDataFolderResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestCustomFormDataFolderResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCustomFormDataFolderResponse(self):
-        """Test CustomFormDataFolderResponse"""
+    def testCustomFormsDataFolderResponse(self):
+        """Test CustomFormsDataFolderResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CustomFormDataFolderResponse()  # noqa: E501
+        # model = CustomFormsDataFolderResponse()  # noqa: E501
         pass
 
 

@@ -37,8 +37,8 @@ docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomFormDataDocumentResponse.md
-docs/CustomFormDataFolderResponse.md
 docs/CustomFormDataSignerResponse.md
+docs/CustomFormsDataFolderResponse.md
 docs/CustomWordPositionOccurenceResponse.md
 docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
@@ -145,6 +145,7 @@ docs/FranchisereferalincomeRequestCompound.md
 docs/FranchisereferalincomeRequestCompoundAllOf.md
 docs/GlobalCustomerApi.md
 docs/GlobalCustomerGetEndpointV1Response.md
+docs/HeaderAcceptLanguage.md
 docs/ModuleAuthenticateApi.md
 docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
@@ -244,8 +245,8 @@ eZmaxApi/model/contactinformations_request.py
 eZmaxApi/model/contactinformations_request_compound.py
 eZmaxApi/model/contactinformations_request_compound_all_of.py
 eZmaxApi/model/custom_form_data_document_response.py
-eZmaxApi/model/custom_form_data_folder_response.py
 eZmaxApi/model/custom_form_data_signer_response.py
+eZmaxApi/model/custom_forms_data_folder_response.py
 eZmaxApi/model/custom_word_position_occurence_response.py
 eZmaxApi/model/custom_word_position_word_response.py
 eZmaxApi/model/email_request.py
@@ -351,6 +352,7 @@ eZmaxApi/model/franchisereferalincome_request.py
 eZmaxApi/model/franchisereferalincome_request_compound.py
 eZmaxApi/model/franchisereferalincome_request_compound_all_of.py
 eZmaxApi/model/global_customer_get_endpoint_v1_response.py
+eZmaxApi/model/header_accept_language.py
 eZmaxApi/model/multilingual_apikey_description.py
 eZmaxApi/model/phone_request.py
 eZmaxApi/model/sspr_reset_password_request_v1_request.py
@@ -423,8 +425,8 @@ test/test_contactinformations_request.py
 test/test_contactinformations_request_compound.py
 test/test_contactinformations_request_compound_all_of.py
 test/test_custom_form_data_document_response.py
-test/test_custom_form_data_folder_response.py
 test/test_custom_form_data_signer_response.py
+test/test_custom_forms_data_folder_response.py
 test/test_custom_word_position_occurence_response.py
 test/test_custom_word_position_word_response.py
 test/test_email_request.py
@@ -531,6 +533,7 @@ test/test_franchisereferalincome_request_compound.py
 test/test_franchisereferalincome_request_compound_all_of.py
 test/test_global_customer_api.py
 test/test_global_customer_get_endpoint_v1_response.py
+test/test_header_accept_language.py
 test/test_module_authenticate_api.py
 test/test_module_sspr_api.py
 test/test_module_user_api.py

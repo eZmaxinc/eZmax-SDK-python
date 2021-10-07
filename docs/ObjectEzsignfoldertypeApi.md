@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Retrieve Ezsignfoldertype list
 
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
 ### Example
 
@@ -23,6 +23,8 @@ import time
 import eZmaxApi
 from eZmaxApi.api import object_ezsignfoldertype_api
 from eZmaxApi.model.ezsignfoldertype_get_list_v1_response import EzsignfoldertypeGetListV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,11 +47,17 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldertype_api.ObjectEzsignfoldertypeApi(api_client)
+    e_order_by = "sEzsignfoldertypeNameX" # str | Specify how you want the results to be sorted (optional)
+    i_row_max = 100 # int |  (optional)
+    i_row_offset = 0 # int |  (optional)
+    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
+    s_filter = "bField1 eq 1 and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%'" # str |  (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Retrieve Ezsignfoldertype list
-        api_response = api_instance.ezsignfoldertype_get_list_v1()
+        api_response = api_instance.ezsignfoldertype_get_list_v1(e_order_by=e_order_by, i_row_max=i_row_max, i_row_offset=i_row_offset, accept_language=accept_language, s_filter=s_filter)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_get_list_v1: %s\n" % e)
@@ -57,7 +65,14 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **e_order_by** | **str**| Specify how you want the results to be sorted | [optional]
+ **i_row_max** | **int**|  | [optional]
+ **i_row_offset** | **int**|  | [optional]
+ **accept_language** | **HeaderAcceptLanguage**|  | [optional]
+ **s_filter** | **str**|  | [optional]
 
 ### Return type
 
@@ -70,7 +85,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 
 ### HTTP response details
@@ -78,6 +93,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
+**406** | One of the accept header is not defined or invalid. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

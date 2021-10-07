@@ -22,7 +22,9 @@ from eZmaxApi.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from eZmaxApi.model.common_response_error import CommonResponseError
 from eZmaxApi.model.ezsignfoldertype_get_list_v1_response import EzsignfoldertypeGetListV1Response
+from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 
 
 class ObjectEzsignfoldertypeApi(object):
@@ -49,11 +51,17 @@ class ObjectEzsignfoldertypeApi(object):
             },
             params_map={
                 'all': [
+                    'e_order_by',
+                    'i_row_max',
+                    'i_row_offset',
+                    'accept_language',
+                    's_filter',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'e_order_by',
                 ],
                 'validation': [
                 ]
@@ -62,19 +70,45 @@ class ObjectEzsignfoldertypeApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('e_order_by',): {
+
+                        "SEZSIGNFOLDERTYPENAMEX": "sEzsignfoldertypeNameX",
+                        "SEZSIGNFOLDERTYPENAMEX_DESC": "sEzsignfoldertypeNameX desc"
+                    },
                 },
                 'openapi_types': {
+                    'e_order_by':
+                        (str,),
+                    'i_row_max':
+                        (int,),
+                    'i_row_offset':
+                        (int,),
+                    'accept_language':
+                        (HeaderAcceptLanguage,),
+                    's_filter':
+                        (str,),
                 },
                 'attribute_map': {
+                    'e_order_by': 'eOrderBy',
+                    'i_row_max': 'iRowMax',
+                    'i_row_offset': 'iRowOffset',
+                    'accept_language': 'Accept-Language',
+                    's_filter': 'sFilter',
                 },
                 'location_map': {
+                    'e_order_by': 'query',
+                    'i_row_max': 'query',
+                    'i_row_offset': 'query',
+                    'accept_language': 'header',
+                    's_filter': 'query',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [
-                    'application/json'
+                    'application/json',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 ],
                 'content_type': [],
             },
@@ -87,7 +121,7 @@ class ObjectEzsignfoldertypeApi(object):
     ):
         """Retrieve Ezsignfoldertype list  # noqa: E501
 
-        ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  # noqa: E501
+        ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -96,6 +130,11 @@ class ObjectEzsignfoldertypeApi(object):
 
 
         Keyword Args:
+            e_order_by (str): Specify how you want the results to be sorted. [optional]
+            i_row_max (int): [optional]
+            i_row_offset (int): [optional]
+            accept_language (HeaderAcceptLanguage): [optional]
+            s_filter (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

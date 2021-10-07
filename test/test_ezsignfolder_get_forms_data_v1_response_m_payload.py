@@ -14,9 +14,9 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.custom_form_data_document_response import CustomFormDataDocumentResponse
-from eZmaxApi.model.custom_form_data_folder_response import CustomFormDataFolderResponse
+from eZmaxApi.model.custom_forms_data_folder_response import CustomFormsDataFolderResponse
 globals()['CustomFormDataDocumentResponse'] = CustomFormDataDocumentResponse
-globals()['CustomFormDataFolderResponse'] = CustomFormDataFolderResponse
+globals()['CustomFormsDataFolderResponse'] = CustomFormsDataFolderResponse
 from eZmaxApi.model.ezsignfolder_get_forms_data_v1_response_m_payload import EzsignfolderGetFormsDataV1ResponseMPayload
 
 
