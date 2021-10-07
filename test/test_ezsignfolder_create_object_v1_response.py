@@ -16,10 +16,12 @@ import eZmaxApi
 from eZmaxApi.model.common_response import CommonResponse
 from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+from eZmaxApi.model.ezsignfolder_create_object_v1_response_all_of import EzsignfolderCreateObjectV1ResponseAllOf
 from eZmaxApi.model.ezsignfolder_create_object_v1_response_m_payload import EzsignfolderCreateObjectV1ResponseMPayload
 globals()['CommonResponse'] = CommonResponse
 globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
 globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
+globals()['EzsignfolderCreateObjectV1ResponseAllOf'] = EzsignfolderCreateObjectV1ResponseAllOf
 globals()['EzsignfolderCreateObjectV1ResponseMPayload'] = EzsignfolderCreateObjectV1ResponseMPayload
 from eZmaxApi.model.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
 

@@ -73,6 +73,7 @@ docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
+docs/EzsignfolderCreateObjectV1ResponseAllOf.md
 docs/EzsignfolderCreateObjectV1ResponseMPayload.md
 docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetFormsDataV1Response.md
@@ -281,6 +282,7 @@ eZmaxApi/model/ezsigndocument_response.py
 eZmaxApi/model/ezsigndocument_response_compound.py
 eZmaxApi/model/ezsignfolder_create_object_v1_request.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response.py
+eZmaxApi/model/ezsignfolder_create_object_v1_response_all_of.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response_m_payload.py
 eZmaxApi/model/ezsignfolder_delete_object_v1_response.py
 eZmaxApi/model/ezsignfolder_get_forms_data_v1_response.py
@@ -461,6 +463,7 @@ test/test_ezsigndocument_response.py
 test/test_ezsigndocument_response_compound.py
 test/test_ezsignfolder_create_object_v1_request.py
 test/test_ezsignfolder_create_object_v1_response.py
+test/test_ezsignfolder_create_object_v1_response_all_of.py
 test/test_ezsignfolder_create_object_v1_response_m_payload.py
 test/test_ezsignfolder_delete_object_v1_response.py
 test/test_ezsignfolder_get_forms_data_v1_response.py
