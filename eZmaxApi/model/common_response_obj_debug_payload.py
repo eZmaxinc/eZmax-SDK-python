@@ -84,7 +84,7 @@ class CommonResponseObjDebugPayload(ModelNormal):
         return {
             'i_version_min': (int,),  # noqa: E501
             'i_version_max': (int,),  # noqa: E501
-            'a_required_permissions': ([int],),  # noqa: E501
+            'a_required_permission': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -95,7 +95,7 @@ class CommonResponseObjDebugPayload(ModelNormal):
     attribute_map = {
         'i_version_min': 'iVersionMin',  # noqa: E501
         'i_version_max': 'iVersionMax',  # noqa: E501
-        'a_required_permissions': 'a_RequiredPermissions',  # noqa: E501
+        'a_required_permission': 'a_RequiredPermission',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,13 +105,13 @@ class CommonResponseObjDebugPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, i_version_min, i_version_max, a_required_permissions, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, i_version_min, i_version_max, a_required_permission, *args, **kwargs):  # noqa: E501
         """CommonResponseObjDebugPayload - a model defined in OpenAPI
 
         Args:
             i_version_min (int): The minimum version of the function that can be called
             i_version_max (int): The maximum version of the function that can be called
-            a_required_permissions ([int]): An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
+            a_required_permission ([int]): An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,7 +173,7 @@ class CommonResponseObjDebugPayload(ModelNormal):
 
         self.i_version_min = i_version_min
         self.i_version_max = i_version_max
-        self.a_required_permissions = a_required_permissions
+        self.a_required_permission = a_required_permission
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,13 +194,13 @@ class CommonResponseObjDebugPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, i_version_min, i_version_max, a_required_permissions, *args, **kwargs):  # noqa: E501
+    def __init__(self, i_version_min, i_version_max, a_required_permission, *args, **kwargs):  # noqa: E501
         """CommonResponseObjDebugPayload - a model defined in OpenAPI
 
         Args:
             i_version_min (int): The minimum version of the function that can be called
             i_version_max (int): The maximum version of the function that can be called
-            a_required_permissions ([int]): An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
+            a_required_permission ([int]): An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,7 +260,7 @@ class CommonResponseObjDebugPayload(ModelNormal):
 
         self.i_version_min = i_version_min
         self.i_version_max = i_version_max
-        self.a_required_permissions = a_required_permissions
+        self.a_required_permission = a_required_permission
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

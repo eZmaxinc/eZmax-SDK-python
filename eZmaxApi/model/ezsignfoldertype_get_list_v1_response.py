@@ -31,14 +31,14 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.common_response import CommonResponse
+    from eZmaxApi.model.common_response_get_list import CommonResponseGetList
     from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
-    from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+    from eZmaxApi.model.common_response_obj_debug_payload_get_list import CommonResponseObjDebugPayloadGetList
     from eZmaxApi.model.ezsignfoldertype_get_list_v1_response_all_of import EzsignfoldertypeGetListV1ResponseAllOf
     from eZmaxApi.model.ezsignfoldertype_get_list_v1_response_m_payload import EzsignfoldertypeGetListV1ResponseMPayload
-    globals()['CommonResponse'] = CommonResponse
+    globals()['CommonResponseGetList'] = CommonResponseGetList
     globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
-    globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
+    globals()['CommonResponseObjDebugPayloadGetList'] = CommonResponseObjDebugPayloadGetList
     globals()['EzsignfoldertypeGetListV1ResponseAllOf'] = EzsignfoldertypeGetListV1ResponseAllOf
     globals()['EzsignfoldertypeGetListV1ResponseMPayload'] = EzsignfoldertypeGetListV1ResponseMPayload
 
@@ -97,7 +97,7 @@ class EzsignfoldertypeGetListV1Response(ModelComposed):
         lazy_import()
         return {
             'm_payload': (EzsignfoldertypeGetListV1ResponseMPayload,),  # noqa: E501
-            'obj_debug_payload': (CommonResponseObjDebugPayload,),  # noqa: E501
+            'obj_debug_payload': (CommonResponseObjDebugPayloadGetList,),  # noqa: E501
             'obj_debug': (CommonResponseObjDebug,),  # noqa: E501
         }
 
@@ -152,7 +152,7 @@ class EzsignfoldertypeGetListV1Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            obj_debug_payload (CommonResponseObjDebugPayload): [optional]  # noqa: E501
+            obj_debug_payload (CommonResponseObjDebugPayloadGetList): [optional]  # noqa: E501
             obj_debug (CommonResponseObjDebug): [optional]  # noqa: E501
         """
 
@@ -254,7 +254,7 @@ class EzsignfoldertypeGetListV1Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            obj_debug_payload (CommonResponseObjDebugPayload): [optional]  # noqa: E501
+            obj_debug_payload (CommonResponseObjDebugPayloadGetList): [optional]  # noqa: E501
             obj_debug (CommonResponseObjDebug): [optional]  # noqa: E501
         """
 
@@ -321,7 +321,7 @@ class EzsignfoldertypeGetListV1Response(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CommonResponse,
+              CommonResponseGetList,
               EzsignfoldertypeGetListV1ResponseAllOf,
           ],
           'oneOf': [

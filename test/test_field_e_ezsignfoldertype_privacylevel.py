@@ -14,12 +14,10 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
-globals()['FieldEEzsignfoldertypePrivacylevel'] = FieldEEzsignfoldertypePrivacylevel
-from eZmaxApi.model.ezsignfoldertype_list_element import EzsignfoldertypeListElement
 
 
-class TestEzsignfoldertypeListElement(unittest.TestCase):
-    """EzsignfoldertypeListElement unit test stubs"""
+class TestFieldEEzsignfoldertypePrivacylevel(unittest.TestCase):
+    """FieldEEzsignfoldertypePrivacylevel unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestEzsignfoldertypeListElement(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEzsignfoldertypeListElement(self):
-        """Test EzsignfoldertypeListElement"""
+    def testFieldEEzsignfoldertypePrivacylevel(self):
+        """Test FieldEEzsignfoldertypePrivacylevel"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsignfoldertypeListElement()  # noqa: E501
+        # model = FieldEEzsignfoldertypePrivacylevel()  # noqa: E501
         pass
 
 

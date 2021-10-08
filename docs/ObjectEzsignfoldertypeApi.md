@@ -47,7 +47,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldertype_api.ObjectEzsignfoldertypeApi(api_client)
-    e_order_by = "sEzsignfoldertypeNameX" # str | Specify how you want the results to be sorted (optional)
+    e_order_by = "pkiEzsignfoldertypeID_ASC" # str | Specify how you want the results to be sorted (optional)
     i_row_max = 100 # int |  (optional)
     i_row_offset = 0 # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)

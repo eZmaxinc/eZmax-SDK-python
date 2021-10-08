@@ -26,8 +26,13 @@ docs/CommonGetAutocompleteV1ResponseMPayload.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
+docs/CommonResponseFilter.md
+docs/CommonResponseFilterEnum.md
+docs/CommonResponseGetList.md
 docs/CommonResponseObjDebug.md
 docs/CommonResponseObjDebugPayload.md
+docs/CommonResponseObjDebugPayloadGetList.md
+docs/CommonResponseObjDebugPayloadGetListAllOf.md
 docs/CommonResponseObjSQLQuery.md
 docs/CommonWebhook.md
 docs/ContactRequest.md
@@ -129,6 +134,7 @@ docs/EzsignsignerRequestCompoundContact.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
+docs/FieldEEzsignfoldertypePrivacylevel.md
 docs/FieldEEzsignsignatureType.md
 docs/FieldEPhoneType.md
 docs/FieldEUserType.md
@@ -235,8 +241,13 @@ eZmaxApi/model/common_get_autocomplete_v1_response_m_payload.py
 eZmaxApi/model/common_get_list_v1_response_m_payload.py
 eZmaxApi/model/common_response.py
 eZmaxApi/model/common_response_error.py
+eZmaxApi/model/common_response_filter.py
+eZmaxApi/model/common_response_filter_enum.py
+eZmaxApi/model/common_response_get_list.py
 eZmaxApi/model/common_response_obj_debug.py
 eZmaxApi/model/common_response_obj_debug_payload.py
+eZmaxApi/model/common_response_obj_debug_payload_get_list.py
+eZmaxApi/model/common_response_obj_debug_payload_get_list_all_of.py
 eZmaxApi/model/common_response_obj_sql_query.py
 eZmaxApi/model/common_webhook.py
 eZmaxApi/model/contact_request.py
@@ -338,6 +349,7 @@ eZmaxApi/model/ezsignsigner_request_compound_contact.py
 eZmaxApi/model/field_e_ezsigndocument_step.py
 eZmaxApi/model/field_e_ezsignfolder_sendreminderfrequency.py
 eZmaxApi/model/field_e_ezsignfolder_step.py
+eZmaxApi/model/field_e_ezsignfoldertype_privacylevel.py
 eZmaxApi/model/field_e_ezsignsignature_type.py
 eZmaxApi/model/field_e_phone_type.py
 eZmaxApi/model/field_e_user_type.py
@@ -416,8 +428,13 @@ test/test_common_get_autocomplete_v1_response_m_payload.py
 test/test_common_get_list_v1_response_m_payload.py
 test/test_common_response.py
 test/test_common_response_error.py
+test/test_common_response_filter.py
+test/test_common_response_filter_enum.py
+test/test_common_response_get_list.py
 test/test_common_response_obj_debug.py
 test/test_common_response_obj_debug_payload.py
+test/test_common_response_obj_debug_payload_get_list.py
+test/test_common_response_obj_debug_payload_get_list_all_of.py
 test/test_common_response_obj_sql_query.py
 test/test_common_webhook.py
 test/test_contact_request.py
@@ -519,6 +536,7 @@ test/test_ezsignsigner_request_compound_contact.py
 test/test_field_e_ezsigndocument_step.py
 test/test_field_e_ezsignfolder_sendreminderfrequency.py
 test/test_field_e_ezsignfolder_step.py
+test/test_field_e_ezsignfoldertype_privacylevel.py
 test/test_field_e_ezsignsignature_type.py
 test/test_field_e_phone_type.py
 test/test_field_e_user_type.py

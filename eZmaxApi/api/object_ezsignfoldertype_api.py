@@ -72,8 +72,14 @@ class ObjectEzsignfoldertypeApi(object):
                 'allowed_values': {
                     ('e_order_by',): {
 
-                        "SEZSIGNFOLDERTYPENAMEX": "sEzsignfoldertypeNameX",
-                        "SEZSIGNFOLDERTYPENAMEX_DESC": "sEzsignfoldertypeNameX desc"
+                        "PKIEZSIGNFOLDERTYPEID_ASC": "pkiEzsignfoldertypeID_ASC",
+                        "PKIEZSIGNFOLDERTYPEID_DESC": "pkiEzsignfoldertypeID_DESC",
+                        "EEZSIGNFOLDERTYPEPRIVACYLEVEL_ASC": "eEzsignfoldertypePrivacylevel_ASC",
+                        "EEZSIGNFOLDERTYPEPRIVACYLEVEL_DESC": "eEzsignfoldertypePrivacylevel_DESC",
+                        "SEZSIGNFOLDERTYPENAMEX_ASC": "sEzsignfoldertypeNameX_ASC",
+                        "SEZSIGNFOLDERTYPENAMEX_DESC": "sEzsignfoldertypeNameX_DESC",
+                        "BEZSIGNFOLDERTYPEISACTIVE_ASC": "bEzsignfoldertypeIsactive_ASC",
+                        "BEZSIGNFOLDERTYPEISACTIVE_DESC": "bEzsignfoldertypeIsactive_DESC"
                     },
                 },
                 'openapi_types': {
