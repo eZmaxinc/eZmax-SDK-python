@@ -117,7 +117,7 @@ class ObjectFranchisebrokerApi(object):
             s_selector (str): The type of Franchisebrokers to return
 
         Keyword Args:
-            s_query (str): Allow to filter on the option value. [optional]
+            s_query (str): Allow to filter the returned results. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

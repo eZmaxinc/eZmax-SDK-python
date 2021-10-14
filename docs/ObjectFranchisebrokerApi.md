@@ -46,7 +46,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_franchisebroker_api.ObjectFranchisebrokerApi(api_client)
     s_selector = "Active" # str | The type of Franchisebrokers to return
-    s_query = "sQuery_example" # str | Allow to filter on the option value (optional)
+    s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -72,7 +72,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Franchisebrokers to return |
- **s_query** | **str**| Allow to filter on the option value | [optional]
+ **s_query** | **str**| Allow to filter the returned results | [optional]
 
 ### Return type
 

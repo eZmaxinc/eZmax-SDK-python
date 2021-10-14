@@ -27,9 +27,11 @@ from eZmaxApi.model.ezsignfolder_create_object_v1_request import EzsignfolderCre
 from eZmaxApi.model.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
 from eZmaxApi.model.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
 from eZmaxApi.model.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response
+from eZmaxApi.model.ezsignfolder_get_list_v1_response import EzsignfolderGetListV1Response
 from eZmaxApi.model.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
 from eZmaxApi.model.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
 from eZmaxApi.model.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
+from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 
 
 class ObjectEzsignfolderApi(object):
@@ -244,6 +246,84 @@ class ObjectEzsignfolderApi(object):
                 'accept': [
                     'application/json',
                     'application/zip'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.ezsignfolder_get_list_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsignfolderGetListV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/getList',
+                'operation_id': 'ezsignfolder_get_list_v1',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'e_order_by',
+                    'i_row_max',
+                    'i_row_offset',
+                    'accept_language',
+                    's_filter',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                    'e_order_by',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('e_order_by',): {
+
+                        "PKIEZSIGNFOLDERID_ASC": "pkiEzsignfolderID_ASC",
+                        "PKIEZSIGNFOLDERID_DESC": "pkiEzsignfolderID_DESC",
+                        "SEZSIGNFOLDERDESCRIPTION": "sEzsignfolderDescription",
+                        "SEZSIGNFOLDERDESCRIPTION_DESC": "sEzsignfolderDescription_DESC"
+                    },
+                },
+                'openapi_types': {
+                    'e_order_by':
+                        (str,),
+                    'i_row_max':
+                        (int,),
+                    'i_row_offset':
+                        (int,),
+                    'accept_language':
+                        (HeaderAcceptLanguage,),
+                    's_filter':
+                        (str,),
+                },
+                'attribute_map': {
+                    'e_order_by': 'eOrderBy',
+                    'i_row_max': 'iRowMax',
+                    'i_row_offset': 'iRowOffset',
+                    'accept_language': 'Accept-Language',
+                    's_filter': 'sFilter',
+                },
+                'location_map': {
+                    'e_order_by': 'query',
+                    'i_row_max': 'query',
+                    'i_row_offset': 'query',
+                    'accept_language': 'header',
+                    's_filter': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json',
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 ],
                 'content_type': [],
             },
@@ -563,7 +643,6 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder's forms data  # noqa: E501
 
-        ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -621,6 +700,71 @@ class ObjectEzsignfolderApi(object):
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_get_forms_data_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsignfolder_get_list_v1(
+        self,
+        **kwargs
+    ):
+        """Retrieve Ezsignfolder list  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_get_list_v1(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            e_order_by (str): Specify how you want the results to be sorted. [optional]
+            i_row_max (int): [optional]
+            i_row_offset (int): [optional]
+            accept_language (HeaderAcceptLanguage): [optional]
+            s_filter (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsignfolderGetListV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.ezsignfolder_get_list_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsignfolder_get_object_v1(
         self,

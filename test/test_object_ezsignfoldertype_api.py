@@ -24,6 +24,13 @@ class TestObjectEzsignfoldertypeApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_ezsignfoldertype_get_autocomplete_v1(self):
+        """Test case for ezsignfoldertype_get_autocomplete_v1
+
+        Retrieve Ezsignfoldertypes and IDs  # noqa: E501
+        """
+        pass
+
     def test_ezsignfoldertype_get_list_v1(self):
         """Test case for ezsignfoldertype_get_list_v1
 

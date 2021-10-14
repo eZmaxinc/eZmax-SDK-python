@@ -1077,7 +1077,6 @@ class ObjectEzsigndocumentApi(object):
     ):
         """Retrieve an existing Ezsigndocument's Form Data  # noqa: E501
 
-        ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1210,7 +1209,6 @@ class ObjectEzsigndocumentApi(object):
     ):
         """Retrieve positions X,Y of given words from a Ezsigndocument  # noqa: E501
 
-        ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

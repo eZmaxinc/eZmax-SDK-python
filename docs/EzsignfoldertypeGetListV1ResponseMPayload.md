@@ -1,6 +1,6 @@
 # EzsignfoldertypeGetListV1ResponseMPayload
 
-Payload for the /1/object/ezsignfolder/getList API Request
+Payload for the /1/object/ezsignfoldertype/getList API Request
 
 ## Properties
 Name | Type | Description | Notes

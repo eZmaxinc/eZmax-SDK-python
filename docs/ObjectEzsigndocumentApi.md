@@ -615,8 +615,6 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsigndocument's Form Data
 
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
-
 ### Example
 
 * Api Key Authentication (Authorization):
@@ -776,8 +774,6 @@ Name | Type | Description  | Notes
 > EzsigndocumentGetWordsPositionsV1Response ezsigndocument_get_words_positions_v1(pki_ezsigndocument_id, ezsigndocument_get_words_positions_v1_request)
 
 Retrieve positions X,Y of given words from a Ezsigndocument
-
-## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
 
 ### Example
 

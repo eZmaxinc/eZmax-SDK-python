@@ -14,12 +14,10 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.custom_autocomplete_element_response import CustomAutocompleteElementResponse
-globals()['CustomAutocompleteElementResponse'] = CustomAutocompleteElementResponse
-from eZmaxApi.model.common_get_autocomplete_v1_response_m_payload import CommonGetAutocompleteV1ResponseMPayload
 
 
-class TestCommonGetAutocompleteV1ResponseMPayload(unittest.TestCase):
-    """CommonGetAutocompleteV1ResponseMPayload unit test stubs"""
+class TestCustomAutocompleteElementResponse(unittest.TestCase):
+    """CustomAutocompleteElementResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestCommonGetAutocompleteV1ResponseMPayload(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCommonGetAutocompleteV1ResponseMPayload(self):
-        """Test CommonGetAutocompleteV1ResponseMPayload"""
+    def testCustomAutocompleteElementResponse(self):
+        """Test CustomAutocompleteElementResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CommonGetAutocompleteV1ResponseMPayload()  # noqa: E501
+        # model = CustomAutocompleteElementResponse()  # noqa: E501
         pass
 
 

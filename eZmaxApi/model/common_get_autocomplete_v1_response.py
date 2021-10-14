@@ -96,7 +96,7 @@ class CommonGetAutocompleteV1Response(ModelComposed):
         """
         lazy_import()
         return {
-            'm_payload': ([CommonGetAutocompleteV1ResponseMPayload],),  # noqa: E501
+            'm_payload': (CommonGetAutocompleteV1ResponseMPayload,),  # noqa: E501
             'obj_debug_payload': (CommonResponseObjDebugPayload,),  # noqa: E501
             'obj_debug': (CommonResponseObjDebug,),  # noqa: E501
         }
@@ -121,7 +121,7 @@ class CommonGetAutocompleteV1Response(ModelComposed):
         """CommonGetAutocompleteV1Response - a model defined in OpenAPI
 
         Keyword Args:
-            m_payload ([CommonGetAutocompleteV1ResponseMPayload]):
+            m_payload (CommonGetAutocompleteV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -223,7 +223,7 @@ class CommonGetAutocompleteV1Response(ModelComposed):
         """CommonGetAutocompleteV1Response - a model defined in OpenAPI
 
         Keyword Args:
-            m_payload ([CommonGetAutocompleteV1ResponseMPayload]):
+            m_payload (CommonGetAutocompleteV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

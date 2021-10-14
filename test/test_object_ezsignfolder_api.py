@@ -52,6 +52,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_get_list_v1(self):
+        """Test case for ezsignfolder_get_list_v1
+
+        Retrieve Ezsignfolder list  # noqa: E501
+        """
+        pass
+
     def test_ezsignfolder_get_object_v1(self):
         """Test case for ezsignfolder_get_object_v1
 
