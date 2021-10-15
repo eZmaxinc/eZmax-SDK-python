@@ -45,7 +45,7 @@ class ObjectEzsignfoldertypeApi(object):
                 'auth': [
                     'Authorization'
                 ],
-                'endpoint_path': '/1/object/ezsignfoldertype/getAutocomplete/{sSelector}/',
+                'endpoint_path': '/1/object/ezsignfoldertype/getAutocomplete/{sSelector}',
                 'operation_id': 'ezsignfoldertype_get_autocomplete_v1',
                 'http_method': 'GET',
                 'servers': None,

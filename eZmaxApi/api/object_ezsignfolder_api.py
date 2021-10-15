@@ -287,8 +287,28 @@ class ObjectEzsignfolderApi(object):
 
                         "PKIEZSIGNFOLDERID_ASC": "pkiEzsignfolderID_ASC",
                         "PKIEZSIGNFOLDERID_DESC": "pkiEzsignfolderID_DESC",
-                        "SEZSIGNFOLDERDESCRIPTION": "sEzsignfolderDescription",
-                        "SEZSIGNFOLDERDESCRIPTION_DESC": "sEzsignfolderDescription_DESC"
+                        "SEZSIGNFOLDERDESCRIPTION_ASC": "sEzsignfolderDescription_ASC",
+                        "SEZSIGNFOLDERDESCRIPTION_DESC": "sEzsignfolderDescription_DESC",
+                        "DTCREATEDDATE_ASC": "dtCreatedDate_ASC",
+                        "DTCREATEDDATE_DESC": "dtCreatedDate_DESC",
+                        "FKIEZSIGNFOLDERTYPEID_ASC": "fkiEzsignfoldertypeID_ASC",
+                        "FKIEZSIGNFOLDERTYPEID_DESC": "fkiEzsignfoldertypeID_DESC",
+                        "SEZSIGNFOLDERTYPENAMEX_ASC": "sEzsignfoldertypeNameX_ASC",
+                        "SEZSIGNFOLDERTYPENAMEX_DESC": "sEzsignfoldertypeNameX_DESC",
+                        "EEZSIGNFOLDERSTEP_ASC": "eEzsignfolderStep_ASC",
+                        "EEZSIGNFOLDERSTEP_DESC": "eEzsignfolderStep_DESC",
+                        "DTEZSIGNFOLDERSENTDATE_ASC": "dtEzsignfolderSentdate_ASC",
+                        "DTEZSIGNFOLDERSENTDATE_DESC": "dtEzsignfolderSentdate_DESC",
+                        "DTDUEDATE_ASC": "dtDueDate_ASC",
+                        "DTDUEDATE_DESC": "dtDueDate_DESC",
+                        "ITOTALDOCUMENT_ASC": "iTotalDocument_ASC",
+                        "ITOTALDOCUMENT_DESC": "iTotalDocument_DESC",
+                        "ITOTALDOCUMENTEDM_ASC": "iTotalDocumentEdm_ASC",
+                        "ITOTALDOCUMENTEDM_DESC": "iTotalDocumentEdm_DESC",
+                        "ITOTALSIGNATURE_ASC": "iTotalSignature_ASC",
+                        "ITOTALSIGNATURE_DESC": "iTotalSignature_DESC",
+                        "ITOTALSIGNATURESIGNED_ASC": "iTotalSignatureSigned_ASC",
+                        "ITOTALSIGNATURESIGNED_DESC": "iTotalSignatureSigned_DESC"
                     },
                 },
                 'openapi_types': {
@@ -707,6 +727,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve Ezsignfolder list  # noqa: E501
 
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived |  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

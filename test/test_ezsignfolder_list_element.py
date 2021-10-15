@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.field_e_ezsignfolder_step import FieldEEzsignfolderStep
+globals()['FieldEEzsignfolderStep'] = FieldEEzsignfolderStep
 from eZmaxApi.model.ezsignfolder_list_element import EzsignfolderListElement
 
 

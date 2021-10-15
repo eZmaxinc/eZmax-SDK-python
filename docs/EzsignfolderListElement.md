@@ -6,7 +6,17 @@ An Ezsignfolder List Element
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
+**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 
 **s_ezsignfolder_description** | **str** | The description of the Ezsign Folder | 
+**e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
+**dt_created_date** | **str** | The date and time at which the object was created | 
+**dt_ezsignfolder_sentdate** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**dt_due_date** | **bool, date, datetime, dict, float, int, list, str, none_type** | The date at which no more signature will be accepted on the folder | 
+**i_total_document** | **int** | The total number of Ezsigndocument in the folder | 
+**i_total_document_edm** | **int** | The total number of Ezsigndocument in the folder that were saved in the edm system | 
+**i_total_signature** | **int** | The total number of signature blocks in all Ezsigndocuments in the folder | 
+**i_total_signature_signed** | **int** | The total number of already signed signature blocks in all Ezsigndocuments in the folder | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
