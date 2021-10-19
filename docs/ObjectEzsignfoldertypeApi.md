@@ -48,8 +48,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldertype_api.ObjectEzsignfoldertypeApi(api_client)
     s_selector = "Active" # str | The type of Ezsignfoldertypes to return
-    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
+    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -63,7 +63,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve Ezsignfoldertypes and IDs
-        api_response = api_instance.ezsignfoldertype_get_autocomplete_v1(s_selector, accept_language=accept_language, s_query=s_query)
+        api_response = api_instance.ezsignfoldertype_get_autocomplete_v1(s_selector, s_query=s_query, accept_language=accept_language)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_get_autocomplete_v1: %s\n" % e)
@@ -75,8 +75,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsignfoldertypes to return |
- **accept_language** | **HeaderAcceptLanguage**|  | [optional]
  **s_query** | **str**| Allow to filter the returned results | [optional]
+ **accept_language** | **HeaderAcceptLanguage**|  | [optional]
 
 ### Return type
 

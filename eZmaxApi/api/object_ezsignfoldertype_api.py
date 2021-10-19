@@ -53,8 +53,8 @@ class ObjectEzsignfoldertypeApi(object):
             params_map={
                 'all': [
                     's_selector',
-                    'accept_language',
                     's_query',
+                    'accept_language',
                 ],
                 'required': [
                     's_selector',
@@ -80,20 +80,20 @@ class ObjectEzsignfoldertypeApi(object):
                 'openapi_types': {
                     's_selector':
                         (str,),
-                    'accept_language':
-                        (HeaderAcceptLanguage,),
                     's_query':
                         (str,),
+                    'accept_language':
+                        (HeaderAcceptLanguage,),
                 },
                 'attribute_map': {
                     's_selector': 'sSelector',
-                    'accept_language': 'Accept-Language',
                     's_query': 'sQuery',
+                    'accept_language': 'Accept-Language',
                 },
                 'location_map': {
                     's_selector': 'path',
-                    'accept_language': 'header',
                     's_query': 'query',
+                    'accept_language': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -207,8 +207,8 @@ class ObjectEzsignfoldertypeApi(object):
             s_selector (str): The type of Ezsignfoldertypes to return
 
         Keyword Args:
-            accept_language (HeaderAcceptLanguage): [optional]
             s_query (str): Allow to filter the returned results. [optional]
+            accept_language (HeaderAcceptLanguage): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
