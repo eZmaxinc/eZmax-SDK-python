@@ -15,11 +15,11 @@ import unittest
 import eZmaxApi
 from eZmaxApi.model.listpresentation_request import ListpresentationRequest
 globals()['ListpresentationRequest'] = ListpresentationRequest
-from eZmaxApi.model.list_save_listpresentation_v1_response_m_payload import ListSaveListpresentationV1ResponseMPayload
+from eZmaxApi.model.list_get_listpresentation_v1_response_m_payload import ListGetListpresentationV1ResponseMPayload
 
 
-class TestListSaveListpresentationV1ResponseMPayload(unittest.TestCase):
-    """ListSaveListpresentationV1ResponseMPayload unit test stubs"""
+class TestListGetListpresentationV1ResponseMPayload(unittest.TestCase):
+    """ListGetListpresentationV1ResponseMPayload unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestListSaveListpresentationV1ResponseMPayload(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListSaveListpresentationV1ResponseMPayload(self):
-        """Test ListSaveListpresentationV1ResponseMPayload"""
+    def testListGetListpresentationV1ResponseMPayload(self):
+        """Test ListGetListpresentationV1ResponseMPayload"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListSaveListpresentationV1ResponseMPayload()  # noqa: E501
+        # model = ListGetListpresentationV1ResponseMPayload()  # noqa: E501
         pass
 
 

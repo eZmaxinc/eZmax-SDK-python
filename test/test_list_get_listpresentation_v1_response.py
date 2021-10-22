@@ -16,14 +16,18 @@ import eZmaxApi
 from eZmaxApi.model.common_response import CommonResponse
 from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+from eZmaxApi.model.list_get_listpresentation_v1_response_all_of import ListGetListpresentationV1ResponseAllOf
+from eZmaxApi.model.list_get_listpresentation_v1_response_m_payload import ListGetListpresentationV1ResponseMPayload
 globals()['CommonResponse'] = CommonResponse
 globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
 globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
-from eZmaxApi.model.list_save_listpresentation_v1_response import ListSaveListpresentationV1Response
+globals()['ListGetListpresentationV1ResponseAllOf'] = ListGetListpresentationV1ResponseAllOf
+globals()['ListGetListpresentationV1ResponseMPayload'] = ListGetListpresentationV1ResponseMPayload
+from eZmaxApi.model.list_get_listpresentation_v1_response import ListGetListpresentationV1Response
 
 
-class TestListSaveListpresentationV1Response(unittest.TestCase):
-    """ListSaveListpresentationV1Response unit test stubs"""
+class TestListGetListpresentationV1Response(unittest.TestCase):
+    """ListGetListpresentationV1Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +35,10 @@ class TestListSaveListpresentationV1Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListSaveListpresentationV1Response(self):
-        """Test ListSaveListpresentationV1Response"""
+    def testListGetListpresentationV1Response(self):
+        """Test ListGetListpresentationV1Response"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListSaveListpresentationV1Response()  # noqa: E501
+        # model = ListGetListpresentationV1Response()  # noqa: E501
         pass
 
 

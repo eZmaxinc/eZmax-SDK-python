@@ -24,8 +24,15 @@ class TestModuleListApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_list_listpresentation_v1(self):
-        """Test case for list_listpresentation_v1
+    def test_list_get_listpresentation_v1(self):
+        """Test case for list_get_listpresentation_v1
+
+        Get all Listpresentation for a specific list  # noqa: E501
+        """
+        pass
+
+    def test_list_save_listpresentation_v1(self):
+        """Test case for list_save_listpresentation_v1
 
         Save all Listpresentation for a specific list  # noqa: E501
         """
