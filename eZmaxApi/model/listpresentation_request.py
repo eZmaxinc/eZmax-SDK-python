@@ -88,6 +88,7 @@ class ListpresentationRequest(ModelNormal):
             'a_s_column_name': ([str],),  # noqa: E501
             'i_listpresentation_row_max': (int,),  # noqa: E501
             'i_listpresentation_row_offset': (int,),  # noqa: E501
+            'b_listpresentation_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class ListpresentationRequest(ModelNormal):
         'a_s_column_name': 'a_sColumnName',  # noqa: E501
         'i_listpresentation_row_max': 'iListpresentationRowMax',  # noqa: E501
         'i_listpresentation_row_offset': 'iListpresentationRowOffset',  # noqa: E501
+        'b_listpresentation_default': 'bListpresentationDefault',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,7 +113,7 @@ class ListpresentationRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, s_listpresentation_description, s_listpresentation_filter, s_listpresentation_orderby, a_s_column_name, i_listpresentation_row_max, i_listpresentation_row_offset, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, s_listpresentation_description, s_listpresentation_filter, s_listpresentation_orderby, a_s_column_name, i_listpresentation_row_max, i_listpresentation_row_offset, b_listpresentation_default, *args, **kwargs):  # noqa: E501
         """ListpresentationRequest - a model defined in OpenAPI
 
         Args:
@@ -121,6 +123,7 @@ class ListpresentationRequest(ModelNormal):
             a_s_column_name ([str]): An array of column names that the user chose to bee visible
             i_listpresentation_row_max (int): The maximum numbers of results to be returned
             i_listpresentation_row_offset (int): The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,
+            b_listpresentation_default (bool): Set to true if the user chose this Listpresentation as the default one. A single element should be set to true
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,6 +189,7 @@ class ListpresentationRequest(ModelNormal):
         self.a_s_column_name = a_s_column_name
         self.i_listpresentation_row_max = i_listpresentation_row_max
         self.i_listpresentation_row_offset = i_listpresentation_row_offset
+        self.b_listpresentation_default = b_listpresentation_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,7 +210,7 @@ class ListpresentationRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, s_listpresentation_description, s_listpresentation_filter, s_listpresentation_orderby, a_s_column_name, i_listpresentation_row_max, i_listpresentation_row_offset, *args, **kwargs):  # noqa: E501
+    def __init__(self, s_listpresentation_description, s_listpresentation_filter, s_listpresentation_orderby, a_s_column_name, i_listpresentation_row_max, i_listpresentation_row_offset, b_listpresentation_default, *args, **kwargs):  # noqa: E501
         """ListpresentationRequest - a model defined in OpenAPI
 
         Args:
@@ -216,6 +220,7 @@ class ListpresentationRequest(ModelNormal):
             a_s_column_name ([str]): An array of column names that the user chose to bee visible
             i_listpresentation_row_max (int): The maximum numbers of results to be returned
             i_listpresentation_row_offset (int): The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,
+            b_listpresentation_default (bool): Set to true if the user chose this Listpresentation as the default one. A single element should be set to true
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -279,6 +284,7 @@ class ListpresentationRequest(ModelNormal):
         self.a_s_column_name = a_s_column_name
         self.i_listpresentation_row_max = i_listpresentation_row_max
         self.i_listpresentation_row_offset = i_listpresentation_row_offset
+        self.b_listpresentation_default = b_listpresentation_default
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
