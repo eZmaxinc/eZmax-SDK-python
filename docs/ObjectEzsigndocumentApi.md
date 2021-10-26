@@ -217,6 +217,7 @@ import eZmaxApi
 from eZmaxApi.api import object_ezsigndocument_api
 from eZmaxApi.model.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 from eZmaxApi.model.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -245,6 +246,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 e_ezsigndocument_source="Base64",
                 e_ezsigndocument_format="Pdf",
                 s_ezsigndocument_base64='YQ==',
+                s_ezsigndocument_url="http://www.example.com/document.pdf",
+                b_ezsigndocument_forcerepair=True,
                 s_ezsigndocument_password="SecretPassword123",
                 fki_ezsignfolder_id=33,
                 dt_ezsigndocument_duedate="2020-12-31 23:59:59",
@@ -290,6 +293,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsignfolder list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived |
+Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived | | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
 ### Example
 
@@ -384,7 +384,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     i_row_max = 100 # int |  (optional)
     i_row_offset = 0 # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
-    s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3'" # str |  (optional)
+    s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
