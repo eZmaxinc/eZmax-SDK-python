@@ -218,6 +218,7 @@ from eZmaxApi.api import object_ezsigndocument_api
 from eZmaxApi.model.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 from eZmaxApi.model.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.common_response_error_s_temporary_file_url import CommonResponseErrorSTemporaryFileUrl
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -294,7 +295,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
 **404** | The element you are trying to work on does not exist |  -  |
-**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. If the error is recoverable sTemporaryFileUrl will be set and you can use this url to try a new request without sending the file over again |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -23,6 +23,7 @@ from eZmaxApi.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.common_response_error_s_temporary_file_url import CommonResponseErrorSTemporaryFileUrl
 from eZmaxApi.model.ezsigndocument_apply_ezsigntemplate_v1_request import EzsigndocumentApplyEzsigntemplateV1Request
 from eZmaxApi.model.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
 from eZmaxApi.model.ezsigndocument_apply_ezsigntemplate_v2_request import EzsigndocumentApplyEzsigntemplateV2Request

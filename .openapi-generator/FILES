@@ -26,6 +26,8 @@ docs/CommonGetAutocompleteV1ResponseMPayload.md
 docs/CommonGetListV1ResponseMPayload.md
 docs/CommonResponse.md
 docs/CommonResponseError.md
+docs/CommonResponseErrorSTemporaryFileUrl.md
+docs/CommonResponseErrorSTemporaryFileUrlAllOf.md
 docs/CommonResponseFilter.md
 docs/CommonResponseFilterEnum.md
 docs/CommonResponseGetList.md
@@ -257,6 +259,8 @@ eZmaxApi/model/common_get_autocomplete_v1_response_m_payload.py
 eZmaxApi/model/common_get_list_v1_response_m_payload.py
 eZmaxApi/model/common_response.py
 eZmaxApi/model/common_response_error.py
+eZmaxApi/model/common_response_error_s_temporary_file_url.py
+eZmaxApi/model/common_response_error_s_temporary_file_url_all_of.py
 eZmaxApi/model/common_response_filter.py
 eZmaxApi/model/common_response_filter_enum.py
 eZmaxApi/model/common_response_get_list.py
@@ -458,6 +462,8 @@ test/test_common_get_autocomplete_v1_response_m_payload.py
 test/test_common_get_list_v1_response_m_payload.py
 test/test_common_response.py
 test/test_common_response_error.py
+test/test_common_response_error_s_temporary_file_url.py
+test/test_common_response_error_s_temporary_file_url_all_of.py
 test/test_common_response_filter.py
 test/test_common_response_filter_enum.py
 test/test_common_response_get_list.py
