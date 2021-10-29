@@ -53,8 +53,9 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsignfoldersignerassociation_create_object_v1_request = [
         EzsignfoldersignerassociationCreateObjectV1Request(
             obj_ezsignfoldersignerassociation=EzsignfoldersignerassociationRequest(
-                fki_user_id=1,
-                fki_ezsignfolder_id=1,
+                fki_user_id=70,
+                fki_ezsignfolder_id=33,
+                b_ezsignfoldersignerassociation_receivecopy=True,
             ),
             obj_ezsignfoldersignerassociation_compound=EzsignfoldersignerassociationRequestCompound(),
         ),
