@@ -123,7 +123,7 @@ class EzsignfolderRequest(ModelNormal):
         Args:
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Somes extra notes about the eZsign Folder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
 
@@ -216,7 +216,7 @@ class EzsignfolderRequest(ModelNormal):
         Args:
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Somes extra notes about the eZsign Folder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
 

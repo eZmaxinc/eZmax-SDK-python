@@ -116,7 +116,7 @@ class CustomFormsDataFolderResponse(ModelNormal):
 
         Args:
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             a_obj_form_data_document ([CustomFormDataDocumentResponse]):
 
         Keyword Args:
@@ -205,7 +205,7 @@ class CustomFormsDataFolderResponse(ModelNormal):
 
         Args:
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             a_obj_form_data_document ([CustomFormDataDocumentResponse]):
 
         Keyword Args:

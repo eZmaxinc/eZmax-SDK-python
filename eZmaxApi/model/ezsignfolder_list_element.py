@@ -99,10 +99,10 @@ class EzsignfolderListElement(ModelNormal):
             'dt_created_date': (str,),  # noqa: E501
             'dt_ezsignfolder_sentdate': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'dt_due_date': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'i_total_document': (int,),  # noqa: E501
-            'i_total_document_edm': (int,),  # noqa: E501
-            'i_total_signature': (int,),  # noqa: E501
-            'i_total_signature_signed': (int,),  # noqa: E501
+            'i_ezsigndocument': (int,),  # noqa: E501
+            'i_ezsigndocument_edm': (int,),  # noqa: E501
+            'i_ezsignsignature': (int,),  # noqa: E501
+            'i_ezsignsignature_signed': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -120,10 +120,10 @@ class EzsignfolderListElement(ModelNormal):
         'dt_created_date': 'dtCreatedDate',  # noqa: E501
         'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
         'dt_due_date': 'dtDueDate',  # noqa: E501
-        'i_total_document': 'iTotalDocument',  # noqa: E501
-        'i_total_document_edm': 'iTotalDocumentEdm',  # noqa: E501
-        'i_total_signature': 'iTotalSignature',  # noqa: E501
-        'i_total_signature_signed': 'iTotalSignatureSigned',  # noqa: E501
+        'i_ezsigndocument': 'iEzsigndocument',  # noqa: E501
+        'i_ezsigndocument_edm': 'iEzsigndocumentEdm',  # noqa: E501
+        'i_ezsignsignature': 'iEzsignsignature',  # noqa: E501
+        'i_ezsignsignature_signed': 'iEzsignsignatureSigned',  # noqa: E501
     }
 
     read_only_vars = {
@@ -133,7 +133,7 @@ class EzsignfolderListElement(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_total_document, i_total_document_edm, i_total_signature, i_total_signature_signed, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignfolderListElement - a model defined in OpenAPI
 
         Args:
@@ -141,15 +141,15 @@ class EzsignfolderListElement(ModelNormal):
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             e_ezsignfoldertype_privacylevel (FieldEEzsignfoldertypePrivacylevel):
             s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
             dt_ezsignfolder_sentdate (bool, date, datetime, dict, float, int, list, str, none_type):
             dt_due_date (bool, date, datetime, dict, float, int, list, str, none_type): The date at which no more signature will be accepted on the folder
-            i_total_document (int): The total number of Ezsigndocument in the folder
-            i_total_document_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
-            i_total_signature (int): The total number of signature blocks in all Ezsigndocuments in the folder
-            i_total_signature_signed (int): The total number of already signed signature blocks in all Ezsigndocuments in the folder
+            i_ezsigndocument (int): The total number of Ezsigndocument in the folder
+            i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
+            i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder
+            i_ezsignsignature_signed (int): The total number of already signed signature blocks in all Ezsigndocuments in the folder
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -218,10 +218,10 @@ class EzsignfolderListElement(ModelNormal):
         self.dt_created_date = dt_created_date
         self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
         self.dt_due_date = dt_due_date
-        self.i_total_document = i_total_document
-        self.i_total_document_edm = i_total_document_edm
-        self.i_total_signature = i_total_signature
-        self.i_total_signature_signed = i_total_signature_signed
+        self.i_ezsigndocument = i_ezsigndocument
+        self.i_ezsigndocument_edm = i_ezsigndocument_edm
+        self.i_ezsignsignature = i_ezsignsignature
+        self.i_ezsignsignature_signed = i_ezsignsignature_signed
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -242,7 +242,7 @@ class EzsignfolderListElement(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_total_document, i_total_document_edm, i_total_signature, i_total_signature_signed, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignfolderListElement - a model defined in OpenAPI
 
         Args:
@@ -250,15 +250,15 @@ class EzsignfolderListElement(ModelNormal):
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             e_ezsignfoldertype_privacylevel (FieldEEzsignfoldertypePrivacylevel):
             s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
-            s_ezsignfolder_description (str): The description of the Ezsign Folder
+            s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
             dt_ezsignfolder_sentdate (bool, date, datetime, dict, float, int, list, str, none_type):
             dt_due_date (bool, date, datetime, dict, float, int, list, str, none_type): The date at which no more signature will be accepted on the folder
-            i_total_document (int): The total number of Ezsigndocument in the folder
-            i_total_document_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
-            i_total_signature (int): The total number of signature blocks in all Ezsigndocuments in the folder
-            i_total_signature_signed (int): The total number of already signed signature blocks in all Ezsigndocuments in the folder
+            i_ezsigndocument (int): The total number of Ezsigndocument in the folder
+            i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
+            i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder
+            i_ezsignsignature_signed (int): The total number of already signed signature blocks in all Ezsigndocuments in the folder
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -325,10 +325,10 @@ class EzsignfolderListElement(ModelNormal):
         self.dt_created_date = dt_created_date
         self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
         self.dt_due_date = dt_due_date
-        self.i_total_document = i_total_document
-        self.i_total_document_edm = i_total_document_edm
-        self.i_total_signature = i_total_signature
-        self.i_total_signature_signed = i_total_signature_signed
+        self.i_ezsigndocument = i_ezsigndocument
+        self.i_ezsigndocument_edm = i_ezsigndocument_edm
+        self.i_ezsignsignature = i_ezsignsignature
+        self.i_ezsignsignature_signed = i_ezsignsignature_signed
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

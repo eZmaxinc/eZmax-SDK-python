@@ -21,6 +21,7 @@ from eZmaxApi.api.module_sspr_api import ModuleSsprApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
+from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
 from eZmaxApi.api.object_ezsigndocument_api import ObjectEzsigndocumentApi
 from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi
 from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfoldersignerassociationApi

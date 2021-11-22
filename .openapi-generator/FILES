@@ -50,6 +50,11 @@ docs/CustomFormsDataFolderResponse.md
 docs/CustomWordPositionOccurenceResponse.md
 docs/CustomWordPositionWordResponse.md
 docs/EmailRequest.md
+docs/EzsignbulksendGetListV1Response.md
+docs/EzsignbulksendGetListV1ResponseAllOf.md
+docs/EzsignbulksendGetListV1ResponseMPayload.md
+docs/EzsignbulksendGetListV1ResponseMPayloadAllOf.md
+docs/EzsignbulksendListElement.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
 docs/EzsigndocumentApplyEzsigntemplateV2Request.md
@@ -176,6 +181,7 @@ docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionApi.md
 docs/ObjectApikeyApi.md
+docs/ObjectEzsignbulksendApi.md
 docs/ObjectEzsigndocumentApi.md
 docs/ObjectEzsignfolderApi.md
 docs/ObjectEzsignfoldersignerassociationApi.md
@@ -222,6 +228,7 @@ eZmaxApi/api/module_sspr_api.py
 eZmaxApi/api/module_user_api.py
 eZmaxApi/api/object_activesession_api.py
 eZmaxApi/api/object_apikey_api.py
+eZmaxApi/api/object_ezsignbulksend_api.py
 eZmaxApi/api/object_ezsigndocument_api.py
 eZmaxApi/api/object_ezsignfolder_api.py
 eZmaxApi/api/object_ezsignfoldersignerassociation_api.py
@@ -283,6 +290,11 @@ eZmaxApi/model/custom_forms_data_folder_response.py
 eZmaxApi/model/custom_word_position_occurence_response.py
 eZmaxApi/model/custom_word_position_word_response.py
 eZmaxApi/model/email_request.py
+eZmaxApi/model/ezsignbulksend_get_list_v1_response.py
+eZmaxApi/model/ezsignbulksend_get_list_v1_response_all_of.py
+eZmaxApi/model/ezsignbulksend_get_list_v1_response_m_payload.py
+eZmaxApi/model/ezsignbulksend_get_list_v1_response_m_payload_all_of.py
+eZmaxApi/model/ezsignbulksend_list_element.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_request.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_response.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v2_request.py
@@ -486,6 +498,11 @@ test/test_custom_forms_data_folder_response.py
 test/test_custom_word_position_occurence_response.py
 test/test_custom_word_position_word_response.py
 test/test_email_request.py
+test/test_ezsignbulksend_get_list_v1_response.py
+test/test_ezsignbulksend_get_list_v1_response_all_of.py
+test/test_ezsignbulksend_get_list_v1_response_m_payload.py
+test/test_ezsignbulksend_get_list_v1_response_m_payload_all_of.py
+test/test_ezsignbulksend_list_element.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_request.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_response.py
 test/test_ezsigndocument_apply_ezsigntemplate_v2_request.py
@@ -612,6 +629,7 @@ test/test_module_user_api.py
 test/test_multilingual_apikey_description.py
 test/test_object_activesession_api.py
 test/test_object_apikey_api.py
+test/test_object_ezsignbulksend_api.py
 test/test_object_ezsigndocument_api.py
 test/test_object_ezsignfolder_api.py
 test/test_object_ezsignfoldersignerassociation_api.py
