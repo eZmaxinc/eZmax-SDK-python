@@ -92,9 +92,9 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
         """
         lazy_import()
         return {
+            'a_obj_ezsignbulksend': ([EzsignbulksendListElement],),  # noqa: E501
             'i_row_returned': (int,),  # noqa: E501
             'i_row_filtered': (int,),  # noqa: E501
-            'a_obj_ezsignfolder': ([EzsignbulksendListElement],),  # noqa: E501
         }
 
     @cached_property
@@ -103,9 +103,9 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
 
 
     attribute_map = {
+        'a_obj_ezsignbulksend': 'a_objEzsignbulksend',  # noqa: E501
         'i_row_returned': 'iRowReturned',  # noqa: E501
         'i_row_filtered': 'iRowFiltered',  # noqa: E501
-        'a_obj_ezsignfolder': 'a_objEzsignfolder',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,6 +117,7 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
         """EzsignbulksendGetListV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
             i_row_returned (int): The number of rows returned
             i_row_filtered (int): The number of rows matching your filters (if any) or the total number of rows
             _check_type (bool): if True, values for parameters in openapi_types
@@ -149,7 +150,6 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignfolder ([EzsignbulksendListElement]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +219,7 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
         """EzsignbulksendGetListV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
             i_row_returned (int): The number of rows returned
             i_row_filtered (int): The number of rows matching your filters (if any) or the total number of rows
             _check_type (bool): if True, values for parameters in openapi_types
@@ -251,7 +252,6 @@ class EzsignbulksendGetListV1ResponseMPayload(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignfolder ([EzsignbulksendListElement]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

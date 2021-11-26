@@ -88,7 +88,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_ezsignfolder': ([EzsignbulksendListElement],),  # noqa: E501
+            'a_obj_ezsignbulksend': ([EzsignbulksendListElement],),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +97,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
 
 
     attribute_map = {
-        'a_obj_ezsignfolder': 'a_objEzsignfolder',  # noqa: E501
+        'a_obj_ezsignbulksend': 'a_objEzsignbulksend',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,8 +107,11 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, a_obj_ezsignbulksend, *args, **kwargs):  # noqa: E501
         """EzsignbulksendGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
+
+        Args:
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,7 +144,6 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignfolder ([EzsignbulksendListElement]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,6 +171,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.a_obj_ezsignbulksend = a_obj_ezsignbulksend
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +192,11 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, a_obj_ezsignbulksend, *args, **kwargs):  # noqa: E501
         """EzsignbulksendGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
+
+        Args:
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +229,6 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignfolder ([EzsignbulksendListElement]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,6 +254,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.a_obj_ezsignbulksend = a_obj_ezsignbulksend
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
