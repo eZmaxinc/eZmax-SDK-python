@@ -25,8 +25,8 @@ from eZmaxApi.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from eZmaxApi.exceptions import ApiAttributeError
 
 
@@ -84,7 +84,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
         return {
             's_category': (str,),  # noqa: E501
             's_label': (str,),  # noqa: E501
-            'm_value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'm_value': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
         Args:
             s_category (str): The Category for the dropdown or an empty string if not categorized
             s_label (str): The Description of the element
-            m_value (bool, date, datetime, dict, float, int, list, str, none_type): The Unique ID of the element
+            m_value (str): The Unique ID of the element
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
         Args:
             s_category (str): The Category for the dropdown or an empty string if not categorized
             s_label (str): The Description of the element
-            m_value (bool, date, datetime, dict, float, int, list, str, none_type): The Unique ID of the element
+            m_value (str): The Unique ID of the element
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

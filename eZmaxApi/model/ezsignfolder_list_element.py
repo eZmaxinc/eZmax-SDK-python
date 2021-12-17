@@ -25,8 +25,8 @@ from eZmaxApi.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from eZmaxApi.exceptions import ApiAttributeError
 
 
@@ -97,8 +97,8 @@ class EzsignfolderListElement(ModelNormal):
             's_ezsignfolder_description': (str,),  # noqa: E501
             'e_ezsignfolder_step': (FieldEEzsignfolderStep,),  # noqa: E501
             'dt_created_date': (str,),  # noqa: E501
-            'dt_ezsignfolder_sentdate': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'dt_due_date': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'dt_ezsignfolder_sentdate': (str, none_type,),  # noqa: E501
+            'dt_due_date': (str, none_type,),  # noqa: E501
             'i_ezsigndocument': (int,),  # noqa: E501
             'i_ezsigndocument_edm': (int,),  # noqa: E501
             'i_ezsignsignature': (int,),  # noqa: E501
@@ -144,8 +144,8 @@ class EzsignfolderListElement(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
-            dt_ezsignfolder_sentdate (bool, date, datetime, dict, float, int, list, str, none_type):
-            dt_due_date (bool, date, datetime, dict, float, int, list, str, none_type): The date at which no more signature will be accepted on the folder
+            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
+            dt_due_date (str, none_type): Represent a Date Time. The timezone is the one configured in the User's profile.
             i_ezsigndocument (int): The total number of Ezsigndocument in the folder
             i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
             i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder
@@ -253,8 +253,8 @@ class EzsignfolderListElement(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
-            dt_ezsignfolder_sentdate (bool, date, datetime, dict, float, int, list, str, none_type):
-            dt_due_date (bool, date, datetime, dict, float, int, list, str, none_type): The date at which no more signature will be accepted on the folder
+            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
+            dt_due_date (str, none_type): Represent a Date Time. The timezone is the one configured in the User's profile.
             i_ezsigndocument (int): The total number of Ezsigndocument in the folder
             i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
             i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder

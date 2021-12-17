@@ -25,8 +25,8 @@ from eZmaxApi.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from eZmaxApi.exceptions import ApiAttributeError
 
 
@@ -100,7 +100,7 @@ class EzsignfolderResponse(ModelNormal):
             't_ezsignfolder_note': (str,),  # noqa: E501
             'e_ezsignfolder_sendreminderfrequency': (FieldEEzsignfolderSendreminderfrequency,),  # noqa: E501
             'pki_ezsignfolder_id': (int,),  # noqa: E501
-            'dt_ezsignfolder_sentdate': (str,),  # noqa: E501
+            'dt_ezsignfolder_sentdate': (str, none_type,),  # noqa: E501
             'e_ezsignfolder_step': (FieldEEzsignfolderStep,),  # noqa: E501
             'dt_ezsignfolder_close': (str,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
@@ -141,7 +141,7 @@ class EzsignfolderResponse(ModelNormal):
             t_ezsignfolder_note (str): Somes extra notes about the eZsign Folder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.
+            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_ezsignfolder_close (str): The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely.
             obj_audit (CommonAudit):
@@ -244,7 +244,7 @@ class EzsignfolderResponse(ModelNormal):
             t_ezsignfolder_note (str): Somes extra notes about the eZsign Folder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.
+            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_ezsignfolder_close (str): The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely.
             obj_audit (CommonAudit):

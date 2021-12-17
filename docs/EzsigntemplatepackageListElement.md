@@ -6,9 +6,9 @@ An Ezsigntemplatepackage List Element
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsigntemplatepackage_id** | **int** | The unique ID of the Ezsigntemplatepackage | 
-**fki_department_id** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**fki_team_id** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**fki_ezsignfoldertype_id** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
+**fki_department_id** | **int, none_type** | The unique ID of the Department. | 
+**fki_team_id** | **int, none_type** | The unique ID of the Team | 
+**fki_ezsignfoldertype_id** | **int, none_type** | The unique ID of the Ezsignfoldertype. | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **e_ezsigntemplatepackage_type** | [**FieldEEzsigntemplatepackageType**](FieldEEzsigntemplatepackageType.md) |  | 
 **s_ezsigntemplatepackage_description** | **str** | The description of the Ezsigntemplatepackage | 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **t_ezsignfolder_note** | **str** | Somes extra notes about the eZsign Folder | 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
-**dt_ezsignfolder_sentdate** | **str** | The date and time at which the Ezsign folder was sent the last time. | 
+**dt_ezsignfolder_sentdate** | **str, none_type** | The date and time at which the Ezsign folder was sent the last time. | 
 **e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **dt_ezsignfolder_close** | **str** | The date and time at which the folder was closed. Either by applying the last signature or by completing it prematurely. | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 

@@ -634,6 +634,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -662,6 +665,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -704,6 +709,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -732,6 +740,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -772,6 +782,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -800,6 +813,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['ezsigndocument_create_object_v1_request'] = \
             ezsigndocument_create_object_v1_request
@@ -837,6 +852,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -865,6 +883,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -903,6 +923,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -931,6 +954,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -971,6 +996,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -999,6 +1027,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -1038,6 +1068,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1066,6 +1099,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -1103,6 +1138,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1131,6 +1169,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -1169,6 +1209,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1197,6 +1240,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
@@ -1236,6 +1281,9 @@ class ObjectEzsigndocumentApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -1264,6 +1312,8 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id

@@ -25,8 +25,8 @@ from eZmaxApi.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from eZmaxApi.exceptions import ApiAttributeError
 
 
@@ -91,9 +91,9 @@ class EzsigntemplatepackageListElement(ModelNormal):
         lazy_import()
         return {
             'pki_ezsigntemplatepackage_id': (int,),  # noqa: E501
-            'fki_department_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'fki_team_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'fki_ezsignfoldertype_id': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'fki_department_id': (int, none_type,),  # noqa: E501
+            'fki_team_id': (int, none_type,),  # noqa: E501
+            'fki_ezsignfoldertype_id': (int, none_type,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             'e_ezsigntemplatepackage_type': (FieldEEzsigntemplatepackageType,),  # noqa: E501
             's_ezsigntemplatepackage_description': (str,),  # noqa: E501
@@ -130,9 +130,9 @@ class EzsigntemplatepackageListElement(ModelNormal):
 
         Args:
             pki_ezsigntemplatepackage_id (int): The unique ID of the Ezsigntemplatepackage
-            fki_department_id (bool, date, datetime, dict, float, int, list, str, none_type):
-            fki_team_id (bool, date, datetime, dict, float, int, list, str, none_type):
-            fki_ezsignfoldertype_id (bool, date, datetime, dict, float, int, list, str, none_type):
+            fki_department_id (int, none_type): The unique ID of the Department.
+            fki_team_id (int, none_type): The unique ID of the Team
+            fki_ezsignfoldertype_id (int, none_type): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
             e_ezsigntemplatepackage_type (FieldEEzsigntemplatepackageType):
             s_ezsigntemplatepackage_description (str): The description of the Ezsigntemplatepackage
@@ -231,9 +231,9 @@ class EzsigntemplatepackageListElement(ModelNormal):
 
         Args:
             pki_ezsigntemplatepackage_id (int): The unique ID of the Ezsigntemplatepackage
-            fki_department_id (bool, date, datetime, dict, float, int, list, str, none_type):
-            fki_team_id (bool, date, datetime, dict, float, int, list, str, none_type):
-            fki_ezsignfoldertype_id (bool, date, datetime, dict, float, int, list, str, none_type):
+            fki_department_id (int, none_type): The unique ID of the Department.
+            fki_team_id (int, none_type): The unique ID of the Team
+            fki_ezsignfoldertype_id (int, none_type): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
             e_ezsigntemplatepackage_type (FieldEEzsigntemplatepackageType):
             s_ezsigntemplatepackage_description (str): The description of the Ezsigntemplatepackage
