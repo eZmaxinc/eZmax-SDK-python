@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_ezsigndocument_source** | **str** | Indicates where to look for the document binary content. | 
 **fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
-**dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the document can be signed. | 
+**dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the Ezsigndocument can be signed. | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **e_ezsigndocument_format** | **str** | Indicates the format of the document. | defaults to "Pdf"
