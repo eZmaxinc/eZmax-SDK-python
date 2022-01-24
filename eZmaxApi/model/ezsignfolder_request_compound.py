@@ -32,13 +32,9 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.ezsignfolder_request import EzsignfolderRequest
-    from eZmaxApi.model.ezsignfolder_request_compound_all_of import EzsignfolderRequestCompoundAllOf
-    from eZmaxApi.model.ezsignfoldersignerassociation_request import EzsignfoldersignerassociationRequest
     from eZmaxApi.model.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
     from eZmaxApi.model.field_pki_ezsigntsarequirement_id import FieldPkiEzsigntsarequirementID
     globals()['EzsignfolderRequest'] = EzsignfolderRequest
-    globals()['EzsignfolderRequestCompoundAllOf'] = EzsignfolderRequestCompoundAllOf
-    globals()['EzsignfoldersignerassociationRequest'] = EzsignfoldersignerassociationRequest
     globals()['FieldEEzsignfolderSendreminderfrequency'] = FieldEEzsignfolderSendreminderfrequency
     globals()['FieldPkiEzsigntsarequirementID'] = FieldPkiEzsigntsarequirementID
 
@@ -96,7 +92,6 @@ class EzsignfolderRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'a_ezsignfoldersignerassociation': ([EzsignfoldersignerassociationRequest],),  # noqa: E501
             'fki_ezsignfoldertype_id': (int,),  # noqa: E501
             'fki_ezsigntsarequirement_id': (FieldPkiEzsigntsarequirementID,),  # noqa: E501
             's_ezsignfolder_description': (str,),  # noqa: E501
@@ -110,7 +105,6 @@ class EzsignfolderRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'a_ezsignfoldersignerassociation': 'a_Ezsignfoldersignerassociation',  # noqa: E501
         'fki_ezsignfoldertype_id': 'fkiEzsignfoldertypeID',  # noqa: E501
         'fki_ezsigntsarequirement_id': 'fkiEzsigntsarequirementID',  # noqa: E501
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
@@ -127,7 +121,6 @@ class EzsignfolderRequestCompound(ModelComposed):
         """EzsignfolderRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_ezsignfoldersignerassociation ([EzsignfoldersignerassociationRequest]): An array of signers that will be invited to sign the Ezsigndocuments
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
@@ -232,7 +225,6 @@ class EzsignfolderRequestCompound(ModelComposed):
         """EzsignfolderRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_ezsignfoldersignerassociation ([EzsignfoldersignerassociationRequest]): An array of signers that will be invited to sign the Ezsigndocuments
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
@@ -334,7 +326,6 @@ class EzsignfolderRequestCompound(ModelComposed):
           ],
           'allOf': [
               EzsignfolderRequest,
-              EzsignfolderRequestCompoundAllOf,
           ],
           'oneOf': [
           ],

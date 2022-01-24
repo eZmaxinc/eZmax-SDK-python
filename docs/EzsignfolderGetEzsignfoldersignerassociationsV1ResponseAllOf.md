@@ -1,10 +1,10 @@
-# EzsignfolderRequestCompoundAllOf
+# EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_ezsignfoldersignerassociation** | [**[EzsignfoldersignerassociationRequest]**](EzsignfoldersignerassociationRequest.md) | An array of signers that will be invited to sign the Ezsigndocuments | 
+**m_payload** | [**EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload**](EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -32,11 +32,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.common_audit import CommonAudit
-    from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
+    from eZmaxApi.model.ezsigndocument_response_compound import EzsigndocumentResponseCompound
     from eZmaxApi.model.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
     globals()['CommonAudit'] = CommonAudit
-    globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
+    globals()['EzsigndocumentResponseCompound'] = EzsigndocumentResponseCompound
     globals()['FieldEEzsigndocumentStep'] = FieldEEzsigndocumentStep
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 
@@ -367,7 +367,7 @@ class EzsigndocumentGetObjectV1ResponseMPayload(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              EzsigndocumentResponse,
+              EzsigndocumentResponseCompound,
           ],
           'oneOf': [
           ],

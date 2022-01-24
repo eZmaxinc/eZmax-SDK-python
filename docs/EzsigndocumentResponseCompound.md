@@ -5,6 +5,11 @@ An Ezsigndocument Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**i_ezsigndocument_stepformtotal** | **int** | The total number of steps in the form filling phase | 
+**i_ezsigndocument_stepformcurrent** | **int** | The current step in the form filling phase | 
+**i_ezsigndocument_stepsignaturetotal** | **int** | The total number of steps in the signature filling phase | 
+**i_ezsigndocument_stepsignature_current** | **int** | The current step in the signature phase | 
+**a_obj_ezsignfoldersignerassociationstatus** | [**[CustomEzsignfoldersignerassociationstatusResponse]**](CustomEzsignfoldersignerassociationstatusResponse.md) |  | 
 **fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
 **dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the Ezsigndocument can be signed. | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 

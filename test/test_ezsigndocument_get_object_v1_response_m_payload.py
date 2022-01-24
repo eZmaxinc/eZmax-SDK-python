@@ -14,11 +14,11 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.common_audit import CommonAudit
-from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
+from eZmaxApi.model.ezsigndocument_response_compound import EzsigndocumentResponseCompound
 from eZmaxApi.model.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
 from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
 globals()['CommonAudit'] = CommonAudit
-globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
+globals()['EzsigndocumentResponseCompound'] = EzsigndocumentResponseCompound
 globals()['FieldEEzsigndocumentStep'] = FieldEEzsigndocumentStep
 globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 from eZmaxApi.model.ezsigndocument_get_object_v1_response_m_payload import EzsigndocumentGetObjectV1ResponseMPayload

@@ -121,8 +121,8 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
         """EzsignsignerRequestCompoundContact - a model defined in OpenAPI
 
         Args:
-            s_contact_firstname (str): The first name of the Contact
-            s_contact_lastname (str): The last name of the Contact
+            s_contact_firstname (str): The First name of the contact
+            s_contact_lastname (str): The Last name of the contact
             fki_language_id (FieldPkiLanguageID):
 
         Keyword Args:
@@ -156,7 +156,7 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            s_email_address (str): The email address of the contact. Must be filled if email authentification was requested. [optional]  # noqa: E501
+            s_email_address (str): The email address.. [optional]  # noqa: E501
             s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
             s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
         """
@@ -213,8 +213,8 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
         """EzsignsignerRequestCompoundContact - a model defined in OpenAPI
 
         Args:
-            s_contact_firstname (str): The first name of the Contact
-            s_contact_lastname (str): The last name of the Contact
+            s_contact_firstname (str): The First name of the contact
+            s_contact_lastname (str): The Last name of the contact
             fki_language_id (FieldPkiLanguageID):
 
         Keyword Args:
@@ -248,7 +248,7 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            s_email_address (str): The email address of the contact. Must be filled if email authentification was requested. [optional]  # noqa: E501
+            s_email_address (str): The email address.. [optional]  # noqa: E501
             s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
             s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
         """

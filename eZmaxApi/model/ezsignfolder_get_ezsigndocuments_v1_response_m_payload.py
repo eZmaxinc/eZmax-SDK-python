@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
-    globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
+    from eZmaxApi.model.ezsigndocument_response_compound import EzsigndocumentResponseCompound
+    globals()['EzsigndocumentResponseCompound'] = EzsigndocumentResponseCompound
 
 
 class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
@@ -88,7 +88,7 @@ class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_ezsigndocument': ([EzsigndocumentResponse],),  # noqa: E501
+            'a_obj_ezsigndocument': ([EzsigndocumentResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
         """EzsignfolderGetEzsigndocumentsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigndocument ([EzsigndocumentResponse]):
+            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
         """EzsignfolderGetEzsigndocumentsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigndocument ([EzsigndocumentResponse]):
+            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

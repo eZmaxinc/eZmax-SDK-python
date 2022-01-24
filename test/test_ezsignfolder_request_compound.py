@@ -14,13 +14,9 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.ezsignfolder_request import EzsignfolderRequest
-from eZmaxApi.model.ezsignfolder_request_compound_all_of import EzsignfolderRequestCompoundAllOf
-from eZmaxApi.model.ezsignfoldersignerassociation_request import EzsignfoldersignerassociationRequest
 from eZmaxApi.model.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.model.field_pki_ezsigntsarequirement_id import FieldPkiEzsigntsarequirementID
 globals()['EzsignfolderRequest'] = EzsignfolderRequest
-globals()['EzsignfolderRequestCompoundAllOf'] = EzsignfolderRequestCompoundAllOf
-globals()['EzsignfoldersignerassociationRequest'] = EzsignfoldersignerassociationRequest
 globals()['FieldEEzsignfolderSendreminderfrequency'] = FieldEEzsignfolderSendreminderfrequency
 globals()['FieldPkiEzsigntsarequirementID'] = FieldPkiEzsigntsarequirementID
 from eZmaxApi.model.ezsignfolder_request_compound import EzsignfolderRequestCompound

@@ -32,10 +32,12 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.common_audit import CommonAudit
+    from eZmaxApi.model.custom_ezsignfoldersignerassociationstatus_response import CustomEzsignfoldersignerassociationstatusResponse
     from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
     from eZmaxApi.model.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
     globals()['CommonAudit'] = CommonAudit
+    globals()['CustomEzsignfoldersignerassociationstatusResponse'] = CustomEzsignfoldersignerassociationstatusResponse
     globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
     globals()['FieldEEzsigndocumentStep'] = FieldEEzsigndocumentStep
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
@@ -94,6 +96,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """
         lazy_import()
         return {
+            'i_ezsigndocument_stepformtotal': (int,),  # noqa: E501
+            'i_ezsigndocument_stepformcurrent': (int,),  # noqa: E501
+            'i_ezsigndocument_stepsignaturetotal': (int,),  # noqa: E501
+            'i_ezsigndocument_stepsignature_current': (int,),  # noqa: E501
+            'a_obj_ezsignfoldersignerassociationstatus': ([CustomEzsignfoldersignerassociationstatusResponse],),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
             'dt_ezsigndocument_duedate': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
@@ -117,6 +124,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
 
 
     attribute_map = {
+        'i_ezsigndocument_stepformtotal': 'iEzsigndocumentStepformtotal',  # noqa: E501
+        'i_ezsigndocument_stepformcurrent': 'iEzsigndocumentStepformcurrent',  # noqa: E501
+        'i_ezsigndocument_stepsignaturetotal': 'iEzsigndocumentStepsignaturetotal',  # noqa: E501
+        'i_ezsigndocument_stepsignature_current': 'iEzsigndocumentStepsignatureCurrent',  # noqa: E501
+        'a_obj_ezsignfoldersignerassociationstatus': 'a_objEzsignfoldersignerassociationstatus',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
         'dt_ezsigndocument_duedate': 'dtEzsigndocumentDuedate',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
@@ -143,6 +155,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """EzsigndocumentResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
+            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
+            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
+            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
+            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
+            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):
@@ -257,6 +274,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """EzsigndocumentResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
+            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
+            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
+            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
+            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
+            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):

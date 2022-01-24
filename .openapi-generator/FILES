@@ -44,6 +44,8 @@ docs/ContactinformationsRequest.md
 docs/ContactinformationsRequestCompound.md
 docs/ContactinformationsRequestCompoundAllOf.md
 docs/CustomAutocompleteElementResponse.md
+docs/CustomEzsignfoldersignerassociationstatusResponse.md
+docs/CustomEzsignsignaturestatusResponse.md
 docs/CustomFormDataDocumentResponse.md
 docs/CustomFormDataSignerResponse.md
 docs/CustomFormsDataFolderResponse.md
@@ -92,6 +94,9 @@ docs/EzsignfolderDeleteObjectV1Response.md
 docs/EzsignfolderGetEzsigndocumentsV1Response.md
 docs/EzsignfolderGetEzsigndocumentsV1ResponseAllOf.md
 docs/EzsignfolderGetEzsigndocumentsV1ResponseMPayload.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1Response.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseAllOf.md
+docs/EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.md
 docs/EzsignfolderGetFormsDataV1Response.md
 docs/EzsignfolderGetFormsDataV1ResponseAllOf.md
 docs/EzsignfolderGetFormsDataV1ResponseMPayload.md
@@ -105,7 +110,6 @@ docs/EzsignfolderGetObjectV1ResponseMPayload.md
 docs/EzsignfolderListElement.md
 docs/EzsignfolderRequest.md
 docs/EzsignfolderRequestCompound.md
-docs/EzsignfolderRequestCompoundAllOf.md
 docs/EzsignfolderResponse.md
 docs/EzsignfolderResponseCompound.md
 docs/EzsignfolderSendV1Request.md
@@ -151,6 +155,10 @@ docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
 docs/EzsignsignerRequestCompoundAllOf.md
 docs/EzsignsignerRequestCompoundContact.md
+docs/EzsignsignerResponse.md
+docs/EzsignsignerResponseCompound.md
+docs/EzsignsignerResponseCompoundAllOf.md
+docs/EzsignsignerResponseCompoundContact.md
 docs/EzsigntemplatepackageGetListV1Response.md
 docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
@@ -298,6 +306,8 @@ eZmaxApi/model/contactinformations_request.py
 eZmaxApi/model/contactinformations_request_compound.py
 eZmaxApi/model/contactinformations_request_compound_all_of.py
 eZmaxApi/model/custom_autocomplete_element_response.py
+eZmaxApi/model/custom_ezsignfoldersignerassociationstatus_response.py
+eZmaxApi/model/custom_ezsignsignaturestatus_response.py
 eZmaxApi/model/custom_form_data_document_response.py
 eZmaxApi/model/custom_form_data_signer_response.py
 eZmaxApi/model/custom_forms_data_folder_response.py
@@ -346,6 +356,9 @@ eZmaxApi/model/ezsignfolder_delete_object_v1_response.py
 eZmaxApi/model/ezsignfolder_get_ezsigndocuments_v1_response.py
 eZmaxApi/model/ezsignfolder_get_ezsigndocuments_v1_response_all_of.py
 eZmaxApi/model/ezsignfolder_get_ezsigndocuments_v1_response_m_payload.py
+eZmaxApi/model/ezsignfolder_get_ezsignfoldersignerassociations_v1_response.py
+eZmaxApi/model/ezsignfolder_get_ezsignfoldersignerassociations_v1_response_all_of.py
+eZmaxApi/model/ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload.py
 eZmaxApi/model/ezsignfolder_get_forms_data_v1_response.py
 eZmaxApi/model/ezsignfolder_get_forms_data_v1_response_all_of.py
 eZmaxApi/model/ezsignfolder_get_forms_data_v1_response_m_payload.py
@@ -359,7 +372,6 @@ eZmaxApi/model/ezsignfolder_get_object_v1_response_m_payload.py
 eZmaxApi/model/ezsignfolder_list_element.py
 eZmaxApi/model/ezsignfolder_request.py
 eZmaxApi/model/ezsignfolder_request_compound.py
-eZmaxApi/model/ezsignfolder_request_compound_all_of.py
 eZmaxApi/model/ezsignfolder_response.py
 eZmaxApi/model/ezsignfolder_response_compound.py
 eZmaxApi/model/ezsignfolder_send_v1_request.py
@@ -405,6 +417,10 @@ eZmaxApi/model/ezsignsigner_request.py
 eZmaxApi/model/ezsignsigner_request_compound.py
 eZmaxApi/model/ezsignsigner_request_compound_all_of.py
 eZmaxApi/model/ezsignsigner_request_compound_contact.py
+eZmaxApi/model/ezsignsigner_response.py
+eZmaxApi/model/ezsignsigner_response_compound.py
+eZmaxApi/model/ezsignsigner_response_compound_all_of.py
+eZmaxApi/model/ezsignsigner_response_compound_contact.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_all_of.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_m_payload.py
@@ -518,6 +534,8 @@ test/test_contactinformations_request.py
 test/test_contactinformations_request_compound.py
 test/test_contactinformations_request_compound_all_of.py
 test/test_custom_autocomplete_element_response.py
+test/test_custom_ezsignfoldersignerassociationstatus_response.py
+test/test_custom_ezsignsignaturestatus_response.py
 test/test_custom_form_data_document_response.py
 test/test_custom_form_data_signer_response.py
 test/test_custom_forms_data_folder_response.py
@@ -566,6 +584,9 @@ test/test_ezsignfolder_delete_object_v1_response.py
 test/test_ezsignfolder_get_ezsigndocuments_v1_response.py
 test/test_ezsignfolder_get_ezsigndocuments_v1_response_all_of.py
 test/test_ezsignfolder_get_ezsigndocuments_v1_response_m_payload.py
+test/test_ezsignfolder_get_ezsignfoldersignerassociations_v1_response.py
+test/test_ezsignfolder_get_ezsignfoldersignerassociations_v1_response_all_of.py
+test/test_ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload.py
 test/test_ezsignfolder_get_forms_data_v1_response.py
 test/test_ezsignfolder_get_forms_data_v1_response_all_of.py
 test/test_ezsignfolder_get_forms_data_v1_response_m_payload.py
@@ -579,7 +600,6 @@ test/test_ezsignfolder_get_object_v1_response_m_payload.py
 test/test_ezsignfolder_list_element.py
 test/test_ezsignfolder_request.py
 test/test_ezsignfolder_request_compound.py
-test/test_ezsignfolder_request_compound_all_of.py
 test/test_ezsignfolder_response.py
 test/test_ezsignfolder_response_compound.py
 test/test_ezsignfolder_send_v1_request.py
@@ -625,6 +645,10 @@ test/test_ezsignsigner_request.py
 test/test_ezsignsigner_request_compound.py
 test/test_ezsignsigner_request_compound_all_of.py
 test/test_ezsignsigner_request_compound_contact.py
+test/test_ezsignsigner_response.py
+test/test_ezsignsigner_response_compound.py
+test/test_ezsignsigner_response_compound_all_of.py
+test/test_ezsignsigner_response_compound_contact.py
 test/test_ezsigntemplatepackage_get_list_v1_response.py
 test/test_ezsigntemplatepackage_get_list_v1_response_all_of.py
 test/test_ezsigntemplatepackage_get_list_v1_response_m_payload.py
