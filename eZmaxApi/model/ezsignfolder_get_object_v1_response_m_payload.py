@@ -32,12 +32,12 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.common_audit import CommonAudit
-    from eZmaxApi.model.ezsignfolder_response import EzsignfolderResponse
+    from eZmaxApi.model.ezsignfolder_response_compound import EzsignfolderResponseCompound
     from eZmaxApi.model.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
     from eZmaxApi.model.field_e_ezsignfolder_step import FieldEEzsignfolderStep
     from eZmaxApi.model.field_pki_ezsigntsarequirement_id import FieldPkiEzsigntsarequirementID
     globals()['CommonAudit'] = CommonAudit
-    globals()['EzsignfolderResponse'] = EzsignfolderResponse
+    globals()['EzsignfolderResponseCompound'] = EzsignfolderResponseCompound
     globals()['FieldEEzsignfolderSendreminderfrequency'] = FieldEEzsignfolderSendreminderfrequency
     globals()['FieldEEzsignfolderStep'] = FieldEEzsignfolderStep
     globals()['FieldPkiEzsigntsarequirementID'] = FieldPkiEzsigntsarequirementID
@@ -377,7 +377,7 @@ class EzsignfolderGetObjectV1ResponseMPayload(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              EzsignfolderResponse,
+              EzsignfolderResponseCompound,
           ],
           'oneOf': [
           ],
