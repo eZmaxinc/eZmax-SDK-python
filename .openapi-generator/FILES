@@ -151,6 +151,7 @@ docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureGetObjectV1ResponseAllOf.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
+docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
 docs/EzsignsignerRequestCompoundAllOf.md
@@ -413,6 +414,7 @@ eZmaxApi/model/ezsignsignature_get_object_v1_response.py
 eZmaxApi/model/ezsignsignature_get_object_v1_response_all_of.py
 eZmaxApi/model/ezsignsignature_request.py
 eZmaxApi/model/ezsignsignature_request_compound.py
+eZmaxApi/model/ezsignsignaturecustomdate_request.py
 eZmaxApi/model/ezsignsigner_request.py
 eZmaxApi/model/ezsignsigner_request_compound.py
 eZmaxApi/model/ezsignsigner_request_compound_all_of.py
@@ -641,6 +643,7 @@ test/test_ezsignsignature_get_object_v1_response.py
 test/test_ezsignsignature_get_object_v1_response_all_of.py
 test/test_ezsignsignature_request.py
 test/test_ezsignsignature_request_compound.py
+test/test_ezsignsignaturecustomdate_request.py
 test/test_ezsignsigner_request.py
 test/test_ezsignsigner_request_compound.py
 test/test_ezsignsigner_request_compound_all_of.py

@@ -14,8 +14,10 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.ezsignsignature_request import EzsignsignatureRequest
+from eZmaxApi.model.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
 from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 globals()['EzsignsignatureRequest'] = EzsignsignatureRequest
+globals()['EzsignsignaturecustomdateRequest'] = EzsignsignaturecustomdateRequest
 globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 from eZmaxApi.model.ezsignsignature_request_compound import EzsignsignatureRequestCompound
 
