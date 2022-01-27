@@ -14,7 +14,11 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.ezsignfoldersignerassociation_response import EzsignfoldersignerassociationResponse
+from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
+from eZmaxApi.model.ezsignsigner_response_compound import EzsignsignerResponseCompound
 globals()['EzsignfoldersignerassociationResponse'] = EzsignfoldersignerassociationResponse
+globals()['EzsignfoldersignerassociationResponseCompoundUser'] = EzsignfoldersignerassociationResponseCompoundUser
+globals()['EzsignsignerResponseCompound'] = EzsignsignerResponseCompound
 from eZmaxApi.model.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
 
 

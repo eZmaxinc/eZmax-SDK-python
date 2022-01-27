@@ -90,8 +90,6 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
         return {
             'pki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
-            'fki_ezsignsigner_id': (int, none_type,),  # noqa: E501
-            'fki_user_id': (int, none_type,),  # noqa: E501
             'b_ezsignfoldersignerassociation_receivecopy': (bool,),  # noqa: E501
         }
 
@@ -103,8 +101,6 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
     attribute_map = {
         'pki_ezsignfoldersignerassociation_id': 'pkiEzsignfoldersignerassociationID',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
-        'fki_ezsignsigner_id': 'fkiEzsignsignerID',  # noqa: E501
-        'fki_user_id': 'fkiUserID',  # noqa: E501
         'b_ezsignfoldersignerassociation_receivecopy': 'bEzsignfoldersignerassociationReceivecopy',  # noqa: E501
     }
 
@@ -119,8 +115,6 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
         Keyword Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -223,8 +217,6 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
         Keyword Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

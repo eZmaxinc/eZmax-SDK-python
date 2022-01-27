@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsignfoldersignerassociation_response import EzsignfoldersignerassociationResponse
-    globals()['EzsignfoldersignerassociationResponse'] = EzsignfoldersignerassociationResponse
+    from eZmaxApi.model.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
+    globals()['EzsignfoldersignerassociationResponseCompound'] = EzsignfoldersignerassociationResponseCompound
 
 
 class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNormal):
@@ -88,7 +88,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNorma
         """
         lazy_import()
         return {
-            'a_obj_ezsignfoldersignerassociation': ([EzsignfoldersignerassociationResponse],),  # noqa: E501
+            'a_obj_ezsignfoldersignerassociation': ([EzsignfoldersignerassociationResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNorma
         """EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponse]):
+            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNorma
         """EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponse]):
+            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

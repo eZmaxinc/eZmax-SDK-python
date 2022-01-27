@@ -60,13 +60,6 @@ class EzsignsignerResponse(ModelNormal):
     """
 
     allowed_values = {
-        ('e_ezsignsigner_logintype',): {
-            'PASSWORD': "Password",
-            'PASSWORDPHONE': "PasswordPhone",
-            'PASSWORDQUESTION': "PasswordQuestion",
-            'INPERSONPHONE': "InPersonPhone",
-            'INPERSON': "InPerson",
-        },
     }
 
     validations = {
@@ -95,10 +88,11 @@ class EzsignsignerResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'pki_ezsignsigner_id': (int,),  # noqa: E501
             'fki_taxassignment_id': (FieldPkiTaxassignmentID,),  # noqa: E501
-            'e_ezsignsigner_logintype': (str,),  # noqa: E501
+            'fki_userlogintype_id': (int,),  # noqa: E501
+            's_userlogintype_description_x': (str,),  # noqa: E501
             'fki_secretquestion_id': (int,),  # noqa: E501
-            's_ezsignsigner_secretanswer': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -107,10 +101,11 @@ class EzsignsignerResponse(ModelNormal):
 
 
     attribute_map = {
+        'pki_ezsignsigner_id': 'pkiEzsignsignerID',  # noqa: E501
         'fki_taxassignment_id': 'fkiTaxassignmentID',  # noqa: E501
-        'e_ezsignsigner_logintype': 'eEzsignsignerLogintype',  # noqa: E501
+        'fki_userlogintype_id': 'fkiUserlogintypeID',  # noqa: E501
+        's_userlogintype_description_x': 'sUserlogintypeDescriptionX',  # noqa: E501
         'fki_secretquestion_id': 'fkiSecretquestionID',  # noqa: E501
-        's_ezsignsigner_secretanswer': 'sEzsignsignerSecretanswer',  # noqa: E501
     }
 
     read_only_vars = {
@@ -120,12 +115,14 @@ class EzsignsignerResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fki_taxassignment_id, e_ezsignsigner_logintype, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignsigner_id, fki_taxassignment_id, fki_userlogintype_id, s_userlogintype_description_x, *args, **kwargs):  # noqa: E501
         """EzsignsignerResponse - a model defined in OpenAPI
 
         Args:
+            pki_ezsignsigner_id (int): The unique ID of the Ezsignsigner
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.
+            fki_userlogintype_id (int): The unique ID of the Userlogintype
+            s_userlogintype_description_x (str): The description of the Userlogintype in the language of the requester
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -159,7 +156,6 @@ class EzsignsignerResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             fki_secretquestion_id (int): The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|. [optional]  # noqa: E501
-            s_ezsignsigner_secretanswer (str): The predefined answer to the secret question the Ezsignsigner will need to provide to successfully authenticate.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,8 +183,10 @@ class EzsignsignerResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pki_ezsignsigner_id = pki_ezsignsigner_id
         self.fki_taxassignment_id = fki_taxassignment_id
-        self.e_ezsignsigner_logintype = e_ezsignsigner_logintype
+        self.fki_userlogintype_id = fki_userlogintype_id
+        self.s_userlogintype_description_x = s_userlogintype_description_x
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -209,12 +207,14 @@ class EzsignsignerResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fki_taxassignment_id, e_ezsignsigner_logintype, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignsigner_id, fki_taxassignment_id, fki_userlogintype_id, s_userlogintype_description_x, *args, **kwargs):  # noqa: E501
         """EzsignsignerResponse - a model defined in OpenAPI
 
         Args:
+            pki_ezsignsigner_id (int): The unique ID of the Ezsignsigner
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.
+            fki_userlogintype_id (int): The unique ID of the Userlogintype
+            s_userlogintype_description_x (str): The description of the Userlogintype in the language of the requester
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -248,7 +248,6 @@ class EzsignsignerResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             fki_secretquestion_id (int): The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|. [optional]  # noqa: E501
-            s_ezsignsigner_secretanswer (str): The predefined answer to the secret question the Ezsignsigner will need to provide to successfully authenticate.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,8 +273,10 @@ class EzsignsignerResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pki_ezsignsigner_id = pki_ezsignsigner_id
         self.fki_taxassignment_id = fki_taxassignment_id
-        self.e_ezsignsigner_logintype = e_ezsignsigner_logintype
+        self.fki_userlogintype_id = fki_userlogintype_id
+        self.s_userlogintype_description_x = s_userlogintype_description_x
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

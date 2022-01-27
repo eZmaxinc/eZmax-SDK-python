@@ -92,8 +92,8 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
             's_contact_lastname': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_email_address': (str,),  # noqa: E501
-            's_phone_number': (str,),  # noqa: E501
-            's_phone_number_cell': (str,),  # noqa: E501
+            's_phone_e164': (str,),  # noqa: E501
+            's_phone_e164_cell': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,8 +106,8 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
         's_contact_lastname': 'sContactLastname',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_email_address': 'sEmailAddress',  # noqa: E501
-        's_phone_number': 'sPhoneNumber',  # noqa: E501
-        's_phone_number_cell': 'sPhoneNumberCell',  # noqa: E501
+        's_phone_e164': 'sPhoneE164',  # noqa: E501
+        's_phone_e164_cell': 'sPhoneE164Cell',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,8 +157,8 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
-            s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
+            s_phone_e164 (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_e164_cell (str): A phone number in E.164 Format. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,8 +249,8 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
-            s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
+            s_phone_e164 (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_e164_cell (str): A phone number in E.164 Format. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

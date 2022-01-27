@@ -32,7 +32,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.ezsignfoldersignerassociation_response import EzsignfoldersignerassociationResponse
+    from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
+    from eZmaxApi.model.ezsignsigner_response_compound import EzsignsignerResponseCompound
     globals()['EzsignfoldersignerassociationResponse'] = EzsignfoldersignerassociationResponse
+    globals()['EzsignfoldersignerassociationResponseCompoundUser'] = EzsignfoldersignerassociationResponseCompoundUser
+    globals()['EzsignsignerResponseCompound'] = EzsignsignerResponseCompound
 
 
 class EzsignfoldersignerassociationResponseCompound(ModelComposed):
@@ -90,9 +94,9 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
         return {
             'pki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
-            'fki_ezsignsigner_id': (int, none_type,),  # noqa: E501
-            'fki_user_id': (int, none_type,),  # noqa: E501
             'b_ezsignfoldersignerassociation_receivecopy': (bool,),  # noqa: E501
+            'obj_user': (EzsignfoldersignerassociationResponseCompoundUser,),  # noqa: E501
+            'obj_ezsignsigner': (EzsignsignerResponseCompound,),  # noqa: E501
         }
 
     @cached_property
@@ -103,9 +107,9 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
     attribute_map = {
         'pki_ezsignfoldersignerassociation_id': 'pkiEzsignfoldersignerassociationID',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
-        'fki_ezsignsigner_id': 'fkiEzsignsignerID',  # noqa: E501
-        'fki_user_id': 'fkiUserID',  # noqa: E501
         'b_ezsignfoldersignerassociation_receivecopy': 'bEzsignfoldersignerassociationReceivecopy',  # noqa: E501
+        'obj_user': 'objUser',  # noqa: E501
+        'obj_ezsignsigner': 'objEzsignsigner',  # noqa: E501
     }
 
     read_only_vars = {
@@ -119,8 +123,6 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
         Keyword Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -152,6 +154,8 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            obj_user (EzsignfoldersignerassociationResponseCompoundUser): [optional]  # noqa: E501
+            obj_ezsignsigner (EzsignsignerResponseCompound): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,8 +227,6 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
         Keyword Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -256,6 +258,8 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            obj_user (EzsignfoldersignerassociationResponseCompoundUser): [optional]  # noqa: E501
+            obj_ezsignsigner (EzsignsignerResponseCompound): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

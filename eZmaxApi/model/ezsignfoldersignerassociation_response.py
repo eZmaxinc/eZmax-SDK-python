@@ -84,8 +84,6 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
         return {
             'pki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
-            'fki_ezsignsigner_id': (int, none_type,),  # noqa: E501
-            'fki_user_id': (int, none_type,),  # noqa: E501
             'b_ezsignfoldersignerassociation_receivecopy': (bool,),  # noqa: E501
         }
 
@@ -97,8 +95,6 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
     attribute_map = {
         'pki_ezsignfoldersignerassociation_id': 'pkiEzsignfoldersignerassociationID',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
-        'fki_ezsignsigner_id': 'fkiEzsignsignerID',  # noqa: E501
-        'fki_user_id': 'fkiUserID',  # noqa: E501
         'b_ezsignfoldersignerassociation_receivecopy': 'bEzsignfoldersignerassociationReceivecopy',  # noqa: E501
     }
 
@@ -109,14 +105,12 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignfoldersignerassociation_id, fki_ezsignfolder_id, fki_ezsignsigner_id, fki_user_id, b_ezsignfoldersignerassociation_receivecopy, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignfoldersignerassociation_id, fki_ezsignfolder_id, b_ezsignfoldersignerassociation_receivecopy, *args, **kwargs):  # noqa: E501
         """EzsignfoldersignerassociationResponse - a model defined in OpenAPI
 
         Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 
         Keyword Args:
@@ -179,8 +173,6 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
 
         self.pki_ezsignfoldersignerassociation_id = pki_ezsignfoldersignerassociation_id
         self.fki_ezsignfolder_id = fki_ezsignfolder_id
-        self.fki_ezsignsigner_id = fki_ezsignsigner_id
-        self.fki_user_id = fki_user_id
         self.b_ezsignfoldersignerassociation_receivecopy = b_ezsignfoldersignerassociation_receivecopy
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -202,14 +194,12 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignfoldersignerassociation_id, fki_ezsignfolder_id, fki_ezsignsigner_id, fki_user_id, b_ezsignfoldersignerassociation_receivecopy, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignfoldersignerassociation_id, fki_ezsignfolder_id, b_ezsignfoldersignerassociation_receivecopy, *args, **kwargs):  # noqa: E501
         """EzsignfoldersignerassociationResponse - a model defined in OpenAPI
 
         Args:
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
-            fki_user_id (int, none_type): The unique ID of the User
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.
 
         Keyword Args:
@@ -270,8 +260,6 @@ class EzsignfoldersignerassociationResponse(ModelNormal):
 
         self.pki_ezsignfoldersignerassociation_id = pki_ezsignfoldersignerassociation_id
         self.fki_ezsignfolder_id = fki_ezsignfolder_id
-        self.fki_ezsignsigner_id = fki_ezsignsigner_id
-        self.fki_user_id = fki_user_id
         self.b_ezsignfoldersignerassociation_receivecopy = b_ezsignfoldersignerassociation_receivecopy
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
