@@ -230,3 +230,4 @@ from eZmaxApi.model.webhook_response import WebhookResponse
 from eZmaxApi.model.webhook_user_user_created import WebhookUserUserCreated
 from eZmaxApi.model.webhook_user_user_created_all_of import WebhookUserUserCreatedAllOf
 from eZmaxApi.model.website_request import WebsiteRequest
+from eZmaxApi.model.xxxx import Xxxx

@@ -242,6 +242,7 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
+docs/Xxxx.md
 eZmaxApi/__init__.py
 eZmaxApi/api/__init__.py
 eZmaxApi/api/global_customer_api.py
@@ -488,6 +489,7 @@ eZmaxApi/model/webhook_response.py
 eZmaxApi/model/webhook_user_user_created.py
 eZmaxApi/model/webhook_user_user_created_all_of.py
 eZmaxApi/model/website_request.py
+eZmaxApi/model/xxxx.py
 eZmaxApi/model_utils.py
 eZmaxApi/models/__init__.py
 eZmaxApi/rest.py
@@ -736,4 +738,5 @@ test/test_webhook_response.py
 test/test_webhook_user_user_created.py
 test/test_webhook_user_user_created_all_of.py
 test/test_website_request.py
+test/test_xxxx.py
 tox.ini
