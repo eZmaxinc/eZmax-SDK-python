@@ -59,16 +59,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 e_ezsignsignature_type=FieldEEzsignsignatureType("Name"),
                 fki_ezsigndocument_id=97,
             ),
-            obj_ezsignsignature_compound=EzsignsignatureRequestCompound(
-                b_ezsignsignature_customdate=True,
-                a_obj_ezsignsignaturecustomdate=[
-                    EzsignsignaturecustomdateRequest(
-                        i_ezsignsignaturecustomdate_x=200,
-                        i_ezsignsignaturecustomdate_y=300,
-                        s_ezsignsignaturecustomdate_format="Signature date: {YYYY}/{MM}/{DD} {hh}:{mm}{ss} {Z}",
-                    ),
-                ],
-            ),
+            obj_ezsignsignature_compound=EzsignsignatureRequestCompound(),
         ),
     ] # [EzsignsignatureCreateObjectV1Request] | 
 

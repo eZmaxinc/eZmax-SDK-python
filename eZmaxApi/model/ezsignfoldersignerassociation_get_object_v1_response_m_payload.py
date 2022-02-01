@@ -32,7 +32,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
+    from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
+    from eZmaxApi.model.ezsignsigner_response_compound import EzsignsignerResponseCompound
     globals()['EzsignfoldersignerassociationResponseCompound'] = EzsignfoldersignerassociationResponseCompound
+    globals()['EzsignfoldersignerassociationResponseCompoundUser'] = EzsignfoldersignerassociationResponseCompoundUser
+    globals()['EzsignsignerResponseCompound'] = EzsignsignerResponseCompound
 
 
 class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
@@ -91,6 +95,8 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
             'pki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
             'b_ezsignfoldersignerassociation_receivecopy': (bool,),  # noqa: E501
+            'obj_user': (EzsignfoldersignerassociationResponseCompoundUser,),  # noqa: E501
+            'obj_ezsignsigner': (EzsignsignerResponseCompound,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +108,8 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
         'pki_ezsignfoldersignerassociation_id': 'pkiEzsignfoldersignerassociationID',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
         'b_ezsignfoldersignerassociation_receivecopy': 'bEzsignfoldersignerassociationReceivecopy',  # noqa: E501
+        'obj_user': 'objUser',  # noqa: E501
+        'obj_ezsignsigner': 'objEzsignsigner',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,6 +154,8 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            obj_user (EzsignfoldersignerassociationResponseCompoundUser): [optional]  # noqa: E501
+            obj_ezsignsigner (EzsignsignerResponseCompound): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +258,8 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            obj_user (EzsignfoldersignerassociationResponseCompoundUser): [optional]  # noqa: E501
+            obj_ezsignsigner (EzsignsignerResponseCompound): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

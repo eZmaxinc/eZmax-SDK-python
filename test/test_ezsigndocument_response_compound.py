@@ -16,11 +16,13 @@ import eZmaxApi
 from eZmaxApi.model.common_audit import CommonAudit
 from eZmaxApi.model.custom_ezsignfoldersignerassociationstatus_response import CustomEzsignfoldersignerassociationstatusResponse
 from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
+from eZmaxApi.model.ezsigndocument_response_compound_all_of import EzsigndocumentResponseCompoundAllOf
 from eZmaxApi.model.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
 from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
 globals()['CommonAudit'] = CommonAudit
 globals()['CustomEzsignfoldersignerassociationstatusResponse'] = CustomEzsignfoldersignerassociationstatusResponse
 globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
+globals()['EzsigndocumentResponseCompoundAllOf'] = EzsigndocumentResponseCompoundAllOf
 globals()['FieldEEzsigndocumentStep'] = FieldEEzsigndocumentStep
 globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 from eZmaxApi.model.ezsigndocument_response_compound import EzsigndocumentResponseCompound

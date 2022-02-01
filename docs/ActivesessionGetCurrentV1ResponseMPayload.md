@@ -6,6 +6,7 @@ Payload for the /1/object/activesession/getCurrent API Request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_customer_code** | **str** | The customer code specific to the client in which the API request is being made | 
+**e_activesession_weekdaystart** | [**FieldEActivesessionWeekdaystart**](FieldEActivesessionWeekdaystart.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_company_name_x** | **str** | The name of the active Company in the current language | 
 **s_department_name_x** | **str** | The name of the active Department in the current language | 

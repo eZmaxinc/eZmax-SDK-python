@@ -32,9 +32,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.ezsignfoldersignerassociation_response import EzsignfoldersignerassociationResponse
+    from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_all_of import EzsignfoldersignerassociationResponseCompoundAllOf
     from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
     from eZmaxApi.model.ezsignsigner_response_compound import EzsignsignerResponseCompound
     globals()['EzsignfoldersignerassociationResponse'] = EzsignfoldersignerassociationResponse
+    globals()['EzsignfoldersignerassociationResponseCompoundAllOf'] = EzsignfoldersignerassociationResponseCompoundAllOf
     globals()['EzsignfoldersignerassociationResponseCompoundUser'] = EzsignfoldersignerassociationResponseCompoundUser
     globals()['EzsignsignerResponseCompound'] = EzsignsignerResponseCompound
 
@@ -326,6 +328,7 @@ class EzsignfoldersignerassociationResponseCompound(ModelComposed):
           ],
           'allOf': [
               EzsignfoldersignerassociationResponse,
+              EzsignfoldersignerassociationResponseCompoundAllOf,
           ],
           'oneOf': [
           ],

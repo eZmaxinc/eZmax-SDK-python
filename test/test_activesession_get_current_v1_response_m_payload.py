@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
 from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
+globals()['FieldEActivesessionWeekdaystart'] = FieldEActivesessionWeekdaystart
 globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 from eZmaxApi.model.activesession_get_current_v1_response_m_payload import ActivesessionGetCurrentV1ResponseMPayload
 

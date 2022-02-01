@@ -86,6 +86,7 @@ docs/EzsigndocumentRequest.md
 docs/EzsigndocumentRequestCompound.md
 docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
+docs/EzsigndocumentResponseCompoundAllOf.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
 docs/EzsignfolderCreateObjectV1ResponseAllOf.md
@@ -131,6 +132,7 @@ docs/EzsignfoldersignerassociationRequestCompound.md
 docs/EzsignfoldersignerassociationRequestCompoundAllOf.md
 docs/EzsignfoldersignerassociationResponse.md
 docs/EzsignfoldersignerassociationResponseCompound.md
+docs/EzsignfoldersignerassociationResponseCompoundAllOf.md
 docs/EzsignfoldersignerassociationResponseCompoundUser.md
 docs/EzsignfoldertypeGetListV1Response.md
 docs/EzsignfoldertypeGetListV1ResponseAllOf.md
@@ -152,6 +154,7 @@ docs/EzsignsignatureGetObjectV1Response.md
 docs/EzsignsignatureGetObjectV1ResponseAllOf.md
 docs/EzsignsignatureRequest.md
 docs/EzsignsignatureRequestCompound.md
+docs/EzsignsignatureRequestCompoundAllOf.md
 docs/EzsignsignaturecustomdateRequest.md
 docs/EzsignsignerRequest.md
 docs/EzsignsignerRequestCompound.md
@@ -166,6 +169,7 @@ docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.md
 docs/EzsigntemplatepackageListElement.md
+docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
@@ -351,6 +355,7 @@ eZmaxApi/model/ezsigndocument_request.py
 eZmaxApi/model/ezsigndocument_request_compound.py
 eZmaxApi/model/ezsigndocument_response.py
 eZmaxApi/model/ezsigndocument_response_compound.py
+eZmaxApi/model/ezsigndocument_response_compound_all_of.py
 eZmaxApi/model/ezsignfolder_create_object_v1_request.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response_all_of.py
@@ -396,6 +401,7 @@ eZmaxApi/model/ezsignfoldersignerassociation_request_compound.py
 eZmaxApi/model/ezsignfoldersignerassociation_request_compound_all_of.py
 eZmaxApi/model/ezsignfoldersignerassociation_response.py
 eZmaxApi/model/ezsignfoldersignerassociation_response_compound.py
+eZmaxApi/model/ezsignfoldersignerassociation_response_compound_all_of.py
 eZmaxApi/model/ezsignfoldersignerassociation_response_compound_user.py
 eZmaxApi/model/ezsignfoldertype_get_list_v1_response.py
 eZmaxApi/model/ezsignfoldertype_get_list_v1_response_all_of.py
@@ -417,6 +423,7 @@ eZmaxApi/model/ezsignsignature_get_object_v1_response.py
 eZmaxApi/model/ezsignsignature_get_object_v1_response_all_of.py
 eZmaxApi/model/ezsignsignature_request.py
 eZmaxApi/model/ezsignsignature_request_compound.py
+eZmaxApi/model/ezsignsignature_request_compound_all_of.py
 eZmaxApi/model/ezsignsignaturecustomdate_request.py
 eZmaxApi/model/ezsignsigner_request.py
 eZmaxApi/model/ezsignsigner_request_compound.py
@@ -431,6 +438,7 @@ eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_all_of.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_m_payload.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_m_payload_all_of.py
 eZmaxApi/model/ezsigntemplatepackage_list_element.py
+eZmaxApi/model/field_e_activesession_weekdaystart.py
 eZmaxApi/model/field_e_ezsigndocument_step.py
 eZmaxApi/model/field_e_ezsignfolder_sendreminderfrequency.py
 eZmaxApi/model/field_e_ezsignfolder_step.py
@@ -582,6 +590,7 @@ test/test_ezsigndocument_request.py
 test/test_ezsigndocument_request_compound.py
 test/test_ezsigndocument_response.py
 test/test_ezsigndocument_response_compound.py
+test/test_ezsigndocument_response_compound_all_of.py
 test/test_ezsignfolder_create_object_v1_request.py
 test/test_ezsignfolder_create_object_v1_response.py
 test/test_ezsignfolder_create_object_v1_response_all_of.py
@@ -627,6 +636,7 @@ test/test_ezsignfoldersignerassociation_request_compound.py
 test/test_ezsignfoldersignerassociation_request_compound_all_of.py
 test/test_ezsignfoldersignerassociation_response.py
 test/test_ezsignfoldersignerassociation_response_compound.py
+test/test_ezsignfoldersignerassociation_response_compound_all_of.py
 test/test_ezsignfoldersignerassociation_response_compound_user.py
 test/test_ezsignfoldertype_get_list_v1_response.py
 test/test_ezsignfoldertype_get_list_v1_response_all_of.py
@@ -648,6 +658,7 @@ test/test_ezsignsignature_get_object_v1_response.py
 test/test_ezsignsignature_get_object_v1_response_all_of.py
 test/test_ezsignsignature_request.py
 test/test_ezsignsignature_request_compound.py
+test/test_ezsignsignature_request_compound_all_of.py
 test/test_ezsignsignaturecustomdate_request.py
 test/test_ezsignsigner_request.py
 test/test_ezsignsigner_request_compound.py
@@ -662,6 +673,7 @@ test/test_ezsigntemplatepackage_get_list_v1_response_all_of.py
 test/test_ezsigntemplatepackage_get_list_v1_response_m_payload.py
 test/test_ezsigntemplatepackage_get_list_v1_response_m_payload_all_of.py
 test/test_ezsigntemplatepackage_list_element.py
+test/test_field_e_activesession_weekdaystart.py
 test/test_field_e_ezsigndocument_step.py
 test/test_field_e_ezsignfolder_sendreminderfrequency.py
 test/test_field_e_ezsignfolder_step.py

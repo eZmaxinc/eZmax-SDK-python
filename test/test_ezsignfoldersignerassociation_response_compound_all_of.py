@@ -13,17 +13,15 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
 from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
 from eZmaxApi.model.ezsignsigner_response_compound import EzsignsignerResponseCompound
-globals()['EzsignfoldersignerassociationResponseCompound'] = EzsignfoldersignerassociationResponseCompound
 globals()['EzsignfoldersignerassociationResponseCompoundUser'] = EzsignfoldersignerassociationResponseCompoundUser
 globals()['EzsignsignerResponseCompound'] = EzsignsignerResponseCompound
-from eZmaxApi.model.ezsignfoldersignerassociation_get_object_v1_response_m_payload import EzsignfoldersignerassociationGetObjectV1ResponseMPayload
+from eZmaxApi.model.ezsignfoldersignerassociation_response_compound_all_of import EzsignfoldersignerassociationResponseCompoundAllOf
 
 
-class TestEzsignfoldersignerassociationGetObjectV1ResponseMPayload(unittest.TestCase):
-    """EzsignfoldersignerassociationGetObjectV1ResponseMPayload unit test stubs"""
+class TestEzsignfoldersignerassociationResponseCompoundAllOf(unittest.TestCase):
+    """EzsignfoldersignerassociationResponseCompoundAllOf unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +29,10 @@ class TestEzsignfoldersignerassociationGetObjectV1ResponseMPayload(unittest.Test
     def tearDown(self):
         pass
 
-    def testEzsignfoldersignerassociationGetObjectV1ResponseMPayload(self):
-        """Test EzsignfoldersignerassociationGetObjectV1ResponseMPayload"""
+    def testEzsignfoldersignerassociationResponseCompoundAllOf(self):
+        """Test EzsignfoldersignerassociationResponseCompoundAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EzsignfoldersignerassociationGetObjectV1ResponseMPayload()  # noqa: E501
+        # model = EzsignfoldersignerassociationResponseCompoundAllOf()  # noqa: E501
         pass
 
 
