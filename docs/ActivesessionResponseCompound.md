@@ -1,4 +1,4 @@
-# ActivesessionGetCurrentV1ResponseMPayload
+# ActivesessionResponseCompound
 
 Payload for the /1/object/activesession/getCurrent API Request
 

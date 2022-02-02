@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.xxxx import Xxxx
+from eZmaxApi.model.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 
 
-class TestXxxx(unittest.TestCase):
-    """Xxxx unit test stubs"""
+class TestActivesessionResponseCompoundApikey(unittest.TestCase):
+    """ActivesessionResponseCompoundApikey unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestXxxx(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testXxxx(self):
-        """Test Xxxx"""
+    def testActivesessionResponseCompoundApikey(self):
+        """Test ActivesessionResponseCompoundApikey"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Xxxx()  # noqa: E501
+        # model = ActivesessionResponseCompoundApikey()  # noqa: E501
         pass
 
 

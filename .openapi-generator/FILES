@@ -6,6 +6,11 @@ README.md
 docs/ActivesessionGetCurrentV1Response.md
 docs/ActivesessionGetCurrentV1ResponseAllOf.md
 docs/ActivesessionGetCurrentV1ResponseMPayload.md
+docs/ActivesessionResponse.md
+docs/ActivesessionResponseCompound.md
+docs/ActivesessionResponseCompoundAllOf.md
+docs/ActivesessionResponseCompoundApikey.md
+docs/ActivesessionResponseCompoundUser.md
 docs/AddressRequest.md
 docs/ApikeyCreateObjectV1Request.md
 docs/ApikeyCreateObjectV1Response.md
@@ -169,6 +174,7 @@ docs/EzsigntemplatepackageGetListV1ResponseAllOf.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayload.md
 docs/EzsigntemplatepackageGetListV1ResponseMPayloadAllOf.md
 docs/EzsigntemplatepackageListElement.md
+docs/FieldEActivesessionSessiontype.md
 docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
@@ -246,7 +252,6 @@ docs/WebhookResponse.md
 docs/WebhookUserUserCreated.md
 docs/WebhookUserUserCreatedAllOf.md
 docs/WebsiteRequest.md
-docs/Xxxx.md
 eZmaxApi/__init__.py
 eZmaxApi/api/__init__.py
 eZmaxApi/api/global_customer_api.py
@@ -275,6 +280,11 @@ eZmaxApi/model/__init__.py
 eZmaxApi/model/activesession_get_current_v1_response.py
 eZmaxApi/model/activesession_get_current_v1_response_all_of.py
 eZmaxApi/model/activesession_get_current_v1_response_m_payload.py
+eZmaxApi/model/activesession_response.py
+eZmaxApi/model/activesession_response_compound.py
+eZmaxApi/model/activesession_response_compound_all_of.py
+eZmaxApi/model/activesession_response_compound_apikey.py
+eZmaxApi/model/activesession_response_compound_user.py
 eZmaxApi/model/address_request.py
 eZmaxApi/model/apikey_create_object_v1_request.py
 eZmaxApi/model/apikey_create_object_v1_response.py
@@ -438,6 +448,7 @@ eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_all_of.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_m_payload.py
 eZmaxApi/model/ezsigntemplatepackage_get_list_v1_response_m_payload_all_of.py
 eZmaxApi/model/ezsigntemplatepackage_list_element.py
+eZmaxApi/model/field_e_activesession_sessiontype.py
 eZmaxApi/model/field_e_activesession_weekdaystart.py
 eZmaxApi/model/field_e_ezsigndocument_step.py
 eZmaxApi/model/field_e_ezsignfolder_sendreminderfrequency.py
@@ -497,7 +508,6 @@ eZmaxApi/model/webhook_response.py
 eZmaxApi/model/webhook_user_user_created.py
 eZmaxApi/model/webhook_user_user_created_all_of.py
 eZmaxApi/model/website_request.py
-eZmaxApi/model/xxxx.py
 eZmaxApi/model_utils.py
 eZmaxApi/models/__init__.py
 eZmaxApi/rest.py
@@ -510,6 +520,11 @@ test/__init__.py
 test/test_activesession_get_current_v1_response.py
 test/test_activesession_get_current_v1_response_all_of.py
 test/test_activesession_get_current_v1_response_m_payload.py
+test/test_activesession_response.py
+test/test_activesession_response_compound.py
+test/test_activesession_response_compound_all_of.py
+test/test_activesession_response_compound_apikey.py
+test/test_activesession_response_compound_user.py
 test/test_address_request.py
 test/test_apikey_create_object_v1_request.py
 test/test_apikey_create_object_v1_response.py
@@ -673,6 +688,7 @@ test/test_ezsigntemplatepackage_get_list_v1_response_all_of.py
 test/test_ezsigntemplatepackage_get_list_v1_response_m_payload.py
 test/test_ezsigntemplatepackage_get_list_v1_response_m_payload_all_of.py
 test/test_ezsigntemplatepackage_list_element.py
+test/test_field_e_activesession_sessiontype.py
 test/test_field_e_activesession_weekdaystart.py
 test/test_field_e_ezsigndocument_step.py
 test/test_field_e_ezsignfolder_sendreminderfrequency.py
@@ -750,5 +766,4 @@ test/test_webhook_response.py
 test/test_webhook_user_user_created.py
 test/test_webhook_user_user_created_all_of.py
 test/test_website_request.py
-test/test_xxxx.py
 tox.ini
