@@ -101,6 +101,7 @@ class EzsigndocumentRequest(ModelNormal):
             'dt_ezsigndocument_duedate': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_ezsigndocument_name': (str,),  # noqa: E501
+            'pki_ezsigndocument_id': (int,),  # noqa: E501
             's_ezsigndocument_base64': (str,),  # noqa: E501
             's_ezsigndocument_url': (str,),  # noqa: E501
             'b_ezsigndocument_forcerepair': (bool,),  # noqa: E501
@@ -119,6 +120,7 @@ class EzsigndocumentRequest(ModelNormal):
         'dt_ezsigndocument_duedate': 'dtEzsigndocumentDuedate',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_ezsigndocument_name': 'sEzsigndocumentName',  # noqa: E501
+        'pki_ezsigndocument_id': 'pkiEzsigndocumentID',  # noqa: E501
         's_ezsigndocument_base64': 'sEzsigndocumentBase64',  # noqa: E501
         's_ezsigndocument_url': 'sEzsigndocumentUrl',  # noqa: E501
         'b_ezsigndocument_forcerepair': 'bEzsigndocumentForcerepair',  # noqa: E501
@@ -174,6 +176,7 @@ class EzsigndocumentRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument. [optional]  # noqa: E501
             s_ezsigndocument_base64 (str): The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.. [optional]  # noqa: E501
             s_ezsigndocument_url (str): The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.. [optional]  # noqa: E501
             b_ezsigndocument_forcerepair (bool): Try to repair the document or flatten it if it cannot be used for electronic signature. . [optional] if omitted the server will use the default value of True  # noqa: E501
@@ -274,6 +277,7 @@ class EzsigndocumentRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument. [optional]  # noqa: E501
             s_ezsigndocument_base64 (str): The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.. [optional]  # noqa: E501
             s_ezsigndocument_url (str): The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.. [optional]  # noqa: E501
             b_ezsigndocument_forcerepair (bool): Try to repair the document or flatten it if it cannot be used for electronic signature. . [optional] if omitted the server will use the default value of True  # noqa: E501

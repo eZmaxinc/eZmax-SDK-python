@@ -90,6 +90,7 @@ class ApikeyRequest(ModelNormal):
         return {
             'fki_user_id': (int,),  # noqa: E501
             'obj_apikey_description': (MultilingualApikeyDescription,),  # noqa: E501
+            'pki_apikey_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class ApikeyRequest(ModelNormal):
     attribute_map = {
         'fki_user_id': 'fkiUserID',  # noqa: E501
         'obj_apikey_description': 'objApikeyDescription',  # noqa: E501
+        'pki_apikey_id': 'pkiApikeyID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +149,7 @@ class ApikeyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_apikey_id (int): The unique ID of the Apikey. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +237,7 @@ class ApikeyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_apikey_id (int): The unique ID of the Apikey. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

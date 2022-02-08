@@ -49,6 +49,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     franchisereferalincome_create_object_v1_request = [
         FranchisereferalincomeCreateObjectV1Request(
             obj_franchisereferalincome=FranchisereferalincomeRequest(
+                pki_franchisereferalincome_id=35,
                 fki_franchisebroker_id=61,
                 fki_franchisereferalincomeprogram_id=51,
                 fki_period_id=21,

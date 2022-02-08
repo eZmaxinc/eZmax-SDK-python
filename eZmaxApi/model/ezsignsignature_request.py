@@ -95,6 +95,7 @@ class EzsignsignatureRequest(ModelNormal):
             'i_ezsignsignature_step': (int,),  # noqa: E501
             'e_ezsignsignature_type': (FieldEEzsignsignatureType,),  # noqa: E501
             'fki_ezsigndocument_id': (int,),  # noqa: E501
+            'pki_ezsignsignature_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class EzsignsignatureRequest(ModelNormal):
         'i_ezsignsignature_step': 'iEzsignsignatureStep',  # noqa: E501
         'e_ezsignsignature_type': 'eEzsignsignatureType',  # noqa: E501
         'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
+        'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,6 +164,7 @@ class EzsignsignatureRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +262,7 @@ class EzsignsignatureRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

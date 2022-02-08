@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **i_ezsignsignature_step** | **int** | The step when the Ezsignsigner will be invited to sign or fill form fields | 
 **e_ezsignsignature_type** | [**FieldEEzsignsignatureType**](FieldEEzsignsignatureType.md) |  | 
 **fki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | 
+**pki_ezsignsignature_id** | **int** | The unique ID of the Ezsignsignature | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

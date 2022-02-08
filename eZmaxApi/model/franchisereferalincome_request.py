@@ -93,6 +93,7 @@ class FranchisereferalincomeRequest(ModelNormal):
             't_franchisereferalincome_comment': (str,),  # noqa: E501
             'fki_franchiseoffice_id': (int,),  # noqa: E501
             's_franchisereferalincome_remoteid': (str,),  # noqa: E501
+            'pki_franchisereferalincome_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +113,7 @@ class FranchisereferalincomeRequest(ModelNormal):
         't_franchisereferalincome_comment': 'tFranchisereferalincomeComment',  # noqa: E501
         'fki_franchiseoffice_id': 'fkiFranchiseofficeID',  # noqa: E501
         's_franchisereferalincome_remoteid': 'sFranchisereferalincomeRemoteid',  # noqa: E501
+        'pki_franchisereferalincome_id': 'pkiFranchisereferalincomeID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -168,6 +170,7 @@ class FranchisereferalincomeRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_franchisereferalincome_id (int): The unique ID of the Franchisereferalincome. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,6 +276,7 @@ class FranchisereferalincomeRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_franchisereferalincome_id (int): The unique ID of the Franchisereferalincome. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

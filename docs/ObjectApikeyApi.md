@@ -49,6 +49,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     apikey_create_object_v1_request = [
         ApikeyCreateObjectV1Request(
             obj_apikey=ApikeyRequest(
+                pki_apikey_id=99,
                 fki_user_id=70,
                 obj_apikey_description=MultilingualApikeyDescription(
                     s_apikey_description1="s_apikey_description1_example",

@@ -103,6 +103,7 @@ class EzsignsignatureRequestCompound(ModelComposed):
             'fki_ezsigndocument_id': (int,),  # noqa: E501
             'b_ezsignsignature_customdate': (bool,),  # noqa: E501
             'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateRequest],),  # noqa: E501
+            'pki_ezsignsignature_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +121,7 @@ class EzsignsignatureRequestCompound(ModelComposed):
         'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
         'b_ezsignsignature_customdate': 'bEzsignsignatureCustomdate',  # noqa: E501
         'a_obj_ezsignsignaturecustomdate': 'a_objEzsignsignaturecustomdate',  # noqa: E501
+        'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -170,6 +172,7 @@ class EzsignsignatureRequestCompound(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
             a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
+            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,6 +281,7 @@ class EzsignsignatureRequestCompound(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
             a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
+            pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

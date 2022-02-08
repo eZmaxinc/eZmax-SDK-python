@@ -243,6 +243,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsigndocument_create_object_v1_request = [
         EzsigndocumentCreateObjectV1Request(
             obj_ezsigndocument=EzsigndocumentRequest(
+                pki_ezsigndocument_id=97,
                 e_ezsigndocument_source="Base64",
                 e_ezsigndocument_format="Pdf",
                 s_ezsigndocument_base64='YQ==',

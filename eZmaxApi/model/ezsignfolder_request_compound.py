@@ -97,6 +97,7 @@ class EzsignfolderRequestCompound(ModelComposed):
             's_ezsignfolder_description': (str,),  # noqa: E501
             't_ezsignfolder_note': (str,),  # noqa: E501
             'e_ezsignfolder_sendreminderfrequency': (FieldEEzsignfolderSendreminderfrequency,),  # noqa: E501
+            'pki_ezsignfolder_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class EzsignfolderRequestCompound(ModelComposed):
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
         't_ezsignfolder_note': 'tEzsignfolderNote',  # noqa: E501
         'e_ezsignfolder_sendreminderfrequency': 'eEzsignfolderSendreminderfrequency',  # noqa: E501
+        'pki_ezsignfolder_id': 'pkiEzsignfolderID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +158,7 @@ class EzsignfolderRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +263,7 @@ class EzsignfolderRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

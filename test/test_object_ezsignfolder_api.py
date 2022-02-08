@@ -38,6 +38,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_edit_object_v1(self):
+        """Test case for ezsignfolder_edit_object_v1
+
+        Edit an Ezsignfolder  # noqa: E501
+        """
+        pass
+
     def test_ezsignfolder_get_ezsigndocuments_v1(self):
         """Test case for ezsignfolder_get_ezsigndocuments_v1
 

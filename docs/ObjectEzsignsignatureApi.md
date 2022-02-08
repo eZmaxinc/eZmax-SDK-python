@@ -51,6 +51,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsignsignature_create_object_v1_request = [
         EzsignsignatureCreateObjectV1Request(
             obj_ezsignsignature=EzsignsignatureRequest(
+                pki_ezsignsignature_id=49,
                 fki_ezsignfoldersignerassociation_id=20,
                 i_ezsignpage_pagenumber=1,
                 i_ezsignsignature_x=200,

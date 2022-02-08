@@ -1,13 +1,11 @@
-# ApikeyRequest
+# EzsignfolderEditObjectV1Request
 
-An Apikey Object
+Request for the /1/object/ezsignfolder/editObject API Request
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_user_id** | **int** | The unique ID of the User | 
-**obj_apikey_description** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
-**pki_apikey_id** | **int** | The unique ID of the Apikey | [optional] 
+**obj_ezsignfolder** | [**EzsignfolderRequestCompound**](EzsignfolderRequestCompound.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
