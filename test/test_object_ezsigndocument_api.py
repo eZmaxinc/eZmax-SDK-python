@@ -87,6 +87,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_patch_object_v1(self):
+        """Test case for ezsigndocument_patch_object_v1
+
+        Patch an existing Ezsigndocument  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

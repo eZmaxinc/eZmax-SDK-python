@@ -792,7 +792,7 @@ class ObjectEzsignfolderApi(object):
         ezsignfolder_edit_object_v1_request,
         **kwargs
     ):
-        """Edit an Ezsignfolder  # noqa: E501
+        """Modify an existing Ezsignfolder  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
