@@ -59,6 +59,9 @@ class EzsigndocumentRequestPatch(ModelNormal):
     }
 
     validations = {
+        ('value',): {
+            'min_properties': 1,
+        },
     }
 
     @cached_property
