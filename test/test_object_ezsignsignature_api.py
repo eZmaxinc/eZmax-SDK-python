@@ -38,6 +38,13 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignsignature_edit_object_v1(self):
+        """Test case for ezsignsignature_edit_object_v1
+
+        Edit an existing Ezsignsignature  # noqa: E501
+        """
+        pass
+
     def test_ezsignsignature_get_object_v1(self):
         """Test case for ezsignsignature_get_object_v1
 
