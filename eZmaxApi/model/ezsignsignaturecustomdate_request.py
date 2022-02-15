@@ -85,6 +85,7 @@ class EzsignsignaturecustomdateRequest(ModelNormal):
             'i_ezsignsignaturecustomdate_x': (int,),  # noqa: E501
             'i_ezsignsignaturecustomdate_y': (int,),  # noqa: E501
             's_ezsignsignaturecustomdate_format': (str,),  # noqa: E501
+            'pki_ezsignsignaturecustomdate_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class EzsignsignaturecustomdateRequest(ModelNormal):
         'i_ezsignsignaturecustomdate_x': 'iEzsignsignaturecustomdateX',  # noqa: E501
         'i_ezsignsignaturecustomdate_y': 'iEzsignsignaturecustomdateY',  # noqa: E501
         's_ezsignsignaturecustomdate_format': 'sEzsignsignaturecustomdateFormat',  # noqa: E501
+        'pki_ezsignsignaturecustomdate_id': 'pkiEzsignsignaturecustomdateID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class EzsignsignaturecustomdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignsignaturecustomdate_id (int): The unique ID of the Ezsignsignaturecustomdate. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,6 +236,7 @@ class EzsignsignaturecustomdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pki_ezsignsignaturecustomdate_id (int): The unique ID of the Ezsignsignaturecustomdate. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
