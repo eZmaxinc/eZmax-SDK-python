@@ -41,7 +41,7 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
     def test_ezsignfolder_edit_object_v1(self):
         """Test case for ezsignfolder_edit_object_v1
 
-        Modify an existing Ezsignfolder  # noqa: E501
+        Edit an existing Ezsignfolder  # noqa: E501
         """
         pass
 

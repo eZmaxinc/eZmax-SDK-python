@@ -52,6 +52,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_edit_ezsignsignatures_v1(self):
+        """Test case for ezsigndocument_edit_ezsignsignatures_v1
+
+        Edit multiple ezsignsignatures  # noqa: E501
+        """
+        pass
+
     def test_ezsigndocument_get_download_url_v1(self):
         """Test case for ezsigndocument_get_download_url_v1
 

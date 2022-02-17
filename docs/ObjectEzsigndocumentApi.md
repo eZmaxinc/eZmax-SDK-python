@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ezsigndocument_apply_ezsigntemplate_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
 [**ezsigndocument_create_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_create_object_v1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocument_delete_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_delete_object_v1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
+[**ezsigndocument_edit_ezsignsignatures_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_edit_ezsignsignatures_v1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple ezsignsignatures
 [**ezsigndocument_get_download_url_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_download_url_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**ezsigndocument_get_ezsignpages_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_ezsignpages_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
 [**ezsigndocument_get_form_data_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_form_data_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getFormData | Retrieve an existing Ezsigndocument&#39;s Form Data
@@ -217,7 +218,6 @@ import eZmaxApi
 from eZmaxApi.api import object_ezsigndocument_api
 from eZmaxApi.model.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 from eZmaxApi.model.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
-from eZmaxApi.model.common_response_error import CommonResponseError
 from eZmaxApi.model.common_response_error_s_temporary_file_url import CommonResponseErrorSTemporaryFileUrl
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
@@ -295,7 +295,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
-**404** | The element you are trying to work on does not exist |  -  |
 **422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. If the error is recoverable sTemporaryFileUrl will be set and you can use this url to try a new request without sending the file over again |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -366,6 +365,92 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocument_edit_ezsignsignatures_v1**
+> EzsigndocumentEditEzsignsignaturesV1Response ezsigndocument_edit_ezsignsignatures_v1(pki_ezsigndocument_id, ezsigndocument_edit_ezsignsignatures_v1_request)
+
+Edit multiple ezsignsignatures
+
+Using this endpoint, you can edit multiple ezsignsignatures at the same time.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import time
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_response import EzsigndocumentEditEzsignsignaturesV1Response
+from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_request import EzsigndocumentEditEzsignsignaturesV1Request
+from eZmaxApi.model.common_response_error import CommonResponseError
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 97 # int | 
+    ezsigndocument_edit_ezsignsignatures_v1_request = EzsigndocumentEditEzsignsignaturesV1Request([
+        EzsignsignatureRequestCompound(),
+    ]) # EzsigndocumentEditEzsignsignaturesV1Request | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit multiple ezsignsignatures
+        api_response = api_instance.ezsigndocument_edit_ezsignsignatures_v1(pki_ezsigndocument_id, ezsigndocument_edit_ezsignsignatures_v1_request)
+        pprint(api_response)
+    except eZmaxApi.ApiException as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_edit_ezsignsignatures_v1: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  |
+ **ezsigndocument_edit_ezsignsignatures_v1_request** | [**EzsigndocumentEditEzsignsignaturesV1Request**](EzsigndocumentEditEzsignsignaturesV1Request.md)|  |
+
+### Return type
+
+[**EzsigndocumentEditEzsignsignaturesV1Response**](EzsigndocumentEditEzsignsignaturesV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
