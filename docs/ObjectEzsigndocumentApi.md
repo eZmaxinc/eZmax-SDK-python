@@ -419,9 +419,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
     pki_ezsigndocument_id = 97 # int | 
-    ezsigndocument_edit_ezsignsignatures_v1_request = EzsigndocumentEditEzsignsignaturesV1Request([
-        EzsignsignatureRequestCompound(),
-    ]) # EzsigndocumentEditEzsignsignaturesV1Request | 
+    ezsigndocument_edit_ezsignsignatures_v1_request = EzsigndocumentEditEzsignsignaturesV1Request(
+        a_obj_ezsignsignature=[
+            EzsignsignatureRequestCompound(),
+        ],
+    ) # EzsigndocumentEditEzsignsignaturesV1Request | 
 
     # example passing only required values which don't have defaults set
     try:

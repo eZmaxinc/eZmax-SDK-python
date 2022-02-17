@@ -5,7 +5,8 @@ Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatu
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | [**[EzsignsignatureRequestCompound]**](EzsignsignatureRequestCompound.md) | Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures API Request | 
+**a_obj_ezsignsignature** | [**[EzsignsignatureRequestCompound]**](EzsignsignatureRequestCompound.md) |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
