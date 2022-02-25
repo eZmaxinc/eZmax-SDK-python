@@ -62,7 +62,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 fki_ezsignfoldertype_id=5,
                 fki_ezsigntsarequirement_id=FieldPkiEzsigntsarequirementID(92),
                 s_ezsignfolder_description="Test eZsign Folder",
-                t_ezsignfolder_note="An extra notes we can add to the ezsign folder",
+                t_ezsignfolder_note="This is a note",
                 e_ezsignfolder_sendreminderfrequency=FieldEEzsignfolderSendreminderfrequency("None"),
             ),
             obj_ezsignfolder_compound=EzsignfolderRequestCompound(),
@@ -111,6 +111,8 @@ Name | Type | Description  | Notes
 > EzsignfolderDeleteObjectV1Response ezsignfolder_delete_object_v1(pki_ezsignfolder_id)
 
 Delete an existing Ezsignfolder
+
+
 
 ### Example
 
@@ -190,6 +192,8 @@ Name | Type | Description  | Notes
 > EzsignfolderEditObjectV1Response ezsignfolder_edit_object_v1(pki_ezsignfolder_id, ezsignfolder_edit_object_v1_request)
 
 Edit an existing Ezsignfolder
+
+
 
 ### Example
 
@@ -275,6 +279,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's Ezsigndocuments
 
+
+
 ### Example
 
 * Api Key Authentication (Authorization):
@@ -353,6 +359,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
 
+
+
 ### Example
 
 * Api Key Authentication (Authorization):
@@ -430,6 +438,8 @@ Name | Type | Description  | Notes
 > EzsignfolderGetFormsDataV1Response ezsignfolder_get_forms_data_v1(pki_ezsignfolder_id)
 
 Retrieve an existing Ezsignfolder's forms data
+
+
 
 ### Example
 
@@ -601,6 +611,8 @@ Name | Type | Description  | Notes
 
 Retrieve an existing Ezsignfolder
 
+
+
 ### Example
 
 * Api Key Authentication (Authorization):
@@ -678,6 +690,8 @@ Name | Type | Description  | Notes
 > EzsignfolderSendV1Response ezsignfolder_send_v1(pki_ezsignfolder_id, ezsignfolder_send_v1_request)
 
 Send the Ezsignfolder to the signatories for signature
+
+
 
 ### Example
 
@@ -798,7 +812,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 33 # int | 
-    body = "body_example" # str | 
+    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -815,7 +829,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignfolder_id** | **int**|  |
- **body** | **str**|  |
+ **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  |
 
 ### Return type
 

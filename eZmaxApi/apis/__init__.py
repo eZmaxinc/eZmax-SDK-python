@@ -17,7 +17,6 @@
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi
 from eZmaxApi.api.module_authenticate_api import ModuleAuthenticateApi
 from eZmaxApi.api.module_list_api import ModuleListApi
-from eZmaxApi.api.module_sspr_api import ModuleSsprApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi

@@ -111,7 +111,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
         """EzsignformfieldgroupResponseCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignformfield ([EzsignformfieldResponse]):
+            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
         """EzsignformfieldgroupResponseCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignformfield ([EzsignformfieldResponse]):
+            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

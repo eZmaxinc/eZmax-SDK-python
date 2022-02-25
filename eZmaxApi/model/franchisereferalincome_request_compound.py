@@ -142,7 +142,7 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
 
         Keyword Args:
             obj_address (AddressRequest):
-            a_obj_contact ([ContactRequestCompound]):
+            a_obj_contact ([ContactRequestCompound]): 
             fki_franchisebroker_id (int): The unique ID of the Franchisebroker
             fki_franchisereferalincomeprogram_id (int): The unique ID of the Franchisereferalincomeprogram
             fki_period_id (int): The unique ID of the Period
@@ -151,9 +151,9 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
             d_franchisereferalincome_franchisoramount (str): The amount that will be kept by the franchisor
             d_franchisereferalincome_agentamount (str): The amount that will be given to the agent
             dt_franchisereferalincome_disbursed (str): The date the amounts were disbursed
-            t_franchisereferalincome_comment (str): A comment about the transaction
+            t_franchisereferalincome_comment (str): Comment about the transaction
             fki_franchiseoffice_id (int): The unique ID of the Franchisereoffice
-            s_franchisereferalincome_remoteid (str):
+            s_franchisereferalincome_remoteid (str): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -255,7 +255,7 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
 
         Keyword Args:
             obj_address (AddressRequest):
-            a_obj_contact ([ContactRequestCompound]):
+            a_obj_contact ([ContactRequestCompound]): 
             fki_franchisebroker_id (int): The unique ID of the Franchisebroker
             fki_franchisereferalincomeprogram_id (int): The unique ID of the Franchisereferalincomeprogram
             fki_period_id (int): The unique ID of the Period
@@ -264,9 +264,9 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
             d_franchisereferalincome_franchisoramount (str): The amount that will be kept by the franchisor
             d_franchisereferalincome_agentamount (str): The amount that will be given to the agent
             dt_franchisereferalincome_disbursed (str): The date the amounts were disbursed
-            t_franchisereferalincome_comment (str): A comment about the transaction
+            t_franchisereferalincome_comment (str): Comment about the transaction
             fki_franchiseoffice_id (int): The unique ID of the Franchisereoffice
-            s_franchisereferalincome_remoteid (str):
+            s_franchisereferalincome_remoteid (str): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

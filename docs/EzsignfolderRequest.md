@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
 **fki_ezsigntsarequirement_id** | [**FieldPkiEzsigntsarequirementID**](FieldPkiEzsigntsarequirementID.md) |  | 
 **s_ezsignfolder_description** | **str** | The description of the Ezsignfolder | 
-**t_ezsignfolder_note** | **str** | Somes extra notes about the eZsign Folder | 
+**t_ezsignfolder_note** | **str** | Note about the Ezsignfolder | 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

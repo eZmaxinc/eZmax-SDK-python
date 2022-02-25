@@ -133,10 +133,10 @@ class ContactinformationsRequestCompound(ModelComposed):
         """ContactinformationsRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_address ([AddressRequest]):
-            a_obj_phone ([PhoneRequest]):
-            a_obj_email ([EmailRequest]):
-            a_obj_website ([WebsiteRequest]):
+            a_obj_address ([AddressRequest]): 
+            a_obj_phone ([PhoneRequest]): 
+            a_obj_email ([EmailRequest]): 
+            a_obj_website ([WebsiteRequest]): 
             i_address_default (int): The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_phone_default (int): The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_email_default (int): The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.
@@ -240,10 +240,10 @@ class ContactinformationsRequestCompound(ModelComposed):
         """ContactinformationsRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_address ([AddressRequest]):
-            a_obj_phone ([PhoneRequest]):
-            a_obj_email ([EmailRequest]):
-            a_obj_website ([WebsiteRequest]):
+            a_obj_address ([AddressRequest]): 
+            a_obj_phone ([PhoneRequest]): 
+            a_obj_email ([EmailRequest]): 
+            a_obj_website ([WebsiteRequest]): 
             i_address_default (int): The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_phone_default (int): The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_email_default (int): The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.

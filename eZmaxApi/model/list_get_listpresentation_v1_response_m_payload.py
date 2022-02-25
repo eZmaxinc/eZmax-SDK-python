@@ -111,7 +111,7 @@ class ListGetListpresentationV1ResponseMPayload(ModelNormal):
         """ListGetListpresentationV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationResponse]):
+            a_obj_listpresentation ([ListpresentationResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class ListGetListpresentationV1ResponseMPayload(ModelNormal):
         """ListGetListpresentationV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationResponse]):
+            a_obj_listpresentation ([ListpresentationResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

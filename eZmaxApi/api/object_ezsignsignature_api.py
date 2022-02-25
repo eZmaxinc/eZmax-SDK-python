@@ -340,6 +340,7 @@ class ObjectEzsignsignatureApi(object):
     ):
         """Delete an existing Ezsignsignature  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -418,6 +419,7 @@ class ObjectEzsignsignatureApi(object):
     ):
         """Edit an existing Ezsignsignature  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

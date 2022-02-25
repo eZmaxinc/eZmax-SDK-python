@@ -116,7 +116,7 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
 
         Keyword Args:
             s_ezsignformfieldgroup_label (str): The Label for the Ezsignformfieldgroup
-            a_obj_ezsignformfield ([EzsignformfieldResponse]):
+            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -217,7 +217,7 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
 
         Keyword Args:
             s_ezsignformfieldgroup_label (str): The Label for the Ezsignformfieldgroup
-            a_obj_ezsignformfield ([EzsignformfieldResponse]):
+            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

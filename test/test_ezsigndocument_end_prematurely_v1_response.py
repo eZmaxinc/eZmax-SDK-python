@@ -19,11 +19,11 @@ from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDe
 globals()['CommonResponse'] = CommonResponse
 globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
 globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
-from eZmaxApi.model.unused_ezsignfolder_edit_object_v1_response import UNUSEDEzsignfolderEditObjectV1Response
+from eZmaxApi.model.ezsigndocument_end_prematurely_v1_response import EzsigndocumentEndPrematurelyV1Response
 
 
-class TestUNUSEDEzsignfolderEditObjectV1Response(unittest.TestCase):
-    """UNUSEDEzsignfolderEditObjectV1Response unit test stubs"""
+class TestEzsigndocumentEndPrematurelyV1Response(unittest.TestCase):
+    """EzsigndocumentEndPrematurelyV1Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +31,10 @@ class TestUNUSEDEzsignfolderEditObjectV1Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testUNUSEDEzsignfolderEditObjectV1Response(self):
-        """Test UNUSEDEzsignfolderEditObjectV1Response"""
+    def testEzsigndocumentEndPrematurelyV1Response(self):
+        """Test EzsigndocumentEndPrematurelyV1Response"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = UNUSEDEzsignfolderEditObjectV1Response()  # noqa: E501
+        # model = EzsigndocumentEndPrematurelyV1Response()  # noqa: E501
         pass
 
 

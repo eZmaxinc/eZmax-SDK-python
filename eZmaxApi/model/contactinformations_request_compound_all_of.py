@@ -123,10 +123,10 @@ class ContactinformationsRequestCompoundAllOf(ModelNormal):
         """ContactinformationsRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_address ([AddressRequest]):
-            a_obj_phone ([PhoneRequest]):
-            a_obj_email ([EmailRequest]):
-            a_obj_website ([WebsiteRequest]):
+            a_obj_address ([AddressRequest]): 
+            a_obj_phone ([PhoneRequest]): 
+            a_obj_email ([EmailRequest]): 
+            a_obj_website ([WebsiteRequest]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,10 +214,10 @@ class ContactinformationsRequestCompoundAllOf(ModelNormal):
         """ContactinformationsRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_address ([AddressRequest]):
-            a_obj_phone ([PhoneRequest]):
-            a_obj_email ([EmailRequest]):
-            a_obj_website ([WebsiteRequest]):
+            a_obj_address ([AddressRequest]): 
+            a_obj_phone ([PhoneRequest]): 
+            a_obj_email ([EmailRequest]): 
+            a_obj_website ([WebsiteRequest]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -111,7 +111,7 @@ class ListSaveListpresentationV1Request(ModelNormal):
         """ListSaveListpresentationV1Request - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationRequest]):
+            a_obj_listpresentation ([ListpresentationRequest]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class ListSaveListpresentationV1Request(ModelNormal):
         """ListSaveListpresentationV1Request - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationRequest]):
+            a_obj_listpresentation ([ListpresentationRequest]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

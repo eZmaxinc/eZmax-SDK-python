@@ -115,7 +115,7 @@ class FranchisereferalincomeRequestCompoundAllOf(ModelNormal):
         """FranchisereferalincomeRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_contact ([ContactRequestCompound]):
+            a_obj_contact ([ContactRequestCompound]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class FranchisereferalincomeRequestCompoundAllOf(ModelNormal):
         """FranchisereferalincomeRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_contact ([ContactRequestCompound]):
+            a_obj_contact ([ContactRequestCompound]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -92,8 +92,8 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'fki_ezsignfolder_id': (int,),  # noqa: E501
             'obj_ezsignsigner': (EzsignsignerRequestCompound,),  # noqa: E501
+            'fki_ezsignfolder_id': (int,),  # noqa: E501
             'pki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'fki_user_id': (int,),  # noqa: E501
             'b_ezsignfoldersignerassociation_receivecopy': (bool,),  # noqa: E501
@@ -105,8 +105,8 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
         'obj_ezsignsigner': 'objEzsignsigner',  # noqa: E501
+        'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
         'pki_ezsignfoldersignerassociation_id': 'pkiEzsignfoldersignerassociationID',  # noqa: E501
         'fki_user_id': 'fkiUserID',  # noqa: E501
         'b_ezsignfoldersignerassociation_receivecopy': 'bEzsignfoldersignerassociationReceivecopy',  # noqa: E501
@@ -121,6 +121,7 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
         """EzsignfoldersignerassociationRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
+            obj_ezsignsigner (EzsignsignerRequestCompound):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -152,7 +153,6 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            obj_ezsignsigner (EzsignsignerRequestCompound): [optional]  # noqa: E501
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation. [optional]  # noqa: E501
             fki_user_id (int): The unique ID of the User. [optional]  # noqa: E501
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.. [optional]  # noqa: E501
@@ -225,6 +225,7 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
         """EzsignfoldersignerassociationRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
+            obj_ezsignsigner (EzsignsignerRequestCompound):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -256,7 +257,6 @@ class EzsignfoldersignerassociationRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            obj_ezsignsigner (EzsignsignerRequestCompound): [optional]  # noqa: E501
             pki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation. [optional]  # noqa: E501
             fki_user_id (int): The unique ID of the User. [optional]  # noqa: E501
             b_ezsignfoldersignerassociation_receivecopy (bool): If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.. [optional]  # noqa: E501

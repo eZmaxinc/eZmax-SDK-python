@@ -111,7 +111,7 @@ class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
         """ApikeyCreateObjectV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_apikey ([ApikeyResponse]):
+            a_obj_apikey ([ApikeyResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
         """ApikeyCreateObjectV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_apikey ([ApikeyResponse]):
+            a_obj_apikey ([ApikeyResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

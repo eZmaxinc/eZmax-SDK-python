@@ -111,7 +111,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNorma
         """EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]):
+            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload(ModelNorma
         """EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]):
+            a_obj_ezsignfoldersignerassociation ([EzsignfoldersignerassociationResponseCompound]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -59,6 +59,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_end_prematurely_v1(self):
+        """Test case for ezsigndocument_end_prematurely_v1
+
+        End prematurely  # noqa: E501
+        """
+        pass
+
     def test_ezsigndocument_get_download_url_v1(self):
         """Test case for ezsigndocument_get_download_url_v1
 
@@ -84,6 +91,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """Test case for ezsigndocument_get_object_v1
 
         Retrieve an existing Ezsigndocument  # noqa: E501
+        """
+        pass
+
+    def test_ezsigndocument_get_temporary_proof_v1(self):
+        """Test case for ezsigndocument_get_temporary_proof_v1
+
+        Retrieve the temporary proof  # noqa: E501
         """
         pass
 

@@ -608,7 +608,7 @@ class ObjectEzsignfolderApi(object):
                     'pki_ezsignfolder_id':
                         (int,),
                     'body':
-                        (str,),
+                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 },
                 'attribute_map': {
                     'pki_ezsignfolder_id': 'pkiEzsignfolderID',
@@ -716,6 +716,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Delete an existing Ezsignfolder  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -794,6 +795,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Edit an existing Ezsignfolder  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -874,6 +876,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder's Ezsigndocuments  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -951,6 +954,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1028,6 +1032,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder's forms data  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1183,6 +1188,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1261,6 +1267,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Send the Ezsignfolder to the signatories for signature  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1351,7 +1358,7 @@ class ObjectEzsignfolderApi(object):
 
         Args:
             pki_ezsignfolder_id (int):
-            body (str):
+            body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

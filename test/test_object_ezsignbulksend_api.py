@@ -31,6 +31,13 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignbulksend_get_object_v1(self):
+        """Test case for ezsignbulksend_get_object_v1
+
+        Retrieve an existing Ezsignbulksend  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

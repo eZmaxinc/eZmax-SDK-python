@@ -111,7 +111,7 @@ class EzsignfoldertypeGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsignfoldertypeGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldertype ([EzsignfoldertypeListElement]):
+            a_obj_ezsignfoldertype ([EzsignfoldertypeListElement]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignfoldertypeGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsignfoldertypeGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignfoldertype ([EzsignfoldertypeListElement]):
+            a_obj_ezsignfoldertype ([EzsignfoldertypeListElement]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

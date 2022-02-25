@@ -111,7 +111,7 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(ModelNormal):
         """EzsigndocumentGetEzsignpagesV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignpage ([EzsignpageResponse]):
+            a_obj_ezsignpage ([EzsignpageResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(ModelNormal):
         """EzsigndocumentGetEzsignpagesV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignpage ([EzsignpageResponse]):
+            a_obj_ezsignpage ([EzsignpageResponse]): 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

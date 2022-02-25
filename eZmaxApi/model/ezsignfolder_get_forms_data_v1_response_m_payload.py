@@ -117,7 +117,7 @@ class EzsignfolderGetFormsDataV1ResponseMPayload(ModelComposed):
         Keyword Args:
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             s_ezsignfolder_description (str): The description of the Ezsignfolder
-            a_obj_form_data_document ([CustomFormDataDocumentResponse]):
+            a_obj_form_data_document ([CustomFormDataDocumentResponse]): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -219,7 +219,7 @@ class EzsignfolderGetFormsDataV1ResponseMPayload(ModelComposed):
         Keyword Args:
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             s_ezsignfolder_description (str): The description of the Ezsignfolder
-            a_obj_form_data_document ([CustomFormDataDocumentResponse]):
+            a_obj_form_data_document ([CustomFormDataDocumentResponse]): 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

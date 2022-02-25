@@ -118,7 +118,7 @@ class ModuleAuthenticateApi(object):
         >>> result = thread.get()
 
         Args:
-            authenticate_authenticate_v2_request (AuthenticateAuthenticateV2Request):
+            authenticate_authenticate_v2_request (AuthenticateAuthenticateV2Request): 
             e_session_type (str): defaults to "ezsignuser", must be one of ["ezsignuser"]
 
         Keyword Args:

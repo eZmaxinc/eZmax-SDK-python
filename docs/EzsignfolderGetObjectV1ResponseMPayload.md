@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **fki_ezsigntsarequirement_id** | [**FieldPkiEzsigntsarequirementID**](FieldPkiEzsigntsarequirementID.md) |  | 
 **s_ezsigntsarequirement_description_x** | **str** | The description of the Ezsigntsarequirement in the language of the requester | 
 **s_ezsignfolder_description** | **str** | The description of the Ezsignfolder | 
-**t_ezsignfolder_note** | **str** | Somes extra notes about the eZsign Folder | 
+**t_ezsignfolder_note** | **str** | Note about the Ezsignfolder | 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **dt_ezsignfolder_duedate** | **str** | The maximum date and time at which the Ezsignfolder can be signed. | 
 **dt_ezsignfolder_sentdate** | **str, none_type** | The date and time at which the Ezsign folder was sent the last time. | 

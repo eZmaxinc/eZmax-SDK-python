@@ -61,7 +61,12 @@ docs/EzsignbulksendGetListV1Response.md
 docs/EzsignbulksendGetListV1ResponseAllOf.md
 docs/EzsignbulksendGetListV1ResponseMPayload.md
 docs/EzsignbulksendGetListV1ResponseMPayloadAllOf.md
+docs/EzsignbulksendGetObjectV1Response.md
+docs/EzsignbulksendGetObjectV1ResponseAllOf.md
+docs/EzsignbulksendGetObjectV1ResponseMPayload.md
 docs/EzsignbulksendListElement.md
+docs/EzsignbulksendResponse.md
+docs/EzsignbulksendResponseCompound.md
 docs/EzsigndocumentApplyEzsigntemplateV1Request.md
 docs/EzsigndocumentApplyEzsigntemplateV1Response.md
 docs/EzsigndocumentApplyEzsigntemplateV2Request.md
@@ -73,6 +78,7 @@ docs/EzsigndocumentCreateObjectV1ResponseMPayload.md
 docs/EzsigndocumentDeleteObjectV1Response.md
 docs/EzsigndocumentEditEzsignsignaturesV1Request.md
 docs/EzsigndocumentEditEzsignsignaturesV1Response.md
+docs/EzsigndocumentEndPrematurelyV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1Response.md
 docs/EzsigndocumentGetDownloadUrlV1ResponseAllOf.md
 docs/EzsigndocumentGetDownloadUrlV1ResponseMPayload.md
@@ -85,6 +91,9 @@ docs/EzsigndocumentGetFormDataV1ResponseMPayload.md
 docs/EzsigndocumentGetObjectV1Response.md
 docs/EzsigndocumentGetObjectV1ResponseAllOf.md
 docs/EzsigndocumentGetObjectV1ResponseMPayload.md
+docs/EzsigndocumentGetTemporaryProofV1Response.md
+docs/EzsigndocumentGetTemporaryProofV1ResponseAllOf.md
+docs/EzsigndocumentGetTemporaryProofV1ResponseMPayload.md
 docs/EzsigndocumentGetWordsPositionsV1Request.md
 docs/EzsigndocumentGetWordsPositionsV1Response.md
 docs/EzsigndocumentGetWordsPositionsV1ResponseAllOf.md
@@ -97,6 +106,7 @@ docs/EzsigndocumentRequestPatch.md
 docs/EzsigndocumentResponse.md
 docs/EzsigndocumentResponseCompound.md
 docs/EzsigndocumentResponseCompoundAllOf.md
+docs/EzsigndocumentlogResponse.md
 docs/EzsignfolderCreateObjectV1Request.md
 docs/EzsignfolderCreateObjectV1Response.md
 docs/EzsignfolderCreateObjectV1ResponseAllOf.md
@@ -186,6 +196,7 @@ docs/EzsigntemplatepackageListElement.md
 docs/FieldEActivesessionSessiontype.md
 docs/FieldEActivesessionWeekdaystart.md
 docs/FieldEEzsigndocumentStep.md
+docs/FieldEEzsigndocumentlogType.md
 docs/FieldEEzsignfolderSendreminderfrequency.md
 docs/FieldEEzsignfolderStep.md
 docs/FieldEEzsignfoldertypePrivacylevel.md
@@ -217,7 +228,6 @@ docs/ListpresentationRequest.md
 docs/ListpresentationResponse.md
 docs/ModuleAuthenticateApi.md
 docs/ModuleListApi.md
-docs/ModuleSsprApi.md
 docs/ModuleUserApi.md
 docs/MultilingualApikeyDescription.md
 docs/ObjectActivesessionApi.md
@@ -240,14 +250,6 @@ docs/SsprSendUsernamesV1Request.md
 docs/SsprUnlockAccountRequestV1Request.md
 docs/SsprUnlockAccountV1Request.md
 docs/SsprValidateTokenV1Request.md
-docs/UNUSEDEzsigndocumentEditObjectV1Request.md
-docs/UNUSEDEzsigndocumentEditObjectV1Response.md
-docs/UNUSEDEzsignfolderEditObjectV1Request.md
-docs/UNUSEDEzsignfolderEditObjectV1Response.md
-docs/UNUSEDEzsignfoldersignerassociationEditObjectV1Request.md
-docs/UNUSEDEzsignfoldersignerassociationEditObjectV1Response.md
-docs/UNUSEDEzsignsignatureEditObjectV1Request.md
-docs/UNUSEDEzsignsignatureEditObjectV1Response.md
 docs/UserCreateEzsignuserV1Request.md
 docs/UserCreateEzsignuserV1Response.md
 docs/UserCreateEzsignuserV1ResponseAllOf.md
@@ -266,7 +268,6 @@ eZmaxApi/api/__init__.py
 eZmaxApi/api/global_customer_api.py
 eZmaxApi/api/module_authenticate_api.py
 eZmaxApi/api/module_list_api.py
-eZmaxApi/api/module_sspr_api.py
 eZmaxApi/api/module_user_api.py
 eZmaxApi/api/object_activesession_api.py
 eZmaxApi/api/object_apikey_api.py
@@ -344,7 +345,12 @@ eZmaxApi/model/ezsignbulksend_get_list_v1_response.py
 eZmaxApi/model/ezsignbulksend_get_list_v1_response_all_of.py
 eZmaxApi/model/ezsignbulksend_get_list_v1_response_m_payload.py
 eZmaxApi/model/ezsignbulksend_get_list_v1_response_m_payload_all_of.py
+eZmaxApi/model/ezsignbulksend_get_object_v1_response.py
+eZmaxApi/model/ezsignbulksend_get_object_v1_response_all_of.py
+eZmaxApi/model/ezsignbulksend_get_object_v1_response_m_payload.py
 eZmaxApi/model/ezsignbulksend_list_element.py
+eZmaxApi/model/ezsignbulksend_response.py
+eZmaxApi/model/ezsignbulksend_response_compound.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_request.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v1_response.py
 eZmaxApi/model/ezsigndocument_apply_ezsigntemplate_v2_request.py
@@ -356,6 +362,7 @@ eZmaxApi/model/ezsigndocument_create_object_v1_response_m_payload.py
 eZmaxApi/model/ezsigndocument_delete_object_v1_response.py
 eZmaxApi/model/ezsigndocument_edit_ezsignsignatures_v1_request.py
 eZmaxApi/model/ezsigndocument_edit_ezsignsignatures_v1_response.py
+eZmaxApi/model/ezsigndocument_end_prematurely_v1_response.py
 eZmaxApi/model/ezsigndocument_get_download_url_v1_response.py
 eZmaxApi/model/ezsigndocument_get_download_url_v1_response_all_of.py
 eZmaxApi/model/ezsigndocument_get_download_url_v1_response_m_payload.py
@@ -368,6 +375,9 @@ eZmaxApi/model/ezsigndocument_get_form_data_v1_response_m_payload.py
 eZmaxApi/model/ezsigndocument_get_object_v1_response.py
 eZmaxApi/model/ezsigndocument_get_object_v1_response_all_of.py
 eZmaxApi/model/ezsigndocument_get_object_v1_response_m_payload.py
+eZmaxApi/model/ezsigndocument_get_temporary_proof_v1_response.py
+eZmaxApi/model/ezsigndocument_get_temporary_proof_v1_response_all_of.py
+eZmaxApi/model/ezsigndocument_get_temporary_proof_v1_response_m_payload.py
 eZmaxApi/model/ezsigndocument_get_words_positions_v1_request.py
 eZmaxApi/model/ezsigndocument_get_words_positions_v1_response.py
 eZmaxApi/model/ezsigndocument_get_words_positions_v1_response_all_of.py
@@ -380,6 +390,7 @@ eZmaxApi/model/ezsigndocument_request_patch.py
 eZmaxApi/model/ezsigndocument_response.py
 eZmaxApi/model/ezsigndocument_response_compound.py
 eZmaxApi/model/ezsigndocument_response_compound_all_of.py
+eZmaxApi/model/ezsigndocumentlog_response.py
 eZmaxApi/model/ezsignfolder_create_object_v1_request.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response.py
 eZmaxApi/model/ezsignfolder_create_object_v1_response_all_of.py
@@ -469,6 +480,7 @@ eZmaxApi/model/ezsigntemplatepackage_list_element.py
 eZmaxApi/model/field_e_activesession_sessiontype.py
 eZmaxApi/model/field_e_activesession_weekdaystart.py
 eZmaxApi/model/field_e_ezsigndocument_step.py
+eZmaxApi/model/field_e_ezsigndocumentlog_type.py
 eZmaxApi/model/field_e_ezsignfolder_sendreminderfrequency.py
 eZmaxApi/model/field_e_ezsignfolder_step.py
 eZmaxApi/model/field_e_ezsignfoldertype_privacylevel.py
@@ -505,14 +517,6 @@ eZmaxApi/model/sspr_send_usernames_v1_request.py
 eZmaxApi/model/sspr_unlock_account_request_v1_request.py
 eZmaxApi/model/sspr_unlock_account_v1_request.py
 eZmaxApi/model/sspr_validate_token_v1_request.py
-eZmaxApi/model/unused_ezsigndocument_edit_object_v1_request.py
-eZmaxApi/model/unused_ezsigndocument_edit_object_v1_response.py
-eZmaxApi/model/unused_ezsignfolder_edit_object_v1_request.py
-eZmaxApi/model/unused_ezsignfolder_edit_object_v1_response.py
-eZmaxApi/model/unused_ezsignfoldersignerassociation_edit_object_v1_request.py
-eZmaxApi/model/unused_ezsignfoldersignerassociation_edit_object_v1_response.py
-eZmaxApi/model/unused_ezsignsignature_edit_object_v1_request.py
-eZmaxApi/model/unused_ezsignsignature_edit_object_v1_response.py
 eZmaxApi/model/user_create_ezsignuser_v1_request.py
 eZmaxApi/model/user_create_ezsignuser_v1_response.py
 eZmaxApi/model/user_create_ezsignuser_v1_response_all_of.py
@@ -593,7 +597,12 @@ test/test_ezsignbulksend_get_list_v1_response.py
 test/test_ezsignbulksend_get_list_v1_response_all_of.py
 test/test_ezsignbulksend_get_list_v1_response_m_payload.py
 test/test_ezsignbulksend_get_list_v1_response_m_payload_all_of.py
+test/test_ezsignbulksend_get_object_v1_response.py
+test/test_ezsignbulksend_get_object_v1_response_all_of.py
+test/test_ezsignbulksend_get_object_v1_response_m_payload.py
 test/test_ezsignbulksend_list_element.py
+test/test_ezsignbulksend_response.py
+test/test_ezsignbulksend_response_compound.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_request.py
 test/test_ezsigndocument_apply_ezsigntemplate_v1_response.py
 test/test_ezsigndocument_apply_ezsigntemplate_v2_request.py
@@ -605,6 +614,7 @@ test/test_ezsigndocument_create_object_v1_response_m_payload.py
 test/test_ezsigndocument_delete_object_v1_response.py
 test/test_ezsigndocument_edit_ezsignsignatures_v1_request.py
 test/test_ezsigndocument_edit_ezsignsignatures_v1_response.py
+test/test_ezsigndocument_end_prematurely_v1_response.py
 test/test_ezsigndocument_get_download_url_v1_response.py
 test/test_ezsigndocument_get_download_url_v1_response_all_of.py
 test/test_ezsigndocument_get_download_url_v1_response_m_payload.py
@@ -617,6 +627,9 @@ test/test_ezsigndocument_get_form_data_v1_response_m_payload.py
 test/test_ezsigndocument_get_object_v1_response.py
 test/test_ezsigndocument_get_object_v1_response_all_of.py
 test/test_ezsigndocument_get_object_v1_response_m_payload.py
+test/test_ezsigndocument_get_temporary_proof_v1_response.py
+test/test_ezsigndocument_get_temporary_proof_v1_response_all_of.py
+test/test_ezsigndocument_get_temporary_proof_v1_response_m_payload.py
 test/test_ezsigndocument_get_words_positions_v1_request.py
 test/test_ezsigndocument_get_words_positions_v1_response.py
 test/test_ezsigndocument_get_words_positions_v1_response_all_of.py
@@ -629,6 +642,7 @@ test/test_ezsigndocument_request_patch.py
 test/test_ezsigndocument_response.py
 test/test_ezsigndocument_response_compound.py
 test/test_ezsigndocument_response_compound_all_of.py
+test/test_ezsigndocumentlog_response.py
 test/test_ezsignfolder_create_object_v1_request.py
 test/test_ezsignfolder_create_object_v1_response.py
 test/test_ezsignfolder_create_object_v1_response_all_of.py
@@ -718,6 +732,7 @@ test/test_ezsigntemplatepackage_list_element.py
 test/test_field_e_activesession_sessiontype.py
 test/test_field_e_activesession_weekdaystart.py
 test/test_field_e_ezsigndocument_step.py
+test/test_field_e_ezsigndocumentlog_type.py
 test/test_field_e_ezsignfolder_sendreminderfrequency.py
 test/test_field_e_ezsignfolder_step.py
 test/test_field_e_ezsignfoldertype_privacylevel.py
@@ -749,7 +764,6 @@ test/test_listpresentation_request.py
 test/test_listpresentation_response.py
 test/test_module_authenticate_api.py
 test/test_module_list_api.py
-test/test_module_sspr_api.py
 test/test_module_user_api.py
 test/test_multilingual_apikey_description.py
 test/test_object_activesession_api.py
@@ -772,14 +786,6 @@ test/test_sspr_send_usernames_v1_request.py
 test/test_sspr_unlock_account_request_v1_request.py
 test/test_sspr_unlock_account_v1_request.py
 test/test_sspr_validate_token_v1_request.py
-test/test_unused_ezsigndocument_edit_object_v1_request.py
-test/test_unused_ezsigndocument_edit_object_v1_response.py
-test/test_unused_ezsignfolder_edit_object_v1_request.py
-test/test_unused_ezsignfolder_edit_object_v1_response.py
-test/test_unused_ezsignfoldersignerassociation_edit_object_v1_request.py
-test/test_unused_ezsignfoldersignerassociation_edit_object_v1_response.py
-test/test_unused_ezsignsignature_edit_object_v1_request.py
-test/test_unused_ezsignsignature_edit_object_v1_response.py
 test/test_user_create_ezsignuser_v1_request.py
 test/test_user_create_ezsignuser_v1_response.py
 test/test_user_create_ezsignuser_v1_response_all_of.py

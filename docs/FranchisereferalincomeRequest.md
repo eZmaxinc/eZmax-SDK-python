@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **d_franchisereferalincome_franchisoramount** | **str** | The amount that will be kept by the franchisor | 
 **d_franchisereferalincome_agentamount** | **str** | The amount that will be given to the agent | 
 **dt_franchisereferalincome_disbursed** | **str** | The date the amounts were disbursed | 
-**t_franchisereferalincome_comment** | **str** | A comment about the transaction | 
+**t_franchisereferalincome_comment** | **str** | Comment about the transaction | 
 **fki_franchiseoffice_id** | **int** | The unique ID of the Franchisereoffice | 
 **s_franchisereferalincome_remoteid** | **str** |  | 
 **pki_franchisereferalincome_id** | **int** | The unique ID of the Franchisereferalincome | [optional] 

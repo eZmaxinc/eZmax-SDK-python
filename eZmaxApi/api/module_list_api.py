@@ -244,7 +244,7 @@ class ModuleListApi(object):
 
         Args:
             s_list_name (str): The list Name
-            list_save_listpresentation_v1_request (ListSaveListpresentationV1Request):
+            list_save_listpresentation_v1_request (ListSaveListpresentationV1Request): 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status

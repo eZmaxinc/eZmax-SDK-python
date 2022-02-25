@@ -332,6 +332,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
     ):
         """Delete an existing Ezsignfoldersignerassociation  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -487,6 +488,7 @@ class ObjectEzsignfoldersignerassociationApi(object):
     ):
         """Retrieve an existing Ezsignfoldersignerassociation  # noqa: E501
 
+          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
