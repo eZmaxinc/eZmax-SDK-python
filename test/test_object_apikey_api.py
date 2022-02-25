@@ -31,6 +31,13 @@ class TestObjectApikeyApi(unittest.TestCase):
         """
         pass
 
+    def test_apikey_create_object_v2(self):
+        """Test case for apikey_create_object_v2
+
+        Create a new Apikey  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

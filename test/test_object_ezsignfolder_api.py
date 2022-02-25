@@ -31,6 +31,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_create_object_v2(self):
+        """Test case for ezsignfolder_create_object_v2
+
+        Create a new Ezsignfolder  # noqa: E501
+        """
+        pass
+
     def test_ezsignfolder_delete_object_v1(self):
         """Test case for ezsignfolder_delete_object_v1
 

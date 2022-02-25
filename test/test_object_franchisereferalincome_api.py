@@ -31,6 +31,13 @@ class TestObjectFranchisereferalincomeApi(unittest.TestCase):
         """
         pass
 
+    def test_franchisereferalincome_create_object_v2(self):
+        """Test case for franchisereferalincome_create_object_v2
+
+        Create a new Franchisereferalincome  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

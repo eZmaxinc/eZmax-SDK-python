@@ -31,6 +31,13 @@ class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfoldersignerassociation_create_object_v2(self):
+        """Test case for ezsignfoldersignerassociation_create_object_v2
+
+        Create a new Ezsignfoldersignerassociation  # noqa: E501
+        """
+        pass
+
     def test_ezsignfoldersignerassociation_delete_object_v1(self):
         """Test case for ezsignfoldersignerassociation_delete_object_v1
 

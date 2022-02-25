@@ -31,6 +31,13 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignsignature_create_object_v2(self):
+        """Test case for ezsignsignature_create_object_v2
+
+        Create a new Ezsignsignature  # noqa: E501
+        """
+        pass
+
     def test_ezsignsignature_delete_object_v1(self):
         """Test case for ezsignsignature_delete_object_v1
 
