@@ -35,10 +35,12 @@ def lazy_import():
     from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
     from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
     from eZmaxApi.model.ezsignsignature_get_object_v1_response_all_of import EzsignsignatureGetObjectV1ResponseAllOf
+    from eZmaxApi.model.ezsignsignature_get_object_v1_response_m_payload import EzsignsignatureGetObjectV1ResponseMPayload
     globals()['CommonResponse'] = CommonResponse
     globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
     globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
     globals()['EzsignsignatureGetObjectV1ResponseAllOf'] = EzsignsignatureGetObjectV1ResponseAllOf
+    globals()['EzsignsignatureGetObjectV1ResponseMPayload'] = EzsignsignatureGetObjectV1ResponseMPayload
 
 
 class EzsignsignatureGetObjectV1Response(ModelComposed):
@@ -94,7 +96,7 @@ class EzsignsignatureGetObjectV1Response(ModelComposed):
         """
         lazy_import()
         return {
-            'm_payload': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'm_payload': (EzsignsignatureGetObjectV1ResponseMPayload,),  # noqa: E501
             'obj_debug_payload': (CommonResponseObjDebugPayload,),  # noqa: E501
             'obj_debug': (CommonResponseObjDebug,),  # noqa: E501
         }
@@ -119,7 +121,7 @@ class EzsignsignatureGetObjectV1Response(ModelComposed):
         """EzsignsignatureGetObjectV1Response - a model defined in OpenAPI
 
         Keyword Args:
-            m_payload ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Payload for the /1/object/ezsignsignature/getObject API Request
+            m_payload (EzsignsignatureGetObjectV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -221,7 +223,7 @@ class EzsignsignatureGetObjectV1Response(ModelComposed):
         """EzsignsignatureGetObjectV1Response - a model defined in OpenAPI
 
         Keyword Args:
-            m_payload ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Payload for the /1/object/ezsignsignature/getObject API Request
+            m_payload (EzsignsignatureGetObjectV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

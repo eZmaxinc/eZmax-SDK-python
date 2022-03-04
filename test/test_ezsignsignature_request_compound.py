@@ -15,11 +15,11 @@ import unittest
 import eZmaxApi
 from eZmaxApi.model.ezsignsignature_request import EzsignsignatureRequest
 from eZmaxApi.model.ezsignsignature_request_compound_all_of import EzsignsignatureRequestCompoundAllOf
-from eZmaxApi.model.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
+from eZmaxApi.model.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
 from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 globals()['EzsignsignatureRequest'] = EzsignsignatureRequest
 globals()['EzsignsignatureRequestCompoundAllOf'] = EzsignsignatureRequestCompoundAllOf
-globals()['EzsignsignaturecustomdateRequest'] = EzsignsignaturecustomdateRequest
+globals()['EzsignsignaturecustomdateRequestCompound'] = EzsignsignaturecustomdateRequestCompound
 globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 from eZmaxApi.model.ezsignsignature_request_compound import EzsignsignatureRequestCompound
 

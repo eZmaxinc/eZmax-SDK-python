@@ -131,17 +131,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     s_list_name = "sListName_example" # str | The list Name
     list_save_listpresentation_v1_request = ListSaveListpresentationV1Request(
         a_obj_listpresentation=[
-            ListpresentationRequest(
-                s_listpresentation_description="s_listpresentation_description_example",
-                s_listpresentation_filter="bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'",
-                s_listpresentation_orderby="s_listpresentation_orderby_example",
-                a_s_column_name=[
-                    "a_s_column_name_example",
-                ],
-                i_listpresentation_row_max=100,
-                i_listpresentation_row_offset=0,
-                b_listpresentation_default=True,
-            ),
+            ListpresentationRequestCompound(),
         ],
     ) # ListSaveListpresentationV1Request | 
 

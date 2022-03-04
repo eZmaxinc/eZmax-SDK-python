@@ -94,11 +94,11 @@ class EzsignsignerResponseCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'obj_contact': (EzsignsignerResponseCompoundContact,),  # noqa: E501
             'pki_ezsignsigner_id': (int,),  # noqa: E501
             'fki_taxassignment_id': (FieldPkiTaxassignmentID,),  # noqa: E501
             'fki_userlogintype_id': (int,),  # noqa: E501
             's_userlogintype_description_x': (str,),  # noqa: E501
+            'obj_contact': (EzsignsignerResponseCompoundContact,),  # noqa: E501
             'fki_secretquestion_id': (int,),  # noqa: E501
         }
 
@@ -108,11 +108,11 @@ class EzsignsignerResponseCompound(ModelComposed):
 
 
     attribute_map = {
-        'obj_contact': 'objContact',  # noqa: E501
         'pki_ezsignsigner_id': 'pkiEzsignsignerID',  # noqa: E501
         'fki_taxassignment_id': 'fkiTaxassignmentID',  # noqa: E501
         'fki_userlogintype_id': 'fkiUserlogintypeID',  # noqa: E501
         's_userlogintype_description_x': 'sUserlogintypeDescriptionX',  # noqa: E501
+        'obj_contact': 'objContact',  # noqa: E501
         'fki_secretquestion_id': 'fkiSecretquestionID',  # noqa: E501
     }
 
@@ -125,11 +125,11 @@ class EzsignsignerResponseCompound(ModelComposed):
         """EzsignsignerResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_contact (EzsignsignerResponseCompoundContact):
             pki_ezsignsigner_id (int): The unique ID of the Ezsignsigner
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            fki_userlogintype_id (int): The unique ID of the Userlogintype
+            fki_userlogintype_id (int): The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|
             s_userlogintype_description_x (str): The description of the Userlogintype in the language of the requester
+            obj_contact (EzsignsignerResponseCompoundContact):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -230,11 +230,11 @@ class EzsignsignerResponseCompound(ModelComposed):
         """EzsignsignerResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_contact (EzsignsignerResponseCompoundContact):
             pki_ezsignsigner_id (int): The unique ID of the Ezsignsigner
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            fki_userlogintype_id (int): The unique ID of the Userlogintype
+            fki_userlogintype_id (int): The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|
             s_userlogintype_description_x (str): The description of the Userlogintype in the language of the requester
+            obj_contact (EzsignsignerResponseCompoundContact):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

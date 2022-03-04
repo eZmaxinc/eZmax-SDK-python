@@ -5,8 +5,6 @@ A Franchisereferalincome Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_address** | [**AddressRequest**](AddressRequest.md) |  | 
-**a_obj_contact** | [**[ContactRequestCompound]**](ContactRequestCompound.md) |  | 
 **fki_franchisebroker_id** | **int** | The unique ID of the Franchisebroker | 
 **fki_franchisereferalincomeprogram_id** | **int** | The unique ID of the Franchisereferalincomeprogram | 
 **fki_period_id** | **int** | The unique ID of the Period | 
@@ -18,6 +16,8 @@ Name | Type | Description | Notes
 **t_franchisereferalincome_comment** | **str** | Comment about the transaction | 
 **fki_franchiseoffice_id** | **int** | The unique ID of the Franchisereoffice | 
 **s_franchisereferalincome_remoteid** | **str** |  | 
+**obj_address** | [**AddressRequest**](AddressRequest.md) |  | 
+**a_obj_contact** | [**[ContactRequestCompound]**](ContactRequestCompound.md) |  | 
 **pki_franchisereferalincome_id** | **int** | The unique ID of the Franchisereferalincome | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

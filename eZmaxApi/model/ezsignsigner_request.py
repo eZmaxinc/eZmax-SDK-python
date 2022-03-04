@@ -96,8 +96,9 @@ class EzsignsignerRequest(ModelNormal):
         lazy_import()
         return {
             'fki_taxassignment_id': (FieldPkiTaxassignmentID,),  # noqa: E501
-            'e_ezsignsigner_logintype': (str,),  # noqa: E501
+            'fki_userlogintype_id': (int,),  # noqa: E501
             'fki_secretquestion_id': (int,),  # noqa: E501
+            'e_ezsignsigner_logintype': (str,),  # noqa: E501
             's_ezsignsigner_secretanswer': (str,),  # noqa: E501
         }
 
@@ -108,8 +109,9 @@ class EzsignsignerRequest(ModelNormal):
 
     attribute_map = {
         'fki_taxassignment_id': 'fkiTaxassignmentID',  # noqa: E501
-        'e_ezsignsigner_logintype': 'eEzsignsignerLogintype',  # noqa: E501
+        'fki_userlogintype_id': 'fkiUserlogintypeID',  # noqa: E501
         'fki_secretquestion_id': 'fkiSecretquestionID',  # noqa: E501
+        'e_ezsignsigner_logintype': 'eEzsignsignerLogintype',  # noqa: E501
         's_ezsignsigner_secretanswer': 'sEzsignsignerSecretanswer',  # noqa: E501
     }
 
@@ -120,12 +122,11 @@ class EzsignsignerRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fki_taxassignment_id, e_ezsignsigner_logintype, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fki_taxassignment_id, *args, **kwargs):  # noqa: E501
         """EzsignsignerRequest - a model defined in OpenAPI
 
         Args:
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -158,7 +159,9 @@ class EzsignsignerRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fki_userlogintype_id (int): The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|. [optional]  # noqa: E501
             fki_secretquestion_id (int): The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|. [optional]  # noqa: E501
+            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.. [optional]  # noqa: E501
             s_ezsignsigner_secretanswer (str): The predefined answer to the secret question the Ezsignsigner will need to provide to successfully authenticate.. [optional]  # noqa: E501
         """
 
@@ -188,7 +191,6 @@ class EzsignsignerRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.fki_taxassignment_id = fki_taxassignment_id
-        self.e_ezsignsigner_logintype = e_ezsignsigner_logintype
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -209,12 +211,11 @@ class EzsignsignerRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fki_taxassignment_id, e_ezsignsigner_logintype, *args, **kwargs):  # noqa: E501
+    def __init__(self, fki_taxassignment_id, *args, **kwargs):  # noqa: E501
         """EzsignsignerRequest - a model defined in OpenAPI
 
         Args:
             fki_taxassignment_id (FieldPkiTaxassignmentID):
-            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,7 +248,9 @@ class EzsignsignerRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fki_userlogintype_id (int): The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|. [optional]  # noqa: E501
             fki_secretquestion_id (int): The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|. [optional]  # noqa: E501
+            e_ezsignsigner_logintype (str): The method the Ezsignsigner will authenticate to the signing platform.  1. **Password** means the Ezsignsigner will receive a secure link by email. 2. **PasswordPhone** means the Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**. 3. **PasswordQuestion** means the Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer. 4. **InPersonPhone** means the Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**. 5. **InPerson** means the Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type.. [optional]  # noqa: E501
             s_ezsignsigner_secretanswer (str): The predefined answer to the secret question the Ezsignsigner will need to provide to successfully authenticate.. [optional]  # noqa: E501
         """
 
@@ -275,7 +278,6 @@ class EzsignsignerRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.fki_taxassignment_id = fki_taxassignment_id
-        self.e_ezsignsigner_logintype = e_ezsignsigner_logintype
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

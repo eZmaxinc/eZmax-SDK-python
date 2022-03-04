@@ -98,11 +98,6 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'i_ezsigndocument_stepformtotal': (int,),  # noqa: E501
-            'i_ezsigndocument_stepformcurrent': (int,),  # noqa: E501
-            'i_ezsigndocument_stepsignaturetotal': (int,),  # noqa: E501
-            'i_ezsigndocument_stepsignature_current': (int,),  # noqa: E501
-            'a_obj_ezsignfoldersignerassociationstatus': ([CustomEzsignfoldersignerassociationstatusResponse],),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
             'dt_ezsigndocument_duedate': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
@@ -118,6 +113,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
             's_ezsigndocument_md5initial': (str,),  # noqa: E501
             's_ezsigndocument_md5signed': (str,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
+            'i_ezsigndocument_stepformtotal': (int,),  # noqa: E501
+            'i_ezsigndocument_stepformcurrent': (int,),  # noqa: E501
+            'i_ezsigndocument_stepsignaturetotal': (int,),  # noqa: E501
+            'i_ezsigndocument_stepsignature_current': (int,),  # noqa: E501
+            'a_obj_ezsignfoldersignerassociationstatus': ([CustomEzsignfoldersignerassociationstatusResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -126,11 +126,6 @@ class EzsigndocumentResponseCompound(ModelComposed):
 
 
     attribute_map = {
-        'i_ezsigndocument_stepformtotal': 'iEzsigndocumentStepformtotal',  # noqa: E501
-        'i_ezsigndocument_stepformcurrent': 'iEzsigndocumentStepformcurrent',  # noqa: E501
-        'i_ezsigndocument_stepsignaturetotal': 'iEzsigndocumentStepsignaturetotal',  # noqa: E501
-        'i_ezsigndocument_stepsignature_current': 'iEzsigndocumentStepsignatureCurrent',  # noqa: E501
-        'a_obj_ezsignfoldersignerassociationstatus': 'a_objEzsignfoldersignerassociationstatus',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
         'dt_ezsigndocument_duedate': 'dtEzsigndocumentDuedate',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
@@ -146,6 +141,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
         's_ezsigndocument_md5initial': 'sEzsigndocumentMD5initial',  # noqa: E501
         's_ezsigndocument_md5signed': 'sEzsigndocumentMD5signed',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
+        'i_ezsigndocument_stepformtotal': 'iEzsigndocumentStepformtotal',  # noqa: E501
+        'i_ezsigndocument_stepformcurrent': 'iEzsigndocumentStepformcurrent',  # noqa: E501
+        'i_ezsigndocument_stepsignaturetotal': 'iEzsigndocumentStepsignaturetotal',  # noqa: E501
+        'i_ezsigndocument_stepsignature_current': 'iEzsigndocumentStepsignatureCurrent',  # noqa: E501
+        'a_obj_ezsignfoldersignerassociationstatus': 'a_objEzsignfoldersignerassociationstatus',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,11 +157,6 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """EzsigndocumentResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
-            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
-            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
-            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
-            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
-            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):
@@ -177,6 +172,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
             obj_audit (CommonAudit):
+            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
+            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
+            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
+            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
+            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -276,11 +276,6 @@ class EzsigndocumentResponseCompound(ModelComposed):
         """EzsigndocumentResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
-            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
-            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
-            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
-            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
-            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):
@@ -296,6 +291,11 @@ class EzsigndocumentResponseCompound(ModelComposed):
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
             obj_audit (CommonAudit):
+            i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
+            i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
+            i_ezsigndocument_stepsignaturetotal (int): The total number of steps in the signature filling phase
+            i_ezsigndocument_stepsignature_current (int): The current step in the signature phase
+            a_obj_ezsignfoldersignerassociationstatus ([CustomEzsignfoldersignerassociationstatusResponse]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

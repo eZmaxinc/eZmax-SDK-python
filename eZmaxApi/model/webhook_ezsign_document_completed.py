@@ -31,12 +31,12 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.attempt_response import AttemptResponse
+    from eZmaxApi.model.attempt_response_compound import AttemptResponseCompound
     from eZmaxApi.model.common_webhook import CommonWebhook
     from eZmaxApi.model.ezsigndocument_response import EzsigndocumentResponse
     from eZmaxApi.model.webhook_ezsign_document_completed_all_of import WebhookEzsignDocumentCompletedAllOf
     from eZmaxApi.model.webhook_response import WebhookResponse
-    globals()['AttemptResponse'] = AttemptResponse
+    globals()['AttemptResponseCompound'] = AttemptResponseCompound
     globals()['CommonWebhook'] = CommonWebhook
     globals()['EzsigndocumentResponse'] = EzsigndocumentResponse
     globals()['WebhookEzsignDocumentCompletedAllOf'] = WebhookEzsignDocumentCompletedAllOf
@@ -98,7 +98,7 @@ class WebhookEzsignDocumentCompleted(ModelComposed):
         return {
             'obj_ezsigndocument': (EzsigndocumentResponse,),  # noqa: E501
             'obj_webhook': (WebhookResponse,),  # noqa: E501
-            'a_obj_attempt': ([AttemptResponse],),  # noqa: E501
+            'a_obj_attempt': ([AttemptResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -123,7 +123,7 @@ class WebhookEzsignDocumentCompleted(ModelComposed):
         Keyword Args:
             obj_ezsigndocument (EzsigndocumentResponse):
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -225,7 +225,7 @@ class WebhookEzsignDocumentCompleted(ModelComposed):
         Keyword Args:
             obj_ezsigndocument (EzsigndocumentResponse):
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

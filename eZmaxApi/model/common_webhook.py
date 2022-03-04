@@ -31,9 +31,9 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.attempt_response import AttemptResponse
+    from eZmaxApi.model.attempt_response_compound import AttemptResponseCompound
     from eZmaxApi.model.webhook_response import WebhookResponse
-    globals()['AttemptResponse'] = AttemptResponse
+    globals()['AttemptResponseCompound'] = AttemptResponseCompound
     globals()['WebhookResponse'] = WebhookResponse
 
 
@@ -91,7 +91,7 @@ class CommonWebhook(ModelNormal):
         lazy_import()
         return {
             'obj_webhook': (WebhookResponse,),  # noqa: E501
-            'a_obj_attempt': ([AttemptResponse],),  # noqa: E501
+            'a_obj_attempt': ([AttemptResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -116,7 +116,7 @@ class CommonWebhook(ModelNormal):
 
         Args:
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,7 +203,7 @@ class CommonWebhook(ModelNormal):
 
         Args:
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

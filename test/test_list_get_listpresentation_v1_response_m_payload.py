@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.listpresentation_request import ListpresentationRequest
-globals()['ListpresentationRequest'] = ListpresentationRequest
+from eZmaxApi.model.listpresentation_response_compound import ListpresentationResponseCompound
+globals()['ListpresentationResponseCompound'] = ListpresentationResponseCompound
 from eZmaxApi.model.list_get_listpresentation_v1_response_m_payload import ListGetListpresentationV1ResponseMPayload
 
 

@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.attempt_response import AttemptResponse
+from eZmaxApi.model.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.model.common_webhook import CommonWebhook
 from eZmaxApi.model.ezsignfolder_response import EzsignfolderResponse
 from eZmaxApi.model.webhook_ezsign_folder_completed_all_of import WebhookEzsignFolderCompletedAllOf
 from eZmaxApi.model.webhook_response import WebhookResponse
-globals()['AttemptResponse'] = AttemptResponse
+globals()['AttemptResponseCompound'] = AttemptResponseCompound
 globals()['CommonWebhook'] = CommonWebhook
 globals()['EzsignfolderResponse'] = EzsignfolderResponse
 globals()['WebhookEzsignFolderCompletedAllOf'] = WebhookEzsignFolderCompletedAllOf

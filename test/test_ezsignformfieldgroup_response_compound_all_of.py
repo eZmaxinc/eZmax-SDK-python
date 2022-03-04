@@ -13,8 +13,12 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsignformfield_response import EzsignformfieldResponse
-globals()['EzsignformfieldResponse'] = EzsignformfieldResponse
+from eZmaxApi.model.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
+from eZmaxApi.model.ezsignformfield_response_compound import EzsignformfieldResponseCompound
+from eZmaxApi.model.ezsignformfieldgroupsigner_response_compound import EzsignformfieldgroupsignerResponseCompound
+globals()['CustomDropdownElementResponseCompound'] = CustomDropdownElementResponseCompound
+globals()['EzsignformfieldResponseCompound'] = EzsignformfieldResponseCompound
+globals()['EzsignformfieldgroupsignerResponseCompound'] = EzsignformfieldgroupsignerResponseCompound
 from eZmaxApi.model.ezsignformfieldgroup_response_compound_all_of import EzsignformfieldgroupResponseCompoundAllOf
 
 

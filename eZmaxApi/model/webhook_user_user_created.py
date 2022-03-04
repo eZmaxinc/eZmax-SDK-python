@@ -31,14 +31,14 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.attempt_response import AttemptResponse
+    from eZmaxApi.model.attempt_response_compound import AttemptResponseCompound
     from eZmaxApi.model.common_webhook import CommonWebhook
-    from eZmaxApi.model.user_response import UserResponse
+    from eZmaxApi.model.user_response_compound import UserResponseCompound
     from eZmaxApi.model.webhook_response import WebhookResponse
     from eZmaxApi.model.webhook_user_user_created_all_of import WebhookUserUserCreatedAllOf
-    globals()['AttemptResponse'] = AttemptResponse
+    globals()['AttemptResponseCompound'] = AttemptResponseCompound
     globals()['CommonWebhook'] = CommonWebhook
-    globals()['UserResponse'] = UserResponse
+    globals()['UserResponseCompound'] = UserResponseCompound
     globals()['WebhookResponse'] = WebhookResponse
     globals()['WebhookUserUserCreatedAllOf'] = WebhookUserUserCreatedAllOf
 
@@ -96,9 +96,9 @@ class WebhookUserUserCreated(ModelComposed):
         """
         lazy_import()
         return {
-            'obj_user': (UserResponse,),  # noqa: E501
+            'obj_user': (UserResponseCompound,),  # noqa: E501
             'obj_webhook': (WebhookResponse,),  # noqa: E501
-            'a_obj_attempt': ([AttemptResponse],),  # noqa: E501
+            'a_obj_attempt': ([AttemptResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -121,9 +121,9 @@ class WebhookUserUserCreated(ModelComposed):
         """WebhookUserUserCreated - a model defined in OpenAPI
 
         Keyword Args:
-            obj_user (UserResponse):
+            obj_user (UserResponseCompound):
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -223,9 +223,9 @@ class WebhookUserUserCreated(ModelComposed):
         """WebhookUserUserCreated - a model defined in OpenAPI
 
         Keyword Args:
-            obj_user (UserResponse):
+            obj_user (UserResponseCompound):
             obj_webhook (WebhookResponse):
-            a_obj_attempt ([AttemptResponse]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
+            a_obj_attempt ([AttemptResponseCompound]): An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

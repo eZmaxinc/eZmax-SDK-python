@@ -82,8 +82,16 @@ class EzsignformfieldResponse(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'pki_ezsignformfield_id': (int,),  # noqa: E501
+            'i_ezsignpage_pagenumber': (int,),  # noqa: E501
             's_ezsignformfield_label': (str,),  # noqa: E501
             's_ezsignformfield_value': (str,),  # noqa: E501
+            'i_ezsignformfield_x': (int,),  # noqa: E501
+            'i_ezsignformfield_y': (int,),  # noqa: E501
+            'i_ezsignformfield_width': (int,),  # noqa: E501
+            'i_ezsignformfield_height': (int,),  # noqa: E501
+            'b_ezsignformfield_selected': (bool,),  # noqa: E501
+            's_ezsignformfield_enteredvalue': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +100,16 @@ class EzsignformfieldResponse(ModelNormal):
 
 
     attribute_map = {
+        'pki_ezsignformfield_id': 'pkiEzsignformfieldID',  # noqa: E501
+        'i_ezsignpage_pagenumber': 'iEzsignpagePagenumber',  # noqa: E501
         's_ezsignformfield_label': 'sEzsignformfieldLabel',  # noqa: E501
         's_ezsignformfield_value': 'sEzsignformfieldValue',  # noqa: E501
+        'i_ezsignformfield_x': 'iEzsignformfieldX',  # noqa: E501
+        'i_ezsignformfield_y': 'iEzsignformfieldY',  # noqa: E501
+        'i_ezsignformfield_width': 'iEzsignformfieldWidth',  # noqa: E501
+        'i_ezsignformfield_height': 'iEzsignformfieldHeight',  # noqa: E501
+        'b_ezsignformfield_selected': 'bEzsignformfieldSelected',  # noqa: E501
+        's_ezsignformfield_enteredvalue': 'sEzsignformfieldEnteredvalue',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +119,18 @@ class EzsignformfieldResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, s_ezsignformfield_label, s_ezsignformfield_value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignformfield_id, i_ezsignpage_pagenumber, s_ezsignformfield_label, s_ezsignformfield_value, i_ezsignformfield_x, i_ezsignformfield_y, i_ezsignformfield_width, i_ezsignformfield_height, *args, **kwargs):  # noqa: E501
         """EzsignformfieldResponse - a model defined in OpenAPI
 
         Args:
+            pki_ezsignformfield_id (int): The unique ID of the Ezsignformfield
+            i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             s_ezsignformfield_label (str): The Label for the Ezsignformfield
-            s_ezsignformfield_value (str): The Value for the Ezsignformfield
+            s_ezsignformfield_value (str): The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio
+            i_ezsignformfield_x (int): The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+            i_ezsignformfield_y (int): The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignformfield_width (int): The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |
+            i_ezsignformfield_height (int): The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,6 +163,8 @@ class EzsignformfieldResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            b_ezsignformfield_selected (bool): Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**. [optional]  # noqa: E501
+            s_ezsignformfield_enteredvalue (str): This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,8 +192,14 @@ class EzsignformfieldResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pki_ezsignformfield_id = pki_ezsignformfield_id
+        self.i_ezsignpage_pagenumber = i_ezsignpage_pagenumber
         self.s_ezsignformfield_label = s_ezsignformfield_label
         self.s_ezsignformfield_value = s_ezsignformfield_value
+        self.i_ezsignformfield_x = i_ezsignformfield_x
+        self.i_ezsignformfield_y = i_ezsignformfield_y
+        self.i_ezsignformfield_width = i_ezsignformfield_width
+        self.i_ezsignformfield_height = i_ezsignformfield_height
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,12 +220,18 @@ class EzsignformfieldResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, s_ezsignformfield_label, s_ezsignformfield_value, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignformfield_id, i_ezsignpage_pagenumber, s_ezsignformfield_label, s_ezsignformfield_value, i_ezsignformfield_x, i_ezsignformfield_y, i_ezsignformfield_width, i_ezsignformfield_height, *args, **kwargs):  # noqa: E501
         """EzsignformfieldResponse - a model defined in OpenAPI
 
         Args:
+            pki_ezsignformfield_id (int): The unique ID of the Ezsignformfield
+            i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             s_ezsignformfield_label (str): The Label for the Ezsignformfield
-            s_ezsignformfield_value (str): The Value for the Ezsignformfield
+            s_ezsignformfield_value (str): The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio
+            i_ezsignformfield_x (int): The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+            i_ezsignformfield_y (int): The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignformfield_width (int): The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |
+            i_ezsignformfield_height (int): The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,6 +264,8 @@ class EzsignformfieldResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            b_ezsignformfield_selected (bool): Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**. [optional]  # noqa: E501
+            s_ezsignformfield_enteredvalue (str): This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,8 +291,14 @@ class EzsignformfieldResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pki_ezsignformfield_id = pki_ezsignformfield_id
+        self.i_ezsignpage_pagenumber = i_ezsignpage_pagenumber
         self.s_ezsignformfield_label = s_ezsignformfield_label
         self.s_ezsignformfield_value = s_ezsignformfield_value
+        self.i_ezsignformfield_x = i_ezsignformfield_x
+        self.i_ezsignformfield_y = i_ezsignformfield_y
+        self.i_ezsignformfield_width = i_ezsignformfield_width
+        self.i_ezsignformfield_height = i_ezsignformfield_height
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -125,7 +125,7 @@ class CustomFormDataDocumentResponse(ModelNormal):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
             dt_modified_date (str): The date and time at which the object was last modified
-            a_obj_form_data_signer ([CustomFormDataSignerResponse]): 
+            a_obj_form_data_signer ([CustomFormDataSignerResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -218,7 +218,7 @@ class CustomFormDataDocumentResponse(ModelNormal):
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
             dt_modified_date (str): The date and time at which the object was last modified
-            a_obj_form_data_signer ([CustomFormDataSignerResponse]): 
+            a_obj_form_data_signer ([CustomFormDataSignerResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

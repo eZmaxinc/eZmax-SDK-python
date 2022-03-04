@@ -31,12 +31,22 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsignformfield_response import EzsignformfieldResponse
+    from eZmaxApi.model.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
+    from eZmaxApi.model.ezsignformfield_response_compound import EzsignformfieldResponseCompound
     from eZmaxApi.model.ezsignformfieldgroup_response import EzsignformfieldgroupResponse
     from eZmaxApi.model.ezsignformfieldgroup_response_compound_all_of import EzsignformfieldgroupResponseCompoundAllOf
-    globals()['EzsignformfieldResponse'] = EzsignformfieldResponse
+    from eZmaxApi.model.ezsignformfieldgroupsigner_response_compound import EzsignformfieldgroupsignerResponseCompound
+    from eZmaxApi.model.field_e_ezsignformfieldgroup_signerrequirement import FieldEEzsignformfieldgroupSignerrequirement
+    from eZmaxApi.model.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
+    from eZmaxApi.model.field_e_ezsignformfieldgroup_type import FieldEEzsignformfieldgroupType
+    globals()['CustomDropdownElementResponseCompound'] = CustomDropdownElementResponseCompound
+    globals()['EzsignformfieldResponseCompound'] = EzsignformfieldResponseCompound
     globals()['EzsignformfieldgroupResponse'] = EzsignformfieldgroupResponse
     globals()['EzsignformfieldgroupResponseCompoundAllOf'] = EzsignformfieldgroupResponseCompoundAllOf
+    globals()['EzsignformfieldgroupsignerResponseCompound'] = EzsignformfieldgroupsignerResponseCompound
+    globals()['FieldEEzsignformfieldgroupSignerrequirement'] = FieldEEzsignformfieldgroupSignerrequirement
+    globals()['FieldEEzsignformfieldgroupTooltipposition'] = FieldEEzsignformfieldgroupTooltipposition
+    globals()['FieldEEzsignformfieldgroupType'] = FieldEEzsignformfieldgroupType
 
 
 class EzsignformfieldgroupResponseCompound(ModelComposed):
@@ -92,8 +102,24 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
         """
         lazy_import()
         return {
+            'pki_ezsignformfieldgroup_id': (int,),  # noqa: E501
+            'fki_ezsigndocument_id': (int,),  # noqa: E501
+            'e_ezsignformfieldgroup_type': (FieldEEzsignformfieldgroupType,),  # noqa: E501
+            'e_ezsignformfieldgroup_signerrequirement': (FieldEEzsignformfieldgroupSignerrequirement,),  # noqa: E501
             's_ezsignformfieldgroup_label': (str,),  # noqa: E501
-            'a_obj_ezsignformfield': ([EzsignformfieldResponse],),  # noqa: E501
+            'i_ezsignformfieldgroup_step': (int,),  # noqa: E501
+            's_ezsignformfieldgroup_defaultvalue': (str,),  # noqa: E501
+            'i_ezsignformfieldgroup_filledmin': (int,),  # noqa: E501
+            'i_ezsignformfieldgroup_filledmax': (int,),  # noqa: E501
+            'b_ezsignformfieldgroup_readonly': (bool,),  # noqa: E501
+            'a_obj_ezsignformfield': ([EzsignformfieldResponseCompound],),  # noqa: E501
+            'a_obj_ezsignformfieldgroupsigner': (EzsignformfieldgroupsignerResponseCompound,),  # noqa: E501
+            'i_ezsignformfieldgroup_maxlength': (int,),  # noqa: E501
+            'b_ezsignformfieldgroup_encrypted': (bool,),  # noqa: E501
+            's_ezsignformfieldgroup_regexp': (str,),  # noqa: E501
+            't_ezsignformfieldgroup_tooltip': (str,),  # noqa: E501
+            'e_ezsignformfieldgroup_tooltipposition': (FieldEEzsignformfieldgroupTooltipposition,),  # noqa: E501
+            'a_obj_dropdown_element': ([CustomDropdownElementResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -102,8 +128,24 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
 
 
     attribute_map = {
+        'pki_ezsignformfieldgroup_id': 'pkiEzsignformfieldgroupID',  # noqa: E501
+        'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
+        'e_ezsignformfieldgroup_type': 'eEzsignformfieldgroupType',  # noqa: E501
+        'e_ezsignformfieldgroup_signerrequirement': 'eEzsignformfieldgroupSignerrequirement',  # noqa: E501
         's_ezsignformfieldgroup_label': 'sEzsignformfieldgroupLabel',  # noqa: E501
+        'i_ezsignformfieldgroup_step': 'iEzsignformfieldgroupStep',  # noqa: E501
+        's_ezsignformfieldgroup_defaultvalue': 'sEzsignformfieldgroupDefaultvalue',  # noqa: E501
+        'i_ezsignformfieldgroup_filledmin': 'iEzsignformfieldgroupFilledmin',  # noqa: E501
+        'i_ezsignformfieldgroup_filledmax': 'iEzsignformfieldgroupFilledmax',  # noqa: E501
+        'b_ezsignformfieldgroup_readonly': 'bEzsignformfieldgroupReadonly',  # noqa: E501
         'a_obj_ezsignformfield': 'a_objEzsignformfield',  # noqa: E501
+        'a_obj_ezsignformfieldgroupsigner': 'a_objEzsignformfieldgroupsigner',  # noqa: E501
+        'i_ezsignformfieldgroup_maxlength': 'iEzsignformfieldgroupMaxlength',  # noqa: E501
+        'b_ezsignformfieldgroup_encrypted': 'bEzsignformfieldgroupEncrypted',  # noqa: E501
+        's_ezsignformfieldgroup_regexp': 'sEzsignformfieldgroupRegexp',  # noqa: E501
+        't_ezsignformfieldgroup_tooltip': 'tEzsignformfieldgroupTooltip',  # noqa: E501
+        'e_ezsignformfieldgroup_tooltipposition': 'eEzsignformfieldgroupTooltipposition',  # noqa: E501
+        'a_obj_dropdown_element': 'a_objDropdownElement',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,8 +157,18 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
         """EzsignformfieldgroupResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
+            pki_ezsignformfieldgroup_id (int): The unique ID of the Ezsignformfieldgroup
+            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
+            e_ezsignformfieldgroup_type (FieldEEzsignformfieldgroupType):
+            e_ezsignformfieldgroup_signerrequirement (FieldEEzsignformfieldgroupSignerrequirement):
             s_ezsignformfieldgroup_label (str): The Label for the Ezsignformfieldgroup
-            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
+            i_ezsignformfieldgroup_step (int): The step when the Ezsignsigner will be invited to fill the form fields
+            s_ezsignformfieldgroup_defaultvalue (str): The default value for the Ezsignformfieldgroup
+            i_ezsignformfieldgroup_filledmin (int): The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+            i_ezsignformfieldgroup_filledmax (int): The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+            b_ezsignformfieldgroup_readonly (bool): Whether the Ezsignformfieldgroup is read only or not.
+            a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
+            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -147,6 +199,12 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            i_ezsignformfieldgroup_maxlength (int): The maximum length for the value in the Ezsignformfieldgroup  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            b_ezsignformfieldgroup_encrypted (bool): Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            s_ezsignformfieldgroup_regexp (str): A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            t_ezsignformfieldgroup_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup. [optional]  # noqa: E501
+            e_ezsignformfieldgroup_tooltipposition (FieldEEzsignformfieldgroupTooltipposition): [optional]  # noqa: E501
+            a_obj_dropdown_element ([CustomDropdownElementResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,8 +274,18 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
         """EzsignformfieldgroupResponseCompound - a model defined in OpenAPI
 
         Keyword Args:
+            pki_ezsignformfieldgroup_id (int): The unique ID of the Ezsignformfieldgroup
+            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
+            e_ezsignformfieldgroup_type (FieldEEzsignformfieldgroupType):
+            e_ezsignformfieldgroup_signerrequirement (FieldEEzsignformfieldgroupSignerrequirement):
             s_ezsignformfieldgroup_label (str): The Label for the Ezsignformfieldgroup
-            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
+            i_ezsignformfieldgroup_step (int): The step when the Ezsignsigner will be invited to fill the form fields
+            s_ezsignformfieldgroup_defaultvalue (str): The default value for the Ezsignformfieldgroup
+            i_ezsignformfieldgroup_filledmin (int): The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+            i_ezsignformfieldgroup_filledmax (int): The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
+            b_ezsignformfieldgroup_readonly (bool): Whether the Ezsignformfieldgroup is read only or not.
+            a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
+            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -248,6 +316,12 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            i_ezsignformfieldgroup_maxlength (int): The maximum length for the value in the Ezsignformfieldgroup  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            b_ezsignformfieldgroup_encrypted (bool): Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            s_ezsignformfieldgroup_regexp (str): A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**. [optional]  # noqa: E501
+            t_ezsignformfieldgroup_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup. [optional]  # noqa: E501
+            e_ezsignformfieldgroup_tooltipposition (FieldEEzsignformfieldgroupTooltipposition): [optional]  # noqa: E501
+            a_obj_dropdown_element ([CustomDropdownElementResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

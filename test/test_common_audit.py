@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.common_auditdetail import CommonAuditdetail
+globals()['CommonAuditdetail'] = CommonAuditdetail
 from eZmaxApi.model.common_audit import CommonAudit
 
 

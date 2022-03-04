@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.ezsignsignature_get_object_v1_response_m_payload import EzsignsignatureGetObjectV1ResponseMPayload
+globals()['EzsignsignatureGetObjectV1ResponseMPayload'] = EzsignsignatureGetObjectV1ResponseMPayload
 from eZmaxApi.model.ezsignsignature_get_object_v1_response_all_of import EzsignsignatureGetObjectV1ResponseAllOf
 
 

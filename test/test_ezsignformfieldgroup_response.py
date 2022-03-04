@@ -13,6 +13,12 @@ import sys
 import unittest
 
 import eZmaxApi
+from eZmaxApi.model.field_e_ezsignformfieldgroup_signerrequirement import FieldEEzsignformfieldgroupSignerrequirement
+from eZmaxApi.model.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
+from eZmaxApi.model.field_e_ezsignformfieldgroup_type import FieldEEzsignformfieldgroupType
+globals()['FieldEEzsignformfieldgroupSignerrequirement'] = FieldEEzsignformfieldgroupSignerrequirement
+globals()['FieldEEzsignformfieldgroupTooltipposition'] = FieldEEzsignformfieldgroupTooltipposition
+globals()['FieldEEzsignformfieldgroupType'] = FieldEEzsignformfieldgroupType
 from eZmaxApi.model.ezsignformfieldgroup_response import EzsignformfieldgroupResponse
 
 

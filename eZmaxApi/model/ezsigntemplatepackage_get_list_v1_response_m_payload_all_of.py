@@ -111,7 +111,7 @@ class EzsigntemplatepackageGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsigntemplatepackageGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]): 
+            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsigntemplatepackageGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsigntemplatepackageGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]): 
+            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

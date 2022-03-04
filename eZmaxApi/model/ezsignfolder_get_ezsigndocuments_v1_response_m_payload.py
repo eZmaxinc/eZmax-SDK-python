@@ -111,7 +111,7 @@ class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
         """EzsignfolderGetEzsigndocumentsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]): 
+            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignfolderGetEzsigndocumentsV1ResponseMPayload(ModelNormal):
         """EzsignfolderGetEzsigndocumentsV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]): 
+            a_obj_ezsigndocument ([EzsigndocumentResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

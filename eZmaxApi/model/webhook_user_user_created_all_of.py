@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.user_response import UserResponse
-    globals()['UserResponse'] = UserResponse
+    from eZmaxApi.model.user_response_compound import UserResponseCompound
+    globals()['UserResponseCompound'] = UserResponseCompound
 
 
 class WebhookUserUserCreatedAllOf(ModelNormal):
@@ -88,7 +88,7 @@ class WebhookUserUserCreatedAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'obj_user': (UserResponse,),  # noqa: E501
+            'obj_user': (UserResponseCompound,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class WebhookUserUserCreatedAllOf(ModelNormal):
         """WebhookUserUserCreatedAllOf - a model defined in OpenAPI
 
         Args:
-            obj_user (UserResponse):
+            obj_user (UserResponseCompound):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class WebhookUserUserCreatedAllOf(ModelNormal):
         """WebhookUserUserCreatedAllOf - a model defined in OpenAPI
 
         Args:
-            obj_user (UserResponse):
+            obj_user (UserResponseCompound):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

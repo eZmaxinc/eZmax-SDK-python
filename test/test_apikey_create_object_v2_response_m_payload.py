@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.apikey_response import ApikeyResponse
-globals()['ApikeyResponse'] = ApikeyResponse
+from eZmaxApi.model.apikey_response_compound import ApikeyResponseCompound
+globals()['ApikeyResponseCompound'] = ApikeyResponseCompound
 from eZmaxApi.model.apikey_create_object_v2_response_m_payload import ApikeyCreateObjectV2ResponseMPayload
 
 

@@ -117,7 +117,7 @@ class EzsigntemplatepackageGetListV1ResponseMPayload(ModelComposed):
         """EzsigntemplatepackageGetListV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]): 
+            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]):
             i_row_returned (int): The number of rows returned
             i_row_filtered (int): The number of rows matching your filters (if any) or the total number of rows
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,7 +219,7 @@ class EzsigntemplatepackageGetListV1ResponseMPayload(ModelComposed):
         """EzsigntemplatepackageGetListV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]): 
+            a_obj_ezsigntemplatepackage ([EzsigntemplatepackageListElement]):
             i_row_returned (int): The number of rows returned
             i_row_filtered (int): The number of rows matching your filters (if any) or the total number of rows
             _check_type (bool): if True, values for parameters in openapi_types

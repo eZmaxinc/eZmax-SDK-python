@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.user_response import UserResponse
-globals()['UserResponse'] = UserResponse
+from eZmaxApi.model.user_response_compound import UserResponseCompound
+globals()['UserResponseCompound'] = UserResponseCompound
 from eZmaxApi.model.webhook_user_user_created_all_of import WebhookUserUserCreatedAllOf
 
 

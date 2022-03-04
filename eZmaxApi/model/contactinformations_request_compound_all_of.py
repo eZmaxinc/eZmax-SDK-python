@@ -31,14 +31,14 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.address_request import AddressRequest
-    from eZmaxApi.model.email_request import EmailRequest
-    from eZmaxApi.model.phone_request import PhoneRequest
-    from eZmaxApi.model.website_request import WebsiteRequest
-    globals()['AddressRequest'] = AddressRequest
-    globals()['EmailRequest'] = EmailRequest
-    globals()['PhoneRequest'] = PhoneRequest
-    globals()['WebsiteRequest'] = WebsiteRequest
+    from eZmaxApi.model.address_request_compound import AddressRequestCompound
+    from eZmaxApi.model.email_request_compound import EmailRequestCompound
+    from eZmaxApi.model.phone_request_compound import PhoneRequestCompound
+    from eZmaxApi.model.website_request_compound import WebsiteRequestCompound
+    globals()['AddressRequestCompound'] = AddressRequestCompound
+    globals()['EmailRequestCompound'] = EmailRequestCompound
+    globals()['PhoneRequestCompound'] = PhoneRequestCompound
+    globals()['WebsiteRequestCompound'] = WebsiteRequestCompound
 
 
 class ContactinformationsRequestCompoundAllOf(ModelNormal):
@@ -94,10 +94,10 @@ class ContactinformationsRequestCompoundAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_address': ([AddressRequest],),  # noqa: E501
-            'a_obj_phone': ([PhoneRequest],),  # noqa: E501
-            'a_obj_email': ([EmailRequest],),  # noqa: E501
-            'a_obj_website': ([WebsiteRequest],),  # noqa: E501
+            'a_obj_address': ([AddressRequestCompound],),  # noqa: E501
+            'a_obj_phone': ([PhoneRequestCompound],),  # noqa: E501
+            'a_obj_email': ([EmailRequestCompound],),  # noqa: E501
+            'a_obj_website': ([WebsiteRequestCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -123,10 +123,10 @@ class ContactinformationsRequestCompoundAllOf(ModelNormal):
         """ContactinformationsRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_address ([AddressRequest]): 
-            a_obj_phone ([PhoneRequest]): 
-            a_obj_email ([EmailRequest]): 
-            a_obj_website ([WebsiteRequest]): 
+            a_obj_address ([AddressRequestCompound]):
+            a_obj_phone ([PhoneRequestCompound]):
+            a_obj_email ([EmailRequestCompound]):
+            a_obj_website ([WebsiteRequestCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -214,10 +214,10 @@ class ContactinformationsRequestCompoundAllOf(ModelNormal):
         """ContactinformationsRequestCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_address ([AddressRequest]): 
-            a_obj_phone ([PhoneRequest]): 
-            a_obj_email ([EmailRequest]): 
-            a_obj_website ([WebsiteRequest]): 
+            a_obj_address ([AddressRequestCompound]):
+            a_obj_phone ([PhoneRequestCompound]):
+            a_obj_email ([EmailRequestCompound]):
+            a_obj_website ([WebsiteRequestCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

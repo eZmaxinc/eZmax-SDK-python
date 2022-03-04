@@ -31,18 +31,18 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.address_request import AddressRequest
+    from eZmaxApi.model.address_request_compound import AddressRequestCompound
     from eZmaxApi.model.contactinformations_request import ContactinformationsRequest
     from eZmaxApi.model.contactinformations_request_compound_all_of import ContactinformationsRequestCompoundAllOf
-    from eZmaxApi.model.email_request import EmailRequest
-    from eZmaxApi.model.phone_request import PhoneRequest
-    from eZmaxApi.model.website_request import WebsiteRequest
-    globals()['AddressRequest'] = AddressRequest
+    from eZmaxApi.model.email_request_compound import EmailRequestCompound
+    from eZmaxApi.model.phone_request_compound import PhoneRequestCompound
+    from eZmaxApi.model.website_request_compound import WebsiteRequestCompound
+    globals()['AddressRequestCompound'] = AddressRequestCompound
     globals()['ContactinformationsRequest'] = ContactinformationsRequest
     globals()['ContactinformationsRequestCompoundAllOf'] = ContactinformationsRequestCompoundAllOf
-    globals()['EmailRequest'] = EmailRequest
-    globals()['PhoneRequest'] = PhoneRequest
-    globals()['WebsiteRequest'] = WebsiteRequest
+    globals()['EmailRequestCompound'] = EmailRequestCompound
+    globals()['PhoneRequestCompound'] = PhoneRequestCompound
+    globals()['WebsiteRequestCompound'] = WebsiteRequestCompound
 
 
 class ContactinformationsRequestCompound(ModelComposed):
@@ -98,14 +98,14 @@ class ContactinformationsRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'a_obj_address': ([AddressRequest],),  # noqa: E501
-            'a_obj_phone': ([PhoneRequest],),  # noqa: E501
-            'a_obj_email': ([EmailRequest],),  # noqa: E501
-            'a_obj_website': ([WebsiteRequest],),  # noqa: E501
             'i_address_default': (int,),  # noqa: E501
             'i_phone_default': (int,),  # noqa: E501
             'i_email_default': (int,),  # noqa: E501
             'i_website_default': (int,),  # noqa: E501
+            'a_obj_address': ([AddressRequestCompound],),  # noqa: E501
+            'a_obj_phone': ([PhoneRequestCompound],),  # noqa: E501
+            'a_obj_email': ([EmailRequestCompound],),  # noqa: E501
+            'a_obj_website': ([WebsiteRequestCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -114,14 +114,14 @@ class ContactinformationsRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'a_obj_address': 'a_objAddress',  # noqa: E501
-        'a_obj_phone': 'a_objPhone',  # noqa: E501
-        'a_obj_email': 'a_objEmail',  # noqa: E501
-        'a_obj_website': 'a_objWebsite',  # noqa: E501
         'i_address_default': 'iAddressDefault',  # noqa: E501
         'i_phone_default': 'iPhoneDefault',  # noqa: E501
         'i_email_default': 'iEmailDefault',  # noqa: E501
         'i_website_default': 'iWebsiteDefault',  # noqa: E501
+        'a_obj_address': 'a_objAddress',  # noqa: E501
+        'a_obj_phone': 'a_objPhone',  # noqa: E501
+        'a_obj_email': 'a_objEmail',  # noqa: E501
+        'a_obj_website': 'a_objWebsite',  # noqa: E501
     }
 
     read_only_vars = {
@@ -133,14 +133,14 @@ class ContactinformationsRequestCompound(ModelComposed):
         """ContactinformationsRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_address ([AddressRequest]): 
-            a_obj_phone ([PhoneRequest]): 
-            a_obj_email ([EmailRequest]): 
-            a_obj_website ([WebsiteRequest]): 
             i_address_default (int): The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_phone_default (int): The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_email_default (int): The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_website_default (int): The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.
+            a_obj_address ([AddressRequestCompound]):
+            a_obj_phone ([PhoneRequestCompound]):
+            a_obj_email ([EmailRequestCompound]):
+            a_obj_website ([WebsiteRequestCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -240,14 +240,14 @@ class ContactinformationsRequestCompound(ModelComposed):
         """ContactinformationsRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            a_obj_address ([AddressRequest]): 
-            a_obj_phone ([PhoneRequest]): 
-            a_obj_email ([EmailRequest]): 
-            a_obj_website ([WebsiteRequest]): 
             i_address_default (int): The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_phone_default (int): The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_email_default (int): The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.
             i_website_default (int): The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.
+            a_obj_address ([AddressRequestCompound]):
+            a_obj_phone ([PhoneRequestCompound]):
+            a_obj_email ([EmailRequestCompound]):
+            a_obj_website ([WebsiteRequestCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

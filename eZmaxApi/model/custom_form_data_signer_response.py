@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsignformfieldgroup_response_compound import EzsignformfieldgroupResponseCompound
-    globals()['EzsignformfieldgroupResponseCompound'] = EzsignformfieldgroupResponseCompound
+    from eZmaxApi.model.custom_form_data_ezsignformfieldgroup_response import CustomFormDataEzsignformfieldgroupResponse
+    globals()['CustomFormDataEzsignformfieldgroupResponse'] = CustomFormDataEzsignformfieldgroupResponse
 
 
 class CustomFormDataSignerResponse(ModelNormal):
@@ -63,7 +63,7 @@ class CustomFormDataSignerResponse(ModelNormal):
     }
 
     validations = {
-        ('a_obj_ezsignformfieldgroup_compound',): {
+        ('a_obj_ezsignformfieldgroup',): {
         },
     }
 
@@ -93,7 +93,7 @@ class CustomFormDataSignerResponse(ModelNormal):
             'fki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             's_contact_firstname': (str,),  # noqa: E501
             's_contact_lastname': (str,),  # noqa: E501
-            'a_obj_ezsignformfieldgroup_compound': ([EzsignformfieldgroupResponseCompound],),  # noqa: E501
+            'a_obj_ezsignformfieldgroup': ([CustomFormDataEzsignformfieldgroupResponse],),  # noqa: E501
             'fki_user_id': (int,),  # noqa: E501
         }
 
@@ -106,7 +106,7 @@ class CustomFormDataSignerResponse(ModelNormal):
         'fki_ezsignfoldersignerassociation_id': 'fkiEzsignfoldersignerassociationID',  # noqa: E501
         's_contact_firstname': 'sContactFirstname',  # noqa: E501
         's_contact_lastname': 'sContactLastname',  # noqa: E501
-        'a_obj_ezsignformfieldgroup_compound': 'a_objEzsignformfieldgroupCompound',  # noqa: E501
+        'a_obj_ezsignformfieldgroup': 'a_objEzsignformfieldgroup',  # noqa: E501
         'fki_user_id': 'fkiUserID',  # noqa: E501
     }
 
@@ -117,14 +117,14 @@ class CustomFormDataSignerResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fki_ezsignfoldersignerassociation_id, s_contact_firstname, s_contact_lastname, a_obj_ezsignformfieldgroup_compound, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fki_ezsignfoldersignerassociation_id, s_contact_firstname, s_contact_lastname, a_obj_ezsignformfieldgroup, *args, **kwargs):  # noqa: E501
         """CustomFormDataSignerResponse - a model defined in OpenAPI
 
         Args:
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
-            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]): 
+            a_obj_ezsignformfieldgroup ([CustomFormDataEzsignformfieldgroupResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -188,7 +188,7 @@ class CustomFormDataSignerResponse(ModelNormal):
         self.fki_ezsignfoldersignerassociation_id = fki_ezsignfoldersignerassociation_id
         self.s_contact_firstname = s_contact_firstname
         self.s_contact_lastname = s_contact_lastname
-        self.a_obj_ezsignformfieldgroup_compound = a_obj_ezsignformfieldgroup_compound
+        self.a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -209,14 +209,14 @@ class CustomFormDataSignerResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fki_ezsignfoldersignerassociation_id, s_contact_firstname, s_contact_lastname, a_obj_ezsignformfieldgroup_compound, *args, **kwargs):  # noqa: E501
+    def __init__(self, fki_ezsignfoldersignerassociation_id, s_contact_firstname, s_contact_lastname, a_obj_ezsignformfieldgroup, *args, **kwargs):  # noqa: E501
         """CustomFormDataSignerResponse - a model defined in OpenAPI
 
         Args:
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
-            a_obj_ezsignformfieldgroup_compound ([EzsignformfieldgroupResponseCompound]): 
+            a_obj_ezsignformfieldgroup ([CustomFormDataEzsignformfieldgroupResponse]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,7 +278,7 @@ class CustomFormDataSignerResponse(ModelNormal):
         self.fki_ezsignfoldersignerassociation_id = fki_ezsignfoldersignerassociation_id
         self.s_contact_firstname = s_contact_firstname
         self.s_contact_lastname = s_contact_lastname
-        self.a_obj_ezsignformfieldgroup_compound = a_obj_ezsignformfieldgroup_compound
+        self.a_obj_ezsignformfieldgroup = a_obj_ezsignformfieldgroup
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.apikey_response import ApikeyResponse
-    globals()['ApikeyResponse'] = ApikeyResponse
+    from eZmaxApi.model.apikey_response_compound import ApikeyResponseCompound
+    globals()['ApikeyResponseCompound'] = ApikeyResponseCompound
 
 
 class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
@@ -88,7 +88,7 @@ class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_apikey': ([ApikeyResponse],),  # noqa: E501
+            'a_obj_apikey': ([ApikeyResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
         """ApikeyCreateObjectV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_apikey ([ApikeyResponse]): 
+            a_obj_apikey ([ApikeyResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class ApikeyCreateObjectV1ResponseMPayload(ModelNormal):
         """ApikeyCreateObjectV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_apikey ([ApikeyResponse]): 
+            a_obj_apikey ([ApikeyResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

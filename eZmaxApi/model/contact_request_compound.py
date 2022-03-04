@@ -94,12 +94,12 @@ class ContactRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'obj_contactinformations': (ContactinformationsRequestCompound,),  # noqa: E501
             'fki_contacttitle_id': (int,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_contact_firstname': (str,),  # noqa: E501
             's_contact_lastname': (str,),  # noqa: E501
             's_contact_company': (str,),  # noqa: E501
+            'obj_contactinformations': (ContactinformationsRequestCompound,),  # noqa: E501
             'dt_contact_birthdate': (str,),  # noqa: E501
         }
 
@@ -109,12 +109,12 @@ class ContactRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'obj_contactinformations': 'objContactinformations',  # noqa: E501
         'fki_contacttitle_id': 'fkiContacttitleID',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_contact_firstname': 'sContactFirstname',  # noqa: E501
         's_contact_lastname': 'sContactLastname',  # noqa: E501
         's_contact_company': 'sContactCompany',  # noqa: E501
+        'obj_contactinformations': 'objContactinformations',  # noqa: E501
         'dt_contact_birthdate': 'dtContactBirthdate',  # noqa: E501
     }
 
@@ -127,12 +127,12 @@ class ContactRequestCompound(ModelComposed):
         """ContactRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_contactinformations (ContactinformationsRequestCompound):
             fki_contacttitle_id (int): The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|
             fki_language_id (FieldPkiLanguageID):
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
             s_contact_company (str): The Company name of the contact
+            obj_contactinformations (ContactinformationsRequestCompound):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -233,12 +233,12 @@ class ContactRequestCompound(ModelComposed):
         """ContactRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_contactinformations (ContactinformationsRequestCompound):
             fki_contacttitle_id (int): The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|
             fki_language_id (FieldPkiLanguageID):
             s_contact_firstname (str): The First name of the contact
             s_contact_lastname (str): The Last name of the contact
             s_contact_company (str): The Company name of the contact
+            obj_contactinformations (ContactinformationsRequestCompound):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

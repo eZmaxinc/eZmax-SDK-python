@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
-globals()['EzsignsignaturecustomdateRequest'] = EzsignsignaturecustomdateRequest
+from eZmaxApi.model.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
+globals()['EzsignsignaturecustomdateRequestCompound'] = EzsignsignaturecustomdateRequestCompound
 from eZmaxApi.model.ezsignsignature_request_compound_all_of import EzsignsignatureRequestCompoundAllOf
 
 

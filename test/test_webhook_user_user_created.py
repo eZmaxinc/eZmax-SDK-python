@@ -13,14 +13,14 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.attempt_response import AttemptResponse
+from eZmaxApi.model.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.model.common_webhook import CommonWebhook
-from eZmaxApi.model.user_response import UserResponse
+from eZmaxApi.model.user_response_compound import UserResponseCompound
 from eZmaxApi.model.webhook_response import WebhookResponse
 from eZmaxApi.model.webhook_user_user_created_all_of import WebhookUserUserCreatedAllOf
-globals()['AttemptResponse'] = AttemptResponse
+globals()['AttemptResponseCompound'] = AttemptResponseCompound
 globals()['CommonWebhook'] = CommonWebhook
-globals()['UserResponse'] = UserResponse
+globals()['UserResponseCompound'] = UserResponseCompound
 globals()['WebhookResponse'] = WebhookResponse
 globals()['WebhookUserUserCreatedAllOf'] = WebhookUserUserCreatedAllOf
 from eZmaxApi.model.webhook_user_user_created import WebhookUserUserCreated

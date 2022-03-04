@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.listpresentation_request import ListpresentationRequest
-    globals()['ListpresentationRequest'] = ListpresentationRequest
+    from eZmaxApi.model.listpresentation_response_compound import ListpresentationResponseCompound
+    globals()['ListpresentationResponseCompound'] = ListpresentationResponseCompound
 
 
 class ListGetListpresentationV1ResponseMPayload(ModelNormal):
@@ -88,7 +88,7 @@ class ListGetListpresentationV1ResponseMPayload(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_listpresentation': ([ListpresentationResponse],),  # noqa: E501
+            'a_obj_listpresentation': ([ListpresentationResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ListGetListpresentationV1ResponseMPayload(ModelNormal):
         """ListGetListpresentationV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationResponse]): 
+            a_obj_listpresentation ([ListpresentationResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class ListGetListpresentationV1ResponseMPayload(ModelNormal):
         """ListGetListpresentationV1ResponseMPayload - a model defined in OpenAPI
 
         Args:
-            a_obj_listpresentation ([ListpresentationResponse]): 
+            a_obj_listpresentation ([ListpresentationResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

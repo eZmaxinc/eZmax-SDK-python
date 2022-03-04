@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsignformfieldgroup_response_compound import EzsignformfieldgroupResponseCompound
-globals()['EzsignformfieldgroupResponseCompound'] = EzsignformfieldgroupResponseCompound
+from eZmaxApi.model.custom_form_data_ezsignformfieldgroup_response import CustomFormDataEzsignformfieldgroupResponse
+globals()['CustomFormDataEzsignformfieldgroupResponse'] = CustomFormDataEzsignformfieldgroupResponse
 from eZmaxApi.model.custom_form_data_signer_response import CustomFormDataSignerResponse
 
 

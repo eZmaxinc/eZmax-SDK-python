@@ -100,9 +100,6 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
         """
         lazy_import()
         return {
-            'a_pki_permission_id': ([int],),  # noqa: E501
-            'obj_user_real': (ActivesessionResponseCompoundUser,),  # noqa: E501
-            'a_e_module_internalname': ([str],),  # noqa: E501
             'e_activesession_sessiontype': (FieldEActivesessionSessiontype,),  # noqa: E501
             'e_activesession_weekdaystart': (FieldEActivesessionWeekdaystart,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
@@ -110,6 +107,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
             's_department_name_x': (str,),  # noqa: E501
             'b_activesession_debug': (bool,),  # noqa: E501
             'pks_customer_code': (FieldPksCustomerCode,),  # noqa: E501
+            'a_pki_permission_id': ([int],),  # noqa: E501
+            'obj_user_real': (ActivesessionResponseCompoundUser,),  # noqa: E501
+            'a_e_module_internalname': ([str],),  # noqa: E501
             'obj_user_cloned': (ActivesessionResponseCompoundUser,),  # noqa: E501
             'obj_apikey': (ActivesessionResponseCompoundApikey,),  # noqa: E501
         }
@@ -120,9 +120,6 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
 
 
     attribute_map = {
-        'a_pki_permission_id': 'a_pkiPermissionID',  # noqa: E501
-        'obj_user_real': 'objUserReal',  # noqa: E501
-        'a_e_module_internalname': 'a_eModuleInternalname',  # noqa: E501
         'e_activesession_sessiontype': 'eActivesessionSessiontype',  # noqa: E501
         'e_activesession_weekdaystart': 'eActivesessionWeekdaystart',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
@@ -130,6 +127,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
         's_department_name_x': 'sDepartmentNameX',  # noqa: E501
         'b_activesession_debug': 'bActivesessionDebug',  # noqa: E501
         'pks_customer_code': 'pksCustomerCode',  # noqa: E501
+        'a_pki_permission_id': 'a_pkiPermissionID',  # noqa: E501
+        'obj_user_real': 'objUserReal',  # noqa: E501
+        'a_e_module_internalname': 'a_eModuleInternalname',  # noqa: E501
         'obj_user_cloned': 'objUserCloned',  # noqa: E501
         'obj_apikey': 'objApikey',  # noqa: E501
     }
@@ -143,9 +143,6 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
         """ActivesessionGetCurrentV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
-            a_pki_permission_id ([int]): An array of permissions granted to the user or api key
-            obj_user_real (ActivesessionResponseCompoundUser):
-            a_e_module_internalname ([str]): An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
             e_activesession_sessiontype (FieldEActivesessionSessiontype):
             e_activesession_weekdaystart (FieldEActivesessionWeekdaystart):
             fki_language_id (FieldPkiLanguageID):
@@ -153,6 +150,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
             s_department_name_x (str): The Name of the Department in the language of the requester
             b_activesession_debug (bool): Whether the active session is in debug or not
             pks_customer_code (FieldPksCustomerCode):
+            a_pki_permission_id ([int]): An array of permissions granted to the user or api key
+            obj_user_real (ActivesessionResponseCompoundUser):
+            a_e_module_internalname ([str]): An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -254,9 +254,6 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
         """ActivesessionGetCurrentV1ResponseMPayload - a model defined in OpenAPI
 
         Keyword Args:
-            a_pki_permission_id ([int]): An array of permissions granted to the user or api key
-            obj_user_real (ActivesessionResponseCompoundUser):
-            a_e_module_internalname ([str]): An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
             e_activesession_sessiontype (FieldEActivesessionSessiontype):
             e_activesession_weekdaystart (FieldEActivesessionWeekdaystart):
             fki_language_id (FieldPkiLanguageID):
@@ -264,6 +261,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(ModelComposed):
             s_department_name_x (str): The Name of the Department in the language of the requester
             b_activesession_debug (bool): Whether the active session is in debug or not
             pks_customer_code (FieldPksCustomerCode):
+            a_pki_permission_id ([int]): An array of permissions granted to the user or api key
+            obj_user_real (ActivesessionResponseCompoundUser):
+            a_e_module_internalname ([str]): An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

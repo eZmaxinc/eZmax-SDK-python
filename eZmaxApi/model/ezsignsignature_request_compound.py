@@ -33,11 +33,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 def lazy_import():
     from eZmaxApi.model.ezsignsignature_request import EzsignsignatureRequest
     from eZmaxApi.model.ezsignsignature_request_compound_all_of import EzsignsignatureRequestCompoundAllOf
-    from eZmaxApi.model.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
+    from eZmaxApi.model.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
     from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
     globals()['EzsignsignatureRequest'] = EzsignsignatureRequest
     globals()['EzsignsignatureRequestCompoundAllOf'] = EzsignsignatureRequestCompoundAllOf
-    globals()['EzsignsignaturecustomdateRequest'] = EzsignsignaturecustomdateRequest
+    globals()['EzsignsignaturecustomdateRequestCompound'] = EzsignsignaturecustomdateRequestCompound
     globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 
 
@@ -101,9 +101,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
             'i_ezsignsignature_step': (int,),  # noqa: E501
             'e_ezsignsignature_type': (FieldEEzsignsignatureType,),  # noqa: E501
             'fki_ezsigndocument_id': (int,),  # noqa: E501
-            'b_ezsignsignature_customdate': (bool,),  # noqa: E501
-            'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateRequest],),  # noqa: E501
             'pki_ezsignsignature_id': (int,),  # noqa: E501
+            'b_ezsignsignature_customdate': (bool,),  # noqa: E501
+            'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateRequestCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -119,9 +119,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
         'i_ezsignsignature_step': 'iEzsignsignatureStep',  # noqa: E501
         'e_ezsignsignature_type': 'eEzsignsignatureType',  # noqa: E501
         'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
+        'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
         'b_ezsignsignature_customdate': 'bEzsignsignatureCustomdate',  # noqa: E501
         'a_obj_ezsignsignaturecustomdate': 'a_objEzsignsignaturecustomdate',  # noqa: E501
-        'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,9 +135,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
         Keyword Args:
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
-            i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+            i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
             i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
-            i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign or fill form fields
+            i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
             fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,9 +170,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
-            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
+            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
+            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequestCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,9 +244,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
         Keyword Args:
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
-            i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
+            i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
             i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
-            i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign or fill form fields
+            i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
             fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             _check_type (bool): if True, values for parameters in openapi_types
@@ -279,9 +279,9 @@ class EzsignsignatureRequestCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
-            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
+            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
+            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequestCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

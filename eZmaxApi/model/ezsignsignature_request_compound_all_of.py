@@ -31,8 +31,8 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
-    globals()['EzsignsignaturecustomdateRequest'] = EzsignsignaturecustomdateRequest
+    from eZmaxApi.model.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
+    globals()['EzsignsignaturecustomdateRequestCompound'] = EzsignsignaturecustomdateRequestCompound
 
 
 class EzsignsignatureRequestCompoundAllOf(ModelNormal):
@@ -89,7 +89,7 @@ class EzsignsignatureRequestCompoundAllOf(ModelNormal):
         lazy_import()
         return {
             'b_ezsignsignature_customdate': (bool,),  # noqa: E501
-            'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateRequest],),  # noqa: E501
+            'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateRequestCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -144,7 +144,7 @@ class EzsignsignatureRequestCompoundAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
-            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
+            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequestCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class EzsignsignatureRequestCompoundAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
-            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequest]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
+            a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateRequestCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

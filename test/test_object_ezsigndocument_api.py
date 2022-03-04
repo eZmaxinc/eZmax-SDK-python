@@ -59,10 +59,17 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_edit_ezsignformfieldgroups_v1(self):
+        """Test case for ezsigndocument_edit_ezsignformfieldgroups_v1
+
+        Edit multiple Ezsignformfieldgroups  # noqa: E501
+        """
+        pass
+
     def test_ezsigndocument_edit_ezsignsignatures_v1(self):
         """Test case for ezsigndocument_edit_ezsignsignatures_v1
 
-        Edit multiple ezsignsignatures  # noqa: E501
+        Edit multiple Ezsignsignatures  # noqa: E501
         """
         pass
 
@@ -80,10 +87,24 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_get_ezsignformfieldgroups_v1(self):
+        """Test case for ezsigndocument_get_ezsignformfieldgroups_v1
+
+        Retrieve an existing Ezsigndocument's Ezsignformfieldgroups  # noqa: E501
+        """
+        pass
+
     def test_ezsigndocument_get_ezsignpages_v1(self):
         """Test case for ezsigndocument_get_ezsignpages_v1
 
         Retrieve an existing Ezsigndocument's Ezsignpages  # noqa: E501
+        """
+        pass
+
+    def test_ezsigndocument_get_ezsignsignatures_v1(self):
+        """Test case for ezsigndocument_get_ezsignsignatures_v1
+
+        Retrieve an existing Ezsigndocument's Ezsignsignatures  # noqa: E501
         """
         pass
 

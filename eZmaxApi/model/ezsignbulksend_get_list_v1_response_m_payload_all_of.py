@@ -111,7 +111,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsignbulksendGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignbulksend ([EzsignbulksendListElement]): 
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -196,7 +196,7 @@ class EzsignbulksendGetListV1ResponseMPayloadAllOf(ModelNormal):
         """EzsignbulksendGetListV1ResponseMPayloadAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignbulksend ([EzsignbulksendListElement]): 
+            a_obj_ezsignbulksend ([EzsignbulksendListElement]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

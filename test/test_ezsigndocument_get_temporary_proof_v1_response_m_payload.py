@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsigndocumentlog_response import EzsigndocumentlogResponse
-globals()['EzsigndocumentlogResponse'] = EzsigndocumentlogResponse
+from eZmaxApi.model.ezsigndocumentlog_response_compound import EzsigndocumentlogResponseCompound
+globals()['EzsigndocumentlogResponseCompound'] = EzsigndocumentlogResponseCompound
 from eZmaxApi.model.ezsigndocument_get_temporary_proof_v1_response_m_payload import EzsigndocumentGetTemporaryProofV1ResponseMPayload
 
 

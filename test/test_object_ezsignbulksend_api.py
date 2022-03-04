@@ -24,6 +24,13 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_ezsignbulksend_get_ezsignbulksendtransmissions_v1(self):
+        """Test case for ezsignbulksend_get_ezsignbulksendtransmissions_v1
+
+        Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions  # noqa: E501
+        """
+        pass
+
     def test_ezsignbulksend_get_list_v1(self):
         """Test case for ezsignbulksend_get_list_v1
 

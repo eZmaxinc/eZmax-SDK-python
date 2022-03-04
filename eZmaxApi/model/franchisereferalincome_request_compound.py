@@ -94,8 +94,6 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'obj_address': (AddressRequest,),  # noqa: E501
-            'a_obj_contact': ([ContactRequestCompound],),  # noqa: E501
             'fki_franchisebroker_id': (int,),  # noqa: E501
             'fki_franchisereferalincomeprogram_id': (int,),  # noqa: E501
             'fki_period_id': (int,),  # noqa: E501
@@ -107,6 +105,8 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
             't_franchisereferalincome_comment': (str,),  # noqa: E501
             'fki_franchiseoffice_id': (int,),  # noqa: E501
             's_franchisereferalincome_remoteid': (str,),  # noqa: E501
+            'obj_address': (AddressRequest,),  # noqa: E501
+            'a_obj_contact': ([ContactRequestCompound],),  # noqa: E501
             'pki_franchisereferalincome_id': (int,),  # noqa: E501
         }
 
@@ -116,8 +116,6 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'obj_address': 'objAddress',  # noqa: E501
-        'a_obj_contact': 'a_objContact',  # noqa: E501
         'fki_franchisebroker_id': 'fkiFranchisebrokerID',  # noqa: E501
         'fki_franchisereferalincomeprogram_id': 'fkiFranchisereferalincomeprogramID',  # noqa: E501
         'fki_period_id': 'fkiPeriodID',  # noqa: E501
@@ -129,6 +127,8 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
         't_franchisereferalincome_comment': 'tFranchisereferalincomeComment',  # noqa: E501
         'fki_franchiseoffice_id': 'fkiFranchiseofficeID',  # noqa: E501
         's_franchisereferalincome_remoteid': 'sFranchisereferalincomeRemoteid',  # noqa: E501
+        'obj_address': 'objAddress',  # noqa: E501
+        'a_obj_contact': 'a_objContact',  # noqa: E501
         'pki_franchisereferalincome_id': 'pkiFranchisereferalincomeID',  # noqa: E501
     }
 
@@ -141,8 +141,6 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
         """FranchisereferalincomeRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_address (AddressRequest):
-            a_obj_contact ([ContactRequestCompound]): 
             fki_franchisebroker_id (int): The unique ID of the Franchisebroker
             fki_franchisereferalincomeprogram_id (int): The unique ID of the Franchisereferalincomeprogram
             fki_period_id (int): The unique ID of the Period
@@ -154,6 +152,8 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
             t_franchisereferalincome_comment (str): Comment about the transaction
             fki_franchiseoffice_id (int): The unique ID of the Franchisereoffice
             s_franchisereferalincome_remoteid (str): 
+            obj_address (AddressRequest):
+            a_obj_contact ([ContactRequestCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -254,8 +254,6 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
         """FranchisereferalincomeRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            obj_address (AddressRequest):
-            a_obj_contact ([ContactRequestCompound]): 
             fki_franchisebroker_id (int): The unique ID of the Franchisebroker
             fki_franchisereferalincomeprogram_id (int): The unique ID of the Franchisereferalincomeprogram
             fki_period_id (int): The unique ID of the Period
@@ -267,6 +265,8 @@ class FranchisereferalincomeRequestCompound(ModelComposed):
             t_franchisereferalincome_comment (str): Comment about the transaction
             fki_franchiseoffice_id (int): The unique ID of the Franchisereoffice
             s_franchisereferalincome_remoteid (str): 
+            obj_address (AddressRequest):
+            a_obj_contact ([ContactRequestCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

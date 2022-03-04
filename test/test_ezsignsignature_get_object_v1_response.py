@@ -17,10 +17,12 @@ from eZmaxApi.model.common_response import CommonResponse
 from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.model.ezsignsignature_get_object_v1_response_all_of import EzsignsignatureGetObjectV1ResponseAllOf
+from eZmaxApi.model.ezsignsignature_get_object_v1_response_m_payload import EzsignsignatureGetObjectV1ResponseMPayload
 globals()['CommonResponse'] = CommonResponse
 globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
 globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
 globals()['EzsignsignatureGetObjectV1ResponseAllOf'] = EzsignsignatureGetObjectV1ResponseAllOf
+globals()['EzsignsignatureGetObjectV1ResponseMPayload'] = EzsignsignatureGetObjectV1ResponseMPayload
 from eZmaxApi.model.ezsignsignature_get_object_v1_response import EzsignsignatureGetObjectV1Response
 
 

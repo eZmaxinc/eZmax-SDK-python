@@ -13,18 +13,18 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.address_request import AddressRequest
+from eZmaxApi.model.address_request_compound import AddressRequestCompound
 from eZmaxApi.model.contactinformations_request import ContactinformationsRequest
 from eZmaxApi.model.contactinformations_request_compound_all_of import ContactinformationsRequestCompoundAllOf
-from eZmaxApi.model.email_request import EmailRequest
-from eZmaxApi.model.phone_request import PhoneRequest
-from eZmaxApi.model.website_request import WebsiteRequest
-globals()['AddressRequest'] = AddressRequest
+from eZmaxApi.model.email_request_compound import EmailRequestCompound
+from eZmaxApi.model.phone_request_compound import PhoneRequestCompound
+from eZmaxApi.model.website_request_compound import WebsiteRequestCompound
+globals()['AddressRequestCompound'] = AddressRequestCompound
 globals()['ContactinformationsRequest'] = ContactinformationsRequest
 globals()['ContactinformationsRequestCompoundAllOf'] = ContactinformationsRequestCompoundAllOf
-globals()['EmailRequest'] = EmailRequest
-globals()['PhoneRequest'] = PhoneRequest
-globals()['WebsiteRequest'] = WebsiteRequest
+globals()['EmailRequestCompound'] = EmailRequestCompound
+globals()['PhoneRequestCompound'] = PhoneRequestCompound
+globals()['WebsiteRequestCompound'] = WebsiteRequestCompound
 from eZmaxApi.model.contactinformations_request_compound import ContactinformationsRequestCompound
 
 

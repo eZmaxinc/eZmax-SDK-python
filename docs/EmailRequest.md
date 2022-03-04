@@ -1,6 +1,6 @@
 # EmailRequest
 
-A Contact Object
+An Email Object
 
 ## Properties
 Name | Type | Description | Notes

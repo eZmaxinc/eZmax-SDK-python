@@ -13,12 +13,22 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.ezsignformfield_response import EzsignformfieldResponse
+from eZmaxApi.model.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
+from eZmaxApi.model.ezsignformfield_response_compound import EzsignformfieldResponseCompound
 from eZmaxApi.model.ezsignformfieldgroup_response import EzsignformfieldgroupResponse
 from eZmaxApi.model.ezsignformfieldgroup_response_compound_all_of import EzsignformfieldgroupResponseCompoundAllOf
-globals()['EzsignformfieldResponse'] = EzsignformfieldResponse
+from eZmaxApi.model.ezsignformfieldgroupsigner_response_compound import EzsignformfieldgroupsignerResponseCompound
+from eZmaxApi.model.field_e_ezsignformfieldgroup_signerrequirement import FieldEEzsignformfieldgroupSignerrequirement
+from eZmaxApi.model.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
+from eZmaxApi.model.field_e_ezsignformfieldgroup_type import FieldEEzsignformfieldgroupType
+globals()['CustomDropdownElementResponseCompound'] = CustomDropdownElementResponseCompound
+globals()['EzsignformfieldResponseCompound'] = EzsignformfieldResponseCompound
 globals()['EzsignformfieldgroupResponse'] = EzsignformfieldgroupResponse
 globals()['EzsignformfieldgroupResponseCompoundAllOf'] = EzsignformfieldgroupResponseCompoundAllOf
+globals()['EzsignformfieldgroupsignerResponseCompound'] = EzsignformfieldgroupsignerResponseCompound
+globals()['FieldEEzsignformfieldgroupSignerrequirement'] = FieldEEzsignformfieldgroupSignerrequirement
+globals()['FieldEEzsignformfieldgroupTooltipposition'] = FieldEEzsignformfieldgroupTooltipposition
+globals()['FieldEEzsignformfieldgroupType'] = FieldEEzsignformfieldgroupType
 from eZmaxApi.model.ezsignformfieldgroup_response_compound import EzsignformfieldgroupResponseCompound
 
 

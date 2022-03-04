@@ -31,8 +31,12 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.ezsignformfield_response import EzsignformfieldResponse
-    globals()['EzsignformfieldResponse'] = EzsignformfieldResponse
+    from eZmaxApi.model.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
+    from eZmaxApi.model.ezsignformfield_response_compound import EzsignformfieldResponseCompound
+    from eZmaxApi.model.ezsignformfieldgroupsigner_response_compound import EzsignformfieldgroupsignerResponseCompound
+    globals()['CustomDropdownElementResponseCompound'] = CustomDropdownElementResponseCompound
+    globals()['EzsignformfieldResponseCompound'] = EzsignformfieldResponseCompound
+    globals()['EzsignformfieldgroupsignerResponseCompound'] = EzsignformfieldgroupsignerResponseCompound
 
 
 class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
@@ -88,7 +92,9 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'a_obj_ezsignformfield': ([EzsignformfieldResponse],),  # noqa: E501
+            'a_obj_ezsignformfield': ([EzsignformfieldResponseCompound],),  # noqa: E501
+            'a_obj_ezsignformfieldgroupsigner': (EzsignformfieldgroupsignerResponseCompound,),  # noqa: E501
+            'a_obj_dropdown_element': ([CustomDropdownElementResponseCompound],),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +104,8 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
 
     attribute_map = {
         'a_obj_ezsignformfield': 'a_objEzsignformfield',  # noqa: E501
+        'a_obj_ezsignformfieldgroupsigner': 'a_objEzsignformfieldgroupsigner',  # noqa: E501
+        'a_obj_dropdown_element': 'a_objDropdownElement',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,11 +115,12 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, a_obj_ezsignformfield, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, a_obj_ezsignformfield, a_obj_ezsignformfieldgroupsigner, *args, **kwargs):  # noqa: E501
         """EzsignformfieldgroupResponseCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
+            a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
+            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,6 +153,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            a_obj_dropdown_element ([CustomDropdownElementResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,6 +182,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.a_obj_ezsignformfield = a_obj_ezsignformfield
+        self.a_obj_ezsignformfieldgroupsigner = a_obj_ezsignformfieldgroupsigner
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,11 +203,12 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, a_obj_ezsignformfield, *args, **kwargs):  # noqa: E501
+    def __init__(self, a_obj_ezsignformfield, a_obj_ezsignformfieldgroupsigner, *args, **kwargs):  # noqa: E501
         """EzsignformfieldgroupResponseCompoundAllOf - a model defined in OpenAPI
 
         Args:
-            a_obj_ezsignformfield ([EzsignformfieldResponse]): 
+            a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
+            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,6 +241,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            a_obj_dropdown_element ([CustomDropdownElementResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +268,7 @@ class EzsignformfieldgroupResponseCompoundAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.a_obj_ezsignformfield = a_obj_ezsignformfield
+        self.a_obj_ezsignformfieldgroupsigner = a_obj_ezsignformfieldgroupsigner
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

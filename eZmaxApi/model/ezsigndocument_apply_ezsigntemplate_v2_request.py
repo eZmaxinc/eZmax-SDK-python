@@ -110,7 +110,7 @@ class EzsigndocumentApplyEzsigntemplateV2Request(ModelNormal):
 
         Args:
             fki_ezsigntemplate_id (int): The unique ID of the Ezsigndocument
-            a_s_ezsigntemplatesigner ([str]): 
+            a_s_ezsigntemplatesigner ([str]):
             a_pki_ezsignfoldersignerassociation_id ([int]):
 
         Keyword Args:
@@ -199,7 +199,7 @@ class EzsigndocumentApplyEzsigntemplateV2Request(ModelNormal):
 
         Args:
             fki_ezsigntemplate_id (int): The unique ID of the Ezsigndocument
-            a_s_ezsigntemplatesigner ([str]): 
+            a_s_ezsigntemplatesigner ([str]):
             a_pki_ezsignfoldersignerassociation_id ([int]):
 
         Keyword Args:
