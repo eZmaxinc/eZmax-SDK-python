@@ -1,6 +1,6 @@
 # EzsignfoldersignerassociationCreateObjectV1Request
 
-Request for the /1/object/ezsignfoldersignerassociation/createObject API Request
+Request for POST /1/object/ezsignfoldersignerassociation
 
 ## Properties
 Name | Type | Description | Notes

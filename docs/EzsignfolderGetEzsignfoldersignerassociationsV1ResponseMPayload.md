@@ -1,6 +1,6 @@
 # EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload
 
-Payload for the /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations API Request
+Payload for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations
 
 ## Properties
 Name | Type | Description | Notes

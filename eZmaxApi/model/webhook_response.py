@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -99,10 +99,12 @@ class WebhookResponse(ModelNormal):
         """
         lazy_import()
         return {
+            'pks_customer_code': (FieldPksCustomerCode,),  # noqa: E501
             'pki_webhook_id': (int,),  # noqa: E501
             'e_webhook_module': (str,),  # noqa: E501
-            'pks_customer_code': (FieldPksCustomerCode,),  # noqa: E501
             's_webhook_url': (str,),  # noqa: E501
+            'b_webhook_test': (bool,),  # noqa: E501
+            'b_webhook_skipsslvalidation': (bool,),  # noqa: E501
             's_webhook_emailfailed': (str,),  # noqa: E501
             'e_webhook_ezsignevent': (str,),  # noqa: E501
             'e_webhook_managementevent': (str,),  # noqa: E501
@@ -114,10 +116,12 @@ class WebhookResponse(ModelNormal):
 
 
     attribute_map = {
+        'pks_customer_code': 'pksCustomerCode',  # noqa: E501
         'pki_webhook_id': 'pkiWebhookID',  # noqa: E501
         'e_webhook_module': 'eWebhookModule',  # noqa: E501
-        'pks_customer_code': 'pksCustomerCode',  # noqa: E501
         's_webhook_url': 'sWebhookUrl',  # noqa: E501
+        'b_webhook_test': 'bWebhookTest',  # noqa: E501
+        'b_webhook_skipsslvalidation': 'bWebhookSkipsslvalidation',  # noqa: E501
         's_webhook_emailfailed': 'sWebhookEmailfailed',  # noqa: E501
         'e_webhook_ezsignevent': 'eWebhookEzsignevent',  # noqa: E501
         'e_webhook_managementevent': 'eWebhookManagementevent',  # noqa: E501
@@ -130,14 +134,16 @@ class WebhookResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_webhook_id, e_webhook_module, pks_customer_code, s_webhook_url, s_webhook_emailfailed, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pks_customer_code, pki_webhook_id, e_webhook_module, s_webhook_url, b_webhook_test, b_webhook_skipsslvalidation, s_webhook_emailfailed, *args, **kwargs):  # noqa: E501
         """WebhookResponse - a model defined in OpenAPI
 
         Args:
+            pks_customer_code (FieldPksCustomerCode):
             pki_webhook_id (int): The Webhook ID. This value is visible in the admin interface.
             e_webhook_module (str): The Module generating the Event.
-            pks_customer_code (FieldPksCustomerCode):
             s_webhook_url (str): The url being called
+            b_webhook_test (bool): Wheter the webhook received is a manual test or a real event
+            b_webhook_skipsslvalidation (bool): Wheter the server's SSL certificate should be validated or not. Not recommended for production use.
             s_webhook_emailfailed (str): The email that will receive the webhook in case all attempts fail.
 
         Keyword Args:
@@ -176,7 +182,7 @@ class WebhookResponse(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -184,14 +190,18 @@ class WebhookResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -200,10 +210,12 @@ class WebhookResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pks_customer_code = pks_customer_code
         self.pki_webhook_id = pki_webhook_id
         self.e_webhook_module = e_webhook_module
-        self.pks_customer_code = pks_customer_code
         self.s_webhook_url = s_webhook_url
+        self.b_webhook_test = b_webhook_test
+        self.b_webhook_skipsslvalidation = b_webhook_skipsslvalidation
         self.s_webhook_emailfailed = s_webhook_emailfailed
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -225,14 +237,16 @@ class WebhookResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_webhook_id, e_webhook_module, pks_customer_code, s_webhook_url, s_webhook_emailfailed, *args, **kwargs):  # noqa: E501
+    def __init__(self, pks_customer_code, pki_webhook_id, e_webhook_module, s_webhook_url, b_webhook_test, b_webhook_skipsslvalidation, s_webhook_emailfailed, *args, **kwargs):  # noqa: E501
         """WebhookResponse - a model defined in OpenAPI
 
         Args:
+            pks_customer_code (FieldPksCustomerCode):
             pki_webhook_id (int): The Webhook ID. This value is visible in the admin interface.
             e_webhook_module (str): The Module generating the Event.
-            pks_customer_code (FieldPksCustomerCode):
             s_webhook_url (str): The url being called
+            b_webhook_test (bool): Wheter the webhook received is a manual test or a real event
+            b_webhook_skipsslvalidation (bool): Wheter the server's SSL certificate should be validated or not. Not recommended for production use.
             s_webhook_emailfailed (str): The email that will receive the webhook in case all attempts fail.
 
         Keyword Args:
@@ -277,14 +291,18 @@ class WebhookResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -293,10 +311,12 @@ class WebhookResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.pks_customer_code = pks_customer_code
         self.pki_webhook_id = pki_webhook_id
         self.e_webhook_module = e_webhook_module
-        self.pks_customer_code = pks_customer_code
         self.s_webhook_url = s_webhook_url
+        self.b_webhook_test = b_webhook_test
+        self.b_webhook_skipsslvalidation = b_webhook_skipsslvalidation
         self.s_webhook_emailfailed = s_webhook_emailfailed
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

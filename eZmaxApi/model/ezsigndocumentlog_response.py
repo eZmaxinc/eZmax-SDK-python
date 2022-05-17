@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -88,14 +88,14 @@ class EzsigndocumentlogResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'fki_user_id': (int, none_type,),  # noqa: E501
-            'fki_ezsignsigner_id': (int, none_type,),  # noqa: E501
             'dt_ezsigndocumentlog_datetime': (str,),  # noqa: E501
             'e_ezsigndocumentlog_type': (FieldEEzsigndocumentlogType,),  # noqa: E501
             's_ezsigndocumentlog_detail': (str,),  # noqa: E501
             's_ezsigndocumentlog_lastname': (str,),  # noqa: E501
             's_ezsigndocumentlog_firstname': (str,),  # noqa: E501
             's_ezsigndocumentlog_ip': (str,),  # noqa: E501
+            'fki_user_id': (int,),  # noqa: E501
+            'fki_ezsignsigner_id': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -104,14 +104,14 @@ class EzsigndocumentlogResponse(ModelNormal):
 
 
     attribute_map = {
-        'fki_user_id': 'fkiUserID',  # noqa: E501
-        'fki_ezsignsigner_id': 'fkiEzsignsignerID',  # noqa: E501
         'dt_ezsigndocumentlog_datetime': 'dtEzsigndocumentlogDatetime',  # noqa: E501
         'e_ezsigndocumentlog_type': 'eEzsigndocumentlogType',  # noqa: E501
         's_ezsigndocumentlog_detail': 'sEzsigndocumentlogDetail',  # noqa: E501
         's_ezsigndocumentlog_lastname': 'sEzsigndocumentlogLastname',  # noqa: E501
         's_ezsigndocumentlog_firstname': 'sEzsigndocumentlogFirstname',  # noqa: E501
         's_ezsigndocumentlog_ip': 'sEzsigndocumentlogIP',  # noqa: E501
+        'fki_user_id': 'fkiUserID',  # noqa: E501
+        'fki_ezsignsigner_id': 'fkiEzsignsignerID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -121,12 +121,10 @@ class EzsigndocumentlogResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fki_user_id, fki_ezsignsigner_id, dt_ezsigndocumentlog_datetime, e_ezsigndocumentlog_type, s_ezsigndocumentlog_detail, s_ezsigndocumentlog_lastname, s_ezsigndocumentlog_firstname, s_ezsigndocumentlog_ip, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, dt_ezsigndocumentlog_datetime, e_ezsigndocumentlog_type, s_ezsigndocumentlog_detail, s_ezsigndocumentlog_lastname, s_ezsigndocumentlog_firstname, s_ezsigndocumentlog_ip, *args, **kwargs):  # noqa: E501
         """EzsigndocumentlogResponse - a model defined in OpenAPI
 
         Args:
-            fki_user_id (int, none_type): The unique ID of the User
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
             dt_ezsigndocumentlog_datetime (str): The date and time at which the event was logged
             e_ezsigndocumentlog_type (FieldEEzsigndocumentlogType):
             s_ezsigndocumentlog_detail (str): The detail of the Ezsigndocumentlog
@@ -165,10 +163,12 @@ class EzsigndocumentlogResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fki_user_id (int): The unique ID of the User. [optional]  # noqa: E501
+            fki_ezsignsigner_id (int): The unique ID of the Ezsignsigner. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -176,14 +176,18 @@ class EzsigndocumentlogResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -192,8 +196,6 @@ class EzsigndocumentlogResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.fki_user_id = fki_user_id
-        self.fki_ezsignsigner_id = fki_ezsignsigner_id
         self.dt_ezsigndocumentlog_datetime = dt_ezsigndocumentlog_datetime
         self.e_ezsigndocumentlog_type = e_ezsigndocumentlog_type
         self.s_ezsigndocumentlog_detail = s_ezsigndocumentlog_detail
@@ -220,12 +222,10 @@ class EzsigndocumentlogResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fki_user_id, fki_ezsignsigner_id, dt_ezsigndocumentlog_datetime, e_ezsigndocumentlog_type, s_ezsigndocumentlog_detail, s_ezsigndocumentlog_lastname, s_ezsigndocumentlog_firstname, s_ezsigndocumentlog_ip, *args, **kwargs):  # noqa: E501
+    def __init__(self, dt_ezsigndocumentlog_datetime, e_ezsigndocumentlog_type, s_ezsigndocumentlog_detail, s_ezsigndocumentlog_lastname, s_ezsigndocumentlog_firstname, s_ezsigndocumentlog_ip, *args, **kwargs):  # noqa: E501
         """EzsigndocumentlogResponse - a model defined in OpenAPI
 
         Args:
-            fki_user_id (int, none_type): The unique ID of the User
-            fki_ezsignsigner_id (int, none_type): The unique ID of the Ezsignsigner
             dt_ezsigndocumentlog_datetime (str): The date and time at which the event was logged
             e_ezsigndocumentlog_type (FieldEEzsigndocumentlogType):
             s_ezsigndocumentlog_detail (str): The detail of the Ezsigndocumentlog
@@ -264,6 +264,8 @@ class EzsigndocumentlogResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fki_user_id (int): The unique ID of the User. [optional]  # noqa: E501
+            fki_ezsignsigner_id (int): The unique ID of the Ezsignsigner. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,14 +275,18 @@ class EzsigndocumentlogResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -289,8 +295,6 @@ class EzsigndocumentlogResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.fki_user_id = fki_user_id
-        self.fki_ezsignsigner_id = fki_ezsignsigner_id
         self.dt_ezsigndocumentlog_datetime = dt_ezsigndocumentlog_datetime
         self.e_ezsigndocumentlog_type = e_ezsigndocumentlog_type
         self.s_ezsigndocumentlog_detail = s_ezsigndocumentlog_detail

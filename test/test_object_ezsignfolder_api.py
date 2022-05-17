@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -22,6 +22,20 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         self.api = ObjectEzsignfolderApi()  # noqa: E501
 
     def tearDown(self):
+        pass
+
+    def test_ezsignfolder_archive_v1(self):
+        """Test case for ezsignfolder_archive_v1
+
+        Archive the Ezsignfolder  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfolder_batch_download_v1(self):
+        """Test case for ezsignfolder_batch_download_v1
+
+        Download multiples files from an Ezsignfolder  # noqa: E501
+        """
         pass
 
     def test_ezsignfolder_create_object_v1(self):
@@ -49,6 +63,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """Test case for ezsignfolder_edit_object_v1
 
         Edit an existing Ezsignfolder  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfolder_get_actionable_elements_v1(self):
+        """Test case for ezsignfolder_get_actionable_elements_v1
+
+        Retrieve actionable elements for the Ezsignfolder  # noqa: E501
         """
         pass
 
@@ -84,6 +105,20 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """Test case for ezsignfolder_get_object_v1
 
         Retrieve an existing Ezsignfolder  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfolder_import_ezsigntemplatepackage_v1(self):
+        """Test case for ezsignfolder_import_ezsigntemplatepackage_v1
+
+        Import an Ezsigntemplatepackage in the Ezsignfolder.  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfolder_reorder_v1(self):
+        """Test case for ezsignfolder_reorder_v1
+
+        Reorder Ezsigndocuments in the Ezsignfolder  # noqa: E501
         """
         pass
 

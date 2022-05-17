@@ -1,6 +1,6 @@
 # ApikeyCreateObjectV1Request
 
-Request for the /1/object/apikey/createObject API Request
+Request for POST /1/object/apikey
 
 ## Properties
 Name | Type | Description | Notes

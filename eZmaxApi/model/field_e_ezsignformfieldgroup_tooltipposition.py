@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -57,7 +57,6 @@ class FieldEEzsignformfieldgroupTooltipposition(ModelSimple):
             'TOPCENTER': "TopCenter",
             'TOPRIGHT': "TopRight",
             'MIDDLELEFT': "MiddleLeft",
-            'MIDDLECENTER': "MiddleCenter",
             'MIDDLERIGHT': "MiddleRight",
             'BOTTOMLEFT': "BottomLeft",
             'BOTTOMCENTER': "BottomCenter",
@@ -113,10 +112,10 @@ class FieldEEzsignformfieldgroupTooltipposition(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleCenter", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
+            args[0] (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleCenter", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
+            value (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -169,14 +168,18 @@ class FieldEEzsignformfieldgroupTooltipposition(ModelSimple):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -203,10 +206,10 @@ class FieldEEzsignformfieldgroupTooltipposition(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleCenter", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
+            args[0] (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleCenter", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
+            value (str): The location of the tooltip relative to the Ezsignformfieldgroup's location.., must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -261,14 +264,18 @@ class FieldEEzsignformfieldgroupTooltipposition(ModelSimple):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

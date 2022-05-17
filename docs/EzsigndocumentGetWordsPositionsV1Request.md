@@ -1,6 +1,6 @@
 # EzsigndocumentGetWordsPositionsV1Request
 
-Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
+Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
 
 ## Properties
 Name | Type | Description | Notes

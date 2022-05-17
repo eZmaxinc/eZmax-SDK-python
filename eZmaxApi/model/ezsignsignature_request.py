@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -31,7 +31,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from eZmaxApi.model.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
+    from eZmaxApi.model.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
     from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
+    globals()['FieldEEzsignsignatureFont'] = FieldEEzsignsignatureFont
+    globals()['FieldEEzsignsignatureTooltipposition'] = FieldEEzsignsignatureTooltipposition
     globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 
 
@@ -96,6 +100,9 @@ class EzsignsignatureRequest(ModelNormal):
             'e_ezsignsignature_type': (FieldEEzsignsignatureType,),  # noqa: E501
             'fki_ezsigndocument_id': (int,),  # noqa: E501
             'pki_ezsignsignature_id': (int,),  # noqa: E501
+            't_ezsignsignature_tooltip': (str,),  # noqa: E501
+            'e_ezsignsignature_tooltipposition': (FieldEEzsignsignatureTooltipposition,),  # noqa: E501
+            'e_ezsignsignature_font': (FieldEEzsignsignatureFont,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +119,9 @@ class EzsignsignatureRequest(ModelNormal):
         'e_ezsignsignature_type': 'eEzsignsignatureType',  # noqa: E501
         'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
         'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
+        't_ezsignsignature_tooltip': 'tEzsignsignatureTooltip',  # noqa: E501
+        'e_ezsignsignature_tooltipposition': 'eEzsignsignatureTooltipposition',  # noqa: E501
+        'e_ezsignsignature_font': 'eEzsignsignatureFont',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,7 +138,7 @@ class EzsignsignatureRequest(ModelNormal):
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
             i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
             fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
@@ -165,10 +175,13 @@ class EzsignsignatureRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
+            t_ezsignsignature_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignsignature. [optional]  # noqa: E501
+            e_ezsignsignature_tooltipposition (FieldEEzsignsignatureTooltipposition): [optional]  # noqa: E501
+            e_ezsignsignature_font (FieldEEzsignsignatureFont): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -176,14 +189,18 @@ class EzsignsignatureRequest(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -226,7 +243,7 @@ class EzsignsignatureRequest(ModelNormal):
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
             i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
             fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
@@ -263,6 +280,9 @@ class EzsignsignatureRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature. [optional]  # noqa: E501
+            t_ezsignsignature_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignsignature. [optional]  # noqa: E501
+            e_ezsignsignature_tooltipposition (FieldEEzsignsignatureTooltipposition): [optional]  # noqa: E501
+            e_ezsignsignature_font (FieldEEzsignsignatureFont): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,14 +292,18 @@ class EzsignsignatureRequest(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

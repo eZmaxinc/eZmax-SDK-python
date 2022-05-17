@@ -1,6 +1,6 @@
 # EzsigndocumentGetFormDataV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData API Request
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getFormData
 
 ## Properties
 Name | Type | Description | Notes

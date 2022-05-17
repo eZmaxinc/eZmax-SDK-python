@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -38,6 +38,7 @@ from eZmaxApi.model.ezsigndocument_edit_ezsignformfieldgroups_v1_response import
 from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_request import EzsigndocumentEditEzsignsignaturesV1Request
 from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_response import EzsigndocumentEditEzsignsignaturesV1Response
 from eZmaxApi.model.ezsigndocument_end_prematurely_v1_response import EzsigndocumentEndPrematurelyV1Response
+from eZmaxApi.model.ezsigndocument_get_actionable_elements_v1_response import EzsigndocumentGetActionableElementsV1Response
 from eZmaxApi.model.ezsigndocument_get_download_url_v1_response import EzsigndocumentGetDownloadUrlV1Response
 from eZmaxApi.model.ezsigndocument_get_ezsignformfieldgroups_v1_response import EzsigndocumentGetEzsignformfieldgroupsV1Response
 from eZmaxApi.model.ezsigndocument_get_ezsignpages_v1_response import EzsigndocumentGetEzsignpagesV1Response
@@ -49,6 +50,7 @@ from eZmaxApi.model.ezsigndocument_get_words_positions_v1_request import Ezsignd
 from eZmaxApi.model.ezsigndocument_get_words_positions_v1_response import EzsigndocumentGetWordsPositionsV1Response
 from eZmaxApi.model.ezsigndocument_patch_object_v1_request import EzsigndocumentPatchObjectV1Request
 from eZmaxApi.model.ezsigndocument_patch_object_v1_response import EzsigndocumentPatchObjectV1Response
+from eZmaxApi.model.ezsigndocument_unsend_v1_response import EzsigndocumentUnsendV1Response
 
 
 class ObjectEzsigndocumentApi(object):
@@ -504,6 +506,57 @@ class ObjectEzsigndocumentApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.ezsigndocument_get_actionable_elements_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigndocumentGetActionableElementsV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements',
+                'operation_id': 'ezsigndocument_get_actionable_elements_v1',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigndocument_id',
+                ],
+                'required': [
+                    'pki_ezsigndocument_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigndocument_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'pki_ezsigndocument_id': 'pkiEzsigndocumentID',
+                },
+                'location_map': {
+                    'pki_ezsigndocument_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -996,6 +1049,64 @@ class ObjectEzsigndocumentApi(object):
             },
             api_client=api_client
         )
+        self.ezsigndocument_unsend_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigndocumentUnsendV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend',
+                'operation_id': 'ezsigndocument_unsend_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigndocument_id',
+                    'body',
+                ],
+                'required': [
+                    'pki_ezsigndocument_id',
+                    'body',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigndocument_id':
+                        (int,),
+                    'body':
+                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                },
+                'attribute_map': {
+                    'pki_ezsigndocument_id': 'pkiEzsigndocumentID',
+                },
+                'location_map': {
+                    'pki_ezsigndocument_id': 'path',
+                    'body': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def ezsigndocument_apply_ezsigntemplate_v1(
         self,
@@ -1003,7 +1114,7 @@ class ObjectEzsigndocumentApi(object):
         ezsigndocument_apply_ezsigntemplate_v1_request,
         **kwargs
     ):
-        """Apply an Ezsign Template to the Ezsigndocument.  # noqa: E501
+        """Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
 
         This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1042,6 +1153,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1073,6 +1188,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_apply_ezsigntemplate_v1_request'] = \
@@ -1085,7 +1201,7 @@ class ObjectEzsigndocumentApi(object):
         ezsigndocument_apply_ezsigntemplate_v2_request,
         **kwargs
     ):
-        """Apply an Ezsign Template to the Ezsigndocument.  # noqa: E501
+        """Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
 
         This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1124,6 +1240,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1155,6 +1275,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_apply_ezsigntemplate_v2_request'] = \
@@ -1204,6 +1325,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1235,6 +1360,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['ezsigndocument_create_object_v1_request'] = \
             ezsigndocument_create_object_v1_request
         return self.ezsigndocument_create_object_v1_endpoint.call_with_http_info(**kwargs)
@@ -1282,6 +1408,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1313,6 +1443,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['ezsigndocument_create_object_v2_request'] = \
             ezsigndocument_create_object_v2_request
         return self.ezsigndocument_create_object_v2_endpoint.call_with_http_info(**kwargs)
@@ -1360,6 +1491,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1391,6 +1526,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_delete_object_v1_endpoint.call_with_http_info(**kwargs)
@@ -1440,6 +1576,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1471,6 +1611,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_edit_ezsignformfieldgroups_v1_request'] = \
@@ -1522,6 +1663,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1553,6 +1698,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_edit_ezsignsignatures_v1_request'] = \
@@ -1604,6 +1750,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1635,11 +1785,95 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['body'] = \
             body
         return self.ezsigndocument_end_prematurely_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigndocument_get_actionable_elements_v1(
+        self,
+        pki_ezsigndocument_id,
+        **kwargs
+    ):
+        """Retrieve actionable elements for the Ezsigndocument  # noqa: E501
+
+        Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigndocument_get_actionable_elements_v1(pki_ezsigndocument_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigndocument_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigndocumentGetActionableElementsV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigndocument_id'] = \
+            pki_ezsigndocument_id
+        return self.ezsigndocument_get_actionable_elements_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsigndocument_get_download_url_v1(
         self,
@@ -1686,6 +1920,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1717,6 +1955,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['e_document_type'] = \
@@ -1766,6 +2005,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1797,6 +2040,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_ezsignformfieldgroups_v1_endpoint.call_with_http_info(**kwargs)
@@ -1844,6 +2088,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1875,6 +2123,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_ezsignpages_v1_endpoint.call_with_http_info(**kwargs)
@@ -1922,6 +2171,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1953,6 +2206,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_ezsignsignatures_v1_endpoint.call_with_http_info(**kwargs)
@@ -2000,6 +2254,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -2031,6 +2289,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_form_data_v1_endpoint.call_with_http_info(**kwargs)
@@ -2077,6 +2336,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -2108,6 +2371,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_object_v1_endpoint.call_with_http_info(**kwargs)
@@ -2155,6 +2419,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -2186,6 +2454,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         return self.ezsigndocument_get_temporary_proof_v1_endpoint.call_with_http_info(**kwargs)
@@ -2235,6 +2504,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -2266,6 +2539,7 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_get_words_positions_v1_request'] = \
@@ -2317,6 +2591,10 @@ class ObjectEzsigndocumentApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -2348,9 +2626,97 @@ class ObjectEzsigndocumentApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsigndocument_id'] = \
             pki_ezsigndocument_id
         kwargs['ezsigndocument_patch_object_v1_request'] = \
             ezsigndocument_patch_object_v1_request
         return self.ezsigndocument_patch_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigndocument_unsend_v1(
+        self,
+        pki_ezsigndocument_id,
+        body,
+        **kwargs
+    ):
+        """Unsend the Ezsigndocument  # noqa: E501
+
+        Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigndocument_unsend_v1(pki_ezsigndocument_id, body, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigndocument_id (int):
+            body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigndocumentUnsendV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigndocument_id'] = \
+            pki_ezsigndocument_id
+        kwargs['body'] = \
+            body
+        return self.ezsigndocument_unsend_v1_endpoint.call_with_http_info(**kwargs)
 

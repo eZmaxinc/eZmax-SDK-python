@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -27,14 +27,14 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
     def test_ezsigndocument_apply_ezsigntemplate_v1(self):
         """Test case for ezsigndocument_apply_ezsigntemplate_v1
 
-        Apply an Ezsign Template to the Ezsigndocument.  # noqa: E501
+        Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
         """
         pass
 
     def test_ezsigndocument_apply_ezsigntemplate_v2(self):
         """Test case for ezsigndocument_apply_ezsigntemplate_v2
 
-        Apply an Ezsign Template to the Ezsigndocument.  # noqa: E501
+        Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
         """
         pass
 
@@ -77,6 +77,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """Test case for ezsigndocument_end_prematurely_v1
 
         End prematurely  # noqa: E501
+        """
+        pass
+
+    def test_ezsigndocument_get_actionable_elements_v1(self):
+        """Test case for ezsigndocument_get_actionable_elements_v1
+
+        Retrieve actionable elements for the Ezsigndocument  # noqa: E501
         """
         pass
 
@@ -140,6 +147,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """Test case for ezsigndocument_patch_object_v1
 
         Patch an existing Ezsigndocument  # noqa: E501
+        """
+        pass
+
+    def test_ezsigndocument_unsend_v1(self):
+        """Test case for ezsigndocument_unsend_v1
+
+        Unsend the Ezsigndocument  # noqa: E501
         """
         pass
 

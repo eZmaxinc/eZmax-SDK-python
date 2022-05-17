@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -84,6 +84,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
         return {
             's_category': (str,),  # noqa: E501
             's_label': (str,),  # noqa: E501
+            's_value': (str,),  # noqa: E501
             'm_value': (str,),  # noqa: E501
         }
 
@@ -95,6 +96,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
     attribute_map = {
         's_category': 'sCategory',  # noqa: E501
         's_label': 'sLabel',  # noqa: E501
+        's_value': 'sValue',  # noqa: E501
         'm_value': 'mValue',  # noqa: E501
     }
 
@@ -105,13 +107,13 @@ class CustomAutocompleteElementResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, s_category, s_label, m_value, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, s_category, s_label, s_value, *args, **kwargs):  # noqa: E501
         """CustomAutocompleteElementResponse - a model defined in OpenAPI
 
         Args:
             s_category (str): The Category for the dropdown or an empty string if not categorized
             s_label (str): The Description of the element
-            m_value (str): The Unique ID of the element
+            s_value (str): The Unique ID of the element
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,10 +146,11 @@ class CustomAutocompleteElementResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            m_value (str): The Unique ID of the element. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -155,14 +158,18 @@ class CustomAutocompleteElementResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -173,7 +180,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
 
         self.s_category = s_category
         self.s_label = s_label
-        self.m_value = m_value
+        self.s_value = s_value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,13 +201,13 @@ class CustomAutocompleteElementResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, s_category, s_label, m_value, *args, **kwargs):  # noqa: E501
+    def __init__(self, s_category, s_label, s_value, *args, **kwargs):  # noqa: E501
         """CustomAutocompleteElementResponse - a model defined in OpenAPI
 
         Args:
             s_category (str): The Category for the dropdown or an empty string if not categorized
             s_label (str): The Description of the element
-            m_value (str): The Unique ID of the element
+            s_value (str): The Unique ID of the element
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,6 +240,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            m_value (str): The Unique ID of the element. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,14 +250,18 @@ class CustomAutocompleteElementResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -260,7 +272,7 @@ class CustomAutocompleteElementResponse(ModelNormal):
 
         self.s_category = s_category
         self.s_label = s_label
-        self.m_value = m_value
+        self.s_value = s_value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

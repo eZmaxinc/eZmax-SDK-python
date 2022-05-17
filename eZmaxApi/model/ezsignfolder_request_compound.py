@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -93,11 +93,11 @@ class EzsignfolderRequestCompound(ModelComposed):
         lazy_import()
         return {
             'fki_ezsignfoldertype_id': (int,),  # noqa: E501
-            'fki_ezsigntsarequirement_id': (FieldPkiEzsigntsarequirementID,),  # noqa: E501
             's_ezsignfolder_description': (str,),  # noqa: E501
             't_ezsignfolder_note': (str,),  # noqa: E501
             'e_ezsignfolder_sendreminderfrequency': (FieldEEzsignfolderSendreminderfrequency,),  # noqa: E501
             'pki_ezsignfolder_id': (int,),  # noqa: E501
+            'fki_ezsigntsarequirement_id': (FieldPkiEzsigntsarequirementID,),  # noqa: E501
         }
 
     @cached_property
@@ -107,11 +107,11 @@ class EzsignfolderRequestCompound(ModelComposed):
 
     attribute_map = {
         'fki_ezsignfoldertype_id': 'fkiEzsignfoldertypeID',  # noqa: E501
-        'fki_ezsigntsarequirement_id': 'fkiEzsigntsarequirementID',  # noqa: E501
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
         't_ezsignfolder_note': 'tEzsignfolderNote',  # noqa: E501
         'e_ezsignfolder_sendreminderfrequency': 'eEzsignfolderSendreminderfrequency',  # noqa: E501
         'pki_ezsignfolder_id': 'pkiEzsignfolderID',  # noqa: E501
+        'fki_ezsigntsarequirement_id': 'fkiEzsigntsarequirementID',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,7 +124,6 @@ class EzsignfolderRequestCompound(ModelComposed):
 
         Keyword Args:
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
-            fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
@@ -159,6 +158,7 @@ class EzsignfolderRequestCompound(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder. [optional]  # noqa: E501
+            fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,14 +170,18 @@ class EzsignfolderRequestCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -229,7 +233,6 @@ class EzsignfolderRequestCompound(ModelComposed):
 
         Keyword Args:
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
-            fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
@@ -264,6 +267,7 @@ class EzsignfolderRequestCompound(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsignfolder_id (int): The unique ID of the Ezsignfolder. [optional]  # noqa: E501
+            fki_ezsigntsarequirement_id (FieldPkiEzsigntsarequirementID): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,14 +277,18 @@ class EzsignfolderRequestCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

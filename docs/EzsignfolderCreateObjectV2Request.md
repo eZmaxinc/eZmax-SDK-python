@@ -1,6 +1,6 @@
 # EzsignfolderCreateObjectV2Request
 
-Request for the /2/object/ezsignfolder/createObject API Request
+Request for POST /2/object/ezsignfolder
 
 ## Properties
 Name | Type | Description | Notes

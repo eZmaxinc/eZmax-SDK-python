@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **i_ezsigndocument_signaturetotal** | **int** | The number of total signatures that were requested in the Ezsigndocument. | 
 **s_ezsigndocument_md5initial** | **str** | MD5 Hash of the initial PDF Document before signatures were applied to it. | 
 **s_ezsigndocument_md5signed** | **str** | MD5 Hash of the final PDF Document after all signatures were applied to it. | 
+**b_ezsigndocument_ezsignform** | **bool** | If the Ezsigndocument contains an Ezsignform or not | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

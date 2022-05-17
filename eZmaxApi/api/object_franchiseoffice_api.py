@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -23,6 +23,7 @@ from eZmaxApi.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from eZmaxApi.model.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
+from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 
 
 class ObjectFranchiseofficeApi(object):
@@ -51,6 +52,7 @@ class ObjectFranchiseofficeApi(object):
                 'all': [
                     's_selector',
                     's_query',
+                    'accept_language',
                 ],
                 'required': [
                     's_selector',
@@ -78,14 +80,18 @@ class ObjectFranchiseofficeApi(object):
                         (str,),
                     's_query':
                         (str,),
+                    'accept_language':
+                        (HeaderAcceptLanguage,),
                 },
                 'attribute_map': {
                     's_selector': 'sSelector',
                     's_query': 'sQuery',
+                    'accept_language': 'Accept-Language',
                 },
                 'location_map': {
                     's_selector': 'path',
                     's_query': 'query',
+                    'accept_language': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -118,6 +124,7 @@ class ObjectFranchiseofficeApi(object):
 
         Keyword Args:
             s_query (str): Allow to filter the returned results. [optional]
+            accept_language (HeaderAcceptLanguage): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -143,6 +150,10 @@ class ObjectFranchiseofficeApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -174,6 +185,7 @@ class ObjectFranchiseofficeApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['s_selector'] = \
             s_selector
         return self.franchiseoffice_get_autocomplete_v1_endpoint.call_with_http_info(**kwargs)

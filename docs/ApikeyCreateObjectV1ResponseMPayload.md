@@ -1,6 +1,6 @@
 # ApikeyCreateObjectV1ResponseMPayload
 
-Payload for the /1/object/apikey/createObject API Request
+Payload for POST /1/object/apikey
 
 ## Properties
 Name | Type | Description | Notes

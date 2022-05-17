@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -32,9 +32,13 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.common_audit import CommonAudit
+    from eZmaxApi.model.custom_ezsignfoldertransmission_response import CustomEzsignfoldertransmissionResponse
     from eZmaxApi.model.ezsignbulksendtransmission_response import EzsignbulksendtransmissionResponse
+    from eZmaxApi.model.ezsignbulksendtransmission_response_compound_all_of import EzsignbulksendtransmissionResponseCompoundAllOf
     globals()['CommonAudit'] = CommonAudit
+    globals()['CustomEzsignfoldertransmissionResponse'] = CustomEzsignfoldertransmissionResponse
     globals()['EzsignbulksendtransmissionResponse'] = EzsignbulksendtransmissionResponse
+    globals()['EzsignbulksendtransmissionResponseCompoundAllOf'] = EzsignbulksendtransmissionResponseCompoundAllOf
 
 
 class EzsignbulksendtransmissionResponseCompound(ModelComposed):
@@ -95,6 +99,7 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
             's_ezsignbulksendtransmission_description': (str,),  # noqa: E501
             'i_ezsignbulksendtransmission_errors': (int,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
+            'a_obj_ezsignfoldertransmission': ([CustomEzsignfoldertransmissionResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +113,7 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
         's_ezsignbulksendtransmission_description': 'sEzsignbulksendtransmissionDescription',  # noqa: E501
         'i_ezsignbulksendtransmission_errors': 'iEzsignbulksendtransmissionErrors',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
+        'a_obj_ezsignfoldertransmission': 'a_objEzsignfoldertransmission',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,6 +130,7 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
             s_ezsignbulksendtransmission_description (str): The description of the Ezsignbulksendtransmission
             i_ezsignbulksendtransmission_errors (int): The number of errors during the Ezsignbulksendtransmission
             obj_audit (CommonAudit):
+            a_obj_ezsignfoldertransmission ([CustomEzsignfoldertransmissionResponse]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -165,14 +172,18 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -228,6 +239,7 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
             s_ezsignbulksendtransmission_description (str): The description of the Ezsignbulksendtransmission
             i_ezsignbulksendtransmission_errors (int): The number of errors during the Ezsignbulksendtransmission
             obj_audit (CommonAudit):
+            a_obj_ezsignfoldertransmission ([CustomEzsignfoldertransmissionResponse]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -267,14 +279,18 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -324,6 +340,7 @@ class EzsignbulksendtransmissionResponseCompound(ModelComposed):
           ],
           'allOf': [
               EzsignbulksendtransmissionResponse,
+              EzsignbulksendtransmissionResponseCompoundAllOf,
           ],
           'oneOf': [
           ],

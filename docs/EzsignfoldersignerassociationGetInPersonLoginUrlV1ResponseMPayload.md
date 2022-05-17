@@ -1,6 +1,6 @@
 # EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload
 
-Payload for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request
+Payload for GET /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -23,6 +23,8 @@ from eZmaxApi.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfolder_archive_v1_response import EzsignfolderArchiveV1Response
+from eZmaxApi.model.ezsignfolder_batch_download_v1_request import EzsignfolderBatchDownloadV1Request
 from eZmaxApi.model.ezsignfolder_create_object_v1_request import EzsignfolderCreateObjectV1Request
 from eZmaxApi.model.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
 from eZmaxApi.model.ezsignfolder_create_object_v2_request import EzsignfolderCreateObjectV2Request
@@ -30,11 +32,16 @@ from eZmaxApi.model.ezsignfolder_create_object_v2_response import EzsignfolderCr
 from eZmaxApi.model.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
 from eZmaxApi.model.ezsignfolder_edit_object_v1_request import EzsignfolderEditObjectV1Request
 from eZmaxApi.model.ezsignfolder_edit_object_v1_response import EzsignfolderEditObjectV1Response
+from eZmaxApi.model.ezsignfolder_get_actionable_elements_v1_response import EzsignfolderGetActionableElementsV1Response
 from eZmaxApi.model.ezsignfolder_get_ezsigndocuments_v1_response import EzsignfolderGetEzsigndocumentsV1Response
 from eZmaxApi.model.ezsignfolder_get_ezsignfoldersignerassociations_v1_response import EzsignfolderGetEzsignfoldersignerassociationsV1Response
 from eZmaxApi.model.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response
 from eZmaxApi.model.ezsignfolder_get_list_v1_response import EzsignfolderGetListV1Response
 from eZmaxApi.model.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
+from eZmaxApi.model.ezsignfolder_import_ezsigntemplatepackage_v1_request import EzsignfolderImportEzsigntemplatepackageV1Request
+from eZmaxApi.model.ezsignfolder_import_ezsigntemplatepackage_v1_response import EzsignfolderImportEzsigntemplatepackageV1Response
+from eZmaxApi.model.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request
+from eZmaxApi.model.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response
 from eZmaxApi.model.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
 from eZmaxApi.model.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
 from eZmaxApi.model.ezsignfolder_unsend_v1_response import EzsignfolderUnsendV1Response
@@ -52,6 +59,123 @@ class ObjectEzsignfolderApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.ezsignfolder_archive_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsignfolderArchiveV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/{pkiEzsignfolderID}/archive',
+                'operation_id': 'ezsignfolder_archive_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsignfolder_id',
+                    'body',
+                ],
+                'required': [
+                    'pki_ezsignfolder_id',
+                    'body',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsignfolder_id':
+                        (int,),
+                    'body':
+                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                },
+                'attribute_map': {
+                    'pki_ezsignfolder_id': 'pkiEzsignfolderID',
+                },
+                'location_map': {
+                    'pki_ezsignfolder_id': 'path',
+                    'body': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.ezsignfolder_batch_download_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (file_type,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/{pkiEzsignfolderID}/batchDownload',
+                'operation_id': 'ezsignfolder_batch_download_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_batch_download_v1_request',
+                ],
+                'required': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_batch_download_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsignfolder_id':
+                        (int,),
+                    'ezsignfolder_batch_download_v1_request':
+                        (EzsignfolderBatchDownloadV1Request,),
+                },
+                'attribute_map': {
+                    'pki_ezsignfolder_id': 'pkiEzsignfolderID',
+                },
+                'location_map': {
+                    'pki_ezsignfolder_id': 'path',
+                    'ezsignfolder_batch_download_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/zip',
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.ezsignfolder_create_object_v1_endpoint = _Endpoint(
             settings={
                 'response_type': (EzsignfolderCreateObjectV1Response,),
@@ -262,6 +386,57 @@ class ObjectEzsignfolderApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.ezsignfolder_get_actionable_elements_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsignfolderGetActionableElementsV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements',
+                'operation_id': 'ezsignfolder_get_actionable_elements_v1',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsignfolder_id',
+                ],
+                'required': [
+                    'pki_ezsignfolder_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsignfolder_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'pki_ezsignfolder_id': 'pkiEzsignfolderID',
+                },
+                'location_map': {
+                    'pki_ezsignfolder_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -568,6 +743,122 @@ class ObjectEzsignfolderApi(object):
             },
             api_client=api_client
         )
+        self.ezsignfolder_import_ezsigntemplatepackage_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsignfolderImportEzsigntemplatepackageV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage',
+                'operation_id': 'ezsignfolder_import_ezsigntemplatepackage_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_import_ezsigntemplatepackage_v1_request',
+                ],
+                'required': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_import_ezsigntemplatepackage_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsignfolder_id':
+                        (int,),
+                    'ezsignfolder_import_ezsigntemplatepackage_v1_request':
+                        (EzsignfolderImportEzsigntemplatepackageV1Request,),
+                },
+                'attribute_map': {
+                    'pki_ezsignfolder_id': 'pkiEzsignfolderID',
+                },
+                'location_map': {
+                    'pki_ezsignfolder_id': 'path',
+                    'ezsignfolder_import_ezsigntemplatepackage_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.ezsignfolder_reorder_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsignfolderReorderV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsignfolder/{pkiEzsignfolderID}/reorder',
+                'operation_id': 'ezsignfolder_reorder_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_reorder_v1_request',
+                ],
+                'required': [
+                    'pki_ezsignfolder_id',
+                    'ezsignfolder_reorder_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsignfolder_id':
+                        (int,),
+                    'ezsignfolder_reorder_v1_request':
+                        (EzsignfolderReorderV1Request,),
+                },
+                'attribute_map': {
+                    'pki_ezsignfolder_id': 'pkiEzsignfolderID',
+                },
+                'location_map': {
+                    'pki_ezsignfolder_id': 'path',
+                    'ezsignfolder_reorder_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.ezsignfolder_send_v1_endpoint = _Endpoint(
             settings={
                 'response_type': (EzsignfolderSendV1Response,),
@@ -685,6 +976,179 @@ class ObjectEzsignfolderApi(object):
             api_client=api_client
         )
 
+    def ezsignfolder_archive_v1(
+        self,
+        pki_ezsignfolder_id,
+        body,
+        **kwargs
+    ):
+        """Archive the Ezsignfolder  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_archive_v1(pki_ezsignfolder_id, body, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsignfolder_id (int):
+            body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsignfolderArchiveV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsignfolder_id'] = \
+            pki_ezsignfolder_id
+        kwargs['body'] = \
+            body
+        return self.ezsignfolder_archive_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsignfolder_batch_download_v1(
+        self,
+        pki_ezsignfolder_id,
+        ezsignfolder_batch_download_v1_request,
+        **kwargs
+    ):
+        """Download multiples files from an Ezsignfolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_batch_download_v1(pki_ezsignfolder_id, ezsignfolder_batch_download_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsignfolder_id (int):
+            ezsignfolder_batch_download_v1_request (EzsignfolderBatchDownloadV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            file_type
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsignfolder_id'] = \
+            pki_ezsignfolder_id
+        kwargs['ezsignfolder_batch_download_v1_request'] = \
+            ezsignfolder_batch_download_v1_request
+        return self.ezsignfolder_batch_download_v1_endpoint.call_with_http_info(**kwargs)
+
     def ezsignfolder_create_object_v1(
         self,
         ezsignfolder_create_object_v1_request,
@@ -728,6 +1192,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -759,6 +1227,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['ezsignfolder_create_object_v1_request'] = \
             ezsignfolder_create_object_v1_request
         return self.ezsignfolder_create_object_v1_endpoint.call_with_http_info(**kwargs)
@@ -806,6 +1275,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -837,6 +1310,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['ezsignfolder_create_object_v2_request'] = \
             ezsignfolder_create_object_v2_request
         return self.ezsignfolder_create_object_v2_endpoint.call_with_http_info(**kwargs)
@@ -848,7 +1322,6 @@ class ObjectEzsignfolderApi(object):
     ):
         """Delete an existing Ezsignfolder  # noqa: E501
 
-          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -884,6 +1357,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -915,6 +1392,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_delete_object_v1_endpoint.call_with_http_info(**kwargs)
@@ -964,6 +1442,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -995,11 +1477,95 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         kwargs['ezsignfolder_edit_object_v1_request'] = \
             ezsignfolder_edit_object_v1_request
         return self.ezsignfolder_edit_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsignfolder_get_actionable_elements_v1(
+        self,
+        pki_ezsignfolder_id,
+        **kwargs
+    ):
+        """Retrieve actionable elements for the Ezsignfolder  # noqa: E501
+
+        Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_get_actionable_elements_v1(pki_ezsignfolder_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsignfolder_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsignfolderGetActionableElementsV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsignfolder_id'] = \
+            pki_ezsignfolder_id
+        return self.ezsignfolder_get_actionable_elements_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsignfolder_get_ezsigndocuments_v1(
         self,
@@ -1044,6 +1610,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1075,6 +1645,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_get_ezsigndocuments_v1_endpoint.call_with_http_info(**kwargs)
@@ -1122,6 +1693,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1153,6 +1728,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_get_ezsignfoldersignerassociations_v1_endpoint.call_with_http_info(**kwargs)
@@ -1200,6 +1776,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1231,6 +1811,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_get_forms_data_v1_endpoint.call_with_http_info(**kwargs)
@@ -1241,7 +1822,7 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve Ezsignfolder list  # noqa: E501
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived | | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  # noqa: E501
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1280,6 +1861,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1311,6 +1896,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.ezsignfolder_get_list_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsignfolder_get_object_v1(
@@ -1320,7 +1906,6 @@ class ObjectEzsignfolderApi(object):
     ):
         """Retrieve an existing Ezsignfolder  # noqa: E501
 
-          # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1356,6 +1941,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1387,9 +1976,183 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         return self.ezsignfolder_get_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsignfolder_import_ezsigntemplatepackage_v1(
+        self,
+        pki_ezsignfolder_id,
+        ezsignfolder_import_ezsigntemplatepackage_v1_request,
+        **kwargs
+    ):
+        """Import an Ezsigntemplatepackage in the Ezsignfolder.  # noqa: E501
+
+        This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_import_ezsigntemplatepackage_v1(pki_ezsignfolder_id, ezsignfolder_import_ezsigntemplatepackage_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsignfolder_id (int):
+            ezsignfolder_import_ezsigntemplatepackage_v1_request (EzsignfolderImportEzsigntemplatepackageV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsignfolderImportEzsigntemplatepackageV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsignfolder_id'] = \
+            pki_ezsignfolder_id
+        kwargs['ezsignfolder_import_ezsigntemplatepackage_v1_request'] = \
+            ezsignfolder_import_ezsigntemplatepackage_v1_request
+        return self.ezsignfolder_import_ezsigntemplatepackage_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsignfolder_reorder_v1(
+        self,
+        pki_ezsignfolder_id,
+        ezsignfolder_reorder_v1_request,
+        **kwargs
+    ):
+        """Reorder Ezsigndocuments in the Ezsignfolder  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsignfolder_reorder_v1(pki_ezsignfolder_id, ezsignfolder_reorder_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsignfolder_id (int):
+            ezsignfolder_reorder_v1_request (EzsignfolderReorderV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsignfolderReorderV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsignfolder_id'] = \
+            pki_ezsignfolder_id
+        kwargs['ezsignfolder_reorder_v1_request'] = \
+            ezsignfolder_reorder_v1_request
+        return self.ezsignfolder_reorder_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsignfolder_send_v1(
         self,
@@ -1436,6 +2199,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1467,6 +2234,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         kwargs['ezsignfolder_send_v1_request'] = \
@@ -1518,6 +2286,10 @@ class ObjectEzsignfolderApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -1549,6 +2321,7 @@ class ObjectEzsignfolderApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['pki_ezsignfolder_id'] = \
             pki_ezsignfolder_id
         kwargs['body'] = \

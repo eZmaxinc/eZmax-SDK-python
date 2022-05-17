@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -22,8 +22,17 @@ from eZmaxApi.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from eZmaxApi.model.common_get_autocomplete_disabled_v1_response import CommonGetAutocompleteDisabledV1Response
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigntemplatepackage_create_object_v1_request import EzsigntemplatepackageCreateObjectV1Request
+from eZmaxApi.model.ezsigntemplatepackage_create_object_v1_response import EzsigntemplatepackageCreateObjectV1Response
+from eZmaxApi.model.ezsigntemplatepackage_delete_object_v1_response import EzsigntemplatepackageDeleteObjectV1Response
+from eZmaxApi.model.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request
+from eZmaxApi.model.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_response import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response
+from eZmaxApi.model.ezsigntemplatepackage_edit_object_v1_request import EzsigntemplatepackageEditObjectV1Request
+from eZmaxApi.model.ezsigntemplatepackage_edit_object_v1_response import EzsigntemplatepackageEditObjectV1Response
 from eZmaxApi.model.ezsigntemplatepackage_get_list_v1_response import EzsigntemplatepackageGetListV1Response
+from eZmaxApi.model.ezsigntemplatepackage_get_object_v1_response import EzsigntemplatepackageGetObjectV1Response
 from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 
 
@@ -38,6 +47,292 @@ class ObjectEzsigntemplatepackageApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.ezsigntemplatepackage_create_object_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigntemplatepackageCreateObjectV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage',
+                'operation_id': 'ezsigntemplatepackage_create_object_v1',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'ezsigntemplatepackage_create_object_v1_request',
+                ],
+                'required': [
+                    'ezsigntemplatepackage_create_object_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'ezsigntemplatepackage_create_object_v1_request':
+                        (EzsigntemplatepackageCreateObjectV1Request,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'ezsigntemplatepackage_create_object_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.ezsigntemplatepackage_delete_object_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigntemplatepackageDeleteObjectV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}',
+                'operation_id': 'ezsigntemplatepackage_delete_object_v1',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigntemplatepackage_id',
+                ],
+                'required': [
+                    'pki_ezsigntemplatepackage_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigntemplatepackage_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'pki_ezsigntemplatepackage_id': 'pkiEzsigntemplatepackageID',
+                },
+                'location_map': {
+                    'pki_ezsigntemplatepackage_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/editEzsigntemplatepackagesigners',
+                'operation_id': 'ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigntemplatepackage_id',
+                    'ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request',
+                ],
+                'required': [
+                    'pki_ezsigntemplatepackage_id',
+                    'ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigntemplatepackage_id':
+                        (int,),
+                    'ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request':
+                        (EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request,),
+                },
+                'attribute_map': {
+                    'pki_ezsigntemplatepackage_id': 'pkiEzsigntemplatepackageID',
+                },
+                'location_map': {
+                    'pki_ezsigntemplatepackage_id': 'path',
+                    'ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.ezsigntemplatepackage_edit_object_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigntemplatepackageEditObjectV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}',
+                'operation_id': 'ezsigntemplatepackage_edit_object_v1',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigntemplatepackage_id',
+                    'ezsigntemplatepackage_edit_object_v1_request',
+                ],
+                'required': [
+                    'pki_ezsigntemplatepackage_id',
+                    'ezsigntemplatepackage_edit_object_v1_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigntemplatepackage_id':
+                        (int,),
+                    'ezsigntemplatepackage_edit_object_v1_request':
+                        (EzsigntemplatepackageEditObjectV1Request,),
+                },
+                'attribute_map': {
+                    'pki_ezsigntemplatepackage_id': 'pkiEzsigntemplatepackageID',
+                },
+                'location_map': {
+                    'pki_ezsigntemplatepackage_id': 'path',
+                    'ezsigntemplatepackage_edit_object_v1_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.ezsigntemplatepackage_get_autocomplete_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (CommonGetAutocompleteDisabledV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage/getAutocomplete/{sSelector}',
+                'operation_id': 'ezsigntemplatepackage_get_autocomplete_v1',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    's_selector',
+                    's_query',
+                    'accept_language',
+                ],
+                'required': [
+                    's_selector',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    's_selector',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('s_selector',): {
+
+                        "ALL": "All",
+                        "ALLMULTIPLECOPIESDISABLED": "AllMultipleCopiesDisabled"
+                    },
+                },
+                'openapi_types': {
+                    's_selector':
+                        (str,),
+                    's_query':
+                        (str,),
+                    'accept_language':
+                        (HeaderAcceptLanguage,),
+                },
+                'attribute_map': {
+                    's_selector': 'sSelector',
+                    's_query': 'sQuery',
+                    'accept_language': 'Accept-Language',
+                },
+                'location_map': {
+                    's_selector': 'path',
+                    's_query': 'query',
+                    'accept_language': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.ezsigntemplatepackage_get_list_v1_endpoint = _Endpoint(
             settings={
                 'response_type': (EzsigntemplatepackageGetListV1Response,),
@@ -74,8 +369,6 @@ class ObjectEzsigntemplatepackageApi(object):
 
                         "PKIEZSIGNTEMPLATEPACKAGEID_ASC": "pkiEzsigntemplatepackageID_ASC",
                         "PKIEZSIGNTEMPLATEPACKAGEID_DESC": "pkiEzsigntemplatepackageID_DESC",
-                        "FKIDEPARTMENTID_ASC": "fkiDepartmentID_ASC",
-                        "FKIDEPARTMENTID_DESC": "fkiDepartmentID_DESC",
                         "FKITEAMID_ASC": "fkiTeamID_ASC",
                         "FKITEAMID_DESC": "fkiTeamID_DESC",
                         "FKIEZSIGNFOLDERTYPEID_ASC": "fkiEzsignfoldertypeID_ASC",
@@ -84,10 +377,14 @@ class ObjectEzsigntemplatepackageApi(object):
                         "FKILANGUAGEID_DESC": "fkiLanguageID_DESC",
                         "EEZSIGNTEMPLATEPACKAGETYPE_ASC": "eEzsigntemplatepackageType_ASC",
                         "EEZSIGNTEMPLATEPACKAGETYPE_DESC": "eEzsigntemplatepackageType_DESC",
+                        "SEZSIGNTEMPLATEPACKAGETYPEDESCRIPTIONX_ASC": "sEzsigntemplatepackageTypedescriptionX_ASC",
+                        "SEZSIGNTEMPLATEPACKAGETYPEDESCRIPTIONX_DESC": "sEzsigntemplatepackageTypedescriptionX_DESC",
                         "SEZSIGNTEMPLATEPACKAGEDESCRIPTION_ASC": "sEzsigntemplatepackageDescription_ASC",
                         "SEZSIGNTEMPLATEPACKAGEDESCRIPTION_DESC": "sEzsigntemplatepackageDescription_DESC",
                         "BEZSIGNTEMPLATEPACKAGEISACTIVE_ASC": "bEzsigntemplatepackageIsactive_ASC",
                         "BEZSIGNTEMPLATEPACKAGEISACTIVE_DESC": "bEzsigntemplatepackageIsactive_DESC",
+                        "BEZSIGNTEMPLATEPACKAGENEEDVALIDATION_ASC": "bEzsigntemplatepackageNeedvalidation_ASC",
+                        "BEZSIGNTEMPLATEPACKAGENEEDVALIDATION_DESC": "bEzsigntemplatepackageNeedvalidation_DESC",
                         "IEZSIGNTEMPLATEPACKAGEMEMBERSHIP_ASC": "iEzsigntemplatepackagemembership_ASC",
                         "IEZSIGNTEMPLATEPACKAGEMEMBERSHIP_DESC": "iEzsigntemplatepackagemembership_DESC"
                     },
@@ -130,6 +427,482 @@ class ObjectEzsigntemplatepackageApi(object):
             },
             api_client=api_client
         )
+        self.ezsigntemplatepackage_get_object_v1_endpoint = _Endpoint(
+            settings={
+                'response_type': (EzsigntemplatepackageGetObjectV1Response,),
+                'auth': [
+                    'Authorization'
+                ],
+                'endpoint_path': '/1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}',
+                'operation_id': 'ezsigntemplatepackage_get_object_v1',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'pki_ezsigntemplatepackage_id',
+                ],
+                'required': [
+                    'pki_ezsigntemplatepackage_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'pki_ezsigntemplatepackage_id':
+                        (int,),
+                },
+                'attribute_map': {
+                    'pki_ezsigntemplatepackage_id': 'pkiEzsigntemplatepackageID',
+                },
+                'location_map': {
+                    'pki_ezsigntemplatepackage_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def ezsigntemplatepackage_create_object_v1(
+        self,
+        ezsigntemplatepackage_create_object_v1_request,
+        **kwargs
+    ):
+        """Create a new Ezsigntemplatepackage  # noqa: E501
+
+        The endpoint allows to create one or many elements at once.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_create_object_v1(ezsigntemplatepackage_create_object_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            ezsigntemplatepackage_create_object_v1_request (EzsigntemplatepackageCreateObjectV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigntemplatepackageCreateObjectV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['ezsigntemplatepackage_create_object_v1_request'] = \
+            ezsigntemplatepackage_create_object_v1_request
+        return self.ezsigntemplatepackage_create_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigntemplatepackage_delete_object_v1(
+        self,
+        pki_ezsigntemplatepackage_id,
+        **kwargs
+    ):
+        """Delete an existing Ezsigntemplatepackage  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_delete_object_v1(pki_ezsigntemplatepackage_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigntemplatepackage_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigntemplatepackageDeleteObjectV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigntemplatepackage_id'] = \
+            pki_ezsigntemplatepackage_id
+        return self.ezsigntemplatepackage_delete_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1(
+        self,
+        pki_ezsigntemplatepackage_id,
+        ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request,
+        **kwargs
+    ):
+        """Edit multiple Ezsigntemplatepackagesigners  # noqa: E501
+
+        Using this endpoint, you can edit multiple Ezsigntemplatepackagesigners at the same time.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1(pki_ezsigntemplatepackage_id, ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigntemplatepackage_id (int):
+            ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request (EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigntemplatepackage_id'] = \
+            pki_ezsigntemplatepackage_id
+        kwargs['ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request'] = \
+            ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request
+        return self.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigntemplatepackage_edit_object_v1(
+        self,
+        pki_ezsigntemplatepackage_id,
+        ezsigntemplatepackage_edit_object_v1_request,
+        **kwargs
+    ):
+        """Edit an existing Ezsigntemplatepackage  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_edit_object_v1(pki_ezsigntemplatepackage_id, ezsigntemplatepackage_edit_object_v1_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigntemplatepackage_id (int):
+            ezsigntemplatepackage_edit_object_v1_request (EzsigntemplatepackageEditObjectV1Request):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigntemplatepackageEditObjectV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigntemplatepackage_id'] = \
+            pki_ezsigntemplatepackage_id
+        kwargs['ezsigntemplatepackage_edit_object_v1_request'] = \
+            ezsigntemplatepackage_edit_object_v1_request
+        return self.ezsigntemplatepackage_edit_object_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigntemplatepackage_get_autocomplete_v1(
+        self,
+        s_selector,
+        **kwargs
+    ):
+        """Retrieve Ezsigntemplatepackages and IDs  # noqa: E501
+
+        Get the list of Ezsigntemplatepackage to be used in a dropdown or autocomplete control.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_get_autocomplete_v1(s_selector, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            s_selector (str): The type of Ezsigntemplatepackages to return
+
+        Keyword Args:
+            s_query (str): Allow to filter the returned results. [optional]
+            accept_language (HeaderAcceptLanguage): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CommonGetAutocompleteDisabledV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['s_selector'] = \
+            s_selector
+        return self.ezsigntemplatepackage_get_autocomplete_v1_endpoint.call_with_http_info(**kwargs)
 
     def ezsigntemplatepackage_get_list_v1(
         self,
@@ -137,7 +910,7 @@ class ObjectEzsigntemplatepackageApi(object):
     ):
         """Retrieve Ezsigntemplatepackage list  # noqa: E501
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplatepackageType | Company<br>Department<br>Team<br>User<br>Usergroup |  # noqa: E501
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplatepackageType | Company<br>Team<br>User<br>Usergroup |  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -176,6 +949,10 @@ class ObjectEzsigntemplatepackageApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -207,5 +984,89 @@ class ObjectEzsigntemplatepackageApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.ezsigntemplatepackage_get_list_v1_endpoint.call_with_http_info(**kwargs)
+
+    def ezsigntemplatepackage_get_object_v1(
+        self,
+        pki_ezsigntemplatepackage_id,
+        **kwargs
+    ):
+        """Retrieve an existing Ezsigntemplatepackage  # noqa: E501
+
+          # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.ezsigntemplatepackage_get_object_v1(pki_ezsigntemplatepackage_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            pki_ezsigntemplatepackage_id (int):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            EzsigntemplatepackageGetObjectV1Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['pki_ezsigntemplatepackage_id'] = \
+            pki_ezsigntemplatepackage_id
+        return self.ezsigntemplatepackage_get_object_v1_endpoint.call_with_http_info(**kwargs)
 

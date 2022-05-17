@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.global_customer_api import GlobalCustomerApi
+#   from eZmaxApi.api.global_customer_api import GlobalCustomerApi
 #
 # or import this package, but before doing it, use:
 #
@@ -15,12 +15,13 @@
 
 # Import APIs into API package:
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi
-from eZmaxApi.api.module_authenticate_api import ModuleAuthenticateApi
-from eZmaxApi.api.module_list_api import ModuleListApi
+from eZmaxApi.api.module_ezsign_api import ModuleEzsignApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
+from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi
+from eZmaxApi.api.object_ezsignbulksendsignermapping_api import ObjectEzsignbulksendsignermappingApi
 from eZmaxApi.api.object_ezsignbulksendtransmission_api import ObjectEzsignbulksendtransmissionApi
 from eZmaxApi.api.object_ezsigndocument_api import ObjectEzsigndocumentApi
 from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi
@@ -28,8 +29,19 @@ from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfo
 from eZmaxApi.api.object_ezsignfoldertype_api import ObjectEzsignfoldertypeApi
 from eZmaxApi.api.object_ezsignformfieldgroup_api import ObjectEzsignformfieldgroupApi
 from eZmaxApi.api.object_ezsignsignature_api import ObjectEzsignsignatureApi
+from eZmaxApi.api.object_ezsigntemplate_api import ObjectEzsigntemplateApi
+from eZmaxApi.api.object_ezsigntemplatedocument_api import ObjectEzsigntemplatedocumentApi
+from eZmaxApi.api.object_ezsigntemplateformfieldgroup_api import ObjectEzsigntemplateformfieldgroupApi
 from eZmaxApi.api.object_ezsigntemplatepackage_api import ObjectEzsigntemplatepackageApi
+from eZmaxApi.api.object_ezsigntemplatepackagemembership_api import ObjectEzsigntemplatepackagemembershipApi
+from eZmaxApi.api.object_ezsigntemplatepackagesigner_api import ObjectEzsigntemplatepackagesignerApi
+from eZmaxApi.api.object_ezsigntemplatepackagesignermembership_api import ObjectEzsigntemplatepackagesignermembershipApi
+from eZmaxApi.api.object_ezsigntemplatesignature_api import ObjectEzsigntemplatesignatureApi
+from eZmaxApi.api.object_ezsigntemplatesigner_api import ObjectEzsigntemplatesignerApi
+from eZmaxApi.api.object_ezsigntsarequirement_api import ObjectEzsigntsarequirementApi
 from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi
 from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi
 from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi
+from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi
 from eZmaxApi.api.object_period_api import ObjectPeriodApi
+from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi

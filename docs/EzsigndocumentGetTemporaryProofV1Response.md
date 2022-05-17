@@ -1,6 +1,6 @@
 # EzsigndocumentGetTemporaryProofV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof API Request
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
 
 ## Properties
 Name | Type | Description | Notes

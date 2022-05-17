@@ -1,6 +1,6 @@
 # FranchisereferalincomeCreateObjectV1Response
 
-Response for the /1/object/franchisereferalincome/createObject API Request
+Response for POST /1/object/franchisereferalincome
 
 ## Properties
 Name | Type | Description | Notes

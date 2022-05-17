@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -24,10 +24,52 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_ezsignbulksend_create_ezsignbulksendtransmission_v1(self):
+        """Test case for ezsignbulksend_create_ezsignbulksendtransmission_v1
+
+        Create a new Ezsignbulksendtransmission in the Ezsignbulksend  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_create_object_v1(self):
+        """Test case for ezsignbulksend_create_object_v1
+
+        Create a new Ezsignbulksend  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_delete_object_v1(self):
+        """Test case for ezsignbulksend_delete_object_v1
+
+        Delete an existing Ezsignbulksend  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_edit_object_v1(self):
+        """Test case for ezsignbulksend_edit_object_v1
+
+        Edit an existing Ezsignbulksend  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_get_csv_template_v1(self):
+        """Test case for ezsignbulksend_get_csv_template_v1
+
+        Retrieve an existing Ezsignbulksend's empty Csv template  # noqa: E501
+        """
+        pass
+
     def test_ezsignbulksend_get_ezsignbulksendtransmissions_v1(self):
         """Test case for ezsignbulksend_get_ezsignbulksendtransmissions_v1
 
         Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_get_forms_data_v1(self):
+        """Test case for ezsignbulksend_get_forms_data_v1
+
+        Retrieve an existing Ezsignbulksend's forms data  # noqa: E501
         """
         pass
 
@@ -42,6 +84,13 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
         """Test case for ezsignbulksend_get_object_v1
 
         Retrieve an existing Ezsignbulksend  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksend_reorder_v1(self):
+        """Test case for ezsignbulksend_reorder_v1
+
+        Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend  # noqa: E501
         """
         pass
 

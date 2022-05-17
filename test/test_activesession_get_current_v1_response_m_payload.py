@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -16,14 +16,14 @@ import eZmaxApi
 from eZmaxApi.model.activesession_response_compound import ActivesessionResponseCompound
 from eZmaxApi.model.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 from eZmaxApi.model.activesession_response_compound_user import ActivesessionResponseCompoundUser
-from eZmaxApi.model.field_e_activesession_sessiontype import FieldEActivesessionSessiontype
+from eZmaxApi.model.field_e_activesession_usertype import FieldEActivesessionUsertype
 from eZmaxApi.model.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
 from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
 from eZmaxApi.model.field_pks_customer_code import FieldPksCustomerCode
 globals()['ActivesessionResponseCompound'] = ActivesessionResponseCompound
 globals()['ActivesessionResponseCompoundApikey'] = ActivesessionResponseCompoundApikey
 globals()['ActivesessionResponseCompoundUser'] = ActivesessionResponseCompoundUser
-globals()['FieldEActivesessionSessiontype'] = FieldEActivesessionSessiontype
+globals()['FieldEActivesessionUsertype'] = FieldEActivesessionUsertype
 globals()['FieldEActivesessionWeekdaystart'] = FieldEActivesessionWeekdaystart
 globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 globals()['FieldPksCustomerCode'] = FieldPksCustomerCode

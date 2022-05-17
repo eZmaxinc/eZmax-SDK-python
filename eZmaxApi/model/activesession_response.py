@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -31,11 +31,11 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.field_e_activesession_sessiontype import FieldEActivesessionSessiontype
+    from eZmaxApi.model.field_e_activesession_usertype import FieldEActivesessionUsertype
     from eZmaxApi.model.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
     from eZmaxApi.model.field_pks_customer_code import FieldPksCustomerCode
-    globals()['FieldEActivesessionSessiontype'] = FieldEActivesessionSessiontype
+    globals()['FieldEActivesessionUsertype'] = FieldEActivesessionUsertype
     globals()['FieldEActivesessionWeekdaystart'] = FieldEActivesessionWeekdaystart
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
     globals()['FieldPksCustomerCode'] = FieldPksCustomerCode
@@ -94,7 +94,7 @@ class ActivesessionResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'e_activesession_sessiontype': (FieldEActivesessionSessiontype,),  # noqa: E501
+            'e_activesession_usertype': (FieldEActivesessionUsertype,),  # noqa: E501
             'e_activesession_weekdaystart': (FieldEActivesessionWeekdaystart,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_company_name_x': (str,),  # noqa: E501
@@ -109,7 +109,7 @@ class ActivesessionResponse(ModelNormal):
 
 
     attribute_map = {
-        'e_activesession_sessiontype': 'eActivesessionSessiontype',  # noqa: E501
+        'e_activesession_usertype': 'eActivesessionUsertype',  # noqa: E501
         'e_activesession_weekdaystart': 'eActivesessionWeekdaystart',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_company_name_x': 'sCompanyNameX',  # noqa: E501
@@ -125,11 +125,11 @@ class ActivesessionResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, e_activesession_sessiontype, e_activesession_weekdaystart, fki_language_id, s_company_name_x, s_department_name_x, b_activesession_debug, pks_customer_code, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, e_activesession_usertype, e_activesession_weekdaystart, fki_language_id, s_company_name_x, s_department_name_x, b_activesession_debug, pks_customer_code, *args, **kwargs):  # noqa: E501
         """ActivesessionResponse - a model defined in OpenAPI
 
         Args:
-            e_activesession_sessiontype (FieldEActivesessionSessiontype):
+            e_activesession_usertype (FieldEActivesessionUsertype):
             e_activesession_weekdaystart (FieldEActivesessionWeekdaystart):
             fki_language_id (FieldPkiLanguageID):
             s_company_name_x (str): The Name of the Company in the language of the requester
@@ -171,7 +171,7 @@ class ActivesessionResponse(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -179,14 +179,18 @@ class ActivesessionResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -195,7 +199,7 @@ class ActivesessionResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.e_activesession_sessiontype = e_activesession_sessiontype
+        self.e_activesession_usertype = e_activesession_usertype
         self.e_activesession_weekdaystart = e_activesession_weekdaystart
         self.fki_language_id = fki_language_id
         self.s_company_name_x = s_company_name_x
@@ -222,11 +226,11 @@ class ActivesessionResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, e_activesession_sessiontype, e_activesession_weekdaystart, fki_language_id, s_company_name_x, s_department_name_x, b_activesession_debug, pks_customer_code, *args, **kwargs):  # noqa: E501
+    def __init__(self, e_activesession_usertype, e_activesession_weekdaystart, fki_language_id, s_company_name_x, s_department_name_x, b_activesession_debug, pks_customer_code, *args, **kwargs):  # noqa: E501
         """ActivesessionResponse - a model defined in OpenAPI
 
         Args:
-            e_activesession_sessiontype (FieldEActivesessionSessiontype):
+            e_activesession_usertype (FieldEActivesessionUsertype):
             e_activesession_weekdaystart (FieldEActivesessionWeekdaystart):
             fki_language_id (FieldPkiLanguageID):
             s_company_name_x (str): The Name of the Company in the language of the requester
@@ -274,14 +278,18 @@ class ActivesessionResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -290,7 +298,7 @@ class ActivesessionResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.e_activesession_sessiontype = e_activesession_sessiontype
+        self.e_activesession_usertype = e_activesession_usertype
         self.e_activesession_weekdaystart = e_activesession_weekdaystart
         self.fki_language_id = fki_language_id
         self.s_company_name_x = s_company_name_x

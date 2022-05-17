@@ -1,6 +1,6 @@
 # EzsignfolderCreateObjectV1ResponseMPayload
 
-Payload for the /1/object/ezsignfolder/createObject API Request
+Payload for POST /1/object/ezsignfolder
 
 ## Properties
 Name | Type | Description | Notes

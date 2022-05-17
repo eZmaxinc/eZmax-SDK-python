@@ -1,11 +1,11 @@
 # EzsigndocumentGetEzsignsignaturesV1ResponseMPayload
 
-Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures API Request
+Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezsignsignature** | [**[EzsignsignatureResponseCompound]**](EzsignsignatureResponseCompound.md) |  | [optional] 
+**a_obj_ezsignsignature** | [**[EzsignsignatureResponseCompound]**](EzsignsignatureResponseCompound.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

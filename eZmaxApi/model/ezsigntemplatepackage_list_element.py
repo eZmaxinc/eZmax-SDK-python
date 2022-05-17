@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -31,9 +31,7 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from eZmaxApi.model.field_e_ezsigntemplatepackage_type import FieldEEzsigntemplatepackageType
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
-    globals()['FieldEEzsigntemplatepackageType'] = FieldEEzsigntemplatepackageType
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 
 
@@ -91,14 +89,13 @@ class EzsigntemplatepackageListElement(ModelNormal):
         lazy_import()
         return {
             'pki_ezsigntemplatepackage_id': (int,),  # noqa: E501
-            'fki_department_id': (int, none_type,),  # noqa: E501
-            'fki_team_id': (int, none_type,),  # noqa: E501
-            'fki_ezsignfoldertype_id': (int, none_type,),  # noqa: E501
+            'fki_ezsignfoldertype_id': (int,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
-            'e_ezsigntemplatepackage_type': (FieldEEzsigntemplatepackageType,),  # noqa: E501
             's_ezsigntemplatepackage_description': (str,),  # noqa: E501
             'b_ezsigntemplatepackage_isactive': (bool,),  # noqa: E501
+            'b_ezsigntemplatepackage_needvalidation': (bool,),  # noqa: E501
             'i_ezsigntemplatepackagemembership': (int,),  # noqa: E501
+            's_ezsignfoldertype_name_x': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,14 +105,13 @@ class EzsigntemplatepackageListElement(ModelNormal):
 
     attribute_map = {
         'pki_ezsigntemplatepackage_id': 'pkiEzsigntemplatepackageID',  # noqa: E501
-        'fki_department_id': 'fkiDepartmentID',  # noqa: E501
-        'fki_team_id': 'fkiTeamID',  # noqa: E501
         'fki_ezsignfoldertype_id': 'fkiEzsignfoldertypeID',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
-        'e_ezsigntemplatepackage_type': 'eEzsigntemplatepackageType',  # noqa: E501
         's_ezsigntemplatepackage_description': 'sEzsigntemplatepackageDescription',  # noqa: E501
         'b_ezsigntemplatepackage_isactive': 'bEzsigntemplatepackageIsactive',  # noqa: E501
+        'b_ezsigntemplatepackage_needvalidation': 'bEzsigntemplatepackageNeedvalidation',  # noqa: E501
         'i_ezsigntemplatepackagemembership': 'iEzsigntemplatepackagemembership',  # noqa: E501
+        's_ezsignfoldertype_name_x': 'sEzsignfoldertypeNameX',  # noqa: E501
     }
 
     read_only_vars = {
@@ -125,19 +121,18 @@ class EzsigntemplatepackageListElement(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsigntemplatepackage_id, fki_department_id, fki_team_id, fki_ezsignfoldertype_id, fki_language_id, e_ezsigntemplatepackage_type, s_ezsigntemplatepackage_description, b_ezsigntemplatepackage_isactive, i_ezsigntemplatepackagemembership, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsigntemplatepackage_id, fki_ezsignfoldertype_id, fki_language_id, s_ezsigntemplatepackage_description, b_ezsigntemplatepackage_isactive, b_ezsigntemplatepackage_needvalidation, i_ezsigntemplatepackagemembership, s_ezsignfoldertype_name_x, *args, **kwargs):  # noqa: E501
         """EzsigntemplatepackageListElement - a model defined in OpenAPI
 
         Args:
             pki_ezsigntemplatepackage_id (int): The unique ID of the Ezsigntemplatepackage
-            fki_department_id (int, none_type): The unique ID of the Department.
-            fki_team_id (int, none_type): The unique ID of the Team
-            fki_ezsignfoldertype_id (int, none_type): The unique ID of the Ezsignfoldertype.
+            fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
-            e_ezsigntemplatepackage_type (FieldEEzsigntemplatepackageType):
             s_ezsigntemplatepackage_description (str): The description of the Ezsigntemplatepackage
             b_ezsigntemplatepackage_isactive (bool): Whether the Ezsigntemplatepackage is active or not
+            b_ezsigntemplatepackage_needvalidation (bool): Whether the Ezsignbulksend was automatically modified and needs a manual validation
             i_ezsigntemplatepackagemembership (int): The total number of Ezsigntemplatepackagemembership in the Ezsigntemplatepackage
+            s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,7 +168,7 @@ class EzsigntemplatepackageListElement(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -181,14 +176,18 @@ class EzsigntemplatepackageListElement(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -198,14 +197,13 @@ class EzsigntemplatepackageListElement(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.pki_ezsigntemplatepackage_id = pki_ezsigntemplatepackage_id
-        self.fki_department_id = fki_department_id
-        self.fki_team_id = fki_team_id
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.fki_language_id = fki_language_id
-        self.e_ezsigntemplatepackage_type = e_ezsigntemplatepackage_type
         self.s_ezsigntemplatepackage_description = s_ezsigntemplatepackage_description
         self.b_ezsigntemplatepackage_isactive = b_ezsigntemplatepackage_isactive
+        self.b_ezsigntemplatepackage_needvalidation = b_ezsigntemplatepackage_needvalidation
         self.i_ezsigntemplatepackagemembership = i_ezsigntemplatepackagemembership
+        self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -226,19 +224,18 @@ class EzsigntemplatepackageListElement(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsigntemplatepackage_id, fki_department_id, fki_team_id, fki_ezsignfoldertype_id, fki_language_id, e_ezsigntemplatepackage_type, s_ezsigntemplatepackage_description, b_ezsigntemplatepackage_isactive, i_ezsigntemplatepackagemembership, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsigntemplatepackage_id, fki_ezsignfoldertype_id, fki_language_id, s_ezsigntemplatepackage_description, b_ezsigntemplatepackage_isactive, b_ezsigntemplatepackage_needvalidation, i_ezsigntemplatepackagemembership, s_ezsignfoldertype_name_x, *args, **kwargs):  # noqa: E501
         """EzsigntemplatepackageListElement - a model defined in OpenAPI
 
         Args:
             pki_ezsigntemplatepackage_id (int): The unique ID of the Ezsigntemplatepackage
-            fki_department_id (int, none_type): The unique ID of the Department.
-            fki_team_id (int, none_type): The unique ID of the Team
-            fki_ezsignfoldertype_id (int, none_type): The unique ID of the Ezsignfoldertype.
+            fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
-            e_ezsigntemplatepackage_type (FieldEEzsigntemplatepackageType):
             s_ezsigntemplatepackage_description (str): The description of the Ezsigntemplatepackage
             b_ezsigntemplatepackage_isactive (bool): Whether the Ezsigntemplatepackage is active or not
+            b_ezsigntemplatepackage_needvalidation (bool): Whether the Ezsignbulksend was automatically modified and needs a manual validation
             i_ezsigntemplatepackagemembership (int): The total number of Ezsigntemplatepackagemembership in the Ezsigntemplatepackage
+            s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,14 +277,18 @@ class EzsigntemplatepackageListElement(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -297,14 +298,13 @@ class EzsigntemplatepackageListElement(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.pki_ezsigntemplatepackage_id = pki_ezsigntemplatepackage_id
-        self.fki_department_id = fki_department_id
-        self.fki_team_id = fki_team_id
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.fki_language_id = fki_language_id
-        self.e_ezsigntemplatepackage_type = e_ezsigntemplatepackage_type
         self.s_ezsigntemplatepackage_description = s_ezsigntemplatepackage_description
         self.b_ezsigntemplatepackage_isactive = b_ezsigntemplatepackage_isactive
+        self.b_ezsigntemplatepackage_needvalidation = b_ezsigntemplatepackage_needvalidation
         self.i_ezsigntemplatepackagemembership = i_ezsigntemplatepackagemembership
+        self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

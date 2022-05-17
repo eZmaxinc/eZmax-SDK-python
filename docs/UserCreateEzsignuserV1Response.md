@@ -1,6 +1,6 @@
 # UserCreateEzsignuserV1Response
 
-Response for the /1/module/user/createEzsignuser API Request
+Response for POST /1/module/user/createEzsignuser
 
 ## Properties
 Name | Type | Description | Notes

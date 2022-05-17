@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -432,15 +432,15 @@ conf = eZmaxApi.Configuration(
                             "qa",
                             "dev"
                         ]
-                        },
+                    },
                     'sInfrastructureregionCode': {
                         'description': "The region where your services are hosted.",
                         'default_value': "ca-central-1",
                         'enum_values': [
                             "ca-central-1"
                         ]
-                        }
                     }
+                }
             },
             {
                 'url': "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
@@ -455,8 +455,8 @@ conf = eZmaxApi.Configuration(
                             "qa",
                             "dev"
                         ]
-                        }
                     }
+                }
             }
         ]
 

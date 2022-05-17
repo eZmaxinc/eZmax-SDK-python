@@ -1,6 +1,6 @@
 # FranchisereferalincomeCreateObjectV1ResponseMPayload
 
-Payload for the /1/object/franchisereferalincome/createObject API Request
+Payload for POST /1/object/franchisereferalincome
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,6 +1,6 @@
 # EzsignformfieldgroupGetObjectV1ResponseMPayload
 
-Payload for the /1/object/ezsignformfieldgroup/getObject API Request
+Payload for GET /1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}
 
 ## Properties
 Name | Type | Description | Notes
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **i_ezsignformfieldgroup_filledmax** | **int** | The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **b_ezsignformfieldgroup_readonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
 **a_obj_ezsignformfield** | [**[EzsignformfieldResponseCompound]**](EzsignformfieldResponseCompound.md) |  | 
-**a_obj_ezsignformfieldgroupsigner** | [**EzsignformfieldgroupsignerResponseCompound**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
+**a_obj_ezsignformfieldgroupsigner** | [**[EzsignformfieldgroupsignerResponseCompound]**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
 **i_ezsignformfieldgroup_maxlength** | **int** | The maximum length for the value in the Ezsignformfieldgroup  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 
 **b_ezsignformfieldgroup_encrypted** | **bool** | Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 
 **s_ezsignformfieldgroup_regexp** | **str** | A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 

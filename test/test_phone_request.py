@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -14,7 +14,9 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.field_e_phone_type import FieldEPhoneType
+from eZmaxApi.model.field_s_phone_e164 import FieldSPhoneE164
 globals()['FieldEPhoneType'] = FieldEPhoneType
+globals()['FieldSPhoneE164'] = FieldSPhoneE164
 from eZmaxApi.model.phone_request import PhoneRequest
 
 

@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -42,6 +42,13 @@ class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
         """Test case for ezsignfoldersignerassociation_delete_object_v1
 
         Delete an existing Ezsignfoldersignerassociation  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfoldersignerassociation_edit_object_v1(self):
+        """Test case for ezsignfoldersignerassociation_edit_object_v1
+
+        Edit an existing Ezsignfoldersignerassociation  # noqa: E501
         """
         pass
 

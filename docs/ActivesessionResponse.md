@@ -5,7 +5,7 @@ An Activesession Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**e_activesession_sessiontype** | [**FieldEActivesessionSessiontype**](FieldEActivesessionSessiontype.md) |  | 
+**e_activesession_usertype** | [**FieldEActivesessionUsertype**](FieldEActivesessionUsertype.md) |  | 
 **e_activesession_weekdaystart** | [**FieldEActivesessionWeekdaystart**](FieldEActivesessionWeekdaystart.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_company_name_x** | **str** | The Name of the Company in the language of the requester | 

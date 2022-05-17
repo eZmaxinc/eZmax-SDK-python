@@ -1,6 +1,6 @@
 # UserCreateEzsignuserV1Request
 
-Request for the /1/module/user/createEzsignuser API Request
+Request for POST /1/module/user/createEzsignuser
 
 ## Properties
 Name | Type | Description | Notes

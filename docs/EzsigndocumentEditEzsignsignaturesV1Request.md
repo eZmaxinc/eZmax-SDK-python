@@ -1,6 +1,6 @@
 # EzsigndocumentEditEzsignsignaturesV1Request
 
-Request for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures API Request
+Request for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures
 
 ## Properties
 Name | Type | Description | Notes

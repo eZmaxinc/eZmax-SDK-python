@@ -1,6 +1,6 @@
 # EzsignbulksendGetObjectV1Response
 
-Response for the /1/object/ezsignbulksend/getObject API Request
+Response for GET /1/object/ezsignbulksend/{pkiEzsignbulksendID}
 
 ## Properties
 Name | Type | Description | Notes

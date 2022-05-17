@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignformfield** | [**[EzsignformfieldResponseCompound]**](EzsignformfieldResponseCompound.md) |  | 
-**a_obj_ezsignformfieldgroupsigner** | [**EzsignformfieldgroupsignerResponseCompound**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
+**a_obj_ezsignformfieldgroupsigner** | [**[EzsignformfieldgroupsignerResponseCompound]**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
 **a_obj_dropdown_element** | [**[CustomDropdownElementResponseCompound]**](CustomDropdownElementResponseCompound.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

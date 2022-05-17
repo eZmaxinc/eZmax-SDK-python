@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -93,8 +93,11 @@ class EzsignbulksendResponse(ModelNormal):
             'pki_ezsignbulksend_id': (int,),  # noqa: E501
             'fki_ezsignfoldertype_id': (int,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
+            's_language_name_x': (str,),  # noqa: E501
+            's_ezsignfoldertype_name_x': (str,),  # noqa: E501
             's_ezsignbulksend_description': (str,),  # noqa: E501
             't_ezsignbulksend_note': (str,),  # noqa: E501
+            'b_ezsignbulksend_needvalidation': (bool,),  # noqa: E501
             'b_ezsignbulksend_isactive': (bool,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
         }
@@ -108,8 +111,11 @@ class EzsignbulksendResponse(ModelNormal):
         'pki_ezsignbulksend_id': 'pkiEzsignbulksendID',  # noqa: E501
         'fki_ezsignfoldertype_id': 'fkiEzsignfoldertypeID',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
+        's_language_name_x': 'sLanguageNameX',  # noqa: E501
+        's_ezsignfoldertype_name_x': 'sEzsignfoldertypeNameX',  # noqa: E501
         's_ezsignbulksend_description': 'sEzsignbulksendDescription',  # noqa: E501
         't_ezsignbulksend_note': 'tEzsignbulksendNote',  # noqa: E501
+        'b_ezsignbulksend_needvalidation': 'bEzsignbulksendNeedvalidation',  # noqa: E501
         'b_ezsignbulksend_isactive': 'bEzsignbulksendIsactive',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
     }
@@ -121,15 +127,18 @@ class EzsignbulksendResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, fki_language_id, s_ezsignbulksend_description, t_ezsignbulksend_note, b_ezsignbulksend_isactive, obj_audit, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, fki_language_id, s_language_name_x, s_ezsignfoldertype_name_x, s_ezsignbulksend_description, t_ezsignbulksend_note, b_ezsignbulksend_needvalidation, b_ezsignbulksend_isactive, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsignbulksendResponse - a model defined in OpenAPI
 
         Args:
             pki_ezsignbulksend_id (int): The unique ID of the Ezsignbulksend
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
+            s_language_name_x (str): The Name of the Language in the language of the requester
+            s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
             s_ezsignbulksend_description (str): The description of the Ezsignbulksend
             t_ezsignbulksend_note (str): Note about the Ezsignbulksend
+            b_ezsignbulksend_needvalidation (bool): Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
             b_ezsignbulksend_isactive (bool): Whether the Ezsignbulksend is active or not
             obj_audit (CommonAudit):
 
@@ -167,7 +176,7 @@ class EzsignbulksendResponse(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -175,14 +184,18 @@ class EzsignbulksendResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -194,8 +207,11 @@ class EzsignbulksendResponse(ModelNormal):
         self.pki_ezsignbulksend_id = pki_ezsignbulksend_id
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.fki_language_id = fki_language_id
+        self.s_language_name_x = s_language_name_x
+        self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
         self.s_ezsignbulksend_description = s_ezsignbulksend_description
         self.t_ezsignbulksend_note = t_ezsignbulksend_note
+        self.b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation
         self.b_ezsignbulksend_isactive = b_ezsignbulksend_isactive
         self.obj_audit = obj_audit
         for var_name, var_value in kwargs.items():
@@ -218,15 +234,18 @@ class EzsignbulksendResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, fki_language_id, s_ezsignbulksend_description, t_ezsignbulksend_note, b_ezsignbulksend_isactive, obj_audit, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, fki_language_id, s_language_name_x, s_ezsignfoldertype_name_x, s_ezsignbulksend_description, t_ezsignbulksend_note, b_ezsignbulksend_needvalidation, b_ezsignbulksend_isactive, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsignbulksendResponse - a model defined in OpenAPI
 
         Args:
             pki_ezsignbulksend_id (int): The unique ID of the Ezsignbulksend
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             fki_language_id (FieldPkiLanguageID):
+            s_language_name_x (str): The Name of the Language in the language of the requester
+            s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
             s_ezsignbulksend_description (str): The description of the Ezsignbulksend
             t_ezsignbulksend_note (str): Note about the Ezsignbulksend
+            b_ezsignbulksend_needvalidation (bool): Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
             b_ezsignbulksend_isactive (bool): Whether the Ezsignbulksend is active or not
             obj_audit (CommonAudit):
 
@@ -270,14 +289,18 @@ class EzsignbulksendResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -289,8 +312,11 @@ class EzsignbulksendResponse(ModelNormal):
         self.pki_ezsignbulksend_id = pki_ezsignbulksend_id
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.fki_language_id = fki_language_id
+        self.s_language_name_x = s_language_name_x
+        self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
         self.s_ezsignbulksend_description = s_ezsignbulksend_description
         self.t_ezsignbulksend_note = t_ezsignbulksend_note
+        self.b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation
         self.b_ezsignbulksend_isactive = b_ezsignbulksend_isactive
         self.obj_audit = obj_audit
         for var_name, var_value in kwargs.items():

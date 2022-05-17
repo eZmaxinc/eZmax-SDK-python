@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -104,13 +104,13 @@ class EzsignfolderResponse(ModelNormal):
             's_ezsignfolder_description': (str,),  # noqa: E501
             't_ezsignfolder_note': (str,),  # noqa: E501
             'e_ezsignfolder_sendreminderfrequency': (FieldEEzsignfolderSendreminderfrequency,),  # noqa: E501
-            'dt_ezsignfolder_duedate': (str,),  # noqa: E501
-            'dt_ezsignfolder_sentdate': (str, none_type,),  # noqa: E501
             'dt_ezsignfolder_scheduledarchive': (str,),  # noqa: E501
             'dt_ezsignfolder_scheduleddestruction': (str,),  # noqa: E501
             'e_ezsignfolder_step': (FieldEEzsignfolderStep,),  # noqa: E501
             'dt_ezsignfolder_close': (str,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
+            'dt_ezsignfolder_duedate': (str,),  # noqa: E501
+            'dt_ezsignfolder_sentdate': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -129,13 +129,13 @@ class EzsignfolderResponse(ModelNormal):
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
         't_ezsignfolder_note': 'tEzsignfolderNote',  # noqa: E501
         'e_ezsignfolder_sendreminderfrequency': 'eEzsignfolderSendreminderfrequency',  # noqa: E501
-        'dt_ezsignfolder_duedate': 'dtEzsignfolderDuedate',  # noqa: E501
-        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
         'dt_ezsignfolder_scheduledarchive': 'dtEzsignfolderScheduledarchive',  # noqa: E501
         'dt_ezsignfolder_scheduleddestruction': 'dtEzsignfolderScheduleddestruction',  # noqa: E501
         'e_ezsignfolder_step': 'eEzsignfolderStep',  # noqa: E501
         'dt_ezsignfolder_close': 'dtEzsignfolderClose',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
+        'dt_ezsignfolder_duedate': 'dtEzsignfolderDuedate',  # noqa: E501
+        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,7 +145,7 @@ class EzsignfolderResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, s_ezsignfoldertype_name_x, fki_billingentityinternal_id, s_billingentityinternal_description_x, fki_ezsigntsarequirement_id, s_ezsigntsarequirement_description_x, s_ezsignfolder_description, t_ezsignfolder_note, e_ezsignfolder_sendreminderfrequency, dt_ezsignfolder_duedate, dt_ezsignfolder_sentdate, dt_ezsignfolder_scheduledarchive, dt_ezsignfolder_scheduleddestruction, e_ezsignfolder_step, dt_ezsignfolder_close, obj_audit, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, s_ezsignfoldertype_name_x, fki_billingentityinternal_id, s_billingentityinternal_description_x, fki_ezsigntsarequirement_id, s_ezsigntsarequirement_description_x, s_ezsignfolder_description, t_ezsignfolder_note, e_ezsignfolder_sendreminderfrequency, dt_ezsignfolder_scheduledarchive, dt_ezsignfolder_scheduleddestruction, e_ezsignfolder_step, dt_ezsignfolder_close, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsignfolderResponse - a model defined in OpenAPI
 
         Args:
@@ -159,8 +159,6 @@ class EzsignfolderResponse(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
-            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             dt_ezsignfolder_scheduledarchive (str): The scheduled date and time at which the Ezsignfolder should be archived.
             dt_ezsignfolder_scheduleddestruction (str): The scheduled date and time at which the Ezsignfolder should be Destroyed.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
@@ -198,10 +196,12 @@ class EzsignfolderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -209,14 +209,18 @@ class EzsignfolderResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -235,8 +239,6 @@ class EzsignfolderResponse(ModelNormal):
         self.s_ezsignfolder_description = s_ezsignfolder_description
         self.t_ezsignfolder_note = t_ezsignfolder_note
         self.e_ezsignfolder_sendreminderfrequency = e_ezsignfolder_sendreminderfrequency
-        self.dt_ezsignfolder_duedate = dt_ezsignfolder_duedate
-        self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
         self.dt_ezsignfolder_scheduledarchive = dt_ezsignfolder_scheduledarchive
         self.dt_ezsignfolder_scheduleddestruction = dt_ezsignfolder_scheduleddestruction
         self.e_ezsignfolder_step = e_ezsignfolder_step
@@ -262,7 +264,7 @@ class EzsignfolderResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, s_ezsignfoldertype_name_x, fki_billingentityinternal_id, s_billingentityinternal_description_x, fki_ezsigntsarequirement_id, s_ezsigntsarequirement_description_x, s_ezsignfolder_description, t_ezsignfolder_note, e_ezsignfolder_sendreminderfrequency, dt_ezsignfolder_duedate, dt_ezsignfolder_sentdate, dt_ezsignfolder_scheduledarchive, dt_ezsignfolder_scheduleddestruction, e_ezsignfolder_step, dt_ezsignfolder_close, obj_audit, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, s_ezsignfoldertype_name_x, fki_billingentityinternal_id, s_billingentityinternal_description_x, fki_ezsigntsarequirement_id, s_ezsigntsarequirement_description_x, s_ezsignfolder_description, t_ezsignfolder_note, e_ezsignfolder_sendreminderfrequency, dt_ezsignfolder_scheduledarchive, dt_ezsignfolder_scheduleddestruction, e_ezsignfolder_step, dt_ezsignfolder_close, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsignfolderResponse - a model defined in OpenAPI
 
         Args:
@@ -276,8 +278,6 @@ class EzsignfolderResponse(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
-            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             dt_ezsignfolder_scheduledarchive (str): The scheduled date and time at which the Ezsignfolder should be archived.
             dt_ezsignfolder_scheduleddestruction (str): The scheduled date and time at which the Ezsignfolder should be Destroyed.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
@@ -315,6 +315,8 @@ class EzsignfolderResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -324,14 +326,18 @@ class EzsignfolderResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -350,8 +356,6 @@ class EzsignfolderResponse(ModelNormal):
         self.s_ezsignfolder_description = s_ezsignfolder_description
         self.t_ezsignfolder_note = t_ezsignfolder_note
         self.e_ezsignfolder_sendreminderfrequency = e_ezsignfolder_sendreminderfrequency
-        self.dt_ezsignfolder_duedate = dt_ezsignfolder_duedate
-        self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
         self.dt_ezsignfolder_scheduledarchive = dt_ezsignfolder_scheduledarchive
         self.dt_ezsignfolder_scheduleddestruction = dt_ezsignfolder_scheduleddestruction
         self.e_ezsignfolder_step = e_ezsignfolder_step

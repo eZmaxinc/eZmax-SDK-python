@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -113,7 +113,7 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
             'i_ezsignformfieldgroup_filledmax': (int,),  # noqa: E501
             'b_ezsignformfieldgroup_readonly': (bool,),  # noqa: E501
             'a_obj_ezsignformfield': ([EzsignformfieldResponseCompound],),  # noqa: E501
-            'a_obj_ezsignformfieldgroupsigner': (EzsignformfieldgroupsignerResponseCompound,),  # noqa: E501
+            'a_obj_ezsignformfieldgroupsigner': ([EzsignformfieldgroupsignerResponseCompound],),  # noqa: E501
             'i_ezsignformfieldgroup_maxlength': (int,),  # noqa: E501
             'b_ezsignformfieldgroup_encrypted': (bool,),  # noqa: E501
             's_ezsignformfieldgroup_regexp': (str,),  # noqa: E501
@@ -168,7 +168,7 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
             i_ezsignformfieldgroup_filledmax (int): The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
             b_ezsignformfieldgroup_readonly (bool): Whether the Ezsignformfieldgroup is read only or not.
             a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
-            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
+            a_obj_ezsignformfieldgroupsigner ([EzsignformfieldgroupsignerResponseCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -216,14 +216,18 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -285,7 +289,7 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
             i_ezsignformfieldgroup_filledmax (int): The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup
             b_ezsignformfieldgroup_readonly (bool): Whether the Ezsignformfieldgroup is read only or not.
             a_obj_ezsignformfield ([EzsignformfieldResponseCompound]):
-            a_obj_ezsignformfieldgroupsigner (EzsignformfieldgroupsignerResponseCompound):
+            a_obj_ezsignformfieldgroupsigner ([EzsignformfieldgroupsignerResponseCompound]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -331,14 +335,18 @@ class EzsignformfieldgroupResponseCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

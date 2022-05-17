@@ -1,6 +1,6 @@
 # EzsignfolderGetListV1Response
 
-Response for the /1/object/ezsignfolder/getList API Request
+Response for GET /1/object/ezsignfolder/getList
 
 ## Properties
 Name | Type | Description | Notes

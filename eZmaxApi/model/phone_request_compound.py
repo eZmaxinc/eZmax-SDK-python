@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -32,8 +32,10 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.field_e_phone_type import FieldEPhoneType
+    from eZmaxApi.model.field_s_phone_e164 import FieldSPhoneE164
     from eZmaxApi.model.phone_request import PhoneRequest
     globals()['FieldEPhoneType'] = FieldEPhoneType
+    globals()['FieldSPhoneE164'] = FieldSPhoneE164
     globals()['PhoneRequest'] = PhoneRequest
 
 
@@ -95,7 +97,7 @@ class PhoneRequestCompound(ModelComposed):
             's_phone_region': (str,),  # noqa: E501
             's_phone_exchange': (str,),  # noqa: E501
             's_phone_number': (str,),  # noqa: E501
-            's_phone_international': (str,),  # noqa: E501
+            's_phone_international': (FieldSPhoneE164,),  # noqa: E501
             's_phone_extension': (str,),  # noqa: E501
         }
 
@@ -158,7 +160,7 @@ class PhoneRequestCompound(ModelComposed):
             s_phone_region (str): The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
             s_phone_exchange (str): The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
             s_phone_number (str): The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
-            s_phone_international (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_international (FieldSPhoneE164): [optional]  # noqa: E501
             s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
         """
 
@@ -171,14 +173,18 @@ class PhoneRequestCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -264,7 +270,7 @@ class PhoneRequestCompound(ModelComposed):
             s_phone_region (str): The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
             s_phone_exchange (str): The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
             s_phone_number (str): The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123. [optional]  # noqa: E501
-            s_phone_international (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_international (FieldSPhoneE164): [optional]  # noqa: E501
             s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
         """
 
@@ -275,14 +281,18 @@ class PhoneRequestCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

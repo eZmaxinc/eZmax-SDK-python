@@ -1,6 +1,6 @@
 # EzsigntemplatepackageGetListV1Response
 
-Response for the /1/object/ezsigntemplatepackage/getList API Request
+Response for GET /1/object/ezsigntemplatepackage/getList
 
 ## Properties
 Name | Type | Description | Notes

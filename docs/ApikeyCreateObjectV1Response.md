@@ -1,6 +1,6 @@
 # ApikeyCreateObjectV1Response
 
-Response for the /1/object/apikey/createObject API Request
+Response for POST /1/object/apikey
 
 ## Properties
 Name | Type | Description | Notes

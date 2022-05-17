@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -34,9 +34,13 @@ def lazy_import():
     from eZmaxApi.model.common_response import CommonResponse
     from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
     from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+    from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_response_all_of import EzsigndocumentEditEzsignsignaturesV1ResponseAllOf
+    from eZmaxApi.model.ezsigndocument_edit_ezsignsignatures_v1_response_m_payload import EzsigndocumentEditEzsignsignaturesV1ResponseMPayload
     globals()['CommonResponse'] = CommonResponse
     globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
     globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
+    globals()['EzsigndocumentEditEzsignsignaturesV1ResponseAllOf'] = EzsigndocumentEditEzsignsignaturesV1ResponseAllOf
+    globals()['EzsigndocumentEditEzsignsignaturesV1ResponseMPayload'] = EzsigndocumentEditEzsignsignaturesV1ResponseMPayload
 
 
 class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
@@ -92,6 +96,7 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
         """
         lazy_import()
         return {
+            'm_payload': (EzsigndocumentEditEzsignsignaturesV1ResponseMPayload,),  # noqa: E501
             'obj_debug_payload': (CommonResponseObjDebugPayload,),  # noqa: E501
             'obj_debug': (CommonResponseObjDebug,),  # noqa: E501
         }
@@ -102,6 +107,7 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
 
 
     attribute_map = {
+        'm_payload': 'mPayload',  # noqa: E501
         'obj_debug_payload': 'objDebugPayload',  # noqa: E501
         'obj_debug': 'objDebug',  # noqa: E501
     }
@@ -115,6 +121,7 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
         """EzsigndocumentEditEzsignsignaturesV1Response - a model defined in OpenAPI
 
         Keyword Args:
+            m_payload (EzsigndocumentEditEzsignsignaturesV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -158,14 +165,18 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -216,6 +227,7 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
         """EzsigndocumentEditEzsignsignaturesV1Response - a model defined in OpenAPI
 
         Keyword Args:
+            m_payload (EzsigndocumentEditEzsignsignaturesV1ResponseMPayload):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -257,14 +269,18 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -314,6 +330,7 @@ class EzsigndocumentEditEzsignsignaturesV1Response(ModelComposed):
           ],
           'allOf': [
               CommonResponse,
+              EzsigndocumentEditEzsignsignaturesV1ResponseAllOf,
           ],
           'oneOf': [
           ],

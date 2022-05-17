@@ -1,6 +1,6 @@
 # ActivesessionGetCurrentV1Response
 
-Response for the /1/object/activesession/getCurrent API Request
+Response for GET /1/object/activesession/getCurrent
 
 ## Properties
 Name | Type | Description | Notes

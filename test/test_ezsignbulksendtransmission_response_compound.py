@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -14,9 +14,13 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.common_audit import CommonAudit
+from eZmaxApi.model.custom_ezsignfoldertransmission_response import CustomEzsignfoldertransmissionResponse
 from eZmaxApi.model.ezsignbulksendtransmission_response import EzsignbulksendtransmissionResponse
+from eZmaxApi.model.ezsignbulksendtransmission_response_compound_all_of import EzsignbulksendtransmissionResponseCompoundAllOf
 globals()['CommonAudit'] = CommonAudit
+globals()['CustomEzsignfoldertransmissionResponse'] = CustomEzsignfoldertransmissionResponse
 globals()['EzsignbulksendtransmissionResponse'] = EzsignbulksendtransmissionResponse
+globals()['EzsignbulksendtransmissionResponseCompoundAllOf'] = EzsignbulksendtransmissionResponseCompoundAllOf
 from eZmaxApi.model.ezsignbulksendtransmission_response_compound import EzsignbulksendtransmissionResponseCompound
 
 

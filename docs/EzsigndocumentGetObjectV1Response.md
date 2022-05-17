@@ -1,6 +1,6 @@
 # EzsigndocumentGetObjectV1Response
 
-Response for the /1/object/ezsigndocument/getDownloadUrl API Request
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
 
 ## Properties
 Name | Type | Description | Notes

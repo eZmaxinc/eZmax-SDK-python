@@ -1,6 +1,6 @@
 # EzsignsignatureEditObjectV1Response
 
-Response for the /1/object/ezsignsignature/editObject API Request
+Response for PUT /1/object/ezsignsignature/{pkiEzsignsignatureID}
 
 ## Properties
 Name | Type | Description | Notes

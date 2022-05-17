@@ -1,6 +1,6 @@
 # EzsigndocumentGetEzsignsignaturesV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures API Request
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures
 
 ## Properties
 Name | Type | Description | Notes

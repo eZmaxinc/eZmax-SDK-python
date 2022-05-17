@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -22,6 +22,20 @@ class TestObjectEzsignbulksendtransmissionApi(unittest.TestCase):
         self.api = ObjectEzsignbulksendtransmissionApi()  # noqa: E501
 
     def tearDown(self):
+        pass
+
+    def test_ezsignbulksendtransmission_get_csv_errors_v1(self):
+        """Test case for ezsignbulksendtransmission_get_csv_errors_v1
+
+        Retrieve an existing Ezsignbulksendtransmission's Csv containing errors  # noqa: E501
+        """
+        pass
+
+    def test_ezsignbulksendtransmission_get_forms_data_v1(self):
+        """Test case for ezsignbulksendtransmission_get_forms_data_v1
+
+        Retrieve an existing Ezsignbulksendtransmission's forms data  # noqa: E501
+        """
         pass
 
     def test_ezsignbulksendtransmission_get_object_v1(self):

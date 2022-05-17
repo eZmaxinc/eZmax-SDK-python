@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -34,10 +34,14 @@ def lazy_import():
     from eZmaxApi.model.ezsignsignature_response import EzsignsignatureResponse
     from eZmaxApi.model.ezsignsignature_response_compound_all_of import EzsignsignatureResponseCompoundAllOf
     from eZmaxApi.model.ezsignsignaturecustomdate_response_compound import EzsignsignaturecustomdateResponseCompound
+    from eZmaxApi.model.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
+    from eZmaxApi.model.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
     from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
     globals()['EzsignsignatureResponse'] = EzsignsignatureResponse
     globals()['EzsignsignatureResponseCompoundAllOf'] = EzsignsignatureResponseCompoundAllOf
     globals()['EzsignsignaturecustomdateResponseCompound'] = EzsignsignaturecustomdateResponseCompound
+    globals()['FieldEEzsignsignatureFont'] = FieldEEzsignsignatureFont
+    globals()['FieldEEzsignsignatureTooltipposition'] = FieldEEzsignsignatureTooltipposition
     globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 
 
@@ -95,13 +99,16 @@ class EzsignsignatureResponseCompound(ModelComposed):
         lazy_import()
         return {
             'pki_ezsignsignature_id': (int,),  # noqa: E501
+            'fki_ezsigndocument_id': (int,),  # noqa: E501
             'fki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
             'i_ezsignpage_pagenumber': (int,),  # noqa: E501
             'i_ezsignsignature_x': (int,),  # noqa: E501
             'i_ezsignsignature_y': (int,),  # noqa: E501
             'i_ezsignsignature_step': (int,),  # noqa: E501
             'e_ezsignsignature_type': (FieldEEzsignsignatureType,),  # noqa: E501
-            'fki_ezsigndocument_id': (int,),  # noqa: E501
+            't_ezsignsignature_tooltip': (str,),  # noqa: E501
+            'e_ezsignsignature_tooltipposition': (FieldEEzsignsignatureTooltipposition,),  # noqa: E501
+            'e_ezsignsignature_font': (FieldEEzsignsignatureFont,),  # noqa: E501
             'b_ezsignsignature_customdate': (bool,),  # noqa: E501
             'a_obj_ezsignsignaturecustomdate': ([EzsignsignaturecustomdateResponseCompound],),  # noqa: E501
         }
@@ -113,13 +120,16 @@ class EzsignsignatureResponseCompound(ModelComposed):
 
     attribute_map = {
         'pki_ezsignsignature_id': 'pkiEzsignsignatureID',  # noqa: E501
+        'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
         'fki_ezsignfoldersignerassociation_id': 'fkiEzsignfoldersignerassociationID',  # noqa: E501
         'i_ezsignpage_pagenumber': 'iEzsignpagePagenumber',  # noqa: E501
         'i_ezsignsignature_x': 'iEzsignsignatureX',  # noqa: E501
         'i_ezsignsignature_y': 'iEzsignsignatureY',  # noqa: E501
         'i_ezsignsignature_step': 'iEzsignsignatureStep',  # noqa: E501
         'e_ezsignsignature_type': 'eEzsignsignatureType',  # noqa: E501
-        'fki_ezsigndocument_id': 'fkiEzsigndocumentID',  # noqa: E501
+        't_ezsignsignature_tooltip': 'tEzsignsignatureTooltip',  # noqa: E501
+        'e_ezsignsignature_tooltipposition': 'eEzsignsignatureTooltipposition',  # noqa: E501
+        'e_ezsignsignature_font': 'eEzsignsignatureFont',  # noqa: E501
         'b_ezsignsignature_customdate': 'bEzsignsignatureCustomdate',  # noqa: E501
         'a_obj_ezsignsignaturecustomdate': 'a_objEzsignsignaturecustomdate',  # noqa: E501
     }
@@ -134,13 +144,13 @@ class EzsignsignatureResponseCompound(ModelComposed):
 
         Keyword Args:
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature
+            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
             i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
-            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -171,7 +181,10 @@ class EzsignsignatureResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
+            t_ezsignsignature_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignsignature. [optional]  # noqa: E501
+            e_ezsignsignature_tooltipposition (FieldEEzsignsignatureTooltipposition): [optional]  # noqa: E501
+            e_ezsignsignature_font (FieldEEzsignsignatureFont): [optional]  # noqa: E501
+            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**). [optional]  # noqa: E501
             a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateResponseCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
@@ -184,14 +197,18 @@ class EzsignsignatureResponseCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -243,13 +260,13 @@ class EzsignsignatureResponseCompound(ModelComposed):
 
         Keyword Args:
             pki_ezsignsignature_id (int): The unique ID of the Ezsignsignature
+            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation
             i_ezsignpage_pagenumber (int): The page number in the Ezsigndocument
             i_ezsignsignature_x (int): The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.
-            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the signature block on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the signature block 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
+            i_ezsignsignature_y (int): The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.
             i_ezsignsignature_step (int): The step when the Ezsignsigner will be invited to sign
             e_ezsignsignature_type (FieldEEzsignsignatureType):
-            fki_ezsigndocument_id (int): The unique ID of the Ezsigndocument
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -280,7 +297,10 @@ class EzsignsignatureResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is \"Name\" or \"Handwritten\"). [optional]  # noqa: E501
+            t_ezsignsignature_tooltip (str): A tooltip that will be presented to Ezsignsigner about the Ezsignsignature. [optional]  # noqa: E501
+            e_ezsignsignature_tooltipposition (FieldEEzsignsignatureTooltipposition): [optional]  # noqa: E501
+            e_ezsignsignature_font (FieldEEzsignsignatureFont): [optional]  # noqa: E501
+            b_ezsignsignature_customdate (bool): Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**). [optional]  # noqa: E501
             a_obj_ezsignsignaturecustomdate ([EzsignsignaturecustomdateResponseCompound]): An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.. [optional]  # noqa: E501
         """
 
@@ -291,14 +311,18 @@ class EzsignsignatureResponseCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

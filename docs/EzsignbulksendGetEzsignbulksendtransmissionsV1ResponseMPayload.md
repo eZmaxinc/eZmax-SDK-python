@@ -1,6 +1,6 @@
 # EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload
 
-Payload for the /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions API Request
+Payload for GET /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions
 
 ## Properties
 Name | Type | Description | Notes

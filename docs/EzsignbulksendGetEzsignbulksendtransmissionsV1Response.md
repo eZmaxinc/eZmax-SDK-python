@@ -1,6 +1,6 @@
 # EzsignbulksendGetEzsignbulksendtransmissionsV1Response
 
-Response for the /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions API Request
+Response for GET /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions
 
 ## Properties
 Name | Type | Description | Notes

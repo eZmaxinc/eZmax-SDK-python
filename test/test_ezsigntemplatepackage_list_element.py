@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -13,9 +13,7 @@ import sys
 import unittest
 
 import eZmaxApi
-from eZmaxApi.model.field_e_ezsigntemplatepackage_type import FieldEEzsigntemplatepackageType
 from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
-globals()['FieldEEzsigntemplatepackageType'] = FieldEEzsigntemplatepackageType
 globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
 from eZmaxApi.model.ezsigntemplatepackage_list_element import EzsigntemplatepackageListElement
 

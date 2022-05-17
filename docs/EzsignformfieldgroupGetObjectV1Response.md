@@ -1,6 +1,6 @@
 # EzsignformfieldgroupGetObjectV1Response
 
-Response for the /1/object/ezsignformfieldgroup/getObject API Request
+Response for GET /1/object/ezsignformfieldgroup/{pkiEzsignformfieldgroupID}
 
 ## Properties
 Name | Type | Description | Notes

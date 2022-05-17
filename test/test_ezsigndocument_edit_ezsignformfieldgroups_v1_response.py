@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -16,9 +16,13 @@ import eZmaxApi
 from eZmaxApi.model.common_response import CommonResponse
 from eZmaxApi.model.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.model.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+from eZmaxApi.model.ezsigndocument_edit_ezsignformfieldgroups_v1_response_all_of import EzsigndocumentEditEzsignformfieldgroupsV1ResponseAllOf
+from eZmaxApi.model.ezsigndocument_edit_ezsignformfieldgroups_v1_response_m_payload import EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload
 globals()['CommonResponse'] = CommonResponse
 globals()['CommonResponseObjDebug'] = CommonResponseObjDebug
 globals()['CommonResponseObjDebugPayload'] = CommonResponseObjDebugPayload
+globals()['EzsigndocumentEditEzsignformfieldgroupsV1ResponseAllOf'] = EzsigndocumentEditEzsignformfieldgroupsV1ResponseAllOf
+globals()['EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload'] = EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload
 from eZmaxApi.model.ezsigndocument_edit_ezsignformfieldgroups_v1_response import EzsigndocumentEditEzsignformfieldgroupsV1Response
 
 

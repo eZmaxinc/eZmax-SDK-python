@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -24,10 +24,52 @@ class TestObjectEzsigntemplatepackageApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_ezsigntemplatepackage_create_object_v1(self):
+        """Test case for ezsigntemplatepackage_create_object_v1
+
+        Create a new Ezsigntemplatepackage  # noqa: E501
+        """
+        pass
+
+    def test_ezsigntemplatepackage_delete_object_v1(self):
+        """Test case for ezsigntemplatepackage_delete_object_v1
+
+        Delete an existing Ezsigntemplatepackage  # noqa: E501
+        """
+        pass
+
+    def test_ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1(self):
+        """Test case for ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1
+
+        Edit multiple Ezsigntemplatepackagesigners  # noqa: E501
+        """
+        pass
+
+    def test_ezsigntemplatepackage_edit_object_v1(self):
+        """Test case for ezsigntemplatepackage_edit_object_v1
+
+        Edit an existing Ezsigntemplatepackage  # noqa: E501
+        """
+        pass
+
+    def test_ezsigntemplatepackage_get_autocomplete_v1(self):
+        """Test case for ezsigntemplatepackage_get_autocomplete_v1
+
+        Retrieve Ezsigntemplatepackages and IDs  # noqa: E501
+        """
+        pass
+
     def test_ezsigntemplatepackage_get_list_v1(self):
         """Test case for ezsigntemplatepackage_get_list_v1
 
         Retrieve Ezsigntemplatepackage list  # noqa: E501
+        """
+        pass
+
+    def test_ezsigntemplatepackage_get_object_v1(self):
+        """Test case for ezsigntemplatepackage_get_object_v1
+
+        Retrieve an existing Ezsigntemplatepackage  # noqa: E501
         """
         pass
 

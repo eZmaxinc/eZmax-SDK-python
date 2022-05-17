@@ -1,6 +1,6 @@
 # EzsignfolderGetFormsDataV1Response
 
-Response for the /1/object/ezsignfolder/{pkiEzsignfolder}/getFormsData API Request
+Response for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getFormsData
 
 ## Properties
 Name | Type | Description | Notes

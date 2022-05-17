@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -32,7 +32,9 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
+    from eZmaxApi.model.field_s_phone_e164 import FieldSPhoneE164
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
+    globals()['FieldSPhoneE164'] = FieldSPhoneE164
 
 
 class EzsignsignerResponseCompoundContact(ModelNormal):
@@ -93,8 +95,9 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
             's_contact_lastname': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_email_address': (str,),  # noqa: E501
-            's_phone_e164': (str,),  # noqa: E501
-            's_phone_e164_cell': (str,),  # noqa: E501
+            's_phone_e164': (FieldSPhoneE164,),  # noqa: E501
+            's_phone_extension': (str,),  # noqa: E501
+            's_phone_e164_cell': (FieldSPhoneE164,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +112,7 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_email_address': 'sEmailAddress',  # noqa: E501
         's_phone_e164': 'sPhoneE164',  # noqa: E501
+        's_phone_extension': 'sPhoneExtension',  # noqa: E501
         's_phone_e164_cell': 'sPhoneE164Cell',  # noqa: E501
     }
 
@@ -160,12 +164,13 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_e164 (str): A phone number in E.164 Format. [optional]  # noqa: E501
-            s_phone_e164_cell (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_e164 (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
+            s_phone_e164_cell (FieldSPhoneE164): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -173,14 +178,18 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -254,8 +263,9 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_e164 (str): A phone number in E.164 Format. [optional]  # noqa: E501
-            s_phone_e164_cell (str): A phone number in E.164 Format. [optional]  # noqa: E501
+            s_phone_e164 (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
+            s_phone_e164_cell (FieldSPhoneE164): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,14 +275,18 @@ class EzsignsignerResponseCompoundContact(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

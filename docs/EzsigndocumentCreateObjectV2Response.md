@@ -1,6 +1,6 @@
 # EzsigndocumentCreateObjectV2Response
 
-Response for the /2/object/ezsigndocument/createObject API Request
+Response for POST /2/object/ezsigndocument
 
 ## Properties
 Name | Type | Description | Notes

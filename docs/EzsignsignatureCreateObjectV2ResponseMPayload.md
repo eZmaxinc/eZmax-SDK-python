@@ -1,6 +1,6 @@
 # EzsignsignatureCreateObjectV2ResponseMPayload
 
-Payload for the /2/object/ezsignsignature/createObject API Request
+Payload for POST /2/object/ezsignsignature
 
 ## Properties
 Name | Type | Description | Notes

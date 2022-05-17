@@ -1,6 +1,6 @@
 # EzsignsignatureCreateObjectV1Response
 
-Response for the /1/object/ezsignsignature/createObject API Request
+Response for POST /1/object/ezsignsignature
 
 ## Properties
 Name | Type | Description | Notes

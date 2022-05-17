@@ -1,6 +1,6 @@
 # EzsigndocumentGetDownloadUrlV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl API Request
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -28,11 +28,11 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="eZmax API Definition",
+    description="eZmax API Definition (Full)",
     author="API Support department",
     author_email="support-api@ezmax.ca",
     url="https://github.com/eZmaxinc/eZmax-SDK-python",
-    keywords=["OpenAPI", "OpenAPI-Generator", "eZmax API Definition"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "eZmax API Definition (Full)"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

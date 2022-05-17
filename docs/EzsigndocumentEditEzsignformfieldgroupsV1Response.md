@@ -1,10 +1,11 @@
 # EzsigndocumentEditEzsignformfieldgroupsV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups API Request
+Response for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**m_payload** | [**EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload**](EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload.md) |  | 
 **obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
 **obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -23,6 +23,7 @@ import time
 import eZmaxApi
 from eZmaxApi.api import object_franchiseoffice_api
 from eZmaxApi.model.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
+from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -47,6 +48,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     api_instance = object_franchiseoffice_api.ObjectFranchiseofficeApi(api_client)
     s_selector = "Active" # str | The type of Franchiseoffices to return
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
+    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -60,7 +62,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve Franchiseoffices and IDs
-        api_response = api_instance.franchiseoffice_get_autocomplete_v1(s_selector, s_query=s_query)
+        api_response = api_instance.franchiseoffice_get_autocomplete_v1(s_selector, s_query=s_query, accept_language=accept_language)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectFranchiseofficeApi->franchiseoffice_get_autocomplete_v1: %s\n" % e)
@@ -73,6 +75,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Franchiseoffices to return |
  **s_query** | **str**| Allow to filter the returned results | [optional]
+ **accept_language** | **HeaderAcceptLanguage**|  | [optional]
 
 ### Return type
 

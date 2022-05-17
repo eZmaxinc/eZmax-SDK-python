@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -56,6 +56,13 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """Test case for ezsignsignature_get_object_v1
 
         Retrieve an existing Ezsignsignature  # noqa: E501
+        """
+        pass
+
+    def test_ezsignsignature_sign_v1(self):
+        """Test case for ezsignsignature_sign_v1
+
+        Sign the Ezsignsignature  # noqa: E501
         """
         pass
 

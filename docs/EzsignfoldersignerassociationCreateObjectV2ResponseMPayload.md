@@ -1,6 +1,6 @@
 # EzsignfoldersignerassociationCreateObjectV2ResponseMPayload
 
-Payload for the /2/object/ezsignfoldersignerassociation/createObject API Request
+Payload for POST /2/object/ezsignfoldersignerassociation
 
 ## Properties
 Name | Type | Description | Notes

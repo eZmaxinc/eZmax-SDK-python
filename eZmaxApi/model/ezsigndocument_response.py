@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -106,6 +106,7 @@ class EzsigndocumentResponse(ModelNormal):
             'i_ezsigndocument_signaturetotal': (int,),  # noqa: E501
             's_ezsigndocument_md5initial': (str,),  # noqa: E501
             's_ezsigndocument_md5signed': (str,),  # noqa: E501
+            'b_ezsigndocument_ezsignform': (bool,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
         }
 
@@ -129,6 +130,7 @@ class EzsigndocumentResponse(ModelNormal):
         'i_ezsigndocument_signaturetotal': 'iEzsigndocumentSignaturetotal',  # noqa: E501
         's_ezsigndocument_md5initial': 'sEzsigndocumentMD5initial',  # noqa: E501
         's_ezsigndocument_md5signed': 'sEzsigndocumentMD5signed',  # noqa: E501
+        'b_ezsigndocument_ezsignform': 'bEzsigndocumentEzsignform',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
     }
 
@@ -139,7 +141,7 @@ class EzsigndocumentResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fki_ezsignfolder_id, dt_ezsigndocument_duedate, fki_language_id, s_ezsigndocument_name, pki_ezsigndocument_id, e_ezsigndocument_step, dt_ezsigndocument_firstsend, dt_ezsigndocument_lastsend, i_ezsigndocument_order, i_ezsigndocument_pagetotal, i_ezsigndocument_signaturesigned, i_ezsigndocument_signaturetotal, s_ezsigndocument_md5initial, s_ezsigndocument_md5signed, obj_audit, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fki_ezsignfolder_id, dt_ezsigndocument_duedate, fki_language_id, s_ezsigndocument_name, pki_ezsigndocument_id, e_ezsigndocument_step, dt_ezsigndocument_firstsend, dt_ezsigndocument_lastsend, i_ezsigndocument_order, i_ezsigndocument_pagetotal, i_ezsigndocument_signaturesigned, i_ezsigndocument_signaturetotal, s_ezsigndocument_md5initial, s_ezsigndocument_md5signed, b_ezsigndocument_ezsignform, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsigndocumentResponse - a model defined in OpenAPI
 
         Args:
@@ -157,6 +159,7 @@ class EzsigndocumentResponse(ModelNormal):
             i_ezsigndocument_signaturetotal (int): The number of total signatures that were requested in the Ezsigndocument.
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
+            b_ezsigndocument_ezsignform (bool): If the Ezsigndocument contains an Ezsignform or not
             obj_audit (CommonAudit):
 
         Keyword Args:
@@ -193,7 +196,7 @@ class EzsigndocumentResponse(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -201,14 +204,18 @@ class EzsigndocumentResponse(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -231,6 +238,7 @@ class EzsigndocumentResponse(ModelNormal):
         self.i_ezsigndocument_signaturetotal = i_ezsigndocument_signaturetotal
         self.s_ezsigndocument_md5initial = s_ezsigndocument_md5initial
         self.s_ezsigndocument_md5signed = s_ezsigndocument_md5signed
+        self.b_ezsigndocument_ezsignform = b_ezsigndocument_ezsignform
         self.obj_audit = obj_audit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -252,7 +260,7 @@ class EzsigndocumentResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fki_ezsignfolder_id, dt_ezsigndocument_duedate, fki_language_id, s_ezsigndocument_name, pki_ezsigndocument_id, e_ezsigndocument_step, dt_ezsigndocument_firstsend, dt_ezsigndocument_lastsend, i_ezsigndocument_order, i_ezsigndocument_pagetotal, i_ezsigndocument_signaturesigned, i_ezsigndocument_signaturetotal, s_ezsigndocument_md5initial, s_ezsigndocument_md5signed, obj_audit, *args, **kwargs):  # noqa: E501
+    def __init__(self, fki_ezsignfolder_id, dt_ezsigndocument_duedate, fki_language_id, s_ezsigndocument_name, pki_ezsigndocument_id, e_ezsigndocument_step, dt_ezsigndocument_firstsend, dt_ezsigndocument_lastsend, i_ezsigndocument_order, i_ezsigndocument_pagetotal, i_ezsigndocument_signaturesigned, i_ezsigndocument_signaturetotal, s_ezsigndocument_md5initial, s_ezsigndocument_md5signed, b_ezsigndocument_ezsignform, obj_audit, *args, **kwargs):  # noqa: E501
         """EzsigndocumentResponse - a model defined in OpenAPI
 
         Args:
@@ -270,6 +278,7 @@ class EzsigndocumentResponse(ModelNormal):
             i_ezsigndocument_signaturetotal (int): The number of total signatures that were requested in the Ezsigndocument.
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
+            b_ezsigndocument_ezsignform (bool): If the Ezsigndocument contains an Ezsignform or not
             obj_audit (CommonAudit):
 
         Keyword Args:
@@ -312,14 +321,18 @@ class EzsigndocumentResponse(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -342,6 +355,7 @@ class EzsigndocumentResponse(ModelNormal):
         self.i_ezsigndocument_signaturetotal = i_ezsigndocument_signaturetotal
         self.s_ezsigndocument_md5initial = s_ezsigndocument_md5initial
         self.s_ezsigndocument_md5signed = s_ezsigndocument_md5signed
+        self.b_ezsigndocument_ezsignform = b_ezsigndocument_ezsignform
         self.obj_audit = obj_audit
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

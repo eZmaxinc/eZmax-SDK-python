@@ -4,14 +4,15 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsigndocument_apply_ezsigntemplate_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
-[**ezsigndocument_apply_ezsigntemplate_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsign Template to the Ezsigndocument.
+[**ezsigndocument_apply_ezsigntemplate_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
+[**ezsigndocument_apply_ezsigntemplate_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument.
 [**ezsigndocument_create_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_create_object_v1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocument_create_object_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_create_object_v2) | **POST** /2/object/ezsigndocument | Create a new Ezsigndocument
 [**ezsigndocument_delete_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_delete_object_v1) | **DELETE** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Delete an existing Ezsigndocument
 [**ezsigndocument_edit_ezsignformfieldgroups_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_edit_ezsignformfieldgroups_v1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignformfieldgroups | Edit multiple Ezsignformfieldgroups
 [**ezsigndocument_edit_ezsignsignatures_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_edit_ezsignsignatures_v1) | **PUT** /1/object/ezsigndocument/{pkiEzsigndocumentID}/editEzsignsignatures | Edit multiple Ezsignsignatures
 [**ezsigndocument_end_prematurely_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_end_prematurely_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
+[**ezsigndocument_get_actionable_elements_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_actionable_elements_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
 [**ezsigndocument_get_download_url_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_download_url_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 [**ezsigndocument_get_ezsignformfieldgroups_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_ezsignformfieldgroups_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignformfieldgroups | Retrieve an existing Ezsigndocument&#39;s Ezsignformfieldgroups
 [**ezsigndocument_get_ezsignpages_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_ezsignpages_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages | Retrieve an existing Ezsigndocument&#39;s Ezsignpages
@@ -21,12 +22,13 @@ Method | HTTP request | Description
 [**ezsigndocument_get_temporary_proof_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_temporary_proof_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
 [**ezsigndocument_get_words_positions_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_words_positions_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 [**ezsigndocument_patch_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_patch_object_v1) | **PATCH** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Patch an existing Ezsigndocument
+[**ezsigndocument_unsend_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_unsend_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend | Unsend the Ezsigndocument
 
 
 # **ezsigndocument_apply_ezsigntemplate_v1**
 > EzsigndocumentApplyEzsigntemplateV1Response ezsigndocument_apply_ezsigntemplate_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v1_request)
 
-Apply an Ezsign Template to the Ezsigndocument.
+Apply an Ezsigntemplate to the Ezsigndocument.
 
 This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
 
@@ -76,7 +78,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Apply an Ezsign Template to the Ezsigndocument.
+        # Apply an Ezsigntemplate to the Ezsigndocument.
         api_response = api_instance.ezsigndocument_apply_ezsigntemplate_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v1_request)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
@@ -118,7 +120,7 @@ Name | Type | Description  | Notes
 # **ezsigndocument_apply_ezsigntemplate_v2**
 > EzsigndocumentApplyEzsigntemplateV2Response ezsigndocument_apply_ezsigntemplate_v2(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v2_request)
 
-Apply an Ezsign Template to the Ezsigndocument.
+Apply an Ezsigntemplate to the Ezsigndocument.
 
 This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
 
@@ -168,7 +170,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Apply an Ezsign Template to the Ezsigndocument.
+        # Apply an Ezsigntemplate to the Ezsigndocument.
         api_response = api_instance.ezsigndocument_apply_ezsigntemplate_v2(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v2_request)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
@@ -251,15 +253,18 @@ with eZmaxApi.ApiClient(configuration) as api_client:
         EzsigndocumentCreateObjectV1Request(
             obj_ezsigndocument=EzsigndocumentRequest(
                 pki_ezsigndocument_id=97,
+                fki_ezsignfolder_id=33,
+                fki_ezsigntemplate_id=36,
+                fki_ezsignfoldersignerassociation_id=20,
+                fki_language_id=FieldPkiLanguageID(2),
                 e_ezsigndocument_source="Base64",
                 e_ezsigndocument_format="Pdf",
                 s_ezsigndocument_base64='YQ==',
                 s_ezsigndocument_url="http://www.example.com/document.pdf",
                 b_ezsigndocument_forcerepair=True,
                 s_ezsigndocument_password="SecretPassword123",
-                fki_ezsignfolder_id=33,
+                e_ezsigndocument_form="Keep",
                 dt_ezsigndocument_duedate="2020-12-31 23:59:59",
-                fki_language_id=FieldPkiLanguageID(2),
                 s_ezsigndocument_name="Contract #123",
             ),
             obj_ezsigndocument_compound=EzsigndocumentRequestCompound(),
@@ -717,6 +722,87 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocument_get_actionable_elements_v1**
+> EzsigndocumentGetActionableElementsV1Response ezsigndocument_get_actionable_elements_v1(pki_ezsigndocument_id)
+
+Retrieve actionable elements for the Ezsigndocument
+
+Return the Ezsignsignatures that can be signed and Ezsignformfieldgroups that can be filled by the current user at the current step in the process
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import time
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigndocument_get_actionable_elements_v1_response import EzsigndocumentGetActionableElementsV1Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 97 # int | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Retrieve actionable elements for the Ezsigndocument
+        api_response = api_instance.ezsigndocument_get_actionable_elements_v1(pki_ezsigndocument_id)
+        pprint(api_response)
+    except eZmaxApi.ApiException as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_get_actionable_elements_v1: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  |
+
+### Return type
+
+[**EzsigndocumentGetActionableElementsV1Response**](EzsigndocumentGetActionableElementsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -1455,6 +1541,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentPatchObjectV1Response**](EzsigndocumentPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocument_unsend_v1**
+> EzsigndocumentUnsendV1Response ezsigndocument_unsend_v1(pki_ezsigndocument_id, body)
+
+Unsend the Ezsigndocument
+
+Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import time
+import eZmaxApi
+from eZmaxApi.api import object_ezsigndocument_api
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsigndocument_unsend_v1_response import EzsigndocumentUnsendV1Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 97 # int | 
+    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Unsend the Ezsigndocument
+        api_response = api_instance.ezsigndocument_unsend_v1(pki_ezsigndocument_id, body)
+        pprint(api_response)
+    except eZmaxApi.ApiException as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_unsend_v1: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  |
+ **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  |
+
+### Return type
+
+[**EzsigndocumentUnsendV1Response**](EzsigndocumentUnsendV1Response.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # EzsignbulksendGetListV1ResponseMPayload
 
-Payload for the /1/object/ezsignbulksend/getList API Request
+Payload for GET /1/object/ezsignbulksend/getList
 
 ## Properties
 Name | Type | Description | Notes

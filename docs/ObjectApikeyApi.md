@@ -53,8 +53,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 pki_apikey_id=99,
                 fki_user_id=70,
                 obj_apikey_description=MultilingualApikeyDescription(
-                    s_apikey_description1="s_apikey_description1_example",
-                    s_apikey_description2="s_apikey_description2_example",
+                    s_apikey_description1="Projet X",
+                    s_apikey_description2="Project X",
                 ),
             ),
             obj_apikey_compound=ApikeyRequestCompound(),

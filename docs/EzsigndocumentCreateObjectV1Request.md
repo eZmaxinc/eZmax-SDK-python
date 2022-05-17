@@ -1,6 +1,6 @@
 # EzsigndocumentCreateObjectV1Request
 
-Request for the /1/object/ezsigndocument/createObject API Request
+Request for POST /1/object/ezsigndocument
 
 ## Properties
 Name | Type | Description | Notes

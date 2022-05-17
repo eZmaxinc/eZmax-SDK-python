@@ -1,6 +1,6 @@
 # EzsignformfieldgroupCreateObjectV1ResponseMPayload
 
-Payload for the /1/object/ezsignformfieldgroup/createObject API Request
+Payload for POST /1/object/ezsignformfieldgroup
 
 ## Properties
 Name | Type | Description | Notes

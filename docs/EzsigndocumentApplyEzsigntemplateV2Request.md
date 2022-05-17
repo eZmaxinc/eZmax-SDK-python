@@ -1,11 +1,11 @@
 # EzsigndocumentApplyEzsigntemplateV2Request
 
-Request for the /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate API Request
+Request for POST /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigndocument | 
+**fki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigntemplate | 
 **a_s_ezsigntemplatesigner** | **[str]** |  | 
 **a_pki_ezsignfoldersignerassociation_id** | **[int]** |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

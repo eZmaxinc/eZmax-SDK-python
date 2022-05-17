@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -106,13 +106,13 @@ class EzsignfolderResponseCompound(ModelComposed):
             's_ezsignfolder_description': (str,),  # noqa: E501
             't_ezsignfolder_note': (str,),  # noqa: E501
             'e_ezsignfolder_sendreminderfrequency': (FieldEEzsignfolderSendreminderfrequency,),  # noqa: E501
-            'dt_ezsignfolder_duedate': (str,),  # noqa: E501
-            'dt_ezsignfolder_sentdate': (str, none_type,),  # noqa: E501
             'dt_ezsignfolder_scheduledarchive': (str,),  # noqa: E501
             'dt_ezsignfolder_scheduleddestruction': (str,),  # noqa: E501
             'e_ezsignfolder_step': (FieldEEzsignfolderStep,),  # noqa: E501
             'dt_ezsignfolder_close': (str,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
+            'dt_ezsignfolder_duedate': (str,),  # noqa: E501
+            'dt_ezsignfolder_sentdate': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -131,13 +131,13 @@ class EzsignfolderResponseCompound(ModelComposed):
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
         't_ezsignfolder_note': 'tEzsignfolderNote',  # noqa: E501
         'e_ezsignfolder_sendreminderfrequency': 'eEzsignfolderSendreminderfrequency',  # noqa: E501
-        'dt_ezsignfolder_duedate': 'dtEzsignfolderDuedate',  # noqa: E501
-        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
         'dt_ezsignfolder_scheduledarchive': 'dtEzsignfolderScheduledarchive',  # noqa: E501
         'dt_ezsignfolder_scheduleddestruction': 'dtEzsignfolderScheduleddestruction',  # noqa: E501
         'e_ezsignfolder_step': 'eEzsignfolderStep',  # noqa: E501
         'dt_ezsignfolder_close': 'dtEzsignfolderClose',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
+        'dt_ezsignfolder_duedate': 'dtEzsignfolderDuedate',  # noqa: E501
+        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,8 +159,6 @@ class EzsignfolderResponseCompound(ModelComposed):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
-            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             dt_ezsignfolder_scheduledarchive (str): The scheduled date and time at which the Ezsignfolder should be archived.
             dt_ezsignfolder_scheduleddestruction (str): The scheduled date and time at which the Ezsignfolder should be Destroyed.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
@@ -196,6 +194,8 @@ class EzsignfolderResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -207,14 +207,18 @@ class EzsignfolderResponseCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -275,8 +279,6 @@ class EzsignfolderResponseCompound(ModelComposed):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             t_ezsignfolder_note (str): Note about the Ezsignfolder
             e_ezsignfolder_sendreminderfrequency (FieldEEzsignfolderSendreminderfrequency):
-            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
             dt_ezsignfolder_scheduledarchive (str): The scheduled date and time at which the Ezsignfolder should be archived.
             dt_ezsignfolder_scheduleddestruction (str): The scheduled date and time at which the Ezsignfolder should be Destroyed.
             e_ezsignfolder_step (FieldEEzsignfolderStep):
@@ -312,6 +314,8 @@ class EzsignfolderResponseCompound(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -321,14 +325,18 @@ class EzsignfolderResponseCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

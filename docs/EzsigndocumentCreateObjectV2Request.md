@@ -1,6 +1,6 @@
 # EzsigndocumentCreateObjectV2Request
 
-Request for the /2/object/ezsigndocument/createObject API Request
+Request for POST /2/object/ezsigndocument
 
 ## Properties
 Name | Type | Description | Notes

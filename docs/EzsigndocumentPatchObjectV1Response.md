@@ -1,6 +1,6 @@
 # EzsigndocumentPatchObjectV1Response
 
-Response for the /1/object/ezsigndocument/patchObject API Request
+Response for PATCH /1/object/ezsigndocument/{pkiEzsigndocumentID}
 
 ## Properties
 Name | Type | Description | Notes

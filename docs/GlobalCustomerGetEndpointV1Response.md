@@ -1,6 +1,6 @@
 # GlobalCustomerGetEndpointV1Response
 
-Response for the /1/customer/{pksCustomerCode}/endpoint API Request
+Response for GET /1/customer/{pksCustomerCode}/endpoint
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -97,12 +97,12 @@ class EzsignfolderListElement(ModelNormal):
             's_ezsignfolder_description': (str,),  # noqa: E501
             'e_ezsignfolder_step': (FieldEEzsignfolderStep,),  # noqa: E501
             'dt_created_date': (str,),  # noqa: E501
-            'dt_ezsignfolder_sentdate': (str, none_type,),  # noqa: E501
-            'dt_due_date': (str, none_type,),  # noqa: E501
             'i_ezsigndocument': (int,),  # noqa: E501
             'i_ezsigndocument_edm': (int,),  # noqa: E501
             'i_ezsignsignature': (int,),  # noqa: E501
             'i_ezsignsignature_signed': (int,),  # noqa: E501
+            'dt_ezsignfolder_sentdate': (str,),  # noqa: E501
+            'dt_ezsignfolder_duedate': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -118,12 +118,12 @@ class EzsignfolderListElement(ModelNormal):
         's_ezsignfolder_description': 'sEzsignfolderDescription',  # noqa: E501
         'e_ezsignfolder_step': 'eEzsignfolderStep',  # noqa: E501
         'dt_created_date': 'dtCreatedDate',  # noqa: E501
-        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
-        'dt_due_date': 'dtDueDate',  # noqa: E501
         'i_ezsigndocument': 'iEzsigndocument',  # noqa: E501
         'i_ezsigndocument_edm': 'iEzsigndocumentEdm',  # noqa: E501
         'i_ezsignsignature': 'iEzsignsignature',  # noqa: E501
         'i_ezsignsignature_signed': 'iEzsignsignatureSigned',  # noqa: E501
+        'dt_ezsignfolder_sentdate': 'dtEzsignfolderSentdate',  # noqa: E501
+        'dt_ezsignfolder_duedate': 'dtEzsignfolderDuedate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -133,7 +133,7 @@ class EzsignfolderListElement(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignfolderListElement - a model defined in OpenAPI
 
         Args:
@@ -144,8 +144,6 @@ class EzsignfolderListElement(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
-            dt_due_date (str, none_type): Represent a Date Time. The timezone is the one configured in the User's profile.
             i_ezsigndocument (int): The total number of Ezsigndocument in the folder
             i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
             i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder
@@ -182,10 +180,12 @@ class EzsignfolderListElement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -193,14 +193,18 @@ class EzsignfolderListElement(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -216,8 +220,6 @@ class EzsignfolderListElement(ModelNormal):
         self.s_ezsignfolder_description = s_ezsignfolder_description
         self.e_ezsignfolder_step = e_ezsignfolder_step
         self.dt_created_date = dt_created_date
-        self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
-        self.dt_due_date = dt_due_date
         self.i_ezsigndocument = i_ezsigndocument
         self.i_ezsigndocument_edm = i_ezsigndocument_edm
         self.i_ezsignsignature = i_ezsignsignature
@@ -242,7 +244,7 @@ class EzsignfolderListElement(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, dt_ezsignfolder_sentdate, dt_due_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignfolder_id, fki_ezsignfoldertype_id, e_ezsignfoldertype_privacylevel, s_ezsignfoldertype_name_x, s_ezsignfolder_description, e_ezsignfolder_step, dt_created_date, i_ezsigndocument, i_ezsigndocument_edm, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignfolderListElement - a model defined in OpenAPI
 
         Args:
@@ -253,8 +255,6 @@ class EzsignfolderListElement(ModelNormal):
             s_ezsignfolder_description (str): The description of the Ezsignfolder
             e_ezsignfolder_step (FieldEEzsignfolderStep):
             dt_created_date (str): The date and time at which the object was created
-            dt_ezsignfolder_sentdate (str, none_type): The date and time at which the Ezsign folder was sent the last time.
-            dt_due_date (str, none_type): Represent a Date Time. The timezone is the one configured in the User's profile.
             i_ezsigndocument (int): The total number of Ezsigndocument in the folder
             i_ezsigndocument_edm (int): The total number of Ezsigndocument in the folder that were saved in the edm system
             i_ezsignsignature (int): The total number of signature blocks in all Ezsigndocuments in the folder
@@ -291,6 +291,8 @@ class EzsignfolderListElement(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            dt_ezsignfolder_sentdate (str): The date and time at which the Ezsign folder was sent the last time.. [optional]  # noqa: E501
+            dt_ezsignfolder_duedate (str): The maximum date and time at which the Ezsignfolder can be signed.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -300,14 +302,18 @@ class EzsignfolderListElement(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -323,8 +329,6 @@ class EzsignfolderListElement(ModelNormal):
         self.s_ezsignfolder_description = s_ezsignfolder_description
         self.e_ezsignfolder_step = e_ezsignfolder_step
         self.dt_created_date = dt_created_date
-        self.dt_ezsignfolder_sentdate = dt_ezsignfolder_sentdate
-        self.dt_due_date = dt_due_date
         self.i_ezsigndocument = i_ezsigndocument
         self.i_ezsigndocument_edm = i_ezsigndocument_edm
         self.i_ezsignsignature = i_ezsignsignature

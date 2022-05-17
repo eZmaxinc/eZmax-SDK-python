@@ -1,6 +1,6 @@
 # EzsignfolderUnsendV1Response
 
-Response for the /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend API Request
+Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/unsend
 
 ## Properties
 Name | Type | Description | Notes

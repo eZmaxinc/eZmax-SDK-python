@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -29,10 +29,6 @@ from eZmaxApi.model_utils import (  # noqa: F401
 )
 from eZmaxApi.exceptions import ApiAttributeError
 
-
-def lazy_import():
-    from eZmaxApi.model.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
-    globals()['FieldEEzsignfoldertypePrivacylevel'] = FieldEEzsignfoldertypePrivacylevel
 
 
 class EzsignbulksendListElement(ModelNormal):
@@ -71,7 +67,6 @@ class EzsignbulksendListElement(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -86,13 +81,12 @@ class EzsignbulksendListElement(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'pki_ezsignbulksend_id': (int,),  # noqa: E501
             'fki_ezsignfoldertype_id': (int,),  # noqa: E501
             's_ezsignbulksend_description': (str,),  # noqa: E501
             's_ezsignfoldertype_name_x': (str,),  # noqa: E501
-            'e_ezsignfoldertype_privacylevel': (FieldEEzsignfoldertypePrivacylevel,),  # noqa: E501
+            'b_ezsignbulksend_needvalidation': (bool,),  # noqa: E501
             'b_ezsignbulksend_isactive': (bool,),  # noqa: E501
             'i_ezsignbulksendtransmission': (int,),  # noqa: E501
             'i_ezsignfolder': (int,),  # noqa: E501
@@ -111,7 +105,7 @@ class EzsignbulksendListElement(ModelNormal):
         'fki_ezsignfoldertype_id': 'fkiEzsignfoldertypeID',  # noqa: E501
         's_ezsignbulksend_description': 'sEzsignbulksendDescription',  # noqa: E501
         's_ezsignfoldertype_name_x': 'sEzsignfoldertypeNameX',  # noqa: E501
-        'e_ezsignfoldertype_privacylevel': 'eEzsignfoldertypePrivacylevel',  # noqa: E501
+        'b_ezsignbulksend_needvalidation': 'bEzsignbulksendNeedvalidation',  # noqa: E501
         'b_ezsignbulksend_isactive': 'bEzsignbulksendIsactive',  # noqa: E501
         'i_ezsignbulksendtransmission': 'iEzsignbulksendtransmission',  # noqa: E501
         'i_ezsignfolder': 'iEzsignfolder',  # noqa: E501
@@ -127,7 +121,7 @@ class EzsignbulksendListElement(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, s_ezsignbulksend_description, s_ezsignfoldertype_name_x, e_ezsignfoldertype_privacylevel, b_ezsignbulksend_isactive, i_ezsignbulksendtransmission, i_ezsignfolder, i_ezsigndocument, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, s_ezsignbulksend_description, s_ezsignfoldertype_name_x, b_ezsignbulksend_needvalidation, b_ezsignbulksend_isactive, i_ezsignbulksendtransmission, i_ezsignfolder, i_ezsigndocument, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignbulksendListElement - a model defined in OpenAPI
 
         Args:
@@ -135,7 +129,7 @@ class EzsignbulksendListElement(ModelNormal):
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             s_ezsignbulksend_description (str): The description of the Ezsignbulksend
             s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
-            e_ezsignfoldertype_privacylevel (FieldEEzsignfoldertypePrivacylevel):
+            b_ezsignbulksend_needvalidation (bool): Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
             b_ezsignbulksend_isactive (bool): Whether the Ezsignbulksend is active or not
             i_ezsignbulksendtransmission (int): The total number of Ezsignbulksendtransmissions in the Ezsignbulksend
             i_ezsignfolder (int): The total number of Ezsignfolders in the Ezsignbulksend
@@ -177,7 +171,7 @@ class EzsignbulksendListElement(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -185,14 +179,18 @@ class EzsignbulksendListElement(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -205,7 +203,7 @@ class EzsignbulksendListElement(ModelNormal):
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.s_ezsignbulksend_description = s_ezsignbulksend_description
         self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
-        self.e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel
+        self.b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation
         self.b_ezsignbulksend_isactive = b_ezsignbulksend_isactive
         self.i_ezsignbulksendtransmission = i_ezsignbulksendtransmission
         self.i_ezsignfolder = i_ezsignfolder
@@ -232,7 +230,7 @@ class EzsignbulksendListElement(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, s_ezsignbulksend_description, s_ezsignfoldertype_name_x, e_ezsignfoldertype_privacylevel, b_ezsignbulksend_isactive, i_ezsignbulksendtransmission, i_ezsignfolder, i_ezsigndocument, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
+    def __init__(self, pki_ezsignbulksend_id, fki_ezsignfoldertype_id, s_ezsignbulksend_description, s_ezsignfoldertype_name_x, b_ezsignbulksend_needvalidation, b_ezsignbulksend_isactive, i_ezsignbulksendtransmission, i_ezsignfolder, i_ezsigndocument, i_ezsignsignature, i_ezsignsignature_signed, *args, **kwargs):  # noqa: E501
         """EzsignbulksendListElement - a model defined in OpenAPI
 
         Args:
@@ -240,7 +238,7 @@ class EzsignbulksendListElement(ModelNormal):
             fki_ezsignfoldertype_id (int): The unique ID of the Ezsignfoldertype.
             s_ezsignbulksend_description (str): The description of the Ezsignbulksend
             s_ezsignfoldertype_name_x (str): The name of the Ezsignfoldertype in the language of the requester
-            e_ezsignfoldertype_privacylevel (FieldEEzsignfoldertypePrivacylevel):
+            b_ezsignbulksend_needvalidation (bool): Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation
             b_ezsignbulksend_isactive (bool): Whether the Ezsignbulksend is active or not
             i_ezsignbulksendtransmission (int): The total number of Ezsignbulksendtransmissions in the Ezsignbulksend
             i_ezsignfolder (int): The total number of Ezsignfolders in the Ezsignbulksend
@@ -288,14 +286,18 @@ class EzsignbulksendListElement(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -308,7 +310,7 @@ class EzsignbulksendListElement(ModelNormal):
         self.fki_ezsignfoldertype_id = fki_ezsignfoldertype_id
         self.s_ezsignbulksend_description = s_ezsignbulksend_description
         self.s_ezsignfoldertype_name_x = s_ezsignfoldertype_name_x
-        self.e_ezsignfoldertype_privacylevel = e_ezsignfoldertype_privacylevel
+        self.b_ezsignbulksend_needvalidation = b_ezsignbulksend_needvalidation
         self.b_ezsignbulksend_isactive = b_ezsignbulksend_isactive
         self.i_ezsignbulksendtransmission = i_ezsignbulksendtransmission
         self.i_ezsignfolder = i_ezsignfolder

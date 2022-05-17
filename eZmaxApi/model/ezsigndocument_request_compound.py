@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -64,10 +64,15 @@ class EzsigndocumentRequestCompound(ModelComposed):
     allowed_values = {
         ('e_ezsigndocument_source',): {
             'BASE64': "Base64",
+            'EZSIGNTEMPLATE': "Ezsigntemplate",
             'URL': "Url",
         },
         ('e_ezsigndocument_format',): {
             'PDF': "Pdf",
+        },
+        ('e_ezsigndocument_form',): {
+            'KEEP': "Keep",
+            'CONVERT': "Convert",
         },
     }
 
@@ -97,17 +102,20 @@ class EzsigndocumentRequestCompound(ModelComposed):
         """
         lazy_import()
         return {
-            'e_ezsigndocument_source': (str,),  # noqa: E501
-            'e_ezsigndocument_format': (str,),  # noqa: E501
             'fki_ezsignfolder_id': (int,),  # noqa: E501
-            'dt_ezsigndocument_duedate': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
+            'e_ezsigndocument_source': (str,),  # noqa: E501
+            'dt_ezsigndocument_duedate': (str,),  # noqa: E501
             's_ezsigndocument_name': (str,),  # noqa: E501
             'pki_ezsigndocument_id': (int,),  # noqa: E501
+            'fki_ezsigntemplate_id': (int,),  # noqa: E501
+            'fki_ezsignfoldersignerassociation_id': (int,),  # noqa: E501
+            'e_ezsigndocument_format': (str,),  # noqa: E501
             's_ezsigndocument_base64': (str,),  # noqa: E501
             's_ezsigndocument_url': (str,),  # noqa: E501
             'b_ezsigndocument_forcerepair': (bool,),  # noqa: E501
             's_ezsigndocument_password': (str,),  # noqa: E501
+            'e_ezsigndocument_form': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -116,17 +124,20 @@ class EzsigndocumentRequestCompound(ModelComposed):
 
 
     attribute_map = {
-        'e_ezsigndocument_source': 'eEzsigndocumentSource',  # noqa: E501
-        'e_ezsigndocument_format': 'eEzsigndocumentFormat',  # noqa: E501
         'fki_ezsignfolder_id': 'fkiEzsignfolderID',  # noqa: E501
-        'dt_ezsigndocument_duedate': 'dtEzsigndocumentDuedate',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
+        'e_ezsigndocument_source': 'eEzsigndocumentSource',  # noqa: E501
+        'dt_ezsigndocument_duedate': 'dtEzsigndocumentDuedate',  # noqa: E501
         's_ezsigndocument_name': 'sEzsigndocumentName',  # noqa: E501
         'pki_ezsigndocument_id': 'pkiEzsigndocumentID',  # noqa: E501
+        'fki_ezsigntemplate_id': 'fkiEzsigntemplateID',  # noqa: E501
+        'fki_ezsignfoldersignerassociation_id': 'fkiEzsignfoldersignerassociationID',  # noqa: E501
+        'e_ezsigndocument_format': 'eEzsigndocumentFormat',  # noqa: E501
         's_ezsigndocument_base64': 'sEzsigndocumentBase64',  # noqa: E501
         's_ezsigndocument_url': 'sEzsigndocumentUrl',  # noqa: E501
         'b_ezsigndocument_forcerepair': 'bEzsigndocumentForcerepair',  # noqa: E501
         's_ezsigndocument_password': 'sEzsigndocumentPassword',  # noqa: E501
+        'e_ezsigndocument_form': 'eEzsigndocumentForm',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,11 +149,10 @@ class EzsigndocumentRequestCompound(ModelComposed):
         """EzsigndocumentRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            e_ezsigndocument_source (str): Indicates where to look for the document binary content.
-            e_ezsigndocument_format (str): Indicates the format of the document.. defaults to "Pdf", must be one of ["Pdf", ]  # noqa: E501
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):
+            e_ezsigndocument_source (str): Indicates where to look for the document binary content.
+            dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -175,13 +185,16 @@ class EzsigndocumentRequestCompound(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument. [optional]  # noqa: E501
+            fki_ezsigntemplate_id (int): The unique ID of the Ezsigntemplate. [optional]  # noqa: E501
+            fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation. [optional]  # noqa: E501
+            e_ezsigndocument_format (str): Indicates the format of the document.. [optional] if omitted the server will use the default value of "Pdf"  # noqa: E501
             s_ezsigndocument_base64 (str): The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.. [optional]  # noqa: E501
             s_ezsigndocument_url (str): The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.. [optional]  # noqa: E501
             b_ezsigndocument_forcerepair (bool): Try to repair the document or flatten it if it cannot be used for electronic signature. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            s_ezsigndocument_password (str): If the source document is password protected, the password to open/modify it.. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            s_ezsigndocument_password (str): If the source document is password protected, the password to open/modify it.. [optional]  # noqa: E501
+            e_ezsigndocument_form (str): If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**. [optional]  # noqa: E501
         """
 
-        e_ezsigndocument_format = kwargs.get('e_ezsigndocument_format', "Pdf")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -191,14 +204,18 @@ class EzsigndocumentRequestCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -249,11 +266,10 @@ class EzsigndocumentRequestCompound(ModelComposed):
         """EzsigndocumentRequestCompound - a model defined in OpenAPI
 
         Keyword Args:
-            e_ezsigndocument_source (str): Indicates where to look for the document binary content.
-            e_ezsigndocument_format (str): Indicates the format of the document.. defaults to "Pdf", must be one of ["Pdf", ]  # noqa: E501
             fki_ezsignfolder_id (int): The unique ID of the Ezsignfolder
-            dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             fki_language_id (FieldPkiLanguageID):
+            e_ezsigndocument_source (str): Indicates where to look for the document binary content.
+            dt_ezsigndocument_duedate (str): The maximum date and time at which the Ezsigndocument can be signed.
             s_ezsigndocument_name (str): The name of the document that will be presented to Ezsignfoldersignerassociations
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -286,13 +302,16 @@ class EzsigndocumentRequestCompound(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             pki_ezsigndocument_id (int): The unique ID of the Ezsigndocument. [optional]  # noqa: E501
+            fki_ezsigntemplate_id (int): The unique ID of the Ezsigntemplate. [optional]  # noqa: E501
+            fki_ezsignfoldersignerassociation_id (int): The unique ID of the Ezsignfoldersignerassociation. [optional]  # noqa: E501
+            e_ezsigndocument_format (str): Indicates the format of the document.. [optional] if omitted the server will use the default value of "Pdf"  # noqa: E501
             s_ezsigndocument_base64 (str): The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.. [optional]  # noqa: E501
             s_ezsigndocument_url (str): The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.. [optional]  # noqa: E501
             b_ezsigndocument_forcerepair (bool): Try to repair the document or flatten it if it cannot be used for electronic signature. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            s_ezsigndocument_password (str): If the source document is password protected, the password to open/modify it.. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            s_ezsigndocument_password (str): If the source document is password protected, the password to open/modify it.. [optional]  # noqa: E501
+            e_ezsigndocument_form (str): If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**. [optional]  # noqa: E501
         """
 
-        e_ezsigndocument_format = kwargs.get('e_ezsigndocument_format', "Pdf")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -300,14 +319,18 @@ class EzsigndocumentRequestCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

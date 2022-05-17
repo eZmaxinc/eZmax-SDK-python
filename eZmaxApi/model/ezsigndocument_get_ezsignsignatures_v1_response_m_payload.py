@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -107,8 +107,11 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, a_obj_ezsignsignature, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetEzsignsignaturesV1ResponseMPayload - a model defined in OpenAPI
+
+        Args:
+            a_obj_ezsignsignature ([EzsignsignatureResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,11 +144,10 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignsignature ([EzsignsignatureResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -153,14 +155,18 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -169,6 +175,7 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.a_obj_ezsignsignature = a_obj_ezsignsignature
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +196,11 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, a_obj_ezsignsignature, *args, **kwargs):  # noqa: E501
         """EzsigndocumentGetEzsignsignaturesV1ResponseMPayload - a model defined in OpenAPI
+
+        Args:
+            a_obj_ezsignsignature ([EzsignsignatureResponseCompound]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,7 +233,6 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            a_obj_ezsignsignature ([EzsignsignatureResponseCompound]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,14 +242,18 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -249,6 +262,7 @@ class EzsigndocumentGetEzsignsignaturesV1ResponseMPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.a_obj_ezsignsignature = a_obj_ezsignsignature
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

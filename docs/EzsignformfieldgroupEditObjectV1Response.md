@@ -1,6 +1,6 @@
 # EzsignformfieldgroupEditObjectV1Response
 
-Response for the /1/object/ezsignformfieldgroup/editObject API Request
+Response for PUT /1/object/ezsignformfieldgroup/{pkiEzsignfoldersignerassociationID}
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,6 +1,6 @@
 # EzsigndocumentGetEzsignpagesV1ResponseMPayload
 
-Payload for the /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages API Request
+Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages
 
 ## Properties
 Name | Type | Description | Notes

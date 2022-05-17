@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -14,9 +14,7 @@ import unittest
 
 import eZmaxApi
 from eZmaxApi.model.custom_form_data_document_response import CustomFormDataDocumentResponse
-from eZmaxApi.model.custom_form_data_signer_response import CustomFormDataSignerResponse
 globals()['CustomFormDataDocumentResponse'] = CustomFormDataDocumentResponse
-globals()['CustomFormDataSignerResponse'] = CustomFormDataSignerResponse
 from eZmaxApi.model.ezsigndocument_get_form_data_v1_response_m_payload import EzsigndocumentGetFormDataV1ResponseMPayload
 
 

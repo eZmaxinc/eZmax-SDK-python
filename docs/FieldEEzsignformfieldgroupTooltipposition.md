@@ -5,7 +5,7 @@ The location of the tooltip relative to the Ezsignformfieldgroup's location.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **str** | The location of the tooltip relative to the Ezsignformfieldgroup&#39;s location. |  must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleCenter", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]
+**value** | **str** | The location of the tooltip relative to the Ezsignformfieldgroup&#39;s location. |  must be one of ["TopLeft", "TopCenter", "TopRight", "MiddleLeft", "MiddleRight", "BottomLeft", "BottomCenter", "BottomRight", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

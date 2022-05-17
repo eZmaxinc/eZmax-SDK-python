@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -32,7 +32,9 @@ from eZmaxApi.exceptions import ApiAttributeError
 
 def lazy_import():
     from eZmaxApi.model.field_pki_language_id import FieldPkiLanguageID
+    from eZmaxApi.model.field_s_phone_e164 import FieldSPhoneE164
     globals()['FieldPkiLanguageID'] = FieldPkiLanguageID
+    globals()['FieldSPhoneE164'] = FieldSPhoneE164
 
 
 class EzsignsignerRequestCompoundContact(ModelNormal):
@@ -92,6 +94,9 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
             's_contact_lastname': (str,),  # noqa: E501
             'fki_language_id': (FieldPkiLanguageID,),  # noqa: E501
             's_email_address': (str,),  # noqa: E501
+            's_phone_e164': (FieldSPhoneE164,),  # noqa: E501
+            's_phone_extension': (str,),  # noqa: E501
+            's_phone_e164_cell': (FieldSPhoneE164,),  # noqa: E501
             's_phone_number': (str,),  # noqa: E501
             's_phone_number_cell': (str,),  # noqa: E501
         }
@@ -106,6 +111,9 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
         's_contact_lastname': 'sContactLastname',  # noqa: E501
         'fki_language_id': 'fkiLanguageID',  # noqa: E501
         's_email_address': 'sEmailAddress',  # noqa: E501
+        's_phone_e164': 'sPhoneE164',  # noqa: E501
+        's_phone_extension': 'sPhoneExtension',  # noqa: E501
+        's_phone_e164_cell': 'sPhoneE164Cell',  # noqa: E501
         's_phone_number': 'sPhoneNumber',  # noqa: E501
         's_phone_number_cell': 'sPhoneNumberCell',  # noqa: E501
     }
@@ -157,12 +165,15 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
-            s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
+            s_phone_e164 (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
+            s_phone_e164_cell (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_number (str): [optional]  # noqa: E501
+            s_phone_number_cell (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -170,14 +181,18 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -249,8 +264,11 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             s_email_address (str): The email address.. [optional]  # noqa: E501
-            s_phone_number (str): The Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
-            s_phone_number_cell (str): The Cell Phone number of the contact. Use format \"5149901516\" for North American Numbers (Without \"1\" for long distance code) you would dial like this: 1-514-990-1516. Use format \"498945233886\" for international numbers (Without \"011\") you would dial like this: +49 89 452 33 88-6. In this example \"49\" is the country code of Germany.. [optional]  # noqa: E501
+            s_phone_e164 (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_extension (str): The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers. [optional]  # noqa: E501
+            s_phone_e164_cell (FieldSPhoneE164): [optional]  # noqa: E501
+            s_phone_number (str): [optional]  # noqa: E501
+            s_phone_number_cell (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,14 +278,18 @@ class EzsignsignerRequestCompoundContact(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

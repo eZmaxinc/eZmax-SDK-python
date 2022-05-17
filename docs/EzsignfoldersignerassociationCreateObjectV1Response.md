@@ -1,6 +1,6 @@
 # EzsignfoldersignerassociationCreateObjectV1Response
 
-Response for the /1/object/ezsignfoldersignerassociation/createObject API Request
+Response for POST /1/object/ezsignfoldersignerassociation
 
 ## Properties
 Name | Type | Description | Notes

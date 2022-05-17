@@ -1,6 +1,6 @@
 # EzsigndocumentGetWordsPositionsV1Response
 
-Response for the /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions API Request
+Response for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
 
 ## Properties
 Name | Type | Description | Notes

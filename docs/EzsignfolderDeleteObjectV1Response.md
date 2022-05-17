@@ -1,6 +1,6 @@
 # EzsignfolderDeleteObjectV1Response
 
-Response for the /1/object/ezsignfolder/deleteObject API Request
+Response for DELETE /1/object/ezsignfolder/{pkiEzsignfolderID}
 
 ## Properties
 Name | Type | Description | Notes

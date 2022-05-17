@@ -1,6 +1,6 @@
 # EzsignfolderGetObjectV1Response
 
-Response for the /1/object/ezsignfolder/getObject API Request
+Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
 
 ## Properties
 Name | Type | Description | Notes

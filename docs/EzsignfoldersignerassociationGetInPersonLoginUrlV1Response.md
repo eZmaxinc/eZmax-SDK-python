@@ -1,6 +1,6 @@
 # EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
 
-Response for the /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl API Request
+Response for GET /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl
 
 ## Properties
 Name | Type | Description | Notes

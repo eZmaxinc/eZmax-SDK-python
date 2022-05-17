@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -16,10 +16,14 @@ import eZmaxApi
 from eZmaxApi.model.ezsignsignature_request import EzsignsignatureRequest
 from eZmaxApi.model.ezsignsignature_request_compound_all_of import EzsignsignatureRequestCompoundAllOf
 from eZmaxApi.model.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
+from eZmaxApi.model.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
+from eZmaxApi.model.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.model.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 globals()['EzsignsignatureRequest'] = EzsignsignatureRequest
 globals()['EzsignsignatureRequestCompoundAllOf'] = EzsignsignatureRequestCompoundAllOf
 globals()['EzsignsignaturecustomdateRequestCompound'] = EzsignsignaturecustomdateRequestCompound
+globals()['FieldEEzsignsignatureFont'] = FieldEEzsignsignatureFont
+globals()['FieldEEzsignsignatureTooltipposition'] = FieldEEzsignsignatureTooltipposition
 globals()['FieldEEzsignsignatureType'] = FieldEEzsignsignatureType
 from eZmaxApi.model.ezsignsignature_request_compound import EzsignsignatureRequestCompound
 

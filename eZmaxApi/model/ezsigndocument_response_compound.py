@@ -1,5 +1,5 @@
 """
-    eZmax API Definition
+    eZmax API Definition (Full)
 
     This API expose all the functionnalities for the eZmax and eZsign applications.  # noqa: E501
 
@@ -112,6 +112,7 @@ class EzsigndocumentResponseCompound(ModelComposed):
             'i_ezsigndocument_signaturetotal': (int,),  # noqa: E501
             's_ezsigndocument_md5initial': (str,),  # noqa: E501
             's_ezsigndocument_md5signed': (str,),  # noqa: E501
+            'b_ezsigndocument_ezsignform': (bool,),  # noqa: E501
             'obj_audit': (CommonAudit,),  # noqa: E501
             'i_ezsigndocument_stepformtotal': (int,),  # noqa: E501
             'i_ezsigndocument_stepformcurrent': (int,),  # noqa: E501
@@ -140,6 +141,7 @@ class EzsigndocumentResponseCompound(ModelComposed):
         'i_ezsigndocument_signaturetotal': 'iEzsigndocumentSignaturetotal',  # noqa: E501
         's_ezsigndocument_md5initial': 'sEzsigndocumentMD5initial',  # noqa: E501
         's_ezsigndocument_md5signed': 'sEzsigndocumentMD5signed',  # noqa: E501
+        'b_ezsigndocument_ezsignform': 'bEzsigndocumentEzsignform',  # noqa: E501
         'obj_audit': 'objAudit',  # noqa: E501
         'i_ezsigndocument_stepformtotal': 'iEzsigndocumentStepformtotal',  # noqa: E501
         'i_ezsigndocument_stepformcurrent': 'iEzsigndocumentStepformcurrent',  # noqa: E501
@@ -171,6 +173,7 @@ class EzsigndocumentResponseCompound(ModelComposed):
             i_ezsigndocument_signaturetotal (int): The number of total signatures that were requested in the Ezsigndocument.
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
+            b_ezsigndocument_ezsignform (bool): If the Ezsigndocument contains an Ezsignform or not
             obj_audit (CommonAudit):
             i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
             i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
@@ -218,14 +221,18 @@ class EzsigndocumentResponseCompound(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -290,6 +297,7 @@ class EzsigndocumentResponseCompound(ModelComposed):
             i_ezsigndocument_signaturetotal (int): The number of total signatures that were requested in the Ezsigndocument.
             s_ezsigndocument_md5initial (str): MD5 Hash of the initial PDF Document before signatures were applied to it.
             s_ezsigndocument_md5signed (str): MD5 Hash of the final PDF Document after all signatures were applied to it.
+            b_ezsigndocument_ezsignform (bool): If the Ezsigndocument contains an Ezsignform or not
             obj_audit (CommonAudit):
             i_ezsigndocument_stepformtotal (int): The total number of steps in the form filling phase
             i_ezsigndocument_stepformcurrent (int): The current step in the form filling phase
@@ -335,14 +343,18 @@ class EzsigndocumentResponseCompound(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
