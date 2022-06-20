@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **s_ezsigndocumentlog_lastname** | **str** | The last name of the User or Ezsignsigner | 
 **s_ezsigndocumentlog_firstname** | **str** | The first name of the User or Ezsignsigner | 
 **s_ezsigndocumentlog_ip** | **str** | Represent an IP address. | 
-**fki_user_id** | **int** | The unique ID of the User | [optional] 
-**fki_ezsignsigner_id** | **int** | The unique ID of the Ezsignsigner | [optional] 
+**fki_user_id** | [**FieldPkiUserID**](FieldPkiUserID.md) |  | [optional] 
+**fki_ezsignsigner_id** | [**FieldPkiEzsignsignerID**](FieldPkiEzsignsignerID.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

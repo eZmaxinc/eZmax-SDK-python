@@ -132,7 +132,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplateformfieldgroup_api.ObjectEzsigntemplateformfieldgroupApi(api_client)
-    pki_ezsigntemplateformfieldgroup_id = 64 # int | 
+    pki_ezsigntemplateformfieldgroup_id = FieldPkiEzsigntemplateformfieldgroupID(64) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -213,7 +213,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplateformfieldgroup_api.ObjectEzsigntemplateformfieldgroupApi(api_client)
-    pki_ezsigntemplateformfieldgroup_id = 64 # int | 
+    pki_ezsigntemplateformfieldgroup_id = FieldPkiEzsigntemplateformfieldgroupID(64) # int | 
     ezsigntemplateformfieldgroup_edit_object_v1_request = EzsigntemplateformfieldgroupEditObjectV1Request(
         obj_ezsigntemplateformfieldgroup=EzsigntemplateformfieldgroupRequestCompound(),
     ) # EzsigntemplateformfieldgroupEditObjectV1Request | 
@@ -298,7 +298,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplateformfieldgroup_api.ObjectEzsigntemplateformfieldgroupApi(api_client)
-    pki_ezsigntemplateformfieldgroup_id = 64 # int | 
+    pki_ezsigntemplateformfieldgroup_id = FieldPkiEzsigntemplateformfieldgroupID(64) # int | 
 
     # example passing only required values which don't have defaults set
     try:

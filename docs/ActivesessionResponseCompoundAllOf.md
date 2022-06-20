@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_pki_permission_id** | **[int]** | An array of permissions granted to the user or api key | 
+**a_pki_permission_id** | [**[FieldPkiModulesectionID]**](FieldPkiModulesectionID.md) | An array of permissions granted to the user or api key | 
 **obj_user_real** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **a_e_module_internalname** | **[str]** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
 **obj_user_cloned** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 

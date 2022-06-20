@@ -5,7 +5,7 @@ A Contact Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_contacttitle_id** | **int** | The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)| | 
+**fki_contacttitle_id** | [**FieldPkiContacttitleID**](FieldPkiContacttitleID.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_contact_firstname** | **str** | The First name of the contact | 
 **s_contact_lastname** | **str** | The Last name of the contact | 

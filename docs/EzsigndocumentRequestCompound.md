@@ -5,14 +5,14 @@ An Ezsigndocument Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
+**fki_ezsignfolder_id** | [**FieldPkiEzsignfolderID**](FieldPkiEzsignfolderID.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **e_ezsigndocument_source** | **str** | Indicates where to look for the document binary content. | 
 **dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the Ezsigndocument can be signed. | 
 **s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
-**pki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | [optional] 
-**fki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigntemplate | [optional] 
-**fki_ezsignfoldersignerassociation_id** | **int** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
+**pki_ezsigndocument_id** | [**FieldPkiEzsigndocumentID**](FieldPkiEzsigndocumentID.md) |  | [optional] 
+**fki_ezsigntemplate_id** | [**FieldPkiEzsigntemplateID**](FieldPkiEzsigntemplateID.md) |  | [optional] 
+**fki_ezsignfoldersignerassociation_id** | [**FieldPkiEzsignfoldersignerassociationID**](FieldPkiEzsignfoldersignerassociationID.md) |  | [optional] 
 **e_ezsigndocument_format** | **str** | Indicates the format of the document. | [optional]  if omitted the server will use the default value of "Pdf"
 **s_ezsigndocument_base64** | **str** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
 **s_ezsigndocument_url** | **str** | The url where the document content resides.  This field is Required when eEzsigndocumentSource &#x3D; Url. | [optional] 

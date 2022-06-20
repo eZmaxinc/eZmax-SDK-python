@@ -5,8 +5,8 @@ An Ezsigntemplatepackage List Element
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsigntemplatepackage_id** | **int** | The unique ID of the Ezsigntemplatepackage | 
-**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**pki_ezsigntemplatepackage_id** | [**FieldPkiEzsigntemplatepackageID**](FieldPkiEzsigntemplatepackageID.md) |  | 
+**fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_ezsigntemplatepackage_description** | **str** | The description of the Ezsigntemplatepackage | 
 **b_ezsigntemplatepackage_isactive** | **bool** | Whether the Ezsigntemplatepackage is active or not | 

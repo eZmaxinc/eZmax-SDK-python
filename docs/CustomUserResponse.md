@@ -5,7 +5,7 @@ A User Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_user_id** | **int** | The unique ID of the User | 
+**pki_user_id** | [**FieldPkiUserID**](FieldPkiUserID.md) |  | 
 **s_user_lastname** | **str** | The Last name of the user | 
 **s_user_firstname** | **str** | The First name of the user | 
 **s_email_address** | **str** | The email address. | 

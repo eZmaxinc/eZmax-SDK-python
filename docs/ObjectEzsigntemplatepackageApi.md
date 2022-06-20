@@ -135,7 +135,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackage_api.ObjectEzsigntemplatepackageApi(api_client)
-    pki_ezsigntemplatepackage_id = 99 # int | 
+    pki_ezsigntemplatepackage_id = FieldPkiEzsigntemplatepackageID(99) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -216,7 +216,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackage_api.ObjectEzsigntemplatepackageApi(api_client)
-    pki_ezsigntemplatepackage_id = 99 # int | 
+    pki_ezsigntemplatepackage_id = FieldPkiEzsigntemplatepackageID(99) # int | 
     ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request = EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request(
         a_obj_ezsigntemplatepackagesigner=[
             EzsigntemplatepackagesignerRequestCompound(),
@@ -304,7 +304,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackage_api.ObjectEzsigntemplatepackageApi(api_client)
-    pki_ezsigntemplatepackage_id = 99 # int | 
+    pki_ezsigntemplatepackage_id = FieldPkiEzsigntemplatepackageID(99) # int | 
     ezsigntemplatepackage_edit_object_v1_request = EzsigntemplatepackageEditObjectV1Request(
         obj_ezsigntemplatepackage=EzsigntemplatepackageRequestCompound(),
     ) # EzsigntemplatepackageEditObjectV1Request | 
@@ -483,8 +483,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackage_api.ObjectEzsigntemplatepackageApi(api_client)
     e_order_by = "pkiEzsigntemplatepackageID_ASC" # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 100 # int |  (optional)
-    i_row_offset = 0 # int |  (optional)
+    i_row_max = FieldIRowMax(100) # int |  (optional)
+    i_row_offset = FieldIRowOffset(0) # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 
@@ -571,7 +571,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackage_api.ObjectEzsigntemplatepackageApi(api_client)
-    pki_ezsigntemplatepackage_id = 99 # int | 
+    pki_ezsigntemplatepackage_id = FieldPkiEzsigntemplatepackageID(99) # int | 
 
     # example passing only required values which don't have defaults set
     try:

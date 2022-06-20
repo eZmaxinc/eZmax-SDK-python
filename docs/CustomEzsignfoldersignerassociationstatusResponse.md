@@ -5,7 +5,7 @@ A Ezsignfoldersignerassociationstatus Object and children to create a complete s
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezsignfoldersignerassociation_id** | **int** | The unique ID of the Ezsignfoldersignerassociation | 
+**fki_ezsignfoldersignerassociation_id** | [**FieldPkiEzsignfoldersignerassociationID**](FieldPkiEzsignfoldersignerassociationID.md) |  | 
 **s_ezsignfoldersignerassociationstatus_lastname** | **str** | The last name of the Ezsignsigner | 
 **s_ezsignfoldersignerassociationstatus_firstname** | **str** | The first name of the Ezsignsigner | 
 **a_obj_ezsignsignaturestatus** | [**[CustomEzsignsignaturestatusResponse]**](CustomEzsignsignaturestatusResponse.md) |  | 

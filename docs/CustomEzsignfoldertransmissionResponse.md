@@ -5,7 +5,7 @@ An Ezsignfolder Object in the context of an Ezsignbulksendtransmission
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
+**pki_ezsignfolder_id** | [**FieldPkiEzsignfolderID**](FieldPkiEzsignfolderID.md) |  | 
 **e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
 **i_ezsignfolder_signaturetotal** | **int** | The number of total signatures that were requested in the Ezsignfolder | 
 **i_ezsignfolder_signaturesigned** | **int** | The number of signatures that were signed in the Ezsignfolder. | 

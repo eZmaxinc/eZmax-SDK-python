@@ -50,17 +50,17 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     franchisereferalincome_create_object_v1_request = [
         FranchisereferalincomeCreateObjectV1Request(
             obj_franchisereferalincome=FranchisereferalincomeRequest(
-                pki_franchisereferalincome_id=35,
-                fki_franchisebroker_id=61,
-                fki_franchisereferalincomeprogram_id=51,
-                fki_period_id=21,
+                pki_franchisereferalincome_id=FieldPkiFranchisereferalincomeID(35),
+                fki_franchisebroker_id=FieldPkiFranchisebrokerID(61),
+                fki_franchisereferalincomeprogram_id=FieldPkiFranchisereferalincomeprogramID(51),
+                fki_period_id=FieldPkiPeriodID(21),
                 d_franchisereferalincome_loan="500275.62",
                 d_franchisereferalincome_franchiseamount="275.00",
                 d_franchisereferalincome_franchisoramount="385.00",
                 d_franchisereferalincome_agentamount="800.00",
                 dt_franchisereferalincome_disbursed="2020-12-31",
                 t_franchisereferalincome_comment="This is a comment",
-                fki_franchiseoffice_id=50,
+                fki_franchiseoffice_id=FieldPkiFranchiseofficeID(50),
                 s_franchisereferalincome_remoteid="s_franchisereferalincome_remoteid_example",
             ),
             obj_franchisereferalincome_compound=FranchisereferalincomeRequestCompound(),

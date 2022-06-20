@@ -54,9 +54,9 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
     ezsignbulksend_create_ezsignbulksendtransmission_v1_request = EzsignbulksendCreateEzsignbulksendtransmissionV1Request(
-        fki_userlogintype_id=2,
+        fki_userlogintype_id=FieldPkiUserlogintypeID(2),
         fki_ezsigntsarequirement_id=FieldPkiEzsigntsarequirementID(1),
         s_ezsignbulksendtransmission_description="Test eZsign Bulk Send Transmission #1",
         dt_ezsigndocument_duedate="2020-12-31 23:59:59",
@@ -236,7 +236,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -318,7 +318,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
     ezsignbulksend_edit_object_v1_request = EzsignbulksendEditObjectV1Request(
         obj_ezsignbulksend=EzsignbulksendRequestCompound(),
     ) # EzsignbulksendEditObjectV1Request | 
@@ -402,7 +402,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
     e_csv_separator = "Comma" # str | Separator that will be used to separate fields
 
     # example passing only required values which don't have defaults set
@@ -486,7 +486,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -566,7 +566,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -650,8 +650,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
     e_order_by = "pkiEzsignbulksendID_ASC" # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 100 # int |  (optional)
-    i_row_offset = 0 # int |  (optional)
+    i_row_max = FieldIRowMax(100) # int |  (optional)
+    i_row_offset = FieldIRowOffset(0) # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 
@@ -738,7 +738,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -817,10 +817,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksend_api.ObjectEzsignbulksendApi(api_client)
-    pki_ezsignbulksend_id = 8 # int | 
+    pki_ezsignbulksend_id = FieldPkiEzsignbulksendID(8) # int | 
     ezsignbulksend_reorder_v1_request = EzsignbulksendReorderV1Request(
         a_pki_ezsignbulksenddocumentmapping_id=[
-            48,
+            FieldPkiEzsignbulksenddocumentmappingID(48),
         ],
     ) # EzsignbulksendReorderV1Request | 
 

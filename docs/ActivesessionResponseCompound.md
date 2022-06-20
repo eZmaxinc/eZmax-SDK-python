@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **s_department_name_x** | **str** | The Name of the Department in the language of the requester | 
 **b_activesession_debug** | **bool** | Whether the active session is in debug or not | 
 **pks_customer_code** | [**FieldPksCustomerCode**](FieldPksCustomerCode.md) |  | 
-**a_pki_permission_id** | **[int]** | An array of permissions granted to the user or api key | 
+**a_pki_permission_id** | [**[FieldPkiModulesectionID]**](FieldPkiModulesectionID.md) | An array of permissions granted to the user or api key | 
 **obj_user_real** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **a_e_module_internalname** | **[str]** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
 **obj_user_cloned** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 

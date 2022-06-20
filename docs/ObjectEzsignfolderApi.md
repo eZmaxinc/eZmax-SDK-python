@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**ezsignfolder_create_object_v1**](ObjectEzsignfolderApi.md#ezsignfolder_create_object_v1) | **POST** /1/object/ezsignfolder | Create a new Ezsignfolder
 [**ezsignfolder_create_object_v2**](ObjectEzsignfolderApi.md#ezsignfolder_create_object_v2) | **POST** /2/object/ezsignfolder | Create a new Ezsignfolder
 [**ezsignfolder_delete_object_v1**](ObjectEzsignfolderApi.md#ezsignfolder_delete_object_v1) | **DELETE** /1/object/ezsignfolder/{pkiEzsignfolderID} | Delete an existing Ezsignfolder
+[**ezsignfolder_dispose_ezsignfolders_v1**](ObjectEzsignfolderApi.md#ezsignfolder_dispose_ezsignfolders_v1) | **POST** /1/object/ezsignfolder/disposeEzsignfolders | Dispose Ezsignfolders
+[**ezsignfolder_dispose_v1**](ObjectEzsignfolderApi.md#ezsignfolder_dispose_v1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 [**ezsignfolder_edit_object_v1**](ObjectEzsignfolderApi.md#ezsignfolder_edit_object_v1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 [**ezsignfolder_get_actionable_elements_v1**](ObjectEzsignfolderApi.md#ezsignfolder_get_actionable_elements_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
 [**ezsignfolder_get_ezsigndocuments_v1**](ObjectEzsignfolderApi.md#ezsignfolder_get_ezsigndocuments_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsigndocuments | Retrieve an existing Ezsignfolder&#39;s Ezsigndocuments
@@ -61,7 +63,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set
@@ -142,10 +144,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     ezsignfolder_batch_download_v1_request = EzsignfolderBatchDownloadV1Request(
         a_pki_ezsigndocument_id=[
-            97,
+            FieldPkiEzsigndocumentID(97),
         ],
         a_e_document_type=[
             "Signed",
@@ -236,8 +238,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsignfolder_create_object_v1_request = [
         EzsignfolderCreateObjectV1Request(
             obj_ezsignfolder=EzsignfolderRequest(
-                pki_ezsignfolder_id=33,
-                fki_ezsignfoldertype_id=5,
+                pki_ezsignfolder_id=FieldPkiEzsignfolderID(33),
+                fki_ezsignfoldertype_id=FieldPkiEzsignfoldertypeID(5),
                 fki_ezsigntsarequirement_id=FieldPkiEzsigntsarequirementID(1),
                 s_ezsignfolder_description="Test eZsign Folder",
                 t_ezsignfolder_note="This is a note",
@@ -405,7 +407,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -434,6 +436,175 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolder_dispose_ezsignfolders_v1**
+> EzsignfolderDisposeEzsignfoldersV1Response ezsignfolder_dispose_ezsignfolders_v1(ezsignfolder_dispose_ezsignfolders_v1_request)
+
+Dispose Ezsignfolders
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import time
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.ezsignfolder_dispose_ezsignfolders_v1_response import EzsignfolderDisposeEzsignfoldersV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
+    ezsignfolder_dispose_ezsignfolders_v1_request = EzsignfolderDisposeEzsignfoldersV1Request(
+        a_pki_ezsignfolder_id=[
+            FieldPkiEzsignfolderID(33),
+        ],
+    ) # EzsignfolderDisposeEzsignfoldersV1Request | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Dispose Ezsignfolders
+        api_response = api_instance.ezsignfolder_dispose_ezsignfolders_v1(ezsignfolder_dispose_ezsignfolders_v1_request)
+        pprint(api_response)
+    except eZmaxApi.ApiException as e:
+        print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_dispose_ezsignfolders_v1: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignfolder_dispose_ezsignfolders_v1_request** | [**EzsignfolderDisposeEzsignfoldersV1Request**](EzsignfolderDisposeEzsignfoldersV1Request.md)|  |
+
+### Return type
+
+[**EzsignfolderDisposeEzsignfoldersV1Response**](EzsignfolderDisposeEzsignfoldersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The element you are trying to work on does not exist |  -  |
+**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignfolder_dispose_v1**
+> EzsignfolderDisposeV1Response ezsignfolder_dispose_v1(pki_ezsignfolder_id, body)
+
+Dispose the Ezsignfolder
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import time
+import eZmaxApi
+from eZmaxApi.api import object_ezsignfolder_api
+from eZmaxApi.model.ezsignfolder_dispose_v1_response import EzsignfolderDisposeV1Response
+from eZmaxApi.model.common_response_error import CommonResponseError
+from pprint import pprint
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
+    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Dispose the Ezsignfolder
+        api_response = api_instance.ezsignfolder_dispose_v1(pki_ezsignfolder_id, body)
+        pprint(api_response)
+    except eZmaxApi.ApiException as e:
+        print("Exception when calling ObjectEzsignfolderApi->ezsignfolder_dispose_v1: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsignfolder_id** | **int**|  |
+ **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  |
+
+### Return type
+
+[**EzsignfolderDisposeV1Response**](EzsignfolderDisposeV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -487,7 +658,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     ezsignfolder_edit_object_v1_request = EzsignfolderEditObjectV1Request(
         obj_ezsignfolder=EzsignfolderRequestCompound(),
     ) # EzsignfolderEditObjectV1Request | 
@@ -572,7 +743,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -653,7 +824,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -733,7 +904,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -813,7 +984,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -897,8 +1068,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
     e_order_by = "pkiEzsignfolderID_ASC" # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 100 # int |  (optional)
-    i_row_offset = 0 # int |  (optional)
+    i_row_max = FieldIRowMax(100) # int |  (optional)
+    i_row_offset = FieldIRowOffset(0) # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 
@@ -983,7 +1154,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1064,14 +1235,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     ezsignfolder_import_ezsigntemplatepackage_v1_request = EzsignfolderImportEzsigntemplatepackageV1Request(
-        fki_ezsigntemplatepackage_id=99,
+        fki_ezsigntemplatepackage_id=FieldPkiEzsigntemplatepackageID(99),
         dt_ezsigndocument_duedate="2020-12-31 23:59:59",
         a_obj_import_ezsigntemplatepackage_relation=[
             CustomImportEzsigntemplatepackageRelationRequest(
-                fki_ezsigntemplatepackagesigner_id=174,
-                fki_ezsignfoldersignerassociation_id=20,
+                fki_ezsigntemplatepackagesigner_id=FieldPkiEzsigntemplatepackagesignerID(174),
+                fki_ezsignfoldersignerassociation_id=FieldPkiEzsignfoldersignerassociationID(20),
                 s_ezsigntemplatepackagesigner_description="Customer",
             ),
         ],
@@ -1156,10 +1327,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     ezsignfolder_reorder_v1_request = EzsignfolderReorderV1Request(
         a_pki_ezsigndocument_id=[
-            97,
+            FieldPkiEzsigndocumentID(97),
         ],
     ) # EzsignfolderReorderV1Request | 
 
@@ -1244,7 +1415,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     ezsignfolder_send_v1_request = EzsignfolderSendV1Request(
         t_extra_message='''Hi John,
 
@@ -1337,7 +1508,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfolder_api.ObjectEzsignfolderApi(api_client)
-    pki_ezsignfolder_id = 33 # int | 
+    pki_ezsignfolder_id = FieldPkiEzsignfolderID(33) # int | 
     body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set

@@ -5,8 +5,8 @@ An Ezsignfolder List Element
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
-**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**pki_ezsignfolder_id** | [**FieldPkiEzsignfolderID**](FieldPkiEzsignfolderID.md) |  | 
+**fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | 
 **e_ezsignfoldertype_privacylevel** | [**FieldEEzsignfoldertypePrivacylevel**](FieldEEzsignfoldertypePrivacylevel.md) |  | 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 
 **s_ezsignfolder_description** | **str** | The description of the Ezsignfolder | 

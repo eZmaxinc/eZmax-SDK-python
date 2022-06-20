@@ -132,7 +132,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackagesigner_api.ObjectEzsigntemplatepackagesignerApi(api_client)
-    pki_ezsigntemplatepackagesigner_id = 174 # int | 
+    pki_ezsigntemplatepackagesigner_id = FieldPkiEzsigntemplatepackagesignerID(174) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -213,7 +213,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackagesigner_api.ObjectEzsigntemplatepackagesignerApi(api_client)
-    pki_ezsigntemplatepackagesigner_id = 174 # int | 
+    pki_ezsigntemplatepackagesigner_id = FieldPkiEzsigntemplatepackagesignerID(174) # int | 
     ezsigntemplatepackagesigner_edit_object_v1_request = EzsigntemplatepackagesignerEditObjectV1Request(
         obj_ezsigntemplatepackagesigner=EzsigntemplatepackagesignerRequestCompound(),
     ) # EzsigntemplatepackagesignerEditObjectV1Request | 
@@ -298,7 +298,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatepackagesigner_api.ObjectEzsigntemplatepackagesignerApi(api_client)
-    pki_ezsigntemplatepackagesigner_id = 174 # int | 
+    pki_ezsigntemplatepackagesigner_id = FieldPkiEzsigntemplatepackagesignerID(174) # int | 
 
     # example passing only required values which don't have defaults set
     try:

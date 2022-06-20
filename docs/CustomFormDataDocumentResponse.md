@@ -5,8 +5,8 @@ A form Data Document Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | 
-**fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
+**pki_ezsigndocument_id** | [**FieldPkiEzsigndocumentID**](FieldPkiEzsigndocumentID.md) |  | 
+**fki_ezsignfolder_id** | [**FieldPkiEzsignfolderID**](FieldPkiEzsignfolderID.md) |  | 
 **s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **dt_modified_date** | **str** | The date and time at which the object was last modified | 
 **a_obj_form_data_signer** | [**[CustomFormDataSignerResponse]**](CustomFormDataSignerResponse.md) |  | 

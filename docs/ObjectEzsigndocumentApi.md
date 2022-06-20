@@ -65,14 +65,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_apply_ezsigntemplate_v1_request = EzsigndocumentApplyEzsigntemplateV1Request(
-        fki_ezsigntemplate_id=36,
+        fki_ezsigntemplate_id=FieldPkiEzsigntemplateID(36),
         a_s_ezsigntemplatesigner=[
             "John",
         ],
         a_pki_ezsignfoldersignerassociation_id=[
-            20,
+            FieldPkiEzsignfoldersignerassociationID(20),
         ],
     ) # EzsigndocumentApplyEzsigntemplateV1Request | 
 
@@ -157,14 +157,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_apply_ezsigntemplate_v2_request = EzsigndocumentApplyEzsigntemplateV2Request(
-        fki_ezsigntemplate_id=36,
+        fki_ezsigntemplate_id=FieldPkiEzsigntemplateID(36),
         a_s_ezsigntemplatesigner=[
             "John",
         ],
         a_pki_ezsignfoldersignerassociation_id=[
-            20,
+            FieldPkiEzsignfoldersignerassociationID(20),
         ],
     ) # EzsigndocumentApplyEzsigntemplateV2Request | 
 
@@ -252,10 +252,10 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsigndocument_create_object_v1_request = [
         EzsigndocumentCreateObjectV1Request(
             obj_ezsigndocument=EzsigndocumentRequest(
-                pki_ezsigndocument_id=97,
-                fki_ezsignfolder_id=33,
-                fki_ezsigntemplate_id=36,
-                fki_ezsignfoldersignerassociation_id=20,
+                pki_ezsigndocument_id=FieldPkiEzsigndocumentID(97),
+                fki_ezsignfolder_id=FieldPkiEzsignfolderID(33),
+                fki_ezsigntemplate_id=FieldPkiEzsigntemplateID(36),
+                fki_ezsignfoldersignerassociation_id=FieldPkiEzsignfoldersignerassociationID(20),
                 fki_language_id=FieldPkiLanguageID(2),
                 e_ezsigndocument_source="Base64",
                 e_ezsigndocument_format="Pdf",
@@ -434,7 +434,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -516,7 +516,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_edit_ezsignformfieldgroups_v1_request = EzsigndocumentEditEzsignformfieldgroupsV1Request(
         a_obj_ezsignformfieldgroup=[
             EzsignformfieldgroupRequestCompound(),
@@ -604,7 +604,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_edit_ezsignsignatures_v1_request = EzsigndocumentEditEzsignsignaturesV1Request(
         a_obj_ezsignsignature=[
             EzsignsignatureRequestCompound(),
@@ -691,7 +691,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set
@@ -774,7 +774,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -855,7 +855,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     e_document_type = "Initial" # str | The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **Signed** Is the final document once all signatures were applied. 3. **Proofdocument** Is the evidence report. 4. **Proof** Is the complete evidence archive including all of the above and more. 
 
     # example passing only required values which don't have defaults set
@@ -938,7 +938,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1019,7 +1019,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1100,7 +1100,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1181,7 +1181,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1261,7 +1261,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1341,7 +1341,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -1423,7 +1423,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_get_words_positions_v1_request = EzsigndocumentGetWordsPositionsV1Request(
         e_get="All",
         b_word_case_sensitive=True,
@@ -1513,7 +1513,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     ezsigndocument_patch_object_v1_request = EzsigndocumentPatchObjectV1Request(
         obj_ezsigndocument=EzsigndocumentRequestPatch(
             dt_ezsigndocument_duedate="2020-12-31 23:59:59",
@@ -1601,7 +1601,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigndocument_api.ObjectEzsigndocumentApi(api_client)
-    pki_ezsigndocument_id = 97 # int | 
+    pki_ezsigndocument_id = FieldPkiEzsigndocumentID(97) # int | 
     body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set

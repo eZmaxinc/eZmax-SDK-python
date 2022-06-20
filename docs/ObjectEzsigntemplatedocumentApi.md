@@ -141,7 +141,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
     ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request = EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request(
         a_obj_ezsigntemplateformfieldgroup=[
             EzsigntemplateformfieldgroupRequestCompound(),
@@ -229,7 +229,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
     ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request = EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request(
         a_obj_ezsigntemplatesignature=[
             EzsigntemplatesignatureRequestCompound(),
@@ -318,7 +318,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
     ezsigntemplatedocument_edit_object_v1_request = EzsigntemplatedocumentEditObjectV1Request(
         obj_ezsigntemplatedocument=EzsigntemplatedocumentRequestCompound(),
     ) # EzsigntemplatedocumentEditObjectV1Request | 
@@ -403,7 +403,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -483,7 +483,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -564,7 +564,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -645,7 +645,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -726,7 +726,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
     ezsigntemplatedocument_get_words_positions_v1_request = EzsigntemplatedocumentGetWordsPositionsV1Request(
         e_get="All",
         b_word_case_sensitive=True,
@@ -815,7 +815,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplatedocument_api.ObjectEzsigntemplatedocumentApi(api_client)
-    pki_ezsigntemplatedocument_id = 133 # int | 
+    pki_ezsigntemplatedocument_id = FieldPkiEzsigntemplatedocumentID(133) # int | 
     ezsigntemplatedocument_patch_object_v1_request = EzsigntemplatedocumentPatchObjectV1Request(
         obj_ezsigntemplatedocument=EzsigntemplatedocumentRequestPatch(
             s_ezsigntemplatedocument_name="Standard Contract",

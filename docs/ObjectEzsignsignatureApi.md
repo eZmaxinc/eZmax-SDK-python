@@ -54,14 +54,14 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezsignsignature_create_object_v1_request = [
         EzsignsignatureCreateObjectV1Request(
             obj_ezsignsignature=EzsignsignatureRequest(
-                pki_ezsignsignature_id=49,
-                fki_ezsignfoldersignerassociation_id=20,
-                i_ezsignpage_pagenumber=1,
-                i_ezsignsignature_x=200,
-                i_ezsignsignature_y=300,
+                pki_ezsignsignature_id=FieldPkiEzsignsignatureID(49),
+                fki_ezsignfoldersignerassociation_id=FieldPkiEzsignfoldersignerassociationID(20),
+                i_ezsignpage_pagenumber=FieldIEzsignpagePagenumber(1),
+                i_ezsignsignature_x=FieldIEzsignsignatureX(200),
+                i_ezsignsignature_y=FieldIEzsignsignatureY(300),
                 i_ezsignsignature_step=1,
                 e_ezsignsignature_type=FieldEEzsignsignatureType("Name"),
-                fki_ezsigndocument_id=97,
+                fki_ezsigndocument_id=FieldPkiEzsigndocumentID(97),
                 t_ezsignsignature_tooltip="Please sign here if you agree to the terms",
                 e_ezsignsignature_tooltipposition=FieldEEzsignsignatureTooltipposition("TopLeft"),
                 e_ezsignsignature_font=FieldEEzsignsignatureFont("Normal"),
@@ -230,7 +230,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 49 # int | 
+    pki_ezsignsignature_id = FieldPkiEzsignsignatureID(49) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -312,7 +312,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 49 # int | 
+    pki_ezsignsignature_id = FieldPkiEzsignsignatureID(49) # int | 
     ezsignsignature_edit_object_v1_request = EzsignsignatureEditObjectV1Request(
         obj_ezsignsignature=EzsignsignatureRequestCompound(),
     ) # EzsignsignatureEditObjectV1Request | 
@@ -397,7 +397,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 49 # int | 
+    pki_ezsignsignature_id = FieldPkiEzsignsignatureID(49) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -478,7 +478,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignsignature_api.ObjectEzsignsignatureApi(api_client)
-    pki_ezsignsignature_id = 49 # int | 
+    pki_ezsignsignature_id = FieldPkiEzsignsignatureID(49) # int | 
     ezsignsignature_sign_v1_request = EzsignsignatureSignV1Request(
         s_value="s_value_example",
         b_is_automatic=True,

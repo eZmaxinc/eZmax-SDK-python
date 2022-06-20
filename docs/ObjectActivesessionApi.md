@@ -22,6 +22,7 @@ Retrieve the details about the current activesession
 import time
 import eZmaxApi
 from eZmaxApi.api import object_activesession_api
+from eZmaxApi.model.common_response_redirect_s_secretquestion_text_x import CommonResponseRedirectSSecretquestionTextX
 from eZmaxApi.model.activesession_get_current_v1_response import ActivesessionGetCurrentV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
@@ -78,6 +79,13 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**350** | The user must authenticate before he can continue with this request |  -  |
+**351** | The user is configured with 2FA and needs to validate its phone number before he can continue with this request |  -  |
+**352** | The user is configured with 2FA and needs to answer a Secretquestion before he can continue with this request |  -  |
+**353** | The user must accept clauses before he can continue with this request |  -  |
+**354** | The user&#39;s computer must be validated before he can continue with this request |  -  |
+**355** | The user must change its password before he can continue with this request |  -  |
+**356** | The user is not running the latest version of the native application. He must valide or update its version before he can continue with this request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

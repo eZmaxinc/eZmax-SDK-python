@@ -133,7 +133,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksenddocumentmapping_api.ObjectEzsignbulksenddocumentmappingApi(api_client)
-    pki_ezsignbulksenddocumentmapping_id = 48 # int | 
+    pki_ezsignbulksenddocumentmapping_id = FieldPkiEzsignbulksenddocumentmappingID(48) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -213,7 +213,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksenddocumentmapping_api.ObjectEzsignbulksenddocumentmappingApi(api_client)
-    pki_ezsignbulksenddocumentmapping_id = 48 # int | 
+    pki_ezsignbulksenddocumentmapping_id = FieldPkiEzsignbulksenddocumentmappingID(48) # int | 
 
     # example passing only required values which don't have defaults set
     try:

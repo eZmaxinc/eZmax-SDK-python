@@ -120,7 +120,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = module_ezsign_api.ModuleEzsignApi(api_client)
-    fki_ezsignfoldertype_id = 5 # int |  (optional)
+    fki_ezsignfoldertype_id = FieldPkiEzsignfoldertypeID(5) # int |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values

@@ -5,12 +5,12 @@ An Ezsignpage Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsignpage_id** | **int** | The unique ID of the Ezsignpage | 
-**i_ezsignpage_widthimage** | **int** | The Width of the page&#39;s image in pixels calculated at 100 DPI | 
-**i_ezsignpage_heightimage** | **int** | The Height of the page&#39;s image in pixels calculated at 100 DPI | 
-**i_ezsignpage_widthpdf** | **int** | The Width of the page in points calculated at 72 DPI | 
-**i_ezsignpage_heightpdf** | **int** | The Height of the page in points calculated at 72 DPI | 
-**i_ezsignpage_pagenumber** | **int** | The page number in the Ezsigndocument | 
+**pki_ezsignpage_id** | [**FieldPkiEzsignpageID**](FieldPkiEzsignpageID.md) |  | 
+**i_ezsignpage_widthimage** | [**FieldIEzsignpageWidthimage**](FieldIEzsignpageWidthimage.md) |  | 
+**i_ezsignpage_heightimage** | [**FieldIEzsignpageHeightimage**](FieldIEzsignpageHeightimage.md) |  | 
+**i_ezsignpage_widthpdf** | [**FieldIEzsignpageWidthpdf**](FieldIEzsignpageWidthpdf.md) |  | 
+**i_ezsignpage_heightpdf** | [**FieldIEzsignpageHeightpdf**](FieldIEzsignpageHeightpdf.md) |  | 
+**i_ezsignpage_pagenumber** | [**FieldIEzsignpagePagenumber**](FieldIEzsignpagePagenumber.md) |  | 
 **s_image_url** | **str** | The Url to the Ezsignpage&#39;s rasterized image.  Url will expire after 5 minutes. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

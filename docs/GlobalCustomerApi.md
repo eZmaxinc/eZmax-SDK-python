@@ -24,7 +24,6 @@ import eZmaxApi
 from eZmaxApi.api import global_customer_api
 from eZmaxApi.model.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 from eZmaxApi.model.common_response_error import CommonResponseError
-from eZmaxApi.model.field_pks_customer_code import FieldPksCustomerCode
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
@@ -47,7 +46,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_customer_api.GlobalCustomerApi(api_client)
-    pks_customer_code = FieldPksCustomerCode("demo") # FieldPksCustomerCode | 
+    pks_customer_code = FieldPksCustomerCode("demo") # str | 
     s_infrastructureproduct_code = "appcluster01" # str | The infrastructure product Code  If undefined, \"appcluster01\" is assumed (optional)
 
     # example passing only required values which don't have defaults set
@@ -73,7 +72,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pks_customer_code** | **FieldPksCustomerCode**|  |
+ **pks_customer_code** | **str**|  |
  **s_infrastructureproduct_code** | **str**| The infrastructure product Code  If undefined, \&quot;appcluster01\&quot; is assumed | [optional]
 
 ### Return type

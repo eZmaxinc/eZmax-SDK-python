@@ -141,8 +141,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignfoldertype_api.ObjectEzsignfoldertypeApi(api_client)
     e_order_by = "pkiEzsignfoldertypeID_ASC" # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 100 # int |  (optional)
-    i_row_offset = 0 # int |  (optional)
+    i_row_max = FieldIRowMax(100) # int |  (optional)
+    i_row_offset = FieldIRowOffset(0) # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 

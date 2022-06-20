@@ -19,6 +19,8 @@ from eZmaxApi.api.module_ezsign_api import ModuleEzsignApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
+from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi
+from eZmaxApi.api.object_branding_api import ObjectBrandingApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
 from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi
 from eZmaxApi.api.object_ezsignbulksendsignermapping_api import ObjectEzsignbulksendsignermappingApi
@@ -43,5 +45,10 @@ from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi
 from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi
 from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi
 from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi
+from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi
 from eZmaxApi.api.object_period_api import ObjectPeriodApi
 from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi
+from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi
+from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
+from eZmaxApi.api.object_user_api import ObjectUserApi
+from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi

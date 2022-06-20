@@ -48,7 +48,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntsarequirement_api.ObjectEzsigntsarequirementApi(api_client)
     s_selector = "User" # str | The type of Ezsigntsarequirements to return
-    fki_ezsignfoldertype_id = 5 # int |  (optional)
+    fki_ezsignfoldertype_id = FieldPkiEzsignfoldertypeID(5) # int |  (optional)
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 

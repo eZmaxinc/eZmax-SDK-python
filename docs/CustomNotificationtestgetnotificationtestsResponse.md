@@ -5,8 +5,8 @@ A Notificationtest Object in the context of getNotificationtests
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_notificationtest_id** | **int** | The unique ID of the Notificationtest | 
-**fki_notificationsubsection_id** | **int** | The unique ID of the Notificationsubsection | 
+**pki_notificationtest_id** | [**FieldPkiNotificationtestID**](FieldPkiNotificationtestID.md) |  | 
+**fki_notificationsubsection_id** | [**FieldPkiNotificationsubsectionID**](FieldPkiNotificationsubsectionID.md) |  | 
 **s_notificationtest_function** | **str** | The function name of the Notificationtest | 
 **s_notificationtest_name_x** | **str** | The name of the Notificationtest in the language of the requester | 
 **e_notificationpreference_status** | [**FieldENotificationpreferenceStatus**](FieldENotificationpreferenceStatus.md) |  | 

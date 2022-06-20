@@ -46,7 +46,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_notificationsection_api.ObjectNotificationsectionApi(api_client)
-    pki_notificationsection_id = 1 # int | 
+    pki_notificationsection_id = FieldPkiNotificationsectionID(1) # int | 
     b_show_hidden = True # bool | Whether or not to return the hidden Notificationtests
 
     # example passing only required values which don't have defaults set

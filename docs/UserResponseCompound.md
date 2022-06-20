@@ -5,7 +5,7 @@ A User Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_user_id** | **int** | The unique ID of the User | 
+**pki_user_id** | [**FieldPkiUserID**](FieldPkiUserID.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **e_user_type** | [**FieldEUserType**](FieldEUserType.md) |  | 
 **s_user_firstname** | **str** | The First name of the user | 

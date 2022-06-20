@@ -134,7 +134,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplate_api.ObjectEzsigntemplateApi(api_client)
-    pki_ezsigntemplate_id = 36 # int | 
+    pki_ezsigntemplate_id = FieldPkiEzsigntemplateID(36) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -215,7 +215,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplate_api.ObjectEzsigntemplateApi(api_client)
-    pki_ezsigntemplate_id = 36 # int | 
+    pki_ezsigntemplate_id = FieldPkiEzsigntemplateID(36) # int | 
     ezsigntemplate_edit_object_v1_request = EzsigntemplateEditObjectV1Request(
         obj_ezsigntemplate=EzsigntemplateRequestCompound(),
     ) # EzsigntemplateEditObjectV1Request | 
@@ -393,8 +393,8 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplate_api.ObjectEzsigntemplateApi(api_client)
     e_order_by = "pkiEzsigntemplateID_ASC" # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 100 # int |  (optional)
-    i_row_offset = 0 # int |  (optional)
+    i_row_max = FieldIRowMax(100) # int |  (optional)
+    i_row_offset = FieldIRowOffset(0) # int |  (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
     s_filter = "bField1 eq true and iField2 gte 0 and iField2 lte 1000 and sField3 eq 'Other' and eField4 eq 'Paid' and sField5 like '%needle%' and iField6 in '1,2,3' and dtField7 rg '=m,=3mm'" # str |  (optional)
 
@@ -481,7 +481,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplate_api.ObjectEzsigntemplateApi(api_client)
-    pki_ezsigntemplate_id = 36 # int | 
+    pki_ezsigntemplate_id = FieldPkiEzsigntemplateID(36) # int | 
 
     # example passing only required values which don't have defaults set
     try:

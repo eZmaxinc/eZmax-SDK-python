@@ -5,8 +5,8 @@ An Ezsignbulksend Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsignbulksend_id** | **int** | The unique ID of the Ezsignbulksend | 
-**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**pki_ezsignbulksend_id** | [**FieldPkiEzsignbulksendID**](FieldPkiEzsignbulksendID.md) |  | 
+**fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | 
 **fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
 **s_language_name_x** | **str** | The Name of the Language in the language of the requester | 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 

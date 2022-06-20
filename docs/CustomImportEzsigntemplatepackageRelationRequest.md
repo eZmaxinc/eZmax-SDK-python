@@ -5,8 +5,8 @@ The object used in /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntempla
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezsignfoldersignerassociation_id** | **int** | The unique ID of the Ezsignfoldersignerassociation | 
-**fki_ezsigntemplatepackagesigner_id** | **int** | The unique ID of the Ezsigntemplatepackagesigner | [optional] 
+**fki_ezsignfoldersignerassociation_id** | [**FieldPkiEzsignfoldersignerassociationID**](FieldPkiEzsignfoldersignerassociationID.md) |  | 
+**fki_ezsigntemplatepackagesigner_id** | [**FieldPkiEzsigntemplatepackagesignerID**](FieldPkiEzsigntemplatepackagesignerID.md) |  | [optional] 
 **s_ezsigntemplatepackagesigner_description** | **str** | The description of the Ezsigntemplatepackagesigner | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

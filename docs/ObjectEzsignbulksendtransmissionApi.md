@@ -47,7 +47,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksendtransmission_api.ObjectEzsignbulksendtransmissionApi(api_client)
-    pki_ezsignbulksendtransmission_id = 21 # int | 
+    pki_ezsignbulksendtransmission_id = FieldPkiEzsignbulksendtransmissionID(21) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -129,7 +129,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksendtransmission_api.ObjectEzsignbulksendtransmissionApi(api_client)
-    pki_ezsignbulksendtransmission_id = 21 # int | 
+    pki_ezsignbulksendtransmission_id = FieldPkiEzsignbulksendtransmissionID(21) # int | 
 
     # example passing only required values which don't have defaults set
     try:
@@ -211,7 +211,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsignbulksendtransmission_api.ObjectEzsignbulksendtransmissionApi(api_client)
-    pki_ezsignbulksendtransmission_id = 21 # int | 
+    pki_ezsignbulksendtransmission_id = FieldPkiEzsignbulksendtransmissionID(21) # int | 
 
     # example passing only required values which don't have defaults set
     try:

@@ -5,8 +5,8 @@ A Notificationsubsection Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_notificationsubsection_id** | **int** | The unique ID of the Notificationsubsection | 
-**fki_notificationsection_id** | **int** | The unique ID of the Notificationsection | 
+**pki_notificationsubsection_id** | [**FieldPkiNotificationsubsectionID**](FieldPkiNotificationsubsectionID.md) |  | 
+**fki_notificationsection_id** | [**FieldPkiNotificationsectionID**](FieldPkiNotificationsectionID.md) |  | 
 **s_notificationsubsection_name_x** | **str** | The name of the Notificationsubsection in the language of the requester | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
