@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
 **pki_ezsigndocument_id** | [**FieldPkiEzsigndocumentID**](FieldPkiEzsigndocumentID.md) |  | 
 **e_ezsigndocument_step** | [**FieldEEzsigndocumentStep**](FieldEEzsigndocumentStep.md) |  | 
-**dt_ezsigndocument_firstsend** | **str** | The date and time when the Ezsigndocument was first sent. | 
-**dt_ezsigndocument_lastsend** | **str** | The date and time when the Ezsigndocument was sent the last time. | 
 **i_ezsigndocument_order** | [**FieldIEzsigndocumentOrder**](FieldIEzsigndocumentOrder.md) |  | 
 **i_ezsigndocument_pagetotal** | [**FieldIEzsigndocumentPagetotal**](FieldIEzsigndocumentPagetotal.md) |  | 
 **i_ezsigndocument_signaturesigned** | [**FieldIEzsigndocumentSignaturesigned**](FieldIEzsigndocumentSignaturesigned.md) |  | 
@@ -26,6 +24,8 @@ Name | Type | Description | Notes
 **i_ezsigndocument_stepsignaturetotal** | **int** | The total number of steps in the signature filling phase | 
 **i_ezsigndocument_stepsignature_current** | **int** | The current step in the signature phase | 
 **a_obj_ezsignfoldersignerassociationstatus** | [**[CustomEzsignfoldersignerassociationstatusResponse]**](CustomEzsignfoldersignerassociationstatusResponse.md) |  | 
+**dt_ezsigndocument_firstsend** | **str** | The date and time when the Ezsigndocument was first sent. | [optional] 
+**dt_ezsigndocument_lastsend** | **str** | The date and time when the Ezsigndocument was sent the last time. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
