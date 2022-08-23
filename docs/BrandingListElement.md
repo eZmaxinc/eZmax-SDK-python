@@ -1,0 +1,21 @@
+# BrandingListElement
+
+A Branding List Element
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pki_branding_id** | [**FieldPkiBrandingID**](FieldPkiBrandingID.md) |  | 
+**s_branding_description_x** | **str** | The Description of the Branding in the language of the requester | 
+**i_branding_colortext** | [**FieldIBrandingColortext**](FieldIBrandingColortext.md) |  | 
+**i_branding_colortextlinkbox** | [**FieldIBrandingColortextlinkbox**](FieldIBrandingColortextlinkbox.md) |  | 
+**i_branding_colortextbutton** | [**FieldIBrandingColortextbutton**](FieldIBrandingColortextbutton.md) |  | 
+**i_branding_colorbackground** | [**FieldIBrandingColorbackground**](FieldIBrandingColorbackground.md) |  | 
+**i_branding_colorbackgroundbutton** | [**FieldIBrandingColorbackgroundbutton**](FieldIBrandingColorbackgroundbutton.md) |  | 
+**i_branding_colorbackgroundsmallbox** | [**FieldIBrandingColorbackgroundsmallbox**](FieldIBrandingColorbackgroundsmallbox.md) |  | 
+**b_branding_isactive** | **bool** | Whether the Branding is active or not | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

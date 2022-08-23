@@ -21,6 +21,7 @@ from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi
 from eZmaxApi.api.object_branding_api import ObjectBrandingApi
+from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
 from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi
 from eZmaxApi.api.object_ezsignbulksendsignermapping_api import ObjectEzsignbulksendsignermappingApi
@@ -52,3 +53,4 @@ from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi
 from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
 from eZmaxApi.api.object_user_api import ObjectUserApi
 from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi
+from eZmaxApi.api.object_webhook_api import ObjectWebhookApi

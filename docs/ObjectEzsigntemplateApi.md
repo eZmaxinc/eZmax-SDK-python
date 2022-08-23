@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
-**404** | The element you are trying to work on does not exist |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -256,8 +256,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
-**404** | The element you are trying to work on does not exist |  -  |
-**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -300,6 +300,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_ezsigntemplate_api.ObjectEzsigntemplateApi(api_client)
+    e_filter_active = "Active" # str | Specify which results we want to display. (optional) if omitted the server will use the default value of "Active"
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 
@@ -315,7 +316,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve Ezsigntemplate and IDs
-        api_response = api_instance.ezsigntemplate_get_autocomplete_v1(s_query=s_query, accept_language=accept_language)
+        api_response = api_instance.ezsigntemplate_get_autocomplete_v1(e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigntemplateApi->ezsigntemplate_get_autocomplete_v1: %s\n" % e)
@@ -327,6 +328,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsigntemplate to return | defaults to "All"
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] if omitted the server will use the default value of "Active"
  **s_query** | **str**| Allow to filter the returned results | [optional]
  **accept_language** | **HeaderAcceptLanguage**|  | [optional]
 
@@ -438,7 +440,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
-**406** | One of the accept header is not defined or invalid. |  -  |
+**406** | The URL is valid, but one of the Accept header is not defined or invalid. For example, you set the header \&quot;Accept: application/json\&quot; but the function can only return \&quot;Content-type: image/png\&quot; |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -518,7 +520,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
-**404** | The element you are trying to work on does not exist |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

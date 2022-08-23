@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **b_ezsignfolder_isdisposable** | **bool** | If the Ezsigndocument can be disposed | 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | 
 **e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | 
+**t_ezsignfolder_message** | **str** | A custom text message that will be added to the email sent. | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 **dt_ezsignfolder_duedate** | **str** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **dt_ezsignfolder_sentdate** | **str** | The date and time at which the Ezsign folder was sent the last time. | [optional] 

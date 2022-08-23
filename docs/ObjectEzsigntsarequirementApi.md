@@ -49,6 +49,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     api_instance = object_ezsigntsarequirement_api.ObjectEzsigntsarequirementApi(api_client)
     s_selector = "User" # str | The type of Ezsigntsarequirements to return
     fki_ezsignfoldertype_id = FieldPkiEzsignfoldertypeID(5) # int |  (optional)
+    e_filter_active = "Active" # str | Specify which results we want to display. (optional) if omitted the server will use the default value of "Active"
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 
@@ -64,7 +65,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve Ezsigntsarequirements and IDs
-        api_response = api_instance.ezsigntsarequirement_get_autocomplete_v1(s_selector, fki_ezsignfoldertype_id=fki_ezsignfoldertype_id, s_query=s_query, accept_language=accept_language)
+        api_response = api_instance.ezsigntsarequirement_get_autocomplete_v1(s_selector, fki_ezsignfoldertype_id=fki_ezsignfoldertype_id, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectEzsigntsarequirementApi->ezsigntsarequirement_get_autocomplete_v1: %s\n" % e)
@@ -77,6 +78,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsigntsarequirements to return |
  **fki_ezsignfoldertype_id** | **int**|  | [optional]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] if omitted the server will use the default value of "Active"
  **s_query** | **str**| Allow to filter the returned results | [optional]
  **accept_language** | **HeaderAcceptLanguage**|  | [optional]
 
@@ -99,7 +101,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
-**422** | The syntax of the request is valid but the request cannot be completed. Look for detail in body. |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

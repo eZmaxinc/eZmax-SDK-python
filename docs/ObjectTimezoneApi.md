@@ -47,6 +47,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_timezone_api.ObjectTimezoneApi(api_client)
     s_selector = "All" # str | The type of Timezones to return
+    e_filter_active = "Active" # str | Specify which results we want to display. (optional) if omitted the server will use the default value of "Active"
     s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
     accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
 
@@ -62,7 +63,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Retrieve Timezones and IDs
-        api_response = api_instance.timezone_get_autocomplete_v1(s_selector, s_query=s_query, accept_language=accept_language)
+        api_response = api_instance.timezone_get_autocomplete_v1(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
         print("Exception when calling ObjectTimezoneApi->timezone_get_autocomplete_v1: %s\n" % e)
@@ -74,6 +75,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Timezones to return |
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] if omitted the server will use the default value of "Active"
  **s_query** | **str**| Allow to filter the returned results | [optional]
  **accept_language** | **HeaderAcceptLanguage**|  | [optional]
 

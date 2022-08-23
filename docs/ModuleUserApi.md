@@ -51,7 +51,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
             fki_language_id=FieldPkiLanguageID(2),
             s_user_firstname="John",
             s_user_lastname="Doe",
-            s_email_address="example@domain.com",
+            s_email_address="email@example.com",
             s_phone_region="514",
             s_phone_exchange="990",
             s_phone_number="1516",
