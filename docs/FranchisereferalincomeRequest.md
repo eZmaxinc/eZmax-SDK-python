@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **fki_franchisebroker_id** | [**FieldPkiFranchisebrokerID**](FieldPkiFranchisebrokerID.md) |  | 
 **fki_franchisereferalincomeprogram_id** | [**FieldPkiFranchisereferalincomeprogramID**](FieldPkiFranchisereferalincomeprogramID.md) |  | 
 **fki_period_id** | [**FieldPkiPeriodID**](FieldPkiPeriodID.md) |  | 
-**d_franchisereferalincome_loan** | **str** | The loan amount | 
-**d_franchisereferalincome_franchiseamount** | **str** | The amount that will be given to the franchise | 
-**d_franchisereferalincome_franchisoramount** | **str** | The amount that will be kept by the franchisor | 
-**d_franchisereferalincome_agentamount** | **str** | The amount that will be given to the agent | 
+**d_franchisereferalincome_loan** | [**FieldDFranchisereferalincomeLoan**](FieldDFranchisereferalincomeLoan.md) |  | 
+**d_franchisereferalincome_franchiseamount** | [**FieldDFranchisereferalincomeFranchiseamount**](FieldDFranchisereferalincomeFranchiseamount.md) |  | 
+**d_franchisereferalincome_franchisoramount** | [**FieldDFranchisereferalincomeFranchisoramount**](FieldDFranchisereferalincomeFranchisoramount.md) |  | 
+**d_franchisereferalincome_agentamount** | [**FieldDFranchisereferalincomeAgentamount**](FieldDFranchisereferalincomeAgentamount.md) |  | 
 **dt_franchisereferalincome_disbursed** | **str** | The date the amounts were disbursed | 
 **t_franchisereferalincome_comment** | **str** | Comment about the transaction | 
 **fki_franchiseoffice_id** | [**FieldPkiFranchiseofficeID**](FieldPkiFranchiseofficeID.md) |  | 

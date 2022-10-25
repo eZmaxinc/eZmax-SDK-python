@@ -22,6 +22,7 @@ from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi
 from eZmaxApi.api.object_branding_api import ObjectBrandingApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi
+from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
 from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi
 from eZmaxApi.api.object_ezsignbulksendsignermapping_api import ObjectEzsignbulksendsignermappingApi

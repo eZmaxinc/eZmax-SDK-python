@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **s_department_name_x** | **str** | The Name of the Department in the language of the requester | 
 **b_activesession_debug** | **bool** | Whether the active session is in debug or not | 
 **pks_customer_code** | [**FieldPksCustomerCode**](FieldPksCustomerCode.md) |  | 
+**fki_systemconfigurationtype_id** | [**FieldPkiSystemconfigurationtypeID**](FieldPkiSystemconfigurationtypeID.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

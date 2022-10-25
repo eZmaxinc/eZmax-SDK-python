@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **b_ezsignfoldertype_sendsummarytodocumentowner** | **bool** | Whether we send the summary to the Ezsigndocument&#39;s owner | 
 **b_ezsignfoldertype_sendsummarytofolderowner** | **bool** | Whether we send the summary to the Ezsignfolder&#39;s owner | 
 **b_ezsignfoldertype_sendsummarytocolleague** | **bool** | Whether we send the summary to the colleagues | 
+**b_ezsignfoldertype_includeproofsigner** | **bool** | Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | 
+**b_ezsignfoldertype_includeproofuser** | **bool** | Whether we include the proof with the signed Ezsigndocument for users | 
 **b_ezsignfoldertype_isactive** | **bool** | Whether the Ezsignfoldertype is active or not | 
 **pki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | [optional] 
 **fki_billingentityinternal_id** | [**FieldPkiBillingentityinternalID**](FieldPkiBillingentityinternalID.md) |  | [optional] 

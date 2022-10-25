@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **e_ezsignformfieldgroup_signerrequirement** | [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | 
 **s_ezsignformfieldgroup_label** | **str** | The Label for the Ezsignformfieldgroup | 
 **i_ezsignformfieldgroup_step** | [**FieldIEzsignformfieldgroupStep**](FieldIEzsignformfieldgroupStep.md) |  | 
-**s_ezsignformfieldgroup_defaultvalue** | **str** | The default value for the Ezsignformfieldgroup | 
 **i_ezsignformfieldgroup_filledmin** | [**FieldIEzsignformfieldgroupFilledmin**](FieldIEzsignformfieldgroupFilledmin.md) |  | 
 **i_ezsignformfieldgroup_filledmax** | [**FieldIEzsignformfieldgroupFilledmax**](FieldIEzsignformfieldgroupFilledmax.md) |  | 
 **b_ezsignformfieldgroup_readonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
 **a_obj_ezsignformfield** | [**[EzsignformfieldResponseCompound]**](EzsignformfieldResponseCompound.md) |  | 
 **a_obj_ezsignformfieldgroupsigner** | [**[EzsignformfieldgroupsignerResponseCompound]**](EzsignformfieldgroupsignerResponseCompound.md) |  | 
+**s_ezsignformfieldgroup_defaultvalue** | **str** | The default value for the Ezsignformfieldgroup | [optional] 
 **i_ezsignformfieldgroup_maxlength** | [**FieldIEzsignformfieldgroupMaxlength**](FieldIEzsignformfieldgroupMaxlength.md) |  | [optional] 
 **b_ezsignformfieldgroup_encrypted** | **bool** | Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 
 **s_ezsignformfieldgroup_regexp** | **str** | A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea** | [optional] 

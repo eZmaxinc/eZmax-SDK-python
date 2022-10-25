@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**webhook_get_history_v1**](ObjectWebhookApi.md#webhook_get_history_v1) | **GET** /1/object/webhook/{pkiWebhookID}/getHistory | Retrieve the logs for recent Webhook calls
 [**webhook_get_list_v1**](ObjectWebhookApi.md#webhook_get_list_v1) | **GET** /1/object/webhook/getList | Retrieve Webhook list
 [**webhook_get_object_v1**](ObjectWebhookApi.md#webhook_get_object_v1) | **GET** /1/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
-[**webhook_test_url_v1**](ObjectWebhookApi.md#webhook_test_url_v1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
+[**webhook_test_v1**](ObjectWebhookApi.md#webhook_test_v1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
 
 # **webhook_create_object_v1**
@@ -277,6 +277,7 @@ import time
 import eZmaxApi
 from eZmaxApi.api import object_webhook_api
 from eZmaxApi.model.common_response_error import CommonResponseError
+from eZmaxApi.model.common_response_error_too_many_requests import CommonResponseErrorTooManyRequests
 from eZmaxApi.model.webhook_get_history_v1_response import WebhookGetHistoryV1Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
@@ -340,6 +341,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -513,8 +515,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **webhook_test_url_v1**
-> WebhookTestV1Response webhook_test_url_v1(pki_webhook_id)
+# **webhook_test_v1**
+> WebhookTestV1Response webhook_test_v1(pki_webhook_id, body)
 
 Test the Webhook by calling the Url
 
@@ -553,14 +555,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = object_webhook_api.ObjectWebhookApi(api_client)
     pki_webhook_id = 77 # int | 
+    body = {} # {str: (bool, date, datetime, dict, float, int, list, str, none_type)} | 
 
     # example passing only required values which don't have defaults set
     try:
         # Test the Webhook by calling the Url
-        api_response = api_instance.webhook_test_url_v1(pki_webhook_id)
+        api_response = api_instance.webhook_test_v1(pki_webhook_id, body)
         pprint(api_response)
     except eZmaxApi.ApiException as e:
-        print("Exception when calling ObjectWebhookApi->webhook_test_url_v1: %s\n" % e)
+        print("Exception when calling ObjectWebhookApi->webhook_test_v1: %s\n" % e)
 ```
 
 
@@ -569,6 +572,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_webhook_id** | **int**|  |
+ **body** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**|  |
 
 ### Return type
 
@@ -580,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
