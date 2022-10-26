@@ -65,7 +65,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
                 t_ezsignsignature_tooltip="Please sign here if you agree to the terms",
                 e_ezsignsignature_tooltipposition=FieldEEzsignsignatureTooltipposition("TopLeft"),
                 e_ezsignsignature_font=FieldEEzsignsignatureFont("Normal"),
-                fki_user_id=FieldPkiUserID(70),
+                fki_ezsignfoldersignerassociation_id_validation=FieldPkiEzsignfoldersignerassociationID(20),
                 b_ezsignsignature_required=True,
                 e_ezsignsignature_attachmentnamesource=FieldEEzsignsignatureAttachmentnamesource("Description"),
                 s_ezsignsignature_attachmentdescription="Attachment",
