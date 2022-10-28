@@ -5,13 +5,13 @@ A Webhook Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**s_webhook_event** | **str** | The concatenated string to describe the Webhook event | 
 **pki_webhook_id** | **int** | The unique ID of the Webhook | 
 **s_webhook_description** | **str** | The description of the Webhook | 
 **e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
 **s_webhook_url** | **str** | The URL of the Webhook callback | 
 **s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**s_webhook_event** | **str** | The concatenated string to describe the Webhook event | 
 **fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | [optional] 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 

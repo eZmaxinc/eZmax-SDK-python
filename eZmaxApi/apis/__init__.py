@@ -54,4 +54,5 @@ from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi
 from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
 from eZmaxApi.api.object_user_api import ObjectUserApi
 from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi
+from eZmaxApi.api.object_versionhistory_api import ObjectVersionhistoryApi
 from eZmaxApi.api.object_webhook_api import ObjectWebhookApi
