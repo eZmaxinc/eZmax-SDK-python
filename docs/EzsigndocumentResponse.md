@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **s_ezsigndocument_md5signed** | **str** | MD5 Hash of the final PDF Document after all signatures were applied to it. | 
 **b_ezsigndocument_ezsignform** | **bool** | If the Ezsigndocument contains an Ezsignform or not | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
+**fki_ezsignfoldersignerassociation_id_declinedtosign** | [**FieldPkiEzsignfoldersignerassociationID**](FieldPkiEzsignfoldersignerassociationID.md) |  | [optional] 
 **dt_ezsignform_completed** | **str** | The date and time at which the Ezsignform has been completed. | [optional] 
 **dt_ezsigndocument_firstsend** | **str** | The date and time when the Ezsigndocument was first sent. | [optional] 
 **dt_ezsigndocument_lastsend** | **str** | The date and time when the Ezsigndocument was sent the last time. | [optional] 
+**t_ezsigndocument_declinedtosignreason** | **str** | A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

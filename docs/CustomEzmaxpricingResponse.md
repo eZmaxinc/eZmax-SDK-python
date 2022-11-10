@@ -6,6 +6,7 @@ A Custom Ezmaxpricing Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxpricing_id** | [**FieldPkiEzmaxpricingID**](FieldPkiEzmaxpricingID.md) |  | 
+**d_ezmaxpricing_rebateezsignallagents** | [**FieldDEzmaxpricingRebateezsignallagents**](FieldDEzmaxpricingRebateezsignallagents.md) |  | 
 **dt_ezmaxpricing_start** | **str** | The start date of the Ezmaxpricing | 
 **dt_ezmaxpricing_end** | **str** | The end date of the Ezmaxpricing | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
