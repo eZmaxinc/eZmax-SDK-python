@@ -18,13 +18,14 @@ Retrieve previously used Ezsignsigners and all users from the system
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import module_ezsign_api
-from eZmaxApi.model.ezsign_suggest_signers_v1_response import EzsignSuggestSignersV1Response
+from eZmaxApi.models.ezsign_suggest_signers_v1_response import EzsignSuggestSignersV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -37,7 +38,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -45,16 +46,17 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = module_ezsign_api.ModuleEzsignApi(api_client)
+    api_instance = eZmaxApi.ModuleEzsignApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Suggest signers
         api_response = api_instance.ezsign_suggest_signers_v1()
+        print("The response of ModuleEzsignApi->ezsign_suggest_signers_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ModuleEzsignApi->ezsign_suggest_signers_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -73,9 +75,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsign_suggest_templates_v1**
-> EzsignSuggestTemplatesV1Response ezsign_suggest_templates_v1()
+> EzsignSuggestTemplatesV1Response ezsign_suggest_templates_v1(fki_ezsignfoldertype_id=fki_ezsignfoldertype_id)
 
 Suggest templates
 
@@ -92,13 +92,14 @@ Retrieve Ezsigntemplates and Ezsigntemplatepackages that can be imported in a Ez
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import module_ezsign_api
-from eZmaxApi.model.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
+from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -111,7 +112,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -119,25 +120,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = module_ezsign_api.ModuleEzsignApi(api_client)
-    fki_ezsignfoldertype_id = FieldPkiEzsignfoldertypeID(5) # int |  (optional)
+    api_instance = eZmaxApi.ModuleEzsignApi(api_client)
+    fki_ezsignfoldertype_id = 56 # int |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Suggest templates
         api_response = api_instance.ezsign_suggest_templates_v1(fki_ezsignfoldertype_id=fki_ezsignfoldertype_id)
+        print("The response of ModuleEzsignApi->ezsign_suggest_templates_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ModuleEzsignApi->ezsign_suggest_templates_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fki_ezsignfoldertype_id** | **int**|  | [optional]
+ **fki_ezsignfoldertype_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -152,9 +153,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

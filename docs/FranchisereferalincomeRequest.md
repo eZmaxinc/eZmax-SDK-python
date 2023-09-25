@@ -5,20 +5,36 @@ An Franchisereferalincome Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_franchisebroker_id** | [**FieldPkiFranchisebrokerID**](FieldPkiFranchisebrokerID.md) |  | 
-**fki_franchisereferalincomeprogram_id** | [**FieldPkiFranchisereferalincomeprogramID**](FieldPkiFranchisereferalincomeprogramID.md) |  | 
-**fki_period_id** | [**FieldPkiPeriodID**](FieldPkiPeriodID.md) |  | 
+**pki_franchisereferalincome_id** | **int** | The unique ID of the Franchisereferalincome | [optional] 
+**fki_franchisebroker_id** | **int** | The unique ID of the Franchisebroker | 
+**fki_franchisereferalincomeprogram_id** | **int** | The unique ID of the Franchisereferalincomeprogram | 
+**fki_period_id** | **int** | The unique ID of the Period | 
 **d_franchisereferalincome_loan** | **str** | The loan amount | 
 **d_franchisereferalincome_franchiseamount** | **str** | The amount that will be given to the franchise | 
 **d_franchisereferalincome_franchisoramount** | **str** | The amount that will be kept by the franchisor | 
 **d_franchisereferalincome_agentamount** | **str** | The amount that will be given to the agent | 
 **dt_franchisereferalincome_disbursed** | **str** | The date the amounts were disbursed | 
 **t_franchisereferalincome_comment** | **str** | Comment about the transaction | 
-**fki_franchiseoffice_id** | [**FieldPkiFranchiseofficeID**](FieldPkiFranchiseofficeID.md) |  | 
+**fki_franchiseoffice_id** | **int** | The unique ID of the Franchisereoffice | 
 **s_franchisereferalincome_remoteid** | **str** |  | 
-**pki_franchisereferalincome_id** | [**FieldPkiFranchisereferalincomeID**](FieldPkiFranchisereferalincomeID.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from eZmaxApi.models.franchisereferalincome_request import FranchisereferalincomeRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of FranchisereferalincomeRequest from a JSON string
+franchisereferalincome_request_instance = FranchisereferalincomeRequest.from_json(json)
+# print the JSON string representation of the object
+print FranchisereferalincomeRequest.to_json()
+
+# convert the object into a dict
+franchisereferalincome_request_dict = franchisereferalincome_request_instance.to_dict()
+# create an instance of FranchisereferalincomeRequest from a dict
+franchisereferalincome_request_form_dict = franchisereferalincome_request.from_dict(franchisereferalincome_request_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

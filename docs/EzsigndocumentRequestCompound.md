@@ -5,22 +5,39 @@ An Ezsigndocument Object and children to create a complete structure
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezsignfolder_id** | [**FieldPkiEzsignfolderID**](FieldPkiEzsignfolderID.md) |  | 
-**fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
+**pki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | [optional] 
+**fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
+**fki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigntemplate | [optional] 
+**fki_ezsignfoldersignerassociation_id** | **int** | The unique ID of the Ezsignfoldersignerassociation | [optional] 
+**fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **e_ezsigndocument_source** | **str** | Indicates where to look for the document binary content. | 
-**dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the Ezsigndocument can be signed. | 
-**s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
-**pki_ezsigndocument_id** | [**FieldPkiEzsigndocumentID**](FieldPkiEzsigndocumentID.md) |  | [optional] 
-**fki_ezsigntemplate_id** | [**FieldPkiEzsigntemplateID**](FieldPkiEzsigntemplateID.md) |  | [optional] 
-**fki_ezsignfoldersignerassociation_id** | [**FieldPkiEzsignfoldersignerassociationID**](FieldPkiEzsignfoldersignerassociationID.md) |  | [optional] 
-**e_ezsigndocument_format** | **str** | Indicates the format of the document. | [optional]  if omitted the server will use the default value of "Pdf"
-**s_ezsigndocument_base64** | **str** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
+**e_ezsigndocument_format** | **str** | Indicates the format of the document. | [optional] 
+**s_ezsigndocument_base64** | **bytearray** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
 **s_ezsigndocument_url** | **str** | The url where the document content resides.  This field is Required when eEzsigndocumentSource &#x3D; Url. | [optional] 
-**b_ezsigndocument_forcerepair** | **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature.  | [optional]  if omitted the server will use the default value of True
+**b_ezsigndocument_forcerepair** | **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature.  | [optional] [default to True]
 **s_ezsigndocument_password** | **str** | If the source document is password protected, the password to open/modify it. | [optional] 
 **e_ezsigndocument_form** | **str** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID** | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**dt_ezsigndocument_duedate** | **str** | The maximum date and time at which the Ezsigndocument can be signed. | 
+**s_ezsigndocument_name** | **str** | The name of the document that will be presented to Ezsignfoldersignerassociations | 
+**s_ezsigndocument_externalid** | **str** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 
+## Example
+
+```python
+from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsigndocumentRequestCompound from a JSON string
+ezsigndocument_request_compound_instance = EzsigndocumentRequestCompound.from_json(json)
+# print the JSON string representation of the object
+print EzsigndocumentRequestCompound.to_json()
+
+# convert the object into a dict
+ezsigndocument_request_compound_dict = ezsigndocument_request_compound_instance.to_dict()
+# create an instance of EzsigndocumentRequestCompound from a dict
+ezsigndocument_request_compound_form_dict = ezsigndocument_request_compound.from_dict(ezsigndocument_request_compound_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

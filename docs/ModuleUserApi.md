@@ -17,14 +17,15 @@ The endpoint allows to initiate the creation or a user of type Ezsignuser.  The 
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import module_user_api
-from eZmaxApi.model.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
-from eZmaxApi.model.user_create_ezsignuser_v1_response import UserCreateEzsignuserV1Response
+from eZmaxApi.models.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
+from eZmaxApi.models.user_create_ezsignuser_v1_response import UserCreateEzsignuserV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -37,7 +38,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -45,35 +46,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = module_user_api.ModuleUserApi(api_client)
-    user_create_ezsignuser_v1_request = [
-        UserCreateEzsignuserV1Request(
-            fki_language_id=FieldPkiLanguageID(2),
-            s_user_firstname="John",
-            s_user_lastname="Doe",
-            s_email_address="email@example.com",
-            s_phone_region="514",
-            s_phone_exchange="990",
-            s_phone_number="1516",
-            s_phone_extension="123",
-        ),
-    ] # [UserCreateEzsignuserV1Request] | 
+    api_instance = eZmaxApi.ModuleUserApi(api_client)
+    user_create_ezsignuser_v1_request = [eZmaxApi.UserCreateEzsignuserV1Request()] # List[UserCreateEzsignuserV1Request] | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a new User of type Ezsignuser
         api_response = api_instance.user_create_ezsignuser_v1(user_create_ezsignuser_v1_request)
+        print("The response of ModuleUserApi->user_create_ezsignuser_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ModuleUserApi->user_create_ezsignuser_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_create_ezsignuser_v1_request** | [**[UserCreateEzsignuserV1Request]**](UserCreateEzsignuserV1Request.md)|  |
+ **user_create_ezsignuser_v1_request** | [**List[UserCreateEzsignuserV1Request]**](UserCreateEzsignuserV1Request.md)|  | 
 
 ### Return type
 
@@ -88,9 +79,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

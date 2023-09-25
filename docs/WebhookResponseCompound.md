@@ -7,18 +7,34 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_webhook_id** | **int** | The unique ID of the Webhook | 
 **s_webhook_description** | **str** | The description of the Webhook | 
-**e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
-**s_webhook_url** | **str** | The URL of the Webhook callback | 
-**s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
-**b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
-**s_webhook_event** | **str** | The concatenated string to describe the Webhook event | 
-**fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | [optional] 
+**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
+**e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
 **e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
+**s_webhook_url** | **str** | The URL of the Webhook callback | 
+**s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
 **b_webhook_isactive** | **bool** | Whether the Webhook is active or not | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**s_webhook_event** | **str** | The concatenated string to describe the Webhook event | 
 
+## Example
+
+```python
+from eZmaxApi.models.webhook_response_compound import WebhookResponseCompound
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of WebhookResponseCompound from a JSON string
+webhook_response_compound_instance = WebhookResponseCompound.from_json(json)
+# print the JSON string representation of the object
+print WebhookResponseCompound.to_json()
+
+# convert the object into a dict
+webhook_response_compound_dict = webhook_response_compound_instance.to_dict()
+# create an instance of WebhookResponseCompound from a dict
+webhook_response_compound_form_dict = webhook_response_compound.from_dict(webhook_response_compound_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

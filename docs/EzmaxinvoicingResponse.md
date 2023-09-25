@@ -5,21 +5,37 @@ A Ezmaxinvoicing Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_ezmaxinvoicingcontract_id** | [**FieldPkiEzmaxinvoicingcontractID**](FieldPkiEzmaxinvoicingcontractID.md) |  | 
-**fki_ezmaxpricing_id** | [**FieldPkiEzmaxpricingID**](FieldPkiEzmaxpricingID.md) |  | 
-**fki_systemconfigurationtype_id** | [**FieldPkiSystemconfigurationtypeID**](FieldPkiSystemconfigurationtypeID.md) |  | 
+**pki_ezmaxinvoicing_id** | **int** | The unique ID of the Ezmaxinvoicing | [optional] 
+**fki_ezmaxinvoicingcontract_id** | **int** | The unique ID of the Ezmaxinvoicingcontract | 
+**fki_ezmaxpricing_id** | **int** | The unique ID of the Ezmaxpricing | 
+**fki_systemconfigurationtype_id** | **int** | The unique ID of the Systemconfigurationtype | 
 **s_systemconfigurationtype_description_x** | **str** | The description of the Systemconfigurationtype in the language of the requester | 
-**yyyymm_ezmaxinvoicing** | [**FieldYyyymmEzmaxinvoicing**](FieldYyyymmEzmaxinvoicing.md) |  | 
-**i_ezmaxinvoicing_days** | [**FieldIEzmaxinvoicingDays**](FieldIEzmaxinvoicingDays.md) |  | 
+**yyyymm_ezmaxinvoicing** | **str** | The YYYYMM period of the Ezmaxinvoicing | 
+**i_ezmaxinvoicing_days** | **int** | The number of days invoiced | 
 **e_ezmaxinvoicing_paymenttype** | [**FieldEEzmaxinvoicingPaymenttype**](FieldEEzmaxinvoicingPaymenttype.md) |  | 
-**d_ezmaxinvoicing_rebatepaymenttype** | [**FieldDEzmaxinvoicingRebatepaymenttype**](FieldDEzmaxinvoicingRebatepaymenttype.md) |  | 
-**i_ezmaxinvoicing_contractlength** | [**FieldIEzmaxinvoicingContractlength**](FieldIEzmaxinvoicingContractlength.md) |  | 
-**d_ezmaxinvoicing_rebatecontractlength** | [**FieldDEzmaxinvoicingRebatecontractlength**](FieldDEzmaxinvoicingRebatecontractlength.md) |  | 
+**d_ezmaxinvoicing_rebatepaymenttype** | **str** | The percentage of rebate depending of the payment type | 
+**i_ezmaxinvoicing_contractlength** | **int** | The length of the contract in years | 
+**d_ezmaxinvoicing_rebatecontractlength** | **str** | The percentage of rebate depending of the contract length | 
 **b_ezmaxinvoicing_rebate_ezsignallagents** | **bool** | Whether the rebate for eZsign is for all agents | 
-**pki_ezmaxinvoicing_id** | [**FieldPkiEzmaxinvoicingID**](FieldPkiEzmaxinvoicingID.md) |  | [optional] 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from eZmaxApi.models.ezmaxinvoicing_response import EzmaxinvoicingResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzmaxinvoicingResponse from a JSON string
+ezmaxinvoicing_response_instance = EzmaxinvoicingResponse.from_json(json)
+# print the JSON string representation of the object
+print EzmaxinvoicingResponse.to_json()
+
+# convert the object into a dict
+ezmaxinvoicing_response_dict = ezmaxinvoicing_response_instance.to_dict()
+# create an instance of EzmaxinvoicingResponse from a dict
+ezmaxinvoicing_response_form_dict = ezmaxinvoicing_response.from_dict(ezmaxinvoicing_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

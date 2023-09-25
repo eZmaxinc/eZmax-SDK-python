@@ -18,14 +18,15 @@ The endpoint allows to create one or many elements at once.  The array can conta
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_franchisereferalincome_api
-from eZmaxApi.model.franchisereferalincome_create_object_v1_response import FranchisereferalincomeCreateObjectV1Response
-from eZmaxApi.model.franchisereferalincome_create_object_v1_request import FranchisereferalincomeCreateObjectV1Request
+from eZmaxApi.models.franchisereferalincome_create_object_v1_request import FranchisereferalincomeCreateObjectV1Request
+from eZmaxApi.models.franchisereferalincome_create_object_v1_response import FranchisereferalincomeCreateObjectV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -38,7 +39,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -46,42 +47,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_franchisereferalincome_api.ObjectFranchisereferalincomeApi(api_client)
-    franchisereferalincome_create_object_v1_request = [
-        FranchisereferalincomeCreateObjectV1Request(
-            obj_franchisereferalincome=FranchisereferalincomeRequest(
-                pki_franchisereferalincome_id=FieldPkiFranchisereferalincomeID(35),
-                fki_franchisebroker_id=FieldPkiFranchisebrokerID(61),
-                fki_franchisereferalincomeprogram_id=FieldPkiFranchisereferalincomeprogramID(51),
-                fki_period_id=FieldPkiPeriodID(21),
-                d_franchisereferalincome_loan="500275.62",
-                d_franchisereferalincome_franchiseamount="275.00",
-                d_franchisereferalincome_franchisoramount="385.00",
-                d_franchisereferalincome_agentamount="800.00",
-                dt_franchisereferalincome_disbursed="2020-12-31",
-                t_franchisereferalincome_comment="This is a comment",
-                fki_franchiseoffice_id=FieldPkiFranchiseofficeID(50),
-                s_franchisereferalincome_remoteid="s_franchisereferalincome_remoteid_example",
-            ),
-            obj_franchisereferalincome_compound=FranchisereferalincomeRequestCompound(),
-        ),
-    ] # [FranchisereferalincomeCreateObjectV1Request] | 
+    api_instance = eZmaxApi.ObjectFranchisereferalincomeApi(api_client)
+    franchisereferalincome_create_object_v1_request = [eZmaxApi.FranchisereferalincomeCreateObjectV1Request()] # List[FranchisereferalincomeCreateObjectV1Request] | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a new Franchisereferalincome
         api_response = api_instance.franchisereferalincome_create_object_v1(franchisereferalincome_create_object_v1_request)
+        print("The response of ObjectFranchisereferalincomeApi->franchisereferalincome_create_object_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectFranchisereferalincomeApi->franchisereferalincome_create_object_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **franchisereferalincome_create_object_v1_request** | [**[FranchisereferalincomeCreateObjectV1Request]**](FranchisereferalincomeCreateObjectV1Request.md)|  |
+ **franchisereferalincome_create_object_v1_request** | [**List[FranchisereferalincomeCreateObjectV1Request]**](FranchisereferalincomeCreateObjectV1Request.md)|  | 
 
 ### Return type
 
@@ -96,9 +80,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
@@ -115,14 +97,15 @@ The endpoint allows to create one or many elements at once.
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_franchisereferalincome_api
-from eZmaxApi.model.franchisereferalincome_create_object_v2_request import FranchisereferalincomeCreateObjectV2Request
-from eZmaxApi.model.franchisereferalincome_create_object_v2_response import FranchisereferalincomeCreateObjectV2Response
+from eZmaxApi.models.franchisereferalincome_create_object_v2_request import FranchisereferalincomeCreateObjectV2Request
+from eZmaxApi.models.franchisereferalincome_create_object_v2_response import FranchisereferalincomeCreateObjectV2Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -135,7 +118,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -143,28 +126,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_franchisereferalincome_api.ObjectFranchisereferalincomeApi(api_client)
-    franchisereferalincome_create_object_v2_request = FranchisereferalincomeCreateObjectV2Request(
-        a_obj_franchisereferalincome=[
-            FranchisereferalincomeRequestCompound(),
-        ],
-    ) # FranchisereferalincomeCreateObjectV2Request | 
+    api_instance = eZmaxApi.ObjectFranchisereferalincomeApi(api_client)
+    franchisereferalincome_create_object_v2_request = eZmaxApi.FranchisereferalincomeCreateObjectV2Request() # FranchisereferalincomeCreateObjectV2Request | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a new Franchisereferalincome
         api_response = api_instance.franchisereferalincome_create_object_v2(franchisereferalincome_create_object_v2_request)
+        print("The response of ObjectFranchisereferalincomeApi->franchisereferalincome_create_object_v2:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectFranchisereferalincomeApi->franchisereferalincome_create_object_v2: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **franchisereferalincome_create_object_v2_request** | [**FranchisereferalincomeCreateObjectV2Request**](FranchisereferalincomeCreateObjectV2Request.md)|  |
+ **franchisereferalincome_create_object_v2_request** | [**FranchisereferalincomeCreateObjectV2Request**](FranchisereferalincomeCreateObjectV2Request.md)|  | 
 
 ### Return type
 
@@ -179,9 +159,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |

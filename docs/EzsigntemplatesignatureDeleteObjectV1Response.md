@@ -5,10 +5,26 @@ Response for DELETE /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatur
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | [optional] 
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
 **obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from eZmaxApi.models.ezsigntemplatesignature_delete_object_v1_response import EzsigntemplatesignatureDeleteObjectV1Response
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsigntemplatesignatureDeleteObjectV1Response from a JSON string
+ezsigntemplatesignature_delete_object_v1_response_instance = EzsigntemplatesignatureDeleteObjectV1Response.from_json(json)
+# print the JSON string representation of the object
+print EzsigntemplatesignatureDeleteObjectV1Response.to_json()
+
+# convert the object into a dict
+ezsigntemplatesignature_delete_object_v1_response_dict = ezsigntemplatesignature_delete_object_v1_response_instance.to_dict()
+# create an instance of EzsigntemplatesignatureDeleteObjectV1Response from a dict
+ezsigntemplatesignature_delete_object_v1_response_form_dict = ezsigntemplatesignature_delete_object_v1_response.from_dict(ezsigntemplatesignature_delete_object_v1_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

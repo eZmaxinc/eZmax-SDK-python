@@ -17,14 +17,14 @@ Retrieve an existing Notificationtest's Elements
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_notificationtest_api
-from eZmaxApi.model.common_response_error import CommonResponseError
-from eZmaxApi.model.notificationtest_get_elements_v1_response import NotificationtestGetElementsV1Response
+from eZmaxApi.models.notificationtest_get_elements_v1_response import NotificationtestGetElementsV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -37,7 +37,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -45,24 +45,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_notificationtest_api.ObjectNotificationtestApi(api_client)
-    pki_notificationtest_id = FieldPkiNotificationtestID(14) # int | 
+    api_instance = eZmaxApi.ObjectNotificationtestApi(api_client)
+    pki_notificationtest_id = 56 # int | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve an existing Notificationtest's Elements
         api_response = api_instance.notificationtest_get_elements_v1(pki_notificationtest_id)
+        print("The response of ObjectNotificationtestApi->notificationtest_get_elements_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectNotificationtestApi->notificationtest_get_elements_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_notificationtest_id** | **int**|  |
+ **pki_notificationtest_id** | **int**|  | 
 
 ### Return type
 
@@ -77,9 +78,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

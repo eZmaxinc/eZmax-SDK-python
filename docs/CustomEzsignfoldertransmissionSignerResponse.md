@@ -5,11 +5,27 @@ A form Signer Object in the context of an Ezsignfoldertransmissions
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
 **s_contact_firstname** | **str** | The First name of the contact | 
 **s_contact_lastname** | **str** | The Last name of the contact | 
-**fki_user_id** | [**FieldPkiUserID**](FieldPkiUserID.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from eZmaxApi.models.custom_ezsignfoldertransmission_signer_response import CustomEzsignfoldertransmissionSignerResponse
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CustomEzsignfoldertransmissionSignerResponse from a JSON string
+custom_ezsignfoldertransmission_signer_response_instance = CustomEzsignfoldertransmissionSignerResponse.from_json(json)
+# print the JSON string representation of the object
+print CustomEzsignfoldertransmissionSignerResponse.to_json()
+
+# convert the object into a dict
+custom_ezsignfoldertransmission_signer_response_dict = custom_ezsignfoldertransmission_signer_response_instance.to_dict()
+# create an instance of CustomEzsignfoldertransmissionSignerResponse from a dict
+custom_ezsignfoldertransmission_signer_response_form_dict = custom_ezsignfoldertransmission_signer_response.from_dict(custom_ezsignfoldertransmission_signer_response_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

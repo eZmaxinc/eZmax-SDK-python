@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **period_get_autocomplete_v1**
-> CommonGetAutocompleteV1Response period_get_autocomplete_v1(s_selector)
+> CommonGetAutocompleteV1Response period_get_autocomplete_v1(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
 
 Retrieve Periods and IDs
 
@@ -18,14 +18,15 @@ Get the list of Periods to be used in a dropdown or autocomplete control.
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_period_api
-from eZmaxApi.model.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
-from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
+from eZmaxApi.models.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
+from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -38,7 +39,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -46,39 +47,31 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_period_api.ObjectPeriodApi(api_client)
-    s_selector = "ActiveNormal" # str | The types of Periods to return
-    e_filter_active = "Active" # str | Specify which results we want to display. (optional) if omitted the server will use the default value of "Active"
-    s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
-    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
+    api_instance = eZmaxApi.ObjectPeriodApi(api_client)
+    s_selector = 's_selector_example' # str | The types of Periods to return
+    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    s_query = 's_query_example' # str | Allow to filter the returned results (optional)
+    accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve Periods and IDs
-        api_response = api_instance.period_get_autocomplete_v1(s_selector)
-        pprint(api_response)
-    except eZmaxApi.ApiException as e:
-        print("Exception when calling ObjectPeriodApi->period_get_autocomplete_v1: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve Periods and IDs
         api_response = api_instance.period_get_autocomplete_v1(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+        print("The response of ObjectPeriodApi->period_get_autocomplete_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectPeriodApi->period_get_autocomplete_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **s_selector** | **str**| The types of Periods to return |
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] if omitted the server will use the default value of "Active"
- **s_query** | **str**| Allow to filter the returned results | [optional]
- **accept_language** | **HeaderAcceptLanguage**|  | [optional]
+ **s_selector** | **str**| The types of Periods to return | 
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **s_query** | **str**| Allow to filter the returned results | [optional] 
+ **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 
 ### Return type
 
@@ -93,9 +86,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -103,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **period_get_autocomplete_v2**
-> PeriodGetAutocompleteV2Response period_get_autocomplete_v2(s_selector)
+> PeriodGetAutocompleteV2Response period_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
 
 Retrieve Periods and IDs
 
@@ -112,14 +103,15 @@ Get the list of Period to be used in a dropdown or autocomplete control.
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_period_api
-from eZmaxApi.model.period_get_autocomplete_v2_response import PeriodGetAutocompleteV2Response
-from eZmaxApi.model.header_accept_language import HeaderAcceptLanguage
+from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
+from eZmaxApi.models.period_get_autocomplete_v2_response import PeriodGetAutocompleteV2Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -132,7 +124,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -140,39 +132,31 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_period_api.ObjectPeriodApi(api_client)
-    s_selector = "ActiveNormal" # str | The type of Periods to return
-    e_filter_active = "Active" # str | Specify which results we want to display. (optional) if omitted the server will use the default value of "Active"
-    s_query = "sQuery_example" # str | Allow to filter the returned results (optional)
-    accept_language = HeaderAcceptLanguage("*") # HeaderAcceptLanguage |  (optional)
+    api_instance = eZmaxApi.ObjectPeriodApi(api_client)
+    s_selector = 's_selector_example' # str | The type of Periods to return
+    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    s_query = 's_query_example' # str | Allow to filter the returned results (optional)
+    accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve Periods and IDs
-        api_response = api_instance.period_get_autocomplete_v2(s_selector)
-        pprint(api_response)
-    except eZmaxApi.ApiException as e:
-        print("Exception when calling ObjectPeriodApi->period_get_autocomplete_v2: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve Periods and IDs
         api_response = api_instance.period_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+        print("The response of ObjectPeriodApi->period_get_autocomplete_v2:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectPeriodApi->period_get_autocomplete_v2: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **s_selector** | **str**| The type of Periods to return |
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] if omitted the server will use the default value of "Active"
- **s_query** | **str**| Allow to filter the returned results | [optional]
- **accept_language** | **HeaderAcceptLanguage**|  | [optional]
+ **s_selector** | **str**| The type of Periods to return | 
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **s_query** | **str**| Allow to filter the returned results | [optional] 
+ **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 
 ### Return type
 
@@ -187,9 +171,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

@@ -5,15 +5,31 @@ Gives informations about the user that created the object or the last user to ha
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_user_id** | [**FieldPkiUserID**](FieldPkiUserID.md) |  | 
-**s_user_loginname** | **str** | The Login name of the User. | 
-**s_user_lastname** | **str** | The Last name of the user | 
-**s_user_firstname** | **str** | The First name of the user | 
-**dt_auditdetail_date** | **str** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
-**fki_apikey_id** | [**FieldPkiApikeyID**](FieldPkiApikeyID.md) |  | [optional] 
+**fki_user_id** | **int** | The unique ID of the User | 
+**fki_apikey_id** | **int** | The unique ID of the Apikey | [optional] 
+**s_user_loginname** | **str** | The login name of the User. | 
+**s_user_lastname** | **str** | The last name of the user | 
+**s_user_firstname** | **str** | The first name of the user | 
 **s_apikey_description_x** | **str** | The description of the Apikey in the language of the requester | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**dt_auditdetail_date** | **str** | Represent a Date Time. The timezone is the one configured in the User&#39;s profile. | 
 
+## Example
+
+```python
+from eZmaxApi.models.common_auditdetail import CommonAuditdetail
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CommonAuditdetail from a JSON string
+common_auditdetail_instance = CommonAuditdetail.from_json(json)
+# print the JSON string representation of the object
+print CommonAuditdetail.to_json()
+
+# convert the object into a dict
+common_auditdetail_dict = common_auditdetail_instance.to_dict()
+# create an instance of CommonAuditdetail from a dict
+common_auditdetail_form_dict = common_auditdetail.from_dict(common_auditdetail_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

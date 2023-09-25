@@ -11,11 +11,27 @@ Name | Type | Description | Notes
 **s_webhook_event** | **str** | The concatenated string to describe the Webhook event | 
 **s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
 **e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
-**b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
 **e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
 
+## Example
+
+```python
+from eZmaxApi.models.webhook_list_element import WebhookListElement
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of WebhookListElement from a JSON string
+webhook_list_element_instance = WebhookListElement.from_json(json)
+# print the JSON string representation of the object
+print WebhookListElement.to_json()
+
+# convert the object into a dict
+webhook_list_element_dict = webhook_list_element_instance.to_dict()
+# create an instance of WebhookListElement from a dict
+webhook_list_element_form_dict = webhook_list_element.from_dict(webhook_list_element_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

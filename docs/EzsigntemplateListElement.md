@@ -5,17 +5,33 @@ A Ezsigntemplate List Element
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsigntemplate_id** | [**FieldPkiEzsigntemplateID**](FieldPkiEzsigntemplateID.md) |  | 
-**fki_ezsignfoldertype_id** | [**FieldPkiEzsignfoldertypeID**](FieldPkiEzsignfoldertypeID.md) |  | 
-**fki_language_id** | [**FieldPkiLanguageID**](FieldPkiLanguageID.md) |  | 
+**pki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigntemplate | 
+**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **s_ezsigntemplate_description** | **str** | The description of the Ezsigntemplate | 
-**b_ezsigntemplate_incomplete** | **bool** | Indicate the Ezsigntemplate is incomplete and cannot be used | 
-**s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 
-**i_ezsigntemplatedocument_pagetotal** | [**FieldIEzsigntemplatedocumentPagetotal**](FieldIEzsigntemplatedocumentPagetotal.md) |  | [optional] 
+**i_ezsigntemplatedocument_pagetotal** | **int** | The number of pages in the Ezsigntemplatedocument. | [optional] 
 **i_ezsigntemplate_signaturetotal** | **int** | The number of total signatures in the Ezsigntemplate. | [optional] 
 **i_ezsigntemplate_formfieldtotal** | **int** | The number of total form fields in the Ezsigntemplate. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**b_ezsigntemplate_incomplete** | **bool** | Indicate the Ezsigntemplate is incomplete and cannot be used | 
+**s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 
 
+## Example
+
+```python
+from eZmaxApi.models.ezsigntemplate_list_element import EzsigntemplateListElement
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsigntemplateListElement from a JSON string
+ezsigntemplate_list_element_instance = EzsigntemplateListElement.from_json(json)
+# print the JSON string representation of the object
+print EzsigntemplateListElement.to_json()
+
+# convert the object into a dict
+ezsigntemplate_list_element_dict = ezsigntemplate_list_element_instance.to_dict()
+# create an instance of EzsigntemplateListElement from a dict
+ezsigntemplate_list_element_form_dict = ezsigntemplate_list_element.from_dict(ezsigntemplate_list_element_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

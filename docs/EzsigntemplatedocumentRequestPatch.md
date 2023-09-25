@@ -6,8 +6,24 @@ An Ezsigntemplatedocument Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_ezsigntemplatedocument_name** | **str** | The name of the Ezsigntemplatedocument. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from eZmaxApi.models.ezsigntemplatedocument_request_patch import EzsigntemplatedocumentRequestPatch
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsigntemplatedocumentRequestPatch from a JSON string
+ezsigntemplatedocument_request_patch_instance = EzsigntemplatedocumentRequestPatch.from_json(json)
+# print the JSON string representation of the object
+print EzsigntemplatedocumentRequestPatch.to_json()
+
+# convert the object into a dict
+ezsigntemplatedocument_request_patch_dict = ezsigntemplatedocument_request_patch_instance.to_dict()
+# create an instance of EzsigntemplatedocumentRequestPatch from a dict
+ezsigntemplatedocument_request_patch_form_dict = ezsigntemplatedocument_request_patch.from_dict(ezsigntemplatedocument_request_patch_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

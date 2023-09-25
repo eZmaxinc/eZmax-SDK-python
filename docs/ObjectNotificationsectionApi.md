@@ -17,14 +17,14 @@ Retrieve an existing Notificationsection's Notificationtests
 ### Example
 
 * Api Key Authentication (Authorization):
-
 ```python
 import time
+import os
 import eZmaxApi
-from eZmaxApi.api import object_notificationsection_api
-from eZmaxApi.model.common_response_error import CommonResponseError
-from eZmaxApi.model.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response
+from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response
+from eZmaxApi.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
 # See configuration.py for a list of all supported configuration parameters.
 configuration = eZmaxApi.Configuration(
@@ -37,7 +37,7 @@ configuration = eZmaxApi.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -45,26 +45,27 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = object_notificationsection_api.ObjectNotificationsectionApi(api_client)
-    pki_notificationsection_id = FieldPkiNotificationsectionID(1) # int | 
+    api_instance = eZmaxApi.ObjectNotificationsectionApi(api_client)
+    pki_notificationsection_id = 56 # int | 
     b_show_hidden = True # bool | Whether or not to return the hidden Notificationtests
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve an existing Notificationsection's Notificationtests
         api_response = api_instance.notificationsection_get_notificationtests_v1(pki_notificationsection_id, b_show_hidden)
+        print("The response of ObjectNotificationsectionApi->notificationsection_get_notificationtests_v1:\n")
         pprint(api_response)
-    except eZmaxApi.ApiException as e:
+    except Exception as e:
         print("Exception when calling ObjectNotificationsectionApi->notificationsection_get_notificationtests_v1: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pki_notificationsection_id** | **int**|  |
- **b_show_hidden** | **bool**| Whether or not to return the hidden Notificationtests |
+ **pki_notificationsection_id** | **int**|  | 
+ **b_show_hidden** | **bool**| Whether or not to return the hidden Notificationtests | 
 
 ### Return type
 
@@ -79,9 +80,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
