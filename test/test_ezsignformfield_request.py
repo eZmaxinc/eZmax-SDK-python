@@ -45,6 +45,7 @@ class TestEzsignformfieldRequest(unittest.TestCase):
                 i_ezsignformfield_y = 300,
                 i_ezsignformfield_width = 102,
                 i_ezsignformfield_height = 22,
+                b_ezsignformfield_autocomplete = True,
                 b_ezsignformfield_selected = True,
                 s_ezsignformfield_enteredvalue = 'Montreal'
             )

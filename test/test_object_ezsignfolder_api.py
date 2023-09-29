@@ -118,13 +118,6 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsignfolder_get_ezsignfoldersignerassociationsmine_v1(self) -> None:
-        """Test case for ezsignfolder_get_ezsignfoldersignerassociationsmine_v1
-
-        Retrieve your own Ezsignfoldersignerassociations from an existing Ezsignfolder  # noqa: E501
-        """
-        pass
-
     def test_ezsignfolder_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsignfolder_get_ezsignsignatures_automatic_v1
 

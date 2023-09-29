@@ -34,8 +34,9 @@ class EzsigntemplateformfieldRequestCompound(BaseModel):
     i_ezsigntemplateformfield_y: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldY", description="The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.")
     i_ezsigntemplateformfield_width: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldWidth", description="The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |")
     i_ezsigntemplateformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldHeight", description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
+    b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldAutocomplete", description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**")
     b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldSelected", description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**")
-    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldSelected"]
+    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected"]
 
     class Config:
         """Pydantic configuration"""
@@ -81,6 +82,7 @@ class EzsigntemplateformfieldRequestCompound(BaseModel):
             "i_ezsigntemplateformfield_y": obj.get("iEzsigntemplateformfieldY"),
             "i_ezsigntemplateformfield_width": obj.get("iEzsigntemplateformfieldWidth"),
             "i_ezsigntemplateformfield_height": obj.get("iEzsigntemplateformfieldHeight"),
+            "b_ezsigntemplateformfield_autocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
             "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected")
         })
         return _obj

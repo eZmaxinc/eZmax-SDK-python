@@ -27,9 +27,9 @@ class CustomEzsignfoldertypeResponse(BaseModel):
     A Custom Ezsignfoldertype Object  # noqa: E501
     """
     pki_ezsignfoldertype_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsignfoldertypeID", description="The unique ID of the Ezsignfoldertype.")
-    s_ezsignfoldertype_name_x: StrictStr = Field(..., alias="sEzsignfoldertypeNameX", description="The name of the Ezsignfoldertype in the language of the requester")
-    b_ezsignfoldertype_includeproofsigner: StrictBool = Field(..., alias="bEzsignfoldertypeIncludeproofsigner", description="Whether we include the proof with the signed Ezsigndocument for Ezsignsigners")
-    b_ezsignfoldertype_includeproofuser: StrictBool = Field(..., alias="bEzsignfoldertypeIncludeproofuser", description="Whether we include the proof with the signed Ezsigndocument for users")
+    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(None, alias="sEzsignfoldertypeNameX", description="The name of the Ezsignfoldertype in the language of the requester")
+    b_ezsignfoldertype_includeproofsigner: Optional[StrictBool] = Field(None, alias="bEzsignfoldertypeIncludeproofsigner", description="Whether we include the proof with the signed Ezsigndocument for Ezsignsigners")
+    b_ezsignfoldertype_includeproofuser: Optional[StrictBool] = Field(None, alias="bEzsignfoldertypeIncludeproofuser", description="Whether we include the proof with the signed Ezsigndocument for users")
     b_ezsignfoldertype_delegate: Optional[StrictBool] = Field(None, alias="bEzsignfoldertypeDelegate", description="Wheter if delegation of signature is allowed to another user or not")
     b_ezsignfoldertype_reassign: Optional[StrictBool] = Field(None, alias="bEzsignfoldertypeReassign", description="Wheter if Reassignment of signature is allowed to another signatory or not")
     __properties = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeIncludeproofsigner", "bEzsignfoldertypeIncludeproofuser", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeReassign"]

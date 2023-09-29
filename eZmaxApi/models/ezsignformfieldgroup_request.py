@@ -36,7 +36,7 @@ class EzsignformfieldgroupRequest(BaseModel):
     e_ezsignformfieldgroup_signerrequirement: FieldEEzsignformfieldgroupSignerrequirement = Field(..., alias="eEzsignformfieldgroupSignerrequirement")
     s_ezsignformfieldgroup_label: constr(strict=True, max_length=50, min_length=1) = Field(..., alias="sEzsignformfieldgroupLabel", description="The Label for the Ezsignformfieldgroup")
     i_ezsignformfieldgroup_step: conint(strict=True, ge=1) = Field(..., alias="iEzsignformfieldgroupStep", description="The step when the Ezsignsigner will be invited to fill the form fields")
-    s_ezsignformfieldgroup_defaultvalue: StrictStr = Field(..., alias="sEzsignformfieldgroupDefaultvalue", description="The default value for the Ezsignformfieldgroup")
+    s_ezsignformfieldgroup_defaultvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldgroupDefaultvalue", description="The default value for the Ezsignformfieldgroup")
     i_ezsignformfieldgroup_filledmin: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldgroupFilledmin", description="The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup")
     i_ezsignformfieldgroup_filledmax: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldgroupFilledmax", description="The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup")
     b_ezsignformfieldgroup_readonly: StrictBool = Field(..., alias="bEzsignformfieldgroupReadonly", description="Whether the Ezsignformfieldgroup is read only or not.")

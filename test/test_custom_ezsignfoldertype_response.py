@@ -47,9 +47,6 @@ class TestCustomEzsignfoldertypeResponse(unittest.TestCase):
         else:
             return CustomEzsignfoldertypeResponse(
                 pki_ezsignfoldertype_id = 5,
-                s_ezsignfoldertype_name_x = 'Default',
-                b_ezsignfoldertype_includeproofsigner = True,
-                b_ezsignfoldertype_includeproofuser = True,
         )
         """
 

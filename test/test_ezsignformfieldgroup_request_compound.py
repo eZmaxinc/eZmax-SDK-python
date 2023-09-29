@@ -70,7 +70,6 @@ class TestEzsignformfieldgroupRequestCompound(unittest.TestCase):
                 e_ezsignformfieldgroup_signerrequirement = 'One',
                 s_ezsignformfieldgroup_label = 'Allergies',
                 i_ezsignformfieldgroup_step = 1,
-                s_ezsignformfieldgroup_defaultvalue = 'Foo',
                 i_ezsignformfieldgroup_filledmin = 1,
                 i_ezsignformfieldgroup_filledmax = 2,
                 b_ezsignformfieldgroup_readonly = True,

@@ -34,9 +34,10 @@ class EzsignformfieldRequest(BaseModel):
     i_ezsignformfield_y: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldY", description="The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.")
     i_ezsignformfield_width: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldWidth", description="The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |")
     i_ezsignformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldHeight", description="The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
+    b_ezsignformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsignformfieldAutocomplete", description="Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**")
     b_ezsignformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsignformfieldSelected", description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**")
     s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldEnteredvalue", description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**")
-    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
+    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
 
     class Config:
         """Pydantic configuration"""
@@ -82,6 +83,7 @@ class EzsignformfieldRequest(BaseModel):
             "i_ezsignformfield_y": obj.get("iEzsignformfieldY"),
             "i_ezsignformfield_width": obj.get("iEzsignformfieldWidth"),
             "i_ezsignformfield_height": obj.get("iEzsignformfieldHeight"),
+            "b_ezsignformfield_autocomplete": obj.get("bEzsignformfieldAutocomplete"),
             "b_ezsignformfield_selected": obj.get("bEzsignformfieldSelected"),
             "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue")
         })
