@@ -46,6 +46,12 @@ class TestFranchisebrokerGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return FranchisebrokerGetAutocompleteV2ResponseMPayload(
+                a_obj_franchisebroker = [
+                    eZmaxApi.models.franchisebroker_autocomplete_element_response.franchisebroker-AutocompleteElement-Response(
+                        s_franchisebroker_name = 'Default', 
+                        pki_franchisebroker_id = 61, 
+                        b_franchisebroker_isactive = True, )
+                    ],
         )
         """
 

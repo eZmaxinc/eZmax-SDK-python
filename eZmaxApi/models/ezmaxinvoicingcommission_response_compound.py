@@ -35,7 +35,7 @@ class EzmaxinvoicingcommissionResponseCompound(BaseModel):
     dt_ezmaxinvoicingcommission_end: StrictStr = Field(..., alias="dtEzmaxinvoicingcommissionEnd", description="The end date for the Ezmaxinvoicingcommission")
     i_ezmaxinvoicingcommission_days: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingcommissionDays", description="This is the number of days during the month on which the Ezmaxinvoigcommission applies")
     d_ezmaxinvoicingcommission_amount: constr(strict=True) = Field(..., alias="dEzmaxinvoicingcommissionAmount", description="The amount of Ezmaxinvoicingcommission")
-    obj_contact_name: CustomContactNameResponse = Field(..., alias="objContactName")
+    obj_contact_name: Optional[CustomContactNameResponse] = Field(None, alias="objContactName")
     __properties = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount", "objContactName"]
 
     @validator('d_ezmaxinvoicingcommission_amount')

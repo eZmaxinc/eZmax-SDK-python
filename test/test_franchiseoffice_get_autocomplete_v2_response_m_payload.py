@@ -46,6 +46,12 @@ class TestFranchiseofficeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return FranchiseofficeGetAutocompleteV2ResponseMPayload(
+                a_obj_franchiseoffice = [
+                    eZmaxApi.models.franchiseoffice_autocomplete_element_response.franchiseoffice-AutocompleteElement-Response(
+                        s_franchiseoffice_description = 'Default', 
+                        pki_franchiseoffice_id = 50, 
+                        b_franchiseoffice_isactive = True, )
+                    ],
         )
         """
 

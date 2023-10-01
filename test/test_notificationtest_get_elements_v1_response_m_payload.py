@@ -50,6 +50,9 @@ class TestNotificationtestGetElementsV1ResponseMPayload(unittest.TestCase):
             return NotificationtestGetElementsV1ResponseMPayload(
                 pki_notificationtest_id = 14,
                 s_notificationtest_function = 'Default',
+                a_s_variableobject_property = [
+                    'PropertyName1'
+                    ],
                 a_obj_variableobject = [
                     { }
                     ],

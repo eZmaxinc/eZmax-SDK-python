@@ -58,7 +58,6 @@ class TestWebhookResponseCompound(unittest.TestCase):
                 s_webhook_url = 'https://www.example.com',
                 s_webhook_emailfailed = 'email@example.com',
                 b_webhook_skipsslvalidation = False,
-                s_webhook_event = 'Ezsign-DocumentCompleted',
         )
         """
 

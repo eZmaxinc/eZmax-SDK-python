@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.variableexpense_autocomplete_element_response import VariableexpenseAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class VariableexpenseGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/variableexpense/getAutocomplete  # noqa: E501
     """
-    a_obj_variableexpense: Optional[conlist(VariableexpenseAutocompleteElementResponse)] = Field(None, alias="a_objVariableexpense", description="An array of Variableexpense autocomplete element response.")
+    a_obj_variableexpense: conlist(VariableexpenseAutocompleteElementResponse) = Field(..., alias="a_objVariableexpense", description="An array of Variableexpense autocomplete element response.")
     __properties = ["a_objVariableexpense"]
 
     class Config:

@@ -46,6 +46,12 @@ class TestPhonetypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return PhonetypeGetAutocompleteV2ResponseMPayload(
+                a_obj_phonetype = [
+                    eZmaxApi.models.phonetype_autocomplete_element_response.phonetype-AutocompleteElement-Response(
+                        pki_phonetype_id = 1, 
+                        s_phonetype_name_x = 'Office', 
+                        b_phonetype_isactive = True, )
+                    ],
         )
         """
 

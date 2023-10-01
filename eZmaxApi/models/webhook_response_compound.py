@@ -40,7 +40,7 @@ class WebhookResponseCompound(BaseModel):
     s_webhook_emailfailed: StrictStr = Field(..., alias="sWebhookEmailfailed", description="The email that will receive the Webhook in case all attempts fail")
     b_webhook_isactive: Optional[StrictBool] = Field(None, alias="bWebhookIsactive", description="Whether the Webhook is active or not")
     b_webhook_skipsslvalidation: StrictBool = Field(..., alias="bWebhookSkipsslvalidation", description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use")
-    s_webhook_event: StrictStr = Field(..., alias="sWebhookEvent", description="The concatenated string to describe the Webhook event")
+    s_webhook_event: Optional[StrictStr] = Field(None, alias="sWebhookEvent", description="The concatenated string to describe the Webhook event")
     __properties = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookSkipsslvalidation", "sWebhookEvent"]
 
     class Config:

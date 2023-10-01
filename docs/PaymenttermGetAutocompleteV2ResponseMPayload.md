@@ -5,7 +5,7 @@ Payload for POST /2/object/paymentterm/getAutocomplete
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_paymentterm** | [**List[PaymenttermAutocompleteElementResponse]**](PaymenttermAutocompleteElementResponse.md) | An array of Paymentterm autocomplete element response. | [optional] 
+**a_obj_paymentterm** | [**List[PaymenttermAutocompleteElementResponse]**](PaymenttermAutocompleteElementResponse.md) | An array of Paymentterm autocomplete element response. | 
 
 ## Example
 

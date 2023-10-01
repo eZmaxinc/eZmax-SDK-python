@@ -56,10 +56,6 @@ class TestEzmaxinvoicingcommissionResponseCompound(unittest.TestCase):
                 dt_ezmaxinvoicingcommission_end = '2020-12-31',
                 i_ezmaxinvoicingcommission_days = 30,
                 d_ezmaxinvoicingcommission_amount = '450.34',
-                obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
-                    s_contact_firstname = 'John', 
-                    s_contact_lastname = 'Doe', 
-                    s_contact_company = 'eZmax Solutions Inc.', ),
         )
         """
 

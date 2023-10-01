@@ -46,6 +46,12 @@ class TestBillingentityexternalGetAutocompleteV2ResponseMPayload(unittest.TestCa
             )
         else:
             return BillingentityexternalGetAutocompleteV2ResponseMPayload(
+                a_obj_billingentityexternal = [
+                    eZmaxApi.models.billingentityexternal_autocomplete_element_response.billingentityexternal-AutocompleteElement-Response(
+                        pki_billingentityexternal_id = 83, 
+                        s_billingentityexternal_description = 'ACME Inc', 
+                        b_billingentityexternal_isactive = True, )
+                    ],
         )
         """
 

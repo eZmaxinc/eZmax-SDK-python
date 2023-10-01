@@ -46,6 +46,12 @@ class TestCompanyGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return CompanyGetAutocompleteV2ResponseMPayload(
+                a_obj_company = [
+                    eZmaxApi.models.company_autocomplete_element_response.company-AutocompleteElement-Response(
+                        pki_company_id = 1, 
+                        s_company_name_x = 'Acme inc.', 
+                        b_company_isactive = True, )
+                    ],
         )
         """
 

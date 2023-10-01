@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.billingentityexternal_autocomplete_element_response import BillingentityexternalAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class BillingentityexternalGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/billingentityexternal/getAutocomplete  # noqa: E501
     """
-    a_obj_billingentityexternal: Optional[conlist(BillingentityexternalAutocompleteElementResponse)] = Field(None, alias="a_objBillingentityexternal", description="An array of Billingentityexternal autocomplete element response.")
+    a_obj_billingentityexternal: conlist(BillingentityexternalAutocompleteElementResponse) = Field(..., alias="a_objBillingentityexternal", description="An array of Billingentityexternal autocomplete element response.")
     __properties = ["a_objBillingentityexternal"]
 
     class Config:

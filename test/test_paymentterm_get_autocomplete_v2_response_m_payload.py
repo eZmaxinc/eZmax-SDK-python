@@ -46,6 +46,12 @@ class TestPaymenttermGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return PaymenttermGetAutocompleteV2ResponseMPayload(
+                a_obj_paymentterm = [
+                    eZmaxApi.models.paymentterm_autocomplete_element_response.paymentterm-AutocompleteElement-Response(
+                        pki_paymentterm_id = 46, 
+                        s_paymentterm_description_x = 'Net 30 days', 
+                        b_paymentterm_isactive = True, )
+                    ],
         )
         """
 

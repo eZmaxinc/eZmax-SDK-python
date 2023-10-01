@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **dt_ezmaxinvoicingcommission_end** | **str** | The end date for the Ezmaxinvoicingcommission | 
 **i_ezmaxinvoicingcommission_days** | **int** | This is the number of days during the month on which the Ezmaxinvoigcommission applies | 
 **d_ezmaxinvoicingcommission_amount** | **str** | The amount of Ezmaxinvoicingcommission | 
-**obj_contact_name** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
+**obj_contact_name** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | [optional] 
 
 ## Example
 

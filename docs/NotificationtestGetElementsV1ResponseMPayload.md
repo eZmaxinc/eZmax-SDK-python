@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_notificationtest_id** | **int** | The unique ID of the Notificationtest | 
 **s_notificationtest_function** | **str** | The function name of the Notificationtest | 
-**a_s_variableobject_property** | **List[str]** |  | [optional] 
+**a_s_variableobject_property** | **List[str]** |  | 
 **a_obj_variableobject** | **List[Dict[str, object]]** |  | 
 
 ## Example

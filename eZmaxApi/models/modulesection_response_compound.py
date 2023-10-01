@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conint, conlist
 from eZmaxApi.models.permission_response_compound import PermissionResponseCompound
 
@@ -31,7 +31,7 @@ class ModulesectionResponseCompound(BaseModel):
     fki_module_id: conint(strict=True, ge=0) = Field(..., alias="fkiModuleID", description="The unique ID of the Module")
     s_modulesection_internalname: StrictStr = Field(..., alias="sModulesectionInternalname", description="The Internal name of the Module section.")
     s_modulesection_name_x: StrictStr = Field(..., alias="sModulesectionNameX", description="The Name of the Modulesection in the language of the requester")
-    a_obj_permission: conlist(PermissionResponseCompound) = Field(..., alias="a_objPermission")
+    a_obj_permission: Optional[conlist(PermissionResponseCompound)] = Field(None, alias="a_objPermission")
     __properties = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX", "a_objPermission"]
 
     class Config:

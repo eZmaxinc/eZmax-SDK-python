@@ -51,9 +51,6 @@ class TestModulesectionResponseCompound(unittest.TestCase):
                 fki_module_id = 40,
                 s_modulesection_internalname = 'Access',
                 s_modulesection_name_x = 'Access',
-                a_obj_permission = [
-                    eZmaxApi.models.permission_response_compound.permission-ResponseCompound()
-                    ],
         )
         """
 

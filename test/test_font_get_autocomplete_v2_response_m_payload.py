@@ -46,6 +46,12 @@ class TestFontGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return FontGetAutocompleteV2ResponseMPayload(
+                a_obj_font = [
+                    eZmaxApi.models.font_autocomplete_element_response.font-AutocompleteElement-Response(
+                        s_font_name = 'Arial', 
+                        pki_font_id = 1, 
+                        b_font_isactive = True, )
+                    ],
         )
         """
 

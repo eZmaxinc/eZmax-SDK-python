@@ -38,7 +38,7 @@ class ActivesessionResponse(BaseModel):
     b_activesession_debug: StrictBool = Field(..., alias="bActivesessionDebug", description="Whether the active session is in debug or not")
     b_activesession_issuperadmin: StrictBool = Field(..., alias="bActivesessionIssuperadmin", description="Whether the active session is superadmin or not")
     pks_customer_code: constr(strict=True, max_length=6, min_length=2) = Field(..., alias="pksCustomerCode", description="The customer code assigned to your account")
-    fki_systemconfigurationtype_id: Optional[conint(strict=True, ge=1)] = Field(None, alias="fkiSystemconfigurationtypeID", description="The unique ID of the Systemconfigurationtype")
+    fki_systemconfigurationtype_id: conint(strict=True, ge=1) = Field(..., alias="fkiSystemconfigurationtypeID", description="The unique ID of the Systemconfigurationtype")
     fki_signature_id: Optional[conint(strict=True, le=16777215, ge=0)] = Field(None, alias="fkiSignatureID", description="The unique ID of the Signature")
     __properties = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID"]
 

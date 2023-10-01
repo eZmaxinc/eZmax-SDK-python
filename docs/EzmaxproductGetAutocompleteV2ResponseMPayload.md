@@ -5,7 +5,7 @@ Payload for POST /2/object/ezmaxproduct/getAutocomplete
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezmaxproduct** | [**List[EzmaxproductAutocompleteElementResponse]**](EzmaxproductAutocompleteElementResponse.md) | An array of Ezmaxproduct autocomplete element response. | [optional] 
+**a_obj_ezmaxproduct** | [**List[EzmaxproductAutocompleteElementResponse]**](EzmaxproductAutocompleteElementResponse.md) | An array of Ezmaxproduct autocomplete element response. | 
 
 ## Example
 

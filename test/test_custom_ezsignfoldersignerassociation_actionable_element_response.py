@@ -77,6 +77,7 @@ Best Regards.
 
 Mary',
                 b_ezsignfoldersignerassociation_hasactionableelements_current = True,
+                b_ezsignfoldersignerassociation_hasactionableelements_future = True,
         )
         """
 

@@ -38,7 +38,7 @@ class CustomEzsignfoldersignerassociationActionableElementResponse(BaseModel):
     obj_user: Optional[EzsignfoldersignerassociationResponseCompoundUser] = Field(None, alias="objUser")
     obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(None, alias="objEzsignsigner")
     b_ezsignfoldersignerassociation_hasactionableelements_current: StrictBool = Field(..., alias="bEzsignfoldersignerassociationHasactionableelementsCurrent", description="Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step")
-    b_ezsignfoldersignerassociation_hasactionableelements_future: Optional[StrictBool] = Field(None, alias="bEzsignfoldersignerassociationHasactionableelementsFuture", description="Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step")
+    b_ezsignfoldersignerassociation_hasactionableelements_future: StrictBool = Field(..., alias="bEzsignfoldersignerassociationHasactionableelementsFuture", description="Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step")
     __properties = ["pkiEzsignfoldersignerassociationID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationDelayedsend", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "objEzsignsignergroup", "objUser", "objEzsignsigner", "bEzsignfoldersignerassociationHasactionableelementsCurrent", "bEzsignfoldersignerassociationHasactionableelementsFuture"]
 
     class Config:

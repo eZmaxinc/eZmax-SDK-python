@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.emailtype_autocomplete_element_response import EmailtypeAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class EmailtypeGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/emailtype/getAutocomplete  # noqa: E501
     """
-    a_obj_emailtype: Optional[conlist(EmailtypeAutocompleteElementResponse)] = Field(None, alias="a_objEmailtype", description="An array of Emailtype autocomplete element response.")
+    a_obj_emailtype: conlist(EmailtypeAutocompleteElementResponse) = Field(..., alias="a_objEmailtype", description="An array of Emailtype autocomplete element response.")
     __properties = ["a_objEmailtype"]
 
     class Config:

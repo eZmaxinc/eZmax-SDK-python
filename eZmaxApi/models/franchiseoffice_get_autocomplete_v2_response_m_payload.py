@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.franchiseoffice_autocomplete_element_response import FranchiseofficeAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class FranchiseofficeGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/franchiseoffice/getAutocomplete  # noqa: E501
     """
-    a_obj_franchiseoffice: Optional[conlist(FranchiseofficeAutocompleteElementResponse)] = Field(None, alias="a_objFranchiseoffice", description="An array of Franchiseoffice autocomplete element response.")
+    a_obj_franchiseoffice: conlist(FranchiseofficeAutocompleteElementResponse) = Field(..., alias="a_objFranchiseoffice", description="An array of Franchiseoffice autocomplete element response.")
     __properties = ["a_objFranchiseoffice"]
 
     class Config:

@@ -5,7 +5,7 @@ Payload for POST /2/object/billingentityexternal/getAutocomplete
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_billingentityexternal** | [**List[BillingentityexternalAutocompleteElementResponse]**](BillingentityexternalAutocompleteElementResponse.md) | An array of Billingentityexternal autocomplete element response. | [optional] 
+**a_obj_billingentityexternal** | [**List[BillingentityexternalAutocompleteElementResponse]**](BillingentityexternalAutocompleteElementResponse.md) | An array of Billingentityexternal autocomplete element response. | 
 
 ## Example
 

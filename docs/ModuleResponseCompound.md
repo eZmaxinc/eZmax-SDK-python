@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **s_module_name_x** | **str** | The Name of the Module in the language of the requester | 
 **b_module_registered** | **bool** | Whether the Module is registered or not | 
 **b_module_registeredapi** | **bool** | Whether the Module is registered or not for api use | 
-**a_obj_modulesection** | [**List[ModulesectionResponseCompound]**](ModulesectionResponseCompound.md) |  | 
+**a_obj_modulesection** | [**List[ModulesectionResponseCompound]**](ModulesectionResponseCompound.md) |  | [optional] 
 
 ## Example
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_modulegroup_id** | **int** | The unique ID of the Modulegroup | 
 **s_modulegroup_name_x** | **str** | The name of the Modulegroup in the language of the requester | 
-**a_obj_module** | [**List[ModuleResponseCompound]**](ModuleResponseCompound.md) |  | 
+**a_obj_module** | [**List[ModuleResponseCompound]**](ModuleResponseCompound.md) |  | [optional] 
 
 ## Example
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
+
 from pydantic import BaseModel, Field, constr, validator
 from eZmaxApi.models.field_e_creditcardtype_codename import FieldECreditcardtypeCodename
 
@@ -27,7 +27,7 @@ class CustomCreditcardtransactionResponse(BaseModel):
     """
     A custom Creditcardtransaction Object  # noqa: E501
     """
-    e_creditcardtype_codename: Optional[FieldECreditcardtypeCodename] = Field(None, alias="eCreditcardtypeCodename")
+    e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(..., alias="eCreditcardtypeCodename")
     d_creditcardtransaction_amount: constr(strict=True) = Field(..., alias="dCreditcardtransactionAmount", description="The amount of the Creditcardtransaction")
     s_creditcardtransaction_partiallydecryptednumber: constr(strict=True) = Field(..., alias="sCreditcardtransactionPartiallydecryptednumber", description="The partially decrypted credit card number used in the Creditcardtransaction")
     s_creditcardtransaction_referencenumber: constr(strict=True) = Field(..., alias="sCreditcardtransactionReferencenumber", description="The reference number on the creditcard service for the Creditcardtransaction")

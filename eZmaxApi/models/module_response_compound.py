@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
 from eZmaxApi.models.modulesection_response_compound import ModulesectionResponseCompound
 
@@ -33,7 +33,7 @@ class ModuleResponseCompound(BaseModel):
     s_module_name_x: StrictStr = Field(..., alias="sModuleNameX", description="The Name of the Module in the language of the requester")
     b_module_registered: StrictBool = Field(..., alias="bModuleRegistered", description="Whether the Module is registered or not")
     b_module_registeredapi: StrictBool = Field(..., alias="bModuleRegisteredapi", description="Whether the Module is registered or not for api use")
-    a_obj_modulesection: conlist(ModulesectionResponseCompound) = Field(..., alias="a_objModulesection")
+    a_obj_modulesection: Optional[conlist(ModulesectionResponseCompound)] = Field(None, alias="a_objModulesection")
     __properties = ["pkiModuleID", "fkiModulegroupID", "eModuleInternalname", "sModuleNameX", "bModuleRegistered", "bModuleRegisteredapi", "a_objModulesection"]
 
     class Config:

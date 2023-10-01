@@ -75,15 +75,6 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
                 t_franchisereferalincome_comment = 'This is a comment',
                 fki_franchiseoffice_id = 50,
                 s_franchisereferalincome_remoteid = '',
-                obj_address = eZmaxApi.models.address_request.address-Request(
-                    fki_addresstype_id = 1, 
-                    s_address_civic = '2540', 
-                    s_address_street = 'Daniel-Johnson Blvd.', 
-                    s_address_suite = '610', 
-                    s_address_city = 'Laval', 
-                    fki_province_id = 11, 
-                    fki_country_id = 1, 
-                    s_address_zip = 'H7T2S3', ),
                 a_obj_contact = [
                     eZmaxApi.models.contact_request_compound.contact-RequestCompound()
                     ],

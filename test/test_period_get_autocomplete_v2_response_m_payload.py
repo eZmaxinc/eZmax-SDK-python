@@ -46,6 +46,12 @@ class TestPeriodGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return PeriodGetAutocompleteV2ResponseMPayload(
+                a_obj_period = [
+                    eZmaxApi.models.period_autocomplete_element_response.period-AutocompleteElement-Response(
+                        s_period_yyyymm = '2202-12', 
+                        pki_period_id = 21, 
+                        b_period_isactive = True, )
+                    ],
         )
         """
 

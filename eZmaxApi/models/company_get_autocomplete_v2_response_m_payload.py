@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.company_autocomplete_element_response import CompanyAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class CompanyGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/company/getAutocomplete  # noqa: E501
     """
-    a_obj_company: Optional[conlist(CompanyAutocompleteElementResponse)] = Field(None, alias="a_objCompany", description="An array of Company autocomplete element response.")
+    a_obj_company: conlist(CompanyAutocompleteElementResponse) = Field(..., alias="a_objCompany", description="An array of Company autocomplete element response.")
     __properties = ["a_objCompany"]
 
     class Config:

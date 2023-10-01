@@ -26,7 +26,7 @@ from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 
 class CommonResponseErrorEzsignformValidation(BaseModel):
     """
-    CommonResponseErrorEzsignformValidation
+    Generic Error Message  # noqa: E501
     """
     s_error_message: constr(strict=True) = Field(..., alias="sErrorMessage", description="The message giving details about the error")
     e_error_code: FieldEErrorCode = Field(..., alias="eErrorCode")

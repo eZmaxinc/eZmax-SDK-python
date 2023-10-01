@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field, conint, conlist, constr, validator
 from eZmaxApi.models.module_response_compound import ModuleResponseCompound
 
@@ -29,7 +29,7 @@ class ModulegroupResponseCompound(BaseModel):
     """
     pki_modulegroup_id: conint(strict=True, le=255, ge=1) = Field(..., alias="pkiModulegroupID", description="The unique ID of the Modulegroup")
     s_modulegroup_name_x: constr(strict=True) = Field(..., alias="sModulegroupNameX", description="The name of the Modulegroup in the language of the requester")
-    a_obj_module: conlist(ModuleResponseCompound) = Field(..., alias="a_objModule")
+    a_obj_module: Optional[conlist(ModuleResponseCompound)] = Field(None, alias="a_objModule")
     __properties = ["pkiModulegroupID", "sModulegroupNameX", "a_objModule"]
 
     @validator('s_modulegroup_name_x')

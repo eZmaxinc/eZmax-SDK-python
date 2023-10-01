@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.phonetype_autocomplete_element_response import PhonetypeAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class PhonetypeGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/phonetype/getAutocomplete  # noqa: E501
     """
-    a_obj_phonetype: Optional[conlist(PhonetypeAutocompleteElementResponse)] = Field(None, alias="a_objPhonetype", description="An array of Phonetype autocomplete element response.")
+    a_obj_phonetype: conlist(PhonetypeAutocompleteElementResponse) = Field(..., alias="a_objPhonetype", description="An array of Phonetype autocomplete element response.")
     __properties = ["a_objPhonetype"]
 
     class Config:

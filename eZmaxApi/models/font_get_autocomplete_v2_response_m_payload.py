@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.font_autocomplete_element_response import FontAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class FontGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/font/getAutocomplete  # noqa: E501
     """
-    a_obj_font: Optional[conlist(FontAutocompleteElementResponse)] = Field(None, alias="a_objFont", description="An array of Font autocomplete element response.")
+    a_obj_font: conlist(FontAutocompleteElementResponse) = Field(..., alias="a_objFont", description="An array of Font autocomplete element response.")
     __properties = ["a_objFont"]
 
     class Config:

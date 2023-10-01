@@ -91,6 +91,7 @@ class TestActivesessionResponseCompound(unittest.TestCase):
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
                 pks_customer_code = 'demo',
+                fki_systemconfigurationtype_id = 28,
                 a_pki_permission_id = [
                     53
                     ],

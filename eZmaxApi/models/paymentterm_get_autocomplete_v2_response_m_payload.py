@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.paymentterm_autocomplete_element_response import PaymenttermAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class PaymenttermGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/paymentterm/getAutocomplete  # noqa: E501
     """
-    a_obj_paymentterm: Optional[conlist(PaymenttermAutocompleteElementResponse)] = Field(None, alias="a_objPaymentterm", description="An array of Paymentterm autocomplete element response.")
+    a_obj_paymentterm: conlist(PaymenttermAutocompleteElementResponse) = Field(..., alias="a_objPaymentterm", description="An array of Paymentterm autocomplete element response.")
     __properties = ["a_objPaymentterm"]
 
     class Config:

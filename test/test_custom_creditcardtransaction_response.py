@@ -44,6 +44,7 @@ class TestCustomCreditcardtransactionResponse(unittest.TestCase):
             )
         else:
             return CustomCreditcardtransactionResponse(
+                e_creditcardtype_codename = 'visa',
                 d_creditcardtransaction_amount = '167.58',
                 s_creditcardtransaction_partiallydecryptednumber = 'XXXX XXXX XXXX 1234',
                 s_creditcardtransaction_referencenumber = '651447854715478415',

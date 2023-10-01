@@ -40,7 +40,7 @@ class FranchisereferalincomeRequestCompound(BaseModel):
     t_franchisereferalincome_comment: StrictStr = Field(..., alias="tFranchisereferalincomeComment", description="Comment about the transaction")
     fki_franchiseoffice_id: conint(strict=True, ge=0) = Field(..., alias="fkiFranchiseofficeID", description="The unique ID of the Franchisereoffice")
     s_franchisereferalincome_remoteid: StrictStr = Field(..., alias="sFranchisereferalincomeRemoteid")
-    obj_address: AddressRequest = Field(..., alias="objAddress")
+    obj_address: Optional[AddressRequest] = Field(None, alias="objAddress")
     a_obj_contact: conlist(ContactRequestCompound) = Field(..., alias="a_objContact")
     __properties = ["pkiFranchisereferalincomeID", "fkiFranchisebrokerID", "fkiFranchisereferalincomeprogramID", "fkiPeriodID", "dFranchisereferalincomeLoan", "dFranchisereferalincomeFranchiseamount", "dFranchisereferalincomeFranchisoramount", "dFranchisereferalincomeAgentamount", "dtFranchisereferalincomeDisbursed", "tFranchisereferalincomeComment", "fkiFranchiseofficeID", "sFranchisereferalincomeRemoteid", "objAddress", "a_objContact"]
 

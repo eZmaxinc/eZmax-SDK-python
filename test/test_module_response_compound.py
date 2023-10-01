@@ -55,9 +55,6 @@ class TestModuleResponseCompound(unittest.TestCase):
                 s_module_name_x = 'Purchase',
                 b_module_registered = True,
                 b_module_registeredapi = True,
-                a_obj_modulesection = [
-                    eZmaxApi.models.modulesection_response_compound.modulesection-ResponseCompound()
-                    ],
         )
         """
 

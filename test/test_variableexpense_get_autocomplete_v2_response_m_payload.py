@@ -46,6 +46,12 @@ class TestVariableexpenseGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return VariableexpenseGetAutocompleteV2ResponseMPayload(
+                a_obj_variableexpense = [
+                    eZmaxApi.models.variableexpense_autocomplete_element_response.variableexpense-AutocompleteElement-Response(
+                        s_variableexpense_description_x = 'Équipements de bureau', 
+                        pki_variableexpense_id = 2, 
+                        b_variableexpense_isactive = True, )
+                    ],
         )
         """
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 from pydantic import BaseModel, Field, StrictStr, conint, conlist
 
 class NotificationtestGetElementsV1ResponseMPayload(BaseModel):
@@ -28,7 +28,7 @@ class NotificationtestGetElementsV1ResponseMPayload(BaseModel):
     """
     pki_notificationtest_id: conint(strict=True, ge=0) = Field(..., alias="pkiNotificationtestID", description="The unique ID of the Notificationtest")
     s_notificationtest_function: StrictStr = Field(..., alias="sNotificationtestFunction", description="The function name of the Notificationtest")
-    a_s_variableobject_property: Optional[conlist(StrictStr)] = Field(None, alias="a_sVariableobjectProperty")
+    a_s_variableobject_property: conlist(StrictStr) = Field(..., alias="a_sVariableobjectProperty")
     a_obj_variableobject: conlist(Dict[str, Any]) = Field(..., alias="a_objVariableobject")
     __properties = ["pkiNotificationtestID", "sNotificationtestFunction", "a_sVariableobjectProperty", "a_objVariableobject"]
 

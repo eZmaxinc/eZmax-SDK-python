@@ -46,6 +46,12 @@ class TestEzmaxproductGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzmaxproductGetAutocompleteV2ResponseMPayload(
+                a_obj_ezmaxproduct = [
+                    eZmaxApi.models.ezmaxproduct_autocomplete_element_response.ezmaxproduct-AutocompleteElement-Response(
+                        pki_ezmaxproduct_id = 172, 
+                        s_ezmaxproduct_description_x = 'eZmax (License)', 
+                        b_ezmaxproduct_isactive = True, )
+                    ],
         )
         """
 

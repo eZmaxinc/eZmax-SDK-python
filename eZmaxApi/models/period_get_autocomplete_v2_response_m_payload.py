@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from eZmaxApi.models.period_autocomplete_element_response import PeriodAutocompleteElementResponse
 
@@ -27,7 +27,7 @@ class PeriodGetAutocompleteV2ResponseMPayload(BaseModel):
     """
     Payload for POST /2/object/period/getAutocomplete  # noqa: E501
     """
-    a_obj_period: Optional[conlist(PeriodAutocompleteElementResponse)] = Field(None, alias="a_objPeriod", description="An array of Period autocomplete element response.")
+    a_obj_period: conlist(PeriodAutocompleteElementResponse) = Field(..., alias="a_objPeriod", description="An array of Period autocomplete element response.")
     __properties = ["a_objPeriod"]
 
     class Config:

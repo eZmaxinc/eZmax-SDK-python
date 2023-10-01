@@ -60,6 +60,7 @@ class TestActivesessionResponse(unittest.TestCase):
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
                 pks_customer_code = 'demo',
+                fki_systemconfigurationtype_id = 28,
         )
         """
 

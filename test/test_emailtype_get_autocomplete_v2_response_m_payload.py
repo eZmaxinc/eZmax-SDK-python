@@ -46,6 +46,12 @@ class TestEmailtypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             )
         else:
             return EmailtypeGetAutocompleteV2ResponseMPayload(
+                a_obj_emailtype = [
+                    eZmaxApi.models.emailtype_autocomplete_element_response.emailtype-AutocompleteElement-Response(
+                        pki_emailtype_id = 1, 
+                        s_emailtype_name_x = 'Office', 
+                        b_emailtype_isactive = True, )
+                    ],
         )
         """
 
