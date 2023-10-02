@@ -48,7 +48,7 @@ class TestEzsigntsarequirementGetAutocompleteV2Response(unittest.TestCase):
                 m_payload = eZmaxApi.models.ezsigntsarequirement_get_autocomplete_v2_response_m_payload.ezsigntsarequirement-getAutocomplete-v2-Response-mPayload(
                     a_obj_ezsigntsarequirement = [
                         eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response.ezsigntsarequirement-AutocompleteElement-Response(
-                            s_ezsigntsarequirement_description_x = 'Default', 
+                            s_ezsigntsarequirement_description_x = 'No', 
                             pki_ezsigntsarequirement_id = 1, 
                             b_ezsigntsarequirement_isactive = True, 
                             b_disabled = True, )
@@ -66,7 +66,7 @@ class TestEzsigntsarequirementGetAutocompleteV2Response(unittest.TestCase):
                 m_payload = eZmaxApi.models.ezsigntsarequirement_get_autocomplete_v2_response_m_payload.ezsigntsarequirement-getAutocomplete-v2-Response-mPayload(
                     a_obj_ezsigntsarequirement = [
                         eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response.ezsigntsarequirement-AutocompleteElement-Response(
-                            s_ezsigntsarequirement_description_x = 'Default', 
+                            s_ezsigntsarequirement_description_x = 'No', 
                             pki_ezsigntsarequirement_id = 1, 
                             b_ezsigntsarequirement_isactive = True, 
                             b_disabled = True, )

@@ -39,7 +39,7 @@ class TestEzsigntsarequirementGetAutocompleteV2ResponseMPayload(unittest.TestCas
             return EzsigntsarequirementGetAutocompleteV2ResponseMPayload(
                 a_obj_ezsigntsarequirement = [
                     eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response.ezsigntsarequirement-AutocompleteElement-Response(
-                        s_ezsigntsarequirement_description_x = 'Default', 
+                        s_ezsigntsarequirement_description_x = 'No', 
                         pki_ezsigntsarequirement_id = 1, 
                         b_ezsigntsarequirement_isactive = True, 
                         b_disabled = True, )
@@ -49,7 +49,7 @@ class TestEzsigntsarequirementGetAutocompleteV2ResponseMPayload(unittest.TestCas
             return EzsigntsarequirementGetAutocompleteV2ResponseMPayload(
                 a_obj_ezsigntsarequirement = [
                     eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response.ezsigntsarequirement-AutocompleteElement-Response(
-                        s_ezsigntsarequirement_description_x = 'Default', 
+                        s_ezsigntsarequirement_description_x = 'No', 
                         pki_ezsigntsarequirement_id = 1, 
                         b_ezsigntsarequirement_isactive = True, 
                         b_disabled = True, )

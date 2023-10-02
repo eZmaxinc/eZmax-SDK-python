@@ -37,14 +37,14 @@ class TestEzsigntsarequirementAutocompleteElementResponse(unittest.TestCase):
         model = EzsigntsarequirementAutocompleteElementResponse()  # noqa: E501
         if include_optional:
             return EzsigntsarequirementAutocompleteElementResponse(
-                s_ezsigntsarequirement_description_x = 'Default',
+                s_ezsigntsarequirement_description_x = 'No',
                 pki_ezsigntsarequirement_id = 1,
                 b_ezsigntsarequirement_isactive = True,
                 b_disabled = True
             )
         else:
             return EzsigntsarequirementAutocompleteElementResponse(
-                s_ezsigntsarequirement_description_x = 'Default',
+                s_ezsigntsarequirement_description_x = 'No',
                 pki_ezsigntsarequirement_id = 1,
                 b_ezsigntsarequirement_isactive = True,
                 b_disabled = True,
