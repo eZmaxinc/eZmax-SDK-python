@@ -26,7 +26,7 @@ class EzsignfolderSendV3Request(BaseModel):
     """
     Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send  # noqa: E501
     """
-    t_ezsignfolder_message: StrictStr = Field(..., alias="tEzsignfolderMessage", description="A custom text message that will be added to the email sent.")
+    t_ezsignfolder_message: Optional[StrictStr] = Field(None, alias="tEzsignfolderMessage", description="A custom text message that will be added to the email sent.")
     dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(None, alias="dtEzsignfolderDelayedsenddate", description="The date and time at which the Ezsignfolder will be sent in the future.")
     a_fki_ezsignfoldersignerassociation_id: conlist(conint(strict=True, ge=0)) = Field(..., alias="a_fkiEzsignfoldersignerassociationID")
     __properties = ["tEzsignfolderMessage", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]

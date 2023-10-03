@@ -49,7 +49,6 @@ class TestEzsignfolderRequestCompound(unittest.TestCase):
             return EzsignfolderRequestCompound(
                 fki_ezsignfoldertype_id = 5,
                 s_ezsignfolder_description = 'Test eZsign Folder',
-                t_ezsignfolder_note = 'This is a note',
                 e_ezsignfolder_sendreminderfrequency = 'None',
         )
         """

@@ -53,15 +53,6 @@ Mary',
             )
         else:
             return EzsignfolderSendV3Request(
-                t_ezsignfolder_message = 'Hi everyone,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary',
                 a_fki_ezsignfoldersignerassociation_id = [
                     20
                     ],
