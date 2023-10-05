@@ -47,7 +47,8 @@ class TestEzsignformfieldResponse(unittest.TestCase):
                 i_ezsignformfield_height = 22,
                 b_ezsignformfield_autocomplete = True,
                 b_ezsignformfield_selected = True,
-                s_ezsignformfield_enteredvalue = 'Montreal'
+                s_ezsignformfield_enteredvalue = 'Montreal',
+                e_ezsignformfield_dependencyrequirement = 'AllOf'
             )
         else:
             return EzsignformfieldResponse(

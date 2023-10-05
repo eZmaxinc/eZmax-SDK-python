@@ -19,8 +19,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from eZmaxApi.models.ezsigntemplateelementdependency_request_compound import EzsigntemplateelementdependencyRequestCompound
+from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
 
 class EzsigntemplateformfieldRequestCompound(BaseModel):
     """
@@ -36,7 +38,9 @@ class EzsigntemplateformfieldRequestCompound(BaseModel):
     i_ezsigntemplateformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldHeight", description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
     b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldAutocomplete", description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**")
     b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldSelected", description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**")
-    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected"]
+    e_ezsigntemplateformfield_dependencyrequirement: Optional[FieldEEzsigntemplateformfieldDependencyrequirement] = Field(None, alias="eEzsigntemplateformfieldDependencyrequirement")
+    a_obj_ezsigntemplateelementdependency: Optional[conlist(EzsigntemplateelementdependencyRequestCompound)] = Field(None, alias="a_objEzsigntemplateelementdependency")
+    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "a_objEzsigntemplateelementdependency"]
 
     class Config:
         """Pydantic configuration"""
@@ -62,6 +66,13 @@ class EzsigntemplateformfieldRequestCompound(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateelementdependency (list)
+        _items = []
+        if self.a_obj_ezsigntemplateelementdependency:
+            for _item in self.a_obj_ezsigntemplateelementdependency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsigntemplateelementdependency'] = _items
         return _dict
 
     @classmethod
@@ -83,7 +94,9 @@ class EzsigntemplateformfieldRequestCompound(BaseModel):
             "i_ezsigntemplateformfield_width": obj.get("iEzsigntemplateformfieldWidth"),
             "i_ezsigntemplateformfield_height": obj.get("iEzsigntemplateformfieldHeight"),
             "b_ezsigntemplateformfield_autocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
-            "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected")
+            "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected"),
+            "e_ezsigntemplateformfield_dependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement"),
+            "a_obj_ezsigntemplateelementdependency": [EzsigntemplateelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplateelementdependency")] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
         })
         return _obj
 

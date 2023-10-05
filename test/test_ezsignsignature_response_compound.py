@@ -60,6 +60,7 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                 s_ezsignsignature_description = 'Montreal',
                 i_ezsignsignature_maxlength = 75,
                 e_ezsignsignature_textvalidation = 'None',
+                e_ezsignsignature_dependencyrequirement = 'AllOf',
                 s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
@@ -78,7 +79,10 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                     e_creditcardtype_codename = 'visa', 
                     d_creditcardtransaction_amount = '167.58', 
                     s_creditcardtransaction_partiallydecryptednumber = 'XXXX XXXX XXXX 1234', 
-                    s_creditcardtransaction_referencenumber = '651447854715478415', )
+                    s_creditcardtransaction_referencenumber = '651447854715478415', ),
+                a_obj_ezsignelementdependency = [
+                    eZmaxApi.models.ezsignelementdependency_response_compound.ezsignelementdependency-ResponseCompound()
+                    ]
             )
         else:
             return EzsignsignatureResponseCompound(

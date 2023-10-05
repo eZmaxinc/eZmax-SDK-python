@@ -58,7 +58,8 @@ class TestEzsignsignatureCreateObjectV1Request(unittest.TestCase):
                     i_ezsignsignature_validationstep = 1, 
                     i_ezsignsignature_maxlength = 75, 
                     e_ezsignsignature_textvalidation = 'None', 
-                    s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/', ),
+                    s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/', 
+                    e_ezsignsignature_dependencyrequirement = 'AllOf', ),
                 obj_ezsignsignature_compound = eZmaxApi.models.ezsignsignature_request_compound.ezsignsignature-RequestCompound()
             )
         else:

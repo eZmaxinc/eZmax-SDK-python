@@ -58,9 +58,13 @@ class TestEzsignsignatureRequestCompound(unittest.TestCase):
                 i_ezsignsignature_maxlength = 75,
                 e_ezsignsignature_textvalidation = 'None',
                 s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                e_ezsignsignature_dependencyrequirement = 'AllOf',
                 b_ezsignsignature_customdate = True,
                 a_obj_ezsignsignaturecustomdate = [
                     eZmaxApi.models.ezsignsignaturecustomdate_request_compound.ezsignsignaturecustomdate-RequestCompound()
+                    ],
+                a_obj_ezsignelementdependency = [
+                    eZmaxApi.models.ezsignelementdependency_request_compound.ezsignelementdependency-RequestCompound()
                     ]
             )
         else:

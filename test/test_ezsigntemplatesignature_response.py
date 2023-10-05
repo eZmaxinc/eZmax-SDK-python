@@ -57,7 +57,8 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 b_ezsigntemplatesignature_required = True,
                 i_ezsigntemplatesignature_maxlength = 75,
                 s_ezsigntemplatesignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
-                e_ezsigntemplatesignature_textvalidation = 'None'
+                e_ezsigntemplatesignature_textvalidation = 'None',
+                e_ezsigntemplatesignature_dependencyrequirement = 'AllOf'
             )
         else:
             return EzsigntemplatesignatureResponse(

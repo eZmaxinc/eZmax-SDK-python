@@ -60,6 +60,7 @@ class TestEzsignsignatureResponse(unittest.TestCase):
                 s_ezsignsignature_description = 'Montreal',
                 i_ezsignsignature_maxlength = 75,
                 e_ezsignsignature_textvalidation = 'None',
+                e_ezsignsignature_dependencyrequirement = 'AllOf',
                 s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 

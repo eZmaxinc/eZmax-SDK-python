@@ -22,8 +22,10 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist, constr, validator
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
+from eZmaxApi.models.ezsigntemplateelementdependency_request_compound import EzsigntemplateelementdependencyRequestCompound
 from eZmaxApi.models.ezsigntemplatesignaturecustomdate_request_compound import EzsigntemplatesignaturecustomdateRequestCompound
 from eZmaxApi.models.field_e_ezsigntemplatesignature_attachmentnamesource import FieldEEzsigntemplatesignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsigntemplatesignature_dependencyrequirement import FieldEEzsigntemplatesignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont
 from eZmaxApi.models.field_e_ezsigntemplatesignature_tooltipposition import FieldEEzsigntemplatesignatureTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplatesignature_type import FieldEEzsigntemplatesignatureType
@@ -53,9 +55,11 @@ class EzsigntemplatesignatureRequestCompound(BaseModel):
     i_ezsigntemplatesignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsigntemplatesignatureMaxlength", description="The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea**")
     s_ezsigntemplatesignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsigntemplatesignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**")
     e_ezsigntemplatesignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsigntemplatesignatureTextvalidation")
+    e_ezsigntemplatesignature_dependencyrequirement: Optional[FieldEEzsigntemplatesignatureDependencyrequirement] = Field(None, alias="eEzsigntemplatesignatureDependencyrequirement")
     b_ezsigntemplatesignature_customdate: Optional[StrictBool] = Field(None, alias="bEzsigntemplatesignatureCustomdate", description="Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)")
     a_obj_ezsigntemplatesignaturecustomdate: Optional[conlist(EzsigntemplatesignaturecustomdateRequestCompound)] = Field(None, alias="a_objEzsigntemplatesignaturecustomdate", description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.")
-    __properties = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "bEzsigntemplatesignatureRequired", "eEzsigntemplatesignatureAttachmentnamesource", "sEzsigntemplatesignatureAttachmentdescription", "iEzsigntemplatesignatureValidationstep", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate"]
+    a_obj_ezsigntemplateelementdependency: Optional[conlist(EzsigntemplateelementdependencyRequestCompound)] = Field(None, alias="a_objEzsigntemplateelementdependency")
+    __properties = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "bEzsigntemplatesignatureRequired", "eEzsigntemplatesignatureAttachmentnamesource", "sEzsigntemplatesignatureAttachmentdescription", "iEzsigntemplatesignatureValidationstep", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "eEzsigntemplatesignatureDependencyrequirement", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency"]
 
     @validator('s_ezsigntemplatesignature_regexp')
     def s_ezsigntemplatesignature_regexp_validate_regular_expression(cls, value):
@@ -98,6 +102,13 @@ class EzsigntemplatesignatureRequestCompound(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['a_objEzsigntemplatesignaturecustomdate'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateelementdependency (list)
+        _items = []
+        if self.a_obj_ezsigntemplateelementdependency:
+            for _item in self.a_obj_ezsigntemplateelementdependency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsigntemplateelementdependency'] = _items
         return _dict
 
     @classmethod
@@ -131,8 +142,10 @@ class EzsigntemplatesignatureRequestCompound(BaseModel):
             "i_ezsigntemplatesignature_maxlength": obj.get("iEzsigntemplatesignatureMaxlength"),
             "s_ezsigntemplatesignature_regexp": obj.get("sEzsigntemplatesignatureRegexp"),
             "e_ezsigntemplatesignature_textvalidation": obj.get("eEzsigntemplatesignatureTextvalidation"),
+            "e_ezsigntemplatesignature_dependencyrequirement": obj.get("eEzsigntemplatesignatureDependencyrequirement"),
             "b_ezsigntemplatesignature_customdate": obj.get("bEzsigntemplatesignatureCustomdate"),
-            "a_obj_ezsigntemplatesignaturecustomdate": [EzsigntemplatesignaturecustomdateRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatesignaturecustomdate")] if obj.get("a_objEzsigntemplatesignaturecustomdate") is not None else None
+            "a_obj_ezsigntemplatesignaturecustomdate": [EzsigntemplatesignaturecustomdateRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatesignaturecustomdate")] if obj.get("a_objEzsigntemplatesignaturecustomdate") is not None else None,
+            "a_obj_ezsigntemplateelementdependency": [EzsigntemplateelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplateelementdependency")] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
         })
         return _obj
 

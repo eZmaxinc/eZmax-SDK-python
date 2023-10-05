@@ -23,6 +23,7 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, constr, validator
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
@@ -52,7 +53,8 @@ class EzsignsignatureRequest(BaseModel):
     i_ezsignsignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsignsignatureMaxlength", description="The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**")
     e_ezsignsignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsignsignatureTextvalidation")
     s_ezsignsignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsignsignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**")
-    __properties = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp"]
+    e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(None, alias="eEzsignsignatureDependencyrequirement")
+    __properties = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement"]
 
     @validator('s_ezsignsignature_regexp')
     def s_ezsignsignature_regexp_validate_regular_expression(cls, value):
@@ -120,7 +122,8 @@ class EzsignsignatureRequest(BaseModel):
             "i_ezsignsignature_validationstep": obj.get("iEzsignsignatureValidationstep"),
             "i_ezsignsignature_maxlength": obj.get("iEzsignsignatureMaxlength"),
             "e_ezsignsignature_textvalidation": obj.get("eEzsignsignatureTextvalidation"),
-            "s_ezsignsignature_regexp": obj.get("sEzsignsignatureRegexp")
+            "s_ezsignsignature_regexp": obj.get("sEzsignsignatureRegexp"),
+            "e_ezsignsignature_dependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement")
         })
         return _obj
 

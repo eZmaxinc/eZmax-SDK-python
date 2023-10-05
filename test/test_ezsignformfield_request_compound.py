@@ -47,7 +47,11 @@ class TestEzsignformfieldRequestCompound(unittest.TestCase):
                 i_ezsignformfield_height = 22,
                 b_ezsignformfield_autocomplete = True,
                 b_ezsignformfield_selected = True,
-                s_ezsignformfield_enteredvalue = 'Montreal'
+                s_ezsignformfield_enteredvalue = 'Montreal',
+                e_ezsignformfield_dependencyrequirement = 'AllOf',
+                a_obj_ezsignelementdependency = [
+                    eZmaxApi.models.ezsignelementdependency_request_compound.ezsignelementdependency-RequestCompound()
+                    ]
             )
         else:
             return EzsignformfieldRequestCompound(

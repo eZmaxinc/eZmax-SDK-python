@@ -19,8 +19,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import List, Optional
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from eZmaxApi.models.ezsignelementdependency_response_compound import EzsignelementdependencyResponseCompound
+from eZmaxApi.models.field_e_ezsignformfield_dependencyrequirement import FieldEEzsignformfieldDependencyrequirement
 
 class EzsignformfieldResponseCompound(BaseModel):
     """
@@ -37,7 +39,9 @@ class EzsignformfieldResponseCompound(BaseModel):
     b_ezsignformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsignformfieldAutocomplete", description="Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**")
     b_ezsignformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsignformfieldSelected", description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**")
     s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldEnteredvalue", description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**")
-    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
+    e_ezsignformfield_dependencyrequirement: Optional[FieldEEzsignformfieldDependencyrequirement] = Field(None, alias="eEzsignformfieldDependencyrequirement")
+    a_obj_ezsignelementdependency: Optional[conlist(EzsignelementdependencyResponseCompound)] = Field(None, alias="a_objEzsignelementdependency")
+    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue", "eEzsignformfieldDependencyrequirement", "a_objEzsignelementdependency"]
 
     class Config:
         """Pydantic configuration"""
@@ -63,6 +67,13 @@ class EzsignformfieldResponseCompound(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignelementdependency (list)
+        _items = []
+        if self.a_obj_ezsignelementdependency:
+            for _item in self.a_obj_ezsignelementdependency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsignelementdependency'] = _items
         return _dict
 
     @classmethod
@@ -85,7 +96,9 @@ class EzsignformfieldResponseCompound(BaseModel):
             "i_ezsignformfield_height": obj.get("iEzsignformfieldHeight"),
             "b_ezsignformfield_autocomplete": obj.get("bEzsignformfieldAutocomplete"),
             "b_ezsignformfield_selected": obj.get("bEzsignformfieldSelected"),
-            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue")
+            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue"),
+            "e_ezsignformfield_dependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement"),
+            "a_obj_ezsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

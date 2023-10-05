@@ -24,6 +24,7 @@ from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint,
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
@@ -56,11 +57,12 @@ class EzsignsignatureResponse(BaseModel):
     s_ezsignsignature_description: Optional[StrictStr] = Field(None, alias="sEzsignsignatureDescription", description="The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea**")
     i_ezsignsignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsignsignatureMaxlength", description="The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**")
     e_ezsignsignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsignsignatureTextvalidation")
+    e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(None, alias="eEzsignsignatureDependencyrequirement")
     s_ezsignsignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsignsignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**")
     obj_contact_name: CustomContactNameResponse = Field(..., alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(None, alias="objSignature")
-    __properties = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+    __properties = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
 
     @validator('dt_ezsignsignature_date')
     def dt_ezsignsignature_date_validate_regular_expression(cls, value):
@@ -150,6 +152,7 @@ class EzsignsignatureResponse(BaseModel):
             "s_ezsignsignature_description": obj.get("sEzsignsignatureDescription"),
             "i_ezsignsignature_maxlength": obj.get("iEzsignsignatureMaxlength"),
             "e_ezsignsignature_textvalidation": obj.get("eEzsignsignatureTextvalidation"),
+            "e_ezsignsignature_dependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "s_ezsignsignature_regexp": obj.get("sEzsignsignatureRegexp"),
             "obj_contact_name": CustomContactNameResponse.from_dict(obj.get("objContactName")) if obj.get("objContactName") is not None else None,
             "obj_contact_name_delegation": CustomContactNameResponse.from_dict(obj.get("objContactNameDelegation")) if obj.get("objContactNameDelegation") is not None else None,

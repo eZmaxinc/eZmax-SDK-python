@@ -23,6 +23,7 @@ from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, constr, validator
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.field_e_ezsigntemplatesignature_attachmentnamesource import FieldEEzsigntemplatesignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsigntemplatesignature_dependencyrequirement import FieldEEzsigntemplatesignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont
 from eZmaxApi.models.field_e_ezsigntemplatesignature_tooltipposition import FieldEEzsigntemplatesignatureTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplatesignature_type import FieldEEzsigntemplatesignatureType
@@ -52,7 +53,8 @@ class EzsigntemplatesignatureResponse(BaseModel):
     i_ezsigntemplatesignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsigntemplatesignatureMaxlength", description="The maximum length for the value in the Ezsigntemplatesignature  This can only be set if eEzsigntemplatesignatureType is **FieldText** or **FieldTextarea**")
     s_ezsigntemplatesignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsigntemplatesignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**")
     e_ezsigntemplatesignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsigntemplatesignatureTextvalidation")
-    __properties = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation"]
+    e_ezsigntemplatesignature_dependencyrequirement: Optional[FieldEEzsigntemplatesignatureDependencyrequirement] = Field(None, alias="eEzsigntemplatesignatureDependencyrequirement")
+    __properties = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "eEzsigntemplatesignatureDependencyrequirement"]
 
     @validator('s_ezsigntemplatesignature_regexp')
     def s_ezsigntemplatesignature_regexp_validate_regular_expression(cls, value):
@@ -120,7 +122,8 @@ class EzsigntemplatesignatureResponse(BaseModel):
             "b_ezsigntemplatesignature_required": obj.get("bEzsigntemplatesignatureRequired"),
             "i_ezsigntemplatesignature_maxlength": obj.get("iEzsigntemplatesignatureMaxlength"),
             "s_ezsigntemplatesignature_regexp": obj.get("sEzsigntemplatesignatureRegexp"),
-            "e_ezsigntemplatesignature_textvalidation": obj.get("eEzsigntemplatesignatureTextvalidation")
+            "e_ezsigntemplatesignature_textvalidation": obj.get("eEzsigntemplatesignatureTextvalidation"),
+            "e_ezsigntemplatesignature_dependencyrequirement": obj.get("eEzsigntemplatesignatureDependencyrequirement")
         })
         return _obj
 

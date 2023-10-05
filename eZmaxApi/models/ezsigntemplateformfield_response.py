@@ -21,6 +21,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
 
 class EzsigntemplateformfieldResponse(BaseModel):
     """
@@ -36,7 +37,8 @@ class EzsigntemplateformfieldResponse(BaseModel):
     i_ezsigntemplateformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldHeight", description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
     b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldAutocomplete", description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**")
     b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldSelected", description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**")
-    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected"]
+    e_ezsigntemplateformfield_dependencyrequirement: Optional[FieldEEzsigntemplateformfieldDependencyrequirement] = Field(None, alias="eEzsigntemplateformfieldDependencyrequirement")
+    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement"]
 
     class Config:
         """Pydantic configuration"""
@@ -83,7 +85,8 @@ class EzsigntemplateformfieldResponse(BaseModel):
             "i_ezsigntemplateformfield_width": obj.get("iEzsigntemplateformfieldWidth"),
             "i_ezsigntemplateformfield_height": obj.get("iEzsigntemplateformfieldHeight"),
             "b_ezsigntemplateformfield_autocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
-            "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected")
+            "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected"),
+            "e_ezsigntemplateformfield_dependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement")
         })
         return _obj
 

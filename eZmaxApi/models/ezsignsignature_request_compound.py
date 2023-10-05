@@ -22,8 +22,10 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist, constr, validator
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
+from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
 from eZmaxApi.models.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
@@ -53,9 +55,11 @@ class EzsignsignatureRequestCompound(BaseModel):
     i_ezsignsignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsignsignatureMaxlength", description="The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**")
     e_ezsignsignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsignsignatureTextvalidation")
     s_ezsignsignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsignsignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**")
+    e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(None, alias="eEzsignsignatureDependencyrequirement")
     b_ezsignsignature_customdate: Optional[StrictBool] = Field(None, alias="bEzsignsignatureCustomdate", description="Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)")
     a_obj_ezsignsignaturecustomdate: Optional[conlist(EzsignsignaturecustomdateRequestCompound)] = Field(None, alias="a_objEzsignsignaturecustomdate", description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.")
-    __properties = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate"]
+    a_obj_ezsignelementdependency: Optional[conlist(EzsignelementdependencyRequestCompound)] = Field(None, alias="a_objEzsignelementdependency")
+    __properties = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "a_objEzsignelementdependency"]
 
     @validator('s_ezsignsignature_regexp')
     def s_ezsignsignature_regexp_validate_regular_expression(cls, value):
@@ -98,6 +102,13 @@ class EzsignsignatureRequestCompound(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['a_objEzsignsignaturecustomdate'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignelementdependency (list)
+        _items = []
+        if self.a_obj_ezsignelementdependency:
+            for _item in self.a_obj_ezsignelementdependency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsignelementdependency'] = _items
         return _dict
 
     @classmethod
@@ -131,8 +142,10 @@ class EzsignsignatureRequestCompound(BaseModel):
             "i_ezsignsignature_maxlength": obj.get("iEzsignsignatureMaxlength"),
             "e_ezsignsignature_textvalidation": obj.get("eEzsignsignatureTextvalidation"),
             "s_ezsignsignature_regexp": obj.get("sEzsignsignatureRegexp"),
+            "e_ezsignsignature_dependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "b_ezsignsignature_customdate": obj.get("bEzsignsignatureCustomdate"),
-            "a_obj_ezsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignsignaturecustomdate")] if obj.get("a_objEzsignsignaturecustomdate") is not None else None
+            "a_obj_ezsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignsignaturecustomdate")] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
+            "a_obj_ezsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

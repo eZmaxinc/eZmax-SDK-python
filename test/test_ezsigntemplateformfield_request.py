@@ -46,7 +46,8 @@ class TestEzsigntemplateformfieldRequest(unittest.TestCase):
                 i_ezsigntemplateformfield_width = 102,
                 i_ezsigntemplateformfield_height = 22,
                 b_ezsigntemplateformfield_autocomplete = True,
-                b_ezsigntemplateformfield_selected = True
+                b_ezsigntemplateformfield_selected = True,
+                e_ezsigntemplateformfield_dependencyrequirement = 'AllOf'
             )
         else:
             return EzsigntemplateformfieldRequest(

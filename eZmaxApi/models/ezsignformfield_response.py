@@ -21,6 +21,7 @@ import json
 
 from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from eZmaxApi.models.field_e_ezsignformfield_dependencyrequirement import FieldEEzsignformfieldDependencyrequirement
 
 class EzsignformfieldResponse(BaseModel):
     """
@@ -37,7 +38,8 @@ class EzsignformfieldResponse(BaseModel):
     b_ezsignformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsignformfieldAutocomplete", description="Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**")
     b_ezsignformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsignformfieldSelected", description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**")
     s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldEnteredvalue", description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**")
-    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
+    e_ezsignformfield_dependencyrequirement: Optional[FieldEEzsignformfieldDependencyrequirement] = Field(None, alias="eEzsignformfieldDependencyrequirement")
+    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue", "eEzsignformfieldDependencyrequirement"]
 
     class Config:
         """Pydantic configuration"""
@@ -85,7 +87,8 @@ class EzsignformfieldResponse(BaseModel):
             "i_ezsignformfield_height": obj.get("iEzsignformfieldHeight"),
             "b_ezsignformfield_autocomplete": obj.get("bEzsignformfieldAutocomplete"),
             "b_ezsignformfield_selected": obj.get("bEzsignformfieldSelected"),
-            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue")
+            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue"),
+            "e_ezsignformfield_dependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement")
         })
         return _obj
 

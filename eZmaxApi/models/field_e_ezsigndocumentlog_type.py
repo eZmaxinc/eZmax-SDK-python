@@ -56,6 +56,7 @@ class FieldEEzsigndocumentlogType(str, Enum):
     DELAYEDSENDEMAIL = 'DelayedSendEmail'
     REGENERATEPAGE = 'RegeneratePage'
     REGENERATEPAGEFORM = 'RegeneratePageForm'
+    REASSIGN = 'Reassign'
 
     @classmethod
     def from_json(cls, json_str: str) -> FieldEEzsigndocumentlogType:

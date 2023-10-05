@@ -24,8 +24,10 @@ from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint,
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
+from eZmaxApi.models.ezsignelementdependency_response_compound import EzsignelementdependencyResponseCompound
 from eZmaxApi.models.ezsignsignaturecustomdate_response_compound import EzsignsignaturecustomdateResponseCompound
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
@@ -58,6 +60,7 @@ class EzsignsignatureResponseCompound(BaseModel):
     s_ezsignsignature_description: Optional[StrictStr] = Field(None, alias="sEzsignsignatureDescription", description="The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea**")
     i_ezsignsignature_maxlength: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="iEzsignsignatureMaxlength", description="The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**")
     e_ezsignsignature_textvalidation: Optional[EnumTextvalidation] = Field(None, alias="eEzsignsignatureTextvalidation")
+    e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(None, alias="eEzsignsignatureDependencyrequirement")
     s_ezsignsignature_regexp: Optional[constr(strict=True)] = Field(None, alias="sEzsignsignatureRegexp", description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**")
     obj_contact_name: CustomContactNameResponse = Field(..., alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(None, alias="objContactNameDelegation")
@@ -65,7 +68,8 @@ class EzsignsignatureResponseCompound(BaseModel):
     b_ezsignsignature_customdate: Optional[StrictBool] = Field(None, alias="bEzsignsignatureCustomdate", description="Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)")
     a_obj_ezsignsignaturecustomdate: Optional[conlist(EzsignsignaturecustomdateResponseCompound)] = Field(None, alias="a_objEzsignsignaturecustomdate", description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.")
     obj_creditcardtransaction: Optional[CustomCreditcardtransactionResponse] = Field(None, alias="objCreditcardtransaction")
-    __properties = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction"]
+    a_obj_ezsignelementdependency: Optional[conlist(EzsignelementdependencyResponseCompound)] = Field(None, alias="a_objEzsignelementdependency")
+    __properties = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency"]
 
     @validator('dt_ezsignsignature_date')
     def dt_ezsignsignature_date_validate_regular_expression(cls, value):
@@ -130,6 +134,13 @@ class EzsignsignatureResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_creditcardtransaction
         if self.obj_creditcardtransaction:
             _dict['objCreditcardtransaction'] = self.obj_creditcardtransaction.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignelementdependency (list)
+        _items = []
+        if self.a_obj_ezsignelementdependency:
+            for _item in self.a_obj_ezsignelementdependency:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsignelementdependency'] = _items
         return _dict
 
     @classmethod
@@ -165,13 +176,15 @@ class EzsignsignatureResponseCompound(BaseModel):
             "s_ezsignsignature_description": obj.get("sEzsignsignatureDescription"),
             "i_ezsignsignature_maxlength": obj.get("iEzsignsignatureMaxlength"),
             "e_ezsignsignature_textvalidation": obj.get("eEzsignsignatureTextvalidation"),
+            "e_ezsignsignature_dependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "s_ezsignsignature_regexp": obj.get("sEzsignsignatureRegexp"),
             "obj_contact_name": CustomContactNameResponse.from_dict(obj.get("objContactName")) if obj.get("objContactName") is not None else None,
             "obj_contact_name_delegation": CustomContactNameResponse.from_dict(obj.get("objContactNameDelegation")) if obj.get("objContactNameDelegation") is not None else None,
             "obj_signature": SignatureResponseCompound.from_dict(obj.get("objSignature")) if obj.get("objSignature") is not None else None,
             "b_ezsignsignature_customdate": obj.get("bEzsignsignatureCustomdate"),
             "a_obj_ezsignsignaturecustomdate": [EzsignsignaturecustomdateResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignsignaturecustomdate")] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
-            "obj_creditcardtransaction": CustomCreditcardtransactionResponse.from_dict(obj.get("objCreditcardtransaction")) if obj.get("objCreditcardtransaction") is not None else None
+            "obj_creditcardtransaction": CustomCreditcardtransactionResponse.from_dict(obj.get("objCreditcardtransaction")) if obj.get("objCreditcardtransaction") is not None else None,
+            "a_obj_ezsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 
