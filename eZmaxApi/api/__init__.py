@@ -47,6 +47,7 @@ from eZmaxApi.api.object_font_api import ObjectFontApi
 from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi
 from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi
 from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi
+from eZmaxApi.api.object_language_api import ObjectLanguageApi
 from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi
 from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi
 from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi
