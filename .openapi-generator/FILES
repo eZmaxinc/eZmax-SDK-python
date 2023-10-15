@@ -881,6 +881,7 @@ docs/ObjectUserApi.md
 docs/ObjectUsergroupApi.md
 docs/ObjectUsergroupdelegationApi.md
 docs/ObjectUsergroupmembershipApi.md
+docs/ObjectUserlogintypeApi.md
 docs/ObjectUserstagedApi.md
 docs/ObjectVariableexpenseApi.md
 docs/ObjectVersionhistoryApi.md
@@ -1076,6 +1077,9 @@ docs/UsergroupmembershipRequest.md
 docs/UsergroupmembershipRequestCompound.md
 docs/UsergroupmembershipResponse.md
 docs/UsergroupmembershipResponseCompound.md
+docs/UserlogintypeAutocompleteElementResponse.md
+docs/UserlogintypeGetAutocompleteV2Response.md
+docs/UserlogintypeGetAutocompleteV2ResponseMPayload.md
 docs/UserstagedCreateUserV1Response.md
 docs/UserstagedCreateUserV1ResponseMPayload.md
 docs/UserstagedDeleteObjectV1Response.md
@@ -1209,6 +1213,7 @@ eZmaxApi/api/object_user_api.py
 eZmaxApi/api/object_usergroup_api.py
 eZmaxApi/api/object_usergroupdelegation_api.py
 eZmaxApi/api/object_usergroupmembership_api.py
+eZmaxApi/api/object_userlogintype_api.py
 eZmaxApi/api/object_userstaged_api.py
 eZmaxApi/api/object_variableexpense_api.py
 eZmaxApi/api/object_versionhistory_api.py
@@ -2221,6 +2226,9 @@ eZmaxApi/models/usergroupmembership_request.py
 eZmaxApi/models/usergroupmembership_request_compound.py
 eZmaxApi/models/usergroupmembership_response.py
 eZmaxApi/models/usergroupmembership_response_compound.py
+eZmaxApi/models/userlogintype_autocomplete_element_response.py
+eZmaxApi/models/userlogintype_get_autocomplete_v2_response.py
+eZmaxApi/models/userlogintype_get_autocomplete_v2_response_m_payload.py
 eZmaxApi/models/userstaged_create_user_v1_response.py
 eZmaxApi/models/userstaged_create_user_v1_response_m_payload.py
 eZmaxApi/models/userstaged_delete_object_v1_response.py
@@ -3173,6 +3181,7 @@ test/test_object_user_api.py
 test/test_object_usergroup_api.py
 test/test_object_usergroupdelegation_api.py
 test/test_object_usergroupmembership_api.py
+test/test_object_userlogintype_api.py
 test/test_object_userstaged_api.py
 test/test_object_variableexpense_api.py
 test/test_object_versionhistory_api.py
@@ -3368,6 +3377,9 @@ test/test_usergroupmembership_request.py
 test/test_usergroupmembership_request_compound.py
 test/test_usergroupmembership_response.py
 test/test_usergroupmembership_response_compound.py
+test/test_userlogintype_autocomplete_element_response.py
+test/test_userlogintype_get_autocomplete_v2_response.py
+test/test_userlogintype_get_autocomplete_v2_response_m_payload.py
 test/test_userstaged_create_user_v1_response.py
 test/test_userstaged_create_user_v1_response_m_payload.py
 test/test_userstaged_delete_object_v1_response.py

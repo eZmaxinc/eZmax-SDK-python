@@ -66,6 +66,7 @@ from eZmaxApi.api.object_user_api import ObjectUserApi
 from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi
 from eZmaxApi.api.object_usergroupdelegation_api import ObjectUsergroupdelegationApi
 from eZmaxApi.api.object_usergroupmembership_api import ObjectUsergroupmembershipApi
+from eZmaxApi.api.object_userlogintype_api import ObjectUserlogintypeApi
 from eZmaxApi.api.object_userstaged_api import ObjectUserstagedApi
 from eZmaxApi.api.object_variableexpense_api import ObjectVariableexpenseApi
 from eZmaxApi.api.object_versionhistory_api import ObjectVersionhistoryApi
