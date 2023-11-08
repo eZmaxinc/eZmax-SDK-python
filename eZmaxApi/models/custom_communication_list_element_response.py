@@ -20,7 +20,7 @@ import json
 
 
 
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint
+from pydantic import BaseModel, Field, StrictInt, StrictStr, conint, constr, validator
 from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection
 from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance
 from eZmaxApi.models.field_e_communication_type import FieldECommunicationType
@@ -35,10 +35,17 @@ class CustomCommunicationListElementResponse(BaseModel):
     e_communication_importance: FieldECommunicationImportance = Field(..., alias="eCommunicationImportance")
     e_communication_type: FieldECommunicationType = Field(..., alias="eCommunicationType")
     i_communicationrecipient_count: StrictInt = Field(..., alias="iCommunicationrecipientCount", description="The count of Communicationrecipient")
-    s_communication_subject: StrictStr = Field(..., alias="sCommunicationSubject", description="The subject of the Communication")
+    s_communication_subject: constr(strict=True) = Field(..., alias="sCommunicationSubject", description="The subject of the Communication")
     s_communication_sender: StrictStr = Field(..., alias="sCommunicationSender", description="The sender name of the Communication")
     s_communication_recipient: StrictStr = Field(..., alias="sCommunicationRecipient", description="The recipients' name of the Communication")
     __properties = ["pkiCommunicationID", "dtCreatedDate", "eCommunicationDirection", "eCommunicationImportance", "eCommunicationType", "iCommunicationrecipientCount", "sCommunicationSubject", "sCommunicationSender", "sCommunicationRecipient"]
+
+    @validator('s_communication_subject')
+    def s_communication_subject_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,150}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,150}$/")
+        return value
 
     class Config:
         """Pydantic configuration"""

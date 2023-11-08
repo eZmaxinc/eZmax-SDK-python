@@ -385,7 +385,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsignfoldertypeApi(api_client)
     e_order_by = 'e_order_by_example' # str | Specify how you want the results to be sorted (optional)
-    i_row_max = 10000 # int |  (optional) (default to 10000)
+    i_row_max = 56 # int |  (optional)
     i_row_offset = 0 # int |  (optional) (default to 0)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
     s_filter = 's_filter_example' # str |  (optional)
@@ -406,7 +406,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **e_order_by** | **str**| Specify how you want the results to be sorted | [optional] 
- **i_row_max** | **int**|  | [optional] [default to 10000]
+ **i_row_max** | **int**|  | [optional] 
  **i_row_offset** | **int**|  | [optional] [default to 0]
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
  **s_filter** | **str**|  | [optional] 

@@ -19,9 +19,8 @@ import warnings
 
 from pydantic import validate_arguments, ValidationError
 
-from pydantic import conint
-
-from eZmaxApi.models.communication_get_object_v2_response import CommunicationGetObjectV2Response
+from eZmaxApi.models.communication_send_v1_request import CommunicationSendV1Request
+from eZmaxApi.models.communication_send_v1_response import CommunicationSendV1Response
 
 from eZmaxApi.api_client import ApiClient
 from eZmaxApi.api_response import ApiResponse
@@ -44,18 +43,18 @@ class ObjectCommunicationApi:
         self.api_client = api_client
 
     @validate_arguments
-    def communication_get_object_v2(self, pki_communication_id : conint(strict=True, ge=0), **kwargs) -> CommunicationGetObjectV2Response:  # noqa: E501
-        """Retrieve an existing Communication  # noqa: E501
+    def communication_send_v1(self, communication_send_v1_request : CommunicationSendV1Request, **kwargs) -> CommunicationSendV1Response:  # noqa: E501
+        """Send a new Communication  # noqa: E501
 
-          # noqa: E501
+        The endpoint allows to send one or many elements at once.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.communication_get_object_v2(pki_communication_id, async_req=True)
+        >>> thread = api.communication_send_v1(communication_send_v1_request, async_req=True)
         >>> result = thread.get()
 
-        :param pki_communication_id: (required)
-        :type pki_communication_id: int
+        :param communication_send_v1_request: (required)
+        :type communication_send_v1_request: CommunicationSendV1Request
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: timeout setting for this request.
@@ -65,27 +64,27 @@ class ObjectCommunicationApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: CommunicationGetObjectV2Response
+        :rtype: CommunicationSendV1Response
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
-            message = "Error! Please call the communication_get_object_v2_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
+            message = "Error! Please call the communication_send_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
             raise ValueError(message)
-        return self.communication_get_object_v2_with_http_info(pki_communication_id, **kwargs)  # noqa: E501
+        return self.communication_send_v1_with_http_info(communication_send_v1_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def communication_get_object_v2_with_http_info(self, pki_communication_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Communication  # noqa: E501
+    def communication_send_v1_with_http_info(self, communication_send_v1_request : CommunicationSendV1Request, **kwargs) -> ApiResponse:  # noqa: E501
+        """Send a new Communication  # noqa: E501
 
-          # noqa: E501
+        The endpoint allows to send one or many elements at once.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.communication_get_object_v2_with_http_info(pki_communication_id, async_req=True)
+        >>> thread = api.communication_send_v1_with_http_info(communication_send_v1_request, async_req=True)
         >>> result = thread.get()
 
-        :param pki_communication_id: (required)
-        :type pki_communication_id: int
+        :param communication_send_v1_request: (required)
+        :type communication_send_v1_request: CommunicationSendV1Request
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -108,13 +107,13 @@ class ObjectCommunicationApi:
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(CommunicationGetObjectV2Response, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(CommunicationSendV1Response, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
 
         _all_params = [
-            'pki_communication_id'
+            'communication_send_v1_request'
         ]
         _all_params.extend(
             [
@@ -133,7 +132,7 @@ class ObjectCommunicationApi:
             if _key not in _all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method communication_get_object_v2" % _key
+                    " to method communication_send_v1" % _key
                 )
             _params[_key] = _val
         del _params['kwargs']
@@ -142,9 +141,6 @@ class ObjectCommunicationApi:
 
         # process the path parameters
         _path_params = {}
-        if _params['pki_communication_id']:
-            _path_params['pkiCommunicationID'] = _params['pki_communication_id']
-
 
         # process the query parameters
         _query_params = []
@@ -155,20 +151,29 @@ class ObjectCommunicationApi:
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['communication_send_v1_request'] is not None:
+            _body_params = _params['communication_send_v1_request']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
         _auth_settings = ['Authorization']  # noqa: E501
 
         _response_types_map = {
-            '200': "CommunicationGetObjectV2Response",
-            '404': "CommonResponseError",
+            '201': "CommunicationSendV1Response",
         }
 
         return self.api_client.call_api(
-            '/2/object/communication/{pkiCommunicationID}', 'GET',
+            '/1/object/communication/send', 'POST',
             _path_params,
             _query_params,
             _header_params,

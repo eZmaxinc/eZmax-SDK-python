@@ -51,7 +51,7 @@ class UserResponse(BaseModel):
     s_billingentityinternal_description_x: StrictStr = Field(..., alias="sBillingentityinternalDescriptionX", description="The description of the Billingentityinternal in the language of the requester")
     obj_phone_home: Optional[PhoneResponseCompound] = Field(None, alias="objPhoneHome")
     obj_phone_sms: Optional[PhoneResponseCompound] = Field(None, alias="objPhoneSMS")
-    fki_secretquestion_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiSecretquestionID", description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)|")
+    fki_secretquestion_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiSecretquestionID", description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|")
     fki_module_id_form: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiModuleIDForm", description="The unique ID of the Module")
     s_module_name_x: Optional[StrictStr] = Field(None, alias="sModuleNameX", description="The Name of the Module in the language of the requester")
     e_user_origin: FieldEUserOrigin = Field(..., alias="eUserOrigin")
@@ -75,8 +75,8 @@ class UserResponse(BaseModel):
     @validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,4})|([a-zA-Z0-9]){1,32})$", value):
-            raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,4})|([a-zA-Z0-9]){1,32})$/")
+        if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
+            raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
     @validator('dt_user_lastlogondate')

@@ -1,6 +1,6 @@
 # FieldECommunicationrecipientType
 
-The type for the Communicationrecipient
+The type for the Communicationrecipient.  Only used when eCommunicationType is **Email**
 
 ## Properties
 Name | Type | Description | Notes

@@ -26,7 +26,7 @@ from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjD
 
 class EzsignfolderSendV1Response(BaseModel):
     """
-    Response for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send  # noqa: E501
+    Response for GET /1/object/attachment/{pkiAttachmentID}/download  # noqa: E501
     """
     obj_debug_payload: CommonResponseObjDebugPayload = Field(..., alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(None, alias="objDebug")

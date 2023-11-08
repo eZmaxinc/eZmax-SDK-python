@@ -27,10 +27,10 @@ class TestObjectCommunicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_communication_get_object_v2(self) -> None:
-        """Test case for communication_get_object_v2
+    def test_communication_send_v1(self) -> None:
+        """Test case for communication_send_v1
 
-        Retrieve an existing Communication  # noqa: E501
+        Send a new Communication  # noqa: E501
         """
         pass
 

@@ -24,7 +24,7 @@ from aenum import Enum, no_arg
 
 class FieldECommunicationexternalrecipientType(str, Enum):
     """
-    The type of Communicationexternalrecipient
+    The type of Communicationexternalrecipient.  Only used when eCommunicationType is **Email**
     """
 
     """

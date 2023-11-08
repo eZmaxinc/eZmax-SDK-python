@@ -38,7 +38,7 @@ class CustomWebhookResponse(BaseModel):
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(None, alias="eWebhookManagementevent")
     s_webhook_url: StrictStr = Field(..., alias="sWebhookUrl", description="The URL of the Webhook callback")
     s_webhook_emailfailed: StrictStr = Field(..., alias="sWebhookEmailfailed", description="The email that will receive the Webhook in case all attempts fail")
-    b_webhook_isactive: Optional[StrictBool] = Field(None, alias="bWebhookIsactive", description="Whether the Webhook is active or not")
+    b_webhook_isactive: StrictBool = Field(..., alias="bWebhookIsactive", description="Whether the Webhook is active or not")
     b_webhook_skipsslvalidation: StrictBool = Field(..., alias="bWebhookSkipsslvalidation", description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use")
     pks_customer_code: constr(strict=True, max_length=6, min_length=2) = Field(..., alias="pksCustomerCode", description="The customer code assigned to your account")
     b_webhook_test: StrictBool = Field(..., alias="bWebhookTest", description="Wheter the webhook received is a manual test or a real event")

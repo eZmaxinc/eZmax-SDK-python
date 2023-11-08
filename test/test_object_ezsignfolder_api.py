@@ -104,6 +104,20 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_get_communicationrecipients_v1(self) -> None:
+        """Test case for ezsignfolder_get_communicationrecipients_v1
+
+        Retrieve Ezsignfolder's Communicationrecipient  # noqa: E501
+        """
+        pass
+
+    def test_ezsignfolder_get_communicationsenders_v1(self) -> None:
+        """Test case for ezsignfolder_get_communicationsenders_v1
+
+        Retrieve Ezsignfolder's Communicationsender  # noqa: E501
+        """
+        pass
+
     def test_ezsignfolder_get_ezsigndocuments_v1(self) -> None:
         """Test case for ezsignfolder_get_ezsigndocuments_v1
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **s_webhook_url** | **str** | The URL of the Webhook callback | 
 **s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
-**b_webhook_isactive** | **bool** | Whether the Webhook is active or not | [optional] 
+**b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **s_webhook_event** | **str** | The concatenated string to describe the Webhook event | [optional] 
 

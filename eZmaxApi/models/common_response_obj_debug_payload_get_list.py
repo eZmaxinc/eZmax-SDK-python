@@ -33,7 +33,7 @@ class CommonResponseObjDebugPayloadGetList(BaseModel):
     b_version_deprecated: StrictBool = Field(..., alias="bVersionDeprecated", description="Wheter the current route is deprecated or not")
     a_filter: CommonResponseFilter = Field(..., alias="a_Filter")
     a_order_by: Dict[str, StrictStr] = Field(..., alias="a_OrderBy", description="List of available values for *eOrderBy*")
-    i_row_max: conint(strict=True, le=10000, ge=1) = Field(..., alias="iRowMax", description="The maximum numbers of results to be returned")
+    i_row_max: conint(strict=True, le=10000, ge=1) = Field(..., alias="iRowMax", description="The maximum numbers of results to be returned.  When the content-type is **application/json** there is an implicit default of 10 000.  When it's **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet** the is no implicit default so if you do not specify iRowMax, all records will be returned.")
     i_row_offset: conint(strict=True, ge=0) = Field(..., alias="iRowOffset", description="The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,")
     __properties = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated", "a_Filter", "a_OrderBy", "iRowMax", "iRowOffset"]
 
@@ -82,7 +82,7 @@ class CommonResponseObjDebugPayloadGetList(BaseModel):
             "b_version_deprecated": obj.get("bVersionDeprecated"),
             "a_filter": CommonResponseFilter.from_dict(obj.get("a_Filter")) if obj.get("a_Filter") is not None else None,
             "a_order_by": obj.get("a_OrderBy"),
-            "i_row_max": obj.get("iRowMax") if obj.get("iRowMax") is not None else 10000,
+            "i_row_max": obj.get("iRowMax"),
             "i_row_offset": obj.get("iRowOffset") if obj.get("iRowOffset") is not None else 0
         })
         return _obj

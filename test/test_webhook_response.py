@@ -56,6 +56,7 @@ class TestWebhookResponse(unittest.TestCase):
                 e_webhook_module = 'Ezsign',
                 s_webhook_url = 'https://www.example.com',
                 s_webhook_emailfailed = 'email@example.com',
+                b_webhook_isactive = True,
                 b_webhook_skipsslvalidation = False,
         )
         """
