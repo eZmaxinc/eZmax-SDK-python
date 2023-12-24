@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.enum_fontweight import EnumFontweight  # noqa: E501
+from eZmaxApi.models.enum_fontweight import EnumFontweight
 
 class TestEnumFontweight(unittest.TestCase):
     """EnumFontweight unit test stubs"""

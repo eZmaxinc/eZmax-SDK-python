@@ -3,6 +3,7 @@
 Payload for Websocket Information V1
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_information_message** | **str** | Information message | 

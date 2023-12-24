@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel  # noqa: E501
+from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
 
 class TestFieldEEzsignfoldertypePrivacylevel(unittest.TestCase):
     """FieldEEzsignfoldertypePrivacylevel unit test stubs"""

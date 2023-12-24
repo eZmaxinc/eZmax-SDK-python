@@ -3,6 +3,7 @@
 Description of the Branding
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_branding_description1** | **str** | The description of the Branding in French | [optional] 

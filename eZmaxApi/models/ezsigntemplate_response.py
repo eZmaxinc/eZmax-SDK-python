@@ -19,73 +19,92 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigntemplateResponse(BaseModel):
     """
-    A Ezsigntemplate Object  # noqa: E501
-    """
-    pki_ezsigntemplate_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsigntemplateID", description="The unique ID of the Ezsigntemplate")
-    fki_ezsigntemplatedocument_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplatedocumentID", description="The unique ID of the Ezsigntemplatedocument")
-    fki_ezsignfoldertype_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsignfoldertypeID", description="The unique ID of the Ezsignfoldertype.")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_language_name_x: StrictStr = Field(..., alias="sLanguageNameX", description="The Name of the Language in the language of the requester")
-    s_ezsigntemplate_description: StrictStr = Field(..., alias="sEzsigntemplateDescription", description="The description of the Ezsigntemplate")
-    b_ezsigntemplate_adminonly: StrictBool = Field(..., alias="bEzsigntemplateAdminonly", description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)")
-    s_ezsignfoldertype_name_x: StrictStr = Field(..., alias="sEzsignfoldertypeNameX", description="The name of the Ezsignfoldertype in the language of the requester")
-    obj_audit: CommonAudit = Field(..., alias="objAudit")
-    __properties = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplateDescription", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit"]
+    A Ezsigntemplate Object
+    """ # noqa: E501
+    pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
+    fki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
+    s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    b_ezsigntemplate_adminonly: StrictBool = Field(description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplateAdminonly")
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    obj_audit: CommonAudit = Field(alias="objAudit")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplateDescription", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigntemplateResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigntemplateResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigntemplateResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigntemplateResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigntemplateResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigntemplateResponse.parse_obj({
-            "pki_ezsigntemplate_id": obj.get("pkiEzsigntemplateID"),
-            "fki_ezsigntemplatedocument_id": obj.get("fkiEzsigntemplatedocumentID"),
-            "fki_ezsignfoldertype_id": obj.get("fkiEzsignfoldertypeID"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_language_name_x": obj.get("sLanguageNameX"),
-            "s_ezsigntemplate_description": obj.get("sEzsigntemplateDescription"),
-            "b_ezsigntemplate_adminonly": obj.get("bEzsigntemplateAdminonly"),
-            "s_ezsignfoldertype_name_x": obj.get("sEzsignfoldertypeNameX"),
-            "obj_audit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateID": obj.get("pkiEzsigntemplateID"),
+            "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sLanguageNameX": obj.get("sLanguageNameX"),
+            "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
+            "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly"),
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
         })
         return _obj
 

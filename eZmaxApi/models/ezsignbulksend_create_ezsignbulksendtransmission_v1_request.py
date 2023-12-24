@@ -19,66 +19,85 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional, Union
-from pydantic import BaseModel, Field, StrictBytes, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, StrictBytes, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignbulksendCreateEzsignbulksendtransmissionV1Request(BaseModel):
     """
-    Request for POST /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission  # noqa: E501
-    """
-    fki_userlogintype_id: conint(strict=True, ge=0) = Field(..., alias="fkiUserlogintypeID", description="The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|")
-    fki_ezsigntsarequirement_id: Optional[conint(strict=True, le=3, ge=1)] = Field(None, alias="fkiEzsigntsarequirementID", description="The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|")
-    s_ezsignbulksendtransmission_description: StrictStr = Field(..., alias="sEzsignbulksendtransmissionDescription", description="The description of the Ezsignbulksendtransmission")
-    dt_ezsigndocument_duedate: StrictStr = Field(..., alias="dtEzsigndocumentDuedate", description="The maximum date and time at which the Ezsigndocument can be signed.")
-    e_ezsignfolder_sendreminderfrequency: FieldEEzsignfolderSendreminderfrequency = Field(..., alias="eEzsignfolderSendreminderfrequency")
-    t_extra_message: StrictStr = Field(..., alias="tExtraMessage", description="A custom text message that will be added to the email sent.")
-    s_csv_base64: Union[StrictBytes, StrictStr] = Field(..., alias="sCsvBase64", description="The Base64 encoded binary content of the CSV file.")
-    __properties = ["fkiUserlogintypeID", "fkiEzsigntsarequirementID", "sEzsignbulksendtransmissionDescription", "dtEzsigndocumentDuedate", "eEzsignfolderSendreminderfrequency", "tExtraMessage", "sCsvBase64"]
+    Request for POST /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission
+    """ # noqa: E501
+    fki_userlogintype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|", alias="fkiUserlogintypeID")
+    fki_ezsigntsarequirement_id: Optional[Annotated[int, Field(le=3, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|", alias="fkiEzsigntsarequirementID")
+    s_ezsignbulksendtransmission_description: StrictStr = Field(description="The description of the Ezsignbulksendtransmission", alias="sEzsignbulksendtransmissionDescription")
+    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
+    e_ezsignfolder_sendreminderfrequency: FieldEEzsignfolderSendreminderfrequency = Field(alias="eEzsignfolderSendreminderfrequency")
+    t_extra_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tExtraMessage")
+    s_csv_base64: Union[StrictBytes, StrictStr] = Field(description="The Base64 encoded binary content of the CSV file.", alias="sCsvBase64")
+    __properties: ClassVar[List[str]] = ["fkiUserlogintypeID", "fkiEzsigntsarequirementID", "sEzsignbulksendtransmissionDescription", "dtEzsigndocumentDuedate", "eEzsignfolderSendreminderfrequency", "tExtraMessage", "sCsvBase64"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignbulksendCreateEzsignbulksendtransmissionV1Request:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignbulksendCreateEzsignbulksendtransmissionV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignbulksendCreateEzsignbulksendtransmissionV1Request:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignbulksendCreateEzsignbulksendtransmissionV1Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignbulksendCreateEzsignbulksendtransmissionV1Request.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignbulksendCreateEzsignbulksendtransmissionV1Request.parse_obj({
-            "fki_userlogintype_id": obj.get("fkiUserlogintypeID"),
-            "fki_ezsigntsarequirement_id": obj.get("fkiEzsigntsarequirementID"),
-            "s_ezsignbulksendtransmission_description": obj.get("sEzsignbulksendtransmissionDescription"),
-            "dt_ezsigndocument_duedate": obj.get("dtEzsigndocumentDuedate"),
-            "e_ezsignfolder_sendreminderfrequency": obj.get("eEzsignfolderSendreminderfrequency"),
-            "t_extra_message": obj.get("tExtraMessage"),
-            "s_csv_base64": obj.get("sCsvBase64")
+        _obj = cls.model_validate({
+            "fkiUserlogintypeID": obj.get("fkiUserlogintypeID"),
+            "fkiEzsigntsarequirementID": obj.get("fkiEzsigntsarequirementID"),
+            "sEzsignbulksendtransmissionDescription": obj.get("sEzsignbulksendtransmissionDescription"),
+            "dtEzsigndocumentDuedate": obj.get("dtEzsigndocumentDuedate"),
+            "eEzsignfolderSendreminderfrequency": obj.get("eEzsignfolderSendreminderfrequency"),
+            "tExtraMessage": obj.get("tExtraMessage"),
+            "sCsvBase64": obj.get("sCsvBase64")
         })
         return _obj
 

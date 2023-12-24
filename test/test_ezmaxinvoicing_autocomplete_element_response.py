@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicing_autocomplete_element_response import EzmaxinvoicingAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicing_autocomplete_element_response import EzmaxinvoicingAutocompleteElementResponse
 
 class TestEzmaxinvoicingAutocompleteElementResponse(unittest.TestCase):
     """EzmaxinvoicingAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingAutocompleteElementResponse`
         """
-        model = EzmaxinvoicingAutocompleteElementResponse()  # noqa: E501
+        model = EzmaxinvoicingAutocompleteElementResponse()
         if include_optional:
             return EzmaxinvoicingAutocompleteElementResponse(
                 yyyymm_ezmaxinvoicing = '2022-01',

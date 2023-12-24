@@ -16,6 +16,7 @@ Retrieve the ezmaxcustomer's specific configuration. This will help locate the p
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -50,6 +51,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pks_ezmaxcustomer_code** | **str**|  | 
@@ -68,6 +70,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

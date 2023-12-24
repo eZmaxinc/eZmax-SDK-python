@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldertype_response_compound import EzsignfoldertypeResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsignfoldertype_response_compound import EzsignfoldertypeResponseCompound
 
 class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
     """EzsignfoldertypeResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeResponseCompound`
         """
-        model = EzsignfoldertypeResponseCompound()  # noqa: E501
+        model = EzsignfoldertypeResponseCompound()
         if include_optional:
             return EzsignfoldertypeResponseCompound(
                 pki_ezsignfoldertype_id = 5,
@@ -62,6 +62,16 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
                 b_ezsignfoldertype_delegate = True,
                 b_ezsignfoldertype_reassign = True,
                 b_ezsignfoldertype_sendattatchmentsigner = False,
+                b_ezsignfoldertype_sendsignedtoezsignsigner = False,
+                b_ezsignfoldertype_sendsignedtouser = False,
+                b_ezsignfoldertype_sendattachmentezsignsigner = False,
+                b_ezsignfoldertype_sendproofezsignsigner = False,
+                b_ezsignfoldertype_sendattachmentuser = False,
+                b_ezsignfoldertype_sendproofuser = False,
+                b_ezsignfoldertype_sendproofemail = False,
+                b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False,
+                b_ezsignfoldertype_allowdownloadproofezsignsigner = False,
+                b_ezsignfoldertype_sendproofreceivealldocument = False,
                 b_ezsignfoldertype_sendsignedtodocumentowner = False,
                 b_ezsignfoldertype_sendsignedtofolderowner = False,
                 b_ezsignfoldertype_sendsignedtofullgroup = False,
@@ -94,14 +104,12 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
                 i_ezsignfoldertype_archivaldays = 30,
                 e_ezsignfoldertype_disposal = 'Manual',
                 i_ezsignfoldertype_deadlinedays = 5,
-                b_ezsignfoldertype_sendattatchmentsigner = False,
                 b_ezsignfoldertype_sendsignedtodocumentowner = False,
                 b_ezsignfoldertype_sendsignedtofolderowner = False,
                 b_ezsignfoldertype_sendsignedtocolleague = False,
                 b_ezsignfoldertype_sendsummarytodocumentowner = False,
                 b_ezsignfoldertype_sendsummarytofolderowner = False,
                 b_ezsignfoldertype_sendsummarytocolleague = False,
-                b_ezsignfoldertype_includeproofsigner = True,
                 b_ezsignfoldertype_includeproofuser = True,
                 b_ezsignfoldertype_isactive = True,
         )

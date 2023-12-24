@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse  # noqa: E501
+from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 
 class TestCustomWebhookResponse(unittest.TestCase):
     """CustomWebhookResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomWebhookResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomWebhookResponse`
         """
-        model = CustomWebhookResponse()  # noqa: E501
+        model = CustomWebhookResponse()
         if include_optional:
             return CustomWebhookResponse(
                 pki_webhook_id = 77,
@@ -46,7 +46,10 @@ class TestCustomWebhookResponse(unittest.TestCase):
                 e_webhook_managementevent = 'UserCreated',
                 s_webhook_url = 'https://www.example.com',
                 s_webhook_emailfailed = 'email@example.com',
+                s_webhook_apikey = '',
+                s_webhook_secret = '',
                 b_webhook_isactive = True,
+                b_webhook_issigned = True,
                 b_webhook_skipsslvalidation = False,
                 pks_customer_code = 'demo',
                 b_webhook_test = True
@@ -59,6 +62,7 @@ class TestCustomWebhookResponse(unittest.TestCase):
                 s_webhook_url = 'https://www.example.com',
                 s_webhook_emailfailed = 'email@example.com',
                 b_webhook_isactive = True,
+                b_webhook_issigned = True,
                 b_webhook_skipsslvalidation = False,
                 pks_customer_code = 'demo',
                 b_webhook_test = True,

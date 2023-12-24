@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_get_report_v1_response_m_payload import CommonGetReportV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.common_get_report_v1_response_m_payload import CommonGetReportV1ResponseMPayload
 
 class TestCommonGetReportV1ResponseMPayload(unittest.TestCase):
     """CommonGetReportV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonGetReportV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonGetReportV1ResponseMPayload`
         """
-        model = CommonGetReportV1ResponseMPayload()  # noqa: E501
+        model = CommonGetReportV1ResponseMPayload()
         if include_optional:
             return CommonGetReportV1ResponseMPayload(
                 obj_reportgroup = eZmaxApi.models.common_reportgroup.Common-Reportgroup(

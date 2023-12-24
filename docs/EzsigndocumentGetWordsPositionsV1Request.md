@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_get** | **str** | Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*. | 

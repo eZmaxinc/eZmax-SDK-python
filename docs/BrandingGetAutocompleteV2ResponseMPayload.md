@@ -3,6 +3,7 @@
 Payload for POST /2/object/branding/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_branding** | [**List[BrandingAutocompleteElementResponse]**](BrandingAutocompleteElementResponse.md) | An array of Branding object containing the description, ID and active status about the element. | 

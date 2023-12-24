@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_request import UserRequest  # noqa: E501
+from eZmaxApi.models.user_request import UserRequest
 
 class TestUserRequest(unittest.TestCase):
     """UserRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserRequest`
         """
-        model = UserRequest()  # noqa: E501
+        model = UserRequest()
         if include_optional:
             return UserRequest(
                 pki_user_id = 70,

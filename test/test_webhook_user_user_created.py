@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_user_user_created import WebhookUserUserCreated  # noqa: E501
+from eZmaxApi.models.webhook_user_user_created import WebhookUserUserCreated
 
 class TestWebhookUserUserCreated(unittest.TestCase):
     """WebhookUserUserCreated unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookUserUserCreated(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookUserUserCreated`
         """
-        model = WebhookUserUserCreated()  # noqa: E501
+        model = WebhookUserUserCreated()
         if include_optional:
             return WebhookUserUserCreated(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),

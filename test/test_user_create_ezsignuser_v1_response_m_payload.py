@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_create_ezsignuser_v1_response_m_payload import UserCreateEzsignuserV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.user_create_ezsignuser_v1_response_m_payload import UserCreateEzsignuserV1ResponseMPayload
 
 class TestUserCreateEzsignuserV1ResponseMPayload(unittest.TestCase):
     """UserCreateEzsignuserV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserCreateEzsignuserV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserCreateEzsignuserV1ResponseMPayload`
         """
-        model = UserCreateEzsignuserV1ResponseMPayload()  # noqa: E501
+        model = UserCreateEzsignuserV1ResponseMPayload()
         if include_optional:
             return UserCreateEzsignuserV1ResponseMPayload(
                 a_s_email_address_success = [

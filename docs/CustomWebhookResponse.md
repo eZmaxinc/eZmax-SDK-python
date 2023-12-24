@@ -3,6 +3,7 @@
 A custom Webhook object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_webhook_id** | **int** | The unique ID of the Webhook | 
@@ -14,7 +15,10 @@ Name | Type | Description | Notes
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **s_webhook_url** | **str** | The URL of the Webhook callback | 
 **s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
+**s_webhook_apikey** | **str** | The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**s_webhook_secret** | **str** | The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
 **b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
+**b_webhook_issigned** | **bool** | Whether the requests will be signed or not | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **b_webhook_test** | **bool** | Wheter the webhook received is a manual test or a real event | 

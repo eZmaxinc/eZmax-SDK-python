@@ -15,22 +15,22 @@
 
 import unittest
 
-from eZmaxApi.api.object_electronicfundstransfer_api import ObjectElectronicfundstransferApi  # noqa: E501
+from eZmaxApi.api.object_electronicfundstransfer_api import ObjectElectronicfundstransferApi
 
 
 class TestObjectElectronicfundstransferApi(unittest.TestCase):
     """ObjectElectronicfundstransferApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectElectronicfundstransferApi()  # noqa: E501
+        self.api = ObjectElectronicfundstransferApi()
 
     def tearDown(self) -> None:
         pass
 
-    def test_eletronicfundstransfer_get_communication_list_v1(self) -> None:
-        """Test case for eletronicfundstransfer_get_communication_list_v1
+    def test_electronicfundstransfer_get_communication_list_v1(self) -> None:
+        """Test case for electronicfundstransfer_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

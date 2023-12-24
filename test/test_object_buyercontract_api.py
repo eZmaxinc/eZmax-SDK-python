@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_buyercontract_api import ObjectBuyercontractApi  # noqa: E501
+from eZmaxApi.api.object_buyercontract_api import ObjectBuyercontractApi
 
 
 class TestObjectBuyercontractApi(unittest.TestCase):
     """ObjectBuyercontractApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectBuyercontractApi()  # noqa: E501
+        self.api = ObjectBuyercontractApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectBuyercontractApi(unittest.TestCase):
     def test_buyercontract_get_communication_list_v1(self) -> None:
         """Test case for buyercontract_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

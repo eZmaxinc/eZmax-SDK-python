@@ -19,36 +19,42 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin
 from eZmaxApi.models.field_e_user_type import FieldEUserType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class UserListElement(BaseModel):
     """
-    A User List Element  # noqa: E501
-    """
-    pki_user_id: conint(strict=True, ge=0) = Field(..., alias="pkiUserID", description="The unique ID of the User")
-    s_user_firstname: StrictStr = Field(..., alias="sUserFirstname", description="The first name of the user")
-    s_user_lastname: StrictStr = Field(..., alias="sUserLastname", description="The last name of the user")
-    s_user_loginname: constr(strict=True) = Field(..., alias="sUserLoginname", description="The login name of the User.")
-    b_user_isactive: StrictBool = Field(..., alias="bUserIsactive", description="Whether the User is active or not")
-    e_user_type: FieldEUserType = Field(..., alias="eUserType")
-    e_user_origin: FieldEUserOrigin = Field(..., alias="eUserOrigin")
-    e_user_ezsignaccess: FieldEUserEzsignaccess = Field(..., alias="eUserEzsignaccess")
-    dt_user_ezsignprepaidexpiration: Optional[constr(strict=True)] = Field(None, alias="dtUserEzsignprepaidexpiration", description="The eZsign prepaid expiration date")
-    s_email_address: StrictStr = Field(..., alias="sEmailAddress", description="The email address.")
-    __properties = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress"]
+    A User List Element
+    """ # noqa: E501
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
+    e_user_type: FieldEUserType = Field(alias="eUserType")
+    e_user_origin: FieldEUserOrigin = Field(alias="eUserOrigin")
+    e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
+    dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
+    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress"]
 
-    @validator('s_user_loginname')
+    @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
-    @validator('dt_user_ezsignprepaidexpiration')
+    @field_validator('dt_user_ezsignprepaidexpiration')
     def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -58,52 +64,65 @@ class UserListElement(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of UserListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> UserListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of UserListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return UserListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = UserListElement.parse_obj({
-            "pki_user_id": obj.get("pkiUserID"),
-            "s_user_firstname": obj.get("sUserFirstname"),
-            "s_user_lastname": obj.get("sUserLastname"),
-            "s_user_loginname": obj.get("sUserLoginname"),
-            "b_user_isactive": obj.get("bUserIsactive"),
-            "e_user_type": obj.get("eUserType"),
-            "e_user_origin": obj.get("eUserOrigin"),
-            "e_user_ezsignaccess": obj.get("eUserEzsignaccess"),
-            "dt_user_ezsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
-            "s_email_address": obj.get("sEmailAddress")
+        _obj = cls.model_validate({
+            "pkiUserID": obj.get("pkiUserID"),
+            "sUserFirstname": obj.get("sUserFirstname"),
+            "sUserLastname": obj.get("sUserLastname"),
+            "sUserLoginname": obj.get("sUserLoginname"),
+            "bUserIsactive": obj.get("bUserIsactive"),
+            "eUserType": obj.get("eUserType"),
+            "eUserOrigin": obj.get("eUserOrigin"),
+            "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
+            "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
+            "sEmailAddress": obj.get("sEmailAddress")
         })
         return _obj
 

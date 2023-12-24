@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_notificationsubsection_name import MultilingualNotificationsubsectionName  # noqa: E501
+from eZmaxApi.models.multilingual_notificationsubsection_name import MultilingualNotificationsubsectionName
 
 class TestMultilingualNotificationsubsectionName(unittest.TestCase):
     """MultilingualNotificationsubsectionName unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualNotificationsubsectionName(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualNotificationsubsectionName`
         """
-        model = MultilingualNotificationsubsectionName()  # noqa: E501
+        model = MultilingualNotificationsubsectionName()
         if include_optional:
             return MultilingualNotificationsubsectionName(
                 s_notificationsubsection_name1 = 'Signature électronique',

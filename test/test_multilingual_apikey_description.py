@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_apikey_description import MultilingualApikeyDescription  # noqa: E501
+from eZmaxApi.models.multilingual_apikey_description import MultilingualApikeyDescription
 
 class TestMultilingualApikeyDescription(unittest.TestCase):
     """MultilingualApikeyDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualApikeyDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualApikeyDescription`
         """
-        model = MultilingualApikeyDescription()  # noqa: E501
+        model = MultilingualApikeyDescription()
         if include_optional:
             return MultilingualApikeyDescription(
                 s_apikey_description1 = 'Projet X',

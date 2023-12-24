@@ -3,6 +3,7 @@
 A Ezmaxinvoicingsummaryglobal Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxinvoicingsummaryglobal_id** | **int** | The unique ID of the Ezmaxinvoicingsummaryglobal | [optional] 

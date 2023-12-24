@@ -3,6 +3,7 @@
 A part in the Reportsubsection 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_reportsubsectionpart_type** | **str** | The type of the Reportsubsectionpart | 

@@ -19,43 +19,62 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_ezsignsignature_ezsignsignatures_automatic_response import CustomEzsignsignatureEzsignsignaturesAutomaticResponse
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomEzsigndocumentEzsignsignaturesAutomaticResponse(BaseModel):
     """
-    An Ezsigndocument Object in the context of an EzsignsignaturesAutomatic path  # noqa: E501
-    """
-    pki_ezsigndocument_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsigndocumentID", description="The unique ID of the Ezsigndocument")
-    s_ezsigndocument_name: StrictStr = Field(..., alias="sEzsigndocumentName", description="The name of the document that will be presented to Ezsignfoldersignerassociations")
-    a_obj_ezsignsignature: conlist(CustomEzsignsignatureEzsignsignaturesAutomaticResponse) = Field(..., alias="a_objEzsignsignature")
-    __properties = ["pkiEzsigndocumentID", "sEzsigndocumentName", "a_objEzsignsignature"]
+    An Ezsigndocument Object in the context of an EzsignsignaturesAutomatic path
+    """ # noqa: E501
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
+    a_obj_ezsignsignature: List[CustomEzsignsignatureEzsignsignaturesAutomaticResponse] = Field(alias="a_objEzsignsignature")
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "sEzsigndocumentName", "a_objEzsignsignature"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomEzsigndocumentEzsignsignaturesAutomaticResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomEzsigndocumentEzsignsignaturesAutomaticResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignature (list)
         _items = []
         if self.a_obj_ezsignsignature:
@@ -66,18 +85,18 @@ class CustomEzsigndocumentEzsignsignaturesAutomaticResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomEzsigndocumentEzsignsignaturesAutomaticResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomEzsigndocumentEzsignsignaturesAutomaticResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomEzsigndocumentEzsignsignaturesAutomaticResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomEzsigndocumentEzsignsignaturesAutomaticResponse.parse_obj({
-            "pki_ezsigndocument_id": obj.get("pkiEzsigndocumentID"),
-            "s_ezsigndocument_name": obj.get("sEzsigndocumentName"),
-            "a_obj_ezsignsignature": [CustomEzsignsignatureEzsignsignaturesAutomaticResponse.from_dict(_item) for _item in obj.get("a_objEzsignsignature")] if obj.get("a_objEzsignsignature") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsigndocumentID": obj.get("pkiEzsigndocumentID"),
+            "sEzsigndocumentName": obj.get("sEzsigndocumentName"),
+            "a_objEzsignsignature": [CustomEzsignsignatureEzsignsignaturesAutomaticResponse.from_dict(_item) for _item in obj.get("a_objEzsignsignature")] if obj.get("a_objEzsignsignature") is not None else None
         })
         return _obj
 

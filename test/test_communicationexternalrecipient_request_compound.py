@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communicationexternalrecipient_request_compound import CommunicationexternalrecipientRequestCompound  # noqa: E501
+from eZmaxApi.models.communicationexternalrecipient_request_compound import CommunicationexternalrecipientRequestCompound
 
 class TestCommunicationexternalrecipientRequestCompound(unittest.TestCase):
     """CommunicationexternalrecipientRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationexternalrecipientRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationexternalrecipientRequestCompound`
         """
-        model = CommunicationexternalrecipientRequestCompound()  # noqa: E501
+        model = CommunicationexternalrecipientRequestCompound()
         if include_optional:
             return CommunicationexternalrecipientRequestCompound(
                 pki_communicationexternalrecipient_id = 9,
@@ -45,7 +45,6 @@ class TestCommunicationexternalrecipientRequestCompound(unittest.TestCase):
             )
         else:
             return CommunicationexternalrecipientRequestCompound(
-                s_communicationexternalrecipient_name = 'John Doe',
         )
         """
 

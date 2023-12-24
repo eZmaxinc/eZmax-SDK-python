@@ -3,6 +3,7 @@
 Response for GET /1/object/user/{pkiUserID}/getPermissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_modulegroup** | [**List[ModulegroupResponseCompound]**](ModulegroupResponseCompound.md) |  | 

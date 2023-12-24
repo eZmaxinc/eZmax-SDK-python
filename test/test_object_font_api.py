@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_font_api import ObjectFontApi  # noqa: E501
+from eZmaxApi.api.object_font_api import ObjectFontApi
 
 
 class TestObjectFontApi(unittest.TestCase):
     """ObjectFontApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectFontApi()  # noqa: E501
+        self.api = ObjectFontApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectFontApi(unittest.TestCase):
     def test_font_get_autocomplete_v2(self) -> None:
         """Test case for font_get_autocomplete_v2
 
-        Retrieve Fonts and IDs  # noqa: E501
+        Retrieve Fonts and IDs
         """
         pass
 

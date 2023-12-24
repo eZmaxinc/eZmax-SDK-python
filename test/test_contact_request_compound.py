@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.contact_request_compound import ContactRequestCompound  # noqa: E501
+from eZmaxApi.models.contact_request_compound import ContactRequestCompound
 
 class TestContactRequestCompound(unittest.TestCase):
     """ContactRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestContactRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ContactRequestCompound`
         """
-        model = ContactRequestCompound()  # noqa: E501
+        model = ContactRequestCompound()
         if include_optional:
             return ContactRequestCompound(
                 fki_contacttitle_id = 2,

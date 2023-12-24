@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.phonetype_get_autocomplete_v2_response_m_payload import PhonetypeGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.phonetype_get_autocomplete_v2_response_m_payload import PhonetypeGetAutocompleteV2ResponseMPayload
 
 class TestPhonetypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """PhonetypeGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestPhonetypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PhonetypeGetAutocompleteV2ResponseMPayload`
         """
-        model = PhonetypeGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = PhonetypeGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return PhonetypeGetAutocompleteV2ResponseMPayload(
                 a_obj_phonetype = [

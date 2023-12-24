@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_inscriptionnotauthenticated_api import ObjectInscriptionnotauthenticatedApi  # noqa: E501
+from eZmaxApi.api.object_inscriptionnotauthenticated_api import ObjectInscriptionnotauthenticatedApi
 
 
 class TestObjectInscriptionnotauthenticatedApi(unittest.TestCase):
     """ObjectInscriptionnotauthenticatedApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectInscriptionnotauthenticatedApi()  # noqa: E501
+        self.api = ObjectInscriptionnotauthenticatedApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectInscriptionnotauthenticatedApi(unittest.TestCase):
     def test_inscriptionnotauthenticated_get_communication_list_v1(self) -> None:
         """Test case for inscriptionnotauthenticated_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

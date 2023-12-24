@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request  # noqa: E501
+from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request
 
 class TestUserstagedMapV1Request(unittest.TestCase):
     """UserstagedMapV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserstagedMapV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserstagedMapV1Request`
         """
-        model = UserstagedMapV1Request()  # noqa: E501
+        model = UserstagedMapV1Request()
         if include_optional:
             return UserstagedMapV1Request(
                 fki_user_id = 70

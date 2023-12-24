@@ -19,72 +19,92 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import Field
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class WebhookListElement(BaseModel):
     """
-    A Webhook List Element  # noqa: E501
-    """
-    pki_webhook_id: StrictInt = Field(..., alias="pkiWebhookID", description="The unique ID of the Webhook")
-    s_webhook_description: StrictStr = Field(..., alias="sWebhookDescription", description="The description of the Webhook")
-    s_webhook_url: StrictStr = Field(..., alias="sWebhookUrl", description="The URL of the Webhook callback")
-    s_webhook_event: StrictStr = Field(..., alias="sWebhookEvent", description="The concatenated string to describe the Webhook event")
-    s_webhook_emailfailed: StrictStr = Field(..., alias="sWebhookEmailfailed", description="The email that will receive the Webhook in case all attempts fail")
-    e_webhook_module: FieldEWebhookModule = Field(..., alias="eWebhookModule")
-    e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(None, alias="eWebhookEzsignevent")
-    e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(None, alias="eWebhookManagementevent")
-    b_webhook_isactive: StrictBool = Field(..., alias="bWebhookIsactive", description="Whether the Webhook is active or not")
-    __properties = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "bWebhookIsactive"]
+    A Webhook List Element
+    """ # noqa: E501
+    pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
+    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
+    s_webhook_url: StrictStr = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
+    s_webhook_event: StrictStr = Field(description="The concatenated string to describe the Webhook event", alias="sWebhookEvent")
+    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
+    e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
+    e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
+    e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
+    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
+    b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "bWebhookIsactive", "bWebhookIssigned"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> WebhookListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of WebhookListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> WebhookListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of WebhookListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return WebhookListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = WebhookListElement.parse_obj({
-            "pki_webhook_id": obj.get("pkiWebhookID"),
-            "s_webhook_description": obj.get("sWebhookDescription"),
-            "s_webhook_url": obj.get("sWebhookUrl"),
-            "s_webhook_event": obj.get("sWebhookEvent"),
-            "s_webhook_emailfailed": obj.get("sWebhookEmailfailed"),
-            "e_webhook_module": obj.get("eWebhookModule"),
-            "e_webhook_ezsignevent": obj.get("eWebhookEzsignevent"),
-            "e_webhook_managementevent": obj.get("eWebhookManagementevent"),
-            "b_webhook_isactive": obj.get("bWebhookIsactive")
+        _obj = cls.model_validate({
+            "pkiWebhookID": obj.get("pkiWebhookID"),
+            "sWebhookDescription": obj.get("sWebhookDescription"),
+            "sWebhookUrl": obj.get("sWebhookUrl"),
+            "sWebhookEvent": obj.get("sWebhookEvent"),
+            "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
+            "eWebhookModule": obj.get("eWebhookModule"),
+            "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
+            "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
+            "bWebhookIsactive": obj.get("bWebhookIsactive"),
+            "bWebhookIssigned": obj.get("bWebhookIssigned")
         })
         return _obj
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName  # noqa: E501
+from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
 
 class TestMultilingualUsergroupName(unittest.TestCase):
     """MultilingualUsergroupName unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualUsergroupName(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualUsergroupName`
         """
-        model = MultilingualUsergroupName()  # noqa: E501
+        model = MultilingualUsergroupName()
         if include_optional:
             return MultilingualUsergroupName(
                 s_usergroup_name1 = 'Direction',

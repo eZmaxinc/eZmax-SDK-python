@@ -3,6 +3,7 @@
 Request for POST /2/object/ezsignfoldersignerassociation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignfoldersignerassociation** | [**List[EzsignfoldersignerassociationRequestCompound]**](EzsignfoldersignerassociationRequestCompound.md) |  | 

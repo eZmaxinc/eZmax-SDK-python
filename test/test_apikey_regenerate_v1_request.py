@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_regenerate_v1_request import ApikeyRegenerateV1Request  # noqa: E501
+from eZmaxApi.models.apikey_regenerate_v1_request import ApikeyRegenerateV1Request
 
 class TestApikeyRegenerateV1Request(unittest.TestCase):
     """ApikeyRegenerateV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyRegenerateV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyRegenerateV1Request`
         """
-        model = ApikeyRegenerateV1Request()  # noqa: E501
+        model = ApikeyRegenerateV1Request()
         if include_optional:
             return ApikeyRegenerateV1Request(
                 b_apikey_issigned = True

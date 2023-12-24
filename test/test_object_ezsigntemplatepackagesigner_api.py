@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplatepackagesigner_api import ObjectEzsigntemplatepackagesignerApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplatepackagesigner_api import ObjectEzsigntemplatepackagesignerApi
 
 
 class TestObjectEzsigntemplatepackagesignerApi(unittest.TestCase):
     """ObjectEzsigntemplatepackagesignerApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplatepackagesignerApi()  # noqa: E501
+        self.api = ObjectEzsigntemplatepackagesignerApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzsigntemplatepackagesignerApi(unittest.TestCase):
     def test_ezsigntemplatepackagesigner_create_object_v1(self) -> None:
         """Test case for ezsigntemplatepackagesigner_create_object_v1
 
-        Create a new Ezsigntemplatepackagesigner  # noqa: E501
+        Create a new Ezsigntemplatepackagesigner
         """
         pass
 
     def test_ezsigntemplatepackagesigner_delete_object_v1(self) -> None:
         """Test case for ezsigntemplatepackagesigner_delete_object_v1
 
-        Delete an existing Ezsigntemplatepackagesigner  # noqa: E501
+        Delete an existing Ezsigntemplatepackagesigner
         """
         pass
 
     def test_ezsigntemplatepackagesigner_edit_object_v1(self) -> None:
         """Test case for ezsigntemplatepackagesigner_edit_object_v1
 
-        Edit an existing Ezsigntemplatepackagesigner  # noqa: E501
+        Edit an existing Ezsigntemplatepackagesigner
         """
         pass
 
     def test_ezsigntemplatepackagesigner_get_object_v2(self) -> None:
         """Test case for ezsigntemplatepackagesigner_get_object_v2
 
-        Retrieve an existing Ezsigntemplatepackagesigner  # noqa: E501
+        Retrieve an existing Ezsigntemplatepackagesigner
         """
         pass
 

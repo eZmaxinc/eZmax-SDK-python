@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntsarequirement_get_autocomplete_v2_response import EzsigntsarequirementGetAutocompleteV2Response  # noqa: E501
+from eZmaxApi.models.ezsigntsarequirement_get_autocomplete_v2_response import EzsigntsarequirementGetAutocompleteV2Response
 
 class TestEzsigntsarequirementGetAutocompleteV2Response(unittest.TestCase):
     """EzsigntsarequirementGetAutocompleteV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntsarequirementGetAutocompleteV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntsarequirementGetAutocompleteV2Response`
         """
-        model = EzsigntsarequirementGetAutocompleteV2Response()  # noqa: E501
+        model = EzsigntsarequirementGetAutocompleteV2Response()
         if include_optional:
             return EzsigntsarequirementGetAutocompleteV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

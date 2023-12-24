@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignfoldertype_api import ObjectEzsignfoldertypeApi  # noqa: E501
+from eZmaxApi.api.object_ezsignfoldertype_api import ObjectEzsignfoldertypeApi
 
 
 class TestObjectEzsignfoldertypeApi(unittest.TestCase):
     """ObjectEzsignfoldertypeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignfoldertypeApi()  # noqa: E501
+        self.api = ObjectEzsignfoldertypeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,42 +30,42 @@ class TestObjectEzsignfoldertypeApi(unittest.TestCase):
     def test_ezsignfoldertype_create_object_v1(self) -> None:
         """Test case for ezsignfoldertype_create_object_v1
 
-        Create a new Ezsignfoldertype  # noqa: E501
+        Create a new Ezsignfoldertype
         """
         pass
 
     def test_ezsignfoldertype_edit_object_v1(self) -> None:
         """Test case for ezsignfoldertype_edit_object_v1
 
-        Edit an existing Ezsignfoldertype  # noqa: E501
+        Edit an existing Ezsignfoldertype
         """
         pass
 
     def test_ezsignfoldertype_get_autocomplete_v1(self) -> None:
         """Test case for ezsignfoldertype_get_autocomplete_v1
 
-        Retrieve Ezsignfoldertypes and IDs  # noqa: E501
+        Retrieve Ezsignfoldertypes and IDs
         """
         pass
 
     def test_ezsignfoldertype_get_autocomplete_v2(self) -> None:
         """Test case for ezsignfoldertype_get_autocomplete_v2
 
-        Retrieve Ezsignfoldertypes and IDs  # noqa: E501
+        Retrieve Ezsignfoldertypes and IDs
         """
         pass
 
     def test_ezsignfoldertype_get_list_v1(self) -> None:
         """Test case for ezsignfoldertype_get_list_v1
 
-        Retrieve Ezsignfoldertype list  # noqa: E501
+        Retrieve Ezsignfoldertype list
         """
         pass
 
     def test_ezsignfoldertype_get_object_v2(self) -> None:
         """Test case for ezsignfoldertype_get_object_v2
 
-        Retrieve an existing Ezsignfoldertype  # noqa: E501
+        Retrieve an existing Ezsignfoldertype
         """
         pass
 

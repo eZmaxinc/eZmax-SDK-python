@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userstaged_get_list_v1_response_m_payload import UserstagedGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.userstaged_get_list_v1_response_m_payload import UserstagedGetListV1ResponseMPayload
 
 class TestUserstagedGetListV1ResponseMPayload(unittest.TestCase):
     """UserstagedGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserstagedGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserstagedGetListV1ResponseMPayload`
         """
-        model = UserstagedGetListV1ResponseMPayload()  # noqa: E501
+        model = UserstagedGetListV1ResponseMPayload()
         if include_optional:
             return UserstagedGetListV1ResponseMPayload(
                 i_row_returned = 100,

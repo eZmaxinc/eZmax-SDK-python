@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin  # noqa: E501
+from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin
 
 class TestFieldEUserOrigin(unittest.TestCase):
     """FieldEUserOrigin unit test stubs"""

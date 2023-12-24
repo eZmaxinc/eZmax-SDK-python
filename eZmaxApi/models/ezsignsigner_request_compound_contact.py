@@ -19,25 +19,31 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignsignerRequestCompoundContact(BaseModel):
     """
-    A Ezsignsigner->Contact Object and children to create a complete structure  # noqa: E501
-    """
-    s_contact_firstname: StrictStr = Field(..., alias="sContactFirstname", description="The First name of the contact")
-    s_contact_lastname: StrictStr = Field(..., alias="sContactLastname", description="The Last name of the contact")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_email_address: Optional[StrictStr] = Field(None, alias="sEmailAddress", description="The email address.")
-    s_phone_e164: Optional[constr(strict=True)] = Field(None, alias="sPhoneE164", description="A phone number in E.164 Format")
-    s_phone_extension: Optional[StrictStr] = Field(None, alias="sPhoneExtension", description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers")
-    s_phone_e164_cell: Optional[constr(strict=True)] = Field(None, alias="sPhoneE164Cell", description="A phone number in E.164 Format")
-    s_phone_number: Optional[StrictStr] = Field(None, alias="sPhoneNumber")
-    s_phone_number_cell: Optional[StrictStr] = Field(None, alias="sPhoneNumberCell")
-    __properties = ["sContactFirstname", "sContactLastname", "fkiLanguageID", "sEmailAddress", "sPhoneE164", "sPhoneExtension", "sPhoneE164Cell", "sPhoneNumber", "sPhoneNumberCell"]
+    A Ezsignsigner->Contact Object and children to create a complete structure
+    """ # noqa: E501
+    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
+    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
+    s_phone_e164_cell: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164Cell")
+    s_phone_number: Optional[StrictStr] = Field(default=None, alias="sPhoneNumber")
+    s_phone_number_cell: Optional[StrictStr] = Field(default=None, alias="sPhoneNumberCell")
+    __properties: ClassVar[List[str]] = ["sContactFirstname", "sContactLastname", "fkiLanguageID", "sEmailAddress", "sPhoneE164", "sPhoneExtension", "sPhoneE164Cell", "sPhoneNumber", "sPhoneNumberCell"]
 
-    @validator('s_phone_e164')
+    @field_validator('s_phone_e164')
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -47,7 +53,7 @@ class EzsignsignerRequestCompoundContact(BaseModel):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @validator('s_phone_e164_cell')
+    @field_validator('s_phone_e164_cell')
     def s_phone_e164_cell_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -57,51 +63,64 @@ class EzsignsignerRequestCompoundContact(BaseModel):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignsignerRequestCompoundContact:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignsignerRequestCompoundContact from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignsignerRequestCompoundContact:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignsignerRequestCompoundContact from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignsignerRequestCompoundContact.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignsignerRequestCompoundContact.parse_obj({
-            "s_contact_firstname": obj.get("sContactFirstname"),
-            "s_contact_lastname": obj.get("sContactLastname"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_email_address": obj.get("sEmailAddress"),
-            "s_phone_e164": obj.get("sPhoneE164"),
-            "s_phone_extension": obj.get("sPhoneExtension"),
-            "s_phone_e164_cell": obj.get("sPhoneE164Cell"),
-            "s_phone_number": obj.get("sPhoneNumber"),
-            "s_phone_number_cell": obj.get("sPhoneNumberCell")
+        _obj = cls.model_validate({
+            "sContactFirstname": obj.get("sContactFirstname"),
+            "sContactLastname": obj.get("sContactLastname"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "sPhoneE164": obj.get("sPhoneE164"),
+            "sPhoneExtension": obj.get("sPhoneExtension"),
+            "sPhoneE164Cell": obj.get("sPhoneE164Cell"),
+            "sPhoneNumber": obj.get("sPhoneNumber"),
+            "sPhoneNumberCell": obj.get("sPhoneNumberCell")
         })
         return _obj
 

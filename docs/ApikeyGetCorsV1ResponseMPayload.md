@@ -3,6 +3,7 @@
 Response for GET /1/object/apikey/{pkiApikeyID}/getCors
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_cors** | [**List[CorsResponseCompound]**](CorsResponseCompound.md) |  | 

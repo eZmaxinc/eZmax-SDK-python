@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response  # noqa: E501
+from eZmaxApi.models.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response
 
 class TestEzsignfolderReorderV1Response(unittest.TestCase):
     """EzsignfolderReorderV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderReorderV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderReorderV1Response`
         """
-        model = EzsignfolderReorderV1Response()  # noqa: E501
+        model = EzsignfolderReorderV1Response()
         if include_optional:
             return EzsignfolderReorderV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

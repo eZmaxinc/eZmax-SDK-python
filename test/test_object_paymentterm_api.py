@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_paymentterm_api import ObjectPaymenttermApi  # noqa: E501
+from eZmaxApi.api.object_paymentterm_api import ObjectPaymenttermApi
 
 
 class TestObjectPaymenttermApi(unittest.TestCase):
     """ObjectPaymenttermApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectPaymenttermApi()  # noqa: E501
+        self.api = ObjectPaymenttermApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestObjectPaymenttermApi(unittest.TestCase):
     def test_paymentterm_create_object_v1(self) -> None:
         """Test case for paymentterm_create_object_v1
 
-        Create a new Paymentterm  # noqa: E501
+        Create a new Paymentterm
         """
         pass
 
     def test_paymentterm_edit_object_v1(self) -> None:
         """Test case for paymentterm_edit_object_v1
 
-        Edit an existing Paymentterm  # noqa: E501
+        Edit an existing Paymentterm
         """
         pass
 
     def test_paymentterm_get_autocomplete_v2(self) -> None:
         """Test case for paymentterm_get_autocomplete_v2
 
-        Retrieve Paymentterms and IDs  # noqa: E501
+        Retrieve Paymentterms and IDs
         """
         pass
 
     def test_paymentterm_get_list_v1(self) -> None:
         """Test case for paymentterm_get_list_v1
 
-        Retrieve Paymentterm list  # noqa: E501
+        Retrieve Paymentterm list
         """
         pass
 
     def test_paymentterm_get_object_v2(self) -> None:
         """Test case for paymentterm_get_object_v2
 
-        Retrieve an existing Paymentterm  # noqa: E501
+        Retrieve an existing Paymentterm
         """
         pass
 

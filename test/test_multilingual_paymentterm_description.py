@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_paymentterm_description import MultilingualPaymenttermDescription  # noqa: E501
+from eZmaxApi.models.multilingual_paymentterm_description import MultilingualPaymenttermDescription
 
 class TestMultilingualPaymenttermDescription(unittest.TestCase):
     """MultilingualPaymenttermDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualPaymenttermDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualPaymenttermDescription`
         """
-        model = MultilingualPaymenttermDescription()  # noqa: E501
+        model = MultilingualPaymenttermDescription()
         if include_optional:
             return MultilingualPaymenttermDescription(
                 s_paymentterm_description1 = 'Net 30 jours',

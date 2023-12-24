@@ -19,59 +19,78 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomEzsignformfieldRequest(BaseModel):
     """
-    A Custom Ezsignformfield Object to fill an Ezsignform using submitForm  # noqa: E501
-    """
-    pki_ezsignformfield_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzsignformfieldID", description="The unique ID of the Ezsignformfield")
-    s_ezsignformfield_label: Optional[StrictStr] = Field(None, alias="sEzsignformfieldLabel", description="The Label for the Ezsignformfield")
-    b_ezsignformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsignformfieldSelected", description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**")
-    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldEnteredvalue", description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**")
-    __properties = ["pkiEzsignformfieldID", "sEzsignformfieldLabel", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
+    A Custom Ezsignformfield Object to fill an Ezsignform using submitForm
+    """ # noqa: E501
+    pki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="pkiEzsignformfieldID")
+    s_ezsignformfield_label: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
+    b_ezsignformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsignformfieldSelected")
+    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue")
+    __properties: ClassVar[List[str]] = ["pkiEzsignformfieldID", "sEzsignformfieldLabel", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomEzsignformfieldRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomEzsignformfieldRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomEzsignformfieldRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomEzsignformfieldRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomEzsignformfieldRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomEzsignformfieldRequest.parse_obj({
-            "pki_ezsignformfield_id": obj.get("pkiEzsignformfieldID"),
-            "s_ezsignformfield_label": obj.get("sEzsignformfieldLabel"),
-            "b_ezsignformfield_selected": obj.get("bEzsignformfieldSelected"),
-            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue")
+        _obj = cls.model_validate({
+            "pkiEzsignformfieldID": obj.get("pkiEzsignformfieldID"),
+            "sEzsignformfieldLabel": obj.get("sEzsignformfieldLabel"),
+            "bEzsignformfieldSelected": obj.get("bEzsignformfieldSelected"),
+            "sEzsignformfieldEnteredvalue": obj.get("sEzsignformfieldEnteredvalue")
         })
         return _obj
 

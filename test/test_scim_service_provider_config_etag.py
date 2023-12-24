@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProviderConfigEtag  # noqa: E501
+from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProviderConfigEtag
 
 class TestScimServiceProviderConfigEtag(unittest.TestCase):
     """ScimServiceProviderConfigEtag unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimServiceProviderConfigEtag(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimServiceProviderConfigEtag`
         """
-        model = ScimServiceProviderConfigEtag()  # noqa: E501
+        model = ScimServiceProviderConfigEtag()
         if include_optional:
             return ScimServiceProviderConfigEtag(
                 supported = False

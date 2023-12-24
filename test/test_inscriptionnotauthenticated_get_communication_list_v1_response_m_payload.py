@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.inscriptionnotauthenticated_get_communication_list_v1_response_m_payload import InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.inscriptionnotauthenticated_get_communication_list_v1_response_m_payload import InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload
 
 class TestInscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload(unittest.TestCase):
     """InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestInscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload(unit
             optional params are included """
         # uncomment below to create an instance of `InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload`
         """
-        model = InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload()  # noqa: E501
+        model = InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload()
         if include_optional:
             return InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload(
                 a_obj_communication = [

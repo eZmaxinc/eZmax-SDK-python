@@ -3,6 +3,7 @@
 Request for PUT /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsigntemplatesignature** | [**List[EzsigntemplatesignatureRequestCompound]**](EzsigntemplatesignatureRequestCompound.md) |  | 

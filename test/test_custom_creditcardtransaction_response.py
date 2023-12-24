@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse  # noqa: E501
+from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse
 
 class TestCustomCreditcardtransactionResponse(unittest.TestCase):
     """CustomCreditcardtransactionResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomCreditcardtransactionResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCreditcardtransactionResponse`
         """
-        model = CustomCreditcardtransactionResponse()  # noqa: E501
+        model = CustomCreditcardtransactionResponse()
         if include_optional:
             return CustomCreditcardtransactionResponse(
                 e_creditcardtype_codename = 'visa',

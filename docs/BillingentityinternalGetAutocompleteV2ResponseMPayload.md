@@ -3,6 +3,7 @@
 Payload for POST /2/object/billingentityinternal/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_billingentityinternal** | [**List[BillingentityinternalAutocompleteElementResponse]**](BillingentityinternalAutocompleteElementResponse.md) | An array of Billingentityinternal object containing the description, ID and active status about the element. | 

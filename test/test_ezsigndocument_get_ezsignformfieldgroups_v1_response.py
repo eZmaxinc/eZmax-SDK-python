@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_ezsignformfieldgroups_v1_response import EzsigndocumentGetEzsignformfieldgroupsV1Response  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_ezsignformfieldgroups_v1_response import EzsigndocumentGetEzsignformfieldgroupsV1Response
 
 class TestEzsigndocumentGetEzsignformfieldgroupsV1Response(unittest.TestCase):
     """EzsigndocumentGetEzsignformfieldgroupsV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetEzsignformfieldgroupsV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetEzsignformfieldgroupsV1Response`
         """
-        model = EzsigndocumentGetEzsignformfieldgroupsV1Response()  # noqa: E501
+        model = EzsigndocumentGetEzsignformfieldgroupsV1Response()
         if include_optional:
             return EzsigndocumentGetEzsignformfieldgroupsV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

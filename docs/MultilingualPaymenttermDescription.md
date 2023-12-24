@@ -3,6 +3,7 @@
 Description of the Paymentterm
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_paymentterm_description1** | **str** | The description of the Paymentterm in French | [optional] 

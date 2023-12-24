@@ -3,6 +3,7 @@
 The action we do when a new external user connects itself
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

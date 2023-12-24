@@ -3,6 +3,7 @@
 Payload for GET /2/object/paymentterm/{pkiPaymenttermID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_paymentterm** | [**PaymenttermResponseCompound**](PaymenttermResponseCompound.md) |  | 

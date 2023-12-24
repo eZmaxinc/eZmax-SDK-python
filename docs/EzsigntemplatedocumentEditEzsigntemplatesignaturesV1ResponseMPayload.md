@@ -3,6 +3,7 @@
 Payload for PUT /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_pki_ezsigntemplatesignature_id** | **List[int]** |  | 

@@ -3,6 +3,7 @@
 The Type of the Sessionhistory
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **t_extra_message** | **str** | A custom text message that will be added to the email sent. | 

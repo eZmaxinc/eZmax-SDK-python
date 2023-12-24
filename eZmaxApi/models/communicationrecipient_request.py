@@ -19,78 +19,101 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_communicationrecipient_type import FieldECommunicationrecipientType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommunicationrecipientRequest(BaseModel):
     """
-    A Communicationrecipient Object  # noqa: E501
-    """
-    pki_communicationrecipient_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiCommunicationrecipientID", description="The unique ID of the Communicationrecipient.")
-    fki_agent_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiAgentID", description="The unique ID of the Agent.")
-    fki_agentincorporation_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiAgentincorporationID", description="The unique ID of the Agentincorporation.")
-    fki_broker_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiBrokerID", description="The unique ID of the Broker.")
-    fki_customer_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiCustomerID", description="The unique ID of the Customer.")
-    fki_employee_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEmployeeID", description="The unique ID of the Employee.")
-    fki_assistant_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiAssistantID", description="The unique ID of the Assistant.")
-    fki_externalbroker_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiExternalbrokerID", description="The unique ID of the Externalbroker.")
-    fki_ezsignsigner_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignsignerID", description="The unique ID of the Ezsignsigner")
-    fki_notary_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiNotaryID", description="The unique ID of the Notary.")
-    fki_supplier_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiSupplierID", description="The unique ID of the Supplier.")
-    fki_user_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiUserID", description="The unique ID of the User")
-    e_communicationrecipient_type: Optional[FieldECommunicationrecipientType] = Field(None, alias="eCommunicationrecipientType")
-    __properties = ["pkiCommunicationrecipientID", "fkiAgentID", "fkiAgentincorporationID", "fkiBrokerID", "fkiCustomerID", "fkiEmployeeID", "fkiAssistantID", "fkiExternalbrokerID", "fkiEzsignsignerID", "fkiNotaryID", "fkiSupplierID", "fkiUserID", "eCommunicationrecipientType"]
+    A Communicationrecipient Object
+    """ # noqa: E501
+    pki_communicationrecipient_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communicationrecipient.", alias="pkiCommunicationrecipientID")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    fki_contact_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Contact", alias="fkiContactID")
+    fki_customer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Customer.", alias="fkiCustomerID")
+    fki_employee_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Employee.", alias="fkiEmployeeID")
+    fki_assistant_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Assistant.", alias="fkiAssistantID")
+    fki_externalbroker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Externalbroker.", alias="fkiExternalbrokerID")
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
+    fki_notary_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Notary.", alias="fkiNotaryID")
+    fki_supplier_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supplier.", alias="fkiSupplierID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID")
+    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
+    e_communicationrecipient_type: Optional[FieldECommunicationrecipientType] = Field(default=None, alias="eCommunicationrecipientType")
+    __properties: ClassVar[List[str]] = ["pkiCommunicationrecipientID", "fkiAgentID", "fkiBrokerID", "fkiContactID", "fkiCustomerID", "fkiEmployeeID", "fkiAssistantID", "fkiExternalbrokerID", "fkiEzsignsignerID", "fkiNotaryID", "fkiSupplierID", "fkiUserID", "fkiMailboxsharedID", "fkiPhonelinesharedID", "eCommunicationrecipientType"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommunicationrecipientRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommunicationrecipientRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommunicationrecipientRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommunicationrecipientRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommunicationrecipientRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommunicationrecipientRequest.parse_obj({
-            "pki_communicationrecipient_id": obj.get("pkiCommunicationrecipientID"),
-            "fki_agent_id": obj.get("fkiAgentID"),
-            "fki_agentincorporation_id": obj.get("fkiAgentincorporationID"),
-            "fki_broker_id": obj.get("fkiBrokerID"),
-            "fki_customer_id": obj.get("fkiCustomerID"),
-            "fki_employee_id": obj.get("fkiEmployeeID"),
-            "fki_assistant_id": obj.get("fkiAssistantID"),
-            "fki_externalbroker_id": obj.get("fkiExternalbrokerID"),
-            "fki_ezsignsigner_id": obj.get("fkiEzsignsignerID"),
-            "fki_notary_id": obj.get("fkiNotaryID"),
-            "fki_supplier_id": obj.get("fkiSupplierID"),
-            "fki_user_id": obj.get("fkiUserID"),
-            "e_communicationrecipient_type": obj.get("eCommunicationrecipientType")
+        _obj = cls.model_validate({
+            "pkiCommunicationrecipientID": obj.get("pkiCommunicationrecipientID"),
+            "fkiAgentID": obj.get("fkiAgentID"),
+            "fkiBrokerID": obj.get("fkiBrokerID"),
+            "fkiContactID": obj.get("fkiContactID"),
+            "fkiCustomerID": obj.get("fkiCustomerID"),
+            "fkiEmployeeID": obj.get("fkiEmployeeID"),
+            "fkiAssistantID": obj.get("fkiAssistantID"),
+            "fkiExternalbrokerID": obj.get("fkiExternalbrokerID"),
+            "fkiEzsignsignerID": obj.get("fkiEzsignsignerID"),
+            "fkiNotaryID": obj.get("fkiNotaryID"),
+            "fkiSupplierID": obj.get("fkiSupplierID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiMailboxsharedID": obj.get("fkiMailboxsharedID"),
+            "fkiPhonelinesharedID": obj.get("fkiPhonelinesharedID"),
+            "eCommunicationrecipientType": obj.get("eCommunicationrecipientType")
         })
         return _obj
 

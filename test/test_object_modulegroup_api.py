@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi  # noqa: E501
+from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi
 
 
 class TestObjectModulegroupApi(unittest.TestCase):
     """ObjectModulegroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectModulegroupApi()  # noqa: E501
+        self.api = ObjectModulegroupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectModulegroupApi(unittest.TestCase):
     def test_modulegroup_get_all_v1(self) -> None:
         """Test case for modulegroup_get_all_v1
 
-        Retrieve all Modulegroups  # noqa: E501
+        Retrieve all Modulegroups
         """
         pass
 

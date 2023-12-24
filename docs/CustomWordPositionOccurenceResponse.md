@@ -3,6 +3,7 @@
 A Word Position Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_page** | **int** | The page where the word occurence was found | [optional] 

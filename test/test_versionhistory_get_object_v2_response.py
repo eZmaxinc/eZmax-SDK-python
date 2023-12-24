@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.versionhistory_get_object_v2_response import VersionhistoryGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.versionhistory_get_object_v2_response import VersionhistoryGetObjectV2Response
 
 class TestVersionhistoryGetObjectV2Response(unittest.TestCase):
     """VersionhistoryGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestVersionhistoryGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VersionhistoryGetObjectV2Response`
         """
-        model = VersionhistoryGetObjectV2Response()  # noqa: E501
+        model = VersionhistoryGetObjectV2Response()
         if include_optional:
             return VersionhistoryGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

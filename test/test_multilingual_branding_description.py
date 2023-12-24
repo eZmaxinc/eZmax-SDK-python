@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_branding_description import MultilingualBrandingDescription  # noqa: E501
+from eZmaxApi.models.multilingual_branding_description import MultilingualBrandingDescription
 
 class TestMultilingualBrandingDescription(unittest.TestCase):
     """MultilingualBrandingDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualBrandingDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualBrandingDescription`
         """
-        model = MultilingualBrandingDescription()  # noqa: E501
+        model = MultilingualBrandingDescription()
         if include_optional:
             return MultilingualBrandingDescription(
                 s_branding_description1 = 'Compagnie X',

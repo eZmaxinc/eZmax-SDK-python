@@ -3,6 +3,7 @@
 The weekday start of the User.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

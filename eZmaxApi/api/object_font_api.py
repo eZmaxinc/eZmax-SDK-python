@@ -13,14 +13,20 @@
 """  # noqa: E501
 
 
-import re  # noqa: F401
 import io
 import warnings
 
-from pydantic import validate_arguments, ValidationError
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from typing import Dict, List, Optional, Tuple, Union, Any
 
+try:
+    from typing import Annotated
+except ImportError:
+    from typing_extensions import Annotated
+
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr
+from pydantic import StrictStr, field_validator
 
 from typing import Optional
 
@@ -29,10 +35,7 @@ from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient
 from eZmaxApi.api_response import ApiResponse
-from eZmaxApi.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from eZmaxApi.rest import RESTResponseType
 
 
 class ObjectFontApi:
@@ -47,52 +50,30 @@ class ObjectFontApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    @validate_arguments
-    def font_get_autocomplete_v2(self, s_selector : Annotated[StrictStr, Field(..., description="The type of Fonts to return")], e_filter_active : Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None, s_query : Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None, accept_language : Optional[HeaderAcceptLanguage] = None, **kwargs) -> FontGetAutocompleteV2Response:  # noqa: E501
-        """Retrieve Fonts and IDs  # noqa: E501
 
-        Get the list of Font to be used in a dropdown or autocomplete control.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def font_get_autocomplete_v2(
+        self,
+        s_selector: Annotated[StrictStr, Field(description="The type of Fonts to return")],
+        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FontGetAutocompleteV2Response:
+        """Retrieve Fonts and IDs
 
-        >>> thread = api.font_get_autocomplete_v2(s_selector, e_filter_active, s_query, accept_language, async_req=True)
-        >>> result = thread.get()
-
-        :param s_selector: The type of Fonts to return (required)
-        :type s_selector: str
-        :param e_filter_active: Specify which results we want to display.
-        :type e_filter_active: str
-        :param s_query: Allow to filter the returned results
-        :type s_query: str
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: FontGetAutocompleteV2Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the font_get_autocomplete_v2_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.font_get_autocomplete_v2_with_http_info(s_selector, e_filter_active, s_query, accept_language, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def font_get_autocomplete_v2_with_http_info(self, s_selector : Annotated[StrictStr, Field(..., description="The type of Fonts to return")], e_filter_active : Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None, s_query : Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None, accept_language : Optional[HeaderAcceptLanguage] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve Fonts and IDs  # noqa: E501
-
-        Get the list of Font to be used in a dropdown or autocomplete control.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.font_get_autocomplete_v2_with_http_info(s_selector, e_filter_active, s_query, accept_language, async_req=True)
-        >>> result = thread.get()
+        Get the list of Font to be used in a dropdown or autocomplete control.
 
         :param s_selector: The type of Fonts to return (required)
         :type s_selector: str
@@ -102,111 +83,276 @@ class ObjectFontApi:
         :type s_query: str
         :param accept_language:
         :type accept_language: HeaderAcceptLanguage
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(FontGetAutocompleteV2Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._font_get_autocomplete_v2_serialize(
+            s_selector=s_selector,
+            e_filter_active=e_filter_active,
+            s_query=s_query,
+            accept_language=accept_language,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            's_selector',
-            'e_filter_active',
-            's_query',
-            'accept_language'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FontGetAutocompleteV2Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def font_get_autocomplete_v2_with_http_info(
+        self,
+        s_selector: Annotated[StrictStr, Field(description="The type of Fonts to return")],
+        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FontGetAutocompleteV2Response]:
+        """Retrieve Fonts and IDs
+
+        Get the list of Font to be used in a dropdown or autocomplete control.
+
+        :param s_selector: The type of Fonts to return (required)
+        :type s_selector: str
+        :param e_filter_active: Specify which results we want to display.
+        :type e_filter_active: str
+        :param s_query: Allow to filter the returned results
+        :type s_query: str
+        :param accept_language:
+        :type accept_language: HeaderAcceptLanguage
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._font_get_autocomplete_v2_serialize(
+            s_selector=s_selector,
+            e_filter_active=e_filter_active,
+            s_query=s_query,
+            accept_language=accept_language,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FontGetAutocompleteV2Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def font_get_autocomplete_v2_without_preload_content(
+        self,
+        s_selector: Annotated[StrictStr, Field(description="The type of Fonts to return")],
+        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve Fonts and IDs
+
+        Get the list of Font to be used in a dropdown or autocomplete control.
+
+        :param s_selector: The type of Fonts to return (required)
+        :type s_selector: str
+        :param e_filter_active: Specify which results we want to display.
+        :type e_filter_active: str
+        :param s_query: Allow to filter the returned results
+        :type s_query: str
+        :param accept_language:
+        :type accept_language: HeaderAcceptLanguage
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._font_get_autocomplete_v2_serialize(
+            s_selector=s_selector,
+            e_filter_active=e_filter_active,
+            s_query=s_query,
+            accept_language=accept_language,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "FontGetAutocompleteV2Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _font_get_autocomplete_v2_serialize(
+        self,
+        s_selector,
+        e_filter_active,
+        s_query,
+        accept_language,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if s_selector is not None:
+            _path_params['sSelector'] = s_selector
+        # process the query parameters
+        if e_filter_active is not None:
+            
+            _query_params.append(('eFilterActive', e_filter_active))
+            
+        if s_query is not None:
+            
+            _query_params.append(('sQuery', s_query))
+            
+        # process the header parameters
+        if accept_language is not None:
+            _header_params['Accept-Language'] = accept_language
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method font_get_autocomplete_v2" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['s_selector']:
-            _path_params['sSelector'] = _params['s_selector']
-
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('e_filter_active') is not None:  # noqa: E501
-            _query_params.append(('eFilterActive', _params['e_filter_active']))
-
-        if _params.get('s_query') is not None:  # noqa: E501
-            _query_params.append(('sQuery', _params['s_query']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        if _params['accept_language']:
-            _header_params['Accept-Language'] = _params['accept_language']
-
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
-            '200': "FontGetAutocompleteV2Response",
-        }
-
-        return self.api_client.call_api(
-            '/2/object/font/getAutocomplete/{sSelector}', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/2/object/font/getAutocomplete/{sSelector}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
-            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+

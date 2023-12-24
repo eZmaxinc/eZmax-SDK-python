@@ -3,6 +3,7 @@
 Request for PUT /1/object/paymentterm/{pkiPaymenttermID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_paymentterm** | [**PaymenttermRequestCompound**](PaymenttermRequestCompound.md) |  | 

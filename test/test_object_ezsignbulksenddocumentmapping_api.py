@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi  # noqa: E501
+from eZmaxApi.api.object_ezsignbulksenddocumentmapping_api import ObjectEzsignbulksenddocumentmappingApi
 
 
 class TestObjectEzsignbulksenddocumentmappingApi(unittest.TestCase):
     """ObjectEzsignbulksenddocumentmappingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignbulksenddocumentmappingApi()  # noqa: E501
+        self.api = ObjectEzsignbulksenddocumentmappingApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,21 +30,21 @@ class TestObjectEzsignbulksenddocumentmappingApi(unittest.TestCase):
     def test_ezsignbulksenddocumentmapping_create_object_v1(self) -> None:
         """Test case for ezsignbulksenddocumentmapping_create_object_v1
 
-        Create a new Ezsignbulksenddocumentmapping  # noqa: E501
+        Create a new Ezsignbulksenddocumentmapping
         """
         pass
 
     def test_ezsignbulksenddocumentmapping_delete_object_v1(self) -> None:
         """Test case for ezsignbulksenddocumentmapping_delete_object_v1
 
-        Delete an existing Ezsignbulksenddocumentmapping  # noqa: E501
+        Delete an existing Ezsignbulksenddocumentmapping
         """
         pass
 
     def test_ezsignbulksenddocumentmapping_get_object_v2(self) -> None:
         """Test case for ezsignbulksenddocumentmapping_get_object_v2
 
-        Retrieve an existing Ezsignbulksenddocumentmapping  # noqa: E501
+        Retrieve an existing Ezsignbulksenddocumentmapping
         """
         pass
 

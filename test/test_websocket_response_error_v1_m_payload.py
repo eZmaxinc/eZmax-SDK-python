@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.websocket_response_error_v1_m_payload import WebsocketResponseErrorV1MPayload  # noqa: E501
+from eZmaxApi.models.websocket_response_error_v1_m_payload import WebsocketResponseErrorV1MPayload
 
 class TestWebsocketResponseErrorV1MPayload(unittest.TestCase):
     """WebsocketResponseErrorV1MPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebsocketResponseErrorV1MPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsocketResponseErrorV1MPayload`
         """
-        model = WebsocketResponseErrorV1MPayload()  # noqa: E501
+        model = WebsocketResponseErrorV1MPayload()
         if include_optional:
             return WebsocketResponseErrorV1MPayload(
                 s_error_message = 'Invalid Signature Headers',

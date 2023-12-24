@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.address_request_compound import AddressRequestCompound  # noqa: E501
+from eZmaxApi.models.address_request_compound import AddressRequestCompound
 
 class TestAddressRequestCompound(unittest.TestCase):
     """AddressRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestAddressRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `AddressRequestCompound`
         """
-        model = AddressRequestCompound()  # noqa: E501
+        model = AddressRequestCompound()
         if include_optional:
             return AddressRequestCompound(
                 fki_addresstype_id = 1,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_response import EzsigndocumentDeclineToSignV1Response  # noqa: E501
+from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_response import EzsigndocumentDeclineToSignV1Response
 
 class TestEzsigndocumentDeclineToSignV1Response(unittest.TestCase):
     """EzsigndocumentDeclineToSignV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentDeclineToSignV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentDeclineToSignV1Response`
         """
-        model = EzsigndocumentDeclineToSignV1Response()  # noqa: E501
+        model = EzsigndocumentDeclineToSignV1Response()
         if include_optional:
             return EzsigndocumentDeclineToSignV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_create_object_v1_response_m_payload import CorsCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.cors_create_object_v1_response_m_payload import CorsCreateObjectV1ResponseMPayload
 
 class TestCorsCreateObjectV1ResponseMPayload(unittest.TestCase):
     """CorsCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsCreateObjectV1ResponseMPayload`
         """
-        model = CorsCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = CorsCreateObjectV1ResponseMPayload()
         if include_optional:
             return CorsCreateObjectV1ResponseMPayload(
                 a_pki_cors_id = [

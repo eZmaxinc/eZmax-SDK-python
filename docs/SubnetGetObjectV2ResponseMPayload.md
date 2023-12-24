@@ -3,6 +3,7 @@
 Payload for GET /2/object/subnet/{pkiSubnetID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_subnet** | [**SubnetResponseCompound**](SubnetResponseCompound.md) |  | 

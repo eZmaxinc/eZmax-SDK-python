@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fki_ezsigntemplatepackage_id** | **int** | The unique ID of the Ezsigntemplatepackage | 

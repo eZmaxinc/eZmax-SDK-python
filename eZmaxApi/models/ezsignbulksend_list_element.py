@@ -19,73 +19,92 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignbulksendListElement(BaseModel):
     """
-    An Ezsignbulksend List Element  # noqa: E501
-    """
-    pki_ezsignbulksend_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsignbulksendID", description="The unique ID of the Ezsignbulksend")
-    fki_ezsignfoldertype_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsignfoldertypeID", description="The unique ID of the Ezsignfoldertype.")
-    s_ezsignbulksend_description: StrictStr = Field(..., alias="sEzsignbulksendDescription", description="The description of the Ezsignbulksend")
-    s_ezsignfoldertype_name_x: StrictStr = Field(..., alias="sEzsignfoldertypeNameX", description="The name of the Ezsignfoldertype in the language of the requester")
-    b_ezsignbulksend_needvalidation: StrictBool = Field(..., alias="bEzsignbulksendNeedvalidation", description="Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation")
-    i_ezsignbulksendtransmission: StrictInt = Field(..., alias="iEzsignbulksendtransmission", description="The total number of Ezsignbulksendtransmissions in the Ezsignbulksend")
-    i_ezsignfolder: StrictInt = Field(..., alias="iEzsignfolder", description="The total number of Ezsignfolders in the Ezsignbulksend")
-    i_ezsigndocument: StrictInt = Field(..., alias="iEzsigndocument", description="The total number of Ezsigndocuments in the Ezsignbulksend")
-    i_ezsignsignature: StrictInt = Field(..., alias="iEzsignsignature", description="The total number of Ezsignsignature in the Ezsignbulksend")
-    i_ezsignsignature_signed: StrictInt = Field(..., alias="iEzsignsignatureSigned", description="The total number of already signed Ezsignsignature blocks in the Ezsignbulksend")
-    b_ezsignbulksend_isactive: StrictBool = Field(..., alias="bEzsignbulksendIsactive", description="Whether the Ezsignbulksend is active or not")
-    __properties = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "sEzsignbulksendDescription", "sEzsignfoldertypeNameX", "bEzsignbulksendNeedvalidation", "iEzsignbulksendtransmission", "iEzsignfolder", "iEzsigndocument", "iEzsignsignature", "iEzsignsignatureSigned", "bEzsignbulksendIsactive"]
+    An Ezsignbulksend List Element
+    """ # noqa: E501
+    pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    b_ezsignbulksend_needvalidation: StrictBool = Field(description="Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation", alias="bEzsignbulksendNeedvalidation")
+    i_ezsignbulksendtransmission: StrictInt = Field(description="The total number of Ezsignbulksendtransmissions in the Ezsignbulksend", alias="iEzsignbulksendtransmission")
+    i_ezsignfolder: StrictInt = Field(description="The total number of Ezsignfolders in the Ezsignbulksend", alias="iEzsignfolder")
+    i_ezsigndocument: StrictInt = Field(description="The total number of Ezsigndocuments in the Ezsignbulksend", alias="iEzsigndocument")
+    i_ezsignsignature: StrictInt = Field(description="The total number of Ezsignsignature in the Ezsignbulksend", alias="iEzsignsignature")
+    i_ezsignsignature_signed: StrictInt = Field(description="The total number of already signed Ezsignsignature blocks in the Ezsignbulksend", alias="iEzsignsignatureSigned")
+    b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive")
+    __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "sEzsignbulksendDescription", "sEzsignfoldertypeNameX", "bEzsignbulksendNeedvalidation", "iEzsignbulksendtransmission", "iEzsignfolder", "iEzsigndocument", "iEzsignsignature", "iEzsignsignatureSigned", "bEzsignbulksendIsactive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignbulksendListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignbulksendListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignbulksendListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignbulksendListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignbulksendListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignbulksendListElement.parse_obj({
-            "pki_ezsignbulksend_id": obj.get("pkiEzsignbulksendID"),
-            "fki_ezsignfoldertype_id": obj.get("fkiEzsignfoldertypeID"),
-            "s_ezsignbulksend_description": obj.get("sEzsignbulksendDescription"),
-            "s_ezsignfoldertype_name_x": obj.get("sEzsignfoldertypeNameX"),
-            "b_ezsignbulksend_needvalidation": obj.get("bEzsignbulksendNeedvalidation"),
-            "i_ezsignbulksendtransmission": obj.get("iEzsignbulksendtransmission"),
-            "i_ezsignfolder": obj.get("iEzsignfolder"),
-            "i_ezsigndocument": obj.get("iEzsigndocument"),
-            "i_ezsignsignature": obj.get("iEzsignsignature"),
-            "i_ezsignsignature_signed": obj.get("iEzsignsignatureSigned"),
-            "b_ezsignbulksend_isactive": obj.get("bEzsignbulksendIsactive")
+        _obj = cls.model_validate({
+            "pkiEzsignbulksendID": obj.get("pkiEzsignbulksendID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "sEzsignbulksendDescription": obj.get("sEzsignbulksendDescription"),
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "bEzsignbulksendNeedvalidation": obj.get("bEzsignbulksendNeedvalidation"),
+            "iEzsignbulksendtransmission": obj.get("iEzsignbulksendtransmission"),
+            "iEzsignfolder": obj.get("iEzsignfolder"),
+            "iEzsigndocument": obj.get("iEzsigndocument"),
+            "iEzsignsignature": obj.get("iEzsignsignature"),
+            "iEzsignsignatureSigned": obj.get("iEzsignsignatureSigned"),
+            "bEzsignbulksendIsactive": obj.get("bEzsignbulksendIsactive")
         })
         return _obj
 

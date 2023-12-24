@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxproduct_autocomplete_element_response import EzmaxproductAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.ezmaxproduct_autocomplete_element_response import EzmaxproductAutocompleteElementResponse
 
 class TestEzmaxproductAutocompleteElementResponse(unittest.TestCase):
     """EzmaxproductAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxproductAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxproductAutocompleteElementResponse`
         """
-        model = EzmaxproductAutocompleteElementResponse()  # noqa: E501
+        model = EzmaxproductAutocompleteElementResponse()
         if include_optional:
             return EzmaxproductAutocompleteElementResponse(
                 pki_ezmaxproduct_id = 172,

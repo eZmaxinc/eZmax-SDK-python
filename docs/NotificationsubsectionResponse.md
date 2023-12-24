@@ -3,6 +3,7 @@
 A Notificationsubsection Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_notificationsubsection_id** | **int** | The unique ID of the Notificationsubsection | 

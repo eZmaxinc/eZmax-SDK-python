@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.websocket_response_get_websocket_idv1_m_payload import WebsocketResponseGetWebsocketIDV1MPayload  # noqa: E501
+from eZmaxApi.models.websocket_response_get_websocket_idv1_m_payload import WebsocketResponseGetWebsocketIDV1MPayload
 
 class TestWebsocketResponseGetWebsocketIDV1MPayload(unittest.TestCase):
     """WebsocketResponseGetWebsocketIDV1MPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebsocketResponseGetWebsocketIDV1MPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsocketResponseGetWebsocketIDV1MPayload`
         """
-        model = WebsocketResponseGetWebsocketIDV1MPayload()  # noqa: E501
+        model = WebsocketResponseGetWebsocketIDV1MPayload()
         if include_optional:
             return WebsocketResponseGetWebsocketIDV1MPayload(
                 s_websocket_id = 'G_omidyY4osCFEQ='

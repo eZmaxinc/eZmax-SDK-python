@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communicationreference_request_compound import CommunicationreferenceRequestCompound  # noqa: E501
+from eZmaxApi.models.communicationreference_request_compound import CommunicationreferenceRequestCompound
 
 class TestCommunicationreferenceRequestCompound(unittest.TestCase):
     """CommunicationreferenceRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationreferenceRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationreferenceRequestCompound`
         """
-        model = CommunicationreferenceRequestCompound()  # noqa: E501
+        model = CommunicationreferenceRequestCompound()
         if include_optional:
             return CommunicationreferenceRequestCompound(
                 pki_communicationreference_id = 1263,

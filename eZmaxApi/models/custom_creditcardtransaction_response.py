@@ -19,81 +19,100 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_creditcardtype_codename import FieldECreditcardtypeCodename
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomCreditcardtransactionResponse(BaseModel):
     """
-    A custom Creditcardtransaction Object  # noqa: E501
-    """
-    e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(..., alias="eCreditcardtypeCodename")
-    d_creditcardtransaction_amount: constr(strict=True) = Field(..., alias="dCreditcardtransactionAmount", description="The amount of the Creditcardtransaction")
-    s_creditcardtransaction_partiallydecryptednumber: constr(strict=True) = Field(..., alias="sCreditcardtransactionPartiallydecryptednumber", description="The partially decrypted credit card number used in the Creditcardtransaction")
-    s_creditcardtransaction_referencenumber: constr(strict=True) = Field(..., alias="sCreditcardtransactionReferencenumber", description="The reference number on the creditcard service for the Creditcardtransaction")
-    __properties = ["eCreditcardtypeCodename", "dCreditcardtransactionAmount", "sCreditcardtransactionPartiallydecryptednumber", "sCreditcardtransactionReferencenumber"]
+    A custom Creditcardtransaction Object
+    """ # noqa: E501
+    e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(alias="eCreditcardtypeCodename")
+    d_creditcardtransaction_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of the Creditcardtransaction", alias="dCreditcardtransactionAmount")
+    s_creditcardtransaction_partiallydecryptednumber: Annotated[str, Field(strict=True)] = Field(description="The partially decrypted credit card number used in the Creditcardtransaction", alias="sCreditcardtransactionPartiallydecryptednumber")
+    s_creditcardtransaction_referencenumber: Annotated[str, Field(strict=True)] = Field(description="The reference number on the creditcard service for the Creditcardtransaction", alias="sCreditcardtransactionReferencenumber")
+    __properties: ClassVar[List[str]] = ["eCreditcardtypeCodename", "dCreditcardtransactionAmount", "sCreditcardtransactionPartiallydecryptednumber", "sCreditcardtransactionReferencenumber"]
 
-    @validator('d_creditcardtransaction_amount')
+    @field_validator('d_creditcardtransaction_amount')
     def d_creditcardtransaction_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @validator('s_creditcardtransaction_partiallydecryptednumber')
+    @field_validator('s_creditcardtransaction_partiallydecryptednumber')
     def s_creditcardtransaction_partiallydecryptednumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^([X]{4}[ ]){3}(\d){4}$", value):
             raise ValueError(r"must validate the regular expression /^([X]{4}[ ]){3}(\d){4}$/")
         return value
 
-    @validator('s_creditcardtransaction_referencenumber')
+    @field_validator('s_creditcardtransaction_referencenumber')
     def s_creditcardtransaction_referencenumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[\d]{18}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{18}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomCreditcardtransactionResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomCreditcardtransactionResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomCreditcardtransactionResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomCreditcardtransactionResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomCreditcardtransactionResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomCreditcardtransactionResponse.parse_obj({
-            "e_creditcardtype_codename": obj.get("eCreditcardtypeCodename"),
-            "d_creditcardtransaction_amount": obj.get("dCreditcardtransactionAmount"),
-            "s_creditcardtransaction_partiallydecryptednumber": obj.get("sCreditcardtransactionPartiallydecryptednumber"),
-            "s_creditcardtransaction_referencenumber": obj.get("sCreditcardtransactionReferencenumber")
+        _obj = cls.model_validate({
+            "eCreditcardtypeCodename": obj.get("eCreditcardtypeCodename"),
+            "dCreditcardtransactionAmount": obj.get("dCreditcardtransactionAmount"),
+            "sCreditcardtransactionPartiallydecryptednumber": obj.get("sCreditcardtransactionPartiallydecryptednumber"),
+            "sCreditcardtransactionReferencenumber": obj.get("sCreditcardtransactionReferencenumber")
         })
         return _obj
 

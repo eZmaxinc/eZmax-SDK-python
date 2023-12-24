@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_reorder_v1_request import EzsignbulksendReorderV1Request  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_reorder_v1_request import EzsignbulksendReorderV1Request
 
 class TestEzsignbulksendReorderV1Request(unittest.TestCase):
     """EzsignbulksendReorderV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendReorderV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendReorderV1Request`
         """
-        model = EzsignbulksendReorderV1Request()  # noqa: E501
+        model = EzsignbulksendReorderV1Request()
         if include_optional:
             return EzsignbulksendReorderV1Request(
                 a_pki_ezsignbulksenddocumentmapping_id = [

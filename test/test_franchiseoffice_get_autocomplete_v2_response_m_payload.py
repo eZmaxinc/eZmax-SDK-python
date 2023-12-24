@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.franchiseoffice_get_autocomplete_v2_response_m_payload import FranchiseofficeGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.franchiseoffice_get_autocomplete_v2_response_m_payload import FranchiseofficeGetAutocompleteV2ResponseMPayload
 
 class TestFranchiseofficeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """FranchiseofficeGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestFranchiseofficeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FranchiseofficeGetAutocompleteV2ResponseMPayload`
         """
-        model = FranchiseofficeGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = FranchiseofficeGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return FranchiseofficeGetAutocompleteV2ResponseMPayload(
                 a_obj_franchiseoffice = [

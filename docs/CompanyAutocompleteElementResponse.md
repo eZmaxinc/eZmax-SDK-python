@@ -3,6 +3,7 @@
 A Company AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_company_id** | **int** | The unique ID of the Company | 

@@ -19,62 +19,81 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigntemplatepackageAutocompleteElementResponse(BaseModel):
     """
-    A Ezsigntemplatepackage AutocompleteElement Response  # noqa: E501
-    """
-    e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(..., alias="eEzsignfoldertypePrivacylevel")
-    s_ezsigntemplatepackage_description: StrictStr = Field(..., alias="sEzsigntemplatepackageDescription", description="The description of the Ezsigntemplatepackage")
-    pki_ezsigntemplatepackage_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsigntemplatepackageID", description="The unique ID of the Ezsigntemplatepackage")
-    b_ezsigntemplatepackage_isactive: StrictBool = Field(..., alias="bEzsigntemplatepackageIsactive", description="Whether the Ezsigntemplatepackage is active or not")
-    b_disabled: StrictBool = Field(..., alias="bDisabled", description="Indicates if the element is disabled in the context")
-    __properties = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplatepackageDescription", "pkiEzsigntemplatepackageID", "bEzsigntemplatepackageIsactive", "bDisabled"]
+    A Ezsigntemplatepackage AutocompleteElement Response
+    """ # noqa: E501
+    e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
+    s_ezsigntemplatepackage_description: StrictStr = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
+    pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
+    b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
+    b_disabled: StrictBool = Field(description="Indicates if the element is disabled in the context", alias="bDisabled")
+    __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplatepackageDescription", "pkiEzsigntemplatepackageID", "bEzsigntemplatepackageIsactive", "bDisabled"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigntemplatepackageAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigntemplatepackageAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigntemplatepackageAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigntemplatepackageAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigntemplatepackageAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigntemplatepackageAutocompleteElementResponse.parse_obj({
-            "e_ezsignfoldertype_privacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
-            "s_ezsigntemplatepackage_description": obj.get("sEzsigntemplatepackageDescription"),
-            "pki_ezsigntemplatepackage_id": obj.get("pkiEzsigntemplatepackageID"),
-            "b_ezsigntemplatepackage_isactive": obj.get("bEzsigntemplatepackageIsactive"),
-            "b_disabled": obj.get("bDisabled")
+        _obj = cls.model_validate({
+            "eEzsignfoldertypePrivacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
+            "sEzsigntemplatepackageDescription": obj.get("sEzsigntemplatepackageDescription"),
+            "pkiEzsigntemplatepackageID": obj.get("pkiEzsigntemplatepackageID"),
+            "bEzsigntemplatepackageIsactive": obj.get("bEzsigntemplatepackageIsactive"),
+            "bDisabled": obj.get("bDisabled")
         })
         return _obj
 

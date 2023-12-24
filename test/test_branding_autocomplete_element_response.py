@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_autocomplete_element_response import BrandingAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.branding_autocomplete_element_response import BrandingAutocompleteElementResponse
 
 class TestBrandingAutocompleteElementResponse(unittest.TestCase):
     """BrandingAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingAutocompleteElementResponse`
         """
-        model = BrandingAutocompleteElementResponse()  # noqa: E501
+        model = BrandingAutocompleteElementResponse()
         if include_optional:
             return BrandingAutocompleteElementResponse(
                 s_branding_description_x = 'Company X',

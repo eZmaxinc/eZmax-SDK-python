@@ -431,6 +431,7 @@ conf = eZmaxApi.Configuration(
                         'description': "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
                         'default_value': "prod",
                         'enum_values': [
+                            "iso",
                             "prod",
                             "stg",
                             "qa",
@@ -455,8 +456,6 @@ conf = eZmaxApi.Configuration(
                         'default_value': "prod",
                         'enum_values': [
                             "prod",
-                            "stg",
-                            "qa",
                             "dev"
                         ]
                         }
@@ -470,6 +469,7 @@ conf = eZmaxApi.Configuration(
                         'description': "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
                         'default_value': "prod",
                         'enum_values': [
+                            "iso",
                             "prod",
                             "stg",
                             "qa",

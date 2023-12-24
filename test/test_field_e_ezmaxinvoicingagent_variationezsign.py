@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezsign import FieldEEzmaxinvoicingagentVariationezsign  # noqa: E501
+from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezsign import FieldEEzmaxinvoicingagentVariationezsign
 
 class TestFieldEEzmaxinvoicingagentVariationezsign(unittest.TestCase):
     """FieldEEzmaxinvoicingagentVariationezsign unit test stubs"""

@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_reason** | **str** | Reason for refusal | 

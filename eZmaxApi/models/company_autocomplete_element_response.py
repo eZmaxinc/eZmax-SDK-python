@@ -19,57 +19,76 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CompanyAutocompleteElementResponse(BaseModel):
     """
-    A Company AutocompleteElement Response  # noqa: E501
-    """
-    pki_company_id: conint(strict=True, le=255, ge=1) = Field(..., alias="pkiCompanyID", description="The unique ID of the Company")
-    s_company_name_x: StrictStr = Field(..., alias="sCompanyNameX", description="The Name of the Company in the language of the requester")
-    b_company_isactive: StrictBool = Field(..., alias="bCompanyIsactive", description="Whether the Company is active or not")
-    __properties = ["pkiCompanyID", "sCompanyNameX", "bCompanyIsactive"]
+    A Company AutocompleteElement Response
+    """ # noqa: E501
+    pki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="pkiCompanyID")
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
+    b_company_isactive: StrictBool = Field(description="Whether the Company is active or not", alias="bCompanyIsactive")
+    __properties: ClassVar[List[str]] = ["pkiCompanyID", "sCompanyNameX", "bCompanyIsactive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CompanyAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CompanyAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CompanyAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CompanyAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CompanyAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CompanyAutocompleteElementResponse.parse_obj({
-            "pki_company_id": obj.get("pkiCompanyID"),
-            "s_company_name_x": obj.get("sCompanyNameX"),
-            "b_company_isactive": obj.get("bCompanyIsactive")
+        _obj = cls.model_validate({
+            "pkiCompanyID": obj.get("pkiCompanyID"),
+            "sCompanyNameX": obj.get("sCompanyNameX"),
+            "bCompanyIsactive": obj.get("bCompanyIsactive")
         })
         return _obj
 

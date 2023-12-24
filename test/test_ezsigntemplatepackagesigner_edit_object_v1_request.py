@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_request import EzsigntemplatepackagesignerEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_request import EzsigntemplatepackagesignerEditObjectV1Request
 
 class TestEzsigntemplatepackagesignerEditObjectV1Request(unittest.TestCase):
     """EzsigntemplatepackagesignerEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackagesignerEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagesignerEditObjectV1Request`
         """
-        model = EzsigntemplatepackagesignerEditObjectV1Request()  # noqa: E501
+        model = EzsigntemplatepackagesignerEditObjectV1Request()
         if include_optional:
             return EzsigntemplatepackagesignerEditObjectV1Request(
                 obj_ezsigntemplatepackagesigner = eZmaxApi.models.ezsigntemplatepackagesigner_request_compound.ezsigntemplatepackagesigner-RequestCompound()

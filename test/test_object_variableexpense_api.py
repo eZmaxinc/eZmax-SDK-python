@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_variableexpense_api import ObjectVariableexpenseApi  # noqa: E501
+from eZmaxApi.api.object_variableexpense_api import ObjectVariableexpenseApi
 
 
 class TestObjectVariableexpenseApi(unittest.TestCase):
     """ObjectVariableexpenseApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectVariableexpenseApi()  # noqa: E501
+        self.api = ObjectVariableexpenseApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestObjectVariableexpenseApi(unittest.TestCase):
     def test_variableexpense_create_object_v1(self) -> None:
         """Test case for variableexpense_create_object_v1
 
-        Create a new Variableexpense  # noqa: E501
+        Create a new Variableexpense
         """
         pass
 
     def test_variableexpense_edit_object_v1(self) -> None:
         """Test case for variableexpense_edit_object_v1
 
-        Edit an existing Variableexpense  # noqa: E501
+        Edit an existing Variableexpense
         """
         pass
 
     def test_variableexpense_get_autocomplete_v2(self) -> None:
         """Test case for variableexpense_get_autocomplete_v2
 
-        Retrieve Variableexpenses and IDs  # noqa: E501
+        Retrieve Variableexpenses and IDs
         """
         pass
 
     def test_variableexpense_get_list_v1(self) -> None:
         """Test case for variableexpense_get_list_v1
 
-        Retrieve Variableexpense list  # noqa: E501
+        Retrieve Variableexpense list
         """
         pass
 
     def test_variableexpense_get_object_v2(self) -> None:
         """Test case for variableexpense_get_object_v2
 
-        Retrieve an existing Variableexpense  # noqa: E501
+        Retrieve an existing Variableexpense
         """
         pass
 

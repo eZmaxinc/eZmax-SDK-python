@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_edit_permissions_v1_response_m_payload import UserEditPermissionsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.user_edit_permissions_v1_response_m_payload import UserEditPermissionsV1ResponseMPayload
 
 class TestUserEditPermissionsV1ResponseMPayload(unittest.TestCase):
     """UserEditPermissionsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserEditPermissionsV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserEditPermissionsV1ResponseMPayload`
         """
-        model = UserEditPermissionsV1ResponseMPayload()  # noqa: E501
+        model = UserEditPermissionsV1ResponseMPayload()
         if include_optional:
             return UserEditPermissionsV1ResponseMPayload(
                 a_pki_permission_id = [

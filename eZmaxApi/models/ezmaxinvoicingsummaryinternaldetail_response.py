@@ -19,103 +19,122 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzmaxinvoicingsummaryinternaldetailResponse(BaseModel):
     """
-    A Ezmaxinvoicingsummaryinternaldetail Object  # noqa: E501
-    """
-    pki_ezmaxinvoicingsummaryinternaldetail_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzmaxinvoicingsummaryinternaldetailID", description="The unique ID of the Ezmaxinvoicingsummaryinternaldetail")
-    fki_ezmaxinvoicingsummaryinternal_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzmaxinvoicingsummaryinternalID", description="The unique ID of the Ezmaxinvoicingsummaryinternal")
-    fki_ezmaxproduct_id: conint(strict=True, ge=1) = Field(..., alias="fkiEzmaxproductID", description="The unique ID of the Ezmaxproduct")
-    s_ezmaxproduct_description_x: StrictStr = Field(..., alias="sEzmaxproductDescriptionX", description="The description of the Ezmaxproduct in the language of the requester")
-    fki_billingentityexternal_id: conint(strict=True, ge=1) = Field(..., alias="fkiBillingentityexternalID", description="The unique ID of the Billingentityexternal")
-    s_billingentityexternal_description: StrictStr = Field(..., alias="sBillingentityexternalDescription", description="The description of the Billingentityexternal")
-    d_ezmaxinvoicingsummaryinternaldetail_countreal: constr(strict=True) = Field(..., alias="dEzmaxinvoicingsummaryinternaldetailCountreal", description="The count item invoiced for the product")
-    d_ezmaxinvoicingsummaryinternaldetail_subtotal: constr(strict=True) = Field(..., alias="dEzmaxinvoicingsummaryinternaldetailSubtotal", description="The subtotal invoiced for the product")
-    d_ezmaxinvoicingsummaryinternaldetail_rebate: constr(strict=True) = Field(..., alias="dEzmaxinvoicingsummaryinternaldetailRebate", description="The rebate for the product")
-    d_ezmaxinvoicingsummaryinternaldetail_total: constr(strict=True) = Field(..., alias="dEzmaxinvoicingsummaryinternaldetailTotal", description="The total invoiced for the product")
-    b_ezmaxinvoicingsummaryinternaldetail_adjustment: StrictBool = Field(..., alias="bEzmaxinvoicingsummaryinternaldetailAdjustment", description="Whether if it's an adjustment")
-    t_ezmaxproduct_help_x: StrictStr = Field(..., alias="tEzmaxproductHelpX", description="The help message of the Ezmaxproduct in the language of the requester")
-    __properties = ["pkiEzmaxinvoicingsummaryinternaldetailID", "fkiEzmaxinvoicingsummaryinternalID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "dEzmaxinvoicingsummaryinternaldetailCountreal", "dEzmaxinvoicingsummaryinternaldetailSubtotal", "dEzmaxinvoicingsummaryinternaldetailRebate", "dEzmaxinvoicingsummaryinternaldetailTotal", "bEzmaxinvoicingsummaryinternaldetailAdjustment", "tEzmaxproductHelpX"]
+    A Ezmaxinvoicingsummaryinternaldetail Object
+    """ # noqa: E501
+    pki_ezmaxinvoicingsummaryinternaldetail_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternaldetail", alias="pkiEzmaxinvoicingsummaryinternaldetailID")
+    fki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="fkiEzmaxinvoicingsummaryinternalID")
+    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
+    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
+    d_ezmaxinvoicingsummaryinternaldetail_countreal: Annotated[str, Field(strict=True)] = Field(description="The count item invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailCountreal")
+    d_ezmaxinvoicingsummaryinternaldetail_subtotal: Annotated[str, Field(strict=True)] = Field(description="The subtotal invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailSubtotal")
+    d_ezmaxinvoicingsummaryinternaldetail_rebate: Annotated[str, Field(strict=True)] = Field(description="The rebate for the product", alias="dEzmaxinvoicingsummaryinternaldetailRebate")
+    d_ezmaxinvoicingsummaryinternaldetail_total: Annotated[str, Field(strict=True)] = Field(description="The total invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailTotal")
+    b_ezmaxinvoicingsummaryinternaldetail_adjustment: StrictBool = Field(description="Whether if it's an adjustment", alias="bEzmaxinvoicingsummaryinternaldetailAdjustment")
+    t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryinternaldetailID", "fkiEzmaxinvoicingsummaryinternalID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "dEzmaxinvoicingsummaryinternaldetailCountreal", "dEzmaxinvoicingsummaryinternaldetailSubtotal", "dEzmaxinvoicingsummaryinternaldetailRebate", "dEzmaxinvoicingsummaryinternaldetailTotal", "bEzmaxinvoicingsummaryinternaldetailAdjustment", "tEzmaxproductHelpX"]
 
-    @validator('d_ezmaxinvoicingsummaryinternaldetail_countreal')
+    @field_validator('d_ezmaxinvoicingsummaryinternaldetail_countreal')
     def d_ezmaxinvoicingsummaryinternaldetail_countreal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
         return value
 
-    @validator('d_ezmaxinvoicingsummaryinternaldetail_subtotal')
+    @field_validator('d_ezmaxinvoicingsummaryinternaldetail_subtotal')
     def d_ezmaxinvoicingsummaryinternaldetail_subtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @validator('d_ezmaxinvoicingsummaryinternaldetail_rebate')
+    @field_validator('d_ezmaxinvoicingsummaryinternaldetail_rebate')
     def d_ezmaxinvoicingsummaryinternaldetail_rebate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @validator('d_ezmaxinvoicingsummaryinternaldetail_total')
+    @field_validator('d_ezmaxinvoicingsummaryinternaldetail_total')
     def d_ezmaxinvoicingsummaryinternaldetail_total_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzmaxinvoicingsummaryinternaldetailResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzmaxinvoicingsummaryinternaldetailResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzmaxinvoicingsummaryinternaldetailResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzmaxinvoicingsummaryinternaldetailResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzmaxinvoicingsummaryinternaldetailResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzmaxinvoicingsummaryinternaldetailResponse.parse_obj({
-            "pki_ezmaxinvoicingsummaryinternaldetail_id": obj.get("pkiEzmaxinvoicingsummaryinternaldetailID"),
-            "fki_ezmaxinvoicingsummaryinternal_id": obj.get("fkiEzmaxinvoicingsummaryinternalID"),
-            "fki_ezmaxproduct_id": obj.get("fkiEzmaxproductID"),
-            "s_ezmaxproduct_description_x": obj.get("sEzmaxproductDescriptionX"),
-            "fki_billingentityexternal_id": obj.get("fkiBillingentityexternalID"),
-            "s_billingentityexternal_description": obj.get("sBillingentityexternalDescription"),
-            "d_ezmaxinvoicingsummaryinternaldetail_countreal": obj.get("dEzmaxinvoicingsummaryinternaldetailCountreal"),
-            "d_ezmaxinvoicingsummaryinternaldetail_subtotal": obj.get("dEzmaxinvoicingsummaryinternaldetailSubtotal"),
-            "d_ezmaxinvoicingsummaryinternaldetail_rebate": obj.get("dEzmaxinvoicingsummaryinternaldetailRebate"),
-            "d_ezmaxinvoicingsummaryinternaldetail_total": obj.get("dEzmaxinvoicingsummaryinternaldetailTotal"),
-            "b_ezmaxinvoicingsummaryinternaldetail_adjustment": obj.get("bEzmaxinvoicingsummaryinternaldetailAdjustment"),
-            "t_ezmaxproduct_help_x": obj.get("tEzmaxproductHelpX")
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingsummaryinternaldetailID": obj.get("pkiEzmaxinvoicingsummaryinternaldetailID"),
+            "fkiEzmaxinvoicingsummaryinternalID": obj.get("fkiEzmaxinvoicingsummaryinternalID"),
+            "fkiEzmaxproductID": obj.get("fkiEzmaxproductID"),
+            "sEzmaxproductDescriptionX": obj.get("sEzmaxproductDescriptionX"),
+            "fkiBillingentityexternalID": obj.get("fkiBillingentityexternalID"),
+            "sBillingentityexternalDescription": obj.get("sBillingentityexternalDescription"),
+            "dEzmaxinvoicingsummaryinternaldetailCountreal": obj.get("dEzmaxinvoicingsummaryinternaldetailCountreal"),
+            "dEzmaxinvoicingsummaryinternaldetailSubtotal": obj.get("dEzmaxinvoicingsummaryinternaldetailSubtotal"),
+            "dEzmaxinvoicingsummaryinternaldetailRebate": obj.get("dEzmaxinvoicingsummaryinternaldetailRebate"),
+            "dEzmaxinvoicingsummaryinternaldetailTotal": obj.get("dEzmaxinvoicingsummaryinternaldetailTotal"),
+            "bEzmaxinvoicingsummaryinternaldetailAdjustment": obj.get("bEzmaxinvoicingsummaryinternaldetailAdjustment"),
+            "tEzmaxproductHelpX": obj.get("tEzmaxproductHelpX")
         })
         return _obj
 

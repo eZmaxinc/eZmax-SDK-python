@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_communication_list_element_response import CustomCommunicationListElementResponse  # noqa: E501
+from eZmaxApi.models.custom_communication_list_element_response import CustomCommunicationListElementResponse
 
 class TestCustomCommunicationListElementResponse(unittest.TestCase):
     """CustomCommunicationListElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomCommunicationListElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationListElementResponse`
         """
-        model = CustomCommunicationListElementResponse()  # noqa: E501
+        model = CustomCommunicationListElementResponse()
         if include_optional:
             return CustomCommunicationListElementResponse(
                 pki_communication_id = 1,

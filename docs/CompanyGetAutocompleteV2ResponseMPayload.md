@@ -3,6 +3,7 @@
 Payload for POST /2/object/company/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_company** | [**List[CompanyAutocompleteElementResponse]**](CompanyAutocompleteElementResponse.md) | An array of Company autocomplete element response. | 

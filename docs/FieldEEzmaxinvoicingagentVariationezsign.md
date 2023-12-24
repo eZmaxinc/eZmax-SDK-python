@@ -3,6 +3,7 @@
 Variation type for eZsign
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

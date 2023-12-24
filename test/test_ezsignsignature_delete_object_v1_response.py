@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response  # noqa: E501
+from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
 
 class TestEzsignsignatureDeleteObjectV1Response(unittest.TestCase):
     """EzsignsignatureDeleteObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignatureDeleteObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureDeleteObjectV1Response`
         """
-        model = EzsignsignatureDeleteObjectV1Response()  # noqa: E501
+        model = EzsignsignatureDeleteObjectV1Response()
         if include_optional:
             return EzsignsignatureDeleteObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

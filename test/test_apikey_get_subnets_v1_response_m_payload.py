@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_get_subnets_v1_response_m_payload import ApikeyGetSubnetsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.apikey_get_subnets_v1_response_m_payload import ApikeyGetSubnetsV1ResponseMPayload
 
 class TestApikeyGetSubnetsV1ResponseMPayload(unittest.TestCase):
     """ApikeyGetSubnetsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyGetSubnetsV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyGetSubnetsV1ResponseMPayload`
         """
-        model = ApikeyGetSubnetsV1ResponseMPayload()  # noqa: E501
+        model = ApikeyGetSubnetsV1ResponseMPayload()
         if include_optional:
             return ApikeyGetSubnetsV1ResponseMPayload(
                 a_obj_subnet = [

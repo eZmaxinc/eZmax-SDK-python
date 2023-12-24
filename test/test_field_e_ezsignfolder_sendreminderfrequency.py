@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency  # noqa: E501
+from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 
 class TestFieldEEzsignfolderSendreminderfrequency(unittest.TestCase):
     """FieldEEzsignfolderSendreminderfrequency unit test stubs"""

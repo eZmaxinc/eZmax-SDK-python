@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request  # noqa: E501
+from eZmaxApi.models.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
 
 class TestUserCreateEzsignuserV1Request(unittest.TestCase):
     """UserCreateEzsignuserV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserCreateEzsignuserV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserCreateEzsignuserV1Request`
         """
-        model = UserCreateEzsignuserV1Request()  # noqa: E501
+        model = UserCreateEzsignuserV1Request()
         if include_optional:
             return UserCreateEzsignuserV1Request(
                 fki_language_id = 2,

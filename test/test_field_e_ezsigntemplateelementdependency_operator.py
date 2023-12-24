@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsigntemplateelementdependency_operator import FieldEEzsigntemplateelementdependencyOperator  # noqa: E501
+from eZmaxApi.models.field_e_ezsigntemplateelementdependency_operator import FieldEEzsigntemplateelementdependencyOperator
 
 class TestFieldEEzsigntemplateelementdependencyOperator(unittest.TestCase):
     """FieldEEzsigntemplateelementdependencyOperator unit test stubs"""

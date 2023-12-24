@@ -3,6 +3,7 @@
 Description of the API Key
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_apikey_description1** | **str** | The description of the Apikey in French | [optional] 

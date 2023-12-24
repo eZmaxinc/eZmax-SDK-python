@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.subnet_response import SubnetResponse  # noqa: E501
+from eZmaxApi.models.subnet_response import SubnetResponse
 
 class TestSubnetResponse(unittest.TestCase):
     """SubnetResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestSubnetResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SubnetResponse`
         """
-        model = SubnetResponse()  # noqa: E501
+        model = SubnetResponse()
         if include_optional:
             return SubnetResponse(
                 pki_subnet_id = 3,

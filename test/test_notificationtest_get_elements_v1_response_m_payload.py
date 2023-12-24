@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.notificationtest_get_elements_v1_response_m_payload import NotificationtestGetElementsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.notificationtest_get_elements_v1_response_m_payload import NotificationtestGetElementsV1ResponseMPayload
 
 class TestNotificationtestGetElementsV1ResponseMPayload(unittest.TestCase):
     """NotificationtestGetElementsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestNotificationtestGetElementsV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `NotificationtestGetElementsV1ResponseMPayload`
         """
-        model = NotificationtestGetElementsV1ResponseMPayload()  # noqa: E501
+        model = NotificationtestGetElementsV1ResponseMPayload()
         if include_optional:
             return NotificationtestGetElementsV1ResponseMPayload(
                 pki_notificationtest_id = 14,

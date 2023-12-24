@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi  # noqa: E501
+from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi
 
 
 class TestObjectNotificationtestApi(unittest.TestCase):
     """ObjectNotificationtestApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectNotificationtestApi()  # noqa: E501
+        self.api = ObjectNotificationtestApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectNotificationtestApi(unittest.TestCase):
     def test_notificationtest_get_elements_v1(self) -> None:
         """Test case for notificationtest_get_elements_v1
 
-        Retrieve an existing Notificationtest's Elements  # noqa: E501
+        Retrieve an existing Notificationtest's Elements
         """
         pass
 

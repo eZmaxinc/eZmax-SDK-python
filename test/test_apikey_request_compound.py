@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_request_compound import ApikeyRequestCompound  # noqa: E501
+from eZmaxApi.models.apikey_request_compound import ApikeyRequestCompound
 
 class TestApikeyRequestCompound(unittest.TestCase):
     """ApikeyRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyRequestCompound`
         """
-        model = ApikeyRequestCompound()  # noqa: E501
+        model = ApikeyRequestCompound()
         if include_optional:
             return ApikeyRequestCompound(
                 pki_apikey_id = 99,

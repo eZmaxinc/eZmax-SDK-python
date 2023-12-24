@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_signature_api import ObjectSignatureApi  # noqa: E501
+from eZmaxApi.api.object_signature_api import ObjectSignatureApi
 
 
 class TestObjectSignatureApi(unittest.TestCase):
     """ObjectSignatureApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectSignatureApi()  # noqa: E501
+        self.api = ObjectSignatureApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectSignatureApi(unittest.TestCase):
     def test_signature_create_object_v1(self) -> None:
         """Test case for signature_create_object_v1
 
-        Create a new Signature  # noqa: E501
+        Create a new Signature
         """
         pass
 
     def test_signature_delete_object_v1(self) -> None:
         """Test case for signature_delete_object_v1
 
-        Delete an existing Signature  # noqa: E501
+        Delete an existing Signature
         """
         pass
 
     def test_signature_edit_object_v1(self) -> None:
         """Test case for signature_edit_object_v1
 
-        Edit an existing Signature  # noqa: E501
+        Edit an existing Signature
         """
         pass
 
     def test_signature_get_object_v2(self) -> None:
         """Test case for signature_get_object_v2
 
-        Retrieve an existing Signature  # noqa: E501
+        Retrieve an existing Signature
         """
         pass
 

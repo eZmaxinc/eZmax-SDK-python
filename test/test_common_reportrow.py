@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_reportrow import CommonReportrow  # noqa: E501
+from eZmaxApi.models.common_reportrow import CommonReportrow
 
 class TestCommonReportrow(unittest.TestCase):
     """CommonReportrow unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonReportrow(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonReportrow`
         """
-        model = CommonReportrow()  # noqa: E501
+        model = CommonReportrow()
         if include_optional:
             return CommonReportrow(
                 a_obj_reportcell = [

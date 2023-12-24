@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateformfieldgroup_create_object_v1_request import EzsigntemplateformfieldgroupCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.ezsigntemplateformfieldgroup_create_object_v1_request import EzsigntemplateformfieldgroupCreateObjectV1Request
 
 class TestEzsigntemplateformfieldgroupCreateObjectV1Request(unittest.TestCase):
     """EzsigntemplateformfieldgroupCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateformfieldgroupCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldgroupCreateObjectV1Request`
         """
-        model = EzsigntemplateformfieldgroupCreateObjectV1Request()  # noqa: E501
+        model = EzsigntemplateformfieldgroupCreateObjectV1Request()
         if include_optional:
             return EzsigntemplateformfieldgroupCreateObjectV1Request(
                 a_obj_ezsigntemplateformfieldgroup = [

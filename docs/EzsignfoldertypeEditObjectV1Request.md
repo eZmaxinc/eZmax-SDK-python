@@ -3,6 +3,7 @@
 Request for PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignfoldertype** | [**EzsignfoldertypeRequestCompound**](EzsignfoldertypeRequestCompound.md) |  | 

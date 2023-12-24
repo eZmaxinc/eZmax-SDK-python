@@ -3,6 +3,7 @@
 Styles applied to a Reportcell 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **b_reportcellstyle_bordertop** | **bool** | Whether there is a border at the top of the Reportcell | 

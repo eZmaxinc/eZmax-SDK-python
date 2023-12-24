@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignannotation_type import FieldEEzsignannotationType  # noqa: E501
+from eZmaxApi.models.field_e_ezsignannotation_type import FieldEEzsignannotationType
 
 class TestFieldEEzsignannotationType(unittest.TestCase):
     """FieldEEzsignannotationType unit test stubs"""

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_get_list_v1_response_m_payload import BillingentityinternalGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.billingentityinternal_get_list_v1_response_m_payload import BillingentityinternalGetListV1ResponseMPayload
 
 class TestBillingentityinternalGetListV1ResponseMPayload(unittest.TestCase):
     """BillingentityinternalGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalGetListV1ResponseMPayload`
         """
-        model = BillingentityinternalGetListV1ResponseMPayload()  # noqa: E501
+        model = BillingentityinternalGetListV1ResponseMPayload()
         if include_optional:
             return BillingentityinternalGetListV1ResponseMPayload(
                 i_row_returned = 100,

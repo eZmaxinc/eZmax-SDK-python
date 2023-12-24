@@ -17,6 +17,7 @@ Get the list of Ezsigntsarequirement to be used in a dropdown or autocomplete co
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -66,6 +67,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsigntsarequirements to return | 
@@ -88,6 +90,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

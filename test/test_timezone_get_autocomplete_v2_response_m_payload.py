@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.timezone_get_autocomplete_v2_response_m_payload import TimezoneGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.timezone_get_autocomplete_v2_response_m_payload import TimezoneGetAutocompleteV2ResponseMPayload
 
 class TestTimezoneGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """TimezoneGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestTimezoneGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `TimezoneGetAutocompleteV2ResponseMPayload`
         """
-        model = TimezoneGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = TimezoneGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return TimezoneGetAutocompleteV2ResponseMPayload(
                 a_obj_timezone = [

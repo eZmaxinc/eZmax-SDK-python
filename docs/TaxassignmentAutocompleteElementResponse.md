@@ -3,6 +3,7 @@
 A Taxassignment AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_taxassignment_description_x** | **str** | The description of the Taxassignment  in the language of the requester | 

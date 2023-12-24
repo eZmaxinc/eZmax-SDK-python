@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_get_subnets_v1_response import UserGetSubnetsV1Response  # noqa: E501
+from eZmaxApi.models.user_get_subnets_v1_response import UserGetSubnetsV1Response
 
 class TestUserGetSubnetsV1Response(unittest.TestCase):
     """UserGetSubnetsV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserGetSubnetsV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserGetSubnetsV1Response`
         """
-        model = UserGetSubnetsV1Response()  # noqa: E501
+        model = UserGetSubnetsV1Response()
         if include_optional:
             return UserGetSubnetsV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

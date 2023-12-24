@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage  # noqa: E501
+from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 class TestHeaderAcceptLanguage(unittest.TestCase):
     """HeaderAcceptLanguage unit test stubs"""

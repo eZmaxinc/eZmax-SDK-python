@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplate_copy_v1_request import EzsigntemplateCopyV1Request  # noqa: E501
+from eZmaxApi.models.ezsigntemplate_copy_v1_request import EzsigntemplateCopyV1Request
 
 class TestEzsigntemplateCopyV1Request(unittest.TestCase):
     """EzsigntemplateCopyV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateCopyV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateCopyV1Request`
         """
-        model = EzsigntemplateCopyV1Request()  # noqa: E501
+        model = EzsigntemplateCopyV1Request()
         if include_optional:
             return EzsigntemplateCopyV1Request(
                 a_fki_ezsignfoldertype_id = [

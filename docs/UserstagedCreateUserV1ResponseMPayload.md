@@ -3,6 +3,7 @@
 Payload for POST /1/object/userstaged/{pkiUserstagedID}/createUser
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_user_id** | **int** | The unique ID of the User | 

@@ -3,6 +3,7 @@
 Payload for GET /2/object/systemconfiguration/{pkiSystemconfigurationID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_systemconfiguration** | [**SystemconfigurationResponseCompound**](SystemconfigurationResponseCompound.md) |  | 

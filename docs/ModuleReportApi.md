@@ -18,6 +18,7 @@ Retrieve a report that was previously generated and cached
 
 * Api Key Authentication (Authorization):
 * Api Key Authentication (Presigned):
+
 ```python
 import time
 import os
@@ -68,6 +69,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_reportgroup_cache_id** | **str**|  | 
@@ -86,6 +88,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json, application/pdf, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/zip, text/html
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

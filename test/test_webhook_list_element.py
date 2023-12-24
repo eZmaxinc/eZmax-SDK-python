@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_list_element import WebhookListElement  # noqa: E501
+from eZmaxApi.models.webhook_list_element import WebhookListElement
 
 class TestWebhookListElement(unittest.TestCase):
     """WebhookListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookListElement`
         """
-        model = WebhookListElement()  # noqa: E501
+        model = WebhookListElement()
         if include_optional:
             return WebhookListElement(
                 pki_webhook_id = 77,
@@ -45,7 +45,8 @@ class TestWebhookListElement(unittest.TestCase):
                 e_webhook_module = 'Ezsign',
                 e_webhook_ezsignevent = 'FolderCompleted',
                 e_webhook_managementevent = 'UserCreated',
-                b_webhook_isactive = True
+                b_webhook_isactive = True,
+                b_webhook_issigned = True
             )
         else:
             return WebhookListElement(
@@ -56,6 +57,7 @@ class TestWebhookListElement(unittest.TestCase):
                 s_webhook_emailfailed = 'email@example.com',
                 e_webhook_module = 'Ezsign',
                 b_webhook_isactive = True,
+                b_webhook_issigned = True,
         )
         """
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_temporary_proof_v1_response_m_payload import EzsigndocumentGetTemporaryProofV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_temporary_proof_v1_response_m_payload import EzsigndocumentGetTemporaryProofV1ResponseMPayload
 
 class TestEzsigndocumentGetTemporaryProofV1ResponseMPayload(unittest.TestCase):
     """EzsigndocumentGetTemporaryProofV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetTemporaryProofV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetTemporaryProofV1ResponseMPayload`
         """
-        model = EzsigndocumentGetTemporaryProofV1ResponseMPayload()  # noqa: E501
+        model = EzsigndocumentGetTemporaryProofV1ResponseMPayload()
         if include_optional:
             return EzsigndocumentGetTemporaryProofV1ResponseMPayload(
                 a_obj_ezsigndocumentlog = [

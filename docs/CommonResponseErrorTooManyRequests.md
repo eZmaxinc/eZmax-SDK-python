@@ -3,6 +3,7 @@
 Generic Error Message
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_error_message** | **str** | The message giving details about the error | 

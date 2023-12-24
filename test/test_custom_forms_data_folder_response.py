@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_forms_data_folder_response import CustomFormsDataFolderResponse  # noqa: E501
+from eZmaxApi.models.custom_forms_data_folder_response import CustomFormsDataFolderResponse
 
 class TestCustomFormsDataFolderResponse(unittest.TestCase):
     """CustomFormsDataFolderResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomFormsDataFolderResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomFormsDataFolderResponse`
         """
-        model = CustomFormsDataFolderResponse()  # noqa: E501
+        model = CustomFormsDataFolderResponse()
         if include_optional:
             return CustomFormsDataFolderResponse(
                 pki_ezsignfolder_id = 33,

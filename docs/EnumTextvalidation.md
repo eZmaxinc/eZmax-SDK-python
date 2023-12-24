@@ -3,6 +3,7 @@
 The text validation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

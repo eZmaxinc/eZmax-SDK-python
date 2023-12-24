@@ -3,6 +3,7 @@
 Request for PUT /1/object/usergroup/{pkiUsergroupID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_usergroup** | [**UsergroupRequestCompound**](UsergroupRequestCompound.md) |  | 

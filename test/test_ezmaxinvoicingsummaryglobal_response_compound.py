@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicingsummaryglobal_response_compound import EzmaxinvoicingsummaryglobalResponseCompound  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicingsummaryglobal_response_compound import EzmaxinvoicingsummaryglobalResponseCompound
 
 class TestEzmaxinvoicingsummaryglobalResponseCompound(unittest.TestCase):
     """EzmaxinvoicingsummaryglobalResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingsummaryglobalResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingsummaryglobalResponseCompound`
         """
-        model = EzmaxinvoicingsummaryglobalResponseCompound()  # noqa: E501
+        model = EzmaxinvoicingsummaryglobalResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryglobalResponseCompound(
                 pki_ezmaxinvoicingsummaryglobal_id = 241,

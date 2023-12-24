@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi  # noqa: E501
+from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi
 
 
 class TestObjectEzsignbulksendApi(unittest.TestCase):
     """ObjectEzsignbulksendApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignbulksendApi()  # noqa: E501
+        self.api = ObjectEzsignbulksendApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
     def test_ezsignbulksend_create_ezsignbulksendtransmission_v1(self) -> None:
         """Test case for ezsignbulksend_create_ezsignbulksendtransmission_v1
 
-        Create a new Ezsignbulksendtransmission in the Ezsignbulksend  # noqa: E501
+        Create a new Ezsignbulksendtransmission in the Ezsignbulksend
         """
         pass
 
     def test_ezsignbulksend_create_object_v1(self) -> None:
         """Test case for ezsignbulksend_create_object_v1
 
-        Create a new Ezsignbulksend  # noqa: E501
+        Create a new Ezsignbulksend
         """
         pass
 
     def test_ezsignbulksend_delete_object_v1(self) -> None:
         """Test case for ezsignbulksend_delete_object_v1
 
-        Delete an existing Ezsignbulksend  # noqa: E501
+        Delete an existing Ezsignbulksend
         """
         pass
 
     def test_ezsignbulksend_edit_object_v1(self) -> None:
         """Test case for ezsignbulksend_edit_object_v1
 
-        Edit an existing Ezsignbulksend  # noqa: E501
+        Edit an existing Ezsignbulksend
         """
         pass
 
     def test_ezsignbulksend_get_csv_template_v1(self) -> None:
         """Test case for ezsignbulksend_get_csv_template_v1
 
-        Retrieve an existing Ezsignbulksend's empty Csv template  # noqa: E501
+        Retrieve an existing Ezsignbulksend's empty Csv template
         """
         pass
 
     def test_ezsignbulksend_get_ezsignbulksendtransmissions_v1(self) -> None:
         """Test case for ezsignbulksend_get_ezsignbulksendtransmissions_v1
 
-        Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions  # noqa: E501
+        Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
         """
         pass
 
     def test_ezsignbulksend_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsignbulksend_get_ezsignsignatures_automatic_v1
 
-        Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures  # noqa: E501
+        Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
         """
         pass
 
     def test_ezsignbulksend_get_forms_data_v1(self) -> None:
         """Test case for ezsignbulksend_get_forms_data_v1
 
-        Retrieve an existing Ezsignbulksend's forms data  # noqa: E501
+        Retrieve an existing Ezsignbulksend's forms data
         """
         pass
 
     def test_ezsignbulksend_get_list_v1(self) -> None:
         """Test case for ezsignbulksend_get_list_v1
 
-        Retrieve Ezsignbulksend list  # noqa: E501
+        Retrieve Ezsignbulksend list
         """
         pass
 
     def test_ezsignbulksend_get_object_v2(self) -> None:
         """Test case for ezsignbulksend_get_object_v2
 
-        Retrieve an existing Ezsignbulksend  # noqa: E501
+        Retrieve an existing Ezsignbulksend
         """
         pass
 
     def test_ezsignbulksend_reorder_v1(self) -> None:
         """Test case for ezsignbulksend_reorder_v1
 
-        Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend  # noqa: E501
+        Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
         """
         pass
 

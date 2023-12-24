@@ -21,6 +21,7 @@ The endpoint allows to create one or many elements at once.
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -66,6 +67,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variableexpense_create_object_v1_request** | [**VariableexpenseCreateObjectV1Request**](VariableexpenseCreateObjectV1Request.md)|  | 
@@ -84,6 +86,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
@@ -100,6 +103,7 @@ Edit an existing Variableexpense
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -146,6 +150,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_variableexpense_id** | **int**|  | 
@@ -165,6 +170,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -183,6 +189,7 @@ Get the list of Variableexpense to be used in a dropdown or autocomplete control
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -231,6 +238,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Variableexpenses to return | 
@@ -252,6 +260,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -268,6 +277,7 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -317,6 +327,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **e_order_by** | **str**| Specify how you want the results to be sorted | [optional] 
@@ -339,6 +350,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -356,6 +368,7 @@ Retrieve an existing Variableexpense
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -400,6 +413,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_variableexpense_id** | **int**|  | 
@@ -418,6 +432,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

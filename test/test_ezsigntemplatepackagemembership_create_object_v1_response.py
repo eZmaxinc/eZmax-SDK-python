@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackagemembership_create_object_v1_response import EzsigntemplatepackagemembershipCreateObjectV1Response  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackagemembership_create_object_v1_response import EzsigntemplatepackagemembershipCreateObjectV1Response
 
 class TestEzsigntemplatepackagemembershipCreateObjectV1Response(unittest.TestCase):
     """EzsigntemplatepackagemembershipCreateObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackagemembershipCreateObjectV1Response(unittest.TestCas
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagemembershipCreateObjectV1Response`
         """
-        model = EzsigntemplatepackagemembershipCreateObjectV1Response()  # noqa: E501
+        model = EzsigntemplatepackagemembershipCreateObjectV1Response()
         if include_optional:
             return EzsigntemplatepackagemembershipCreateObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

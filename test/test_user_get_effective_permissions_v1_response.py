@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_get_effective_permissions_v1_response import UserGetEffectivePermissionsV1Response  # noqa: E501
+from eZmaxApi.models.user_get_effective_permissions_v1_response import UserGetEffectivePermissionsV1Response
 
 class TestUserGetEffectivePermissionsV1Response(unittest.TestCase):
     """UserGetEffectivePermissionsV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserGetEffectivePermissionsV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserGetEffectivePermissionsV1Response`
         """
-        model = UserGetEffectivePermissionsV1Response()  # noqa: E501
+        model = UserGetEffectivePermissionsV1Response()
         if include_optional:
             return UserGetEffectivePermissionsV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

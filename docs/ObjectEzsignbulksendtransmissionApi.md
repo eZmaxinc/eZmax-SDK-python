@@ -20,6 +20,7 @@ Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -63,6 +64,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignbulksendtransmission_id** | **int**|  | 
@@ -81,6 +83,7 @@ Name | Type | Description  | Notes
  - **Accept**: text/csv, application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -100,6 +103,7 @@ Return the Ezsignsignatures that can be signed by the current user at the curren
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -144,6 +148,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignbulksendtransmission_id** | **int**|  | 
@@ -162,6 +167,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -179,6 +185,7 @@ Retrieve an existing Ezsignbulksendtransmission's forms data
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -223,6 +230,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignbulksendtransmission_id** | **int**|  | 
@@ -241,6 +249,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json, application/zip
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -260,6 +269,7 @@ Retrieve an existing Ezsignbulksendtransmission
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -304,6 +314,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignbulksendtransmission_id** | **int**|  | 
@@ -322,6 +333,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

@@ -3,6 +3,7 @@
 A Ezsignsigner->Contact Object and children to create a complete structure
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_contact_firstname** | **str** | The First name of the contact | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_creditcardtype_codename import FieldECreditcardtypeCodename  # noqa: E501
+from eZmaxApi.models.field_e_creditcardtype_codename import FieldECreditcardtypeCodename
 
 class TestFieldECreditcardtypeCodename(unittest.TestCase):
     """FieldECreditcardtypeCodename unit test stubs"""

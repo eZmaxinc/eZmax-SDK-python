@@ -19,57 +19,75 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomContactNameResponse(BaseModel):
     """
-    A Custom ContactName Object  # noqa: E501
-    """
-    s_contact_firstname: Optional[StrictStr] = Field(None, alias="sContactFirstname", description="The First name of the contact")
-    s_contact_lastname: Optional[StrictStr] = Field(None, alias="sContactLastname", description="The Last name of the contact")
-    s_contact_company: Optional[StrictStr] = Field(None, alias="sContactCompany", description="The Company name of the contact")
-    __properties = ["sContactFirstname", "sContactLastname", "sContactCompany"]
+    A Custom ContactName Object
+    """ # noqa: E501
+    s_contact_firstname: Optional[StrictStr] = Field(default=None, description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: Optional[StrictStr] = Field(default=None, description="The Last name of the contact", alias="sContactLastname")
+    s_contact_company: Optional[StrictStr] = Field(default=None, description="The Company name of the contact", alias="sContactCompany")
+    __properties: ClassVar[List[str]] = ["sContactFirstname", "sContactLastname", "sContactCompany"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomContactNameResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomContactNameResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomContactNameResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomContactNameResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomContactNameResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomContactNameResponse.parse_obj({
-            "s_contact_firstname": obj.get("sContactFirstname"),
-            "s_contact_lastname": obj.get("sContactLastname"),
-            "s_contact_company": obj.get("sContactCompany")
+        _obj = cls.model_validate({
+            "sContactFirstname": obj.get("sContactFirstname"),
+            "sContactLastname": obj.get("sContactLastname"),
+            "sContactCompany": obj.get("sContactCompany")
         })
         return _obj
 

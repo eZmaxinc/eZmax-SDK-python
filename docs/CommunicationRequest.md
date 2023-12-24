@@ -3,6 +3,7 @@
 Request for POST /1/object/communication
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_communication_id** | **int** | The unique ID of the Communication. | [optional] 

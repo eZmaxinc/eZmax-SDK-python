@@ -19,51 +19,69 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictInt, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt
+from pydantic import Field
 from eZmaxApi.models.address_request_compound import AddressRequestCompound
 from eZmaxApi.models.email_request_compound import EmailRequestCompound
 from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
 from eZmaxApi.models.website_request_compound import WebsiteRequestCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ContactinformationsRequestCompound(BaseModel):
     """
-    A Contactinformations Object and children to create a complete structure  # noqa: E501
-    """
-    i_address_default: StrictInt = Field(..., alias="iAddressDefault", description="The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.")
-    i_phone_default: StrictInt = Field(..., alias="iPhoneDefault", description="The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.")
-    i_email_default: StrictInt = Field(..., alias="iEmailDefault", description="The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.")
-    i_website_default: StrictInt = Field(..., alias="iWebsiteDefault", description="The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.")
-    a_obj_address: conlist(AddressRequestCompound) = Field(..., alias="a_objAddress")
-    a_obj_phone: conlist(PhoneRequestCompound) = Field(..., alias="a_objPhone")
-    a_obj_email: conlist(EmailRequestCompound) = Field(..., alias="a_objEmail")
-    a_obj_website: conlist(WebsiteRequestCompound) = Field(..., alias="a_objWebsite")
-    __properties = ["iAddressDefault", "iPhoneDefault", "iEmailDefault", "iWebsiteDefault", "a_objAddress", "a_objPhone", "a_objEmail", "a_objWebsite"]
+    A Contactinformations Object and children to create a complete structure
+    """ # noqa: E501
+    i_address_default: StrictInt = Field(description="The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iAddressDefault")
+    i_phone_default: StrictInt = Field(description="The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iPhoneDefault")
+    i_email_default: StrictInt = Field(description="The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iEmailDefault")
+    i_website_default: StrictInt = Field(description="The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iWebsiteDefault")
+    a_obj_address: List[AddressRequestCompound] = Field(alias="a_objAddress")
+    a_obj_phone: List[PhoneRequestCompound] = Field(alias="a_objPhone")
+    a_obj_email: List[EmailRequestCompound] = Field(alias="a_objEmail")
+    a_obj_website: List[WebsiteRequestCompound] = Field(alias="a_objWebsite")
+    __properties: ClassVar[List[str]] = ["iAddressDefault", "iPhoneDefault", "iEmailDefault", "iWebsiteDefault", "a_objAddress", "a_objPhone", "a_objEmail", "a_objWebsite"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ContactinformationsRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ContactinformationsRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_address (list)
         _items = []
         if self.a_obj_address:
@@ -95,23 +113,23 @@ class ContactinformationsRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ContactinformationsRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ContactinformationsRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ContactinformationsRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ContactinformationsRequestCompound.parse_obj({
-            "i_address_default": obj.get("iAddressDefault"),
-            "i_phone_default": obj.get("iPhoneDefault"),
-            "i_email_default": obj.get("iEmailDefault"),
-            "i_website_default": obj.get("iWebsiteDefault"),
-            "a_obj_address": [AddressRequestCompound.from_dict(_item) for _item in obj.get("a_objAddress")] if obj.get("a_objAddress") is not None else None,
-            "a_obj_phone": [PhoneRequestCompound.from_dict(_item) for _item in obj.get("a_objPhone")] if obj.get("a_objPhone") is not None else None,
-            "a_obj_email": [EmailRequestCompound.from_dict(_item) for _item in obj.get("a_objEmail")] if obj.get("a_objEmail") is not None else None,
-            "a_obj_website": [WebsiteRequestCompound.from_dict(_item) for _item in obj.get("a_objWebsite")] if obj.get("a_objWebsite") is not None else None
+        _obj = cls.model_validate({
+            "iAddressDefault": obj.get("iAddressDefault"),
+            "iPhoneDefault": obj.get("iPhoneDefault"),
+            "iEmailDefault": obj.get("iEmailDefault"),
+            "iWebsiteDefault": obj.get("iWebsiteDefault"),
+            "a_objAddress": [AddressRequestCompound.from_dict(_item) for _item in obj.get("a_objAddress")] if obj.get("a_objAddress") is not None else None,
+            "a_objPhone": [PhoneRequestCompound.from_dict(_item) for _item in obj.get("a_objPhone")] if obj.get("a_objPhone") is not None else None,
+            "a_objEmail": [EmailRequestCompound.from_dict(_item) for _item in obj.get("a_objEmail")] if obj.get("a_objEmail") is not None else None,
+            "a_objWebsite": [WebsiteRequestCompound.from_dict(_item) for _item in obj.get("a_objWebsite")] if obj.get("a_objWebsite") is not None else None
         })
         return _obj
 

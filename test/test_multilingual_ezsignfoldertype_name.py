@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_ezsignfoldertype_name import MultilingualEzsignfoldertypeName  # noqa: E501
+from eZmaxApi.models.multilingual_ezsignfoldertype_name import MultilingualEzsignfoldertypeName
 
 class TestMultilingualEzsignfoldertypeName(unittest.TestCase):
     """MultilingualEzsignfoldertypeName unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualEzsignfoldertypeName(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualEzsignfoldertypeName`
         """
-        model = MultilingualEzsignfoldertypeName()  # noqa: E501
+        model = MultilingualEzsignfoldertypeName()
         if include_optional:
             return MultilingualEzsignfoldertypeName(
                 s_ezsignfoldertype_name1 = 'Embauche',

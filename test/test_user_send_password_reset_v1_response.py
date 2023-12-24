@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_send_password_reset_v1_response import UserSendPasswordResetV1Response  # noqa: E501
+from eZmaxApi.models.user_send_password_reset_v1_response import UserSendPasswordResetV1Response
 
 class TestUserSendPasswordResetV1Response(unittest.TestCase):
     """UserSendPasswordResetV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserSendPasswordResetV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserSendPasswordResetV1Response`
         """
-        model = UserSendPasswordResetV1Response()  # noqa: E501
+        model = UserSendPasswordResetV1Response()
         if include_optional:
             return UserSendPasswordResetV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

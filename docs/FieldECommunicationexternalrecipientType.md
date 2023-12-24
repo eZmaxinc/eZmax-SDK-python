@@ -3,6 +3,7 @@
 The type of Communicationexternalrecipient.  Only used when eCommunicationType is **Email**
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

@@ -3,6 +3,7 @@
 Payload for GET /2/object/ezmaxinvoicing/{pkiEzmaxinvoicingID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezmaxinvoicing** | [**EzmaxinvoicingResponseCompound**](EzmaxinvoicingResponseCompound.md) |  | 

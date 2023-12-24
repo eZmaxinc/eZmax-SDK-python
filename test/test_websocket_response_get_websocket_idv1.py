@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.websocket_response_get_websocket_idv1 import WebsocketResponseGetWebsocketIDV1  # noqa: E501
+from eZmaxApi.models.websocket_response_get_websocket_idv1 import WebsocketResponseGetWebsocketIDV1
 
 class TestWebsocketResponseGetWebsocketIDV1(unittest.TestCase):
     """WebsocketResponseGetWebsocketIDV1 unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebsocketResponseGetWebsocketIDV1(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsocketResponseGetWebsocketIDV1`
         """
-        model = WebsocketResponseGetWebsocketIDV1()  # noqa: E501
+        model = WebsocketResponseGetWebsocketIDV1()
         if include_optional:
             return WebsocketResponseGetWebsocketIDV1(
                 e_websocket_messagetype = 'Response-GetWebsocketID-V1',

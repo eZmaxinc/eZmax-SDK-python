@@ -3,6 +3,7 @@
 Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationsenders
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_communicationsenders** | [**List[CustomCommunicationsenderResponse]**](CustomCommunicationsenderResponse.md) |  | 

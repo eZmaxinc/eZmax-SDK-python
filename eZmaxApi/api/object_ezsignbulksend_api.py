@@ -13,14 +13,20 @@
 """  # noqa: E501
 
 
-import re  # noqa: F401
 import io
 import warnings
 
-from pydantic import validate_arguments, ValidationError
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from typing import Dict, List, Optional, Tuple, Union, Any
 
+try:
+    from typing import Annotated
+except ImportError:
+    from typing_extensions import Annotated
+
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conint
+from pydantic import StrictStr, field_validator
 
 from typing import Optional
 
@@ -42,10 +48,7 @@ from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient
 from eZmaxApi.api_response import ApiResponse
-from eZmaxApi.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from eZmaxApi.rest import RESTResponseType
 
 
 class ObjectEzsignbulksendApi:
@@ -60,1648 +63,3073 @@ class ObjectEzsignbulksendApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    @validate_arguments
-    def ezsignbulksend_create_ezsignbulksendtransmission_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_create_ezsignbulksendtransmission_v1_request : EzsignbulksendCreateEzsignbulksendtransmissionV1Request, **kwargs) -> EzsignbulksendCreateEzsignbulksendtransmissionV1Response:  # noqa: E501
-        """Create a new Ezsignbulksendtransmission in the Ezsignbulksend  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_create_ezsignbulksendtransmission_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendCreateEzsignbulksendtransmissionV1Response:
+        """Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
-        >>> thread = api.ezsignbulksend_create_ezsignbulksendtransmission_v1(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
-        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendCreateEzsignbulksendtransmissionV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_create_ezsignbulksendtransmission_v1_request : EzsignbulksendCreateEzsignbulksendtransmissionV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create a new Ezsignbulksendtransmission in the Ezsignbulksend  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v1_request, async_req=True)
-        >>> result = thread.get()
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
         :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
         :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendCreateEzsignbulksendtransmissionV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsignbulksend_id',
-            'ezsignbulksend_create_ezsignbulksendtransmission_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_create_ezsignbulksendtransmission_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['ezsignbulksend_create_ezsignbulksendtransmission_v1_request'] is not None:
-            _body_params = _params['ezsignbulksend_create_ezsignbulksendtransmission_v1_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
-
-        _response_types_map = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_create_object_v1(self, ezsignbulksend_create_object_v1_request : EzsignbulksendCreateObjectV1Request, **kwargs) -> EzsignbulksendCreateObjectV1Response:  # noqa: E501
-        """Create a new Ezsignbulksend  # noqa: E501
 
-        The endpoint allows to create one or many elements at once.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendCreateEzsignbulksendtransmissionV1Response]:
+        """Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
-        >>> thread = api.ezsignbulksend_create_object_v1(ezsignbulksend_create_object_v1_request, async_req=True)
-        >>> result = thread.get()
 
-        :param ezsignbulksend_create_object_v1_request: (required)
-        :type ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendCreateObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_create_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_create_object_v1_with_http_info(ezsignbulksend_create_object_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_create_object_v1_with_http_info(self, ezsignbulksend_create_object_v1_request : EzsignbulksendCreateObjectV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create a new Ezsignbulksend  # noqa: E501
-
-        The endpoint allows to create one or many elements at once.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_create_object_v1_with_http_info(ezsignbulksend_create_object_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param ezsignbulksend_create_object_v1_request: (required)
-        :type ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
+        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendCreateObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'ezsignbulksend_create_object_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_create_object_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
 
-        # process the path parameters
-        _path_params = {}
+    @validate_call
+    def ezsignbulksend_create_ezsignbulksendtransmission_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['ezsignbulksend_create_object_v1_request'] is not None:
-            _body_params = _params['ezsignbulksend_create_object_v1_request']
 
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
+        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
 
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
 
-        _response_types_map = {
-            '201': "EzsignbulksendCreateObjectV1Response",
+
+    def _ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
         }
 
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignbulksend_create_ezsignbulksendtransmission_v1_request is not None:
+            _body_params = ezsignbulksend_create_ezsignbulksendtransmission_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
-            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _host=_host,
+            _request_auth=_request_auth
+        )
 
-    @validate_arguments
-    def ezsignbulksend_delete_object_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> EzsignbulksendDeleteObjectV1Response:  # noqa: E501
-        """Delete an existing Ezsignbulksend  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.ezsignbulksend_delete_object_v1(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
 
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendDeleteObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_delete_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_delete_object_v1_with_http_info(pki_ezsignbulksend_id, **kwargs)  # noqa: E501
+    @validate_call
+    def ezsignbulksend_create_object_v1(
+        self,
+        ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendCreateObjectV1Response:
+        """Create a new Ezsignbulksend
 
-    @validate_arguments
-    def ezsignbulksend_delete_object_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Delete an existing Ezsignbulksend  # noqa: E501
+        The endpoint allows to create one or many elements at once.
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_delete_object_v1_with_http_info(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsignbulksend_create_object_v1_request: (required)
+        :type ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendDeleteObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_create_object_v1_serialize(
+            ezsignbulksend_create_object_v1_request=ezsignbulksend_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EzsignbulksendCreateObjectV1Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignbulksend_create_object_v1_with_http_info(
+        self,
+        ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendCreateObjectV1Response]:
+        """Create a new Ezsignbulksend
+
+        The endpoint allows to create one or many elements at once.
+
+        :param ezsignbulksend_create_object_v1_request: (required)
+        :type ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_create_object_v1_serialize(
+            ezsignbulksend_create_object_v1_request=ezsignbulksend_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EzsignbulksendCreateObjectV1Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_create_object_v1_without_preload_content(
+        self,
+        ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a new Ezsignbulksend
+
+        The endpoint allows to create one or many elements at once.
+
+        :param ezsignbulksend_create_object_v1_request: (required)
+        :type ezsignbulksend_create_object_v1_request: EzsignbulksendCreateObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_create_object_v1_serialize(
+            ezsignbulksend_create_object_v1_request=ezsignbulksend_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EzsignbulksendCreateObjectV1Response",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_create_object_v1_serialize(
+        self,
+        ezsignbulksend_create_object_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignbulksend_create_object_v1_request is not None:
+            _body_params = ezsignbulksend_create_object_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_delete_object_v1" % _key
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
                 )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsignbulksend',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_delete_object_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendDeleteObjectV1Response:
+        """Delete an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_delete_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendDeleteObjectV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}', 'DELETE',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_edit_object_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_edit_object_v1_request : EzsignbulksendEditObjectV1Request, **kwargs) -> EzsignbulksendEditObjectV1Response:  # noqa: E501
-        """Edit an existing Ezsignbulksend  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_delete_object_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendDeleteObjectV1Response]:
+        """Delete an existing Ezsignbulksend
 
-        >>> thread = api.ezsignbulksend_edit_object_v1(pki_ezsignbulksend_id, ezsignbulksend_edit_object_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_edit_object_v1_request: (required)
-        :type ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendEditObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_edit_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_edit_object_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_edit_object_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_edit_object_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_edit_object_v1_request : EzsignbulksendEditObjectV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Edit an existing Ezsignbulksend  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_edit_object_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_edit_object_v1_request, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_edit_object_v1_request: (required)
-        :type ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendEditObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsignbulksend_id',
-            'ezsignbulksend_edit_object_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsignbulksend_delete_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_edit_object_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendDeleteObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsignbulksend_delete_object_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Delete an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_delete_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendDeleteObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_delete_object_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsignbulksend_edit_object_v1_request'] is not None:
-            _body_params = _params['ezsignbulksend_edit_object_v1_request']
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_edit_object_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendEditObjectV1Response:
+        """Edit an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_edit_object_v1_request: (required)
+        :type ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_edit_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_edit_object_v1_request=ezsignbulksend_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendEditObjectV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_csv_template_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), e_csv_separator : Annotated[StrictStr, Field(..., description="Separator that will be used to separate fields")], **kwargs) -> str:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's empty Csv template  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_edit_object_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendEditObjectV1Response]:
+        """Edit an existing Ezsignbulksend
 
-        >>> thread = api.ezsignbulksend_get_csv_template_v1(pki_ezsignbulksend_id, e_csv_separator, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param e_csv_separator: Separator that will be used to separate fields (required)
-        :type e_csv_separator: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: str
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_csv_template_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_csv_template_v1_with_http_info(pki_ezsignbulksend_id, e_csv_separator, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_csv_template_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), e_csv_separator : Annotated[StrictStr, Field(..., description="Separator that will be used to separate fields")], **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's empty Csv template  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_csv_template_v1_with_http_info(pki_ezsignbulksend_id, e_csv_separator, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param e_csv_separator: Separator that will be used to separate fields (required)
-        :type e_csv_separator: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsignbulksend_edit_object_v1_request: (required)
+        :type ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(str, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_edit_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_edit_object_v1_request=ezsignbulksend_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id',
-            'e_csv_separator'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendEditObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_edit_object_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Edit an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_edit_object_v1_request: (required)
+        :type ezsignbulksend_edit_object_v1_request: EzsignbulksendEditObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_edit_object_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_edit_object_v1_request=ezsignbulksend_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendEditObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_edit_object_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        ezsignbulksend_edit_object_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignbulksend_edit_object_v1_request is not None:
+            _body_params = ezsignbulksend_edit_object_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_csv_template_v1" % _key
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
                 )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('e_csv_separator') is not None:  # noqa: E501
-            _query_params.append(('eCsvSeparator', _params['e_csv_separator']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/csv', 'application/json'])  # noqa: E501
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_csv_template_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        e_csv_separator: Annotated[StrictStr, Field(description="Separator that will be used to separate fields")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> str:
+        """Retrieve an existing Ezsignbulksend's empty Csv template
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param e_csv_separator: Separator that will be used to separate fields (required)
+        :type e_csv_separator: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_csv_template_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            e_csv_separator=e_csv_separator,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_ezsignbulksendtransmissions_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> EzsignbulksendGetEzsignbulksendtransmissionsV1Response:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_csv_template_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        e_csv_separator: Annotated[StrictStr, Field(description="Separator that will be used to separate fields")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[str]:
+        """Retrieve an existing Ezsignbulksend's empty Csv template
 
-        >>> thread = api.ezsignbulksend_get_ezsignbulksendtransmissions_v1(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendGetEzsignbulksendtransmissionsV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_ezsignbulksendtransmissions_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_ezsignbulksendtransmissions_v1_with_http_info(pki_ezsignbulksend_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_ezsignbulksendtransmissions_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_ezsignbulksendtransmissions_v1_with_http_info(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param e_csv_separator: Separator that will be used to separate fields (required)
+        :type e_csv_separator: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendGetEzsignbulksendtransmissionsV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_get_csv_template_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            e_csv_separator=e_csv_separator,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "str",
+            '404': "CommonResponseError",
+            '406': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_get_csv_template_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        e_csv_separator: Annotated[StrictStr, Field(description="Separator that will be used to separate fields")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignbulksend's empty Csv template
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param e_csv_separator: Separator that will be used to separate fields (required)
+        :type e_csv_separator: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_csv_template_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            e_csv_separator=e_csv_separator,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "str",
+            '404': "CommonResponseError",
+            '406': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_csv_template_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        e_csv_separator,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        if e_csv_separator is not None:
+            
+            _query_params.append(('eCsvSeparator', e_csv_separator))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'text/csv', 
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_ezsignbulksendtransmissions_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_ezsignbulksendtransmissions_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendGetEzsignbulksendtransmissionsV1Response:
+        """Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_ezsignbulksendtransmissions_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendGetEzsignbulksendtransmissionsV1Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_ezsignsignatures_automatic_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> EzsignbulksendGetEzsignsignaturesAutomaticV1Response:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures  # noqa: E501
 
-        Return the Ezsignsignatures that can be signed by the current user at the current step in the process  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_ezsignbulksendtransmissions_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendGetEzsignbulksendtransmissionsV1Response]:
+        """Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
 
-        >>> thread = api.ezsignbulksend_get_ezsignsignatures_automatic_v1(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendGetEzsignsignaturesAutomaticV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_ezsignsignatures_automatic_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_ezsignsignatures_automatic_v1_with_http_info(pki_ezsignbulksend_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_ezsignsignatures_automatic_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures  # noqa: E501
-
-        Return the Ezsignsignatures that can be signed by the current user at the current step in the process  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_ezsignsignatures_automatic_v1_with_http_info(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendGetEzsignsignaturesAutomaticV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_get_ezsignbulksendtransmissions_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetEzsignbulksendtransmissionsV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_get_ezsignbulksendtransmissions_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_ezsignbulksendtransmissions_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetEzsignbulksendtransmissionsV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_ezsignbulksendtransmissions_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_ezsignsignatures_automatic_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_ezsignsignatures_automatic_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendGetEzsignsignaturesAutomaticV1Response:
+        """Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
+
+        Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_ezsignsignatures_automatic_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendGetEzsignsignaturesAutomaticV1Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_forms_data_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> EzsignbulksendGetFormsDataV1Response:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's forms data  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_ezsignsignatures_automatic_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendGetEzsignsignaturesAutomaticV1Response]:
+        """Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
 
-        >>> thread = api.ezsignbulksend_get_forms_data_v1(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendGetFormsDataV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_forms_data_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_forms_data_v1_with_http_info(pki_ezsignbulksend_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_forms_data_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend's forms data  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_forms_data_v1_with_http_info(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
+        Return the Ezsignsignatures that can be signed by the current user at the current step in the process
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendGetFormsDataV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_get_ezsignsignatures_automatic_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetEzsignsignaturesAutomaticV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_get_ezsignsignatures_automatic_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignbulksend's automatic Ezsignsignatures
+
+        Return the Ezsignsignatures that can be signed by the current user at the current step in the process
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_ezsignsignatures_automatic_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetEzsignsignaturesAutomaticV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_ezsignsignatures_automatic_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_forms_data_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'application/zip'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_forms_data_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendGetFormsDataV1Response:
+        """Retrieve an existing Ezsignbulksend's forms data
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_forms_data_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendGetFormsDataV1Response",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_list_v1(self, e_order_by : Annotated[Optional[StrictStr], Field(description="Specify how you want the results to be sorted")] = None, i_row_max : Optional[conint(strict=True, le=10000, ge=1)] = None, i_row_offset : Optional[conint(strict=True, ge=0)] = None, accept_language : Optional[HeaderAcceptLanguage] = None, s_filter : Optional[StrictStr] = None, **kwargs) -> EzsignbulksendGetListV1Response:  # noqa: E501
-        """Retrieve Ezsignbulksend list  # noqa: E501
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_forms_data_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendGetFormsDataV1Response]:
+        """Retrieve an existing Ezsignbulksend's forms data
 
-        >>> thread = api.ezsignbulksend_get_list_v1(e_order_by, i_row_max, i_row_offset, accept_language, s_filter, async_req=True)
-        >>> result = thread.get()
+        
 
-        :param e_order_by: Specify how you want the results to be sorted
-        :type e_order_by: str
-        :param i_row_max:
-        :type i_row_max: int
-        :param i_row_offset:
-        :type i_row_offset: int
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
-        :param s_filter:
-        :type s_filter: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendGetListV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_list_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_list_v1_with_http_info(e_order_by, i_row_max, i_row_offset, accept_language, s_filter, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_list_v1_with_http_info(self, e_order_by : Annotated[Optional[StrictStr], Field(description="Specify how you want the results to be sorted")] = None, i_row_max : Optional[conint(strict=True, le=10000, ge=1)] = None, i_row_offset : Optional[conint(strict=True, ge=0)] = None, accept_language : Optional[HeaderAcceptLanguage] = None, s_filter : Optional[StrictStr] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve Ezsignbulksend list  # noqa: E501
-
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_list_v1_with_http_info(e_order_by, i_row_max, i_row_offset, accept_language, s_filter, async_req=True)
-        >>> result = thread.get()
-
-        :param e_order_by: Specify how you want the results to be sorted
-        :type e_order_by: str
-        :param i_row_max:
-        :type i_row_max: int
-        :param i_row_offset:
-        :type i_row_offset: int
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
-        :param s_filter:
-        :type s_filter: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendGetListV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_get_forms_data_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'e_order_by',
-            'i_row_max',
-            'i_row_offset',
-            'accept_language',
-            's_filter'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetFormsDataV1Response",
+            '404': "CommonResponseError",
+            '406': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_get_forms_data_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignbulksend's forms data
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_forms_data_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetFormsDataV1Response",
+            '404': "CommonResponseError",
+            '406': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_forms_data_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json', 
+                'application/zip'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_list_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        if _params.get('e_order_by') is not None:  # noqa: E501
-            _query_params.append(('eOrderBy', _params['e_order_by']))
-
-        if _params.get('i_row_max') is not None:  # noqa: E501
-            _query_params.append(('iRowMax', _params['i_row_max']))
-
-        if _params.get('i_row_offset') is not None:  # noqa: E501
-            _query_params.append(('iRowOffset', _params['i_row_offset']))
-
-        if _params.get('s_filter') is not None:  # noqa: E501
-            _query_params.append(('sFilter', _params['s_filter']))
-
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        if _params['accept_language']:
-            _header_params['Accept-Language'] = _params['accept_language']
-
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_list_v1(
+        self,
+        e_order_by: Annotated[Optional[StrictStr], Field(description="Specify how you want the results to be sorted")] = None,
+        i_row_max: Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]] = None,
+        i_row_offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        s_filter: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendGetListV1Response:
+        """Retrieve Ezsignbulksend list
+
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
+
+        :param e_order_by: Specify how you want the results to be sorted
+        :type e_order_by: str
+        :param i_row_max:
+        :type i_row_max: int
+        :param i_row_offset:
+        :type i_row_offset: int
+        :param accept_language:
+        :type accept_language: HeaderAcceptLanguage
+        :param s_filter:
+        :type s_filter: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_list_v1_serialize(
+            e_order_by=e_order_by,
+            i_row_max=i_row_max,
+            i_row_offset=i_row_offset,
+            accept_language=accept_language,
+            s_filter=s_filter,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendGetListV1Response",
             '406': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/getList', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_get_object_v2(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> EzsignbulksendGetObjectV2Response:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_list_v1_with_http_info(
+        self,
+        e_order_by: Annotated[Optional[StrictStr], Field(description="Specify how you want the results to be sorted")] = None,
+        i_row_max: Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]] = None,
+        i_row_offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        s_filter: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendGetListV1Response]:
+        """Retrieve Ezsignbulksend list
 
-        >>> thread = api.ezsignbulksend_get_object_v2(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendGetObjectV2Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_get_object_v2_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_get_object_v2_with_http_info(pki_ezsignbulksend_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_get_object_v2_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsignbulksend  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_get_object_v2_with_http_info(pki_ezsignbulksend_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param e_order_by: Specify how you want the results to be sorted
+        :type e_order_by: str
+        :param i_row_max:
+        :type i_row_max: int
+        :param i_row_offset:
+        :type i_row_offset: int
+        :param accept_language:
+        :type accept_language: HeaderAcceptLanguage
+        :param s_filter:
+        :type s_filter: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendGetObjectV2Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsignbulksend_get_list_v1_serialize(
+            e_order_by=e_order_by,
+            i_row_max=i_row_max,
+            i_row_offset=i_row_offset,
+            accept_language=accept_language,
+            s_filter=s_filter,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsignbulksend_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetListV1Response",
+            '406': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_get_list_v1_without_preload_content(
+        self,
+        e_order_by: Annotated[Optional[StrictStr], Field(description="Specify how you want the results to be sorted")] = None,
+        i_row_max: Optional[Annotated[int, Field(le=10000, strict=True, ge=1)]] = None,
+        i_row_offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        accept_language: Optional[HeaderAcceptLanguage] = None,
+        s_filter: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve Ezsignbulksend list
+
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
+
+        :param e_order_by: Specify how you want the results to be sorted
+        :type e_order_by: str
+        :param i_row_max:
+        :type i_row_max: int
+        :param i_row_offset:
+        :type i_row_offset: int
+        :param accept_language:
+        :type accept_language: HeaderAcceptLanguage
+        :param s_filter:
+        :type s_filter: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_list_v1_serialize(
+            e_order_by=e_order_by,
+            i_row_max=i_row_max,
+            i_row_offset=i_row_offset,
+            accept_language=accept_language,
+            s_filter=s_filter,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetListV1Response",
+            '406': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_list_v1_serialize(
+        self,
+        e_order_by,
+        i_row_max,
+        i_row_offset,
+        accept_language,
+        s_filter,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if e_order_by is not None:
+            
+            _query_params.append(('eOrderBy', e_order_by))
+            
+        if i_row_max is not None:
+            
+            _query_params.append(('iRowMax', i_row_max))
+            
+        if i_row_offset is not None:
+            
+            _query_params.append(('iRowOffset', i_row_offset))
+            
+        if s_filter is not None:
+            
+            _query_params.append(('sFilter', s_filter))
+            
+        # process the header parameters
+        if accept_language is not None:
+            _header_params['Accept-Language'] = accept_language
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json', 
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_get_object_v2" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignbulksend/getList',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_get_object_v2(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendGetObjectV2Response:
+        """Retrieve an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_object_v2_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendGetObjectV2Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/2/object/ezsignbulksend/{pkiEzsignbulksendID}', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsignbulksend_reorder_v1(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_reorder_v1_request : EzsignbulksendReorderV1Request, **kwargs) -> EzsignbulksendReorderV1Response:  # noqa: E501
-        """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsignbulksend_get_object_v2_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendGetObjectV2Response]:
+        """Retrieve an existing Ezsignbulksend
 
-        >>> thread = api.ezsignbulksend_reorder_v1(pki_ezsignbulksend_id, ezsignbulksend_reorder_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsignbulksend_id: (required)
-        :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_reorder_v1_request: (required)
-        :type ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsignbulksendReorderV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsignbulksend_reorder_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsignbulksend_reorder_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_reorder_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsignbulksend_reorder_v1_with_http_info(self, pki_ezsignbulksend_id : conint(strict=True, ge=0), ezsignbulksend_reorder_v1_request : EzsignbulksendReorderV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsignbulksend_reorder_v1_with_http_info(pki_ezsignbulksend_id, ezsignbulksend_reorder_v1_request, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_reorder_v1_request: (required)
-        :type ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsignbulksendReorderV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsignbulksend_id',
-            'ezsignbulksend_reorder_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsignbulksend_get_object_v2_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsignbulksend_reorder_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsignbulksend_get_object_v2_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignbulksend
+
+        
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_get_object_v2_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_get_object_v2_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsignbulksend_id']:
-            _path_params['pkiEzsignbulksendID'] = _params['pki_ezsignbulksend_id']
-
-
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsignbulksend_reorder_v1_request'] is not None:
-            _body_params = _params['ezsignbulksend_reorder_v1_request']
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/2/object/ezsignbulksend/{pkiEzsignbulksendID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignbulksend_reorder_v1(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignbulksendReorderV1Response:
+        """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
+
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_reorder_v1_request: (required)
+        :type ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_reorder_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_reorder_v1_request=ezsignbulksend_reorder_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsignbulksendReorderV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
 
-        return self.api_client.call_api(
-            '/1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
+
+    @validate_call
+    def ezsignbulksend_reorder_v1_with_http_info(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignbulksendReorderV1Response]:
+        """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
+
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_reorder_v1_request: (required)
+        :type ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_reorder_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_reorder_v1_request=ezsignbulksend_reorder_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendReorderV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignbulksend_reorder_v1_without_preload_content(
+        self,
+        pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
+
+
+        :param pki_ezsignbulksend_id: (required)
+        :type pki_ezsignbulksend_id: int
+        :param ezsignbulksend_reorder_v1_request: (required)
+        :type ezsignbulksend_reorder_v1_request: EzsignbulksendReorderV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignbulksend_reorder_v1_serialize(
+            pki_ezsignbulksend_id=pki_ezsignbulksend_id,
+            ezsignbulksend_reorder_v1_request=ezsignbulksend_reorder_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignbulksendReorderV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignbulksend_reorder_v1_serialize(
+        self,
+        pki_ezsignbulksend_id,
+        ezsignbulksend_reorder_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignbulksend_id is not None:
+            _path_params['pkiEzsignbulksendID'] = pki_ezsignbulksend_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignbulksend_reorder_v1_request is not None:
+            _body_params = ezsignbulksend_reorder_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
-            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+

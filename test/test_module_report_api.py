@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.module_report_api import ModuleReportApi  # noqa: E501
+from eZmaxApi.api.module_report_api import ModuleReportApi
 
 
 class TestModuleReportApi(unittest.TestCase):
     """ModuleReportApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ModuleReportApi()  # noqa: E501
+        self.api = ModuleReportApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestModuleReportApi(unittest.TestCase):
     def test_report_get_report_from_cache_v1(self) -> None:
         """Test case for report_get_report_from_cache_v1
 
-        Retrieve report from cache  # noqa: E501
+        Retrieve report from cache
         """
         pass
 

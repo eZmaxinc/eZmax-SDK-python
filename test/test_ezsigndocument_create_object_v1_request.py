@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 
 class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
     """EzsigndocumentCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentCreateObjectV1Request`
         """
-        model = EzsigndocumentCreateObjectV1Request()  # noqa: E501
+        model = EzsigndocumentCreateObjectV1Request()
         if include_optional:
             return EzsigndocumentCreateObjectV1Request(
                 obj_ezsigndocument = eZmaxApi.models.ezsigndocument_request.ezsigndocument-Request(
@@ -45,7 +45,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
                     fki_language_id = 2, 
                     e_ezsigndocument_source = 'Base64', 
                     e_ezsigndocument_format = 'Pdf', 
-                    s_ezsigndocument_base64 = '[B@30ea8c23', 
+                    s_ezsigndocument_base64 = '[B@26fb628', 
                     s_ezsigndocument_url = 'http://www.example.com/document.pdf', 
                     b_ezsigndocument_forcerepair = True, 
                     s_ezsigndocument_password = 'SecretPassword123', 

@@ -3,6 +3,7 @@
 A section in a Report. Each Reportsection shares Reportcolumns disposition with all its Reportsubsection 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_reportsubsection** | [**List[CommonReportsubsection]**](CommonReportsubsection.md) |  | 

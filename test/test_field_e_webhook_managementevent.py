@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent  # noqa: E501
+from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 
 class TestFieldEWebhookManagementevent(unittest.TestCase):
     """FieldEWebhookManagementevent unit test stubs"""

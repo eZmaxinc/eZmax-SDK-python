@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_ezsign_ezsignsigner_connect import WebhookEzsignEzsignsignerConnect  # noqa: E501
+from eZmaxApi.models.webhook_ezsign_ezsignsigner_connect import WebhookEzsignEzsignsignerConnect
 
 class TestWebhookEzsignEzsignsignerConnect(unittest.TestCase):
     """WebhookEzsignEzsignsignerConnect unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookEzsignEzsignsignerConnect(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookEzsignEzsignsignerConnect`
         """
-        model = WebhookEzsignEzsignsignerConnect()  # noqa: E501
+        model = WebhookEzsignEzsignsignerConnect()
         if include_optional:
             return WebhookEzsignEzsignsignerConnect(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),

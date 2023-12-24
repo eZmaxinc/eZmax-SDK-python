@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_subnet_api import ObjectSubnetApi  # noqa: E501
+from eZmaxApi.api.object_subnet_api import ObjectSubnetApi
 
 
 class TestObjectSubnetApi(unittest.TestCase):
     """ObjectSubnetApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectSubnetApi()  # noqa: E501
+        self.api = ObjectSubnetApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectSubnetApi(unittest.TestCase):
     def test_subnet_create_object_v1(self) -> None:
         """Test case for subnet_create_object_v1
 
-        Create a new Subnet  # noqa: E501
+        Create a new Subnet
         """
         pass
 
     def test_subnet_delete_object_v1(self) -> None:
         """Test case for subnet_delete_object_v1
 
-        Delete an existing Subnet  # noqa: E501
+        Delete an existing Subnet
         """
         pass
 
     def test_subnet_edit_object_v1(self) -> None:
         """Test case for subnet_edit_object_v1
 
-        Edit an existing Subnet  # noqa: E501
+        Edit an existing Subnet
         """
         pass
 
     def test_subnet_get_object_v2(self) -> None:
         """Test case for subnet_get_object_v2
 
-        Retrieve an existing Subnet  # noqa: E501
+        Retrieve an existing Subnet
         """
         pass
 

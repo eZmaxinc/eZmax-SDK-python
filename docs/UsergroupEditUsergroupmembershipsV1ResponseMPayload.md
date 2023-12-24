@@ -3,6 +3,7 @@
 Response for PUT /1/object/usergroup/{pkiUsergroupID}/editUsergroupmemberships
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_pki_usergroupmembership_id** | **List[int]** |  | 

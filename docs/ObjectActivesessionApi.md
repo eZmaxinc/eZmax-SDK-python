@@ -18,6 +18,7 @@ Retrieve the details about the current activesession
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -60,6 +61,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -76,6 +78,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -97,6 +100,7 @@ Retrieve Activesession list
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -146,6 +150,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **e_order_by** | **str**| Specify how you want the results to be sorted | [optional] 
@@ -168,6 +173,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

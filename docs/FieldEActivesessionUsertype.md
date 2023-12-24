@@ -3,6 +3,7 @@
 The Type of User for the Activesession
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

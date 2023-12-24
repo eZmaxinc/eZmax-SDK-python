@@ -19,69 +19,88 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.contactinformations_request_compound import ContactinformationsRequestCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ContactRequestCompound(BaseModel):
     """
-    A Contact Object and children to create a complete structure  # noqa: E501
-    """
-    fki_contacttitle_id: conint(strict=True, ge=0) = Field(..., alias="fkiContacttitleID", description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_contact_firstname: StrictStr = Field(..., alias="sContactFirstname", description="The First name of the contact")
-    s_contact_lastname: StrictStr = Field(..., alias="sContactLastname", description="The Last name of the contact")
-    s_contact_company: StrictStr = Field(..., alias="sContactCompany", description="The Company name of the contact")
-    dt_contact_birthdate: Optional[StrictStr] = Field(None, alias="dtContactBirthdate", description="The Birth Date of the contact")
-    obj_contactinformations: ContactinformationsRequestCompound = Field(..., alias="objContactinformations")
-    __properties = ["fkiContacttitleID", "fkiLanguageID", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "objContactinformations"]
+    A Contact Object and children to create a complete structure
+    """ # noqa: E501
+    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    s_contact_company: StrictStr = Field(description="The Company name of the contact", alias="sContactCompany")
+    dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate")
+    obj_contactinformations: ContactinformationsRequestCompound = Field(alias="objContactinformations")
+    __properties: ClassVar[List[str]] = ["fkiContacttitleID", "fkiLanguageID", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "objContactinformations"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ContactRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ContactRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_contactinformations
         if self.obj_contactinformations:
             _dict['objContactinformations'] = self.obj_contactinformations.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ContactRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ContactRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ContactRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ContactRequestCompound.parse_obj({
-            "fki_contacttitle_id": obj.get("fkiContacttitleID"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_contact_firstname": obj.get("sContactFirstname"),
-            "s_contact_lastname": obj.get("sContactLastname"),
-            "s_contact_company": obj.get("sContactCompany"),
-            "dt_contact_birthdate": obj.get("dtContactBirthdate"),
-            "obj_contactinformations": ContactinformationsRequestCompound.from_dict(obj.get("objContactinformations")) if obj.get("objContactinformations") is not None else None
+        _obj = cls.model_validate({
+            "fkiContacttitleID": obj.get("fkiContacttitleID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sContactFirstname": obj.get("sContactFirstname"),
+            "sContactLastname": obj.get("sContactLastname"),
+            "sContactCompany": obj.get("sContactCompany"),
+            "dtContactBirthdate": obj.get("dtContactBirthdate"),
+            "objContactinformations": ContactinformationsRequestCompound.from_dict(obj.get("objContactinformations")) if obj.get("objContactinformations") is not None else None
         })
         return _obj
 

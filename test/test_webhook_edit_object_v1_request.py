@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_edit_object_v1_request import WebhookEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.webhook_edit_object_v1_request import WebhookEditObjectV1Request
 
 class TestWebhookEditObjectV1Request(unittest.TestCase):
     """WebhookEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookEditObjectV1Request`
         """
-        model = WebhookEditObjectV1Request()  # noqa: E501
+        model = WebhookEditObjectV1Request()
         if include_optional:
             return WebhookEditObjectV1Request(
                 obj_webhook = eZmaxApi.models.webhook_request_compound.webhook-RequestCompound()

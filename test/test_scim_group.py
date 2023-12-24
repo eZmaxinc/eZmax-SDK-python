@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_group import ScimGroup  # noqa: E501
+from eZmaxApi.models.scim_group import ScimGroup
 
 class TestScimGroup(unittest.TestCase):
     """ScimGroup unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimGroup(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimGroup`
         """
-        model = ScimGroup()  # noqa: E501
+        model = ScimGroup()
         if include_optional:
             return ScimGroup(
                 id = '',

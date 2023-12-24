@@ -18,6 +18,7 @@ Get the list of Franchisebrokers to be used in a dropdown or autocomplete contro
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -66,6 +67,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Franchisebrokers to return | 
@@ -87,6 +89,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
@@ -103,6 +106,7 @@ Get the list of Franchisebroker to be used in a dropdown or autocomplete control
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -151,6 +155,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Franchisebrokers to return | 
@@ -172,6 +177,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

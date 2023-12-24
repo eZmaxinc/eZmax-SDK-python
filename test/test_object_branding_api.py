@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_branding_api import ObjectBrandingApi  # noqa: E501
+from eZmaxApi.api.object_branding_api import ObjectBrandingApi
 
 
 class TestObjectBrandingApi(unittest.TestCase):
     """ObjectBrandingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectBrandingApi()  # noqa: E501
+        self.api = ObjectBrandingApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestObjectBrandingApi(unittest.TestCase):
     def test_branding_create_object_v1(self) -> None:
         """Test case for branding_create_object_v1
 
-        Create a new Branding  # noqa: E501
+        Create a new Branding
         """
         pass
 
     def test_branding_edit_object_v1(self) -> None:
         """Test case for branding_edit_object_v1
 
-        Edit an existing Branding  # noqa: E501
+        Edit an existing Branding
         """
         pass
 
     def test_branding_get_autocomplete_v2(self) -> None:
         """Test case for branding_get_autocomplete_v2
 
-        Retrieve Brandings and IDs  # noqa: E501
+        Retrieve Brandings and IDs
         """
         pass
 
     def test_branding_get_list_v1(self) -> None:
         """Test case for branding_get_list_v1
 
-        Retrieve Branding list  # noqa: E501
+        Retrieve Branding list
         """
         pass
 
     def test_branding_get_object_v2(self) -> None:
         """Test case for branding_get_object_v2
 
-        Retrieve an existing Branding  # noqa: E501
+        Retrieve an existing Branding
         """
         pass
 

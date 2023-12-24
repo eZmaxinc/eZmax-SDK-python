@@ -3,6 +3,7 @@
 A complex type that specifies Sort configuration options.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **supported** | **bool** | A Boolean value specifying whether or not sorting is supported. | 

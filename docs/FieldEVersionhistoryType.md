@@ -3,6 +3,7 @@
 The type of Versionhistory.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

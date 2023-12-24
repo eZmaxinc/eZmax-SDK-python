@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class ComputedEEzsigndocumentSteptype(str, Enum):
@@ -35,8 +40,8 @@ class ComputedEEzsigndocumentSteptype(str, Enum):
     NONE = 'None'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ComputedEEzsigndocumentSteptype:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ComputedEEzsigndocumentSteptype from a JSON string"""
-        return ComputedEEzsigndocumentSteptype(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communication_send_v1_response import CommunicationSendV1Response  # noqa: E501
+from eZmaxApi.models.communication_send_v1_response import CommunicationSendV1Response
 
 class TestCommunicationSendV1Response(unittest.TestCase):
     """CommunicationSendV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationSendV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationSendV1Response`
         """
-        model = CommunicationSendV1Response()  # noqa: E501
+        model = CommunicationSendV1Response()
         if include_optional:
             return CommunicationSendV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

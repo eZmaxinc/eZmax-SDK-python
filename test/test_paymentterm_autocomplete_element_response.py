@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_autocomplete_element_response import PaymenttermAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.paymentterm_autocomplete_element_response import PaymenttermAutocompleteElementResponse
 
 class TestPaymenttermAutocompleteElementResponse(unittest.TestCase):
     """PaymenttermAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermAutocompleteElementResponse`
         """
-        model = PaymenttermAutocompleteElementResponse()  # noqa: E501
+        model = PaymenttermAutocompleteElementResponse()
         if include_optional:
             return PaymenttermAutocompleteElementResponse(
                 pki_paymentterm_id = 46,

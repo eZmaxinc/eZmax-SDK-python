@@ -3,6 +3,7 @@
 Request for PATCH /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignfoldersignerassociation** | [**EzsignfoldersignerassociationRequestPatch**](EzsignfoldersignerassociationRequestPatch.md) |  | 

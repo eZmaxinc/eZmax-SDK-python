@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_get_list_v1_response_m_payload import WebhookGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.webhook_get_list_v1_response_m_payload import WebhookGetListV1ResponseMPayload
 
 class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
     """WebhookGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookGetListV1ResponseMPayload`
         """
-        model = WebhookGetListV1ResponseMPayload()  # noqa: E501
+        model = WebhookGetListV1ResponseMPayload()
         if include_optional:
             return WebhookGetListV1ResponseMPayload(
                 i_row_returned = 100,
@@ -49,7 +49,8 @@ class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
                         e_webhook_module = 'Ezsign', 
                         e_webhook_ezsignevent = 'FolderCompleted', 
                         e_webhook_managementevent = 'UserCreated', 
-                        b_webhook_isactive = True, )
+                        b_webhook_isactive = True, 
+                        b_webhook_issigned = True, )
                     ]
             )
         else:
@@ -66,7 +67,8 @@ class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
                         e_webhook_module = 'Ezsign', 
                         e_webhook_ezsignevent = 'FolderCompleted', 
                         e_webhook_managementevent = 'UserCreated', 
-                        b_webhook_isactive = True, )
+                        b_webhook_isactive = True, 
+                        b_webhook_issigned = True, )
                     ],
         )
         """

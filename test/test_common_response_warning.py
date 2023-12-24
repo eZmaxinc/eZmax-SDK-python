@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_warning import CommonResponseWarning  # noqa: E501
+from eZmaxApi.models.common_response_warning import CommonResponseWarning
 
 class TestCommonResponseWarning(unittest.TestCase):
     """CommonResponseWarning unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseWarning(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseWarning`
         """
-        model = CommonResponseWarning()  # noqa: E501
+        model = CommonResponseWarning()
         if include_optional:
             return CommonResponseWarning(
                 s_warning_message = '',

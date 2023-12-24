@@ -3,6 +3,7 @@
 A Franchisereferalincome Object and children to create a complete structure
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_franchisereferalincome_id** | **int** | The unique ID of the Franchisereferalincome | [optional] 

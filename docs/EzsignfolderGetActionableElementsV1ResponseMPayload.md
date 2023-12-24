@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignsignature** | [**List[EzsignsignatureResponseCompound]**](EzsignsignatureResponseCompound.md) |  | 

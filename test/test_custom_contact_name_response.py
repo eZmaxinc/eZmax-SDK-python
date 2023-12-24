@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse  # noqa: E501
+from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 
 class TestCustomContactNameResponse(unittest.TestCase):
     """CustomContactNameResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomContactNameResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomContactNameResponse`
         """
-        model = CustomContactNameResponse()  # noqa: E501
+        model = CustomContactNameResponse()
         if include_optional:
             return CustomContactNameResponse(
                 s_contact_firstname = 'John',

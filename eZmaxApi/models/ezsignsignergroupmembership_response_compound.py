@@ -19,61 +19,80 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignsignergroupmembershipResponseCompound(BaseModel):
     """
-    A Ezsignsignergroupmembership Object  # noqa: E501
-    """
-    pki_ezsignsignergroupmembership_id: conint(strict=True, le=16777215, ge=0) = Field(..., alias="pkiEzsignsignergroupmembershipID", description="The unique ID of the Ezsignsignergroupmembership")
-    fki_ezsignsignergroup_id: conint(strict=True, le=65535, ge=0) = Field(..., alias="fkiEzsignsignergroupID", description="The unique ID of the Ezsignsignergroup")
-    fki_ezsignsigner_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignsignerID", description="The unique ID of the Ezsignsigner")
-    fki_user_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiUserID", description="The unique ID of the User")
-    fki_usergroup_id: Optional[conint(strict=True, le=255, ge=0)] = Field(None, alias="fkiUsergroupID", description="The unique ID of the Usergroup")
-    __properties = ["pkiEzsignsignergroupmembershipID", "fkiEzsignsignergroupID", "fkiEzsignsignerID", "fkiUserID", "fkiUsergroupID"]
+    A Ezsignsignergroupmembership Object
+    """ # noqa: E501
+    pki_ezsignsignergroupmembership_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroupmembership", alias="pkiEzsignsignergroupmembershipID")
+    fki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupmembershipID", "fkiEzsignsignergroupID", "fkiEzsignsignerID", "fkiUserID", "fkiUsergroupID"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignsignergroupmembershipResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignsignergroupmembershipResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignsignergroupmembershipResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignsignergroupmembershipResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignsignergroupmembershipResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignsignergroupmembershipResponseCompound.parse_obj({
-            "pki_ezsignsignergroupmembership_id": obj.get("pkiEzsignsignergroupmembershipID"),
-            "fki_ezsignsignergroup_id": obj.get("fkiEzsignsignergroupID"),
-            "fki_ezsignsigner_id": obj.get("fkiEzsignsignerID"),
-            "fki_user_id": obj.get("fkiUserID"),
-            "fki_usergroup_id": obj.get("fkiUsergroupID")
+        _obj = cls.model_validate({
+            "pkiEzsignsignergroupmembershipID": obj.get("pkiEzsignsignergroupmembershipID"),
+            "fkiEzsignsignergroupID": obj.get("fkiEzsignsignergroupID"),
+            "fkiEzsignsignerID": obj.get("fkiEzsignsignerID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiUsergroupID": obj.get("fkiUsergroupID")
         })
         return _obj
 

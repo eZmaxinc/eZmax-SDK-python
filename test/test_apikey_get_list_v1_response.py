@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_get_list_v1_response import ApikeyGetListV1Response  # noqa: E501
+from eZmaxApi.models.apikey_get_list_v1_response import ApikeyGetListV1Response
 
 class TestApikeyGetListV1Response(unittest.TestCase):
     """ApikeyGetListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyGetListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyGetListV1Response`
         """
-        model = ApikeyGetListV1Response()  # noqa: E501
+        model = ApikeyGetListV1Response()
         if include_optional:
             return ApikeyGetListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

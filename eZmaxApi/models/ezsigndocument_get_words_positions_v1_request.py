@@ -19,64 +19,82 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigndocumentGetWordsPositionsV1Request(BaseModel):
     """
-    Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions  # noqa: E501
-    """
-    e_get: StrictStr = Field(..., alias="eGet", description="Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*.")
-    b_word_case_sensitive: StrictBool = Field(..., alias="bWordCaseSensitive", description="IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive.")
-    a_s_word: Optional[conlist(StrictStr)] = Field(None, alias="a_sWord", description="Array of words to find in the document")
-    __properties = ["eGet", "bWordCaseSensitive", "a_sWord"]
+    Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions
+    """ # noqa: E501
+    e_get: StrictStr = Field(description="Specify if you want to retrieve *All* words or specific *Words* from the document. If you specify *Words*, you must send the list of words to search for in *a_sWord*.", alias="eGet")
+    b_word_case_sensitive: StrictBool = Field(description="IF *true*, words will be searched case-sensitive and results will be returned case-sensitive. IF *false*, words will be searched case-insensitive and results will be returned case-insensitive.", alias="bWordCaseSensitive")
+    a_s_word: Optional[List[StrictStr]] = Field(default=None, description="Array of words to find in the document", alias="a_sWord")
+    __properties: ClassVar[List[str]] = ["eGet", "bWordCaseSensitive", "a_sWord"]
 
-    @validator('e_get')
+    @field_validator('e_get')
     def e_get_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('All', 'Words'):
             raise ValueError("must be one of enum values ('All', 'Words')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigndocumentGetWordsPositionsV1Request:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigndocumentGetWordsPositionsV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigndocumentGetWordsPositionsV1Request:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigndocumentGetWordsPositionsV1Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigndocumentGetWordsPositionsV1Request.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigndocumentGetWordsPositionsV1Request.parse_obj({
-            "e_get": obj.get("eGet"),
-            "b_word_case_sensitive": obj.get("bWordCaseSensitive"),
-            "a_s_word": obj.get("a_sWord")
+        _obj = cls.model_validate({
+            "eGet": obj.get("eGet"),
+            "bWordCaseSensitive": obj.get("bWordCaseSensitive"),
+            "a_sWord": obj.get("a_sWord")
         })
         return _obj
 

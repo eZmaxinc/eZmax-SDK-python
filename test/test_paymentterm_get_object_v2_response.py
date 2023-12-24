@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_get_object_v2_response import PaymenttermGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.paymentterm_get_object_v2_response import PaymenttermGetObjectV2Response
 
 class TestPaymenttermGetObjectV2Response(unittest.TestCase):
     """PaymenttermGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermGetObjectV2Response`
         """
-        model = PaymenttermGetObjectV2Response()  # noqa: E501
+        model = PaymenttermGetObjectV2Response()
         if include_optional:
             return PaymenttermGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

@@ -19,84 +19,103 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class UserstagedResponse(BaseModel):
     """
-    A Userstaged Object  # noqa: E501
-    """
-    pki_userstaged_id: conint(strict=True, le=65535, ge=1) = Field(..., alias="pkiUserstagedID", description="The unique ID of the Userstaged")
-    fki_email_id: conint(strict=True, le=16777215, ge=1) = Field(..., alias="fkiEmailID", description="The unique ID of the Email")
-    s_email_address: StrictStr = Field(..., alias="sEmailAddress", description="The email address.")
-    s_userstaged_firstname: constr(strict=True) = Field(..., alias="sUserstagedFirstname", description="The firstname of the Userstaged")
-    s_userstaged_lastname: constr(strict=True) = Field(..., alias="sUserstagedLastname", description="The lastname of the Userstaged")
-    s_userstaged_externalid: constr(strict=True) = Field(..., alias="sUserstagedExternalid", description="The externalid of the Userstaged")
-    __properties = ["pkiUserstagedID", "fkiEmailID", "sEmailAddress", "sUserstagedFirstname", "sUserstagedLastname", "sUserstagedExternalid"]
+    A Userstaged Object
+    """ # noqa: E501
+    pki_userstaged_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Userstaged", alias="pkiUserstagedID")
+    fki_email_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Email", alias="fkiEmailID")
+    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    s_userstaged_firstname: Annotated[str, Field(strict=True)] = Field(description="The firstname of the Userstaged", alias="sUserstagedFirstname")
+    s_userstaged_lastname: Annotated[str, Field(strict=True)] = Field(description="The lastname of the Userstaged", alias="sUserstagedLastname")
+    s_userstaged_externalid: Annotated[str, Field(strict=True)] = Field(description="The externalid of the Userstaged", alias="sUserstagedExternalid")
+    __properties: ClassVar[List[str]] = ["pkiUserstagedID", "fkiEmailID", "sEmailAddress", "sUserstagedFirstname", "sUserstagedLastname", "sUserstagedExternalid"]
 
-    @validator('s_userstaged_firstname')
+    @field_validator('s_userstaged_firstname')
     def s_userstaged_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 
-    @validator('s_userstaged_lastname')
+    @field_validator('s_userstaged_lastname')
     def s_userstaged_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @validator('s_userstaged_externalid')
+    @field_validator('s_userstaged_externalid')
     def s_userstaged_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{1,60}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,60}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> UserstagedResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of UserstagedResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> UserstagedResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of UserstagedResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return UserstagedResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = UserstagedResponse.parse_obj({
-            "pki_userstaged_id": obj.get("pkiUserstagedID"),
-            "fki_email_id": obj.get("fkiEmailID"),
-            "s_email_address": obj.get("sEmailAddress"),
-            "s_userstaged_firstname": obj.get("sUserstagedFirstname"),
-            "s_userstaged_lastname": obj.get("sUserstagedLastname"),
-            "s_userstaged_externalid": obj.get("sUserstagedExternalid")
+        _obj = cls.model_validate({
+            "pkiUserstagedID": obj.get("pkiUserstagedID"),
+            "fkiEmailID": obj.get("fkiEmailID"),
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "sUserstagedFirstname": obj.get("sUserstagedFirstname"),
+            "sUserstagedLastname": obj.get("sUserstagedLastname"),
+            "sUserstagedExternalid": obj.get("sUserstagedExternalid")
         })
         return _obj
 

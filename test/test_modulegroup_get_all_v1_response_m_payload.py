@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.modulegroup_get_all_v1_response_m_payload import ModulegroupGetAllV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.modulegroup_get_all_v1_response_m_payload import ModulegroupGetAllV1ResponseMPayload
 
 class TestModulegroupGetAllV1ResponseMPayload(unittest.TestCase):
     """ModulegroupGetAllV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestModulegroupGetAllV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ModulegroupGetAllV1ResponseMPayload`
         """
-        model = ModulegroupGetAllV1ResponseMPayload()  # noqa: E501
+        model = ModulegroupGetAllV1ResponseMPayload()
         if include_optional:
             return ModulegroupGetAllV1ResponseMPayload(
                 a_obj_modulegroup = [

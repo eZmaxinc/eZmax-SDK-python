@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.email_request import EmailRequest  # noqa: E501
+from eZmaxApi.models.email_request import EmailRequest
 
 class TestEmailRequest(unittest.TestCase):
     """EmailRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestEmailRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EmailRequest`
         """
-        model = EmailRequest()  # noqa: E501
+        model = EmailRequest()
         if include_optional:
             return EmailRequest(
                 pki_email_id = 22,

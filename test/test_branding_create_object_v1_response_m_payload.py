@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_create_object_v1_response_m_payload import BrandingCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.branding_create_object_v1_response_m_payload import BrandingCreateObjectV1ResponseMPayload
 
 class TestBrandingCreateObjectV1ResponseMPayload(unittest.TestCase):
     """BrandingCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingCreateObjectV1ResponseMPayload`
         """
-        model = BrandingCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = BrandingCreateObjectV1ResponseMPayload()
         if include_optional:
             return BrandingCreateObjectV1ResponseMPayload(
                 a_pki_branding_id = [

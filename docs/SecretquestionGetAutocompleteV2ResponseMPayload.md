@@ -3,6 +3,7 @@
 Payload for POST /2/object/secretquestion/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_secretquestion** | [**List[SecretquestionAutocompleteElementResponse]**](SecretquestionAutocompleteElementResponse.md) | An array of Secretquestion autocomplete element response. | 

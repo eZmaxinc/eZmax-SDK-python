@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword  # noqa: E501
+from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword
 
 class TestScimServiceProviderConfigChangePassword(unittest.TestCase):
     """ScimServiceProviderConfigChangePassword unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimServiceProviderConfigChangePassword(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimServiceProviderConfigChangePassword`
         """
-        model = ScimServiceProviderConfigChangePassword()  # noqa: E501
+        model = ScimServiceProviderConfigChangePassword()
         if include_optional:
             return ScimServiceProviderConfigChangePassword(
                 supported = False

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignergroup_edit_object_v1_response import EzsignsignergroupEditObjectV1Response  # noqa: E501
+from eZmaxApi.models.ezsignsignergroup_edit_object_v1_response import EzsignsignergroupEditObjectV1Response
 
 class TestEzsignsignergroupEditObjectV1Response(unittest.TestCase):
     """EzsignsignergroupEditObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignergroupEditObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignergroupEditObjectV1Response`
         """
-        model = EzsignsignergroupEditObjectV1Response()  # noqa: E501
+        model = EzsignsignergroupEditObjectV1Response()
         if include_optional:
             return EzsignsignergroupEditObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

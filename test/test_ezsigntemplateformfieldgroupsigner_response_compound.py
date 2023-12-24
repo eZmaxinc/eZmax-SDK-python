@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_response_compound import EzsigntemplateformfieldgroupsignerResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_response_compound import EzsigntemplateformfieldgroupsignerResponseCompound
 
 class TestEzsigntemplateformfieldgroupsignerResponseCompound(unittest.TestCase):
     """EzsigntemplateformfieldgroupsignerResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateformfieldgroupsignerResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldgroupsignerResponseCompound`
         """
-        model = EzsigntemplateformfieldgroupsignerResponseCompound()  # noqa: E501
+        model = EzsigntemplateformfieldgroupsignerResponseCompound()
         if include_optional:
             return EzsigntemplateformfieldgroupsignerResponseCompound(
                 pki_ezsigntemplateformfieldgroupsigner_id = 87,

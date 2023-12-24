@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_edit_object_v1_request import VariableexpenseEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.variableexpense_edit_object_v1_request import VariableexpenseEditObjectV1Request
 
 class TestVariableexpenseEditObjectV1Request(unittest.TestCase):
     """VariableexpenseEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseEditObjectV1Request`
         """
-        model = VariableexpenseEditObjectV1Request()  # noqa: E501
+        model = VariableexpenseEditObjectV1Request()
         if include_optional:
             return VariableexpenseEditObjectV1Request(
                 obj_variableexpense = eZmaxApi.models.variableexpense_request_compound.variableexpense-RequestCompound()

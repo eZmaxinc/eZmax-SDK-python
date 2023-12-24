@@ -19,54 +19,73 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
 from eZmaxApi.models.field_e_ezsignformfield_dependencyrequirement import FieldEEzsignformfieldDependencyrequirement
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignformfieldRequestCompound(BaseModel):
     """
-    An Ezsignformfield Object and children to create a complete structure  # noqa: E501
-    """
-    pki_ezsignformfield_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzsignformfieldID", description="The unique ID of the Ezsignformfield")
-    i_ezsignpage_pagenumber: conint(strict=True, ge=1) = Field(..., alias="iEzsignpagePagenumber", description="The page number in the Ezsigndocument")
-    s_ezsignformfield_label: StrictStr = Field(..., alias="sEzsignformfieldLabel", description="The Label for the Ezsignformfield")
-    s_ezsignformfield_value: Optional[StrictStr] = Field(None, alias="sEzsignformfieldValue", description="The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio")
-    i_ezsignformfield_x: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldX", description="The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.")
-    i_ezsignformfield_y: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldY", description="The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.")
-    i_ezsignformfield_width: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldWidth", description="The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |")
-    i_ezsignformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsignformfieldHeight", description="The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
-    b_ezsignformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsignformfieldAutocomplete", description="Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**")
-    b_ezsignformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsignformfieldSelected", description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**")
-    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(None, alias="sEzsignformfieldEnteredvalue", description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**")
-    e_ezsignformfield_dependencyrequirement: Optional[FieldEEzsignformfieldDependencyrequirement] = Field(None, alias="eEzsignformfieldDependencyrequirement")
-    a_obj_ezsignelementdependency: Optional[conlist(EzsignelementdependencyRequestCompound)] = Field(None, alias="a_objEzsignelementdependency")
-    __properties = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue", "eEzsignformfieldDependencyrequirement", "a_objEzsignelementdependency"]
+    An Ezsignformfield Object and children to create a complete structure
+    """ # noqa: E501
+    pki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="pkiEzsignformfieldID")
+    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
+    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
+    s_ezsignformfield_value: Optional[StrictStr] = Field(default=None, description="The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio", alias="sEzsignformfieldValue")
+    i_ezsignformfield_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignformfieldX")
+    i_ezsignformfield_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsignformfield on the Ezsignpage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsignformfieldY")
+    i_ezsignformfield_width: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |", alias="iEzsignformfieldWidth")
+    i_ezsignformfield_height: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the Ezsignformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsignformfieldgroupType.  | eEzsignformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ", alias="iEzsignformfieldHeight")
+    b_ezsignformfield_autocomplete: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsignformfieldgroupType is **Text**", alias="bEzsignformfieldAutocomplete")
+    b_ezsignformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsignformfieldSelected")
+    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue")
+    e_ezsignformfield_dependencyrequirement: Optional[FieldEEzsignformfieldDependencyrequirement] = Field(default=None, alias="eEzsignformfieldDependencyrequirement")
+    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequestCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
+    __properties: ClassVar[List[str]] = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue", "eEzsignformfieldDependencyrequirement", "a_objEzsignelementdependency"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignformfieldRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignformfieldRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignelementdependency (list)
         _items = []
         if self.a_obj_ezsignelementdependency:
@@ -77,28 +96,28 @@ class EzsignformfieldRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignformfieldRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignformfieldRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignformfieldRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignformfieldRequestCompound.parse_obj({
-            "pki_ezsignformfield_id": obj.get("pkiEzsignformfieldID"),
-            "i_ezsignpage_pagenumber": obj.get("iEzsignpagePagenumber"),
-            "s_ezsignformfield_label": obj.get("sEzsignformfieldLabel"),
-            "s_ezsignformfield_value": obj.get("sEzsignformfieldValue"),
-            "i_ezsignformfield_x": obj.get("iEzsignformfieldX"),
-            "i_ezsignformfield_y": obj.get("iEzsignformfieldY"),
-            "i_ezsignformfield_width": obj.get("iEzsignformfieldWidth"),
-            "i_ezsignformfield_height": obj.get("iEzsignformfieldHeight"),
-            "b_ezsignformfield_autocomplete": obj.get("bEzsignformfieldAutocomplete"),
-            "b_ezsignformfield_selected": obj.get("bEzsignformfieldSelected"),
-            "s_ezsignformfield_enteredvalue": obj.get("sEzsignformfieldEnteredvalue"),
-            "e_ezsignformfield_dependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement"),
-            "a_obj_ezsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsignformfieldID": obj.get("pkiEzsignformfieldID"),
+            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
+            "sEzsignformfieldLabel": obj.get("sEzsignformfieldLabel"),
+            "sEzsignformfieldValue": obj.get("sEzsignformfieldValue"),
+            "iEzsignformfieldX": obj.get("iEzsignformfieldX"),
+            "iEzsignformfieldY": obj.get("iEzsignformfieldY"),
+            "iEzsignformfieldWidth": obj.get("iEzsignformfieldWidth"),
+            "iEzsignformfieldHeight": obj.get("iEzsignformfieldHeight"),
+            "bEzsignformfieldAutocomplete": obj.get("bEzsignformfieldAutocomplete"),
+            "bEzsignformfieldSelected": obj.get("bEzsignformfieldSelected"),
+            "sEzsignformfieldEnteredvalue": obj.get("sEzsignformfieldEnteredvalue"),
+            "eEzsignformfieldDependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement"),
+            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

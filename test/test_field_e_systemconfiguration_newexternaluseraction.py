@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_systemconfiguration_newexternaluseraction import FieldESystemconfigurationNewexternaluseraction  # noqa: E501
+from eZmaxApi.models.field_e_systemconfiguration_newexternaluseraction import FieldESystemconfigurationNewexternaluseraction
 
 class TestFieldESystemconfigurationNewexternaluseraction(unittest.TestCase):
     """FieldESystemconfigurationNewexternaluseraction unit test stubs"""

@@ -19,82 +19,101 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
 from eZmaxApi.models.enum_verticalalignment import EnumVerticalalignment
 from eZmaxApi.models.field_e_ezsignannotation_type import FieldEEzsignannotationType
 from eZmaxApi.models.textstylestatic_response_compound import TextstylestaticResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignannotationResponseCompound(BaseModel):
     """
-    A Ezsignannotation Object  # noqa: E501
-    """
-    pki_ezsignannotation_id: StrictInt = Field(..., alias="pkiEzsignannotationID", description="The unique ID of the Ezsignannotation")
-    fki_ezsigndocument_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsigndocumentID", description="The unique ID of the Ezsigndocument")
-    e_ezsignannotation_horizontalalignment: Optional[EnumHorizontalalignment] = Field(None, alias="eEzsignannotationHorizontalalignment")
-    e_ezsignannotation_verticalalignment: Optional[EnumVerticalalignment] = Field(None, alias="eEzsignannotationVerticalalignment")
-    e_ezsignannotation_type: FieldEEzsignannotationType = Field(..., alias="eEzsignannotationType")
-    i_ezsignannotation_x: conint(strict=True, ge=0) = Field(..., alias="iEzsignannotationX", description="The X coordinate (Horizontal) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 2 inches from the left border of the page, you would use \"200\" for the X coordinate.")
-    i_ezsignannotation_y: conint(strict=True, ge=0) = Field(..., alias="iEzsignannotationY", description="The Y coordinate (Vertical) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.")
-    i_ezsignannotation_width: Optional[conint(strict=True, ge=0)] = Field(None, alias="iEzsignannotationWidth", description="The Width of the Ezsignannotation.  Width is calculated at 100dpi (dot per inch). So for example, if you want to have the width of the Ezsignannotation to be 3 inches, you would use \"300\" for the Width.")
-    i_ezsignannotation_height: Optional[conint(strict=True, ge=0)] = Field(None, alias="iEzsignannotationHeight", description="The Height of the Ezsignannotation.  Height is calculated at 100dpi (dot per inch). So for example, if you want to have the height of the Ezsignannotation to be 2 inches, you would use \"200\" for the Height.  This can only be set if eEzsignannotationType is **StrikethroughBlock** or **Text**")
-    s_ezsignannotation_text: Optional[StrictStr] = Field(None, alias="sEzsignannotationText", description="The Text of the Ezsignannotation")
-    i_ezsignpage_pagenumber: conint(strict=True, ge=1) = Field(..., alias="iEzsignpagePagenumber", description="The page number in the Ezsigndocument")
-    obj_textstylestatic: Optional[TextstylestaticResponseCompound] = Field(None, alias="objTextstylestatic")
-    __properties = ["pkiEzsignannotationID", "fkiEzsigndocumentID", "eEzsignannotationHorizontalalignment", "eEzsignannotationVerticalalignment", "eEzsignannotationType", "iEzsignannotationX", "iEzsignannotationY", "iEzsignannotationWidth", "iEzsignannotationHeight", "sEzsignannotationText", "iEzsignpagePagenumber", "objTextstylestatic"]
+    A Ezsignannotation Object
+    """ # noqa: E501
+    pki_ezsignannotation_id: StrictInt = Field(description="The unique ID of the Ezsignannotation", alias="pkiEzsignannotationID")
+    fki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
+    e_ezsignannotation_horizontalalignment: Optional[EnumHorizontalalignment] = Field(default=None, alias="eEzsignannotationHorizontalalignment")
+    e_ezsignannotation_verticalalignment: Optional[EnumVerticalalignment] = Field(default=None, alias="eEzsignannotationVerticalalignment")
+    e_ezsignannotation_type: FieldEEzsignannotationType = Field(alias="eEzsignannotationType")
+    i_ezsignannotation_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignannotationX")
+    i_ezsignannotation_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsignannotationY")
+    i_ezsignannotation_width: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Width of the Ezsignannotation.  Width is calculated at 100dpi (dot per inch). So for example, if you want to have the width of the Ezsignannotation to be 3 inches, you would use \"300\" for the Width.", alias="iEzsignannotationWidth")
+    i_ezsignannotation_height: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Height of the Ezsignannotation.  Height is calculated at 100dpi (dot per inch). So for example, if you want to have the height of the Ezsignannotation to be 2 inches, you would use \"200\" for the Height.  This can only be set if eEzsignannotationType is **StrikethroughBlock** or **Text**", alias="iEzsignannotationHeight")
+    s_ezsignannotation_text: Optional[StrictStr] = Field(default=None, description="The Text of the Ezsignannotation", alias="sEzsignannotationText")
+    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
+    obj_textstylestatic: Optional[TextstylestaticResponseCompound] = Field(default=None, alias="objTextstylestatic")
+    __properties: ClassVar[List[str]] = ["pkiEzsignannotationID", "fkiEzsigndocumentID", "eEzsignannotationHorizontalalignment", "eEzsignannotationVerticalalignment", "eEzsignannotationType", "iEzsignannotationX", "iEzsignannotationY", "iEzsignannotationWidth", "iEzsignannotationHeight", "sEzsignannotationText", "iEzsignpagePagenumber", "objTextstylestatic"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignannotationResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignannotationResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_textstylestatic
         if self.obj_textstylestatic:
             _dict['objTextstylestatic'] = self.obj_textstylestatic.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignannotationResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignannotationResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignannotationResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignannotationResponseCompound.parse_obj({
-            "pki_ezsignannotation_id": obj.get("pkiEzsignannotationID"),
-            "fki_ezsigndocument_id": obj.get("fkiEzsigndocumentID"),
-            "e_ezsignannotation_horizontalalignment": obj.get("eEzsignannotationHorizontalalignment"),
-            "e_ezsignannotation_verticalalignment": obj.get("eEzsignannotationVerticalalignment"),
-            "e_ezsignannotation_type": obj.get("eEzsignannotationType"),
-            "i_ezsignannotation_x": obj.get("iEzsignannotationX"),
-            "i_ezsignannotation_y": obj.get("iEzsignannotationY"),
-            "i_ezsignannotation_width": obj.get("iEzsignannotationWidth"),
-            "i_ezsignannotation_height": obj.get("iEzsignannotationHeight"),
-            "s_ezsignannotation_text": obj.get("sEzsignannotationText"),
-            "i_ezsignpage_pagenumber": obj.get("iEzsignpagePagenumber"),
-            "obj_textstylestatic": TextstylestaticResponseCompound.from_dict(obj.get("objTextstylestatic")) if obj.get("objTextstylestatic") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsignannotationID": obj.get("pkiEzsignannotationID"),
+            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
+            "eEzsignannotationHorizontalalignment": obj.get("eEzsignannotationHorizontalalignment"),
+            "eEzsignannotationVerticalalignment": obj.get("eEzsignannotationVerticalalignment"),
+            "eEzsignannotationType": obj.get("eEzsignannotationType"),
+            "iEzsignannotationX": obj.get("iEzsignannotationX"),
+            "iEzsignannotationY": obj.get("iEzsignannotationY"),
+            "iEzsignannotationWidth": obj.get("iEzsignannotationWidth"),
+            "iEzsignannotationHeight": obj.get("iEzsignannotationHeight"),
+            "sEzsignannotationText": obj.get("sEzsignannotationText"),
+            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
+            "objTextstylestatic": TextstylestaticResponseCompound.from_dict(obj.get("objTextstylestatic")) if obj.get("objTextstylestatic") is not None else None
         })
         return _obj
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.franchisereferalincome_create_object_v2_response_m_payload import FranchisereferalincomeCreateObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.franchisereferalincome_create_object_v2_response_m_payload import FranchisereferalincomeCreateObjectV2ResponseMPayload
 
 class TestFranchisereferalincomeCreateObjectV2ResponseMPayload(unittest.TestCase):
     """FranchisereferalincomeCreateObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestFranchisereferalincomeCreateObjectV2ResponseMPayload(unittest.TestCase
             optional params are included """
         # uncomment below to create an instance of `FranchisereferalincomeCreateObjectV2ResponseMPayload`
         """
-        model = FranchisereferalincomeCreateObjectV2ResponseMPayload()  # noqa: E501
+        model = FranchisereferalincomeCreateObjectV2ResponseMPayload()
         if include_optional:
             return FranchisereferalincomeCreateObjectV2ResponseMPayload(
                 a_pki_franchisereferalincome_id = [

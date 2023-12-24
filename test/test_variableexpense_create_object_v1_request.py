@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_create_object_v1_request import VariableexpenseCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.variableexpense_create_object_v1_request import VariableexpenseCreateObjectV1Request
 
 class TestVariableexpenseCreateObjectV1Request(unittest.TestCase):
     """VariableexpenseCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseCreateObjectV1Request`
         """
-        model = VariableexpenseCreateObjectV1Request()  # noqa: E501
+        model = VariableexpenseCreateObjectV1Request()
         if include_optional:
             return VariableexpenseCreateObjectV1Request(
                 a_obj_variableexpense = [

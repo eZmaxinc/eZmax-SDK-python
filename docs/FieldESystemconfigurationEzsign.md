@@ -3,6 +3,7 @@
 Whether if Ezsign is paid by the company or not
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

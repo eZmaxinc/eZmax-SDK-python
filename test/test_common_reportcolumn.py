@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_reportcolumn import CommonReportcolumn  # noqa: E501
+from eZmaxApi.models.common_reportcolumn import CommonReportcolumn
 
 class TestCommonReportcolumn(unittest.TestCase):
     """CommonReportcolumn unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonReportcolumn(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonReportcolumn`
         """
-        model = CommonReportcolumn()  # noqa: E501
+        model = CommonReportcolumn()
         if include_optional:
             return CommonReportcolumn(
                 obj_reportcellstyle_default = eZmaxApi.models.common_reportcellstyle.Common-Reportcellstyle(

@@ -3,6 +3,7 @@
 The Horizontal alignment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

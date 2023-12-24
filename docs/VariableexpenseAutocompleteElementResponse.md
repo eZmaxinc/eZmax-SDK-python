@@ -3,6 +3,7 @@
 A Variableexpense AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_variableexpense_description_x** | **str** | The description of the Variableexpense in the language of the requester | 

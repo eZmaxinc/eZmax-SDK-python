@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplatesignature_api import ObjectEzsigntemplatesignatureApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplatesignature_api import ObjectEzsigntemplatesignatureApi
 
 
 class TestObjectEzsigntemplatesignatureApi(unittest.TestCase):
     """ObjectEzsigntemplatesignatureApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplatesignatureApi()  # noqa: E501
+        self.api = ObjectEzsigntemplatesignatureApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzsigntemplatesignatureApi(unittest.TestCase):
     def test_ezsigntemplatesignature_create_object_v1(self) -> None:
         """Test case for ezsigntemplatesignature_create_object_v1
 
-        Create a new Ezsigntemplatesignature  # noqa: E501
+        Create a new Ezsigntemplatesignature
         """
         pass
 
     def test_ezsigntemplatesignature_delete_object_v1(self) -> None:
         """Test case for ezsigntemplatesignature_delete_object_v1
 
-        Delete an existing Ezsigntemplatesignature  # noqa: E501
+        Delete an existing Ezsigntemplatesignature
         """
         pass
 
     def test_ezsigntemplatesignature_edit_object_v1(self) -> None:
         """Test case for ezsigntemplatesignature_edit_object_v1
 
-        Edit an existing Ezsigntemplatesignature  # noqa: E501
+        Edit an existing Ezsigntemplatesignature
         """
         pass
 
     def test_ezsigntemplatesignature_get_object_v2(self) -> None:
         """Test case for ezsigntemplatesignature_get_object_v2
 
-        Retrieve an existing Ezsigntemplatesignature  # noqa: E501
+        Retrieve an existing Ezsigntemplatesignature
         """
         pass
 

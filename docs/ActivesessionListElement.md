@@ -3,6 +3,7 @@
 A Activesession List Element
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_activesession_id** | **int** | The unique ID of the Activesession | 

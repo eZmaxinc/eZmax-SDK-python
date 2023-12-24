@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communication_create_object_v1_response_m_payload import CommunicationCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.communication_create_object_v1_response_m_payload import CommunicationCreateObjectV1ResponseMPayload
 
 class TestCommunicationCreateObjectV1ResponseMPayload(unittest.TestCase):
     """CommunicationCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationCreateObjectV1ResponseMPayload`
         """
-        model = CommunicationCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = CommunicationCreateObjectV1ResponseMPayload()
         if include_optional:
             return CommunicationCreateObjectV1ResponseMPayload(
                 a_pki_communication_id = [

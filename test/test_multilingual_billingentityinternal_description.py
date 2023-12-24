@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_billingentityinternal_description import MultilingualBillingentityinternalDescription  # noqa: E501
+from eZmaxApi.models.multilingual_billingentityinternal_description import MultilingualBillingentityinternalDescription
 
 class TestMultilingualBillingentityinternalDescription(unittest.TestCase):
     """MultilingualBillingentityinternalDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualBillingentityinternalDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualBillingentityinternalDescription`
         """
-        model = MultilingualBillingentityinternalDescription()  # noqa: E501
+        model = MultilingualBillingentityinternalDescription()
         if include_optional:
             return MultilingualBillingentityinternalDescription(
                 s_billingentityinternal_description1 = 'Défaut',

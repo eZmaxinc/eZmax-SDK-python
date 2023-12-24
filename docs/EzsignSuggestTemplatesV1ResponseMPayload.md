@@ -3,6 +3,7 @@
 Payload for GET /1/module/ezsign/suggestTemplates
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsigntemplate** | [**List[EzsigntemplateResponseCompound]**](EzsigntemplateResponseCompound.md) |  | 

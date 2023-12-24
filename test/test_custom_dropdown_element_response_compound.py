@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound  # noqa: E501
+from eZmaxApi.models.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
 
 class TestCustomDropdownElementResponseCompound(unittest.TestCase):
     """CustomDropdownElementResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomDropdownElementResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomDropdownElementResponseCompound`
         """
-        model = CustomDropdownElementResponseCompound()  # noqa: E501
+        model = CustomDropdownElementResponseCompound()
         if include_optional:
             return CustomDropdownElementResponseCompound(
                 s_label = '',

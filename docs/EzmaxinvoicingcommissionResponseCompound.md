@@ -3,6 +3,7 @@
 A Ezmaxinvoicingcommission Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxinvoicingcommission_id** | **int** | The unique ID of the Ezmaxinvoicingcommission | [optional] 

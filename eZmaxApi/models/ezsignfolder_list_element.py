@@ -19,79 +19,98 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignfolderListElement(BaseModel):
     """
-    An Ezsignfolder List Element  # noqa: E501
-    """
-    pki_ezsignfolder_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsignfolderID", description="The unique ID of the Ezsignfolder")
-    fki_ezsignfoldertype_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsignfoldertypeID", description="The unique ID of the Ezsignfoldertype.")
-    e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(..., alias="eEzsignfoldertypePrivacylevel")
-    s_ezsignfoldertype_name_x: StrictStr = Field(..., alias="sEzsignfoldertypeNameX", description="The name of the Ezsignfoldertype in the language of the requester")
-    s_ezsignfolder_description: StrictStr = Field(..., alias="sEzsignfolderDescription", description="The description of the Ezsignfolder")
-    e_ezsignfolder_step: FieldEEzsignfolderStep = Field(..., alias="eEzsignfolderStep")
-    dt_created_date: StrictStr = Field(..., alias="dtCreatedDate", description="The date and time at which the object was created")
-    dt_ezsignfolder_sentdate: Optional[StrictStr] = Field(None, alias="dtEzsignfolderSentdate", description="The date and time at which the Ezsignfolder was sent the last time.")
-    dt_ezsignfolder_duedate: Optional[StrictStr] = Field(None, alias="dtEzsignfolderDuedate", description="The maximum date and time at which the Ezsignfolder can be signed.")
-    i_ezsigndocument: StrictInt = Field(..., alias="iEzsigndocument", description="The total number of Ezsigndocument in the folder")
-    i_ezsigndocument_edm: StrictInt = Field(..., alias="iEzsigndocumentEdm", description="The total number of Ezsigndocument in the folder that were saved in the edm system")
-    i_ezsignsignature: StrictInt = Field(..., alias="iEzsignsignature", description="The total number of signature blocks in all Ezsigndocuments in the folder")
-    i_ezsignsignature_signed: StrictInt = Field(..., alias="iEzsignsignatureSigned", description="The total number of already signed signature blocks in all Ezsigndocuments in the folder")
-    __properties = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned"]
+    An Ezsignfolder List Element
+    """ # noqa: E501
+    pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    e_ezsignfolder_step: FieldEEzsignfolderStep = Field(alias="eEzsignfolderStep")
+    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate")
+    dt_ezsignfolder_sentdate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was sent the last time.", alias="dtEzsignfolderSentdate")
+    dt_ezsignfolder_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsignfolder can be signed.", alias="dtEzsignfolderDuedate")
+    i_ezsigndocument: StrictInt = Field(description="The total number of Ezsigndocument in the folder", alias="iEzsigndocument")
+    i_ezsigndocument_edm: StrictInt = Field(description="The total number of Ezsigndocument in the folder that were saved in the edm system", alias="iEzsigndocumentEdm")
+    i_ezsignsignature: StrictInt = Field(description="The total number of signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignature")
+    i_ezsignsignature_signed: StrictInt = Field(description="The total number of already signed signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignatureSigned")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignfolderListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignfolderListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignfolderListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignfolderListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignfolderListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignfolderListElement.parse_obj({
-            "pki_ezsignfolder_id": obj.get("pkiEzsignfolderID"),
-            "fki_ezsignfoldertype_id": obj.get("fkiEzsignfoldertypeID"),
-            "e_ezsignfoldertype_privacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
-            "s_ezsignfoldertype_name_x": obj.get("sEzsignfoldertypeNameX"),
-            "s_ezsignfolder_description": obj.get("sEzsignfolderDescription"),
-            "e_ezsignfolder_step": obj.get("eEzsignfolderStep"),
-            "dt_created_date": obj.get("dtCreatedDate"),
-            "dt_ezsignfolder_sentdate": obj.get("dtEzsignfolderSentdate"),
-            "dt_ezsignfolder_duedate": obj.get("dtEzsignfolderDuedate"),
-            "i_ezsigndocument": obj.get("iEzsigndocument"),
-            "i_ezsigndocument_edm": obj.get("iEzsigndocumentEdm"),
-            "i_ezsignsignature": obj.get("iEzsignsignature"),
-            "i_ezsignsignature_signed": obj.get("iEzsignsignatureSigned")
+        _obj = cls.model_validate({
+            "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "eEzsignfoldertypePrivacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
+            "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
+            "dtCreatedDate": obj.get("dtCreatedDate"),
+            "dtEzsignfolderSentdate": obj.get("dtEzsignfolderSentdate"),
+            "dtEzsignfolderDuedate": obj.get("dtEzsignfolderDuedate"),
+            "iEzsigndocument": obj.get("iEzsigndocument"),
+            "iEzsigndocumentEdm": obj.get("iEzsigndocumentEdm"),
+            "iEzsignsignature": obj.get("iEzsignsignature"),
+            "iEzsignsignatureSigned": obj.get("iEzsignsignatureSigned")
         })
         return _obj
 

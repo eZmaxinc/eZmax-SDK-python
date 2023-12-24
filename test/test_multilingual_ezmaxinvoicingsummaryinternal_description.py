@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description import MultilingualEzmaxinvoicingsummaryinternalDescription  # noqa: E501
+from eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description import MultilingualEzmaxinvoicingsummaryinternalDescription
 
 class TestMultilingualEzmaxinvoicingsummaryinternalDescription(unittest.TestCase):
     """MultilingualEzmaxinvoicingsummaryinternalDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualEzmaxinvoicingsummaryinternalDescription(unittest.TestCase
             optional params are included """
         # uncomment below to create an instance of `MultilingualEzmaxinvoicingsummaryinternalDescription`
         """
-        model = MultilingualEzmaxinvoicingsummaryinternalDescription()  # noqa: E501
+        model = MultilingualEzmaxinvoicingsummaryinternalDescription()
         if include_optional:
             return MultilingualEzmaxinvoicingsummaryinternalDescription(
                 s_ezmaxinvoicingsummaryinternal_description1 = 'Défaut',

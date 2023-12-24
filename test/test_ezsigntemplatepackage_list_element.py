@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackage_list_element import EzsigntemplatepackageListElement  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackage_list_element import EzsigntemplatepackageListElement
 
 class TestEzsigntemplatepackageListElement(unittest.TestCase):
     """EzsigntemplatepackageListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackageListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackageListElement`
         """
-        model = EzsigntemplatepackageListElement()  # noqa: E501
+        model = EzsigntemplatepackageListElement()
         if include_optional:
             return EzsigntemplatepackageListElement(
                 pki_ezsigntemplatepackage_id = 99,

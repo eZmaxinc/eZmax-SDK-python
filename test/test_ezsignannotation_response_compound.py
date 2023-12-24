@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignannotation_response_compound import EzsignannotationResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsignannotation_response_compound import EzsignannotationResponseCompound
 
 class TestEzsignannotationResponseCompound(unittest.TestCase):
     """EzsignannotationResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignannotationResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignannotationResponseCompound`
         """
-        model = EzsignannotationResponseCompound()  # noqa: E501
+        model = EzsignannotationResponseCompound()
         if include_optional:
             return EzsignannotationResponseCompound(
                 pki_ezsignannotation_id = 113,

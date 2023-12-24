@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_notificationpreference_status import FieldENotificationpreferenceStatus  # noqa: E501
+from eZmaxApi.models.field_e_notificationpreference_status import FieldENotificationpreferenceStatus
 
 class TestFieldENotificationpreferenceStatus(unittest.TestCase):
     """FieldENotificationpreferenceStatus unit test stubs"""

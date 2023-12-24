@@ -3,6 +3,7 @@
 Payload for GET /2/object/ezsignbulksenddocumentmapping/{pkiEzsignbulksenddocumentmappingID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignbulksenddocumentmapping** | [**EzsignbulksenddocumentmappingResponseCompound**](EzsignbulksenddocumentmappingResponseCompound.md) |  | 

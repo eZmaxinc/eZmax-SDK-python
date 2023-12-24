@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignformfieldgroup_response import EzsignformfieldgroupResponse  # noqa: E501
+from eZmaxApi.models.ezsignformfieldgroup_response import EzsignformfieldgroupResponse
 
 class TestEzsignformfieldgroupResponse(unittest.TestCase):
     """EzsignformfieldgroupResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignformfieldgroupResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignformfieldgroupResponse`
         """
-        model = EzsignformfieldgroupResponse()  # noqa: E501
+        model = EzsignformfieldgroupResponse()
         if include_optional:
             return EzsignformfieldgroupResponse(
                 pki_ezsignformfieldgroup_id = 26,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatedocument_request import EzsigntemplatedocumentRequest  # noqa: E501
+from eZmaxApi.models.ezsigntemplatedocument_request import EzsigntemplatedocumentRequest
 
 class TestEzsigntemplatedocumentRequest(unittest.TestCase):
     """EzsigntemplatedocumentRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatedocumentRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatedocumentRequest`
         """
-        model = EzsigntemplatedocumentRequest()  # noqa: E501
+        model = EzsigntemplatedocumentRequest()
         if include_optional:
             return EzsigntemplatedocumentRequest(
                 pki_ezsigntemplatedocument_id = 133,
@@ -44,7 +44,7 @@ class TestEzsigntemplatedocumentRequest(unittest.TestCase):
                 s_ezsigntemplatedocument_name = 'Standard Contract',
                 e_ezsigntemplatedocument_source = 'Base64',
                 e_ezsigntemplatedocument_format = 'Pdf',
-                s_ezsigntemplatedocument_base64 = '[B@7b139eab',
+                s_ezsigntemplatedocument_base64 = '[B@3e2943ab',
                 s_ezsigntemplatedocument_url = 'http://www.example.com/template.pdf',
                 b_ezsigntemplatedocument_forcerepair = True,
                 e_ezsigntemplatedocument_form = 'Keep',

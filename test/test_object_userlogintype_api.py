@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_userlogintype_api import ObjectUserlogintypeApi  # noqa: E501
+from eZmaxApi.api.object_userlogintype_api import ObjectUserlogintypeApi
 
 
 class TestObjectUserlogintypeApi(unittest.TestCase):
     """ObjectUserlogintypeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectUserlogintypeApi()  # noqa: E501
+        self.api = ObjectUserlogintypeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectUserlogintypeApi(unittest.TestCase):
     def test_userlogintype_get_autocomplete_v2(self) -> None:
         """Test case for userlogintype_get_autocomplete_v2
 
-        Retrieve Userlogintypes and IDs  # noqa: E501
+        Retrieve Userlogintypes and IDs
         """
         pass
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection  # noqa: E501
+from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection
 
 class TestComputedECommunicationDirection(unittest.TestCase):
     """ComputedECommunicationDirection unit test stubs"""

@@ -4,11 +4,11 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**eletronicfundstransfer_get_communication_list_v1**](ObjectElectronicfundstransferApi.md#eletronicfundstransfer_get_communication_list_v1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
+[**electronicfundstransfer_get_communication_list_v1**](ObjectElectronicfundstransferApi.md#electronicfundstransfer_get_communication_list_v1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 
 
-# **eletronicfundstransfer_get_communication_list_v1**
-> ElectronicfundstransferGetCommunicationListV1Response eletronicfundstransfer_get_communication_list_v1(pki_electronicfundstransfer_id)
+# **electronicfundstransfer_get_communication_list_v1**
+> ElectronicfundstransferGetCommunicationListV1Response electronicfundstransfer_get_communication_list_v1(pki_electronicfundstransfer_id)
 
 Retrieve Communication list
 
@@ -17,6 +17,7 @@ Retrieve Communication list
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -50,16 +51,17 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve Communication list
-        api_response = api_instance.eletronicfundstransfer_get_communication_list_v1(pki_electronicfundstransfer_id)
-        print("The response of ObjectElectronicfundstransferApi->eletronicfundstransfer_get_communication_list_v1:\n")
+        api_response = api_instance.electronicfundstransfer_get_communication_list_v1(pki_electronicfundstransfer_id)
+        print("The response of ObjectElectronicfundstransferApi->electronicfundstransfer_get_communication_list_v1:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectElectronicfundstransferApi->eletronicfundstransfer_get_communication_list_v1: %s\n" % e)
+        print("Exception when calling ObjectElectronicfundstransferApi->electronicfundstransfer_get_communication_list_v1: %s\n" % e)
 ```
 
 
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -79,6 +81,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

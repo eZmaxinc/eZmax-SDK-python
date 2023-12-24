@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_list_element import VariableexpenseListElement  # noqa: E501
+from eZmaxApi.models.variableexpense_list_element import VariableexpenseListElement
 
 class TestVariableexpenseListElement(unittest.TestCase):
     """VariableexpenseListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseListElement`
         """
-        model = VariableexpenseListElement()  # noqa: E501
+        model = VariableexpenseListElement()
         if include_optional:
             return VariableexpenseListElement(
                 pki_variableexpense_id = 2,

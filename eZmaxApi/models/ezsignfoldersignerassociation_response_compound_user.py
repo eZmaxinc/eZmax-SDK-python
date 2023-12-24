@@ -19,61 +19,80 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignfoldersignerassociationResponseCompoundUser(BaseModel):
     """
-    A Ezsignfoldersignerassociation->User Object and children to create a complete structure  # noqa: E501
-    """
-    pki_user_id: conint(strict=True, ge=0) = Field(..., alias="pkiUserID", description="The unique ID of the User")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_user_firstname: StrictStr = Field(..., alias="sUserFirstname", description="The first name of the user")
-    s_user_lastname: StrictStr = Field(..., alias="sUserLastname", description="The last name of the user")
-    s_email_address: StrictStr = Field(..., alias="sEmailAddress", description="The email address.")
-    __properties = ["pkiUserID", "fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress"]
+    A Ezsignfoldersignerassociation->User Object and children to create a complete structure
+    """ # noqa: E501
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
+    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignfoldersignerassociationResponseCompoundUser:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignfoldersignerassociationResponseCompoundUser from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignfoldersignerassociationResponseCompoundUser:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignfoldersignerassociationResponseCompoundUser from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignfoldersignerassociationResponseCompoundUser.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignfoldersignerassociationResponseCompoundUser.parse_obj({
-            "pki_user_id": obj.get("pkiUserID"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_user_firstname": obj.get("sUserFirstname"),
-            "s_user_lastname": obj.get("sUserLastname"),
-            "s_email_address": obj.get("sEmailAddress")
+        _obj = cls.model_validate({
+            "pkiUserID": obj.get("pkiUserID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sUserFirstname": obj.get("sUserFirstname"),
+            "sUserLastname": obj.get("sUserLastname"),
+            "sEmailAddress": obj.get("sEmailAddress")
         })
         return _obj
 

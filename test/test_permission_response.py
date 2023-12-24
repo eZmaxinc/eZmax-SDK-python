@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_response import PermissionResponse  # noqa: E501
+from eZmaxApi.models.permission_response import PermissionResponse
 
 class TestPermissionResponse(unittest.TestCase):
     """PermissionResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionResponse`
         """
-        model = PermissionResponse()  # noqa: E501
+        model = PermissionResponse()
         if include_optional:
             return PermissionResponse(
                 pki_permission_id = 31,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.address_request import AddressRequest  # noqa: E501
+from eZmaxApi.models.address_request import AddressRequest
 
 class TestAddressRequest(unittest.TestCase):
     """AddressRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestAddressRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `AddressRequest`
         """
-        model = AddressRequest()  # noqa: E501
+        model = AddressRequest()
         if include_optional:
             return AddressRequest(
                 fki_addresstype_id = 1,

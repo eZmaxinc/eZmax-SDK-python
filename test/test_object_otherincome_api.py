@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_otherincome_api import ObjectOtherincomeApi  # noqa: E501
+from eZmaxApi.api.object_otherincome_api import ObjectOtherincomeApi
 
 
 class TestObjectOtherincomeApi(unittest.TestCase):
     """ObjectOtherincomeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectOtherincomeApi()  # noqa: E501
+        self.api = ObjectOtherincomeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectOtherincomeApi(unittest.TestCase):
     def test_otherincome_get_communication_list_v1(self) -> None:
         """Test case for otherincome_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_request_compound import PermissionRequestCompound  # noqa: E501
+from eZmaxApi.models.permission_request_compound import PermissionRequestCompound
 
 class TestPermissionRequestCompound(unittest.TestCase):
     """PermissionRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionRequestCompound`
         """
-        model = PermissionRequestCompound()  # noqa: E501
+        model = PermissionRequestCompound()
         if include_optional:
             return PermissionRequestCompound(
                 pki_permission_id = 31,

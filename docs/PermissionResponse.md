@@ -3,6 +3,7 @@
 A Permission Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_permission_id** | **int** | The unique ID of the Permission | 

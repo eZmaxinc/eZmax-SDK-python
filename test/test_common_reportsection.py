@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_reportsection import CommonReportsection  # noqa: E501
+from eZmaxApi.models.common_reportsection import CommonReportsection
 
 class TestCommonReportsection(unittest.TestCase):
     """CommonReportsection unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonReportsection(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonReportsection`
         """
-        model = CommonReportsection()  # noqa: E501
+        model = CommonReportsection()
         if include_optional:
             return CommonReportsection(
                 a_obj_reportsubsection = [

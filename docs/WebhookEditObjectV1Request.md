@@ -3,6 +3,7 @@
 Request for PUT /1/object/webhook/{pkiWebhookID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_webhook** | [**WebhookRequestCompound**](WebhookRequestCompound.md) |  | 

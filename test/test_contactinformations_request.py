@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.contactinformations_request import ContactinformationsRequest  # noqa: E501
+from eZmaxApi.models.contactinformations_request import ContactinformationsRequest
 
 class TestContactinformationsRequest(unittest.TestCase):
     """ContactinformationsRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestContactinformationsRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ContactinformationsRequest`
         """
-        model = ContactinformationsRequest()  # noqa: E501
+        model = ContactinformationsRequest()
         if include_optional:
             return ContactinformationsRequest(
                 i_address_default = 56,

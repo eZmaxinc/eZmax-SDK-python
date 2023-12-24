@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.period_autocomplete_element_response import PeriodAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.period_autocomplete_element_response import PeriodAutocompleteElementResponse
 
 class TestPeriodAutocompleteElementResponse(unittest.TestCase):
     """PeriodAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestPeriodAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PeriodAutocompleteElementResponse`
         """
-        model = PeriodAutocompleteElementResponse()  # noqa: E501
+        model = PeriodAutocompleteElementResponse()
         if include_optional:
             return PeriodAutocompleteElementResponse(
                 s_period_yyyymm = '2202-12',

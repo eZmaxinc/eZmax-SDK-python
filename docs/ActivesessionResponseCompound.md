@@ -3,6 +3,7 @@
 Payload for GET /1/object/activesession/getCurrent
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_activesession_usertype** | [**FieldEActivesessionUsertype**](FieldEActivesessionUsertype.md) |  | 
@@ -16,6 +17,9 @@ Name | Type | Description | Notes
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **fki_systemconfigurationtype_id** | **int** | The unique ID of the Systemconfigurationtype | 
 **fki_signature_id** | **int** | The unique ID of the Signature | [optional] 
+**e_user_ezsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
+**e_user_ezsignprepaid** | [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
+**dt_user_ezsignprepaidexpiration** | **str** | The eZsign prepaid expiration date | [optional] 
 **a_pki_permission_id** | **List[int]** | An array of permissions granted to the user or api key | 
 **obj_user_real** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **obj_user_cloned** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 

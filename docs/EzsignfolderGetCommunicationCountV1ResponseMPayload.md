@@ -3,6 +3,7 @@
 Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_communication_count** | **int** | The count of Communication. | 

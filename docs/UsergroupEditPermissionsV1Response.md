@@ -3,6 +3,7 @@
 Response for PUT /1/object/usergroup/{pkiUsergroupID}/editPermissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 

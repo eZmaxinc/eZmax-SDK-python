@@ -3,6 +3,7 @@
 An Ezsignfoldertype List Element
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 

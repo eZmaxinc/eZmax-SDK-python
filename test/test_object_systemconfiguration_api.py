@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_systemconfiguration_api import ObjectSystemconfigurationApi  # noqa: E501
+from eZmaxApi.api.object_systemconfiguration_api import ObjectSystemconfigurationApi
 
 
 class TestObjectSystemconfigurationApi(unittest.TestCase):
     """ObjectSystemconfigurationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectSystemconfigurationApi()  # noqa: E501
+        self.api = ObjectSystemconfigurationApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestObjectSystemconfigurationApi(unittest.TestCase):
     def test_systemconfiguration_edit_object_v1(self) -> None:
         """Test case for systemconfiguration_edit_object_v1
 
-        Edit an existing Systemconfiguration  # noqa: E501
+        Edit an existing Systemconfiguration
         """
         pass
 
     def test_systemconfiguration_get_object_v2(self) -> None:
         """Test case for systemconfiguration_get_object_v2
 
-        Retrieve an existing Systemconfiguration  # noqa: E501
+        Retrieve an existing Systemconfiguration
         """
         pass
 

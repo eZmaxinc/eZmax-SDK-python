@@ -3,6 +3,7 @@
 A Ezmaxinvoicing AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **yyyymm_ezmaxinvoicing** | **str** | The YYYYMM period of the Ezmaxinvoicing | 

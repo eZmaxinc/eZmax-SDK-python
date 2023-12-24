@@ -3,6 +3,7 @@
 The description of the Subnet
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_subnet_description1** | **str** | The description of the Subnet in French | [optional] 

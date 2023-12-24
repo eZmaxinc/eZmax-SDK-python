@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_branding_logo import FieldEBrandingLogo  # noqa: E501
+from eZmaxApi.models.field_e_branding_logo import FieldEBrandingLogo
 
 class TestFieldEBrandingLogo(unittest.TestCase):
     """FieldEBrandingLogo unit test stubs"""

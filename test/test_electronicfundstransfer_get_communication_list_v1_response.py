@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.electronicfundstransfer_get_communication_list_v1_response import ElectronicfundstransferGetCommunicationListV1Response  # noqa: E501
+from eZmaxApi.models.electronicfundstransfer_get_communication_list_v1_response import ElectronicfundstransferGetCommunicationListV1Response
 
 class TestElectronicfundstransferGetCommunicationListV1Response(unittest.TestCase):
     """ElectronicfundstransferGetCommunicationListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestElectronicfundstransferGetCommunicationListV1Response(unittest.TestCas
             optional params are included """
         # uncomment below to create an instance of `ElectronicfundstransferGetCommunicationListV1Response`
         """
-        model = ElectronicfundstransferGetCommunicationListV1Response()  # noqa: E501
+        model = ElectronicfundstransferGetCommunicationListV1Response()
         if include_optional:
             return ElectronicfundstransferGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

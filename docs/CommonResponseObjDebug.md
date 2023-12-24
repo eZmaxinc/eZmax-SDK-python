@@ -3,6 +3,7 @@
 This is a generic debug object that is returned by all API requests
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_memory_usage** | **str** | The peak memory allocated during the API request execution. Formatted as a human readable string | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.phonetype_autocomplete_element_response import PhonetypeAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.phonetype_autocomplete_element_response import PhonetypeAutocompleteElementResponse
 
 class TestPhonetypeAutocompleteElementResponse(unittest.TestCase):
     """PhonetypeAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestPhonetypeAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PhonetypeAutocompleteElementResponse`
         """
-        model = PhonetypeAutocompleteElementResponse()  # noqa: E501
+        model = PhonetypeAutocompleteElementResponse()
         if include_optional:
             return PhonetypeAutocompleteElementResponse(
                 pki_phonetype_id = 1,

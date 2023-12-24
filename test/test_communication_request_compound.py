@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communication_request_compound import CommunicationRequestCompound  # noqa: E501
+from eZmaxApi.models.communication_request_compound import CommunicationRequestCompound
 
 class TestCommunicationRequestCompound(unittest.TestCase):
     """CommunicationRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationRequestCompound`
         """
-        model = CommunicationRequestCompound()  # noqa: E501
+        model = CommunicationRequestCompound()
         if include_optional:
             return CommunicationRequestCompound(
                 pki_communication_id = 1,
@@ -44,6 +44,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
                     fki_agent_id = 1, 
                     fki_broker_id = 26, 
                     fki_mailboxshared_id = 47, 
+                    fki_phonelineshared_id = 47, 
                     fki_user_id = 70, ),
                 s_communication_subject = 'This is an example of subject',
                 t_communication_body = '',
@@ -57,7 +58,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@64337702', 
+                            s_file_base64 = '[B@f9d87b', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [
@@ -81,7 +82,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@64337702', 
+                            s_file_base64 = '[B@f9d87b', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [

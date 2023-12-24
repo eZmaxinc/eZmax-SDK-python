@@ -3,6 +3,7 @@
 The Vertical alignment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

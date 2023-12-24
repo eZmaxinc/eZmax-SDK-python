@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignature_sign_v1_request import EzsignsignatureSignV1Request  # noqa: E501
+from eZmaxApi.models.ezsignsignature_sign_v1_request import EzsignsignatureSignV1Request
 
 class TestEzsignsignatureSignV1Request(unittest.TestCase):
     """EzsignsignatureSignV1Request unit test stubs"""
@@ -34,9 +34,10 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureSignV1Request`
         """
-        model = EzsignsignatureSignV1Request()  # noqa: E501
+        model = EzsignsignatureSignV1Request()
         if include_optional:
             return EzsignsignatureSignV1Request(
+                fki_ezsignsigningreason_id = 194,
                 s_value = '',
                 e_attachments_confirmation_decision = 'Accepted',
                 s_attachments_refusal_reason = '',
@@ -45,7 +46,7 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
                     eZmaxApi.models.common_file.Common-File(
                         s_file_name = 'example.pdf', 
                         s_file_url = '', 
-                        s_file_base64 = '[B@64337702', 
+                        s_file_base64 = '[B@f9d87b', 
                         e_file_source = 'Base64', )
                     ],
                 b_is_automatic = True

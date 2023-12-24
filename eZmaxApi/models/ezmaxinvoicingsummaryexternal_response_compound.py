@@ -19,46 +19,65 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conint, conlist, constr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response_compound import EzmaxinvoicingsummaryexternaldetailResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzmaxinvoicingsummaryexternalResponseCompound(BaseModel):
     """
-    A Ezmaxinvoicingsummaryexternal Object  # noqa: E501
-    """
-    pki_ezmaxinvoicingsummaryexternal_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzmaxinvoicingsummaryexternalID", description="The unique ID of the Ezmaxinvoicingsummaryexternal")
-    fki_ezmaxinvoicing_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzmaxinvoicingID", description="The unique ID of the Ezmaxinvoicing")
-    fki_billingentityexternal_id: conint(strict=True, ge=1) = Field(..., alias="fkiBillingentityexternalID", description="The unique ID of the Billingentityexternal")
-    s_billingentityexternal_description: StrictStr = Field(..., alias="sBillingentityexternalDescription", description="The description of the Billingentityexternal")
-    s_ezmaxinvoicingsummaryexternal_description: constr(strict=True, max_length=70) = Field(..., alias="sEzmaxinvoicingsummaryexternalDescription", description="The description of the Ezmaxinvoicingsummaryexternal")
-    a_obj_ezmaxinvoicingsummaryexternaldetail: conlist(EzmaxinvoicingsummaryexternaldetailResponseCompound) = Field(..., alias="a_objEzmaxinvoicingsummaryexternaldetail")
-    __properties = ["pkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxinvoicingID", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "sEzmaxinvoicingsummaryexternalDescription", "a_objEzmaxinvoicingsummaryexternaldetail"]
+    A Ezmaxinvoicingsummaryexternal Object
+    """ # noqa: E501
+    pki_ezmaxinvoicingsummaryexternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternal", alias="pkiEzmaxinvoicingsummaryexternalID")
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
+    s_ezmaxinvoicingsummaryexternal_description: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The description of the Ezmaxinvoicingsummaryexternal", alias="sEzmaxinvoicingsummaryexternalDescription")
+    a_obj_ezmaxinvoicingsummaryexternaldetail: List[EzmaxinvoicingsummaryexternaldetailResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryexternaldetail")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxinvoicingID", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "sEzmaxinvoicingsummaryexternalDescription", "a_objEzmaxinvoicingsummaryexternaldetail"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzmaxinvoicingsummaryexternalResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzmaxinvoicingsummaryexternalResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingsummaryexternaldetail (list)
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryexternaldetail:
@@ -69,21 +88,21 @@ class EzmaxinvoicingsummaryexternalResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzmaxinvoicingsummaryexternalResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzmaxinvoicingsummaryexternalResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzmaxinvoicingsummaryexternalResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzmaxinvoicingsummaryexternalResponseCompound.parse_obj({
-            "pki_ezmaxinvoicingsummaryexternal_id": obj.get("pkiEzmaxinvoicingsummaryexternalID"),
-            "fki_ezmaxinvoicing_id": obj.get("fkiEzmaxinvoicingID"),
-            "fki_billingentityexternal_id": obj.get("fkiBillingentityexternalID"),
-            "s_billingentityexternal_description": obj.get("sBillingentityexternalDescription"),
-            "s_ezmaxinvoicingsummaryexternal_description": obj.get("sEzmaxinvoicingsummaryexternalDescription"),
-            "a_obj_ezmaxinvoicingsummaryexternaldetail": [EzmaxinvoicingsummaryexternaldetailResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryexternaldetail")] if obj.get("a_objEzmaxinvoicingsummaryexternaldetail") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingsummaryexternalID": obj.get("pkiEzmaxinvoicingsummaryexternalID"),
+            "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
+            "fkiBillingentityexternalID": obj.get("fkiBillingentityexternalID"),
+            "sBillingentityexternalDescription": obj.get("sBillingentityexternalDescription"),
+            "sEzmaxinvoicingsummaryexternalDescription": obj.get("sEzmaxinvoicingsummaryexternalDescription"),
+            "a_objEzmaxinvoicingsummaryexternaldetail": [EzmaxinvoicingsummaryexternaldetailResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryexternaldetail")] if obj.get("a_objEzmaxinvoicingsummaryexternaldetail") is not None else None
         })
         return _obj
 

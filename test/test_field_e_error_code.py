@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_error_code import FieldEErrorCode  # noqa: E501
+from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 
 class TestFieldEErrorCode(unittest.TestCase):
     """FieldEErrorCode unit test stubs"""

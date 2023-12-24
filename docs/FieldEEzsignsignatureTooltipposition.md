@@ -3,6 +3,7 @@
 The location of the tooltip relative to the Ezsignsignature's location.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

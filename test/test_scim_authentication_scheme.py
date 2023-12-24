@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme  # noqa: E501
+from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme
 
 class TestScimAuthenticationScheme(unittest.TestCase):
     """ScimAuthenticationScheme unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimAuthenticationScheme(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimAuthenticationScheme`
         """
-        model = ScimAuthenticationScheme()  # noqa: E501
+        model = ScimAuthenticationScheme()
         if include_optional:
             return ScimAuthenticationScheme(
                 description = 'Bearer token in the Authorization header',

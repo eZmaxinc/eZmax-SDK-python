@@ -3,6 +3,7 @@
 Request for PUT /1/object/usergroup/{pkiUsergroupID}/editPermissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_permission** | [**List[PermissionRequestCompound]**](PermissionRequestCompound.md) |  | 

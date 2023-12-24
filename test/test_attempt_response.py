@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.attempt_response import AttemptResponse  # noqa: E501
+from eZmaxApi.models.attempt_response import AttemptResponse
 
 class TestAttemptResponse(unittest.TestCase):
     """AttemptResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestAttemptResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `AttemptResponse`
         """
-        model = AttemptResponse()  # noqa: E501
+        model = AttemptResponse()
         if include_optional:
             return AttemptResponse(
                 dt_attempt_start = '2020-12-31 23:59:59',

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.websocket_response_error_v1 import WebsocketResponseErrorV1  # noqa: E501
+from eZmaxApi.models.websocket_response_error_v1 import WebsocketResponseErrorV1
 
 class TestWebsocketResponseErrorV1(unittest.TestCase):
     """WebsocketResponseErrorV1 unit test stubs"""
@@ -34,10 +34,11 @@ class TestWebsocketResponseErrorV1(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsocketResponseErrorV1`
         """
-        model = WebsocketResponseErrorV1()  # noqa: E501
+        model = WebsocketResponseErrorV1()
         if include_optional:
             return WebsocketResponseErrorV1(
                 e_websocket_messagetype = 'Response-Error-V1',
+                s_websocket_channel = 'Ch@nnel_1.0',
                 m_payload = eZmaxApi.models.websocket_response_error_v1_m_payload.Websocket-Response-Error-V1-mPayload(
                     s_error_message = 'Invalid Signature Headers', 
                     e_error_code = 'BADREQUEST', )
@@ -45,6 +46,7 @@ class TestWebsocketResponseErrorV1(unittest.TestCase):
         else:
             return WebsocketResponseErrorV1(
                 e_websocket_messagetype = 'Response-Error-V1',
+                s_websocket_channel = 'Ch@nnel_1.0',
                 m_payload = eZmaxApi.models.websocket_response_error_v1_m_payload.Websocket-Response-Error-V1-mPayload(
                     s_error_message = 'Invalid Signature Headers', 
                     e_error_code = 'BADREQUEST', ),

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_versionhistory_type import FieldEVersionhistoryType  # noqa: E501
+from eZmaxApi.models.field_e_versionhistory_type import FieldEVersionhistoryType
 
 class TestFieldEVersionhistoryType(unittest.TestCase):
     """FieldEVersionhistoryType unit test stubs"""

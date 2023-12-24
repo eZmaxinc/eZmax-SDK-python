@@ -3,6 +3,7 @@
 An Email Object and children to create a complete structure
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_email_id** | **int** | The unique ID of the Email | [optional] 

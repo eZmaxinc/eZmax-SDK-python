@@ -3,6 +3,7 @@
 Request for POST /1/object/communication
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_communication** | [**List[CommunicationRequestCompound]**](CommunicationRequestCompound.md) |  | 

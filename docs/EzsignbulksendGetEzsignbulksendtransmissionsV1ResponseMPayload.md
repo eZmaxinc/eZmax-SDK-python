@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsignbulksend/{pkiEzsignbulksend}/getEzsignbulksendtransmissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignbulksendtransmission** | [**List[EzsignbulksendtransmissionResponseCompound]**](EzsignbulksendtransmissionResponseCompound.md) |  | 

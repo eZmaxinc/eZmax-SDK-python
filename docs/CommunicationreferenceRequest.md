@@ -3,6 +3,7 @@
 A Communicationreference Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_communicationreference_id** | **int** | The unique ID of the Communicationreference | [optional] 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype  # noqa: E501
+from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype
 
 class TestComputedEEzsigndocumentSteptype(unittest.TestCase):
     """ComputedEEzsigndocumentSteptype unit test stubs"""

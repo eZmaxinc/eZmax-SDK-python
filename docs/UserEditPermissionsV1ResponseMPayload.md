@@ -3,6 +3,7 @@
 Payload for PUT /1/object/user/{pkiUserID}/editPermissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_pki_permission_id** | **List[int]** |  | 

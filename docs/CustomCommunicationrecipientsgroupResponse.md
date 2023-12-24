@@ -3,6 +3,7 @@
 Generic CommunicationrecipientsGroup Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_communicationrecipientsgroup_label** | **str** | The label for the Communicationrecipientsgroup | 

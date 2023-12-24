@@ -19,23 +19,30 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.common_file import CommonFile
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignsignatureSignV1Request(BaseModel):
     """
-    Request for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign  # noqa: E501
-    """
-    s_value: Optional[StrictStr] = Field(None, alias="sValue", description="The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**")
-    e_attachments_confirmation_decision: Optional[StrictStr] = Field(None, alias="eAttachmentsConfirmationDecision", description="Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**")
-    s_attachments_refusal_reason: Optional[StrictStr] = Field(None, alias="sAttachmentsRefusalReason", description="The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**")
-    s_svg: Optional[constr(strict=True)] = Field(None, alias="sSvg", description="The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false")
-    a_obj_file: Optional[conlist(CommonFile)] = Field(None, alias="a_objFile")
-    b_is_automatic: StrictBool = Field(..., alias="bIsAutomatic", description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**. ")
-    __properties = ["sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "bIsAutomatic"]
+    Request for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign
+    """ # noqa: E501
+    fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
+    s_value: Optional[StrictStr] = Field(default=None, description="The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**", alias="sValue")
+    e_attachments_confirmation_decision: Optional[StrictStr] = Field(default=None, description="Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="eAttachmentsConfirmationDecision")
+    s_attachments_refusal_reason: Optional[StrictStr] = Field(default=None, description="The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="sAttachmentsRefusalReason")
+    s_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false", alias="sSvg")
+    a_obj_file: Optional[List[CommonFile]] = Field(default=None, alias="a_objFile")
+    b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**. ", alias="bIsAutomatic")
+    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "bIsAutomatic"]
 
-    @validator('e_attachments_confirmation_decision')
+    @field_validator('e_attachments_confirmation_decision')
     def e_attachments_confirmation_decision_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -45,40 +52,53 @@ class EzsignsignatureSignV1Request(BaseModel):
             raise ValueError("must be one of enum values ('Accepted', 'Refused')")
         return value
 
-    @validator('s_svg')
+    @field_validator('s_svg')
     def s_svg_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not re.match(r"^.{0,32767}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,32767}$/")
+        if not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignsignatureSignV1Request:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignsignatureSignV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_file (list)
         _items = []
         if self.a_obj_file:
@@ -89,21 +109,22 @@ class EzsignsignatureSignV1Request(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignsignatureSignV1Request:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignsignatureSignV1Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignsignatureSignV1Request.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignsignatureSignV1Request.parse_obj({
-            "s_value": obj.get("sValue"),
-            "e_attachments_confirmation_decision": obj.get("eAttachmentsConfirmationDecision"),
-            "s_attachments_refusal_reason": obj.get("sAttachmentsRefusalReason"),
-            "s_svg": obj.get("sSvg"),
-            "a_obj_file": [CommonFile.from_dict(_item) for _item in obj.get("a_objFile")] if obj.get("a_objFile") is not None else None,
-            "b_is_automatic": obj.get("bIsAutomatic")
+        _obj = cls.model_validate({
+            "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
+            "sValue": obj.get("sValue"),
+            "eAttachmentsConfirmationDecision": obj.get("eAttachmentsConfirmationDecision"),
+            "sAttachmentsRefusalReason": obj.get("sAttachmentsRefusalReason"),
+            "sSvg": obj.get("sSvg"),
+            "a_objFile": [CommonFile.from_dict(_item) for _item in obj.get("a_objFile")] if obj.get("a_objFile") is not None else None,
+            "bIsAutomatic": obj.get("bIsAutomatic")
         })
         return _obj
 

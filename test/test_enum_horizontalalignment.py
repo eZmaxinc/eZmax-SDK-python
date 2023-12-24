@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment  # noqa: E501
+from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
 
 class TestEnumHorizontalalignment(unittest.TestCase):
     """EnumHorizontalalignment unit test stubs"""

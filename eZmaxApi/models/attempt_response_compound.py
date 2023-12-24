@@ -19,57 +19,75 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class AttemptResponseCompound(BaseModel):
     """
-    An Attempt object and children to create a complete structure  # noqa: E501
-    """
-    dt_attempt_start: StrictStr = Field(..., alias="dtAttemptStart", description="Represent a Date Time. The timezone is the one configured in the User's profile.")
-    s_attempt_result: StrictStr = Field(..., alias="sAttemptResult", description="The Success or Failure message of the attempt when we tried to call the URL to deliver the webhook event.")
-    i_attempt_duration: StrictInt = Field(..., alias="iAttemptDuration", description="The number of second it took to process the webhook or get an error")
-    __properties = ["dtAttemptStart", "sAttemptResult", "iAttemptDuration"]
+    An Attempt object and children to create a complete structure
+    """ # noqa: E501
+    dt_attempt_start: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtAttemptStart")
+    s_attempt_result: StrictStr = Field(description="The Success or Failure message of the attempt when we tried to call the URL to deliver the webhook event.", alias="sAttemptResult")
+    i_attempt_duration: StrictInt = Field(description="The number of second it took to process the webhook or get an error", alias="iAttemptDuration")
+    __properties: ClassVar[List[str]] = ["dtAttemptStart", "sAttemptResult", "iAttemptDuration"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> AttemptResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of AttemptResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> AttemptResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of AttemptResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return AttemptResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = AttemptResponseCompound.parse_obj({
-            "dt_attempt_start": obj.get("dtAttemptStart"),
-            "s_attempt_result": obj.get("sAttemptResult"),
-            "i_attempt_duration": obj.get("iAttemptDuration")
+        _obj = cls.model_validate({
+            "dtAttemptStart": obj.get("dtAttemptStart"),
+            "sAttemptResult": obj.get("sAttemptResult"),
+            "iAttemptDuration": obj.get("iAttemptDuration")
         })
         return _obj
 

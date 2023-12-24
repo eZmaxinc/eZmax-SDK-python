@@ -19,42 +19,61 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, conlist, constr
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_form_data_ezsignformfield_response import CustomFormDataEzsignformfieldResponse
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomFormDataEzsignformfieldgroupResponse(BaseModel):
     """
-    An FormDataSigner->Ezsignformfieldgroup Object and children to create a complete structure  # noqa: E501
-    """
-    s_ezsignformfieldgroup_label: constr(strict=True, max_length=50, min_length=1) = Field(..., alias="sEzsignformfieldgroupLabel", description="The Label for the Ezsignformfieldgroup")
-    a_obj_ezsignformfield: conlist(CustomFormDataEzsignformfieldResponse) = Field(..., alias="a_objEzsignformfield")
-    __properties = ["sEzsignformfieldgroupLabel", "a_objEzsignformfield"]
+    An FormDataSigner->Ezsignformfieldgroup Object and children to create a complete structure
+    """ # noqa: E501
+    s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
+    a_obj_ezsignformfield: List[CustomFormDataEzsignformfieldResponse] = Field(alias="a_objEzsignformfield")
+    __properties: ClassVar[List[str]] = ["sEzsignformfieldgroupLabel", "a_objEzsignformfield"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomFormDataEzsignformfieldgroupResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomFormDataEzsignformfieldgroupResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfield (list)
         _items = []
         if self.a_obj_ezsignformfield:
@@ -65,17 +84,17 @@ class CustomFormDataEzsignformfieldgroupResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomFormDataEzsignformfieldgroupResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomFormDataEzsignformfieldgroupResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomFormDataEzsignformfieldgroupResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomFormDataEzsignformfieldgroupResponse.parse_obj({
-            "s_ezsignformfieldgroup_label": obj.get("sEzsignformfieldgroupLabel"),
-            "a_obj_ezsignformfield": [CustomFormDataEzsignformfieldResponse.from_dict(_item) for _item in obj.get("a_objEzsignformfield")] if obj.get("a_objEzsignformfield") is not None else None
+        _obj = cls.model_validate({
+            "sEzsignformfieldgroupLabel": obj.get("sEzsignformfieldgroupLabel"),
+            "a_objEzsignformfield": [CustomFormDataEzsignformfieldResponse.from_dict(_item) for _item in obj.get("a_objEzsignformfield")] if obj.get("a_objEzsignformfield") is not None else None
         })
         return _obj
 

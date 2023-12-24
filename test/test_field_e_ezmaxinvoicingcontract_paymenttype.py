@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezmaxinvoicingcontract_paymenttype import FieldEEzmaxinvoicingcontractPaymenttype  # noqa: E501
+from eZmaxApi.models.field_e_ezmaxinvoicingcontract_paymenttype import FieldEEzmaxinvoicingcontractPaymenttype
 
 class TestFieldEEzmaxinvoicingcontractPaymenttype(unittest.TestCase):
     """FieldEEzmaxinvoicingcontractPaymenttype unit test stubs"""

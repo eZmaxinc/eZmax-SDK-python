@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.emailtype_get_autocomplete_v2_response_m_payload import EmailtypeGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.emailtype_get_autocomplete_v2_response_m_payload import EmailtypeGetAutocompleteV2ResponseMPayload
 
 class TestEmailtypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """EmailtypeGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEmailtypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EmailtypeGetAutocompleteV2ResponseMPayload`
         """
-        model = EmailtypeGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = EmailtypeGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return EmailtypeGetAutocompleteV2ResponseMPayload(
                 a_obj_emailtype = [

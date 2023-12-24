@@ -3,6 +3,7 @@
 Request for Websocket GetWebsocketID V1
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_websocket_messagetype** | **str** | The Type of message | 

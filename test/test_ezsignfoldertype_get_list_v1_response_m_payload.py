@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldertype_get_list_v1_response_m_payload import EzsignfoldertypeGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfoldertype_get_list_v1_response_m_payload import EzsignfoldertypeGetListV1ResponseMPayload
 
 class TestEzsignfoldertypeGetListV1ResponseMPayload(unittest.TestCase):
     """EzsignfoldertypeGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldertypeGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeGetListV1ResponseMPayload`
         """
-        model = EzsignfoldertypeGetListV1ResponseMPayload()  # noqa: E501
+        model = EzsignfoldertypeGetListV1ResponseMPayload()
         if include_optional:
             return EzsignfoldertypeGetListV1ResponseMPayload(
                 i_row_returned = 100,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_ezsign_document_completed import WebhookEzsignDocumentCompleted  # noqa: E501
+from eZmaxApi.models.webhook_ezsign_document_completed import WebhookEzsignDocumentCompleted
 
 class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
     """WebhookEzsignDocumentCompleted unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookEzsignDocumentCompleted`
         """
-        model = WebhookEzsignDocumentCompleted()  # noqa: E501
+        model = WebhookEzsignDocumentCompleted()
         if include_optional:
             return WebhookEzsignDocumentCompleted(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
@@ -78,7 +78,8 @@ class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
                             s_user_firstname = 'John', 
                             s_apikey_description_x = 'Project X', 
                             dt_auditdetail_date = '2020-12-31 23:59:59', ), ), 
-                    s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', )
+                    s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', 
+                    i_ezsigndocument_ezsignsignatureattachmenttotal = 3, )
             )
         else:
             return WebhookEzsignDocumentCompleted(
@@ -123,7 +124,8 @@ class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
                             s_user_firstname = 'John', 
                             s_apikey_description_x = 'Project X', 
                             dt_auditdetail_date = '2020-12-31 23:59:59', ), ), 
-                    s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', ),
+                    s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', 
+                    i_ezsigndocument_ezsignsignatureattachmenttotal = 3, ),
         )
         """
 

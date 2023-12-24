@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackage_response_compound import EzsigntemplatepackageResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackage_response_compound import EzsigntemplatepackageResponseCompound
 
 class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
     """EzsigntemplatepackageResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackageResponseCompound`
         """
-        model = EzsigntemplatepackageResponseCompound()  # noqa: E501
+        model = EzsigntemplatepackageResponseCompound()
         if include_optional:
             return EzsigntemplatepackageResponseCompound(
                 pki_ezsigntemplatepackage_id = 99,

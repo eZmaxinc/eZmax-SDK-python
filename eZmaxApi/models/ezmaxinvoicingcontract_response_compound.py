@@ -19,88 +19,107 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_ezmaxinvoicingcontract_paymenttype import FieldEEzmaxinvoicingcontractPaymenttype
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzmaxinvoicingcontractResponseCompound(BaseModel):
     """
-    A Ezmaxinvoicingcontract Object  # noqa: E501
-    """
-    pki_ezmaxinvoicingcontract_id: conint(strict=True, ge=1) = Field(..., alias="pkiEzmaxinvoicingcontractID", description="The unique ID of the Ezmaxinvoicingcontract")
-    e_ezmaxinvoicingcontract_paymenttype: FieldEEzmaxinvoicingcontractPaymenttype = Field(..., alias="eEzmaxinvoicingcontractPaymenttype")
-    i_ezmaxinvoicingcontract_length: conint(strict=True, ge=1) = Field(..., alias="iEzmaxinvoicingcontractLength", description="The length in years of the Ezmaxinvoicingcontract")
-    dt_ezmaxinvoicingcontract_start: StrictStr = Field(..., alias="dtEzmaxinvoicingcontractStart", description="The start date of the Ezmaxinvoicingcontract")
-    dt_ezmaxinvoicingcontract_end: StrictStr = Field(..., alias="dtEzmaxinvoicingcontractEnd", description="The end date of the Ezmaxinvoicingcontract")
-    d_ezmaxinvoicingcontract_license: constr(strict=True) = Field(..., alias="dEzmaxinvoicingcontractLicense", description="The price of the license")
-    d_ezmaxinvoicingcontract121qa: constr(strict=True) = Field(..., alias="dEzmaxinvoicingcontract121qa", description="The price for 121QA")
-    b_ezmaxinvoicingcontract_ezsignallagents: StrictBool = Field(..., alias="bEzmaxinvoicingcontractEzsignallagents", description="Whether eZsign is for all agents")
-    obj_audit: CommonAudit = Field(..., alias="objAudit")
-    __properties = ["pkiEzmaxinvoicingcontractID", "eEzmaxinvoicingcontractPaymenttype", "iEzmaxinvoicingcontractLength", "dtEzmaxinvoicingcontractStart", "dtEzmaxinvoicingcontractEnd", "dEzmaxinvoicingcontractLicense", "dEzmaxinvoicingcontract121qa", "bEzmaxinvoicingcontractEzsignallagents", "objAudit"]
+    A Ezmaxinvoicingcontract Object
+    """ # noqa: E501
+    pki_ezmaxinvoicingcontract_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxinvoicingcontract", alias="pkiEzmaxinvoicingcontractID")
+    e_ezmaxinvoicingcontract_paymenttype: FieldEEzmaxinvoicingcontractPaymenttype = Field(alias="eEzmaxinvoicingcontractPaymenttype")
+    i_ezmaxinvoicingcontract_length: Annotated[int, Field(strict=True, ge=1)] = Field(description="The length in years of the Ezmaxinvoicingcontract", alias="iEzmaxinvoicingcontractLength")
+    dt_ezmaxinvoicingcontract_start: StrictStr = Field(description="The start date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractStart")
+    dt_ezmaxinvoicingcontract_end: StrictStr = Field(description="The end date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractEnd")
+    d_ezmaxinvoicingcontract_license: Annotated[str, Field(strict=True)] = Field(description="The price of the license", alias="dEzmaxinvoicingcontractLicense")
+    d_ezmaxinvoicingcontract121qa: Annotated[str, Field(strict=True)] = Field(description="The price for 121QA", alias="dEzmaxinvoicingcontract121qa")
+    b_ezmaxinvoicingcontract_ezsignallagents: StrictBool = Field(description="Whether eZsign is for all agents", alias="bEzmaxinvoicingcontractEzsignallagents")
+    obj_audit: CommonAudit = Field(alias="objAudit")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcontractID", "eEzmaxinvoicingcontractPaymenttype", "iEzmaxinvoicingcontractLength", "dtEzmaxinvoicingcontractStart", "dtEzmaxinvoicingcontractEnd", "dEzmaxinvoicingcontractLicense", "dEzmaxinvoicingcontract121qa", "bEzmaxinvoicingcontractEzsignallagents", "objAudit"]
 
-    @validator('d_ezmaxinvoicingcontract_license')
+    @field_validator('d_ezmaxinvoicingcontract_license')
     def d_ezmaxinvoicingcontract_license_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @validator('d_ezmaxinvoicingcontract121qa')
+    @field_validator('d_ezmaxinvoicingcontract121qa')
     def d_ezmaxinvoicingcontract121qa_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzmaxinvoicingcontractResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzmaxinvoicingcontractResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzmaxinvoicingcontractResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzmaxinvoicingcontractResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzmaxinvoicingcontractResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzmaxinvoicingcontractResponseCompound.parse_obj({
-            "pki_ezmaxinvoicingcontract_id": obj.get("pkiEzmaxinvoicingcontractID"),
-            "e_ezmaxinvoicingcontract_paymenttype": obj.get("eEzmaxinvoicingcontractPaymenttype"),
-            "i_ezmaxinvoicingcontract_length": obj.get("iEzmaxinvoicingcontractLength"),
-            "dt_ezmaxinvoicingcontract_start": obj.get("dtEzmaxinvoicingcontractStart"),
-            "dt_ezmaxinvoicingcontract_end": obj.get("dtEzmaxinvoicingcontractEnd"),
-            "d_ezmaxinvoicingcontract_license": obj.get("dEzmaxinvoicingcontractLicense"),
-            "d_ezmaxinvoicingcontract121qa": obj.get("dEzmaxinvoicingcontract121qa"),
-            "b_ezmaxinvoicingcontract_ezsignallagents": obj.get("bEzmaxinvoicingcontractEzsignallagents"),
-            "obj_audit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingcontractID": obj.get("pkiEzmaxinvoicingcontractID"),
+            "eEzmaxinvoicingcontractPaymenttype": obj.get("eEzmaxinvoicingcontractPaymenttype"),
+            "iEzmaxinvoicingcontractLength": obj.get("iEzmaxinvoicingcontractLength"),
+            "dtEzmaxinvoicingcontractStart": obj.get("dtEzmaxinvoicingcontractStart"),
+            "dtEzmaxinvoicingcontractEnd": obj.get("dtEzmaxinvoicingcontractEnd"),
+            "dEzmaxinvoicingcontractLicense": obj.get("dEzmaxinvoicingcontractLicense"),
+            "dEzmaxinvoicingcontract121qa": obj.get("dEzmaxinvoicingcontract121qa"),
+            "bEzmaxinvoicingcontractEzsignallagents": obj.get("bEzmaxinvoicingcontractEzsignallagents"),
+            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
         })
         return _obj
 

@@ -3,6 +3,7 @@
 The Ezmaxinvoicingcontract payment type
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

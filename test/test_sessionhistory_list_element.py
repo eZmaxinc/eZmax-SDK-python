@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.sessionhistory_list_element import SessionhistoryListElement  # noqa: E501
+from eZmaxApi.models.sessionhistory_list_element import SessionhistoryListElement
 
 class TestSessionhistoryListElement(unittest.TestCase):
     """SessionhistoryListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestSessionhistoryListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SessionhistoryListElement`
         """
-        model = SessionhistoryListElement()  # noqa: E501
+        model = SessionhistoryListElement()
         if include_optional:
             return SessionhistoryListElement(
                 pki_sessionhistory_id = 259,

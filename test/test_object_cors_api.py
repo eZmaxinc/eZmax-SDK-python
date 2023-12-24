@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_cors_api import ObjectCorsApi  # noqa: E501
+from eZmaxApi.api.object_cors_api import ObjectCorsApi
 
 
 class TestObjectCorsApi(unittest.TestCase):
     """ObjectCorsApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectCorsApi()  # noqa: E501
+        self.api = ObjectCorsApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectCorsApi(unittest.TestCase):
     def test_cors_create_object_v1(self) -> None:
         """Test case for cors_create_object_v1
 
-        Create a new Cors  # noqa: E501
+        Create a new Cors
         """
         pass
 
     def test_cors_delete_object_v1(self) -> None:
         """Test case for cors_delete_object_v1
 
-        Delete an existing Cors  # noqa: E501
+        Delete an existing Cors
         """
         pass
 
     def test_cors_edit_object_v1(self) -> None:
         """Test case for cors_edit_object_v1
 
-        Edit an existing Cors  # noqa: E501
+        Edit an existing Cors
         """
         pass
 
     def test_cors_get_object_v2(self) -> None:
         """Test case for cors_get_object_v2
 
-        Retrieve an existing Cors  # noqa: E501
+        Retrieve an existing Cors
         """
         pass
 

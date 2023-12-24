@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_word_position_word_response import CustomWordPositionWordResponse  # noqa: E501
+from eZmaxApi.models.custom_word_position_word_response import CustomWordPositionWordResponse
 
 class TestCustomWordPositionWordResponse(unittest.TestCase):
     """CustomWordPositionWordResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomWordPositionWordResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomWordPositionWordResponse`
         """
-        model = CustomWordPositionWordResponse()  # noqa: E501
+        model = CustomWordPositionWordResponse()
         if include_optional:
             return CustomWordPositionWordResponse(
                 s_word = '',

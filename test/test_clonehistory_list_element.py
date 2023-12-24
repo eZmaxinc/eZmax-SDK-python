@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.clonehistory_list_element import ClonehistoryListElement  # noqa: E501
+from eZmaxApi.models.clonehistory_list_element import ClonehistoryListElement
 
 class TestClonehistoryListElement(unittest.TestCase):
     """ClonehistoryListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestClonehistoryListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ClonehistoryListElement`
         """
-        model = ClonehistoryListElement()  # noqa: E501
+        model = ClonehistoryListElement()
         if include_optional:
             return ClonehistoryListElement(
                 pki_clonehistory_id = 12,

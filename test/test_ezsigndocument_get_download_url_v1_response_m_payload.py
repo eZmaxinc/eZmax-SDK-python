@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_download_url_v1_response_m_payload import EzsigndocumentGetDownloadUrlV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_download_url_v1_response_m_payload import EzsigndocumentGetDownloadUrlV1ResponseMPayload
 
 class TestEzsigndocumentGetDownloadUrlV1ResponseMPayload(unittest.TestCase):
     """EzsigndocumentGetDownloadUrlV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetDownloadUrlV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetDownloadUrlV1ResponseMPayload`
         """
-        model = EzsigndocumentGetDownloadUrlV1ResponseMPayload()  # noqa: E501
+        model = EzsigndocumentGetDownloadUrlV1ResponseMPayload()
         if include_optional:
             return EzsigndocumentGetDownloadUrlV1ResponseMPayload(
                 s_download_url = 'http://www.example.com/document.pdf'

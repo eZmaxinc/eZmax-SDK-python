@@ -3,6 +3,7 @@
 Request for PUT /1/object/systemconfiguration/{pkiSystemconfigurationID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_systemconfiguration** | [**SystemconfigurationRequestCompound**](SystemconfigurationRequestCompound.md) |  | 

@@ -19,79 +19,98 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection
 from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance
 from eZmaxApi.models.field_e_communication_type import FieldECommunicationType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomCommunicationListElementResponse(BaseModel):
     """
-    A Communication List Element  # noqa: E501
-    """
-    pki_communication_id: conint(strict=True, ge=0) = Field(..., alias="pkiCommunicationID", description="The unique ID of the Communication.")
-    dt_created_date: StrictStr = Field(..., alias="dtCreatedDate", description="The date and time at which the object was created")
-    e_communication_direction: ComputedECommunicationDirection = Field(..., alias="eCommunicationDirection")
-    e_communication_importance: FieldECommunicationImportance = Field(..., alias="eCommunicationImportance")
-    e_communication_type: FieldECommunicationType = Field(..., alias="eCommunicationType")
-    i_communicationrecipient_count: StrictInt = Field(..., alias="iCommunicationrecipientCount", description="The count of Communicationrecipient")
-    s_communication_subject: constr(strict=True) = Field(..., alias="sCommunicationSubject", description="The subject of the Communication")
-    s_communication_sender: StrictStr = Field(..., alias="sCommunicationSender", description="The sender name of the Communication")
-    s_communication_recipient: StrictStr = Field(..., alias="sCommunicationRecipient", description="The recipients' name of the Communication")
-    __properties = ["pkiCommunicationID", "dtCreatedDate", "eCommunicationDirection", "eCommunicationImportance", "eCommunicationType", "iCommunicationrecipientCount", "sCommunicationSubject", "sCommunicationSender", "sCommunicationRecipient"]
+    A Communication List Element
+    """ # noqa: E501
+    pki_communication_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Communication.", alias="pkiCommunicationID")
+    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate")
+    e_communication_direction: ComputedECommunicationDirection = Field(alias="eCommunicationDirection")
+    e_communication_importance: FieldECommunicationImportance = Field(alias="eCommunicationImportance")
+    e_communication_type: FieldECommunicationType = Field(alias="eCommunicationType")
+    i_communicationrecipient_count: StrictInt = Field(description="The count of Communicationrecipient", alias="iCommunicationrecipientCount")
+    s_communication_subject: Annotated[str, Field(strict=True)] = Field(description="The subject of the Communication", alias="sCommunicationSubject")
+    s_communication_sender: StrictStr = Field(description="The sender name of the Communication", alias="sCommunicationSender")
+    s_communication_recipient: StrictStr = Field(description="The recipients' name of the Communication", alias="sCommunicationRecipient")
+    __properties: ClassVar[List[str]] = ["pkiCommunicationID", "dtCreatedDate", "eCommunicationDirection", "eCommunicationImportance", "eCommunicationType", "iCommunicationrecipientCount", "sCommunicationSubject", "sCommunicationSender", "sCommunicationRecipient"]
 
-    @validator('s_communication_subject')
+    @field_validator('s_communication_subject')
     def s_communication_subject_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^.{0,150}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,150}$/")
+        if not re.match(r"^.{0,200}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,200}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomCommunicationListElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomCommunicationListElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomCommunicationListElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomCommunicationListElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomCommunicationListElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomCommunicationListElementResponse.parse_obj({
-            "pki_communication_id": obj.get("pkiCommunicationID"),
-            "dt_created_date": obj.get("dtCreatedDate"),
-            "e_communication_direction": obj.get("eCommunicationDirection"),
-            "e_communication_importance": obj.get("eCommunicationImportance"),
-            "e_communication_type": obj.get("eCommunicationType"),
-            "i_communicationrecipient_count": obj.get("iCommunicationrecipientCount"),
-            "s_communication_subject": obj.get("sCommunicationSubject"),
-            "s_communication_sender": obj.get("sCommunicationSender"),
-            "s_communication_recipient": obj.get("sCommunicationRecipient")
+        _obj = cls.model_validate({
+            "pkiCommunicationID": obj.get("pkiCommunicationID"),
+            "dtCreatedDate": obj.get("dtCreatedDate"),
+            "eCommunicationDirection": obj.get("eCommunicationDirection"),
+            "eCommunicationImportance": obj.get("eCommunicationImportance"),
+            "eCommunicationType": obj.get("eCommunicationType"),
+            "iCommunicationrecipientCount": obj.get("iCommunicationrecipientCount"),
+            "sCommunicationSubject": obj.get("sCommunicationSubject"),
+            "sCommunicationSender": obj.get("sCommunicationSender"),
+            "sCommunicationRecipient": obj.get("sCommunicationRecipient")
         })
         return _obj
 

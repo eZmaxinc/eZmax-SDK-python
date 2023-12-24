@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsignsignaturestatus_response import CustomEzsignsignaturestatusResponse  # noqa: E501
+from eZmaxApi.models.custom_ezsignsignaturestatus_response import CustomEzsignsignaturestatusResponse
 
 class TestCustomEzsignsignaturestatusResponse(unittest.TestCase):
     """CustomEzsignsignaturestatusResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsignsignaturestatusResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignsignaturestatusResponse`
         """
-        model = CustomEzsignsignaturestatusResponse()  # noqa: E501
+        model = CustomEzsignsignaturestatusResponse()
         if include_optional:
             return CustomEzsignsignaturestatusResponse(
                 e_ezsignsignaturestatus_steptype = 'Form',

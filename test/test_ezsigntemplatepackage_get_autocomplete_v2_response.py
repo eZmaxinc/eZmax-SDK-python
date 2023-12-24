@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackage_get_autocomplete_v2_response import EzsigntemplatepackageGetAutocompleteV2Response  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackage_get_autocomplete_v2_response import EzsigntemplatepackageGetAutocompleteV2Response
 
 class TestEzsigntemplatepackageGetAutocompleteV2Response(unittest.TestCase):
     """EzsigntemplatepackageGetAutocompleteV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackageGetAutocompleteV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackageGetAutocompleteV2Response`
         """
-        model = EzsigntemplatepackageGetAutocompleteV2Response()  # noqa: E501
+        model = EzsigntemplatepackageGetAutocompleteV2Response()
         if include_optional:
             return EzsigntemplatepackageGetAutocompleteV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

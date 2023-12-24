@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntsarequirement_api import ObjectEzsigntsarequirementApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntsarequirement_api import ObjectEzsigntsarequirementApi
 
 
 class TestObjectEzsigntsarequirementApi(unittest.TestCase):
     """ObjectEzsigntsarequirementApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntsarequirementApi()  # noqa: E501
+        self.api = ObjectEzsigntsarequirementApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectEzsigntsarequirementApi(unittest.TestCase):
     def test_ezsigntsarequirement_get_autocomplete_v2(self) -> None:
         """Test case for ezsigntsarequirement_get_autocomplete_v2
 
-        Retrieve Ezsigntsarequirements and IDs  # noqa: E501
+        Retrieve Ezsigntsarequirements and IDs
         """
         pass
 

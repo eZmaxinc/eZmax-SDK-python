@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_response import EzsignbulksendResponse  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_response import EzsignbulksendResponse
 
 class TestEzsignbulksendResponse(unittest.TestCase):
     """EzsignbulksendResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendResponse`
         """
-        model = EzsignbulksendResponse()  # noqa: E501
+        model = EzsignbulksendResponse()
         if include_optional:
             return EzsignbulksendResponse(
                 pki_ezsignbulksend_id = 8,

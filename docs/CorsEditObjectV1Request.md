@@ -3,6 +3,7 @@
 Request for PUT /1/object/cors/{pkiCorsID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_cors** | [**CorsRequestCompound**](CorsRequestCompound.md) |  | 

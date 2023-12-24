@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsignfoldersignerassociations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_fki_ezsignfoldersignerassociation_id** | **List[int]** |  | 

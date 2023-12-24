@@ -19,26 +19,32 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_phone_type import FieldEPhoneType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class PhoneRequest(BaseModel):
     """
-    A Phone Object  # noqa: E501
-    """
-    pki_phone_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiPhoneID", description="The unique ID of the Phone.")
-    fki_phonetype_id: conint(strict=True, ge=0) = Field(..., alias="fkiPhonetypeID", description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|")
-    e_phone_type: Optional[FieldEPhoneType] = Field(None, alias="ePhoneType")
-    s_phone_region: Optional[StrictStr] = Field(None, alias="sPhoneRegion", description="The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123")
-    s_phone_exchange: Optional[StrictStr] = Field(None, alias="sPhoneExchange", description="The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123")
-    s_phone_number: Optional[StrictStr] = Field(None, alias="sPhoneNumber", description="The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123")
-    s_phone_international: Optional[StrictStr] = Field(None, alias="sPhoneInternational", description="The international phone number.")
-    s_phone_extension: Optional[StrictStr] = Field(None, alias="sPhoneExtension", description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers")
-    s_phone_e164: Optional[constr(strict=True)] = Field(None, alias="sPhoneE164", description="A phone number in E.164 Format")
-    __properties = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneRegion", "sPhoneExchange", "sPhoneNumber", "sPhoneInternational", "sPhoneExtension", "sPhoneE164"]
+    A Phone Object
+    """ # noqa: E501
+    pki_phone_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phone.", alias="pkiPhoneID")
+    fki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="fkiPhonetypeID")
+    e_phone_type: Optional[FieldEPhoneType] = Field(default=None, alias="ePhoneType")
+    s_phone_region: Optional[StrictStr] = Field(default=None, description="The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneRegion")
+    s_phone_exchange: Optional[StrictStr] = Field(default=None, description="The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneExchange")
+    s_phone_number: Optional[StrictStr] = Field(default=None, description="The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneNumber")
+    s_phone_international: Optional[StrictStr] = Field(default=None, description="The international phone number.", alias="sPhoneInternational")
+    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
+    __properties: ClassVar[List[str]] = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneRegion", "sPhoneExchange", "sPhoneNumber", "sPhoneInternational", "sPhoneExtension", "sPhoneE164"]
 
-    @validator('s_phone_e164')
+    @field_validator('s_phone_e164')
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -48,51 +54,64 @@ class PhoneRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PhoneRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of PhoneRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PhoneRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of PhoneRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PhoneRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PhoneRequest.parse_obj({
-            "pki_phone_id": obj.get("pkiPhoneID"),
-            "fki_phonetype_id": obj.get("fkiPhonetypeID"),
-            "e_phone_type": obj.get("ePhoneType"),
-            "s_phone_region": obj.get("sPhoneRegion"),
-            "s_phone_exchange": obj.get("sPhoneExchange"),
-            "s_phone_number": obj.get("sPhoneNumber"),
-            "s_phone_international": obj.get("sPhoneInternational"),
-            "s_phone_extension": obj.get("sPhoneExtension"),
-            "s_phone_e164": obj.get("sPhoneE164")
+        _obj = cls.model_validate({
+            "pkiPhoneID": obj.get("pkiPhoneID"),
+            "fkiPhonetypeID": obj.get("fkiPhonetypeID"),
+            "ePhoneType": obj.get("ePhoneType"),
+            "sPhoneRegion": obj.get("sPhoneRegion"),
+            "sPhoneExchange": obj.get("sPhoneExchange"),
+            "sPhoneNumber": obj.get("sPhoneNumber"),
+            "sPhoneInternational": obj.get("sPhoneInternational"),
+            "sPhoneExtension": obj.get("sPhoneExtension"),
+            "sPhoneE164": obj.get("sPhoneE164")
         })
         return _obj
 

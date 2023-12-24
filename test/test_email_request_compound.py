@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.email_request_compound import EmailRequestCompound  # noqa: E501
+from eZmaxApi.models.email_request_compound import EmailRequestCompound
 
 class TestEmailRequestCompound(unittest.TestCase):
     """EmailRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEmailRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EmailRequestCompound`
         """
-        model = EmailRequestCompound()  # noqa: E501
+        model = EmailRequestCompound()
         if include_optional:
             return EmailRequestCompound(
                 pki_email_id = 22,

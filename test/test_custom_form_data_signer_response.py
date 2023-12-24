@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_form_data_signer_response import CustomFormDataSignerResponse  # noqa: E501
+from eZmaxApi.models.custom_form_data_signer_response import CustomFormDataSignerResponse
 
 class TestCustomFormDataSignerResponse(unittest.TestCase):
     """CustomFormDataSignerResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomFormDataSignerResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomFormDataSignerResponse`
         """
-        model = CustomFormDataSignerResponse()  # noqa: E501
+        model = CustomFormDataSignerResponse()
         if include_optional:
             return CustomFormDataSignerResponse(
                 fki_ezsignfoldersignerassociation_id = 20,

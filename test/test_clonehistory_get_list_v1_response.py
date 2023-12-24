@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.clonehistory_get_list_v1_response import ClonehistoryGetListV1Response  # noqa: E501
+from eZmaxApi.models.clonehistory_get_list_v1_response import ClonehistoryGetListV1Response
 
 class TestClonehistoryGetListV1Response(unittest.TestCase):
     """ClonehistoryGetListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestClonehistoryGetListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ClonehistoryGetListV1Response`
         """
-        model = ClonehistoryGetListV1Response()  # noqa: E501
+        model = ClonehistoryGetListV1Response()
         if include_optional:
             return ClonehistoryGetListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

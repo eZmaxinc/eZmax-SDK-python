@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_request_compound import WebhookRequestCompound  # noqa: E501
+from eZmaxApi.models.webhook_request_compound import WebhookRequestCompound
 
 class TestWebhookRequestCompound(unittest.TestCase):
     """WebhookRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookRequestCompound`
         """
-        model = WebhookRequestCompound()  # noqa: E501
+        model = WebhookRequestCompound()
         if include_optional:
             return WebhookRequestCompound(
                 pki_webhook_id = 77,
@@ -46,6 +46,7 @@ class TestWebhookRequestCompound(unittest.TestCase):
                 s_webhook_url = 'https://www.example.com',
                 s_webhook_emailfailed = 'email@example.com',
                 b_webhook_isactive = True,
+                b_webhook_issigned = True,
                 b_webhook_skipsslvalidation = False
             )
         else:

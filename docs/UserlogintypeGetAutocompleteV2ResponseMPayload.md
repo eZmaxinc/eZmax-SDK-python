@@ -3,6 +3,7 @@
 Payload for POST /2/object/userlogintype/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_userlogintype** | [**List[UserlogintypeAutocompleteElementResponse]**](UserlogintypeAutocompleteElementResponse.md) | An array of Userlogintype autocomplete element response. | 

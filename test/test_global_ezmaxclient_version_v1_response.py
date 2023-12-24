@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.global_ezmaxclient_version_v1_response import GlobalEzmaxclientVersionV1Response  # noqa: E501
+from eZmaxApi.models.global_ezmaxclient_version_v1_response import GlobalEzmaxclientVersionV1Response
 
 class TestGlobalEzmaxclientVersionV1Response(unittest.TestCase):
     """GlobalEzmaxclientVersionV1Response unit test stubs"""
@@ -34,14 +34,16 @@ class TestGlobalEzmaxclientVersionV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `GlobalEzmaxclientVersionV1Response`
         """
-        model = GlobalEzmaxclientVersionV1Response()  # noqa: E501
+        model = GlobalEzmaxclientVersionV1Response()
         if include_optional:
             return GlobalEzmaxclientVersionV1Response(
-                s_ezmaxclient_version = ''
+                s_ezmaxclient_version = '',
+                s_ezmaxclient_oslatestversion = '11'
             )
         else:
             return GlobalEzmaxclientVersionV1Response(
                 s_ezmaxclient_version = '',
+                s_ezmaxclient_oslatestversion = '11',
         )
         """
 

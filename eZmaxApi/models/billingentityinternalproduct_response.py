@@ -19,65 +19,84 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class BillingentityinternalproductResponse(BaseModel):
     """
-    A Billingentityinternalproduct Object  # noqa: E501
-    """
-    pki_billingentityinternalproduct_id: conint(strict=True, le=255, ge=0) = Field(..., alias="pkiBillingentityinternalproductID", description="The unique ID of the Billingentityinternalproduct")
-    fki_billingentityinternal_id: conint(strict=True, ge=0) = Field(..., alias="fkiBillingentityinternalID", description="The unique ID of the Billingentityinternal.")
-    s_billingentityinternal_description_x: StrictStr = Field(..., alias="sBillingentityinternalDescriptionX", description="The description of the Billingentityinternal in the language of the requester")
-    fki_ezmaxproduct_id: conint(strict=True, ge=1) = Field(..., alias="fkiEzmaxproductID", description="The unique ID of the Ezmaxproduct")
-    s_ezmaxproduct_description_x: StrictStr = Field(..., alias="sEzmaxproductDescriptionX", description="The description of the Ezmaxproduct in the language of the requester")
-    fki_billingentityexternal_id: conint(strict=True, ge=1) = Field(..., alias="fkiBillingentityexternalID", description="The unique ID of the Billingentityexternal")
-    s_billingentityexternal_description: StrictStr = Field(..., alias="sBillingentityexternalDescription", description="The description of the Billingentityexternal")
-    __properties = ["pkiBillingentityinternalproductID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription"]
+    A Billingentityinternalproduct Object
+    """ # noqa: E501
+    pki_billingentityinternalproduct_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternalproduct", alias="pkiBillingentityinternalproductID")
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
+    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
+    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
+    __properties: ClassVar[List[str]] = ["pkiBillingentityinternalproductID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> BillingentityinternalproductResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of BillingentityinternalproductResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> BillingentityinternalproductResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of BillingentityinternalproductResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return BillingentityinternalproductResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = BillingentityinternalproductResponse.parse_obj({
-            "pki_billingentityinternalproduct_id": obj.get("pkiBillingentityinternalproductID"),
-            "fki_billingentityinternal_id": obj.get("fkiBillingentityinternalID"),
-            "s_billingentityinternal_description_x": obj.get("sBillingentityinternalDescriptionX"),
-            "fki_ezmaxproduct_id": obj.get("fkiEzmaxproductID"),
-            "s_ezmaxproduct_description_x": obj.get("sEzmaxproductDescriptionX"),
-            "fki_billingentityexternal_id": obj.get("fkiBillingentityexternalID"),
-            "s_billingentityexternal_description": obj.get("sBillingentityexternalDescription")
+        _obj = cls.model_validate({
+            "pkiBillingentityinternalproductID": obj.get("pkiBillingentityinternalproductID"),
+            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
+            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
+            "fkiEzmaxproductID": obj.get("fkiEzmaxproductID"),
+            "sEzmaxproductDescriptionX": obj.get("sEzmaxproductDescriptionX"),
+            "fkiBillingentityexternalID": obj.get("fkiBillingentityexternalID"),
+            "sBillingentityexternalDescription": obj.get("sBillingentityexternalDescription")
         })
         return _obj
 

@@ -3,6 +3,7 @@
 Payload for POST /2/object/ezsignfoldertype/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignfoldertype** | [**List[EzsignfoldertypeAutocompleteElementResponse]**](EzsignfoldertypeAutocompleteElementResponse.md) | An array of Ezsignfoldertype autocomplete element response. | 

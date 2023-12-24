@@ -3,6 +3,7 @@
 A Billingentityexternal AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_billingentityexternal_id** | **int** | The unique ID of the Billingentityexternal | 

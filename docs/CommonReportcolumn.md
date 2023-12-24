@@ -3,6 +3,7 @@
 A column in a Reportsection 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_reportcellstyle_default** | [**CommonReportcellstyle**](CommonReportcellstyle.md) |  | 

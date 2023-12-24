@@ -3,6 +3,7 @@
 The Usertype by which the Versionhistory should be visible
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

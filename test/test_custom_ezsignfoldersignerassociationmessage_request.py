@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsignfoldersignerassociationmessage_request import CustomEzsignfoldersignerassociationmessageRequest  # noqa: E501
+from eZmaxApi.models.custom_ezsignfoldersignerassociationmessage_request import CustomEzsignfoldersignerassociationmessageRequest
 
 class TestCustomEzsignfoldersignerassociationmessageRequest(unittest.TestCase):
     """CustomEzsignfoldersignerassociationmessageRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsignfoldersignerassociationmessageRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignfoldersignerassociationmessageRequest`
         """
-        model = CustomEzsignfoldersignerassociationmessageRequest()  # noqa: E501
+        model = CustomEzsignfoldersignerassociationmessageRequest()
         if include_optional:
             return CustomEzsignfoldersignerassociationmessageRequest(
                 fki_ezsignfoldersignerassociation_id = 20,

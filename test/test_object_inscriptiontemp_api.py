@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_inscriptiontemp_api import ObjectInscriptiontempApi  # noqa: E501
+from eZmaxApi.api.object_inscriptiontemp_api import ObjectInscriptiontempApi
 
 
 class TestObjectInscriptiontempApi(unittest.TestCase):
     """ObjectInscriptiontempApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectInscriptiontempApi()  # noqa: E501
+        self.api = ObjectInscriptiontempApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectInscriptiontempApi(unittest.TestCase):
     def test_inscriptiontemp_get_communication_list_v1(self) -> None:
         """Test case for inscriptiontemp_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

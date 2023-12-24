@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_create_object_v1_request import CorsCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.cors_create_object_v1_request import CorsCreateObjectV1Request
 
 class TestCorsCreateObjectV1Request(unittest.TestCase):
     """CorsCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsCreateObjectV1Request`
         """
-        model = CorsCreateObjectV1Request()  # noqa: E501
+        model = CorsCreateObjectV1Request()
         if include_optional:
             return CorsCreateObjectV1Request(
                 a_obj_cors = [

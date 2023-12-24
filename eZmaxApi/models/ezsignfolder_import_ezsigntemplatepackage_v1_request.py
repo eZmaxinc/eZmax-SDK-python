@@ -19,43 +19,62 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_import_ezsigntemplatepackage_relation_request import CustomImportEzsigntemplatepackageRelationRequest
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignfolderImportEzsigntemplatepackageV1Request(BaseModel):
     """
-    Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage  # noqa: E501
-    """
-    fki_ezsigntemplatepackage_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsigntemplatepackageID", description="The unique ID of the Ezsigntemplatepackage")
-    dt_ezsigndocument_duedate: StrictStr = Field(..., alias="dtEzsigndocumentDuedate", description="The maximum date and time at which the Ezsigndocument can be signed.")
-    a_obj_import_ezsigntemplatepackage_relation: conlist(CustomImportEzsigntemplatepackageRelationRequest) = Field(..., alias="a_objImportEzsigntemplatepackageRelation")
-    __properties = ["fkiEzsigntemplatepackageID", "dtEzsigndocumentDuedate", "a_objImportEzsigntemplatepackageRelation"]
+    Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage
+    """ # noqa: E501
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
+    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
+    a_obj_import_ezsigntemplatepackage_relation: List[CustomImportEzsigntemplatepackageRelationRequest] = Field(alias="a_objImportEzsigntemplatepackageRelation")
+    __properties: ClassVar[List[str]] = ["fkiEzsigntemplatepackageID", "dtEzsigndocumentDuedate", "a_objImportEzsigntemplatepackageRelation"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignfolderImportEzsigntemplatepackageV1Request:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignfolderImportEzsigntemplatepackageV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_import_ezsigntemplatepackage_relation (list)
         _items = []
         if self.a_obj_import_ezsigntemplatepackage_relation:
@@ -66,18 +85,18 @@ class EzsignfolderImportEzsigntemplatepackageV1Request(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignfolderImportEzsigntemplatepackageV1Request:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignfolderImportEzsigntemplatepackageV1Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignfolderImportEzsigntemplatepackageV1Request.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignfolderImportEzsigntemplatepackageV1Request.parse_obj({
-            "fki_ezsigntemplatepackage_id": obj.get("fkiEzsigntemplatepackageID"),
-            "dt_ezsigndocument_duedate": obj.get("dtEzsigndocumentDuedate"),
-            "a_obj_import_ezsigntemplatepackage_relation": [CustomImportEzsigntemplatepackageRelationRequest.from_dict(_item) for _item in obj.get("a_objImportEzsigntemplatepackageRelation")] if obj.get("a_objImportEzsigntemplatepackageRelation") is not None else None
+        _obj = cls.model_validate({
+            "fkiEzsigntemplatepackageID": obj.get("fkiEzsigntemplatepackageID"),
+            "dtEzsigndocumentDuedate": obj.get("dtEzsigndocumentDuedate"),
+            "a_objImportEzsigntemplatepackageRelation": [CustomImportEzsigntemplatepackageRelationRequest.from_dict(_item) for _item in obj.get("a_objImportEzsigntemplatepackageRelation")] if obj.get("a_objImportEzsigntemplatepackageRelation") is not None else None
         })
         return _obj
 

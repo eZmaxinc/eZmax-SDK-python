@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_response_compound import CorsResponseCompound  # noqa: E501
+from eZmaxApi.models.cors_response_compound import CorsResponseCompound
 
 class TestCorsResponseCompound(unittest.TestCase):
     """CorsResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsResponseCompound`
         """
-        model = CorsResponseCompound()  # noqa: E501
+        model = CorsResponseCompound()
         if include_optional:
             return CorsResponseCompound(
                 pki_cors_id = 228,

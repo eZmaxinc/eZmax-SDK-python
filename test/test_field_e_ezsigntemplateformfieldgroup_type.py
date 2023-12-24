@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_type import FieldEEzsigntemplateformfieldgroupType  # noqa: E501
+from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_type import FieldEEzsigntemplateformfieldgroupType
 
 class TestFieldEEzsigntemplateformfieldgroupType(unittest.TestCase):
     """FieldEEzsigntemplateformfieldgroupType unit test stubs"""

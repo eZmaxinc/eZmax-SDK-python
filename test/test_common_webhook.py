@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_webhook import CommonWebhook  # noqa: E501
+from eZmaxApi.models.common_webhook import CommonWebhook
 
 class TestCommonWebhook(unittest.TestCase):
     """CommonWebhook unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonWebhook(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonWebhook`
         """
-        model = CommonWebhook()  # noqa: E501
+        model = CommonWebhook()
         if include_optional:
             return CommonWebhook(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),

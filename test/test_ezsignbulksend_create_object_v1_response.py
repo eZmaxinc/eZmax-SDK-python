@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_create_object_v1_response import EzsignbulksendCreateObjectV1Response  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_create_object_v1_response import EzsignbulksendCreateObjectV1Response
 
 class TestEzsignbulksendCreateObjectV1Response(unittest.TestCase):
     """EzsignbulksendCreateObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendCreateObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendCreateObjectV1Response`
         """
-        model = EzsignbulksendCreateObjectV1Response()  # noqa: E501
+        model = EzsignbulksendCreateObjectV1Response()
         if include_optional:
             return EzsignbulksendCreateObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

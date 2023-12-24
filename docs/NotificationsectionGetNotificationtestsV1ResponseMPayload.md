@@ -3,6 +3,7 @@
 Payload for GET /1/object/notificationsection/{pkiNotificationsectionID}/getNotificationtests
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_notificationsubsection** | [**List[CustomNotificationsubsectiongetnotificationtestsResponse]**](CustomNotificationsubsectiongetnotificationtestsResponse.md) |  | 

@@ -19,66 +19,84 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional, Union
-from pydantic import BaseModel, Field, StrictBytes, StrictStr, validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, StrictBytes, StrictStr, field_validator
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommonFile(BaseModel):
     """
-    Object representing a file used in a request or response context   # noqa: E501
-    """
-    s_file_name: StrictStr = Field(..., alias="sFileName", description="The name of the file")
-    s_file_url: Optional[StrictStr] = Field(None, alias="sFileUrl", description="The URL used to reach the File")
-    s_file_base64: Optional[Union[StrictBytes, StrictStr]] = Field(None, alias="sFileBase64", description="The Base64 encoded binary content of the File")
-    e_file_source: StrictStr = Field(..., alias="eFileSource", description="The source of the File")
-    __properties = ["sFileName", "sFileUrl", "sFileBase64", "eFileSource"]
+    Object representing a file used in a request or response context 
+    """ # noqa: E501
+    s_file_name: StrictStr = Field(description="The name of the file", alias="sFileName")
+    s_file_url: Optional[StrictStr] = Field(default=None, description="The URL used to reach the File", alias="sFileUrl")
+    s_file_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the File", alias="sFileBase64")
+    e_file_source: StrictStr = Field(description="The source of the File", alias="eFileSource")
+    __properties: ClassVar[List[str]] = ["sFileName", "sFileUrl", "sFileBase64", "eFileSource"]
 
-    @validator('e_file_source')
+    @field_validator('e_file_source')
     def e_file_source_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('Base64', 'Url'):
             raise ValueError("must be one of enum values ('Base64', 'Url')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommonFile:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommonFile from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommonFile:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommonFile from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommonFile.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommonFile.parse_obj({
-            "s_file_name": obj.get("sFileName"),
-            "s_file_url": obj.get("sFileUrl"),
-            "s_file_base64": obj.get("sFileBase64"),
-            "e_file_source": obj.get("eFileSource")
+        _obj = cls.model_validate({
+            "sFileName": obj.get("sFileName"),
+            "sFileUrl": obj.get("sFileUrl"),
+            "sFileBase64": obj.get("sFileBase64"),
+            "eFileSource": obj.get("eFileSource")
         })
         return _obj
 

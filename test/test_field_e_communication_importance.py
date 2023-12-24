@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance  # noqa: E501
+from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance
 
 class TestFieldECommunicationImportance(unittest.TestCase):
     """FieldECommunicationImportance unit test stubs"""

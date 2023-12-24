@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_response_compound import VariableexpenseResponseCompound  # noqa: E501
+from eZmaxApi.models.variableexpense_response_compound import VariableexpenseResponseCompound
 
 class TestVariableexpenseResponseCompound(unittest.TestCase):
     """VariableexpenseResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseResponseCompound`
         """
-        model = VariableexpenseResponseCompound()  # noqa: E501
+        model = VariableexpenseResponseCompound()
         if include_optional:
             return VariableexpenseResponseCompound(
                 pki_variableexpense_id = 2,

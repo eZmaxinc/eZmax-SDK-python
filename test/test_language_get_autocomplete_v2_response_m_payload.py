@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.language_get_autocomplete_v2_response_m_payload import LanguageGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.language_get_autocomplete_v2_response_m_payload import LanguageGetAutocompleteV2ResponseMPayload
 
 class TestLanguageGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """LanguageGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestLanguageGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `LanguageGetAutocompleteV2ResponseMPayload`
         """
-        model = LanguageGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = LanguageGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return LanguageGetAutocompleteV2ResponseMPayload(
                 a_obj_language = [

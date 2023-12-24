@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response import EzsigntsarequirementAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.ezsigntsarequirement_autocomplete_element_response import EzsigntsarequirementAutocompleteElementResponse
 
 class TestEzsigntsarequirementAutocompleteElementResponse(unittest.TestCase):
     """EzsigntsarequirementAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntsarequirementAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntsarequirementAutocompleteElementResponse`
         """
-        model = EzsigntsarequirementAutocompleteElementResponse()  # noqa: E501
+        model = EzsigntsarequirementAutocompleteElementResponse()
         if include_optional:
             return EzsigntsarequirementAutocompleteElementResponse(
                 s_ezsigntsarequirement_description_x = 'No',

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_email import ScimEmail  # noqa: E501
+from eZmaxApi.models.scim_email import ScimEmail
 
 class TestScimEmail(unittest.TestCase):
     """ScimEmail unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimEmail(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimEmail`
         """
-        model = ScimEmail()  # noqa: E501
+        model = ScimEmail()
         if include_optional:
             return ScimEmail(
                 value = 'email@example.com',

@@ -3,6 +3,7 @@
 A form Signer Object in the context of an Ezsignfoldertransmissions
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fki_user_id** | **int** | The unique ID of the User | [optional] 

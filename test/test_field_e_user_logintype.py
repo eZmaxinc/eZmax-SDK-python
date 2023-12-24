@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype  # noqa: E501
+from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 
 class TestFieldEUserLogintype(unittest.TestCase):
     """FieldEUserLogintype unit test stubs"""

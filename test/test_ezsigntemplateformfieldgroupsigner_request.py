@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request import EzsigntemplateformfieldgroupsignerRequest  # noqa: E501
+from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request import EzsigntemplateformfieldgroupsignerRequest
 
 class TestEzsigntemplateformfieldgroupsignerRequest(unittest.TestCase):
     """EzsigntemplateformfieldgroupsignerRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateformfieldgroupsignerRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldgroupsignerRequest`
         """
-        model = EzsigntemplateformfieldgroupsignerRequest()  # noqa: E501
+        model = EzsigntemplateformfieldgroupsignerRequest()
         if include_optional:
             return EzsigntemplateformfieldgroupsignerRequest(
                 pki_ezsigntemplateformfieldgroupsigner_id = 87,

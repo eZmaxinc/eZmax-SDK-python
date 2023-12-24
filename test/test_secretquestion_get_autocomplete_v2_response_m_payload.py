@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.secretquestion_get_autocomplete_v2_response_m_payload import SecretquestionGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.secretquestion_get_autocomplete_v2_response_m_payload import SecretquestionGetAutocompleteV2ResponseMPayload
 
 class TestSecretquestionGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """SecretquestionGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestSecretquestionGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SecretquestionGetAutocompleteV2ResponseMPayload`
         """
-        model = SecretquestionGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = SecretquestionGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return SecretquestionGetAutocompleteV2ResponseMPayload(
                 a_obj_secretquestion = [

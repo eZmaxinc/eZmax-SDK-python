@@ -3,6 +3,7 @@
 Response for GET /1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroupdelegation** | [**List[UsergroupdelegationResponseCompound]**](UsergroupdelegationResponseCompound.md) |  | 

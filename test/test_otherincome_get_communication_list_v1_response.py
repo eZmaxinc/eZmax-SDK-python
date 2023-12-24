@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.otherincome_get_communication_list_v1_response import OtherincomeGetCommunicationListV1Response  # noqa: E501
+from eZmaxApi.models.otherincome_get_communication_list_v1_response import OtherincomeGetCommunicationListV1Response
 
 class TestOtherincomeGetCommunicationListV1Response(unittest.TestCase):
     """OtherincomeGetCommunicationListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestOtherincomeGetCommunicationListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `OtherincomeGetCommunicationListV1Response`
         """
-        model = OtherincomeGetCommunicationListV1Response()  # noqa: E501
+        model = OtherincomeGetCommunicationListV1Response()
         if include_optional:
             return OtherincomeGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

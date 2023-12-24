@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter  # noqa: E501
+from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter
 
 class TestScimServiceProviderConfigFilter(unittest.TestCase):
     """ScimServiceProviderConfigFilter unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimServiceProviderConfigFilter(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimServiceProviderConfigFilter`
         """
-        model = ScimServiceProviderConfigFilter()  # noqa: E501
+        model = ScimServiceProviderConfigFilter()
         if include_optional:
             return ScimServiceProviderConfigFilter(
                 supported = True,

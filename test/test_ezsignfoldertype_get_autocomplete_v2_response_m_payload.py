@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldertype_get_autocomplete_v2_response_m_payload import EzsignfoldertypeGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfoldertype_get_autocomplete_v2_response_m_payload import EzsignfoldertypeGetAutocompleteV2ResponseMPayload
 
 class TestEzsignfoldertypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """EzsignfoldertypeGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldertypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeGetAutocompleteV2ResponseMPayload`
         """
-        model = EzsignfoldertypeGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = EzsignfoldertypeGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return EzsignfoldertypeGetAutocompleteV2ResponseMPayload(
                 a_obj_ezsignfoldertype = [

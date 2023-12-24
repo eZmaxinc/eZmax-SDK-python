@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_get_object_v2_response import VariableexpenseGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.variableexpense_get_object_v2_response import VariableexpenseGetObjectV2Response
 
 class TestVariableexpenseGetObjectV2Response(unittest.TestCase):
     """VariableexpenseGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseGetObjectV2Response`
         """
-        model = VariableexpenseGetObjectV2Response()  # noqa: E501
+        model = VariableexpenseGetObjectV2Response()
         if include_optional:
             return VariableexpenseGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

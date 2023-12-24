@@ -3,6 +3,7 @@
 Payload for POST /2/object/franchisebroker/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_franchisebroker** | [**List[FranchisebrokerAutocompleteElementResponse]**](FranchisebrokerAutocompleteElementResponse.md) | An array of Franchisebroker autocomplete element response. | 

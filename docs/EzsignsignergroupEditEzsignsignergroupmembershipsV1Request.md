@@ -3,6 +3,7 @@
 Request for PUT /1/object/ezsignsignergroup/{pkiEzsignsignergroupID}/editEzsignsignergroupmemberships
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignsignergroupmembership** | [**List[EzsignsignergroupmembershipRequestCompound]**](EzsignsignergroupmembershipRequestCompound.md) |  | 

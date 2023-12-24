@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.franchisereferalincome_create_object_v2_request import FranchisereferalincomeCreateObjectV2Request  # noqa: E501
+from eZmaxApi.models.franchisereferalincome_create_object_v2_request import FranchisereferalincomeCreateObjectV2Request
 
 class TestFranchisereferalincomeCreateObjectV2Request(unittest.TestCase):
     """FranchisereferalincomeCreateObjectV2Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestFranchisereferalincomeCreateObjectV2Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FranchisereferalincomeCreateObjectV2Request`
         """
-        model = FranchisereferalincomeCreateObjectV2Request()  # noqa: E501
+        model = FranchisereferalincomeCreateObjectV2Request()
         if include_optional:
             return FranchisereferalincomeCreateObjectV2Request(
                 a_obj_franchisereferalincome = [

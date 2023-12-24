@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.systemconfiguration_get_object_v2_response_m_payload import SystemconfigurationGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.systemconfiguration_get_object_v2_response_m_payload import SystemconfigurationGetObjectV2ResponseMPayload
 
 class TestSystemconfigurationGetObjectV2ResponseMPayload(unittest.TestCase):
     """SystemconfigurationGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestSystemconfigurationGetObjectV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SystemconfigurationGetObjectV2ResponseMPayload`
         """
-        model = SystemconfigurationGetObjectV2ResponseMPayload()  # noqa: E501
+        model = SystemconfigurationGetObjectV2ResponseMPayload()
         if include_optional:
             return SystemconfigurationGetObjectV2ResponseMPayload(
                 obj_systemconfiguration = eZmaxApi.models.systemconfiguration_response_compound.systemconfiguration-ResponseCompound()

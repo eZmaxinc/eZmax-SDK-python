@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response  # noqa: E501
+from eZmaxApi.models.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 
 class TestGlobalCustomerGetEndpointV1Response(unittest.TestCase):
     """GlobalCustomerGetEndpointV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestGlobalCustomerGetEndpointV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `GlobalCustomerGetEndpointV1Response`
         """
-        model = GlobalCustomerGetEndpointV1Response()  # noqa: E501
+        model = GlobalCustomerGetEndpointV1Response()
         if include_optional:
             return GlobalCustomerGetEndpointV1Response(
                 s_endpoint_url = ''

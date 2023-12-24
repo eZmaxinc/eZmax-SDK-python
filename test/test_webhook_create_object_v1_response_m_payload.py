@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_create_object_v1_response_m_payload import WebhookCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.webhook_create_object_v1_response_m_payload import WebhookCreateObjectV1ResponseMPayload
 
 class TestWebhookCreateObjectV1ResponseMPayload(unittest.TestCase):
     """WebhookCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookCreateObjectV1ResponseMPayload`
         """
-        model = WebhookCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = WebhookCreateObjectV1ResponseMPayload()
         if include_optional:
             return WebhookCreateObjectV1ResponseMPayload(
                 a_pki_webhook_id = [

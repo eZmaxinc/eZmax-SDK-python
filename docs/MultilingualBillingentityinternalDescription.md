@@ -3,6 +3,7 @@
 The description of the Billingentityinternal
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_billingentityinternal_description1** | **str** | The description of the Billingentityinternal in French | [optional] 

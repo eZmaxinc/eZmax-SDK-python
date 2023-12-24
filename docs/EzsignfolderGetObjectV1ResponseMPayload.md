@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 

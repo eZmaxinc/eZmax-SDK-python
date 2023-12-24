@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_edit_object_v1_response import CorsEditObjectV1Response  # noqa: E501
+from eZmaxApi.models.cors_edit_object_v1_response import CorsEditObjectV1Response
 
 class TestCorsEditObjectV1Response(unittest.TestCase):
     """CorsEditObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsEditObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsEditObjectV1Response`
         """
-        model = CorsEditObjectV1Response()  # noqa: E501
+        model = CorsEditObjectV1Response()
         if include_optional:
             return CorsEditObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

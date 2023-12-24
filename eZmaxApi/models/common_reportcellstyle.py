@@ -19,71 +19,89 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool
+from pydantic import Field
 from eZmaxApi.models.enum_fontunderline import EnumFontunderline
 from eZmaxApi.models.enum_fontweight import EnumFontweight
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
 from eZmaxApi.models.enum_verticalalignment import EnumVerticalalignment
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommonReportcellstyle(BaseModel):
     """
-    Styles applied to a Reportcell   # noqa: E501
-    """
-    b_reportcellstyle_bordertop: StrictBool = Field(..., alias="bReportcellstyleBordertop", description="Whether there is a border at the top of the Reportcell")
-    b_reportcellstyle_borderbottom: StrictBool = Field(..., alias="bReportcellstyleBorderbottom", description="Whether there is a border at the bottom of the Reportcell")
-    b_reportcellstyle_borderleft: StrictBool = Field(..., alias="bReportcellstyleBorderleft", description="Whether there is a border at the left of the Reportcell")
-    b_reportcellstyle_borderright: StrictBool = Field(..., alias="bReportcellstyleBorderright", description="Whether there is a border at the right of the Reportcell")
-    e_reportcell_horizontalalignment: EnumHorizontalalignment = Field(..., alias="eReportcellHorizontalalignment")
-    e_reportcell_verticalalignment: EnumVerticalalignment = Field(..., alias="eReportcellVerticalalignment")
-    e_reportcell_fontweight: EnumFontweight = Field(..., alias="eReportcellFontweight")
-    e_reportcell_fontunderline: EnumFontunderline = Field(..., alias="eReportcellFontunderline")
-    __properties = ["bReportcellstyleBordertop", "bReportcellstyleBorderbottom", "bReportcellstyleBorderleft", "bReportcellstyleBorderright", "eReportcellHorizontalalignment", "eReportcellVerticalalignment", "eReportcellFontweight", "eReportcellFontunderline"]
+    Styles applied to a Reportcell 
+    """ # noqa: E501
+    b_reportcellstyle_bordertop: StrictBool = Field(description="Whether there is a border at the top of the Reportcell", alias="bReportcellstyleBordertop")
+    b_reportcellstyle_borderbottom: StrictBool = Field(description="Whether there is a border at the bottom of the Reportcell", alias="bReportcellstyleBorderbottom")
+    b_reportcellstyle_borderleft: StrictBool = Field(description="Whether there is a border at the left of the Reportcell", alias="bReportcellstyleBorderleft")
+    b_reportcellstyle_borderright: StrictBool = Field(description="Whether there is a border at the right of the Reportcell", alias="bReportcellstyleBorderright")
+    e_reportcell_horizontalalignment: EnumHorizontalalignment = Field(alias="eReportcellHorizontalalignment")
+    e_reportcell_verticalalignment: EnumVerticalalignment = Field(alias="eReportcellVerticalalignment")
+    e_reportcell_fontweight: EnumFontweight = Field(alias="eReportcellFontweight")
+    e_reportcell_fontunderline: EnumFontunderline = Field(alias="eReportcellFontunderline")
+    __properties: ClassVar[List[str]] = ["bReportcellstyleBordertop", "bReportcellstyleBorderbottom", "bReportcellstyleBorderleft", "bReportcellstyleBorderright", "eReportcellHorizontalalignment", "eReportcellVerticalalignment", "eReportcellFontweight", "eReportcellFontunderline"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommonReportcellstyle:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommonReportcellstyle from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommonReportcellstyle:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommonReportcellstyle from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommonReportcellstyle.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommonReportcellstyle.parse_obj({
-            "b_reportcellstyle_bordertop": obj.get("bReportcellstyleBordertop"),
-            "b_reportcellstyle_borderbottom": obj.get("bReportcellstyleBorderbottom"),
-            "b_reportcellstyle_borderleft": obj.get("bReportcellstyleBorderleft"),
-            "b_reportcellstyle_borderright": obj.get("bReportcellstyleBorderright"),
-            "e_reportcell_horizontalalignment": obj.get("eReportcellHorizontalalignment"),
-            "e_reportcell_verticalalignment": obj.get("eReportcellVerticalalignment"),
-            "e_reportcell_fontweight": obj.get("eReportcellFontweight"),
-            "e_reportcell_fontunderline": obj.get("eReportcellFontunderline")
+        _obj = cls.model_validate({
+            "bReportcellstyleBordertop": obj.get("bReportcellstyleBordertop"),
+            "bReportcellstyleBorderbottom": obj.get("bReportcellstyleBorderbottom"),
+            "bReportcellstyleBorderleft": obj.get("bReportcellstyleBorderleft"),
+            "bReportcellstyleBorderright": obj.get("bReportcellstyleBorderright"),
+            "eReportcellHorizontalalignment": obj.get("eReportcellHorizontalalignment"),
+            "eReportcellVerticalalignment": obj.get("eReportcellVerticalalignment"),
+            "eReportcellFontweight": obj.get("eReportcellFontweight"),
+            "eReportcellFontunderline": obj.get("eReportcellFontunderline")
         })
         return _obj
 

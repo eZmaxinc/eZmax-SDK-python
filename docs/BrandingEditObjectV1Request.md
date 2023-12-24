@@ -3,6 +3,7 @@
 Request for PUT /1/object/branding/{pkiBrandingID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_branding** | [**BrandingRequestCompound**](BrandingRequestCompound.md) |  | 

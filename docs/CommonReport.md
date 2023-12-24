@@ -3,6 +3,7 @@
 A Report containing Reportsections 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_reportsection** | [**List[CommonReportsection]**](CommonReportsection.md) |  | 

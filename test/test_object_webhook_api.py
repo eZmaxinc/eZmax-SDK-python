@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_webhook_api import ObjectWebhookApi  # noqa: E501
+from eZmaxApi.api.object_webhook_api import ObjectWebhookApi
 
 
 class TestObjectWebhookApi(unittest.TestCase):
     """ObjectWebhookApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectWebhookApi()  # noqa: E501
+        self.api = ObjectWebhookApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,49 +30,63 @@ class TestObjectWebhookApi(unittest.TestCase):
     def test_webhook_create_object_v1(self) -> None:
         """Test case for webhook_create_object_v1
 
-        Create a new Webhook  # noqa: E501
+        Create a new Webhook
+        """
+        pass
+
+    def test_webhook_create_object_v2(self) -> None:
+        """Test case for webhook_create_object_v2
+
+        Create a new Webhook
         """
         pass
 
     def test_webhook_delete_object_v1(self) -> None:
         """Test case for webhook_delete_object_v1
 
-        Delete an existing Webhook  # noqa: E501
+        Delete an existing Webhook
         """
         pass
 
     def test_webhook_edit_object_v1(self) -> None:
         """Test case for webhook_edit_object_v1
 
-        Edit an existing Webhook  # noqa: E501
+        Edit an existing Webhook
         """
         pass
 
     def test_webhook_get_history_v1(self) -> None:
         """Test case for webhook_get_history_v1
 
-        Retrieve the logs for recent Webhook calls  # noqa: E501
+        Retrieve the logs for recent Webhook calls
         """
         pass
 
     def test_webhook_get_list_v1(self) -> None:
         """Test case for webhook_get_list_v1
 
-        Retrieve Webhook list  # noqa: E501
+        Retrieve Webhook list
         """
         pass
 
     def test_webhook_get_object_v2(self) -> None:
         """Test case for webhook_get_object_v2
 
-        Retrieve an existing Webhook  # noqa: E501
+        Retrieve an existing Webhook
+        """
+        pass
+
+    def test_webhook_regenerate_apikey_v1(self) -> None:
+        """Test case for webhook_regenerate_apikey_v1
+
+        Regenerate the Apikey
         """
         pass
 
     def test_webhook_test_v1(self) -> None:
         """Test case for webhook_test_v1
 
-        Test the Webhook by calling the Url  # noqa: E501
+        Test the Webhook by calling the Url
         """
         pass
 

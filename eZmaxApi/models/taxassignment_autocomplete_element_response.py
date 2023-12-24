@@ -19,57 +19,76 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TaxassignmentAutocompleteElementResponse(BaseModel):
     """
-    A Taxassignment AutocompleteElement Response  # noqa: E501
-    """
-    s_taxassignment_description_x: StrictStr = Field(..., alias="sTaxassignmentDescriptionX", description="The description of the Taxassignment  in the language of the requester")
-    pki_taxassignment_id: conint(strict=True, le=15, ge=0) = Field(..., alias="pkiTaxassignmentID", description="The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|")
-    b_taxassignment_isactive: StrictBool = Field(..., alias="bTaxassignmentIsactive", description="Whether the Taxassignment is active or not")
-    __properties = ["sTaxassignmentDescriptionX", "pkiTaxassignmentID", "bTaxassignmentIsactive"]
+    A Taxassignment AutocompleteElement Response
+    """ # noqa: E501
+    s_taxassignment_description_x: StrictStr = Field(description="The description of the Taxassignment  in the language of the requester", alias="sTaxassignmentDescriptionX")
+    pki_taxassignment_id: Annotated[int, Field(le=15, strict=True, ge=0)] = Field(description="The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|", alias="pkiTaxassignmentID")
+    b_taxassignment_isactive: StrictBool = Field(description="Whether the Taxassignment is active or not", alias="bTaxassignmentIsactive")
+    __properties: ClassVar[List[str]] = ["sTaxassignmentDescriptionX", "pkiTaxassignmentID", "bTaxassignmentIsactive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TaxassignmentAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TaxassignmentAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TaxassignmentAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TaxassignmentAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TaxassignmentAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TaxassignmentAutocompleteElementResponse.parse_obj({
-            "s_taxassignment_description_x": obj.get("sTaxassignmentDescriptionX"),
-            "pki_taxassignment_id": obj.get("pkiTaxassignmentID"),
-            "b_taxassignment_isactive": obj.get("bTaxassignmentIsactive")
+        _obj = cls.model_validate({
+            "sTaxassignmentDescriptionX": obj.get("sTaxassignmentDescriptionX"),
+            "pkiTaxassignmentID": obj.get("pkiTaxassignmentID"),
+            "bTaxassignmentIsactive": obj.get("bTaxassignmentIsactive")
         })
         return _obj
 

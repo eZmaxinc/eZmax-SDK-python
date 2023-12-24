@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_get_list import CommonResponseGetList  # noqa: E501
+from eZmaxApi.models.common_response_get_list import CommonResponseGetList
 
 class TestCommonResponseGetList(unittest.TestCase):
     """CommonResponseGetList unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseGetList(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseGetList`
         """
-        model = CommonResponseGetList()  # noqa: E501
+        model = CommonResponseGetList()
         if include_optional:
             return CommonResponseGetList(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

@@ -3,6 +3,7 @@
 Payload for Websocket Error V1
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_error_message** | **str** | The message giving details about the error | 

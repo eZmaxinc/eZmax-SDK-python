@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateformfield_response import EzsigntemplateformfieldResponse  # noqa: E501
+from eZmaxApi.models.ezsigntemplateformfield_response import EzsigntemplateformfieldResponse
 
 class TestEzsigntemplateformfieldResponse(unittest.TestCase):
     """EzsigntemplateformfieldResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateformfieldResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldResponse`
         """
-        model = EzsigntemplateformfieldResponse()  # noqa: E501
+        model = EzsigntemplateformfieldResponse()
         if include_optional:
             return EzsigntemplateformfieldResponse(
                 pki_ezsigntemplateformfield_id = 71,

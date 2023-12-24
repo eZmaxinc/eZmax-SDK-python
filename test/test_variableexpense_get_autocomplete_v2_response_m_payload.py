@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_get_autocomplete_v2_response_m_payload import VariableexpenseGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.variableexpense_get_autocomplete_v2_response_m_payload import VariableexpenseGetAutocompleteV2ResponseMPayload
 
 class TestVariableexpenseGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """VariableexpenseGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseGetAutocompleteV2ResponseMPayload`
         """
-        model = VariableexpenseGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = VariableexpenseGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return VariableexpenseGetAutocompleteV2ResponseMPayload(
                 a_obj_variableexpense = [

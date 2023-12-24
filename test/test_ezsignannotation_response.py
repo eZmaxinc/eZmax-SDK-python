@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignannotation_response import EzsignannotationResponse  # noqa: E501
+from eZmaxApi.models.ezsignannotation_response import EzsignannotationResponse
 
 class TestEzsignannotationResponse(unittest.TestCase):
     """EzsignannotationResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignannotationResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignannotationResponse`
         """
-        model = EzsignannotationResponse()  # noqa: E501
+        model = EzsignannotationResponse()
         if include_optional:
             return EzsignannotationResponse(
                 pki_ezsignannotation_id = 113,

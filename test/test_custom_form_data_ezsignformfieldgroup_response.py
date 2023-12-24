@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_form_data_ezsignformfieldgroup_response import CustomFormDataEzsignformfieldgroupResponse  # noqa: E501
+from eZmaxApi.models.custom_form_data_ezsignformfieldgroup_response import CustomFormDataEzsignformfieldgroupResponse
 
 class TestCustomFormDataEzsignformfieldgroupResponse(unittest.TestCase):
     """CustomFormDataEzsignformfieldgroupResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomFormDataEzsignformfieldgroupResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomFormDataEzsignformfieldgroupResponse`
         """
-        model = CustomFormDataEzsignformfieldgroupResponse()  # noqa: E501
+        model = CustomFormDataEzsignformfieldgroupResponse()
         if include_optional:
             return CustomFormDataEzsignformfieldgroupResponse(
                 s_ezsignformfieldgroup_label = 'Allergies',

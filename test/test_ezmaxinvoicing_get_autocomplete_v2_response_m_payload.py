@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicing_get_autocomplete_v2_response_m_payload import EzmaxinvoicingGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicing_get_autocomplete_v2_response_m_payload import EzmaxinvoicingGetAutocompleteV2ResponseMPayload
 
 class TestEzmaxinvoicingGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """EzmaxinvoicingGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingGetAutocompleteV2ResponseMPayload`
         """
-        model = EzmaxinvoicingGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = EzmaxinvoicingGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return EzmaxinvoicingGetAutocompleteV2ResponseMPayload(
                 a_obj_ezmaxinvoicing = [

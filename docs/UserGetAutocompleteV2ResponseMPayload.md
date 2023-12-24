@@ -3,6 +3,7 @@
 Payload for POST /2/object/user/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_user** | [**List[UserAutocompleteElementResponse]**](UserAutocompleteElementResponse.md) | An array of User autocomplete element response. | 

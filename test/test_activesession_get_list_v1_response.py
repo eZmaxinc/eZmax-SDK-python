@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_get_list_v1_response import ActivesessionGetListV1Response  # noqa: E501
+from eZmaxApi.models.activesession_get_list_v1_response import ActivesessionGetListV1Response
 
 class TestActivesessionGetListV1Response(unittest.TestCase):
     """ActivesessionGetListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionGetListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionGetListV1Response`
         """
-        model = ActivesessionGetListV1Response()  # noqa: E501
+        model = ActivesessionGetListV1Response()
         if include_optional:
             return ActivesessionGetListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

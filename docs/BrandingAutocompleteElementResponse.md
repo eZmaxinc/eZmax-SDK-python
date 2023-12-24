@@ -3,6 +3,7 @@
 Branding AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_branding_description_x** | **str** | The Description of the Branding in the language of the requester | 

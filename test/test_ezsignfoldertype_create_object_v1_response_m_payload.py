@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldertype_create_object_v1_response_m_payload import EzsignfoldertypeCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfoldertype_create_object_v1_response_m_payload import EzsignfoldertypeCreateObjectV1ResponseMPayload
 
 class TestEzsignfoldertypeCreateObjectV1ResponseMPayload(unittest.TestCase):
     """EzsignfoldertypeCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldertypeCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeCreateObjectV1ResponseMPayload`
         """
-        model = EzsignfoldertypeCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = EzsignfoldertypeCreateObjectV1ResponseMPayload()
         if include_optional:
             return EzsignfoldertypeCreateObjectV1ResponseMPayload(
                 a_pki_ezsignfoldertype_id = [

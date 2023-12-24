@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_ezsignsignergroup_description import MultilingualEzsignsignergroupDescription  # noqa: E501
+from eZmaxApi.models.multilingual_ezsignsignergroup_description import MultilingualEzsignsignergroupDescription
 
 class TestMultilingualEzsignsignergroupDescription(unittest.TestCase):
     """MultilingualEzsignsignergroupDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualEzsignsignergroupDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualEzsignsignergroupDescription`
         """
-        model = MultilingualEzsignsignergroupDescription()  # noqa: E501
+        model = MultilingualEzsignsignergroupDescription()
         if include_optional:
             return MultilingualEzsignsignergroupDescription(
                 s_ezsignsignergroup_description1 = 'RH',

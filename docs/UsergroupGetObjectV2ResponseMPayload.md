@@ -3,6 +3,7 @@
 Payload for GET /2/object/usergroup/{pkiUsergroupID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_usergroup** | [**UsergroupResponseCompound**](UsergroupResponseCompound.md) |  | 

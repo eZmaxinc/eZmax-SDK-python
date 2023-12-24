@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse  # noqa: E501
+from eZmaxApi.models.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse
 
 class TestCustomWordPositionOccurenceResponse(unittest.TestCase):
     """CustomWordPositionOccurenceResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomWordPositionOccurenceResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomWordPositionOccurenceResponse`
         """
-        model = CustomWordPositionOccurenceResponse()  # noqa: E501
+        model = CustomWordPositionOccurenceResponse()
         if include_optional:
             return CustomWordPositionOccurenceResponse(
                 i_page = 1,

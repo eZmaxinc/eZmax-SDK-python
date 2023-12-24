@@ -3,6 +3,7 @@
 Payload for POST /2/object/usergroup/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroup** | [**List[UsergroupAutocompleteElementResponse]**](UsergroupAutocompleteElementResponse.md) | An array of Usergroup autocomplete element response. | 

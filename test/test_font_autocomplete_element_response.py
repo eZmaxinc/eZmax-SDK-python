@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.font_autocomplete_element_response import FontAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.font_autocomplete_element_response import FontAutocompleteElementResponse
 
 class TestFontAutocompleteElementResponse(unittest.TestCase):
     """FontAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestFontAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FontAutocompleteElementResponse`
         """
-        model = FontAutocompleteElementResponse()  # noqa: E501
+        model = FontAutocompleteElementResponse()
         if include_optional:
             return FontAutocompleteElementResponse(
                 s_font_name = 'Arial',

@@ -3,6 +3,7 @@
 A Phone Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_phone_id** | **int** | The unique ID of the Phone. | 

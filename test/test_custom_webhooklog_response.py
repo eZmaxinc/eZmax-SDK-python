@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_webhooklog_response import CustomWebhooklogResponse  # noqa: E501
+from eZmaxApi.models.custom_webhooklog_response import CustomWebhooklogResponse
 
 class TestCustomWebhooklogResponse(unittest.TestCase):
     """CustomWebhooklogResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomWebhooklogResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomWebhooklogResponse`
         """
-        model = CustomWebhooklogResponse()  # noqa: E501
+        model = CustomWebhooklogResponse()
         if include_optional:
             return CustomWebhooklogResponse(
                 dt_webhooklog_date = '2020-12-31 23:59:59',

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezmaxpricing_response import CustomEzmaxpricingResponse  # noqa: E501
+from eZmaxApi.models.custom_ezmaxpricing_response import CustomEzmaxpricingResponse
 
 class TestCustomEzmaxpricingResponse(unittest.TestCase):
     """CustomEzmaxpricingResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzmaxpricingResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzmaxpricingResponse`
         """
-        model = CustomEzmaxpricingResponse()  # noqa: E501
+        model = CustomEzmaxpricingResponse()
         if include_optional:
             return CustomEzmaxpricingResponse(
                 pki_ezmaxpricing_id = 28,

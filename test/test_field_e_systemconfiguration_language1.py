@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1  # noqa: E501
+from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1
 
 class TestFieldESystemconfigurationLanguage1(unittest.TestCase):
     """FieldESystemconfigurationLanguage1 unit test stubs"""

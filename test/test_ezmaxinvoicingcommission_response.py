@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicingcommission_response import EzmaxinvoicingcommissionResponse  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicingcommission_response import EzmaxinvoicingcommissionResponse
 
 class TestEzmaxinvoicingcommissionResponse(unittest.TestCase):
     """EzmaxinvoicingcommissionResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingcommissionResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingcommissionResponse`
         """
-        model = EzmaxinvoicingcommissionResponse()  # noqa: E501
+        model = EzmaxinvoicingcommissionResponse()
         if include_optional:
             return EzmaxinvoicingcommissionResponse(
                 pki_ezmaxinvoicingcommission_id = 36,

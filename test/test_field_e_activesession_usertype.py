@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype  # noqa: E501
+from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype
 
 class TestFieldEActivesessionUsertype(unittest.TestCase):
     """FieldEActivesessionUsertype unit test stubs"""

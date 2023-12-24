@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_communicationsender_response import CustomCommunicationsenderResponse  # noqa: E501
+from eZmaxApi.models.custom_communicationsender_response import CustomCommunicationsenderResponse
 
 class TestCustomCommunicationsenderResponse(unittest.TestCase):
     """CustomCommunicationsenderResponse unit test stubs"""
@@ -34,20 +34,22 @@ class TestCustomCommunicationsenderResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationsenderResponse`
         """
-        model = CustomCommunicationsenderResponse()  # noqa: E501
+        model = CustomCommunicationsenderResponse()
         if include_optional:
             return CustomCommunicationsenderResponse(
                 fki_agent_id = 1,
                 fki_broker_id = 26,
                 fki_user_id = 70,
                 fki_mailboxshared_id = 47,
+                fki_phonelineshared_id = 47,
                 e_communicationsender_objecttype = 'User',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
                     s_contact_company = 'eZmax Solutions Inc.', ),
-                s_email_address = 'email@example.com',
-                s_phone_e164 = '+15149901516'
+                obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(),
+                obj_phone_fax = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(),
+                obj_phone_sms = eZmaxApi.models.phone_response_compound.phone-ResponseCompound()
             )
         else:
             return CustomCommunicationsenderResponse(

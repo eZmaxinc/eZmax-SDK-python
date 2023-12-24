@@ -3,6 +3,7 @@
 Request for POST /1/object/usergroupdelegation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroupdelegation** | [**List[UsergroupdelegationRequestCompound]**](UsergroupdelegationRequestCompound.md) |  | 

@@ -3,6 +3,7 @@
 Name of the Ezsignfoldertype
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_ezsignfoldertype_name1** | **str** | The name of the Ezsignfoldertype in French | [optional] 

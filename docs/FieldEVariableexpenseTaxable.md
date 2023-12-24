@@ -3,6 +3,7 @@
 The taxable of the Variableexpense
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

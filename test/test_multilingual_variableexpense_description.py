@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_variableexpense_description import MultilingualVariableexpenseDescription  # noqa: E501
+from eZmaxApi.models.multilingual_variableexpense_description import MultilingualVariableexpenseDescription
 
 class TestMultilingualVariableexpenseDescription(unittest.TestCase):
     """MultilingualVariableexpenseDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualVariableexpenseDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualVariableexpenseDescription`
         """
-        model = MultilingualVariableexpenseDescription()  # noqa: E501
+        model = MultilingualVariableexpenseDescription()
         if include_optional:
             return MultilingualVariableexpenseDescription(
                 s_variableexpense_description1 = 'Équipements de bureau',

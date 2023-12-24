@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.enum_fontunderline import EnumFontunderline  # noqa: E501
+from eZmaxApi.models.enum_fontunderline import EnumFontunderline
 
 class TestEnumFontunderline(unittest.TestCase):
     """EnumFontunderline unit test stubs"""

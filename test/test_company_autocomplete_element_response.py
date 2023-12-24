@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.company_autocomplete_element_response import CompanyAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.company_autocomplete_element_response import CompanyAutocompleteElementResponse
 
 class TestCompanyAutocompleteElementResponse(unittest.TestCase):
     """CompanyAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCompanyAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CompanyAutocompleteElementResponse`
         """
-        model = CompanyAutocompleteElementResponse()  # noqa: E501
+        model = CompanyAutocompleteElementResponse()
         if include_optional:
             return CompanyAutocompleteElementResponse(
                 pki_company_id = 1,

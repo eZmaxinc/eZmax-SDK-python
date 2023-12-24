@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_get_list_v1_response_m_payload import ActivesessionGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.activesession_get_list_v1_response_m_payload import ActivesessionGetListV1ResponseMPayload
 
 class TestActivesessionGetListV1ResponseMPayload(unittest.TestCase):
     """ActivesessionGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionGetListV1ResponseMPayload`
         """
-        model = ActivesessionGetListV1ResponseMPayload()  # noqa: E501
+        model = ActivesessionGetListV1ResponseMPayload()
         if include_optional:
             return ActivesessionGetListV1ResponseMPayload(
                 i_row_returned = 100,

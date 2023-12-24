@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_edit_object_v1_request import EzsignbulksendEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_edit_object_v1_request import EzsignbulksendEditObjectV1Request
 
 class TestEzsignbulksendEditObjectV1Request(unittest.TestCase):
     """EzsignbulksendEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendEditObjectV1Request`
         """
-        model = EzsignbulksendEditObjectV1Request()  # noqa: E501
+        model = EzsignbulksendEditObjectV1Request()
         if include_optional:
             return EzsignbulksendEditObjectV1Request(
                 obj_ezsignbulksend = eZmaxApi.models.ezsignbulksend_request_compound.ezsignbulksend-RequestCompound()

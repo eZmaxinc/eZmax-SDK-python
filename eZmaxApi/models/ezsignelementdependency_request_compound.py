@@ -19,27 +19,33 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignelementdependency_operator import FieldEEzsignelementdependencyOperator
 from eZmaxApi.models.field_e_ezsignelementdependency_validation import FieldEEzsignelementdependencyValidation
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignelementdependencyRequestCompound(BaseModel):
     """
-    An Ezsignelementdependency Object and children to create a complete structure  # noqa: E501
-    """
-    pki_ezsignelementdependency_id: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="pkiEzsignelementdependencyID", description="The unique ID of the Ezsignelementdependency")
-    fki_ezsignformfield_id_validation: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignformfieldIDValidation", description="The unique ID of the Ezsignformfield")
-    fki_ezsignformfieldgroup_id_validation: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignformfieldgroupIDValidation", description="The unique ID of the Ezsignformfieldgroup")
-    s_ezsignelementdependency_ezsignformfieldgrouplabel: Optional[constr(strict=True, max_length=50, min_length=1)] = Field(None, alias="sEzsignelementdependencyEzsignformfieldgrouplabel", description="The Label for the Ezsignformfieldgroup")
-    s_ezsignelementdependency_ezsignformfieldlabel: Optional[StrictStr] = Field(None, alias="sEzsignelementdependencyEzsignformfieldlabel", description="The Label for the Ezsignformfield")
-    e_ezsignelementdependency_validation: FieldEEzsignelementdependencyValidation = Field(..., alias="eEzsignelementdependencyValidation")
-    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(None, alias="bEzsignelementdependencySelected", description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected")
-    e_ezsignelementdependency_operator: Optional[FieldEEzsignelementdependencyOperator] = Field(None, alias="eEzsignelementdependencyOperator")
-    s_ezsignelementdependency_value: Optional[constr(strict=True)] = Field(None, alias="sEzsignelementdependencyValue", description="The value of the Ezsignelementdependency")
-    __properties = ["pkiEzsignelementdependencyID", "fkiEzsignformfieldIDValidation", "fkiEzsignformfieldgroupIDValidation", "sEzsignelementdependencyEzsignformfieldgrouplabel", "sEzsignelementdependencyEzsignformfieldlabel", "eEzsignelementdependencyValidation", "bEzsignelementdependencySelected", "eEzsignelementdependencyOperator", "sEzsignelementdependencyValue"]
+    An Ezsignelementdependency Object and children to create a complete structure
+    """ # noqa: E501
+    pki_ezsignelementdependency_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
+    fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation")
+    fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation")
+    s_ezsignelementdependency_ezsignformfieldgrouplabel: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignelementdependencyEzsignformfieldgrouplabel")
+    s_ezsignelementdependency_ezsignformfieldlabel: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignelementdependencyEzsignformfieldlabel")
+    e_ezsignelementdependency_validation: FieldEEzsignelementdependencyValidation = Field(alias="eEzsignelementdependencyValidation")
+    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected", alias="bEzsignelementdependencySelected")
+    e_ezsignelementdependency_operator: Optional[FieldEEzsignelementdependencyOperator] = Field(default=None, alias="eEzsignelementdependencyOperator")
+    s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue")
+    __properties: ClassVar[List[str]] = ["pkiEzsignelementdependencyID", "fkiEzsignformfieldIDValidation", "fkiEzsignformfieldgroupIDValidation", "sEzsignelementdependencyEzsignformfieldgrouplabel", "sEzsignelementdependencyEzsignformfieldlabel", "eEzsignelementdependencyValidation", "bEzsignelementdependencySelected", "eEzsignelementdependencyOperator", "sEzsignelementdependencyValue"]
 
-    @validator('s_ezsignelementdependency_value')
+    @field_validator('s_ezsignelementdependency_value')
     def s_ezsignelementdependency_value_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -49,51 +55,64 @@ class EzsignelementdependencyRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignelementdependencyRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignelementdependencyRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignelementdependencyRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignelementdependencyRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignelementdependencyRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignelementdependencyRequestCompound.parse_obj({
-            "pki_ezsignelementdependency_id": obj.get("pkiEzsignelementdependencyID"),
-            "fki_ezsignformfield_id_validation": obj.get("fkiEzsignformfieldIDValidation"),
-            "fki_ezsignformfieldgroup_id_validation": obj.get("fkiEzsignformfieldgroupIDValidation"),
-            "s_ezsignelementdependency_ezsignformfieldgrouplabel": obj.get("sEzsignelementdependencyEzsignformfieldgrouplabel"),
-            "s_ezsignelementdependency_ezsignformfieldlabel": obj.get("sEzsignelementdependencyEzsignformfieldlabel"),
-            "e_ezsignelementdependency_validation": obj.get("eEzsignelementdependencyValidation"),
-            "b_ezsignelementdependency_selected": obj.get("bEzsignelementdependencySelected"),
-            "e_ezsignelementdependency_operator": obj.get("eEzsignelementdependencyOperator"),
-            "s_ezsignelementdependency_value": obj.get("sEzsignelementdependencyValue")
+        _obj = cls.model_validate({
+            "pkiEzsignelementdependencyID": obj.get("pkiEzsignelementdependencyID"),
+            "fkiEzsignformfieldIDValidation": obj.get("fkiEzsignformfieldIDValidation"),
+            "fkiEzsignformfieldgroupIDValidation": obj.get("fkiEzsignformfieldgroupIDValidation"),
+            "sEzsignelementdependencyEzsignformfieldgrouplabel": obj.get("sEzsignelementdependencyEzsignformfieldgrouplabel"),
+            "sEzsignelementdependencyEzsignformfieldlabel": obj.get("sEzsignelementdependencyEzsignformfieldlabel"),
+            "eEzsignelementdependencyValidation": obj.get("eEzsignelementdependencyValidation"),
+            "bEzsignelementdependencySelected": obj.get("bEzsignelementdependencySelected"),
+            "eEzsignelementdependencyOperator": obj.get("eEzsignelementdependencyOperator"),
+            "sEzsignelementdependencyValue": obj.get("sEzsignelementdependencyValue")
         })
         return _obj
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_get_object_v2_response_m_payload import BillingentityinternalGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.billingentityinternal_get_object_v2_response_m_payload import BillingentityinternalGetObjectV2ResponseMPayload
 
 class TestBillingentityinternalGetObjectV2ResponseMPayload(unittest.TestCase):
     """BillingentityinternalGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalGetObjectV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalGetObjectV2ResponseMPayload`
         """
-        model = BillingentityinternalGetObjectV2ResponseMPayload()  # noqa: E501
+        model = BillingentityinternalGetObjectV2ResponseMPayload()
         if include_optional:
             return BillingentityinternalGetObjectV2ResponseMPayload(
                 obj_billingentityinternal = eZmaxApi.models.billingentityinternal_response_compound.billingentityinternal-ResponseCompound()

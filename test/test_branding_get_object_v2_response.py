@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_get_object_v2_response import BrandingGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.branding_get_object_v2_response import BrandingGetObjectV2Response
 
 class TestBrandingGetObjectV2Response(unittest.TestCase):
     """BrandingGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingGetObjectV2Response`
         """
-        model = BrandingGetObjectV2Response()  # noqa: E501
+        model = BrandingGetObjectV2Response()
         if include_optional:
             return BrandingGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

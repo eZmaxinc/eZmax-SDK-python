@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_delete_object_v1_response import PermissionDeleteObjectV1Response  # noqa: E501
+from eZmaxApi.models.permission_delete_object_v1_response import PermissionDeleteObjectV1Response
 
 class TestPermissionDeleteObjectV1Response(unittest.TestCase):
     """PermissionDeleteObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionDeleteObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionDeleteObjectV1Response`
         """
-        model = PermissionDeleteObjectV1Response()  # noqa: E501
+        model = PermissionDeleteObjectV1Response()
         if include_optional:
             return PermissionDeleteObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

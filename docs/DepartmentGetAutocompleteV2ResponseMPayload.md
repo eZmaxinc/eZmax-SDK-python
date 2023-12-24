@@ -3,6 +3,7 @@
 Payload for POST /2/object/department/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_department** | [**List[DepartmentAutocompleteElementResponse]**](DepartmentAutocompleteElementResponse.md) | An array of Department autocomplete element response. | 

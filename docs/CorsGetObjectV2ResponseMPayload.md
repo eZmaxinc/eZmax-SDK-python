@@ -3,6 +3,7 @@
 Payload for GET /2/object/cors/{pkiCorsID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_cors** | [**CorsResponseCompound**](CorsResponseCompound.md) |  | 

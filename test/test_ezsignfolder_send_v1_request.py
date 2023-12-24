@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_send_v1_request import EzsignfolderSendV1Request  # noqa: E501
+from eZmaxApi.models.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
 
 class TestEzsignfolderSendV1Request(unittest.TestCase):
     """EzsignfolderSendV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderSendV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderSendV1Request`
         """
-        model = EzsignfolderSendV1Request()  # noqa: E501
+        model = EzsignfolderSendV1Request()
         if include_optional:
             return EzsignfolderSendV1Request(
                 t_extra_message = 'Hi John,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsignfoldertransmission_signer_response import CustomEzsignfoldertransmissionSignerResponse  # noqa: E501
+from eZmaxApi.models.custom_ezsignfoldertransmission_signer_response import CustomEzsignfoldertransmissionSignerResponse
 
 class TestCustomEzsignfoldertransmissionSignerResponse(unittest.TestCase):
     """CustomEzsignfoldertransmissionSignerResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsignfoldertransmissionSignerResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignfoldertransmissionSignerResponse`
         """
-        model = CustomEzsignfoldertransmissionSignerResponse()  # noqa: E501
+        model = CustomEzsignfoldertransmissionSignerResponse()
         if include_optional:
             return CustomEzsignfoldertransmissionSignerResponse(
                 fki_user_id = 70,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksendsignermapping_request import EzsignbulksendsignermappingRequest  # noqa: E501
+from eZmaxApi.models.ezsignbulksendsignermapping_request import EzsignbulksendsignermappingRequest
 
 class TestEzsignbulksendsignermappingRequest(unittest.TestCase):
     """EzsignbulksendsignermappingRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendsignermappingRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendsignermappingRequest`
         """
-        model = EzsignbulksendsignermappingRequest()  # noqa: E501
+        model = EzsignbulksendsignermappingRequest()
         if include_optional:
             return EzsignbulksendsignermappingRequest(
                 pki_ezsignbulksendsignermapping_id = 57,

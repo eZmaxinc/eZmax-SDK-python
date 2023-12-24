@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_phone_type import FieldEPhoneType  # noqa: E501
+from eZmaxApi.models.field_e_phone_type import FieldEPhoneType
 
 class TestFieldEPhoneType(unittest.TestCase):
     """FieldEPhoneType unit test stubs"""

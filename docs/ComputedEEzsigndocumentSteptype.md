@@ -3,6 +3,7 @@
 Indicates whether the current step is a form or signatures.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

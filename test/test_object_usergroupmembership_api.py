@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_usergroupmembership_api import ObjectUsergroupmembershipApi  # noqa: E501
+from eZmaxApi.api.object_usergroupmembership_api import ObjectUsergroupmembershipApi
 
 
 class TestObjectUsergroupmembershipApi(unittest.TestCase):
     """ObjectUsergroupmembershipApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectUsergroupmembershipApi()  # noqa: E501
+        self.api = ObjectUsergroupmembershipApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectUsergroupmembershipApi(unittest.TestCase):
     def test_usergroupmembership_create_object_v1(self) -> None:
         """Test case for usergroupmembership_create_object_v1
 
-        Create a new Usergroupmembership  # noqa: E501
+        Create a new Usergroupmembership
         """
         pass
 
     def test_usergroupmembership_delete_object_v1(self) -> None:
         """Test case for usergroupmembership_delete_object_v1
 
-        Delete an existing Usergroupmembership  # noqa: E501
+        Delete an existing Usergroupmembership
         """
         pass
 
     def test_usergroupmembership_edit_object_v1(self) -> None:
         """Test case for usergroupmembership_edit_object_v1
 
-        Edit an existing Usergroupmembership  # noqa: E501
+        Edit an existing Usergroupmembership
         """
         pass
 
     def test_usergroupmembership_get_object_v2(self) -> None:
         """Test case for usergroupmembership_get_object_v2
 
-        Retrieve an existing Usergroupmembership  # noqa: E501
+        Retrieve an existing Usergroupmembership
         """
         pass
 

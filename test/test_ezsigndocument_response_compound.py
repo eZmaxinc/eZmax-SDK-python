@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_response_compound import EzsigndocumentResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsigndocument_response_compound import EzsigndocumentResponseCompound
 
 class TestEzsigndocumentResponseCompound(unittest.TestCase):
     """EzsigndocumentResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentResponseCompound`
         """
-        model = EzsigndocumentResponseCompound()  # noqa: E501
+        model = EzsigndocumentResponseCompound()
         if include_optional:
             return EzsigndocumentResponseCompound(
                 pki_ezsigndocument_id = 97,
@@ -74,6 +74,7 @@ class TestEzsigndocumentResponseCompound(unittest.TestCase):
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}',
+                i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
                 e_ezsigndocument_steptype = 'Sign',
                 i_ezsigndocument_stepformtotal = 2,
                 i_ezsigndocument_stepformcurrent = 1,
@@ -105,6 +106,7 @@ class TestEzsigndocumentResponseCompound(unittest.TestCase):
                 i_ezsigndocument_pagetotal = 4,
                 i_ezsigndocument_signaturesigned = 3,
                 i_ezsigndocument_signaturetotal = 4,
+                i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
                 e_ezsigndocument_steptype = 'Sign',
                 i_ezsigndocument_stepformtotal = 2,
                 i_ezsigndocument_stepformcurrent = 1,

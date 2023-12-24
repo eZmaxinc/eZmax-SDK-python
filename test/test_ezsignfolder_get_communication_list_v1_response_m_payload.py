@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload import EzsignfolderGetCommunicationListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload import EzsignfolderGetCommunicationListV1ResponseMPayload
 
 class TestEzsignfolderGetCommunicationListV1ResponseMPayload(unittest.TestCase):
     """EzsignfolderGetCommunicationListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderGetCommunicationListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderGetCommunicationListV1ResponseMPayload`
         """
-        model = EzsignfolderGetCommunicationListV1ResponseMPayload()  # noqa: E501
+        model = EzsignfolderGetCommunicationListV1ResponseMPayload()
         if include_optional:
             return EzsignfolderGetCommunicationListV1ResponseMPayload(
                 a_obj_communication = [

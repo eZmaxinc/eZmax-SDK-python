@@ -13,14 +13,19 @@
 """  # noqa: E501
 
 
-import re  # noqa: F401
 import io
 import warnings
 
-from pydantic import validate_arguments, ValidationError
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from typing import Dict, List, Optional, Tuple, Union, Any
 
-from pydantic import conint
+try:
+    from typing import Annotated
+except ImportError:
+    from typing_extensions import Annotated
 
+from pydantic import Field
+from typing_extensions import Annotated
 from typing import Any, Dict
 
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_request import EzsigntemplatedocumentCreateObjectV1Request
@@ -43,10 +48,7 @@ from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_response import Ezsi
 
 from eZmaxApi.api_client import ApiClient
 from eZmaxApi.api_response import ApiResponse
-from eZmaxApi.exceptions import (  # noqa: F401
-    ApiTypeError,
-    ApiValueError
-)
+from eZmaxApi.rest import RESTResponseType
 
 
 class ObjectEzsigntemplatedocumentApi:
@@ -61,1656 +63,3072 @@ class ObjectEzsigntemplatedocumentApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-    @validate_arguments
-    def ezsigntemplatedocument_create_object_v1(self, ezsigntemplatedocument_create_object_v1_request : EzsigntemplatedocumentCreateObjectV1Request, **kwargs) -> EzsigntemplatedocumentCreateObjectV1Response:  # noqa: E501
-        """Create a new Ezsigntemplatedocument  # noqa: E501
 
-        The endpoint allows to create one or many elements at once.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_create_object_v1(
+        self,
+        ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentCreateObjectV1Response:
+        """Create a new Ezsigntemplatedocument
 
-        >>> thread = api.ezsigntemplatedocument_create_object_v1(ezsigntemplatedocument_create_object_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param ezsigntemplatedocument_create_object_v1_request: (required)
-        :type ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentCreateObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_create_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_create_object_v1_with_http_info(ezsigntemplatedocument_create_object_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_create_object_v1_with_http_info(self, ezsigntemplatedocument_create_object_v1_request : EzsigntemplatedocumentCreateObjectV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Create a new Ezsigntemplatedocument  # noqa: E501
-
-        The endpoint allows to create one or many elements at once.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_create_object_v1_with_http_info(ezsigntemplatedocument_create_object_v1_request, async_req=True)
-        >>> result = thread.get()
+        The endpoint allows to create one or many elements at once.
 
         :param ezsigntemplatedocument_create_object_v1_request: (required)
         :type ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentCreateObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'ezsigntemplatedocument_create_object_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_create_object_v1_serialize(
+            ezsigntemplatedocument_create_object_v1_request=ezsigntemplatedocument_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_create_object_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_create_object_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_create_object_v1_request']
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
-
-        # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
-
-        _response_types_map = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '201': "EzsigntemplatedocumentCreateObjectV1Response",
             '422': "CommonResponseErrorSTemporaryFileUrl",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request : EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request, **kwargs) -> EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response:  # noqa: E501
-        """Edit multiple Ezsigntemplateformfieldgroups  # noqa: E501
 
-        Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the same time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_create_object_v1_with_http_info(
+        self,
+        ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentCreateObjectV1Response]:
+        """Create a new Ezsigntemplatedocument
 
-        >>> thread = api.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request, async_req=True)
-        >>> result = thread.get()
+        The endpoint allows to create one or many elements at once.
 
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: (required)
-        :type ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request : EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Edit multiple Ezsigntemplateformfieldgroups  # noqa: E501
-
-        Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the same time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: (required)
-        :type ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsigntemplatedocument_create_object_v1_request: (required)
+        :type ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_create_object_v1_serialize(
+            ezsigntemplatedocument_create_object_v1_request=ezsigntemplatedocument_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EzsigntemplatedocumentCreateObjectV1Response",
+            '422': "CommonResponseErrorSTemporaryFileUrl",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_create_object_v1_without_preload_content(
+        self,
+        ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a new Ezsigntemplatedocument
+
+        The endpoint allows to create one or many elements at once.
+
+        :param ezsigntemplatedocument_create_object_v1_request: (required)
+        :type ezsigntemplatedocument_create_object_v1_request: EzsigntemplatedocumentCreateObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_create_object_v1_serialize(
+            ezsigntemplatedocument_create_object_v1_request=ezsigntemplatedocument_create_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EzsigntemplatedocumentCreateObjectV1Response",
+            '422': "CommonResponseErrorSTemporaryFileUrl",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_create_object_v1_serialize(
+        self,
+        ezsigntemplatedocument_create_object_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request']
+        if ezsigntemplatedocument_create_object_v1_request is not None:
+            _body_params = ezsigntemplatedocument_create_object_v1_request
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsigntemplatedocument',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response:
+        """Edit multiple Ezsigntemplateformfieldgroups
+
+        Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the same time.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request=ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request : EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request, **kwargs) -> EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response:  # noqa: E501
-        """Edit multiple Ezsigntemplatesignatures  # noqa: E501
 
-        Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response]:
+        """Edit multiple Ezsigntemplateformfieldgroups
 
-        >>> thread = api.ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: (required)
-        :type ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request : EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Edit multiple Ezsigntemplatesignatures  # noqa: E501
-
-        Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request, async_req=True)
-        >>> result = thread.get()
+        Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the same time.
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: (required)
-        :type ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request=ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Edit multiple Ezsigntemplateformfieldgroups
+
+        Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the same time.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request: EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request=ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request']
+        if ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request is not None:
+            _body_params = ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response:
+        """Edit multiple Ezsigntemplatesignatures
+
+        Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request=ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_edit_object_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_object_v1_request : EzsigntemplatedocumentEditObjectV1Request, **kwargs) -> EzsigntemplatedocumentEditObjectV1Response:  # noqa: E501
-        """Edit an existing Ezsigntemplatedocument  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response]:
+        """Edit multiple Ezsigntemplatesignatures
 
-        >>> thread = api.ezsigntemplatedocument_edit_object_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_object_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_object_v1_request: (required)
-        :type ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentEditObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_edit_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_edit_object_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_object_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_edit_object_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_edit_object_v1_request : EzsigntemplatedocumentEditObjectV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Edit an existing Ezsigntemplatedocument  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_edit_object_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_object_v1_request, async_req=True)
-        >>> result = thread.get()
+        Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_edit_object_v1_request: (required)
-        :type ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentEditObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'ezsigntemplatedocument_edit_object_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request=ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_edit_object_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Edit multiple Ezsigntemplatesignatures
+
+        Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same time.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: (required)
+        :type ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request: EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request=ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_edit_object_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_edit_object_v1_request']
+        if ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request is not None:
+            _body_params = ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_edit_object_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentEditObjectV1Response:
+        """Edit an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_object_v1_request: (required)
+        :type ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_object_v1_request=ezsigntemplatedocument_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentEditObjectV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseErrorSTemporaryFileUrl",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}', 'PUT',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_flatten_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), body : Dict[str, Any], **kwargs) -> EzsigntemplatedocumentFlattenV1Response:  # noqa: E501
-        """Flatten  # noqa: E501
 
-        Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_edit_object_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentEditObjectV1Response]:
+        """Edit an existing Ezsigntemplatedocument
 
-        >>> thread = api.ezsigntemplatedocument_flatten_v1(pki_ezsigntemplatedocument_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param body: (required)
-        :type body: object
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentFlattenV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_flatten_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_flatten_v1_with_http_info(pki_ezsigntemplatedocument_id, body, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_flatten_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), body : Dict[str, Any], **kwargs) -> ApiResponse:  # noqa: E501
-        """Flatten  # noqa: E501
-
-        Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_flatten_v1_with_http_info(pki_ezsigntemplatedocument_id, body, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param body: (required)
-        :type body: object
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsigntemplatedocument_edit_object_v1_request: (required)
+        :type ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentFlattenV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'body'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_edit_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_object_v1_request=ezsigntemplatedocument_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_flatten_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseErrorSTemporaryFileUrl",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_edit_object_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Edit an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_edit_object_v1_request: (required)
+        :type ezsigntemplatedocument_edit_object_v1_request: EzsigntemplatedocumentEditObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_edit_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_edit_object_v1_request=ezsigntemplatedocument_edit_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentEditObjectV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseErrorSTemporaryFileUrl",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_edit_object_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        ezsigntemplatedocument_edit_object_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['body'] is not None:
-            _body_params = _params['body']
+        if ezsigntemplatedocument_edit_object_v1_request is not None:
+            _body_params = ezsigntemplatedocument_edit_object_v1_request
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_flatten_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        body: Dict[str, Any],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentFlattenV1Response:
+        """Flatten
+
+        Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param body: (required)
+        :type body: object
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_flatten_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentFlattenV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_flatten_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        body: Dict[str, Any],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentFlattenV1Response]:
+        """Flatten
 
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_with_http_info(pki_ezsigntemplatedocument_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_with_http_info(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
+        Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param body: (required)
+        :type body: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsigntemplatedocument_flatten_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsigntemplatedocument_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentFlattenV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigntemplatedocument_flatten_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        body: Dict[str, Any],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Flatten
+
+        Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param body: (required)
+        :type body: object
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_flatten_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentFlattenV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_flatten_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        body,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if body is not None:
+            _body_params = body
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1" % _key
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
                 )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response]:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages
 
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_with_http_info(pki_ezsigntemplatedocument_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_with_http_info(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsigntemplatedocument_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplatesignatures_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response]:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups
 
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_with_http_info(pki_ezsigntemplatedocument_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_with_http_info(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsigntemplatedocument_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_get_ezsigntemplatesignatures_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatesignatures_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_get_object_v2(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> EzsigntemplatedocumentGetObjectV2Response:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response]:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
 
-        >>> thread = api.ezsigntemplatedocument_get_object_v2(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentGetObjectV2Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_get_object_v2_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_get_object_v2_with_http_info(pki_ezsigntemplatedocument_id, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_get_object_v2_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve an existing Ezsigntemplatedocument  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_get_object_v2_with_http_info(pki_ezsigntemplatedocument_id, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentGetObjectV2Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
 
-        _all_params = [
-            'pki_ezsigntemplatedocument_id'
-        ]
-        _all_params.extend(
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
+                'application/json'
             ]
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_get_object_v2" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
-
-        _collection_formats = {}
-
-        # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
-        # process the query parameters
-        _query_params = []
-        # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
-        # process the form parameters
-        _form_params = []
-        _files = {}
-        # process the body parameter
-        _body_params = None
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatesignatures',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_object_v2(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentGetObjectV2Response:
+        """Retrieve an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_object_v2_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentGetObjectV2Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}', 'GET',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_get_words_positions_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_get_words_positions_v1_request : EzsigntemplatedocumentGetWordsPositionsV1Request, **kwargs) -> EzsigntemplatedocumentGetWordsPositionsV1Response:  # noqa: E501
-        """Retrieve positions X,Y of given words from a Ezsigntemplatedocument  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_get_object_v2_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentGetObjectV2Response]:
+        """Retrieve an existing Ezsigntemplatedocument
 
-        >>> thread = api.ezsigntemplatedocument_get_words_positions_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_get_words_positions_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_get_words_positions_v1_request: (required)
-        :type ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentGetWordsPositionsV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_get_words_positions_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_get_words_positions_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_get_words_positions_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_get_words_positions_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_get_words_positions_v1_request : EzsigntemplatedocumentGetWordsPositionsV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Retrieve positions X,Y of given words from a Ezsigntemplatedocument  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_get_words_positions_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_get_words_positions_v1_request, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_get_words_positions_v1_request: (required)
-        :type ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentGetWordsPositionsV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'ezsigntemplatedocument_get_words_positions_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_get_object_v2_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_get_words_positions_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_get_object_v2_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_object_v2_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_get_object_v2_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_get_words_positions_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_get_words_positions_v1_request']
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
-        # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/2/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_get_words_positions_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentGetWordsPositionsV1Response:
+        """Retrieve positions X,Y of given words from a Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_get_words_positions_v1_request: (required)
+        :type ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_words_positions_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_get_words_positions_v1_request=ezsigntemplatedocument_get_words_positions_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzsigntemplatedocumentGetWordsPositionsV1Response",
             '404': "CommonResponseError",
         }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getWordsPositions', 'POST',
-            _path_params,
-            _query_params,
-            _header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
             response_types_map=_response_types_map,
-            auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
-            collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+        ).data
 
-    @validate_arguments
-    def ezsigntemplatedocument_patch_object_v1(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_patch_object_v1_request : EzsigntemplatedocumentPatchObjectV1Request, **kwargs) -> EzsigntemplatedocumentPatchObjectV1Response:  # noqa: E501
-        """Patch an existing Ezsigntemplatedocument  # noqa: E501
 
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
+    @validate_call
+    def ezsigntemplatedocument_get_words_positions_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentGetWordsPositionsV1Response]:
+        """Retrieve positions X,Y of given words from a Ezsigntemplatedocument
 
-        >>> thread = api.ezsigntemplatedocument_patch_object_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_patch_object_v1_request, async_req=True)
-        >>> result = thread.get()
-
-        :param pki_ezsigntemplatedocument_id: (required)
-        :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_patch_object_v1_request: (required)
-        :type ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _request_timeout: timeout setting for this request.
-               If one number provided, it will be total request
-               timeout. It can also be a pair (tuple) of
-               (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: EzsigntemplatedocumentPatchObjectV1Response
-        """
-        kwargs['_return_http_data_only'] = True
-        if '_preload_content' in kwargs:
-            message = "Error! Please call the ezsigntemplatedocument_patch_object_v1_with_http_info method with `_preload_content` instead and obtain raw data from ApiResponse.raw_data"  # noqa: E501
-            raise ValueError(message)
-        return self.ezsigntemplatedocument_patch_object_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_patch_object_v1_request, **kwargs)  # noqa: E501
-
-    @validate_arguments
-    def ezsigntemplatedocument_patch_object_v1_with_http_info(self, pki_ezsigntemplatedocument_id : conint(strict=True, ge=0), ezsigntemplatedocument_patch_object_v1_request : EzsigntemplatedocumentPatchObjectV1Request, **kwargs) -> ApiResponse:  # noqa: E501
-        """Patch an existing Ezsigntemplatedocument  # noqa: E501
-
-          # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ezsigntemplatedocument_patch_object_v1_with_http_info(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_patch_object_v1_request, async_req=True)
-        >>> result = thread.get()
+        
 
         :param pki_ezsigntemplatedocument_id: (required)
         :type pki_ezsigntemplatedocument_id: int
-        :param ezsigntemplatedocument_patch_object_v1_request: (required)
-        :type ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the ApiResponse.data will
-                                 be set to none and raw_data will store the
-                                 HTTP response body without reading/decoding.
-                                 Default is True.
-        :type _preload_content: bool, optional
-        :param _return_http_data_only: response data instead of ApiResponse
-                                       object with status code, headers, etc
-        :type _return_http_data_only: bool, optional
+        :param ezsigntemplatedocument_get_words_positions_v1_request: (required)
+        :type ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
         :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
         :type _request_auth: dict, optional
-        :type _content_type: string, optional: force content-type for the request
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
         :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(EzsigntemplatedocumentPatchObjectV1Response, status_code(int), headers(HTTPHeaderDict))
-        """
+        """ # noqa: E501
 
-        _params = locals()
-
-        _all_params = [
-            'pki_ezsigntemplatedocument_id',
-            'ezsigntemplatedocument_patch_object_v1_request'
-        ]
-        _all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth',
-                '_content_type',
-                '_headers'
-            ]
+        _param = self._ezsigntemplatedocument_get_words_positions_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_get_words_positions_v1_request=ezsigntemplatedocument_get_words_positions_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
         )
 
-        # validate the arguments
-        for _key, _val in _params['kwargs'].items():
-            if _key not in _all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ezsigntemplatedocument_patch_object_v1" % _key
-                )
-            _params[_key] = _val
-        del _params['kwargs']
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetWordsPositionsV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
 
-        _collection_formats = {}
+
+    @validate_call
+    def ezsigntemplatedocument_get_words_positions_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve positions X,Y of given words from a Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_get_words_positions_v1_request: (required)
+        :type ezsigntemplatedocument_get_words_positions_v1_request: EzsigntemplatedocumentGetWordsPositionsV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_get_words_positions_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_get_words_positions_v1_request=ezsigntemplatedocument_get_words_positions_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentGetWordsPositionsV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_get_words_positions_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        ezsigntemplatedocument_get_words_positions_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
 
         # process the path parameters
-        _path_params = {}
-        if _params['pki_ezsigntemplatedocument_id']:
-            _path_params['pkiEzsigntemplatedocumentID'] = _params['pki_ezsigntemplatedocument_id']
-
-
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
         # process the query parameters
-        _query_params = []
         # process the header parameters
-        _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
-        _form_params = []
-        _files = {}
         # process the body parameter
-        _body_params = None
-        if _params['ezsigntemplatedocument_patch_object_v1_request'] is not None:
-            _body_params = _params['ezsigntemplatedocument_patch_object_v1_request']
+        if ezsigntemplatedocument_get_words_positions_v1_request is not None:
+            _body_params = ezsigntemplatedocument_get_words_positions_v1_request
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            [
+                'application/json'
+            ]
+        )
 
         # set the HTTP header `Content-Type`
-        _content_types_list = _params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json']))
-        if _content_types_list:
-                _header_params['Content-Type'] = _content_types_list
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
-        _auth_settings = ['Authorization']  # noqa: E501
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
 
-        _response_types_map = {
-            '200': "EzsigntemplatedocumentPatchObjectV1Response",
-            '404': "CommonResponseError",
-        }
-
-        return self.api_client.call_api(
-            '/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}', 'PATCH',
-            _path_params,
-            _query_params,
-            _header_params,
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getWordsPositions',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
             body=_body_params,
             post_params=_form_params,
             files=_files,
-            response_types_map=_response_types_map,
             auth_settings=_auth_settings,
-            async_req=_params.get('async_req'),
-            _return_http_data_only=_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=_params.get('_preload_content', True),
-            _request_timeout=_params.get('_request_timeout'),
             collection_formats=_collection_formats,
-            _request_auth=_params.get('_request_auth'))
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigntemplatedocument_patch_object_v1(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigntemplatedocumentPatchObjectV1Response:
+        """Patch an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_patch_object_v1_request: (required)
+        :type ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_patch_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_patch_object_v1_request=ezsigntemplatedocument_patch_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentPatchObjectV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsigntemplatedocument_patch_object_v1_with_http_info(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigntemplatedocumentPatchObjectV1Response]:
+        """Patch an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_patch_object_v1_request: (required)
+        :type ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_patch_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_patch_object_v1_request=ezsigntemplatedocument_patch_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentPatchObjectV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigntemplatedocument_patch_object_v1_without_preload_content(
+        self,
+        pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Patch an existing Ezsigntemplatedocument
+
+        
+
+        :param pki_ezsigntemplatedocument_id: (required)
+        :type pki_ezsigntemplatedocument_id: int
+        :param ezsigntemplatedocument_patch_object_v1_request: (required)
+        :type ezsigntemplatedocument_patch_object_v1_request: EzsigntemplatedocumentPatchObjectV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigntemplatedocument_patch_object_v1_serialize(
+            pki_ezsigntemplatedocument_id=pki_ezsigntemplatedocument_id,
+            ezsigntemplatedocument_patch_object_v1_request=ezsigntemplatedocument_patch_object_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigntemplatedocumentPatchObjectV1Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigntemplatedocument_patch_object_v1_serialize(
+        self,
+        pki_ezsigntemplatedocument_id,
+        ezsigntemplatedocument_patch_object_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigntemplatedocument_id is not None:
+            _path_params['pkiEzsigntemplatedocumentID'] = pki_ezsigntemplatedocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsigntemplatedocument_patch_object_v1_request is not None:
+            _body_params = ezsigntemplatedocument_patch_object_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+

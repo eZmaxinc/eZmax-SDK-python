@@ -19,38 +19,44 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictBytes, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, StrictBool, StrictBytes, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigndocumentRequestCompound(BaseModel):
     """
-    An Ezsigndocument Object and children to create a complete structure  # noqa: E501
-    """
-    pki_ezsigndocument_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzsigndocumentID", description="The unique ID of the Ezsigndocument")
-    fki_ezsignfolder_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsignfolderID", description="The unique ID of the Ezsignfolder")
-    fki_ezsigntemplate_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplateID", description="The unique ID of the Ezsigntemplate")
-    fki_ezsignfoldersignerassociation_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignfoldersignerassociationID", description="The unique ID of the Ezsignfoldersignerassociation")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    e_ezsigndocument_source: StrictStr = Field(..., alias="eEzsigndocumentSource", description="Indicates where to look for the document binary content.")
-    e_ezsigndocument_format: Optional[StrictStr] = Field(None, alias="eEzsigndocumentFormat", description="Indicates the format of the document.")
-    s_ezsigndocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(None, alias="sEzsigndocumentBase64", description="The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.")
-    s_ezsigndocument_url: Optional[StrictStr] = Field(None, alias="sEzsigndocumentUrl", description="The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.")
-    b_ezsigndocument_forcerepair: Optional[StrictBool] = Field(True, alias="bEzsigndocumentForcerepair", description="Try to repair the document or flatten it if it cannot be used for electronic signature. ")
-    s_ezsigndocument_password: Optional[StrictStr] = Field(None, alias="sEzsigndocumentPassword", description="If the source document is password protected, the password to open/modify it.")
-    e_ezsigndocument_form: Optional[StrictStr] = Field(None, alias="eEzsigndocumentForm", description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**")
-    dt_ezsigndocument_duedate: StrictStr = Field(..., alias="dtEzsigndocumentDuedate", description="The maximum date and time at which the Ezsigndocument can be signed.")
-    s_ezsigndocument_name: StrictStr = Field(..., alias="sEzsigndocumentName", description="The name of the document that will be presented to Ezsignfoldersignerassociations")
-    s_ezsigndocument_externalid: Optional[constr(strict=True)] = Field(None, alias="sEzsigndocumentExternalid", description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ")
-    __properties = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsigntemplateID", "fkiEzsignfoldersignerassociationID", "fkiLanguageID", "eEzsigndocumentSource", "eEzsigndocumentFormat", "sEzsigndocumentBase64", "sEzsigndocumentUrl", "bEzsigndocumentForcerepair", "sEzsigndocumentPassword", "eEzsigndocumentForm", "dtEzsigndocumentDuedate", "sEzsigndocumentName", "sEzsigndocumentExternalid"]
+    An Ezsigndocument Object and children to create a complete structure
+    """ # noqa: E501
+    pki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    e_ezsigndocument_source: StrictStr = Field(description="Indicates where to look for the document binary content.", alias="eEzsigndocumentSource")
+    e_ezsigndocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the document.", alias="eEzsigndocumentFormat")
+    s_ezsigndocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource = Base64.", alias="sEzsigndocumentBase64")
+    s_ezsigndocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.", alias="sEzsigndocumentUrl")
+    b_ezsigndocument_forcerepair: Optional[StrictBool] = Field(default=True, description="Try to repair the document or flatten it if it cannot be used for electronic signature. ", alias="bEzsigndocumentForcerepair")
+    s_ezsigndocument_password: Optional[StrictStr] = Field(default=None, description="If the source document is password protected, the password to open/modify it.", alias="sEzsigndocumentPassword")
+    e_ezsigndocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**", alias="eEzsigndocumentForm")
+    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
+    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
+    s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsigntemplateID", "fkiEzsignfoldersignerassociationID", "fkiLanguageID", "eEzsigndocumentSource", "eEzsigndocumentFormat", "sEzsigndocumentBase64", "sEzsigndocumentUrl", "bEzsigndocumentForcerepair", "sEzsigndocumentPassword", "eEzsigndocumentForm", "dtEzsigndocumentDuedate", "sEzsigndocumentName", "sEzsigndocumentExternalid"]
 
-    @validator('e_ezsigndocument_source')
+    @field_validator('e_ezsigndocument_source')
     def e_ezsigndocument_source_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('Base64', 'Ezsigntemplate', 'Url'):
             raise ValueError("must be one of enum values ('Base64', 'Ezsigntemplate', 'Url')")
         return value
 
-    @validator('e_ezsigndocument_format')
+    @field_validator('e_ezsigndocument_format')
     def e_ezsigndocument_format_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -60,7 +66,7 @@ class EzsigndocumentRequestCompound(BaseModel):
             raise ValueError("must be one of enum values ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx')")
         return value
 
-    @validator('e_ezsigndocument_form')
+    @field_validator('e_ezsigndocument_form')
     def e_ezsigndocument_form_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -70,7 +76,7 @@ class EzsigndocumentRequestCompound(BaseModel):
             raise ValueError("must be one of enum values ('Keep', 'Convert')")
         return value
 
-    @validator('s_ezsigndocument_externalid')
+    @field_validator('s_ezsigndocument_externalid')
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -80,57 +86,70 @@ class EzsigndocumentRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigndocumentRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigndocumentRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigndocumentRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigndocumentRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigndocumentRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigndocumentRequestCompound.parse_obj({
-            "pki_ezsigndocument_id": obj.get("pkiEzsigndocumentID"),
-            "fki_ezsignfolder_id": obj.get("fkiEzsignfolderID"),
-            "fki_ezsigntemplate_id": obj.get("fkiEzsigntemplateID"),
-            "fki_ezsignfoldersignerassociation_id": obj.get("fkiEzsignfoldersignerassociationID"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "e_ezsigndocument_source": obj.get("eEzsigndocumentSource"),
-            "e_ezsigndocument_format": obj.get("eEzsigndocumentFormat"),
-            "s_ezsigndocument_base64": obj.get("sEzsigndocumentBase64"),
-            "s_ezsigndocument_url": obj.get("sEzsigndocumentUrl"),
-            "b_ezsigndocument_forcerepair": obj.get("bEzsigndocumentForcerepair") if obj.get("bEzsigndocumentForcerepair") is not None else True,
-            "s_ezsigndocument_password": obj.get("sEzsigndocumentPassword"),
-            "e_ezsigndocument_form": obj.get("eEzsigndocumentForm"),
-            "dt_ezsigndocument_duedate": obj.get("dtEzsigndocumentDuedate"),
-            "s_ezsigndocument_name": obj.get("sEzsigndocumentName"),
-            "s_ezsigndocument_externalid": obj.get("sEzsigndocumentExternalid")
+        _obj = cls.model_validate({
+            "pkiEzsigndocumentID": obj.get("pkiEzsigndocumentID"),
+            "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
+            "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "eEzsigndocumentSource": obj.get("eEzsigndocumentSource"),
+            "eEzsigndocumentFormat": obj.get("eEzsigndocumentFormat"),
+            "sEzsigndocumentBase64": obj.get("sEzsigndocumentBase64"),
+            "sEzsigndocumentUrl": obj.get("sEzsigndocumentUrl"),
+            "bEzsigndocumentForcerepair": obj.get("bEzsigndocumentForcerepair") if obj.get("bEzsigndocumentForcerepair") is not None else True,
+            "sEzsigndocumentPassword": obj.get("sEzsigndocumentPassword"),
+            "eEzsigndocumentForm": obj.get("eEzsigndocumentForm"),
+            "dtEzsigndocumentDuedate": obj.get("dtEzsigndocumentDuedate"),
+            "sEzsigndocumentName": obj.get("sEzsigndocumentName"),
+            "sEzsigndocumentExternalid": obj.get("sEzsigndocumentExternalid")
         })
         return _obj
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_batch_download_v1_request import EzsignfolderBatchDownloadV1Request  # noqa: E501
+from eZmaxApi.models.ezsignfolder_batch_download_v1_request import EzsignfolderBatchDownloadV1Request
 
 class TestEzsignfolderBatchDownloadV1Request(unittest.TestCase):
     """EzsignfolderBatchDownloadV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderBatchDownloadV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderBatchDownloadV1Request`
         """
-        model = EzsignfolderBatchDownloadV1Request()  # noqa: E501
+        model = EzsignfolderBatchDownloadV1Request()
         if include_optional:
             return EzsignfolderBatchDownloadV1Request(
                 a_pki_ezsigndocument_id = [

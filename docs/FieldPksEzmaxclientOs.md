@@ -3,6 +3,7 @@
 The OS of the system running the application
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

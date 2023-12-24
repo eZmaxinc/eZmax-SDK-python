@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignsignergroupmembership_api import ObjectEzsignsignergroupmembershipApi  # noqa: E501
+from eZmaxApi.api.object_ezsignsignergroupmembership_api import ObjectEzsignsignergroupmembershipApi
 
 
 class TestObjectEzsignsignergroupmembershipApi(unittest.TestCase):
     """ObjectEzsignsignergroupmembershipApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignsignergroupmembershipApi()  # noqa: E501
+        self.api = ObjectEzsignsignergroupmembershipApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,21 +30,21 @@ class TestObjectEzsignsignergroupmembershipApi(unittest.TestCase):
     def test_ezsignsignergroupmembership_create_object_v1(self) -> None:
         """Test case for ezsignsignergroupmembership_create_object_v1
 
-        Create a new Ezsignsignergroupmembership  # noqa: E501
+        Create a new Ezsignsignergroupmembership
         """
         pass
 
     def test_ezsignsignergroupmembership_delete_object_v1(self) -> None:
         """Test case for ezsignsignergroupmembership_delete_object_v1
 
-        Delete an existing Ezsignsignergroupmembership  # noqa: E501
+        Delete an existing Ezsignsignergroupmembership
         """
         pass
 
     def test_ezsignsignergroupmembership_get_object_v2(self) -> None:
         """Test case for ezsignsignergroupmembership_get_object_v2
 
-        Retrieve an existing Ezsignsignergroupmembership  # noqa: E501
+        Retrieve an existing Ezsignsignergroupmembership
         """
         pass
 

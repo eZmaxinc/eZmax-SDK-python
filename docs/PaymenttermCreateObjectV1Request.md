@@ -3,6 +3,7 @@
 Request for POST /1/object/paymentterm
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_paymentterm** | [**List[PaymenttermRequestCompound]**](PaymenttermRequestCompound.md) |  | 

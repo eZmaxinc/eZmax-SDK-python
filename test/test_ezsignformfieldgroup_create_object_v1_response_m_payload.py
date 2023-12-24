@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignformfieldgroup_create_object_v1_response_m_payload import EzsignformfieldgroupCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignformfieldgroup_create_object_v1_response_m_payload import EzsignformfieldgroupCreateObjectV1ResponseMPayload
 
 class TestEzsignformfieldgroupCreateObjectV1ResponseMPayload(unittest.TestCase):
     """EzsignformfieldgroupCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignformfieldgroupCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignformfieldgroupCreateObjectV1ResponseMPayload`
         """
-        model = EzsignformfieldgroupCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = EzsignformfieldgroupCreateObjectV1ResponseMPayload()
         if include_optional:
             return EzsignformfieldgroupCreateObjectV1ResponseMPayload(
                 a_pki_ezsignformfieldgroup_id = [

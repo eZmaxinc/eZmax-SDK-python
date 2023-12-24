@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound  # noqa: E501
+from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound
 
 class TestEzsigndocumentRequestCompound(unittest.TestCase):
     """EzsigndocumentRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentRequestCompound`
         """
-        model = EzsigndocumentRequestCompound()  # noqa: E501
+        model = EzsigndocumentRequestCompound()
         if include_optional:
             return EzsigndocumentRequestCompound(
                 pki_ezsigndocument_id = 97,
@@ -44,7 +44,7 @@ class TestEzsigndocumentRequestCompound(unittest.TestCase):
                 fki_language_id = 2,
                 e_ezsigndocument_source = 'Base64',
                 e_ezsigndocument_format = 'Pdf',
-                s_ezsigndocument_base64 = '[B@30ea8c23',
+                s_ezsigndocument_base64 = 'eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0=',
                 s_ezsigndocument_url = 'http://www.example.com/document.pdf',
                 b_ezsigndocument_forcerepair = True,
                 s_ezsigndocument_password = 'SecretPassword123',

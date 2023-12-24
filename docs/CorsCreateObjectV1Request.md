@@ -3,6 +3,7 @@
 Request for POST /1/object/cors
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_cors** | [**List[CorsRequestCompound]**](CorsRequestCompound.md) |  | 

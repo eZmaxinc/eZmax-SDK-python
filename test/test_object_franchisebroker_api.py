@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi  # noqa: E501
+from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi
 
 
 class TestObjectFranchisebrokerApi(unittest.TestCase):
     """ObjectFranchisebrokerApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectFranchisebrokerApi()  # noqa: E501
+        self.api = ObjectFranchisebrokerApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestObjectFranchisebrokerApi(unittest.TestCase):
     def test_franchisebroker_get_autocomplete_v1(self) -> None:
         """Test case for franchisebroker_get_autocomplete_v1
 
-        Retrieve Franchisebrokers and IDs  # noqa: E501
+        Retrieve Franchisebrokers and IDs
         """
         pass
 
     def test_franchisebroker_get_autocomplete_v2(self) -> None:
         """Test case for franchisebroker_get_autocomplete_v2
 
-        Retrieve Franchisebrokers and IDs  # noqa: E501
+        Retrieve Franchisebrokers and IDs
         """
         pass
 

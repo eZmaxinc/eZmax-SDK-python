@@ -15,22 +15,29 @@
 
 import unittest
 
-from eZmaxApi.api.object_invoice_api import ObjectInvoiceApi  # noqa: E501
+from eZmaxApi.api.object_invoice_api import ObjectInvoiceApi
 
 
 class TestObjectInvoiceApi(unittest.TestCase):
     """ObjectInvoiceApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectInvoiceApi()  # noqa: E501
+        self.api = ObjectInvoiceApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_invoice_get_attachments_v1(self) -> None:
+        """Test case for invoice_get_attachments_v1
+
+        Retrieve Invoice's Attachments
+        """
         pass
 
     def test_invoice_get_communication_list_v1(self) -> None:
         """Test case for invoice_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

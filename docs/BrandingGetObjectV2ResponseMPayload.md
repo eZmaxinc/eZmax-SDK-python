@@ -3,6 +3,7 @@
 Payload for GET /2/object/branding/{pkiBrandingID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_branding** | [**BrandingResponseCompound**](BrandingResponseCompound.md) |  | 

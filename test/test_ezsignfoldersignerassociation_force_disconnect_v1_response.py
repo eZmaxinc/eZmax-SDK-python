@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldersignerassociation_force_disconnect_v1_response import EzsignfoldersignerassociationForceDisconnectV1Response  # noqa: E501
+from eZmaxApi.models.ezsignfoldersignerassociation_force_disconnect_v1_response import EzsignfoldersignerassociationForceDisconnectV1Response
 
 class TestEzsignfoldersignerassociationForceDisconnectV1Response(unittest.TestCase):
     """EzsignfoldersignerassociationForceDisconnectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldersignerassociationForceDisconnectV1Response(unittest.TestCa
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldersignerassociationForceDisconnectV1Response`
         """
-        model = EzsignfoldersignerassociationForceDisconnectV1Response()  # noqa: E501
+        model = EzsignfoldersignerassociationForceDisconnectV1Response()
         if include_optional:
             return EzsignfoldersignerassociationForceDisconnectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

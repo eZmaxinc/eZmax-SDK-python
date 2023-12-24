@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_userstaged_api import ObjectUserstagedApi  # noqa: E501
+from eZmaxApi.api.object_userstaged_api import ObjectUserstagedApi
 
 
 class TestObjectUserstagedApi(unittest.TestCase):
     """ObjectUserstagedApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectUserstagedApi()  # noqa: E501
+        self.api = ObjectUserstagedApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestObjectUserstagedApi(unittest.TestCase):
     def test_userstaged_create_user_v1(self) -> None:
         """Test case for userstaged_create_user_v1
 
-        Create a User from a Userstaged and then map it  # noqa: E501
+        Create a User from a Userstaged and then map it
         """
         pass
 
     def test_userstaged_delete_object_v1(self) -> None:
         """Test case for userstaged_delete_object_v1
 
-        Delete an existing Userstaged  # noqa: E501
+        Delete an existing Userstaged
         """
         pass
 
     def test_userstaged_get_list_v1(self) -> None:
         """Test case for userstaged_get_list_v1
 
-        Retrieve Userstaged list  # noqa: E501
+        Retrieve Userstaged list
         """
         pass
 
     def test_userstaged_get_object_v2(self) -> None:
         """Test case for userstaged_get_object_v2
 
-        Retrieve an existing Userstaged  # noqa: E501
+        Retrieve an existing Userstaged
         """
         pass
 
     def test_userstaged_map_v1(self) -> None:
         """Test case for userstaged_map_v1
 
-        Map the Userstaged to an existing user  # noqa: E501
+        Map the Userstaged to an existing user
         """
         pass
 

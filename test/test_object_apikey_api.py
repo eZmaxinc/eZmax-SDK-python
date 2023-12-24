@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_apikey_api import ObjectApikeyApi  # noqa: E501
+from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 
 
 class TestObjectApikeyApi(unittest.TestCase):
     """ObjectApikeyApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectApikeyApi()  # noqa: E501
+        self.api = ObjectApikeyApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,63 +30,63 @@ class TestObjectApikeyApi(unittest.TestCase):
     def test_apikey_create_object_v2(self) -> None:
         """Test case for apikey_create_object_v2
 
-        Create a new Apikey  # noqa: E501
+        Create a new Apikey
         """
         pass
 
     def test_apikey_edit_object_v1(self) -> None:
         """Test case for apikey_edit_object_v1
 
-        Edit an existing Apikey  # noqa: E501
+        Edit an existing Apikey
         """
         pass
 
     def test_apikey_edit_permissions_v1(self) -> None:
         """Test case for apikey_edit_permissions_v1
 
-        Edit multiple Permissions  # noqa: E501
+        Edit multiple Permissions
         """
         pass
 
     def test_apikey_get_cors_v1(self) -> None:
         """Test case for apikey_get_cors_v1
 
-        Retrieve an existing Apikey's cors  # noqa: E501
+        Retrieve an existing Apikey's cors
         """
         pass
 
     def test_apikey_get_list_v1(self) -> None:
         """Test case for apikey_get_list_v1
 
-        Retrieve Apikey list  # noqa: E501
+        Retrieve Apikey list
         """
         pass
 
     def test_apikey_get_object_v2(self) -> None:
         """Test case for apikey_get_object_v2
 
-        Retrieve an existing Apikey  # noqa: E501
+        Retrieve an existing Apikey
         """
         pass
 
     def test_apikey_get_permissions_v1(self) -> None:
         """Test case for apikey_get_permissions_v1
 
-        Retrieve an existing Apikey's Permissions  # noqa: E501
+        Retrieve an existing Apikey's Permissions
         """
         pass
 
     def test_apikey_get_subnets_v1(self) -> None:
         """Test case for apikey_get_subnets_v1
 
-        Retrieve an existing Apikey's subnets  # noqa: E501
+        Retrieve an existing Apikey's subnets
         """
         pass
 
     def test_apikey_regenerate_v1(self) -> None:
         """Test case for apikey_regenerate_v1
 
-        Regenerate the Apikey  # noqa: E501
+        Regenerate the Apikey
         """
         pass
 

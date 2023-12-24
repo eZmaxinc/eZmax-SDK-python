@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_get_list_v1_response_m_payload import VariableexpenseGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.variableexpense_get_list_v1_response_m_payload import VariableexpenseGetListV1ResponseMPayload
 
 class TestVariableexpenseGetListV1ResponseMPayload(unittest.TestCase):
     """VariableexpenseGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseGetListV1ResponseMPayload`
         """
-        model = VariableexpenseGetListV1ResponseMPayload()  # noqa: E501
+        model = VariableexpenseGetListV1ResponseMPayload()
         if include_optional:
             return VariableexpenseGetListV1ResponseMPayload(
                 i_row_returned = 100,

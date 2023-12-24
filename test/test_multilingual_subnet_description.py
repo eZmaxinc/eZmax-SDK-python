@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_subnet_description import MultilingualSubnetDescription  # noqa: E501
+from eZmaxApi.models.multilingual_subnet_description import MultilingualSubnetDescription
 
 class TestMultilingualSubnetDescription(unittest.TestCase):
     """MultilingualSubnetDescription unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualSubnetDescription(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualSubnetDescription`
         """
-        model = MultilingualSubnetDescription()  # noqa: E501
+        model = MultilingualSubnetDescription()
         if include_optional:
             return MultilingualSubnetDescription(
                 s_subnet_description1 = 'Bureau chef',

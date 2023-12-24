@@ -3,6 +3,7 @@
 Response for GET /1/object/apikey/{pkiApikeyID}/regenerate
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_apikey** | [**ApikeyResponseCompound**](ApikeyResponseCompound.md) |  | 

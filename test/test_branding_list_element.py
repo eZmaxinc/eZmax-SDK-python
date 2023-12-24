@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_list_element import BrandingListElement  # noqa: E501
+from eZmaxApi.models.branding_list_element import BrandingListElement
 
 class TestBrandingListElement(unittest.TestCase):
     """BrandingListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingListElement`
         """
-        model = BrandingListElement()  # noqa: E501
+        model = BrandingListElement()
         if include_optional:
             return BrandingListElement(
                 pki_branding_id = 78,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.emailtype_autocomplete_element_response import EmailtypeAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.emailtype_autocomplete_element_response import EmailtypeAutocompleteElementResponse
 
 class TestEmailtypeAutocompleteElementResponse(unittest.TestCase):
     """EmailtypeAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEmailtypeAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EmailtypeAutocompleteElementResponse`
         """
-        model = EmailtypeAutocompleteElementResponse()  # noqa: E501
+        model = EmailtypeAutocompleteElementResponse()
         if include_optional:
             return EmailtypeAutocompleteElementResponse(
                 pki_emailtype_id = 1,

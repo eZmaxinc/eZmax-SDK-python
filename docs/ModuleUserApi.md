@@ -17,6 +17,7 @@ The endpoint allows to initiate the creation or a user of type Ezsignuser.  The 
 ### Example
 
 * Api Key Authentication (Authorization):
+
 ```python
 import time
 import os
@@ -62,6 +63,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_create_ezsignuser_v1_request** | [**List[UserCreateEzsignuserV1Request]**](UserCreateEzsignuserV1Request.md)|  | 
@@ -80,6 +82,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

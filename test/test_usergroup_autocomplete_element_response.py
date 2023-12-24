@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroup_autocomplete_element_response import UsergroupAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.usergroup_autocomplete_element_response import UsergroupAutocompleteElementResponse
 
 class TestUsergroupAutocompleteElementResponse(unittest.TestCase):
     """UsergroupAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupAutocompleteElementResponse`
         """
-        model = UsergroupAutocompleteElementResponse()  # noqa: E501
+        model = UsergroupAutocompleteElementResponse()
         if include_optional:
             return UsergroupAutocompleteElementResponse(
                 s_usergroup_name_x = 'Administration',

@@ -3,6 +3,7 @@
 The font of the signature. This can only be set if eEzsigntemplatesignatureType is **Name** or **Initials**
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

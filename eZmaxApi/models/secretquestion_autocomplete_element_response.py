@@ -19,57 +19,76 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class SecretquestionAutocompleteElementResponse(BaseModel):
     """
-    A Secretquestion AutocompleteElement Response  # noqa: E501
-    """
-    s_secretquestion_text_x: StrictStr = Field(..., alias="sSecretquestionTextX", description="The text of the Secretquestion in the language of the requester")
-    pki_secretquestion_id: conint(strict=True, ge=0) = Field(..., alias="pkiSecretquestionID", description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|")
-    b_secretquestion_isactive: StrictBool = Field(..., alias="bSecretquestionIsactive", description="Whether the Secretquestion is active or not")
-    __properties = ["sSecretquestionTextX", "pkiSecretquestionID", "bSecretquestionIsactive"]
+    A Secretquestion AutocompleteElement Response
+    """ # noqa: E501
+    s_secretquestion_text_x: StrictStr = Field(description="The text of the Secretquestion in the language of the requester", alias="sSecretquestionTextX")
+    pki_secretquestion_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|", alias="pkiSecretquestionID")
+    b_secretquestion_isactive: StrictBool = Field(description="Whether the Secretquestion is active or not", alias="bSecretquestionIsactive")
+    __properties: ClassVar[List[str]] = ["sSecretquestionTextX", "pkiSecretquestionID", "bSecretquestionIsactive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SecretquestionAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of SecretquestionAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SecretquestionAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of SecretquestionAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SecretquestionAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SecretquestionAutocompleteElementResponse.parse_obj({
-            "s_secretquestion_text_x": obj.get("sSecretquestionTextX"),
-            "pki_secretquestion_id": obj.get("pkiSecretquestionID"),
-            "b_secretquestion_isactive": obj.get("bSecretquestionIsactive")
+        _obj = cls.model_validate({
+            "sSecretquestionTextX": obj.get("sSecretquestionTextX"),
+            "pkiSecretquestionID": obj.get("pkiSecretquestionID"),
+            "bSecretquestionIsactive": obj.get("bSecretquestionIsactive")
         })
         return _obj
 

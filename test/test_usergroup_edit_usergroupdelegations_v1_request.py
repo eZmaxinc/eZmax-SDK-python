@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_request import UsergroupEditUsergroupdelegationsV1Request  # noqa: E501
+from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_request import UsergroupEditUsergroupdelegationsV1Request
 
 class TestUsergroupEditUsergroupdelegationsV1Request(unittest.TestCase):
     """UsergroupEditUsergroupdelegationsV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupEditUsergroupdelegationsV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupEditUsergroupdelegationsV1Request`
         """
-        model = UsergroupEditUsergroupdelegationsV1Request()  # noqa: E501
+        model = UsergroupEditUsergroupdelegationsV1Request()
         if include_optional:
             return UsergroupEditUsergroupdelegationsV1Request(
                 a_obj_usergroupdelegation = [

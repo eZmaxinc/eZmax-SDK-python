@@ -3,6 +3,7 @@
 Payload for GET /2/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignsignergroupmembership** | [**EzsignsignergroupmembershipResponseCompound**](EzsignsignergroupmembershipResponseCompound.md) |  | 

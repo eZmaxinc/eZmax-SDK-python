@@ -3,12 +3,16 @@
 A Custom Ezsignfoldertype Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
-**b_ezsignfoldertype_includeproofsigner** | **bool** | Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | [optional] 
+**b_ezsignfoldertype_sendproofezsignsigner** | **bool** | Whether we send the proof in the email to Ezsignsigner | [optional] 
+**b_ezsignfoldertype_includeproofsigner** | **bool** | THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners | [optional] 
 **b_ezsignfoldertype_includeproofuser** | **bool** | Whether we include the proof with the signed Ezsigndocument for users | [optional] 
+**b_ezsignfoldertype_allowdownloadattachmentezsignsigner** | **bool** | Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner | [optional] 
+**b_ezsignfoldertype_allowdownloadproofezsignsigner** | **bool** | Whether we allow the proof to be downloaded by an Ezsignsigner | [optional] 
 **b_ezsignfoldertype_delegate** | **bool** | Wheter if delegation of signature is allowed to another user or not | [optional] 
 **b_ezsignfoldertype_reassign** | **bool** | Wheter if Reassignment of signature is allowed to another signatory or not | [optional] 
 

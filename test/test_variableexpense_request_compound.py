@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_request_compound import VariableexpenseRequestCompound  # noqa: E501
+from eZmaxApi.models.variableexpense_request_compound import VariableexpenseRequestCompound
 
 class TestVariableexpenseRequestCompound(unittest.TestCase):
     """VariableexpenseRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseRequestCompound`
         """
-        model = VariableexpenseRequestCompound()  # noqa: E501
+        model = VariableexpenseRequestCompound()
         if include_optional:
             return VariableexpenseRequestCompound(
                 pki_variableexpense_id = 2,

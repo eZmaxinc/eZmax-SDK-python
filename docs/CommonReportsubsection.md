@@ -3,6 +3,7 @@
 A Subsection in a Reportsection. It contains 3 Reportsubsectionparts (Header, Body and Footer) 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_reportsubsectionpart_header** | [**CommonReportsubsectionpart**](CommonReportsubsectionpart.md) |  | 

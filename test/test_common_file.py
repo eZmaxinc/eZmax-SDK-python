@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_file import CommonFile  # noqa: E501
+from eZmaxApi.models.common_file import CommonFile
 
 class TestCommonFile(unittest.TestCase):
     """CommonFile unit test stubs"""
@@ -34,12 +34,12 @@ class TestCommonFile(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonFile`
         """
-        model = CommonFile()  # noqa: E501
+        model = CommonFile()
         if include_optional:
             return CommonFile(
                 s_file_name = 'example.pdf',
                 s_file_url = '',
-                s_file_base64 = '[B@64337702',
+                s_file_base64 = '[B@f9d87b',
                 e_file_source = 'Base64'
             )
         else:

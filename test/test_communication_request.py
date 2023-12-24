@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.communication_request import CommunicationRequest  # noqa: E501
+from eZmaxApi.models.communication_request import CommunicationRequest
 
 class TestCommunicationRequest(unittest.TestCase):
     """CommunicationRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommunicationRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommunicationRequest`
         """
-        model = CommunicationRequest()  # noqa: E501
+        model = CommunicationRequest()
         if include_optional:
             return CommunicationRequest(
                 pki_communication_id = 1,
@@ -44,6 +44,7 @@ class TestCommunicationRequest(unittest.TestCase):
                     fki_agent_id = 1, 
                     fki_broker_id = 26, 
                     fki_mailboxshared_id = 47, 
+                    fki_phonelineshared_id = 47, 
                     fki_user_id = 70, ),
                 s_communication_subject = 'This is an example of subject',
                 t_communication_body = '',

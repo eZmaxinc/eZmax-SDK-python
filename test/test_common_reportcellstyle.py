@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_reportcellstyle import CommonReportcellstyle  # noqa: E501
+from eZmaxApi.models.common_reportcellstyle import CommonReportcellstyle
 
 class TestCommonReportcellstyle(unittest.TestCase):
     """CommonReportcellstyle unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonReportcellstyle(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonReportcellstyle`
         """
-        model = CommonReportcellstyle()  # noqa: E501
+        model = CommonReportcellstyle()
         if include_optional:
             return CommonReportcellstyle(
                 b_reportcellstyle_bordertop = True,

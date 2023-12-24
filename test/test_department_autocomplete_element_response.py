@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.department_autocomplete_element_response import DepartmentAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.department_autocomplete_element_response import DepartmentAutocompleteElementResponse
 
 class TestDepartmentAutocompleteElementResponse(unittest.TestCase):
     """DepartmentAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestDepartmentAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `DepartmentAutocompleteElementResponse`
         """
-        model = DepartmentAutocompleteElementResponse()  # noqa: E501
+        model = DepartmentAutocompleteElementResponse()
         if include_optional:
             return DepartmentAutocompleteElementResponse(
                 s_company_name_x = 'Acme inc.',

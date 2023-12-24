@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_ezsign_ezsignsigner_acceptclause import WebhookEzsignEzsignsignerAcceptclause  # noqa: E501
+from eZmaxApi.models.webhook_ezsign_ezsignsigner_acceptclause import WebhookEzsignEzsignsignerAcceptclause
 
 class TestWebhookEzsignEzsignsignerAcceptclause(unittest.TestCase):
     """WebhookEzsignEzsignsignerAcceptclause unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookEzsignEzsignsignerAcceptclause(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookEzsignEzsignsignerAcceptclause`
         """
-        model = WebhookEzsignEzsignsignerAcceptclause()  # noqa: E501
+        model = WebhookEzsignEzsignsignerAcceptclause()
         if include_optional:
             return WebhookEzsignEzsignsignerAcceptclause(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),

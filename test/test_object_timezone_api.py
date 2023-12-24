@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi  # noqa: E501
+from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
 
 
 class TestObjectTimezoneApi(unittest.TestCase):
     """ObjectTimezoneApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectTimezoneApi()  # noqa: E501
+        self.api = ObjectTimezoneApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectTimezoneApi(unittest.TestCase):
     def test_timezone_get_autocomplete_v2(self) -> None:
         """Test case for timezone_get_autocomplete_v2
 
-        Retrieve Timezones and IDs  # noqa: E501
+        Retrieve Timezones and IDs
         """
         pass
 

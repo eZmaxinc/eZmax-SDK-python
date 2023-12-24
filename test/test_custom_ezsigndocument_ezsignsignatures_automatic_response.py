@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsigndocument_ezsignsignatures_automatic_response import CustomEzsigndocumentEzsignsignaturesAutomaticResponse  # noqa: E501
+from eZmaxApi.models.custom_ezsigndocument_ezsignsignatures_automatic_response import CustomEzsigndocumentEzsignsignaturesAutomaticResponse
 
 class TestCustomEzsigndocumentEzsignsignaturesAutomaticResponse(unittest.TestCase):
     """CustomEzsigndocumentEzsignsignaturesAutomaticResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsigndocumentEzsignsignaturesAutomaticResponse(unittest.TestCas
             optional params are included """
         # uncomment below to create an instance of `CustomEzsigndocumentEzsignsignaturesAutomaticResponse`
         """
-        model = CustomEzsigndocumentEzsignsignaturesAutomaticResponse()  # noqa: E501
+        model = CustomEzsigndocumentEzsignsignaturesAutomaticResponse()
         if include_optional:
             return CustomEzsigndocumentEzsignsignaturesAutomaticResponse(
                 pki_ezsigndocument_id = 97,

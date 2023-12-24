@@ -3,6 +3,7 @@
 A Textstylestatic Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_textstylestatic_id** | **int** | The unique ID of the Textstylestatic | [optional] 

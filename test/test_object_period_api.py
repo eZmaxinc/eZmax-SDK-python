@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_period_api import ObjectPeriodApi  # noqa: E501
+from eZmaxApi.api.object_period_api import ObjectPeriodApi
 
 
 class TestObjectPeriodApi(unittest.TestCase):
     """ObjectPeriodApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectPeriodApi()  # noqa: E501
+        self.api = ObjectPeriodApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestObjectPeriodApi(unittest.TestCase):
     def test_period_get_autocomplete_v1(self) -> None:
         """Test case for period_get_autocomplete_v1
 
-        Retrieve Periods and IDs  # noqa: E501
+        Retrieve Periods and IDs
         """
         pass
 
     def test_period_get_autocomplete_v2(self) -> None:
         """Test case for period_get_autocomplete_v2
 
-        Retrieve Periods and IDs  # noqa: E501
+        Retrieve Periods and IDs
         """
         pass
 

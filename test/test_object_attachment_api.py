@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_attachment_api import ObjectAttachmentApi  # noqa: E501
+from eZmaxApi.api.object_attachment_api import ObjectAttachmentApi
 
 
 class TestObjectAttachmentApi(unittest.TestCase):
     """ObjectAttachmentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectAttachmentApi()  # noqa: E501
+        self.api = ObjectAttachmentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,21 @@ class TestObjectAttachmentApi(unittest.TestCase):
     def test_attachment_download_v1(self) -> None:
         """Test case for attachment_download_v1
 
-        Retrieve the content  # noqa: E501
+        Retrieve the content
+        """
+        pass
+
+    def test_attachment_get_attachmentlogs_v1(self) -> None:
+        """Test case for attachment_get_attachmentlogs_v1
+
+        Retrieve the Attachmentlogs
+        """
+        pass
+
+    def test_attachment_get_download_url_v1(self) -> None:
+        """Test case for attachment_get_download_url_v1
+
+        Retrieve a URL to download attachments.
         """
         pass
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_error_s_temporary_file_url import CommonResponseErrorSTemporaryFileUrl  # noqa: E501
+from eZmaxApi.models.common_response_error_s_temporary_file_url import CommonResponseErrorSTemporaryFileUrl
 
 class TestCommonResponseErrorSTemporaryFileUrl(unittest.TestCase):
     """CommonResponseErrorSTemporaryFileUrl unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseErrorSTemporaryFileUrl(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseErrorSTemporaryFileUrl`
         """
-        model = CommonResponseErrorSTemporaryFileUrl()  # noqa: E501
+        model = CommonResponseErrorSTemporaryFileUrl()
         if include_optional:
             return CommonResponseErrorSTemporaryFileUrl(
                 s_error_message = 'Invalid Signature Headers',

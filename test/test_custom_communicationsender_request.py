@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_communicationsender_request import CustomCommunicationsenderRequest  # noqa: E501
+from eZmaxApi.models.custom_communicationsender_request import CustomCommunicationsenderRequest
 
 class TestCustomCommunicationsenderRequest(unittest.TestCase):
     """CustomCommunicationsenderRequest unit test stubs"""
@@ -34,12 +34,13 @@ class TestCustomCommunicationsenderRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationsenderRequest`
         """
-        model = CustomCommunicationsenderRequest()  # noqa: E501
+        model = CustomCommunicationsenderRequest()
         if include_optional:
             return CustomCommunicationsenderRequest(
                 fki_agent_id = 1,
                 fki_broker_id = 26,
                 fki_mailboxshared_id = 47,
+                fki_phonelineshared_id = 47,
                 fki_user_id = 70
             )
         else:

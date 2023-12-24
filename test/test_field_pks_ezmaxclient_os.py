@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs  # noqa: E501
+from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs
 
 class TestFieldPksEzmaxclientOs(unittest.TestCase):
     """FieldPksEzmaxclientOs unit test stubs"""

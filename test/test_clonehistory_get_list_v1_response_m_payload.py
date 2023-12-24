@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.clonehistory_get_list_v1_response_m_payload import ClonehistoryGetListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.clonehistory_get_list_v1_response_m_payload import ClonehistoryGetListV1ResponseMPayload
 
 class TestClonehistoryGetListV1ResponseMPayload(unittest.TestCase):
     """ClonehistoryGetListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestClonehistoryGetListV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ClonehistoryGetListV1ResponseMPayload`
         """
-        model = ClonehistoryGetListV1ResponseMPayload()  # noqa: E501
+        model = ClonehistoryGetListV1ResponseMPayload()
         if include_optional:
             return ClonehistoryGetListV1ResponseMPayload(
                 i_row_returned = 100,

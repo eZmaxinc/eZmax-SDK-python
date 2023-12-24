@@ -3,6 +3,7 @@
 The error code. See documentation for valid values
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

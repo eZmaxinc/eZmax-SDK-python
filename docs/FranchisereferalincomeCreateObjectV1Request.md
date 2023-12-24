@@ -3,6 +3,7 @@
 Request for POST /1/object/franchisereferalincome
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_franchisereferalincome** | [**FranchisereferalincomeRequest**](FranchisereferalincomeRequest.md) |  | [optional] 

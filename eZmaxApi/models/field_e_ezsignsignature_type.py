@@ -13,18 +13,23 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class FieldEEzsignsignatureType(str, Enum):
     """
-    The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **City** is to request the city where the document is signed. 3. **Handwritten** is for a handwritten kind of signature where users needs to \"draw\" their signature on screen. 4. **Initials** is a simple \"click to add initials\" block. 5. **Name** is a simple \"Click to sign\" block. This is the most common block of signature. 6. **Attachments** is to ask for files as attachment that may be validate in another step.  7. **FieldText** is to ask for a short text. 8. **Fieldtextarea** is to ask for a text
+    The type of signature.  1. **Acknowledgement** is for an acknowledgment of receipt. 2. **City** is to request the city where the document is signed. 3. **Handwritten** is for a handwritten kind of signature where users needs to \"draw\" their signature on screen. 4. **Initials** is a simple \"click to add initials\" block. 5. **Name** is a simple \"Click to sign\" block. This is the most common block of signature. 6. **NameReason** is to ask for a signing reason.  7. **Attachments** is to ask for files as attachment that may be validate in another step.  8. **FieldText** is to ask for a short text. 9. **Fieldtextarea** is to ask for a text
     """
 
     """
@@ -35,14 +40,15 @@ class FieldEEzsignsignatureType(str, Enum):
     HANDWRITTEN = 'Handwritten'
     INITIALS = 'Initials'
     NAME = 'Name'
+    NAMEREASON = 'NameReason'
     ATTACHMENTS = 'Attachments'
     ATTACHMENTSCONFIRMATION = 'AttachmentsConfirmation'
     FIELDTEXT = 'FieldText'
     FIELDTEXTAREA = 'FieldTextarea'
 
     @classmethod
-    def from_json(cls, json_str: str) -> FieldEEzsignsignatureType:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of FieldEEzsignsignatureType from a JSON string"""
-        return FieldEEzsignsignatureType(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

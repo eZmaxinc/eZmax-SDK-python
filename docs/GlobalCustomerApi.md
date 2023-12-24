@@ -16,6 +16,7 @@ Retrieve the customer's specific server endpoint where to send requests. This wi
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -51,6 +52,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pks_customer_code** | **str**|  | 
@@ -70,6 +72,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |

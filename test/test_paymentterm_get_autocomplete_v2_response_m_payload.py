@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_get_autocomplete_v2_response_m_payload import PaymenttermGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.paymentterm_get_autocomplete_v2_response_m_payload import PaymenttermGetAutocompleteV2ResponseMPayload
 
 class TestPaymenttermGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """PaymenttermGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermGetAutocompleteV2ResponseMPayload`
         """
-        model = PaymenttermGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = PaymenttermGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return PaymenttermGetAutocompleteV2ResponseMPayload(
                 a_obj_paymentterm = [

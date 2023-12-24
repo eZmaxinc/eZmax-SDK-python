@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_autocomplete_element_response import CustomAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.custom_autocomplete_element_response import CustomAutocompleteElementResponse
 
 class TestCustomAutocompleteElementResponse(unittest.TestCase):
     """CustomAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomAutocompleteElementResponse`
         """
-        model = CustomAutocompleteElementResponse()  # noqa: E501
+        model = CustomAutocompleteElementResponse()
         if include_optional:
             return CustomAutocompleteElementResponse(
                 s_category = '',

@@ -3,6 +3,7 @@
 A Communicationattachment Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_communicationattachment_id** | **int** | The unique ID of the Communicationattachment | [optional] 

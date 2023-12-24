@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response  # noqa: E501
+from eZmaxApi.models.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response
 
 class TestEzsignfolderGetFormsDataV1Response(unittest.TestCase):
     """EzsignfolderGetFormsDataV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderGetFormsDataV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderGetFormsDataV1Response`
         """
-        model = EzsignfolderGetFormsDataV1Response()  # noqa: E501
+        model = EzsignfolderGetFormsDataV1Response()
         if include_optional:
             return EzsignfolderGetFormsDataV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

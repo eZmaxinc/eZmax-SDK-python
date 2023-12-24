@@ -3,6 +3,7 @@
 Payload for POST /2/object/period/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_period** | [**List[PeriodAutocompleteElementResponse]**](PeriodAutocompleteElementResponse.md) | An array of Period autocomplete element response. | 

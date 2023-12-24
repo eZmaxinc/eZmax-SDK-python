@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_response_compound import EzsignfolderResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsignfolder_response_compound import EzsignfolderResponseCompound
 
 class TestEzsignfolderResponseCompound(unittest.TestCase):
     """EzsignfolderResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderResponseCompound`
         """
-        model = EzsignfolderResponseCompound()  # noqa: E501
+        model = EzsignfolderResponseCompound()
         if include_optional:
             return EzsignfolderResponseCompound(
                 pki_ezsignfolder_id = 33,

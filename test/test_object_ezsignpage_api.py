@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignpage_api import ObjectEzsignpageApi  # noqa: E501
+from eZmaxApi.api.object_ezsignpage_api import ObjectEzsignpageApi
 
 
 class TestObjectEzsignpageApi(unittest.TestCase):
     """ObjectEzsignpageApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignpageApi()  # noqa: E501
+        self.api = ObjectEzsignpageApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectEzsignpageApi(unittest.TestCase):
     def test_ezsignpage_consult_v1(self) -> None:
         """Test case for ezsignpage_consult_v1
 
-        Consult an Ezsignpage  # noqa: E501
+        Consult an Ezsignpage
         """
         pass
 

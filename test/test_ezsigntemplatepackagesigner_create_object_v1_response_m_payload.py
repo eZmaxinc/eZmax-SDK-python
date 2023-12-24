@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatepackagesigner_create_object_v1_response_m_payload import EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigntemplatepackagesigner_create_object_v1_response_m_payload import EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload
 
 class TestEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload(unittest.TestCase):
     """EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatepackagesignerCreateObjectV1ResponseMPayload(unittest.Tes
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload`
         """
-        model = EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload()
         if include_optional:
             return EzsigntemplatepackagesignerCreateObjectV1ResponseMPayload(
                 a_pki_ezsigntemplatepackagesigner_id = [

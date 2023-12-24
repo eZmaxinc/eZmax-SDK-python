@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksendtransmission_get_forms_data_v1_response_m_payload import EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignbulksendtransmission_get_forms_data_v1_response_m_payload import EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload
 
 class TestEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload(unittest.TestCase):
     """EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendtransmissionGetFormsDataV1ResponseMPayload(unittest.Test
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload`
         """
-        model = EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload()  # noqa: E501
+        model = EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload()
         if include_optional:
             return EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload(
                 a_obj_forms_data_folder = [

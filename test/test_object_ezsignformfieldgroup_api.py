@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignformfieldgroup_api import ObjectEzsignformfieldgroupApi  # noqa: E501
+from eZmaxApi.api.object_ezsignformfieldgroup_api import ObjectEzsignformfieldgroupApi
 
 
 class TestObjectEzsignformfieldgroupApi(unittest.TestCase):
     """ObjectEzsignformfieldgroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignformfieldgroupApi()  # noqa: E501
+        self.api = ObjectEzsignformfieldgroupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzsignformfieldgroupApi(unittest.TestCase):
     def test_ezsignformfieldgroup_create_object_v1(self) -> None:
         """Test case for ezsignformfieldgroup_create_object_v1
 
-        Create a new Ezsignformfieldgroup  # noqa: E501
+        Create a new Ezsignformfieldgroup
         """
         pass
 
     def test_ezsignformfieldgroup_delete_object_v1(self) -> None:
         """Test case for ezsignformfieldgroup_delete_object_v1
 
-        Delete an existing Ezsignformfieldgroup  # noqa: E501
+        Delete an existing Ezsignformfieldgroup
         """
         pass
 
     def test_ezsignformfieldgroup_edit_object_v1(self) -> None:
         """Test case for ezsignformfieldgroup_edit_object_v1
 
-        Edit an existing Ezsignformfieldgroup  # noqa: E501
+        Edit an existing Ezsignformfieldgroup
         """
         pass
 
     def test_ezsignformfieldgroup_get_object_v2(self) -> None:
         """Test case for ezsignformfieldgroup_get_object_v2
 
-        Retrieve an existing Ezsignformfieldgroup  # noqa: E501
+        Retrieve an existing Ezsignformfieldgroup
         """
         pass
 

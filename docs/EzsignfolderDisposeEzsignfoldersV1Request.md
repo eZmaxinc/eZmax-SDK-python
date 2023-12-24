@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsignfolder/disposeEzsignfolders
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_pki_ezsignfolder_id** | **List[int]** |  | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.taxassignment_autocomplete_element_response import TaxassignmentAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.taxassignment_autocomplete_element_response import TaxassignmentAutocompleteElementResponse
 
 class TestTaxassignmentAutocompleteElementResponse(unittest.TestCase):
     """TaxassignmentAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestTaxassignmentAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `TaxassignmentAutocompleteElementResponse`
         """
-        model = TaxassignmentAutocompleteElementResponse()  # noqa: E501
+        model = TaxassignmentAutocompleteElementResponse()
         if include_optional:
             return TaxassignmentAutocompleteElementResponse(
                 s_taxassignment_description_x = 'Default',

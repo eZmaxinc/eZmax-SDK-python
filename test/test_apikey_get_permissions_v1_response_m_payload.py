@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_get_permissions_v1_response_m_payload import ApikeyGetPermissionsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.apikey_get_permissions_v1_response_m_payload import ApikeyGetPermissionsV1ResponseMPayload
 
 class TestApikeyGetPermissionsV1ResponseMPayload(unittest.TestCase):
     """ApikeyGetPermissionsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyGetPermissionsV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyGetPermissionsV1ResponseMPayload`
         """
-        model = ApikeyGetPermissionsV1ResponseMPayload()  # noqa: E501
+        model = ApikeyGetPermissionsV1ResponseMPayload()
         if include_optional:
             return ApikeyGetPermissionsV1ResponseMPayload(
                 a_obj_modulegroup = [

@@ -3,6 +3,7 @@
 Payload for GET /2/object/permission/{pkiPermissionID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_permission** | [**PermissionResponseCompound**](PermissionResponseCompound.md) |  | 

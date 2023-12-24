@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.timezone_autocomplete_element_response import TimezoneAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.timezone_autocomplete_element_response import TimezoneAutocompleteElementResponse
 
 class TestTimezoneAutocompleteElementResponse(unittest.TestCase):
     """TimezoneAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestTimezoneAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `TimezoneAutocompleteElementResponse`
         """
-        model = TimezoneAutocompleteElementResponse()  # noqa: E501
+        model = TimezoneAutocompleteElementResponse()
         if include_optional:
             return TimezoneAutocompleteElementResponse(
                 s_timezone_name = 'Default',

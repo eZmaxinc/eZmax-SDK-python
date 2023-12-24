@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicingsummaryexternal_response import EzmaxinvoicingsummaryexternalResponse  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicingsummaryexternal_response import EzmaxinvoicingsummaryexternalResponse
 
 class TestEzmaxinvoicingsummaryexternalResponse(unittest.TestCase):
     """EzmaxinvoicingsummaryexternalResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingsummaryexternalResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingsummaryexternalResponse`
         """
-        model = EzmaxinvoicingsummaryexternalResponse()  # noqa: E501
+        model = EzmaxinvoicingsummaryexternalResponse()
         if include_optional:
             return EzmaxinvoicingsummaryexternalResponse(
                 pki_ezmaxinvoicingsummaryexternal_id = 177,

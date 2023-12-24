@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.website_request import WebsiteRequest  # noqa: E501
+from eZmaxApi.models.website_request import WebsiteRequest
 
 class TestWebsiteRequest(unittest.TestCase):
     """WebsiteRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebsiteRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsiteRequest`
         """
-        model = WebsiteRequest()  # noqa: E501
+        model = WebsiteRequest()
         if include_optional:
             return WebsiteRequest(
                 fki_websitetype_id = 1,

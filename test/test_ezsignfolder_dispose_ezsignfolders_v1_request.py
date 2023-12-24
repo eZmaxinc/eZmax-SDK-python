@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request  # noqa: E501
+from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request
 
 class TestEzsignfolderDisposeEzsignfoldersV1Request(unittest.TestCase):
     """EzsignfolderDisposeEzsignfoldersV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderDisposeEzsignfoldersV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderDisposeEzsignfoldersV1Request`
         """
-        model = EzsignfolderDisposeEzsignfoldersV1Request()  # noqa: E501
+        model = EzsignfolderDisposeEzsignfoldersV1Request()
         if include_optional:
             return EzsignfolderDisposeEzsignfoldersV1Request(
                 a_pki_ezsignfolder_id = [

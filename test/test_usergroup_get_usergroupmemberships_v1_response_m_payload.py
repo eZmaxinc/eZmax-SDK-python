@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroup_get_usergroupmemberships_v1_response_m_payload import UsergroupGetUsergroupmembershipsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.usergroup_get_usergroupmemberships_v1_response_m_payload import UsergroupGetUsergroupmembershipsV1ResponseMPayload
 
 class TestUsergroupGetUsergroupmembershipsV1ResponseMPayload(unittest.TestCase):
     """UsergroupGetUsergroupmembershipsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupGetUsergroupmembershipsV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupGetUsergroupmembershipsV1ResponseMPayload`
         """
-        model = UsergroupGetUsergroupmembershipsV1ResponseMPayload()  # noqa: E501
+        model = UsergroupGetUsergroupmembershipsV1ResponseMPayload()
         if include_optional:
             return UsergroupGetUsergroupmembershipsV1ResponseMPayload(
                 a_obj_usergroupmembership = [

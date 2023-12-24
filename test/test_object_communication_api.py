@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_communication_api import ObjectCommunicationApi  # noqa: E501
+from eZmaxApi.api.object_communication_api import ObjectCommunicationApi
 
 
 class TestObjectCommunicationApi(unittest.TestCase):
     """ObjectCommunicationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectCommunicationApi()  # noqa: E501
+        self.api = ObjectCommunicationApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectCommunicationApi(unittest.TestCase):
     def test_communication_send_v1(self) -> None:
         """Test case for communication_send_v1
 
-        Send a new Communication  # noqa: E501
+        Send a new Communication
         """
         pass
 

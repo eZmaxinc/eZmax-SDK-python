@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_edit_object_v1_request import UserEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.user_edit_object_v1_request import UserEditObjectV1Request
 
 class TestUserEditObjectV1Request(unittest.TestCase):
     """UserEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserEditObjectV1Request`
         """
-        model = UserEditObjectV1Request()  # noqa: E501
+        model = UserEditObjectV1Request()
         if include_optional:
             return UserEditObjectV1Request(
                 obj_user = eZmaxApi.models.user_request_compound.user-RequestCompound()

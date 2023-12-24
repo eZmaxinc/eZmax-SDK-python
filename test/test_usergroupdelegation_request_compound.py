@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroupdelegation_request_compound import UsergroupdelegationRequestCompound  # noqa: E501
+from eZmaxApi.models.usergroupdelegation_request_compound import UsergroupdelegationRequestCompound
 
 class TestUsergroupdelegationRequestCompound(unittest.TestCase):
     """UsergroupdelegationRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupdelegationRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupdelegationRequestCompound`
         """
-        model = UsergroupdelegationRequestCompound()  # noqa: E501
+        model = UsergroupdelegationRequestCompound()
         if include_optional:
             return UsergroupdelegationRequestCompound(
                 pki_usergroupdelegation_id = 141,

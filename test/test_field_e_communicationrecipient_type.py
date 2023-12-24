@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_communicationrecipient_type import FieldECommunicationrecipientType  # noqa: E501
+from eZmaxApi.models.field_e_communicationrecipient_type import FieldECommunicationrecipientType
 
 class TestFieldECommunicationrecipientType(unittest.TestCase):
     """FieldECommunicationrecipientType unit test stubs"""

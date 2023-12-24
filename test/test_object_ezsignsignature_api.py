@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignsignature_api import ObjectEzsignsignatureApi  # noqa: E501
+from eZmaxApi.api.object_ezsignsignature_api import ObjectEzsignsignatureApi
 
 
 class TestObjectEzsignsignatureApi(unittest.TestCase):
     """ObjectEzsignsignatureApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignsignatureApi()  # noqa: E501
+        self.api = ObjectEzsignsignatureApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,56 +30,56 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
     def test_ezsignsignature_create_object_v1(self) -> None:
         """Test case for ezsignsignature_create_object_v1
 
-        Create a new Ezsignsignature  # noqa: E501
+        Create a new Ezsignsignature
         """
         pass
 
     def test_ezsignsignature_create_object_v2(self) -> None:
         """Test case for ezsignsignature_create_object_v2
 
-        Create a new Ezsignsignature  # noqa: E501
+        Create a new Ezsignsignature
         """
         pass
 
     def test_ezsignsignature_delete_object_v1(self) -> None:
         """Test case for ezsignsignature_delete_object_v1
 
-        Delete an existing Ezsignsignature  # noqa: E501
+        Delete an existing Ezsignsignature
         """
         pass
 
     def test_ezsignsignature_edit_object_v1(self) -> None:
         """Test case for ezsignsignature_edit_object_v1
 
-        Edit an existing Ezsignsignature  # noqa: E501
+        Edit an existing Ezsignsignature
         """
         pass
 
     def test_ezsignsignature_get_ezsignsignatureattachment_v1(self) -> None:
         """Test case for ezsignsignature_get_ezsignsignatureattachment_v1
 
-        Retrieve an existing Ezsignsignature's Ezsignsignatureattachments  # noqa: E501
+        Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
         """
         pass
 
     def test_ezsignsignature_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsignsignature_get_ezsignsignatures_automatic_v1
 
-        Retrieve all automatic Ezsignsignatures  # noqa: E501
+        Retrieve all automatic Ezsignsignatures
         """
         pass
 
     def test_ezsignsignature_get_object_v2(self) -> None:
         """Test case for ezsignsignature_get_object_v2
 
-        Retrieve an existing Ezsignsignature  # noqa: E501
+        Retrieve an existing Ezsignsignature
         """
         pass
 
     def test_ezsignsignature_sign_v1(self) -> None:
         """Test case for ezsignsignature_sign_v1
 
-        Sign the Ezsignsignature  # noqa: E501
+        Sign the Ezsignsignature
         """
         pass
 

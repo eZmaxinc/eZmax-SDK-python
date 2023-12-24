@@ -3,9 +3,11 @@
 Response for Websocket Information V1
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_websocket_messagetype** | **str** | The Type of message | 
+**s_websocket_channel** | **str** | The Channel on which to route the websocket message | 
 **m_payload** | [**WebsocketResponseInformationV1MPayload**](WebsocketResponseInformationV1MPayload.md) |  | 
 
 ## Example

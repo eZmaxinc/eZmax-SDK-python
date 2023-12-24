@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.scim_service_provider_config_api import ScimServiceProviderConfigApi  # noqa: E501
+from eZmaxApi.api.scim_service_provider_config_api import ScimServiceProviderConfigApi
 
 
 class TestScimServiceProviderConfigApi(unittest.TestCase):
     """ScimServiceProviderConfigApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ScimServiceProviderConfigApi()  # noqa: E501
+        self.api = ScimServiceProviderConfigApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestScimServiceProviderConfigApi(unittest.TestCase):
     def test_service_provider_config_get_object_scim_v2(self) -> None:
         """Test case for service_provider_config_get_object_scim_v2
 
-        Get Service Provider Configuration  # noqa: E501
+        Get Service Provider Configuration
         """
         pass
 

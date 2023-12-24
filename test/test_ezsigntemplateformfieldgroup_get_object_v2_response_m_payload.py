@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateformfieldgroup_get_object_v2_response_m_payload import EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigntemplateformfieldgroup_get_object_v2_response_m_payload import EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload
 
 class TestEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload(unittest.TestCase):
     """EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateformfieldgroupGetObjectV2ResponseMPayload(unittest.TestC
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload`
         """
-        model = EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload()  # noqa: E501
+        model = EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload()
         if include_optional:
             return EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload(
                 obj_ezsigntemplateformfieldgroup = eZmaxApi.models.ezsigntemplateformfieldgroup_response_compound.ezsigntemplateformfieldgroup-ResponseCompound()

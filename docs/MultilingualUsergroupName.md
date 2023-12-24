@@ -3,6 +3,7 @@
 The name of the Usergroup
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_usergroup_name1** | **str** | The name of the Usergroup in French | [optional] 

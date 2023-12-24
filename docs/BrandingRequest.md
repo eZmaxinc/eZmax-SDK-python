@@ -3,6 +3,7 @@
 A Branding Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_branding_id** | **int** | The unique ID of the Branding | [optional] 

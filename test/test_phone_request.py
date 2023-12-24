@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.phone_request import PhoneRequest  # noqa: E501
+from eZmaxApi.models.phone_request import PhoneRequest
 
 class TestPhoneRequest(unittest.TestCase):
     """PhoneRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestPhoneRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PhoneRequest`
         """
-        model = PhoneRequest()  # noqa: E501
+        model = PhoneRequest()
         if include_optional:
             return PhoneRequest(
                 pki_phone_id = 1,

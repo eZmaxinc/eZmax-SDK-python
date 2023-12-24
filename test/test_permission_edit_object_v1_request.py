@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_edit_object_v1_request import PermissionEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.permission_edit_object_v1_request import PermissionEditObjectV1Request
 
 class TestPermissionEditObjectV1Request(unittest.TestCase):
     """PermissionEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionEditObjectV1Request`
         """
-        model = PermissionEditObjectV1Request()  # noqa: E501
+        model = PermissionEditObjectV1Request()
         if include_optional:
             return PermissionEditObjectV1Request(
                 obj_permission = eZmaxApi.models.permission_request_compound.permission-RequestCompound()

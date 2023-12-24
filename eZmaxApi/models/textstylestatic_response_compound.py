@@ -19,67 +19,86 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class TextstylestaticResponseCompound(BaseModel):
     """
-    A Textstylestatic Object  # noqa: E501
-    """
-    pki_textstylestatic_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiTextstylestaticID", description="The unique ID of the Textstylestatic")
-    fki_font_id: conint(strict=True, ge=0) = Field(..., alias="fkiFontID", description="The unique ID of the Font")
-    b_textstylestatic_bold: StrictBool = Field(..., alias="bTextstylestaticBold", description="Whether the Textstylestatic is Bold or not")
-    b_textstylestatic_underline: StrictBool = Field(..., alias="bTextstylestaticUnderline", description="Whether the Textstylestatic is Underline or not")
-    b_textstylestatic_italic: StrictBool = Field(..., alias="bTextstylestaticItalic", description="Whether the Textstylestatic is Italic or not")
-    b_textstylestatic_strikethrough: StrictBool = Field(..., alias="bTextstylestaticStrikethrough", description="Whether the Textstylestatic is Strikethrough or not")
-    i_textstylestatic_fontcolor: conint(strict=True, le=16777215, ge=0) = Field(..., alias="iTextstylestaticFontcolor", description="The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795")
-    i_textstylestatic_size: conint(strict=True, le=255, ge=1) = Field(..., alias="iTextstylestaticSize", description="The Size for the Font of the Textstylestatic")
-    __properties = ["pkiTextstylestaticID", "fkiFontID", "bTextstylestaticBold", "bTextstylestaticUnderline", "bTextstylestaticItalic", "bTextstylestaticStrikethrough", "iTextstylestaticFontcolor", "iTextstylestaticSize"]
+    A Textstylestatic Object
+    """ # noqa: E501
+    pki_textstylestatic_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Textstylestatic", alias="pkiTextstylestaticID")
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
+    b_textstylestatic_bold: StrictBool = Field(description="Whether the Textstylestatic is Bold or not", alias="bTextstylestaticBold")
+    b_textstylestatic_underline: StrictBool = Field(description="Whether the Textstylestatic is Underline or not", alias="bTextstylestaticUnderline")
+    b_textstylestatic_italic: StrictBool = Field(description="Whether the Textstylestatic is Italic or not", alias="bTextstylestaticItalic")
+    b_textstylestatic_strikethrough: StrictBool = Field(description="Whether the Textstylestatic is Strikethrough or not", alias="bTextstylestaticStrikethrough")
+    i_textstylestatic_fontcolor: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795", alias="iTextstylestaticFontcolor")
+    i_textstylestatic_size: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The Size for the Font of the Textstylestatic", alias="iTextstylestaticSize")
+    __properties: ClassVar[List[str]] = ["pkiTextstylestaticID", "fkiFontID", "bTextstylestaticBold", "bTextstylestaticUnderline", "bTextstylestaticItalic", "bTextstylestaticStrikethrough", "iTextstylestaticFontcolor", "iTextstylestaticSize"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> TextstylestaticResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TextstylestaticResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> TextstylestaticResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of TextstylestaticResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return TextstylestaticResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = TextstylestaticResponseCompound.parse_obj({
-            "pki_textstylestatic_id": obj.get("pkiTextstylestaticID"),
-            "fki_font_id": obj.get("fkiFontID"),
-            "b_textstylestatic_bold": obj.get("bTextstylestaticBold"),
-            "b_textstylestatic_underline": obj.get("bTextstylestaticUnderline"),
-            "b_textstylestatic_italic": obj.get("bTextstylestaticItalic"),
-            "b_textstylestatic_strikethrough": obj.get("bTextstylestaticStrikethrough"),
-            "i_textstylestatic_fontcolor": obj.get("iTextstylestaticFontcolor"),
-            "i_textstylestatic_size": obj.get("iTextstylestaticSize")
+        _obj = cls.model_validate({
+            "pkiTextstylestaticID": obj.get("pkiTextstylestaticID"),
+            "fkiFontID": obj.get("fkiFontID"),
+            "bTextstylestaticBold": obj.get("bTextstylestaticBold"),
+            "bTextstylestaticUnderline": obj.get("bTextstylestaticUnderline"),
+            "bTextstylestaticItalic": obj.get("bTextstylestaticItalic"),
+            "bTextstylestaticStrikethrough": obj.get("bTextstylestaticStrikethrough"),
+            "iTextstylestaticFontcolor": obj.get("iTextstylestaticFontcolor"),
+            "iTextstylestaticSize": obj.get("iTextstylestaticSize")
         })
         return _obj
 

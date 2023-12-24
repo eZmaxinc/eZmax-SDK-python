@@ -3,6 +3,7 @@
 Name of the Notificationsubsection
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_notificationsubsection_name1** | **str** | The name of the Notificationsubsection in French | [optional] 

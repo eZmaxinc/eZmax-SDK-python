@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_request import PaymenttermRequest  # noqa: E501
+from eZmaxApi.models.paymentterm_request import PaymenttermRequest
 
 class TestPaymenttermRequest(unittest.TestCase):
     """PaymenttermRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermRequest`
         """
-        model = PaymenttermRequest()  # noqa: E501
+        model = PaymenttermRequest()
         if include_optional:
             return PaymenttermRequest(
                 pki_paymentterm_id = 46,

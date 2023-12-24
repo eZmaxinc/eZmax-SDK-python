@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.modulegroup_response_compound import ModulegroupResponseCompound  # noqa: E501
+from eZmaxApi.models.modulegroup_response_compound import ModulegroupResponseCompound
 
 class TestModulegroupResponseCompound(unittest.TestCase):
     """ModulegroupResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestModulegroupResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ModulegroupResponseCompound`
         """
-        model = ModulegroupResponseCompound()  # noqa: E501
+        model = ModulegroupResponseCompound()
         if include_optional:
             return ModulegroupResponseCompound(
                 pki_modulegroup_id = 46,

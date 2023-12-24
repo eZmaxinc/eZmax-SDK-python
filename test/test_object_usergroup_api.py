@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi  # noqa: E501
+from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi
 
 
 class TestObjectUsergroupApi(unittest.TestCase):
     """ObjectUsergroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectUsergroupApi()  # noqa: E501
+        self.api = ObjectUsergroupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestObjectUsergroupApi(unittest.TestCase):
     def test_usergroup_create_object_v1(self) -> None:
         """Test case for usergroup_create_object_v1
 
-        Create a new Usergroup  # noqa: E501
+        Create a new Usergroup
         """
         pass
 
     def test_usergroup_edit_object_v1(self) -> None:
         """Test case for usergroup_edit_object_v1
 
-        Edit an existing Usergroup  # noqa: E501
+        Edit an existing Usergroup
         """
         pass
 
     def test_usergroup_edit_permissions_v1(self) -> None:
         """Test case for usergroup_edit_permissions_v1
 
-        Edit multiple Permissions  # noqa: E501
+        Edit multiple Permissions
         """
         pass
 
     def test_usergroup_edit_usergroupdelegations_v1(self) -> None:
         """Test case for usergroup_edit_usergroupdelegations_v1
 
-        Edit multiple Usergroupdelegations  # noqa: E501
+        Edit multiple Usergroupdelegations
         """
         pass
 
     def test_usergroup_edit_usergroupmemberships_v1(self) -> None:
         """Test case for usergroup_edit_usergroupmemberships_v1
 
-        Edit multiple Usergroupmemberships  # noqa: E501
+        Edit multiple Usergroupmemberships
         """
         pass
 
     def test_usergroup_get_autocomplete_v2(self) -> None:
         """Test case for usergroup_get_autocomplete_v2
 
-        Retrieve Usergroups and IDs  # noqa: E501
+        Retrieve Usergroups and IDs
         """
         pass
 
     def test_usergroup_get_list_v1(self) -> None:
         """Test case for usergroup_get_list_v1
 
-        Retrieve Usergroup list  # noqa: E501
+        Retrieve Usergroup list
         """
         pass
 
     def test_usergroup_get_object_v2(self) -> None:
         """Test case for usergroup_get_object_v2
 
-        Retrieve an existing Usergroup  # noqa: E501
+        Retrieve an existing Usergroup
         """
         pass
 
     def test_usergroup_get_permissions_v1(self) -> None:
         """Test case for usergroup_get_permissions_v1
 
-        Retrieve an existing Usergroup's Permissions  # noqa: E501
+        Retrieve an existing Usergroup's Permissions
         """
         pass
 
     def test_usergroup_get_usergroupdelegations_v1(self) -> None:
         """Test case for usergroup_get_usergroupdelegations_v1
 
-        Retrieve an existing Usergroup's Usergroupdelegations  # noqa: E501
+        Retrieve an existing Usergroup's Usergroupdelegations
         """
         pass
 
     def test_usergroup_get_usergroupmemberships_v1(self) -> None:
         """Test case for usergroup_get_usergroupmemberships_v1
 
-        Retrieve an existing Usergroup's Usergroupmemberships  # noqa: E501
+        Retrieve an existing Usergroup's Usergroupmemberships
         """
         pass
 

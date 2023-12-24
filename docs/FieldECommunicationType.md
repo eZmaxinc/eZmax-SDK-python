@@ -3,6 +3,7 @@
 The type of the Communication
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

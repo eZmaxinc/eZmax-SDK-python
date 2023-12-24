@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_signerrequirement import FieldEEzsigntemplateformfieldgroupSignerrequirement  # noqa: E501
+from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_signerrequirement import FieldEEzsigntemplateformfieldgroupSignerrequirement
 
 class TestFieldEEzsigntemplateformfieldgroupSignerrequirement(unittest.TestCase):
     """FieldEEzsigntemplateformfieldgroupSignerrequirement unit test stubs"""

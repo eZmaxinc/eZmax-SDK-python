@@ -19,45 +19,63 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel
+from pydantic import Field
 from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 from eZmaxApi.models.userstaged_response_compound import UserstagedResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class WebhookUserstagedUserstagedCreated(BaseModel):
     """
-    This is the base Webhook object  # noqa: E501
-    """
-    obj_webhook: CustomWebhookResponse = Field(..., alias="objWebhook")
-    a_obj_attempt: conlist(AttemptResponseCompound) = Field(..., alias="a_objAttempt", description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.")
-    obj_userstaged: UserstagedResponseCompound = Field(..., alias="objUserstaged")
-    __properties = ["objWebhook", "a_objAttempt", "objUserstaged"]
+    This is the base Webhook object
+    """ # noqa: E501
+    obj_webhook: CustomWebhookResponse = Field(alias="objWebhook")
+    a_obj_attempt: List[AttemptResponseCompound] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
+    obj_userstaged: UserstagedResponseCompound = Field(alias="objUserstaged")
+    __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objUserstaged"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> WebhookUserstagedUserstagedCreated:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of WebhookUserstagedUserstagedCreated from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_webhook
         if self.obj_webhook:
             _dict['objWebhook'] = self.obj_webhook.to_dict()
@@ -74,18 +92,18 @@ class WebhookUserstagedUserstagedCreated(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> WebhookUserstagedUserstagedCreated:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of WebhookUserstagedUserstagedCreated from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return WebhookUserstagedUserstagedCreated.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = WebhookUserstagedUserstagedCreated.parse_obj({
-            "obj_webhook": CustomWebhookResponse.from_dict(obj.get("objWebhook")) if obj.get("objWebhook") is not None else None,
-            "a_obj_attempt": [AttemptResponseCompound.from_dict(_item) for _item in obj.get("a_objAttempt")] if obj.get("a_objAttempt") is not None else None,
-            "obj_userstaged": UserstagedResponseCompound.from_dict(obj.get("objUserstaged")) if obj.get("objUserstaged") is not None else None
+        _obj = cls.model_validate({
+            "objWebhook": CustomWebhookResponse.from_dict(obj.get("objWebhook")) if obj.get("objWebhook") is not None else None,
+            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj.get("a_objAttempt")] if obj.get("a_objAttempt") is not None else None,
+            "objUserstaged": UserstagedResponseCompound.from_dict(obj.get("objUserstaged")) if obj.get("objUserstaged") is not None else None
         })
         return _obj
 

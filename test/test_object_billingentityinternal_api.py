@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi  # noqa: E501
+from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi
 
 
 class TestObjectBillingentityinternalApi(unittest.TestCase):
     """ObjectBillingentityinternalApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectBillingentityinternalApi()  # noqa: E501
+        self.api = ObjectBillingentityinternalApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,35 +30,35 @@ class TestObjectBillingentityinternalApi(unittest.TestCase):
     def test_billingentityinternal_create_object_v1(self) -> None:
         """Test case for billingentityinternal_create_object_v1
 
-        Create a new Billingentityinternal  # noqa: E501
+        Create a new Billingentityinternal
         """
         pass
 
     def test_billingentityinternal_edit_object_v1(self) -> None:
         """Test case for billingentityinternal_edit_object_v1
 
-        Edit an existing Billingentityinternal  # noqa: E501
+        Edit an existing Billingentityinternal
         """
         pass
 
     def test_billingentityinternal_get_autocomplete_v2(self) -> None:
         """Test case for billingentityinternal_get_autocomplete_v2
 
-        Retrieve Billingentityinternals and IDs  # noqa: E501
+        Retrieve Billingentityinternals and IDs
         """
         pass
 
     def test_billingentityinternal_get_list_v1(self) -> None:
         """Test case for billingentityinternal_get_list_v1
 
-        Retrieve Billingentityinternal list  # noqa: E501
+        Retrieve Billingentityinternal list
         """
         pass
 
     def test_billingentityinternal_get_object_v2(self) -> None:
         """Test case for billingentityinternal_get_object_v2
 
-        Retrieve an existing Billingentityinternal  # noqa: E501
+        Retrieve an existing Billingentityinternal
         """
         pass
 

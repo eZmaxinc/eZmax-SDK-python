@@ -3,6 +3,7 @@
 An EzmaxinvoicingEzsignfolder object containing information about the Ezmaxinvoicing for an Ezsignfolder
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 

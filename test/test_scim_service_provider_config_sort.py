@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort  # noqa: E501
+from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort
 
 class TestScimServiceProviderConfigSort(unittest.TestCase):
     """ScimServiceProviderConfigSort unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimServiceProviderConfigSort(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimServiceProviderConfigSort`
         """
-        model = ScimServiceProviderConfigSort()  # noqa: E501
+        model = ScimServiceProviderConfigSort()
         if include_optional:
             return ScimServiceProviderConfigSort(
                 supported = False

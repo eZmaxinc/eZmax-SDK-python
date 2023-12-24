@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_error_too_many_requests import CommonResponseErrorTooManyRequests  # noqa: E501
+from eZmaxApi.models.common_response_error_too_many_requests import CommonResponseErrorTooManyRequests
 
 class TestCommonResponseErrorTooManyRequests(unittest.TestCase):
     """CommonResponseErrorTooManyRequests unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseErrorTooManyRequests(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseErrorTooManyRequests`
         """
-        model = CommonResponseErrorTooManyRequests()  # noqa: E501
+        model = CommonResponseErrorTooManyRequests()
         if include_optional:
             return CommonResponseErrorTooManyRequests(
                 s_error_message = 'Invalid Signature Headers',

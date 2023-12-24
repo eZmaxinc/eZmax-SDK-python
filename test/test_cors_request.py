@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_request import CorsRequest  # noqa: E501
+from eZmaxApi.models.cors_request import CorsRequest
 
 class TestCorsRequest(unittest.TestCase):
     """CorsRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsRequest`
         """
-        model = CorsRequest()  # noqa: E501
+        model = CorsRequest()
         if include_optional:
             return CorsRequest(
                 pki_cors_id = 228,

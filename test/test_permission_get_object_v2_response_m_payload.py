@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_get_object_v2_response_m_payload import PermissionGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.permission_get_object_v2_response_m_payload import PermissionGetObjectV2ResponseMPayload
 
 class TestPermissionGetObjectV2ResponseMPayload(unittest.TestCase):
     """PermissionGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionGetObjectV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionGetObjectV2ResponseMPayload`
         """
-        model = PermissionGetObjectV2ResponseMPayload()  # noqa: E501
+        model = PermissionGetObjectV2ResponseMPayload()
         if include_optional:
             return PermissionGetObjectV2ResponseMPayload(
                 obj_permission = eZmaxApi.models.permission_response_compound.permission-ResponseCompound()

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.notificationtest_response import NotificationtestResponse  # noqa: E501
+from eZmaxApi.models.notificationtest_response import NotificationtestResponse
 
 class TestNotificationtestResponse(unittest.TestCase):
     """NotificationtestResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestNotificationtestResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `NotificationtestResponse`
         """
-        model = NotificationtestResponse()  # noqa: E501
+        model = NotificationtestResponse()
         if include_optional:
             return NotificationtestResponse(
                 pki_notificationtest_id = 14,

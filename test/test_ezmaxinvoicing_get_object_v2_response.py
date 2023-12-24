@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicing_get_object_v2_response import EzmaxinvoicingGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicing_get_object_v2_response import EzmaxinvoicingGetObjectV2Response
 
 class TestEzmaxinvoicingGetObjectV2Response(unittest.TestCase):
     """EzmaxinvoicingGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingGetObjectV2Response`
         """
-        model = EzmaxinvoicingGetObjectV2Response()  # noqa: E501
+        model = EzmaxinvoicingGetObjectV2Response()
         if include_optional:
             return EzmaxinvoicingGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

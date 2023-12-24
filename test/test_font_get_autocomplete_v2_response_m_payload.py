@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.font_get_autocomplete_v2_response_m_payload import FontGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.font_get_autocomplete_v2_response_m_payload import FontGetAutocompleteV2ResponseMPayload
 
 class TestFontGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """FontGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestFontGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FontGetAutocompleteV2ResponseMPayload`
         """
-        model = FontGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = FontGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return FontGetAutocompleteV2ResponseMPayload(
                 a_obj_font = [

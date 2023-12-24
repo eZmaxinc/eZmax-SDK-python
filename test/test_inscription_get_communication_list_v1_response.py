@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.inscription_get_communication_list_v1_response import InscriptionGetCommunicationListV1Response  # noqa: E501
+from eZmaxApi.models.inscription_get_communication_list_v1_response import InscriptionGetCommunicationListV1Response
 
 class TestInscriptionGetCommunicationListV1Response(unittest.TestCase):
     """InscriptionGetCommunicationListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestInscriptionGetCommunicationListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `InscriptionGetCommunicationListV1Response`
         """
-        model = InscriptionGetCommunicationListV1Response()  # noqa: E501
+        model = InscriptionGetCommunicationListV1Response()
         if include_optional:
             return InscriptionGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

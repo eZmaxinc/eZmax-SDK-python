@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_list_element import UserListElement  # noqa: E501
+from eZmaxApi.models.user_list_element import UserListElement
 
 class TestUserListElement(unittest.TestCase):
     """UserListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserListElement`
         """
-        model = UserListElement()  # noqa: E501
+        model = UserListElement()
         if include_optional:
             return UserListElement(
                 pki_user_id = 70,

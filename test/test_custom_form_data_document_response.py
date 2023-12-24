@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_form_data_document_response import CustomFormDataDocumentResponse  # noqa: E501
+from eZmaxApi.models.custom_form_data_document_response import CustomFormDataDocumentResponse
 
 class TestCustomFormDataDocumentResponse(unittest.TestCase):
     """CustomFormDataDocumentResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomFormDataDocumentResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomFormDataDocumentResponse`
         """
-        model = CustomFormDataDocumentResponse()  # noqa: E501
+        model = CustomFormDataDocumentResponse()
         if include_optional:
             return CustomFormDataDocumentResponse(
                 pki_ezsigndocument_id = 97,

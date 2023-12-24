@@ -19,35 +19,41 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional, Union
-from pydantic import BaseModel, Field, StrictBool, StrictBytes, StrictStr, conint, validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, StrictBool, StrictBytes, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigntemplatedocumentRequest(BaseModel):
     """
-    A Ezsigntemplatedocument Object  # noqa: E501
-    """
-    pki_ezsigntemplatedocument_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzsigntemplatedocumentID", description="The unique ID of the Ezsigntemplatedocument")
-    fki_ezsigntemplate_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsigntemplateID", description="The unique ID of the Ezsigntemplate")
-    fki_ezsigndocument_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigndocumentID", description="The unique ID of the Ezsigndocument")
-    fki_ezsigntemplatesigner_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplatesignerID", description="The unique ID of the Ezsigntemplatesigner")
-    s_ezsigntemplatedocument_name: StrictStr = Field(..., alias="sEzsigntemplatedocumentName", description="The name of the Ezsigntemplatedocument.")
-    e_ezsigntemplatedocument_source: StrictStr = Field(..., alias="eEzsigntemplatedocumentSource", description="Indicates where to look for the document binary content.")
-    e_ezsigntemplatedocument_format: Optional[StrictStr] = Field(None, alias="eEzsigntemplatedocumentFormat", description="Indicates the format of the template.")
-    s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(None, alias="sEzsigntemplatedocumentBase64", description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.")
-    s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(None, alias="sEzsigntemplatedocumentUrl", description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.")
-    b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(None, alias="bEzsigntemplatedocumentForcerepair", description="Try to repair the document or flatten it if it cannot be used for electronic signature.")
-    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(None, alias="eEzsigntemplatedocumentForm", description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**")
-    s_ezsigntemplatedocument_password: Optional[StrictStr] = Field('', alias="sEzsigntemplatedocumentPassword", description="If the source template is password protected, the password to open/modify it.")
-    __properties = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
+    A Ezsigntemplatedocument Object
+    """ # noqa: E501
+    pki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID")
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
+    fki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
+    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
+    e_ezsigntemplatedocument_source: StrictStr = Field(description="Indicates where to look for the document binary content.", alias="eEzsigntemplatedocumentSource")
+    e_ezsigntemplatedocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the template.", alias="eEzsigntemplatedocumentFormat")
+    s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64")
+    s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl")
+    b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(default=None, description="Try to repair the document or flatten it if it cannot be used for electronic signature.", alias="bEzsigntemplatedocumentForcerepair")
+    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**", alias="eEzsigntemplatedocumentForm")
+    s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
 
-    @validator('e_ezsigntemplatedocument_source')
+    @field_validator('e_ezsigntemplatedocument_source')
     def e_ezsigntemplatedocument_source_validate_enum(cls, value):
         """Validates the enum"""
         if value not in ('Base64', 'Url', 'Ezsigndocument'):
             raise ValueError("must be one of enum values ('Base64', 'Url', 'Ezsigndocument')")
         return value
 
-    @validator('e_ezsigntemplatedocument_format')
+    @field_validator('e_ezsigntemplatedocument_format')
     def e_ezsigntemplatedocument_format_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -57,7 +63,7 @@ class EzsigntemplatedocumentRequest(BaseModel):
             raise ValueError("must be one of enum values ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx')")
         return value
 
-    @validator('e_ezsigntemplatedocument_form')
+    @field_validator('e_ezsigntemplatedocument_form')
     def e_ezsigntemplatedocument_form_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
@@ -67,54 +73,67 @@ class EzsigntemplatedocumentRequest(BaseModel):
             raise ValueError("must be one of enum values ('Keep', 'Convert')")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigntemplatedocumentRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigntemplatedocumentRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigntemplatedocumentRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigntemplatedocumentRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigntemplatedocumentRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigntemplatedocumentRequest.parse_obj({
-            "pki_ezsigntemplatedocument_id": obj.get("pkiEzsigntemplatedocumentID"),
-            "fki_ezsigntemplate_id": obj.get("fkiEzsigntemplateID"),
-            "fki_ezsigndocument_id": obj.get("fkiEzsigndocumentID"),
-            "fki_ezsigntemplatesigner_id": obj.get("fkiEzsigntemplatesignerID"),
-            "s_ezsigntemplatedocument_name": obj.get("sEzsigntemplatedocumentName"),
-            "e_ezsigntemplatedocument_source": obj.get("eEzsigntemplatedocumentSource"),
-            "e_ezsigntemplatedocument_format": obj.get("eEzsigntemplatedocumentFormat"),
-            "s_ezsigntemplatedocument_base64": obj.get("sEzsigntemplatedocumentBase64"),
-            "s_ezsigntemplatedocument_url": obj.get("sEzsigntemplatedocumentUrl"),
-            "b_ezsigntemplatedocument_forcerepair": obj.get("bEzsigntemplatedocumentForcerepair"),
-            "e_ezsigntemplatedocument_form": obj.get("eEzsigntemplatedocumentForm"),
-            "s_ezsigntemplatedocument_password": obj.get("sEzsigntemplatedocumentPassword") if obj.get("sEzsigntemplatedocumentPassword") is not None else ''
+        _obj = cls.model_validate({
+            "pkiEzsigntemplatedocumentID": obj.get("pkiEzsigntemplatedocumentID"),
+            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
+            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
+            "fkiEzsigntemplatesignerID": obj.get("fkiEzsigntemplatesignerID"),
+            "sEzsigntemplatedocumentName": obj.get("sEzsigntemplatedocumentName"),
+            "eEzsigntemplatedocumentSource": obj.get("eEzsigntemplatedocumentSource"),
+            "eEzsigntemplatedocumentFormat": obj.get("eEzsigntemplatedocumentFormat"),
+            "sEzsigntemplatedocumentBase64": obj.get("sEzsigntemplatedocumentBase64"),
+            "sEzsigntemplatedocumentUrl": obj.get("sEzsigntemplatedocumentUrl"),
+            "bEzsigntemplatedocumentForcerepair": obj.get("bEzsigntemplatedocumentForcerepair"),
+            "eEzsigntemplatedocumentForm": obj.get("eEzsigntemplatedocumentForm"),
+            "sEzsigntemplatedocumentPassword": obj.get("sEzsigntemplatedocumentPassword") if obj.get("sEzsigntemplatedocumentPassword") is not None else ''
         })
         return _obj
 

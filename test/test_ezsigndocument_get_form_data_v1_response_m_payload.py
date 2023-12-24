@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_form_data_v1_response_m_payload import EzsigndocumentGetFormDataV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_form_data_v1_response_m_payload import EzsigndocumentGetFormDataV1ResponseMPayload
 
 class TestEzsigndocumentGetFormDataV1ResponseMPayload(unittest.TestCase):
     """EzsigndocumentGetFormDataV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetFormDataV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetFormDataV1ResponseMPayload`
         """
-        model = EzsigndocumentGetFormDataV1ResponseMPayload()  # noqa: E501
+        model = EzsigndocumentGetFormDataV1ResponseMPayload()
         if include_optional:
             return EzsigndocumentGetFormDataV1ResponseMPayload(
                 obj_form_data_document = eZmaxApi.models.custom_form_data_document_response.Custom-FormDataDocument-Response(

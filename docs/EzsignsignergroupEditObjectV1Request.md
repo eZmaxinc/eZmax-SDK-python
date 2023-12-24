@@ -3,6 +3,7 @@
 Request for PUT /1/object/ezsignsignergroup/{pkiEzsignsignergroupID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignsignergroup** | [**EzsignsignergroupRequestCompound**](EzsignsignergroupRequestCompound.md) |  | 

@@ -3,6 +3,7 @@
 Definition of Filters for getList
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_auto_type** | **Dict[str, str]** | List of filters that can be used in *sFilter* (Automatic types) | [optional] 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_notificationtest_name import MultilingualNotificationtestName  # noqa: E501
+from eZmaxApi.models.multilingual_notificationtest_name import MultilingualNotificationtestName
 
 class TestMultilingualNotificationtestName(unittest.TestCase):
     """MultilingualNotificationtestName unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualNotificationtestName(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualNotificationtestName`
         """
-        model = MultilingualNotificationtestName()  # noqa: E501
+        model = MultilingualNotificationtestName()
         if include_optional:
             return MultilingualNotificationtestName(
                 s_notificationtest_name1 = 'Default',

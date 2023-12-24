@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignformfield_request_compound import EzsignformfieldRequestCompound  # noqa: E501
+from eZmaxApi.models.ezsignformfield_request_compound import EzsignformfieldRequestCompound
 
 class TestEzsignformfieldRequestCompound(unittest.TestCase):
     """EzsignformfieldRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignformfieldRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignformfieldRequestCompound`
         """
-        model = EzsignformfieldRequestCompound()  # noqa: E501
+        model = EzsignformfieldRequestCompound()
         if include_optional:
             return EzsignformfieldRequestCompound(
                 pki_ezsignformfield_id = 32,

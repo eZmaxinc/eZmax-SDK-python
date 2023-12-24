@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_permission_api import ObjectPermissionApi  # noqa: E501
+from eZmaxApi.api.object_permission_api import ObjectPermissionApi
 
 
 class TestObjectPermissionApi(unittest.TestCase):
     """ObjectPermissionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectPermissionApi()  # noqa: E501
+        self.api = ObjectPermissionApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectPermissionApi(unittest.TestCase):
     def test_permission_create_object_v1(self) -> None:
         """Test case for permission_create_object_v1
 
-        Create a new Permission  # noqa: E501
+        Create a new Permission
         """
         pass
 
     def test_permission_delete_object_v1(self) -> None:
         """Test case for permission_delete_object_v1
 
-        Delete an existing Permission  # noqa: E501
+        Delete an existing Permission
         """
         pass
 
     def test_permission_edit_object_v1(self) -> None:
         """Test case for permission_edit_object_v1
 
-        Edit an existing Permission  # noqa: E501
+        Edit an existing Permission
         """
         pass
 
     def test_permission_get_object_v2(self) -> None:
         """Test case for permission_get_object_v2
 
-        Retrieve an existing Permission  # noqa: E501
+        Retrieve an existing Permission
         """
         pass
 

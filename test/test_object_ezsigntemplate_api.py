@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplate_api import ObjectEzsigntemplateApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplate_api import ObjectEzsigntemplateApi
 
 
 class TestObjectEzsigntemplateApi(unittest.TestCase):
     """ObjectEzsigntemplateApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplateApi()  # noqa: E501
+        self.api = ObjectEzsigntemplateApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,56 +30,56 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
     def test_ezsigntemplate_copy_v1(self) -> None:
         """Test case for ezsigntemplate_copy_v1
 
-        Copy the Ezsigntemplate  # noqa: E501
+        Copy the Ezsigntemplate
         """
         pass
 
     def test_ezsigntemplate_create_object_v1(self) -> None:
         """Test case for ezsigntemplate_create_object_v1
 
-        Create a new Ezsigntemplate  # noqa: E501
+        Create a new Ezsigntemplate
         """
         pass
 
     def test_ezsigntemplate_delete_object_v1(self) -> None:
         """Test case for ezsigntemplate_delete_object_v1
 
-        Delete an existing Ezsigntemplate  # noqa: E501
+        Delete an existing Ezsigntemplate
         """
         pass
 
     def test_ezsigntemplate_edit_object_v1(self) -> None:
         """Test case for ezsigntemplate_edit_object_v1
 
-        Edit an existing Ezsigntemplate  # noqa: E501
+        Edit an existing Ezsigntemplate
         """
         pass
 
     def test_ezsigntemplate_get_autocomplete_v2(self) -> None:
         """Test case for ezsigntemplate_get_autocomplete_v2
 
-        Retrieve Ezsigntemplates and IDs  # noqa: E501
+        Retrieve Ezsigntemplates and IDs
         """
         pass
 
     def test_ezsigntemplate_get_list_v1(self) -> None:
         """Test case for ezsigntemplate_get_list_v1
 
-        Retrieve Ezsigntemplate list  # noqa: E501
+        Retrieve Ezsigntemplate list
         """
         pass
 
     def test_ezsigntemplate_get_object_v1(self) -> None:
         """Test case for ezsigntemplate_get_object_v1
 
-        Retrieve an existing Ezsigntemplate  # noqa: E501
+        Retrieve an existing Ezsigntemplate
         """
         pass
 
     def test_ezsigntemplate_get_object_v2(self) -> None:
         """Test case for ezsigntemplate_get_object_v2
 
-        Retrieve an existing Ezsigntemplate  # noqa: E501
+        Retrieve an existing Ezsigntemplate
         """
         pass
 

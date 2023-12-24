@@ -19,18 +19,24 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class MultilingualVariableexpenseDescription(BaseModel):
     """
-    The description of the Variableexpense  # noqa: E501
-    """
-    s_variableexpense_description1: Optional[constr(strict=True)] = Field(None, alias="sVariableexpenseDescription1", description="The description of the Variableexpense in French")
-    s_variableexpense_description2: Optional[constr(strict=True)] = Field(None, alias="sVariableexpenseDescription2", description="The description of the Variableexpense in English")
-    __properties = ["sVariableexpenseDescription1", "sVariableexpenseDescription2"]
+    The description of the Variableexpense
+    """ # noqa: E501
+    s_variableexpense_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in French", alias="sVariableexpenseDescription1")
+    s_variableexpense_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in English", alias="sVariableexpenseDescription2")
+    __properties: ClassVar[List[str]] = ["sVariableexpenseDescription1", "sVariableexpenseDescription2"]
 
-    @validator('s_variableexpense_description1')
+    @field_validator('s_variableexpense_description1')
     def s_variableexpense_description1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -40,7 +46,7 @@ class MultilingualVariableexpenseDescription(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
-    @validator('s_variableexpense_description2')
+    @field_validator('s_variableexpense_description2')
     def s_variableexpense_description2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -50,44 +56,57 @@ class MultilingualVariableexpenseDescription(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> MultilingualVariableexpenseDescription:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of MultilingualVariableexpenseDescription from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> MultilingualVariableexpenseDescription:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of MultilingualVariableexpenseDescription from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return MultilingualVariableexpenseDescription.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = MultilingualVariableexpenseDescription.parse_obj({
-            "s_variableexpense_description1": obj.get("sVariableexpenseDescription1"),
-            "s_variableexpense_description2": obj.get("sVariableexpenseDescription2")
+        _obj = cls.model_validate({
+            "sVariableexpenseDescription1": obj.get("sVariableexpenseDescription1"),
+            "sVariableexpenseDescription2": obj.get("sVariableexpenseDescription2")
         })
         return _obj
 

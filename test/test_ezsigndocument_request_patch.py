@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_request_patch import EzsigndocumentRequestPatch  # noqa: E501
+from eZmaxApi.models.ezsigndocument_request_patch import EzsigndocumentRequestPatch
 
 class TestEzsigndocumentRequestPatch(unittest.TestCase):
     """EzsigndocumentRequestPatch unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentRequestPatch(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentRequestPatch`
         """
-        model = EzsigndocumentRequestPatch()  # noqa: E501
+        model = EzsigndocumentRequestPatch()
         if include_optional:
             return EzsigndocumentRequestPatch(
                 dt_ezsigndocument_duedate = '2020-12-31 23:59:59',

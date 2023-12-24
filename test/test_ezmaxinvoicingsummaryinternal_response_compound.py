@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezmaxinvoicingsummaryinternal_response_compound import EzmaxinvoicingsummaryinternalResponseCompound  # noqa: E501
+from eZmaxApi.models.ezmaxinvoicingsummaryinternal_response_compound import EzmaxinvoicingsummaryinternalResponseCompound
 
 class TestEzmaxinvoicingsummaryinternalResponseCompound(unittest.TestCase):
     """EzmaxinvoicingsummaryinternalResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzmaxinvoicingsummaryinternalResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzmaxinvoicingsummaryinternalResponseCompound`
         """
-        model = EzmaxinvoicingsummaryinternalResponseCompound()  # noqa: E501
+        model = EzmaxinvoicingsummaryinternalResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryinternalResponseCompound(
                 pki_ezmaxinvoicingsummaryinternal_id = 57,

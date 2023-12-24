@@ -19,42 +19,60 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
 from eZmaxApi.models.custom_ezsignformfielderrortest_response import CustomEzsignformfielderrortestResponse
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomEzsignformfielderrorResponse(BaseModel):
     """
-    A Custom Ezsignformfield Object to contain an error list  # noqa: E501
-    """
-    s_ezsignformfield_label: StrictStr = Field(..., alias="sEzsignformfieldLabel", description="The Label for the Ezsignformfield")
-    a_obj_ezsignformfielderrortest: conlist(CustomEzsignformfielderrortestResponse) = Field(..., alias="a_objEzsignformfielderrortest")
-    __properties = ["sEzsignformfieldLabel", "a_objEzsignformfielderrortest"]
+    A Custom Ezsignformfield Object to contain an error list
+    """ # noqa: E501
+    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
+    a_obj_ezsignformfielderrortest: List[CustomEzsignformfielderrortestResponse] = Field(alias="a_objEzsignformfielderrortest")
+    __properties: ClassVar[List[str]] = ["sEzsignformfieldLabel", "a_objEzsignformfielderrortest"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomEzsignformfielderrorResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomEzsignformfielderrorResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfielderrortest (list)
         _items = []
         if self.a_obj_ezsignformfielderrortest:
@@ -65,17 +83,17 @@ class CustomEzsignformfielderrorResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomEzsignformfielderrorResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomEzsignformfielderrorResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomEzsignformfielderrorResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomEzsignformfielderrorResponse.parse_obj({
-            "s_ezsignformfield_label": obj.get("sEzsignformfieldLabel"),
-            "a_obj_ezsignformfielderrortest": [CustomEzsignformfielderrortestResponse.from_dict(_item) for _item in obj.get("a_objEzsignformfielderrortest")] if obj.get("a_objEzsignformfielderrortest") is not None else None
+        _obj = cls.model_validate({
+            "sEzsignformfieldLabel": obj.get("sEzsignformfieldLabel"),
+            "a_objEzsignformfielderrortest": [CustomEzsignformfielderrortestResponse.from_dict(_item) for _item in obj.get("a_objEzsignformfielderrortest")] if obj.get("a_objEzsignformfielderrortest") is not None else None
         })
         return _obj
 

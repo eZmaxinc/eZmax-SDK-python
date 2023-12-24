@@ -19,61 +19,79 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class GlobalEzmaxcustomerGetConfigurationV1Response(BaseModel):
     """
-    Response for GET /1/ezmaxcustomer/{pksEzmaxcustomerCode}/getConfiguration  # noqa: E501
-    """
-    s_infrastructureregion_code: StrictStr = Field(..., alias="sInfrastructureregionCode", description="The region code")
-    s_infrastructureregion_code_web: StrictStr = Field(..., alias="sInfrastructureregionCodeWeb", description="The region code")
-    s_infrastructureenvironmenttype_description: StrictStr = Field(..., alias="sInfrastructureenvironmenttypeDescription", description="The environment type Description")
-    s_cognito_client_id_external: Optional[StrictStr] = Field(None, alias="sCognitoClientIDExternal", description="The ID of the client in Cognito")
-    s_cognito_client_id_ezmaxpublic: StrictStr = Field(..., alias="sCognitoClientIDEzmaxpublic", description="The ID of the client in Cognito")
-    __properties = ["sInfrastructureregionCode", "sInfrastructureregionCodeWeb", "sInfrastructureenvironmenttypeDescription", "sCognitoClientIDExternal", "sCognitoClientIDEzmaxpublic"]
+    Response for GET /1/ezmaxcustomer/{pksEzmaxcustomerCode}/getConfiguration
+    """ # noqa: E501
+    s_infrastructureregion_code: StrictStr = Field(description="The region code", alias="sInfrastructureregionCode")
+    s_infrastructureregion_code_web: StrictStr = Field(description="The region code", alias="sInfrastructureregionCodeWeb")
+    s_infrastructureenvironmenttype_description: StrictStr = Field(description="The environment type Description", alias="sInfrastructureenvironmenttypeDescription")
+    s_cognito_client_id_external: Optional[StrictStr] = Field(default=None, description="The ID of the client in Cognito", alias="sCognitoClientIDExternal")
+    s_cognito_client_id_ezmaxpublic: StrictStr = Field(description="The ID of the client in Cognito", alias="sCognitoClientIDEzmaxpublic")
+    __properties: ClassVar[List[str]] = ["sInfrastructureregionCode", "sInfrastructureregionCodeWeb", "sInfrastructureenvironmenttypeDescription", "sCognitoClientIDExternal", "sCognitoClientIDEzmaxpublic"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> GlobalEzmaxcustomerGetConfigurationV1Response:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of GlobalEzmaxcustomerGetConfigurationV1Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> GlobalEzmaxcustomerGetConfigurationV1Response:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of GlobalEzmaxcustomerGetConfigurationV1Response from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GlobalEzmaxcustomerGetConfigurationV1Response.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = GlobalEzmaxcustomerGetConfigurationV1Response.parse_obj({
-            "s_infrastructureregion_code": obj.get("sInfrastructureregionCode"),
-            "s_infrastructureregion_code_web": obj.get("sInfrastructureregionCodeWeb"),
-            "s_infrastructureenvironmenttype_description": obj.get("sInfrastructureenvironmenttypeDescription"),
-            "s_cognito_client_id_external": obj.get("sCognitoClientIDExternal"),
-            "s_cognito_client_id_ezmaxpublic": obj.get("sCognitoClientIDEzmaxpublic")
+        _obj = cls.model_validate({
+            "sInfrastructureregionCode": obj.get("sInfrastructureregionCode"),
+            "sInfrastructureregionCodeWeb": obj.get("sInfrastructureregionCodeWeb"),
+            "sInfrastructureenvironmenttypeDescription": obj.get("sInfrastructureenvironmenttypeDescription"),
+            "sCognitoClientIDExternal": obj.get("sCognitoClientIDExternal"),
+            "sCognitoClientIDEzmaxpublic": obj.get("sCognitoClientIDEzmaxpublic")
         })
         return _obj
 

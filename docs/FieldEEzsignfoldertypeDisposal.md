@@ -3,6 +3,7 @@
 The type of disposal
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

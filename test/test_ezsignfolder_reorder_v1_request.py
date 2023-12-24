@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request  # noqa: E501
+from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request
 
 class TestEzsignfolderReorderV1Request(unittest.TestCase):
     """EzsignfolderReorderV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderReorderV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderReorderV1Request`
         """
-        model = EzsignfolderReorderV1Request()  # noqa: E501
+        model = EzsignfolderReorderV1Request()
         if include_optional:
             return EzsignfolderReorderV1Request(
                 a_pki_ezsigndocument_id = [

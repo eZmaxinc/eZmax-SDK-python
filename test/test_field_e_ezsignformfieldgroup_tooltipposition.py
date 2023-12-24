@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition  # noqa: E501
+from eZmaxApi.models.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
 
 class TestFieldEEzsignformfieldgroupTooltipposition(unittest.TestCase):
     """FieldEEzsignformfieldgroupTooltipposition unit test stubs"""

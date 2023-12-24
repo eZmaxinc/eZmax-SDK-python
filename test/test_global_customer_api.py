@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.global_customer_api import GlobalCustomerApi  # noqa: E501
+from eZmaxApi.api.global_customer_api import GlobalCustomerApi
 
 
 class TestGlobalCustomerApi(unittest.TestCase):
     """GlobalCustomerApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = GlobalCustomerApi()  # noqa: E501
+        self.api = GlobalCustomerApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestGlobalCustomerApi(unittest.TestCase):
     def test_global_customer_get_endpoint_v1(self) -> None:
         """Test case for global_customer_get_endpoint_v1
 
-        Get customer endpoint  # noqa: E501
+        Get customer endpoint
         """
         pass
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.textstylestatic_response_compound import TextstylestaticResponseCompound  # noqa: E501
+from eZmaxApi.models.textstylestatic_response_compound import TextstylestaticResponseCompound
 
 class TestTextstylestaticResponseCompound(unittest.TestCase):
     """TextstylestaticResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestTextstylestaticResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `TextstylestaticResponseCompound`
         """
-        model = TextstylestaticResponseCompound()  # noqa: E501
+        model = TextstylestaticResponseCompound()
         if include_optional:
             return TextstylestaticResponseCompound(
                 pki_textstylestatic_id = 216,

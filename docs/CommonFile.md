@@ -3,6 +3,7 @@
 Object representing a file used in a request or response context 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_file_name** | **str** | The name of the file | 

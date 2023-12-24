@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess  # noqa: E501
+from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 
 class TestFieldEUserEzsignaccess(unittest.TestCase):
     """FieldEUserEzsignaccess unit test stubs"""

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.rejectedoffertopurchase_get_communication_list_v1_response_m_payload import RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.rejectedoffertopurchase_get_communication_list_v1_response_m_payload import RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload
 
 class TestRejectedoffertopurchaseGetCommunicationListV1ResponseMPayload(unittest.TestCase):
     """RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestRejectedoffertopurchaseGetCommunicationListV1ResponseMPayload(unittest
             optional params are included """
         # uncomment below to create an instance of `RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload`
         """
-        model = RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload()  # noqa: E501
+        model = RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload()
         if include_optional:
             return RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload(
                 a_obj_communication = [

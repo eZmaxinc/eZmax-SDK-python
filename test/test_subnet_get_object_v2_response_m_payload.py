@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.subnet_get_object_v2_response_m_payload import SubnetGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.subnet_get_object_v2_response_m_payload import SubnetGetObjectV2ResponseMPayload
 
 class TestSubnetGetObjectV2ResponseMPayload(unittest.TestCase):
     """SubnetGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestSubnetGetObjectV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SubnetGetObjectV2ResponseMPayload`
         """
-        model = SubnetGetObjectV2ResponseMPayload()  # noqa: E501
+        model = SubnetGetObjectV2ResponseMPayload()
         if include_optional:
             return SubnetGetObjectV2ResponseMPayload(
                 obj_subnet = eZmaxApi.models.subnet_response_compound.subnet-ResponseCompound()

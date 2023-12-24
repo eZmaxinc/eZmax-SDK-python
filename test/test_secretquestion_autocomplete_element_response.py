@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.secretquestion_autocomplete_element_response import SecretquestionAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.secretquestion_autocomplete_element_response import SecretquestionAutocompleteElementResponse
 
 class TestSecretquestionAutocompleteElementResponse(unittest.TestCase):
     """SecretquestionAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestSecretquestionAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SecretquestionAutocompleteElementResponse`
         """
-        model = SecretquestionAutocompleteElementResponse()  # noqa: E501
+        model = SecretquestionAutocompleteElementResponse()
         if include_optional:
             return SecretquestionAutocompleteElementResponse(
                 s_secretquestion_text_x = 'The name of the hospital in which you were born',

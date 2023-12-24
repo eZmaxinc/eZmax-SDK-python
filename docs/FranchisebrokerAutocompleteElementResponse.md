@@ -3,6 +3,7 @@
 A Franchisebroker AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_franchisebroker_name** | **str** | The name of the Franchisebroker in the language of the requester | 

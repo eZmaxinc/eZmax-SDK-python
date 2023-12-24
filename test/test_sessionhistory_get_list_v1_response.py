@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.sessionhistory_get_list_v1_response import SessionhistoryGetListV1Response  # noqa: E501
+from eZmaxApi.models.sessionhistory_get_list_v1_response import SessionhistoryGetListV1Response
 
 class TestSessionhistoryGetListV1Response(unittest.TestCase):
     """SessionhistoryGetListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestSessionhistoryGetListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SessionhistoryGetListV1Response`
         """
-        model = SessionhistoryGetListV1Response()  # noqa: E501
+        model = SessionhistoryGetListV1Response()
         if include_optional:
             return SessionhistoryGetListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

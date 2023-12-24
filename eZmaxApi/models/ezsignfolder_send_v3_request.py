@@ -19,57 +19,76 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsignfolderSendV3Request(BaseModel):
     """
-    Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send  # noqa: E501
-    """
-    t_ezsignfolder_message: Optional[StrictStr] = Field(None, alias="tEzsignfolderMessage", description="A custom text message that will be added to the email sent.")
-    dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(None, alias="dtEzsignfolderDelayedsenddate", description="The date and time at which the Ezsignfolder will be sent in the future.")
-    a_fki_ezsignfoldersignerassociation_id: conlist(conint(strict=True, ge=0)) = Field(..., alias="a_fkiEzsignfoldersignerassociationID")
-    __properties = ["tEzsignfolderMessage", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]
+    Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send
+    """ # noqa: E501
+    t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
+    dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
+    a_fki_ezsignfoldersignerassociation_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_fkiEzsignfoldersignerassociationID")
+    __properties: ClassVar[List[str]] = ["tEzsignfolderMessage", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsignfolderSendV3Request:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsignfolderSendV3Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsignfolderSendV3Request:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsignfolderSendV3Request from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsignfolderSendV3Request.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsignfolderSendV3Request.parse_obj({
-            "t_ezsignfolder_message": obj.get("tEzsignfolderMessage"),
-            "dt_ezsignfolder_delayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
-            "a_fki_ezsignfoldersignerassociation_id": obj.get("a_fkiEzsignfoldersignerassociationID")
+        _obj = cls.model_validate({
+            "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
+            "dtEzsignfolderDelayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
+            "a_fkiEzsignfoldersignerassociationID": obj.get("a_fkiEzsignfoldersignerassociationID")
         })
         return _obj
 

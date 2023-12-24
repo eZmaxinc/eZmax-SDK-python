@@ -19,59 +19,77 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictBool, StrictInt, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictInt
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommonResponseObjDebugPayload(BaseModel):
     """
-    This is a debug object containing debugging information on the actual function  # noqa: E501
-    """
-    i_version_min: StrictInt = Field(..., alias="iVersionMin", description="The minimum version of the function that can be called")
-    i_version_max: StrictInt = Field(..., alias="iVersionMax", description="The maximum version of the function that can be called")
-    a_required_permission: conlist(StrictInt) = Field(..., alias="a_RequiredPermission", description="An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.")
-    b_version_deprecated: StrictBool = Field(..., alias="bVersionDeprecated", description="Wheter the current route is deprecated or not")
-    __properties = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated"]
+    This is a debug object containing debugging information on the actual function
+    """ # noqa: E501
+    i_version_min: StrictInt = Field(description="The minimum version of the function that can be called", alias="iVersionMin")
+    i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax")
+    a_required_permission: List[StrictInt] = Field(description="An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.", alias="a_RequiredPermission")
+    b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated")
+    __properties: ClassVar[List[str]] = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommonResponseObjDebugPayload:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommonResponseObjDebugPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommonResponseObjDebugPayload:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommonResponseObjDebugPayload from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommonResponseObjDebugPayload.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommonResponseObjDebugPayload.parse_obj({
-            "i_version_min": obj.get("iVersionMin"),
-            "i_version_max": obj.get("iVersionMax"),
-            "a_required_permission": obj.get("a_RequiredPermission"),
-            "b_version_deprecated": obj.get("bVersionDeprecated")
+        _obj = cls.model_validate({
+            "iVersionMin": obj.get("iVersionMin"),
+            "iVersionMax": obj.get("iVersionMax"),
+            "a_RequiredPermission": obj.get("a_RequiredPermission"),
+            "bVersionDeprecated": obj.get("bVersionDeprecated")
         })
         return _obj
 

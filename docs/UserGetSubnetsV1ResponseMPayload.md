@@ -3,6 +3,7 @@
 Response for GET /1/object/user/{pkiUserID}/getSubnets
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_subnet** | [**List[SubnetResponseCompound]**](SubnetResponseCompound.md) |  | 

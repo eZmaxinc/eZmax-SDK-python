@@ -3,6 +3,7 @@
 A Usergroup AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 

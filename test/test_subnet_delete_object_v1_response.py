@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.subnet_delete_object_v1_response import SubnetDeleteObjectV1Response  # noqa: E501
+from eZmaxApi.models.subnet_delete_object_v1_response import SubnetDeleteObjectV1Response
 
 class TestSubnetDeleteObjectV1Response(unittest.TestCase):
     """SubnetDeleteObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestSubnetDeleteObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SubnetDeleteObjectV1Response`
         """
-        model = SubnetDeleteObjectV1Response()  # noqa: E501
+        model = SubnetDeleteObjectV1Response()
         if include_optional:
             return SubnetDeleteObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

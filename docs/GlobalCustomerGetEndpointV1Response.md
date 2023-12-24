@@ -3,6 +3,7 @@
 Response for GET /1/customer/{pksCustomerCode}/endpoint
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_endpoint_url** | **str** | The endpoint&#39;s URL | 

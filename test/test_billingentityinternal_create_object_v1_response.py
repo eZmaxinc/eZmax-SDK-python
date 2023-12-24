@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_create_object_v1_response import BillingentityinternalCreateObjectV1Response  # noqa: E501
+from eZmaxApi.models.billingentityinternal_create_object_v1_response import BillingentityinternalCreateObjectV1Response
 
 class TestBillingentityinternalCreateObjectV1Response(unittest.TestCase):
     """BillingentityinternalCreateObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalCreateObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalCreateObjectV1Response`
         """
-        model = BillingentityinternalCreateObjectV1Response()  # noqa: E501
+        model = BillingentityinternalCreateObjectV1Response()
         if include_optional:
             return BillingentityinternalCreateObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

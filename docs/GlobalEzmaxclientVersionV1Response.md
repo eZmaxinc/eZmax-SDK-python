@@ -3,9 +3,11 @@
 Response for GET /1/ezmaxclient/{pksEzmaxclientOs}/version
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_ezmaxclient_version** | **str** | The version on the store | 
+**s_ezmaxclient_oslatestversion** | **str** | The latest OS version of the system running the application at the time of release | [default to '11']
 
 ## Example
 

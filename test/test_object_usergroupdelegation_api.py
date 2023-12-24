@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_usergroupdelegation_api import ObjectUsergroupdelegationApi  # noqa: E501
+from eZmaxApi.api.object_usergroupdelegation_api import ObjectUsergroupdelegationApi
 
 
 class TestObjectUsergroupdelegationApi(unittest.TestCase):
     """ObjectUsergroupdelegationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectUsergroupdelegationApi()  # noqa: E501
+        self.api = ObjectUsergroupdelegationApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectUsergroupdelegationApi(unittest.TestCase):
     def test_usergroupdelegation_create_object_v1(self) -> None:
         """Test case for usergroupdelegation_create_object_v1
 
-        Create a new Usergroupdelegation  # noqa: E501
+        Create a new Usergroupdelegation
         """
         pass
 
     def test_usergroupdelegation_delete_object_v1(self) -> None:
         """Test case for usergroupdelegation_delete_object_v1
 
-        Delete an existing Usergroupdelegation  # noqa: E501
+        Delete an existing Usergroupdelegation
         """
         pass
 
     def test_usergroupdelegation_edit_object_v1(self) -> None:
         """Test case for usergroupdelegation_edit_object_v1
 
-        Edit an existing Usergroupdelegation  # noqa: E501
+        Edit an existing Usergroupdelegation
         """
         pass
 
     def test_usergroupdelegation_get_object_v2(self) -> None:
         """Test case for usergroupdelegation_get_object_v2
 
-        Retrieve an existing Usergroupdelegation  # noqa: E501
+        Retrieve an existing Usergroupdelegation
         """
         pass
 

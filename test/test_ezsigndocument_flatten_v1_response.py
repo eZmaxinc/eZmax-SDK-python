@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response  # noqa: E501
+from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response
 
 class TestEzsigndocumentFlattenV1Response(unittest.TestCase):
     """EzsigndocumentFlattenV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentFlattenV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentFlattenV1Response`
         """
-        model = EzsigndocumentFlattenV1Response()  # noqa: E501
+        model = EzsigndocumentFlattenV1Response()
         if include_optional:
             return EzsigndocumentFlattenV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

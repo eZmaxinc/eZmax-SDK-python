@@ -3,6 +3,7 @@
 Request for PUT /1/object/usergroupdelegation/{pkiUsergroupdelegationID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_usergroupdelegation** | [**UsergroupdelegationRequestCompound**](UsergroupdelegationRequestCompound.md) |  | 

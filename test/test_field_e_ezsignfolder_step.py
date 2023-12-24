@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep  # noqa: E501
+from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 
 class TestFieldEEzsignfolderStep(unittest.TestCase):
     """FieldEEzsignfolderStep unit test stubs"""

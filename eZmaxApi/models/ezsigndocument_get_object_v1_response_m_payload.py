@@ -19,47 +19,54 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype
 from eZmaxApi.models.custom_ezsignfoldersignerassociationstatus_response import CustomEzsignfoldersignerassociationstatusResponse
 from eZmaxApi.models.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
     """
-    Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}  # noqa: E501
-    """
-    pki_ezsigndocument_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsigndocumentID", description="The unique ID of the Ezsigndocument")
-    fki_ezsignfolder_id: conint(strict=True, ge=0) = Field(..., alias="fkiEzsignfolderID", description="The unique ID of the Ezsignfolder")
-    fki_ezsignfoldersignerassociation_id_declinedtosign: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignfoldersignerassociationIDDeclinedtosign", description="The unique ID of the Ezsignfoldersignerassociation")
-    dt_ezsigndocument_duedate: StrictStr = Field(..., alias="dtEzsigndocumentDuedate", description="The maximum date and time at which the Ezsigndocument can be signed.")
-    dt_ezsignform_completed: Optional[StrictStr] = Field(None, alias="dtEzsignformCompleted", description="The date and time at which the Ezsignform has been completed.")
-    fki_language_id: Optional[conint(strict=True, le=2, ge=1)] = Field(None, alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_ezsigndocument_name: StrictStr = Field(..., alias="sEzsigndocumentName", description="The name of the document that will be presented to Ezsignfoldersignerassociations")
-    e_ezsigndocument_step: FieldEEzsigndocumentStep = Field(..., alias="eEzsigndocumentStep")
-    dt_ezsigndocument_firstsend: Optional[StrictStr] = Field(None, alias="dtEzsigndocumentFirstsend", description="The date and time when the Ezsigndocument was first sent.")
-    dt_ezsigndocument_lastsend: Optional[StrictStr] = Field(None, alias="dtEzsigndocumentLastsend", description="The date and time when the Ezsigndocument was sent the last time.")
-    i_ezsigndocument_order: conint(strict=True, ge=1) = Field(..., alias="iEzsigndocumentOrder", description="The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder.")
-    i_ezsigndocument_pagetotal: conint(strict=True, ge=1) = Field(..., alias="iEzsigndocumentPagetotal", description="The number of pages in the Ezsigndocument.")
-    i_ezsigndocument_signaturesigned: conint(strict=True, ge=0) = Field(..., alias="iEzsigndocumentSignaturesigned", description="The number of signatures that were signed in the document.")
-    i_ezsigndocument_signaturetotal: conint(strict=True, ge=0) = Field(..., alias="iEzsigndocumentSignaturetotal", description="The number of total signatures that were requested in the Ezsigndocument.")
-    s_ezsigndocument_md5initial: Optional[StrictStr] = Field(None, alias="sEzsigndocumentMD5initial", description="MD5 Hash of the initial PDF Document before signatures were applied to it.")
-    t_ezsigndocument_declinedtosignreason: Optional[StrictStr] = Field(None, alias="tEzsigndocumentDeclinedtosignreason", description="A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign")
-    s_ezsigndocument_md5signed: Optional[StrictStr] = Field(None, alias="sEzsigndocumentMD5signed", description="MD5 Hash of the final PDF Document after all signatures were applied to it.")
-    b_ezsigndocument_ezsignform: Optional[StrictBool] = Field(None, alias="bEzsigndocumentEzsignform", description="If the Ezsigndocument contains an Ezsignform or not")
-    b_ezsigndocument_hassignedsignatures: Optional[StrictBool] = Field(None, alias="bEzsigndocumentHassignedsignatures", description="If the Ezsigndocument contains signed signatures (From internal or external sources)")
-    obj_audit: Optional[CommonAudit] = Field(None, alias="objAudit")
-    s_ezsigndocument_externalid: Optional[constr(strict=True)] = Field(None, alias="sEzsigndocumentExternalid", description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ")
-    e_ezsigndocument_steptype: ComputedEEzsigndocumentSteptype = Field(..., alias="eEzsigndocumentSteptype")
-    i_ezsigndocument_stepformtotal: StrictInt = Field(..., alias="iEzsigndocumentStepformtotal", description="The total number of steps in the form filling phase")
-    i_ezsigndocument_stepformcurrent: StrictInt = Field(..., alias="iEzsigndocumentStepformcurrent", description="The current step in the form filling phase")
-    i_ezsigndocument_stepsignaturetotal: StrictInt = Field(..., alias="iEzsigndocumentStepsignaturetotal", description="The total number of steps in the signature filling phase")
-    i_ezsigndocument_stepsignature_current: StrictInt = Field(..., alias="iEzsigndocumentStepsignatureCurrent", description="The current step in the signature phase")
-    a_obj_ezsignfoldersignerassociationstatus: conlist(CustomEzsignfoldersignerassociationstatusResponse) = Field(..., alias="a_objEzsignfoldersignerassociationstatus")
-    __properties = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus"]
+    Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}
+    """ # noqa: E501
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    fki_ezsignfoldersignerassociation_id_declinedtosign: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationIDDeclinedtosign")
+    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
+    dt_ezsignform_completed: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignform has been completed.", alias="dtEzsignformCompleted")
+    fki_language_id: Optional[Annotated[int, Field(le=2, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
+    e_ezsigndocument_step: FieldEEzsigndocumentStep = Field(alias="eEzsigndocumentStep")
+    dt_ezsigndocument_firstsend: Optional[StrictStr] = Field(default=None, description="The date and time when the Ezsigndocument was first sent.", alias="dtEzsigndocumentFirstsend")
+    dt_ezsigndocument_lastsend: Optional[StrictStr] = Field(default=None, description="The date and time when the Ezsigndocument was sent the last time.", alias="dtEzsigndocumentLastsend")
+    i_ezsigndocument_order: Annotated[int, Field(strict=True, ge=1)] = Field(description="The order in which the Ezsigndocument will be presented to the signatory in the Ezsignfolder.", alias="iEzsigndocumentOrder")
+    i_ezsigndocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigndocument.", alias="iEzsigndocumentPagetotal")
+    i_ezsigndocument_signaturesigned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of signatures that were signed in the document.", alias="iEzsigndocumentSignaturesigned")
+    i_ezsigndocument_signaturetotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of total signatures that were requested in the Ezsigndocument.", alias="iEzsigndocumentSignaturetotal")
+    s_ezsigndocument_md5initial: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the initial PDF Document before signatures were applied to it.", alias="sEzsigndocumentMD5initial")
+    t_ezsigndocument_declinedtosignreason: Optional[StrictStr] = Field(default=None, description="A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign", alias="tEzsigndocumentDeclinedtosignreason")
+    s_ezsigndocument_md5signed: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the final PDF Document after all signatures were applied to it.", alias="sEzsigndocumentMD5signed")
+    b_ezsigndocument_ezsignform: Optional[StrictBool] = Field(default=None, description="If the Ezsigndocument contains an Ezsignform or not", alias="bEzsigndocumentEzsignform")
+    b_ezsigndocument_hassignedsignatures: Optional[StrictBool] = Field(default=None, description="If the Ezsigndocument contains signed signatures (From internal or external sources)", alias="bEzsigndocumentHassignedsignatures")
+    obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
+    s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
+    i_ezsigndocument_ezsignsignatureattachmenttotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of Ezsigndocumentattachment total", alias="iEzsigndocumentEzsignsignatureattachmenttotal")
+    e_ezsigndocument_steptype: ComputedEEzsigndocumentSteptype = Field(alias="eEzsigndocumentSteptype")
+    i_ezsigndocument_stepformtotal: StrictInt = Field(description="The total number of steps in the form filling phase", alias="iEzsigndocumentStepformtotal")
+    i_ezsigndocument_stepformcurrent: StrictInt = Field(description="The current step in the form filling phase", alias="iEzsigndocumentStepformcurrent")
+    i_ezsigndocument_stepsignaturetotal: StrictInt = Field(description="The total number of steps in the signature filling phase", alias="iEzsigndocumentStepsignaturetotal")
+    i_ezsigndocument_stepsignature_current: StrictInt = Field(description="The current step in the signature phase", alias="iEzsigndocumentStepsignatureCurrent")
+    a_obj_ezsignfoldersignerassociationstatus: List[CustomEzsignfoldersignerassociationstatusResponse] = Field(alias="a_objEzsignfoldersignerassociationstatus")
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus"]
 
-    @validator('s_ezsigndocument_externalid')
+    @field_validator('s_ezsigndocument_externalid')
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -69,30 +76,43 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigndocumentGetObjectV1ResponseMPayload:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigndocumentGetObjectV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
@@ -106,42 +126,43 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigndocumentGetObjectV1ResponseMPayload:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigndocumentGetObjectV1ResponseMPayload from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigndocumentGetObjectV1ResponseMPayload.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigndocumentGetObjectV1ResponseMPayload.parse_obj({
-            "pki_ezsigndocument_id": obj.get("pkiEzsigndocumentID"),
-            "fki_ezsignfolder_id": obj.get("fkiEzsignfolderID"),
-            "fki_ezsignfoldersignerassociation_id_declinedtosign": obj.get("fkiEzsignfoldersignerassociationIDDeclinedtosign"),
-            "dt_ezsigndocument_duedate": obj.get("dtEzsigndocumentDuedate"),
-            "dt_ezsignform_completed": obj.get("dtEzsignformCompleted"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_ezsigndocument_name": obj.get("sEzsigndocumentName"),
-            "e_ezsigndocument_step": obj.get("eEzsigndocumentStep"),
-            "dt_ezsigndocument_firstsend": obj.get("dtEzsigndocumentFirstsend"),
-            "dt_ezsigndocument_lastsend": obj.get("dtEzsigndocumentLastsend"),
-            "i_ezsigndocument_order": obj.get("iEzsigndocumentOrder"),
-            "i_ezsigndocument_pagetotal": obj.get("iEzsigndocumentPagetotal"),
-            "i_ezsigndocument_signaturesigned": obj.get("iEzsigndocumentSignaturesigned"),
-            "i_ezsigndocument_signaturetotal": obj.get("iEzsigndocumentSignaturetotal"),
-            "s_ezsigndocument_md5initial": obj.get("sEzsigndocumentMD5initial"),
-            "t_ezsigndocument_declinedtosignreason": obj.get("tEzsigndocumentDeclinedtosignreason"),
-            "s_ezsigndocument_md5signed": obj.get("sEzsigndocumentMD5signed"),
-            "b_ezsigndocument_ezsignform": obj.get("bEzsigndocumentEzsignform"),
-            "b_ezsigndocument_hassignedsignatures": obj.get("bEzsigndocumentHassignedsignatures"),
-            "obj_audit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
-            "s_ezsigndocument_externalid": obj.get("sEzsigndocumentExternalid"),
-            "e_ezsigndocument_steptype": obj.get("eEzsigndocumentSteptype"),
-            "i_ezsigndocument_stepformtotal": obj.get("iEzsigndocumentStepformtotal"),
-            "i_ezsigndocument_stepformcurrent": obj.get("iEzsigndocumentStepformcurrent"),
-            "i_ezsigndocument_stepsignaturetotal": obj.get("iEzsigndocumentStepsignaturetotal"),
-            "i_ezsigndocument_stepsignature_current": obj.get("iEzsigndocumentStepsignatureCurrent"),
-            "a_obj_ezsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj.get("a_objEzsignfoldersignerassociationstatus")] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsigndocumentID": obj.get("pkiEzsigndocumentID"),
+            "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "fkiEzsignfoldersignerassociationIDDeclinedtosign": obj.get("fkiEzsignfoldersignerassociationIDDeclinedtosign"),
+            "dtEzsigndocumentDuedate": obj.get("dtEzsigndocumentDuedate"),
+            "dtEzsignformCompleted": obj.get("dtEzsignformCompleted"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sEzsigndocumentName": obj.get("sEzsigndocumentName"),
+            "eEzsigndocumentStep": obj.get("eEzsigndocumentStep"),
+            "dtEzsigndocumentFirstsend": obj.get("dtEzsigndocumentFirstsend"),
+            "dtEzsigndocumentLastsend": obj.get("dtEzsigndocumentLastsend"),
+            "iEzsigndocumentOrder": obj.get("iEzsigndocumentOrder"),
+            "iEzsigndocumentPagetotal": obj.get("iEzsigndocumentPagetotal"),
+            "iEzsigndocumentSignaturesigned": obj.get("iEzsigndocumentSignaturesigned"),
+            "iEzsigndocumentSignaturetotal": obj.get("iEzsigndocumentSignaturetotal"),
+            "sEzsigndocumentMD5initial": obj.get("sEzsigndocumentMD5initial"),
+            "tEzsigndocumentDeclinedtosignreason": obj.get("tEzsigndocumentDeclinedtosignreason"),
+            "sEzsigndocumentMD5signed": obj.get("sEzsigndocumentMD5signed"),
+            "bEzsigndocumentEzsignform": obj.get("bEzsigndocumentEzsignform"),
+            "bEzsigndocumentHassignedsignatures": obj.get("bEzsigndocumentHassignedsignatures"),
+            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
+            "sEzsigndocumentExternalid": obj.get("sEzsigndocumentExternalid"),
+            "iEzsigndocumentEzsignsignatureattachmenttotal": obj.get("iEzsigndocumentEzsignsignatureattachmenttotal"),
+            "eEzsigndocumentSteptype": obj.get("eEzsigndocumentSteptype"),
+            "iEzsigndocumentStepformtotal": obj.get("iEzsigndocumentStepformtotal"),
+            "iEzsigndocumentStepformcurrent": obj.get("iEzsigndocumentStepformcurrent"),
+            "iEzsigndocumentStepsignaturetotal": obj.get("iEzsigndocumentStepsignaturetotal"),
+            "iEzsigndocumentStepsignatureCurrent": obj.get("iEzsigndocumentStepsignatureCurrent"),
+            "a_objEzsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj.get("a_objEzsignfoldersignerassociationstatus")] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None
         })
         return _obj
 

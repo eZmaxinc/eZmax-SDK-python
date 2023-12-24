@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_get_ezsignbulksendtransmissions_v1_response_m_payload import EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_get_ezsignbulksendtransmissions_v1_response_m_payload import EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload
 
 class TestEzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload(unittest.TestCase):
     """EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload(unittes
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload`
         """
-        model = EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload()  # noqa: E501
+        model = EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload()
         if include_optional:
             return EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload(
                 a_obj_ezsignbulksendtransmission = [

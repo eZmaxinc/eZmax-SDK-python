@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignelementdependency_validation import FieldEEzsignelementdependencyValidation  # noqa: E501
+from eZmaxApi.models.field_e_ezsignelementdependency_validation import FieldEEzsignelementdependencyValidation
 
 class TestFieldEEzsignelementdependencyValidation(unittest.TestCase):
     """FieldEEzsignelementdependencyValidation unit test stubs"""

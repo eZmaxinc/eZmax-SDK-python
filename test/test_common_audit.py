@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_audit import CommonAudit  # noqa: E501
+from eZmaxApi.models.common_audit import CommonAudit
 
 class TestCommonAudit(unittest.TestCase):
     """CommonAudit unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonAudit(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonAudit`
         """
-        model = CommonAudit()  # noqa: E501
+        model = CommonAudit()
         if include_optional:
             return CommonAudit(
                 obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(

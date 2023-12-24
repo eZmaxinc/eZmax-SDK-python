@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_sessionhistory_endby import FieldESessionhistoryEndby  # noqa: E501
+from eZmaxApi.models.field_e_sessionhistory_endby import FieldESessionhistoryEndby
 
 class TestFieldESessionhistoryEndby(unittest.TestCase):
     """FieldESessionhistoryEndby unit test stubs"""

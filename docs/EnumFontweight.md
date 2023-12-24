@@ -3,6 +3,7 @@
 The Font Weight
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

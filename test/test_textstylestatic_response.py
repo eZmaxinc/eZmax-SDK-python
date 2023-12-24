@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.textstylestatic_response import TextstylestaticResponse  # noqa: E501
+from eZmaxApi.models.textstylestatic_response import TextstylestaticResponse
 
 class TestTextstylestaticResponse(unittest.TestCase):
     """TextstylestaticResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestTextstylestaticResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `TextstylestaticResponse`
         """
-        model = TextstylestaticResponse()  # noqa: E501
+        model = TextstylestaticResponse()
         if include_optional:
             return TextstylestaticResponse(
                 pki_textstylestatic_id = 216,

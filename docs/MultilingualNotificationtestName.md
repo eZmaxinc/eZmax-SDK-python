@@ -3,6 +3,7 @@
 Name of the Notificationtest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_notificationtest_name1** | **str** | The name of the Notificationtest in French | [optional] 

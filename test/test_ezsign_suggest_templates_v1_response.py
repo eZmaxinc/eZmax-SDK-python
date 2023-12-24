@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response  # noqa: E501
+from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
 
 class TestEzsignSuggestTemplatesV1Response(unittest.TestCase):
     """EzsignSuggestTemplatesV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignSuggestTemplatesV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignSuggestTemplatesV1Response`
         """
-        model = EzsignSuggestTemplatesV1Response()  # noqa: E501
+        model = EzsignSuggestTemplatesV1Response()
         if include_optional:
             return EzsignSuggestTemplatesV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

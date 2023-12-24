@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_filter import CommonResponseFilter  # noqa: E501
+from eZmaxApi.models.common_response_filter import CommonResponseFilter
 
 class TestCommonResponseFilter(unittest.TestCase):
     """CommonResponseFilter unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseFilter(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseFilter`
         """
-        model = CommonResponseFilter()  # noqa: E501
+        model = CommonResponseFilter()
         if include_optional:
             return CommonResponseFilter(
                 a_auto_type = {

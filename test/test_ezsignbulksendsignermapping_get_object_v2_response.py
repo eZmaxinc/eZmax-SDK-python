@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksendsignermapping_get_object_v2_response import EzsignbulksendsignermappingGetObjectV2Response  # noqa: E501
+from eZmaxApi.models.ezsignbulksendsignermapping_get_object_v2_response import EzsignbulksendsignermappingGetObjectV2Response
 
 class TestEzsignbulksendsignermappingGetObjectV2Response(unittest.TestCase):
     """EzsignbulksendsignermappingGetObjectV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendsignermappingGetObjectV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendsignermappingGetObjectV2Response`
         """
-        model = EzsignbulksendsignermappingGetObjectV2Response()  # noqa: E501
+        model = EzsignbulksendsignermappingGetObjectV2Response()
         if include_optional:
             return EzsignbulksendsignermappingGetObjectV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

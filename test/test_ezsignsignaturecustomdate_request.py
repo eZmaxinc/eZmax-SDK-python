@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest  # noqa: E501
+from eZmaxApi.models.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
 
 class TestEzsignsignaturecustomdateRequest(unittest.TestCase):
     """EzsignsignaturecustomdateRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignaturecustomdateRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignaturecustomdateRequest`
         """
-        model = EzsignsignaturecustomdateRequest()  # noqa: E501
+        model = EzsignsignaturecustomdateRequest()
         if include_optional:
             return EzsignsignaturecustomdateRequest(
                 pki_ezsignsignaturecustomdate_id = 27,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_list_element import PaymenttermListElement  # noqa: E501
+from eZmaxApi.models.paymentterm_list_element import PaymenttermListElement
 
 class TestPaymenttermListElement(unittest.TestCase):
     """PaymenttermListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermListElement`
         """
-        model = PaymenttermListElement()  # noqa: E501
+        model = PaymenttermListElement()
         if include_optional:
             return PaymenttermListElement(
                 pki_paymentterm_id = 46,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_response import ActivesessionResponse  # noqa: E501
+from eZmaxApi.models.activesession_response import ActivesessionResponse
 
 class TestActivesessionResponse(unittest.TestCase):
     """ActivesessionResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionResponse`
         """
-        model = ActivesessionResponse()  # noqa: E501
+        model = ActivesessionResponse()
         if include_optional:
             return ActivesessionResponse(
                 e_activesession_usertype = 'Normal',

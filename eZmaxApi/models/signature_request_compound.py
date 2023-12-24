@@ -19,62 +19,81 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class SignatureRequestCompound(BaseModel):
     """
-    A Signature Object and children  # noqa: E501
-    """
-    pki_signature_id: Optional[conint(strict=True, le=16777215, ge=0)] = Field(None, alias="pkiSignatureID", description="The unique ID of the Signature")
-    t_signature_svg: constr(strict=True) = Field(..., alias="tSignatureSvg", description="The svg of the Signature")
-    __properties = ["pkiSignatureID", "tSignatureSvg"]
+    A Signature Object and children
+    """ # noqa: E501
+    pki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="pkiSignatureID")
+    t_signature_svg: Annotated[str, Field(strict=True)] = Field(description="The svg of the Signature", alias="tSignatureSvg")
+    __properties: ClassVar[List[str]] = ["pkiSignatureID", "tSignatureSvg"]
 
-    @validator('t_signature_svg')
+    @field_validator('t_signature_svg')
     def t_signature_svg_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^.{0,32767}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,32767}$/")
+        if not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SignatureRequestCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of SignatureRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SignatureRequestCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of SignatureRequestCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SignatureRequestCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SignatureRequestCompound.parse_obj({
-            "pki_signature_id": obj.get("pkiSignatureID"),
-            "t_signature_svg": obj.get("tSignatureSvg")
+        _obj = cls.model_validate({
+            "pkiSignatureID": obj.get("pkiSignatureID"),
+            "tSignatureSvg": obj.get("tSignatureSvg")
         })
         return _obj
 

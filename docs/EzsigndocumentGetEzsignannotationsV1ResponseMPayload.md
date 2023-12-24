@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignannotations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignannotation** | [**List[EzsignannotationResponseCompound]**](EzsignannotationResponseCompound.md) |  | 

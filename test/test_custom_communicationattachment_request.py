@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_communicationattachment_request import CustomCommunicationattachmentRequest  # noqa: E501
+from eZmaxApi.models.custom_communicationattachment_request import CustomCommunicationattachmentRequest
 
 class TestCustomCommunicationattachmentRequest(unittest.TestCase):
     """CustomCommunicationattachmentRequest unit test stubs"""
@@ -34,14 +34,14 @@ class TestCustomCommunicationattachmentRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationattachmentRequest`
         """
-        model = CustomCommunicationattachmentRequest()  # noqa: E501
+        model = CustomCommunicationattachmentRequest()
         if include_optional:
             return CustomCommunicationattachmentRequest(
                 obj_communicationattachment = eZmaxApi.models.communicationattachment_request_compound.communicationattachment-RequestCompound(),
                 obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                     s_file_name = 'example.pdf', 
                     s_file_url = '', 
-                    s_file_base64 = '[B@64337702', 
+                    s_file_base64 = '[B@f9d87b', 
                     e_file_source = 'Base64', )
             )
         else:

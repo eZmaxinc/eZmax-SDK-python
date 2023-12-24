@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont  # noqa: E501
+from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont
 
 class TestFieldEEzsigntemplatesignatureFont(unittest.TestCase):
     """FieldEEzsigntemplatesignatureFont unit test stubs"""

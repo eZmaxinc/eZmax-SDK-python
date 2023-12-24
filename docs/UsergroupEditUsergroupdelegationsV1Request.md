@@ -3,6 +3,7 @@
 Request for PUT /1/object/usergroup/{pkiUsergroupID}/editUsergroupdelegations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroupdelegation** | [**List[UsergroupdelegationRequestCompound]**](UsergroupdelegationRequestCompound.md) |  | 

@@ -3,6 +3,7 @@
 A complex type that specifies FILTER options.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **supported** | **bool** | A Boolean value specifying whether or not the operation is supported. | 

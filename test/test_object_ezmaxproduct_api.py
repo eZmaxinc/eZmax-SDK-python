@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi  # noqa: E501
+from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi
 
 
 class TestObjectEzmaxproductApi(unittest.TestCase):
     """ObjectEzmaxproductApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzmaxproductApi()  # noqa: E501
+        self.api = ObjectEzmaxproductApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectEzmaxproductApi(unittest.TestCase):
     def test_ezmaxproduct_get_autocomplete_v2(self) -> None:
         """Test case for ezmaxproduct_get_autocomplete_v2
 
-        Retrieve Ezmaxproducts and IDs  # noqa: E501
+        Retrieve Ezmaxproducts and IDs
         """
         pass
 

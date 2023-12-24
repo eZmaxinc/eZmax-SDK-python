@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroupdelegation_response import UsergroupdelegationResponse  # noqa: E501
+from eZmaxApi.models.usergroupdelegation_response import UsergroupdelegationResponse
 
 class TestUsergroupdelegationResponse(unittest.TestCase):
     """UsergroupdelegationResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupdelegationResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupdelegationResponse`
         """
-        model = UsergroupdelegationResponse()  # noqa: E501
+        model = UsergroupdelegationResponse()
         if include_optional:
             return UsergroupdelegationResponse(
                 pki_usergroupdelegation_id = 141,

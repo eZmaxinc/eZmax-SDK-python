@@ -19,8 +19,9 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, StrictStr, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
 from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword
@@ -28,45 +29,62 @@ from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProvide
 from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter
 from eZmaxApi.models.scim_service_provider_config_patch import ScimServiceProviderConfigPatch
 from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ScimServiceProviderConfig(BaseModel):
     """
     ScimServiceProviderConfig
-    """
-    authentication_schemes: conlist(ScimAuthenticationScheme) = Field(..., alias="authenticationSchemes", description="A multi-valued complex type that specifies supported authentication scheme properties.")
-    bulk: ScimServiceProviderConfigBulk = Field(...)
-    change_password: ScimServiceProviderConfigChangePassword = Field(..., alias="changePassword")
-    documentation_uri: StrictStr = Field(..., alias="documentationUri", description="An HTTP-addressable URL pointing to the service provider's human-consumable help documentation")
-    etag: ScimServiceProviderConfigEtag = Field(...)
-    filter: ScimServiceProviderConfigFilter = Field(...)
-    patch: ScimServiceProviderConfigPatch = Field(...)
-    sort: ScimServiceProviderConfigSort = Field(...)
-    __properties = ["authenticationSchemes", "bulk", "changePassword", "documentationUri", "etag", "filter", "patch", "sort"]
+    """ # noqa: E501
+    authentication_schemes: List[ScimAuthenticationScheme] = Field(description="A multi-valued complex type that specifies supported authentication scheme properties.", alias="authenticationSchemes")
+    bulk: ScimServiceProviderConfigBulk
+    change_password: ScimServiceProviderConfigChangePassword = Field(alias="changePassword")
+    documentation_uri: StrictStr = Field(description="An HTTP-addressable URL pointing to the service provider's human-consumable help documentation", alias="documentationUri")
+    etag: ScimServiceProviderConfigEtag
+    filter: ScimServiceProviderConfigFilter
+    patch: ScimServiceProviderConfigPatch
+    sort: ScimServiceProviderConfigSort
+    __properties: ClassVar[List[str]] = ["authenticationSchemes", "bulk", "changePassword", "documentationUri", "etag", "filter", "patch", "sort"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ScimServiceProviderConfig:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ScimServiceProviderConfig from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in authentication_schemes (list)
         _items = []
         if self.authentication_schemes:
@@ -95,19 +113,19 @@ class ScimServiceProviderConfig(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ScimServiceProviderConfig:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ScimServiceProviderConfig from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ScimServiceProviderConfig.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ScimServiceProviderConfig.parse_obj({
-            "authentication_schemes": [ScimAuthenticationScheme.from_dict(_item) for _item in obj.get("authenticationSchemes")] if obj.get("authenticationSchemes") is not None else None,
+        _obj = cls.model_validate({
+            "authenticationSchemes": [ScimAuthenticationScheme.from_dict(_item) for _item in obj.get("authenticationSchemes")] if obj.get("authenticationSchemes") is not None else None,
             "bulk": ScimServiceProviderConfigBulk.from_dict(obj.get("bulk")) if obj.get("bulk") is not None else None,
-            "change_password": ScimServiceProviderConfigChangePassword.from_dict(obj.get("changePassword")) if obj.get("changePassword") is not None else None,
-            "documentation_uri": obj.get("documentationUri"),
+            "changePassword": ScimServiceProviderConfigChangePassword.from_dict(obj.get("changePassword")) if obj.get("changePassword") is not None else None,
+            "documentationUri": obj.get("documentationUri"),
             "etag": ScimServiceProviderConfigEtag.from_dict(obj.get("etag")) if obj.get("etag") is not None else None,
             "filter": ScimServiceProviderConfigFilter.from_dict(obj.get("filter")) if obj.get("filter") is not None else None,
             "patch": ScimServiceProviderConfigPatch.from_dict(obj.get("patch")) if obj.get("patch") is not None else None,

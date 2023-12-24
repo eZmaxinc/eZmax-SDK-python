@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_import_ezsigntemplatepackage_relation_request import CustomImportEzsigntemplatepackageRelationRequest  # noqa: E501
+from eZmaxApi.models.custom_import_ezsigntemplatepackage_relation_request import CustomImportEzsigntemplatepackageRelationRequest
 
 class TestCustomImportEzsigntemplatepackageRelationRequest(unittest.TestCase):
     """CustomImportEzsigntemplatepackageRelationRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomImportEzsigntemplatepackageRelationRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomImportEzsigntemplatepackageRelationRequest`
         """
-        model = CustomImportEzsigntemplatepackageRelationRequest()  # noqa: E501
+        model = CustomImportEzsigntemplatepackageRelationRequest()
         if include_optional:
             return CustomImportEzsigntemplatepackageRelationRequest(
                 fki_ezsigntemplatepackagesigner_id = 174,

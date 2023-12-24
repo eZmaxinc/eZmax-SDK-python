@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.enum_textvalidation import EnumTextvalidation  # noqa: E501
+from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 
 class TestEnumTextvalidation(unittest.TestCase):
     """EnumTextvalidation unit test stubs"""

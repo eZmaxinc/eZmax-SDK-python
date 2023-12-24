@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.versionhistory_response_compound import VersionhistoryResponseCompound  # noqa: E501
+from eZmaxApi.models.versionhistory_response_compound import VersionhistoryResponseCompound
 
 class TestVersionhistoryResponseCompound(unittest.TestCase):
     """VersionhistoryResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestVersionhistoryResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VersionhistoryResponseCompound`
         """
-        model = VersionhistoryResponseCompound()  # noqa: E501
+        model = VersionhistoryResponseCompound()
         if include_optional:
             return VersionhistoryResponseCompound(
                 pki_versionhistory_id = 42,

@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi  # noqa: E501
+from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi
 
 
 class TestObjectEzsignfolderApi(unittest.TestCase):
     """ObjectEzsignfolderApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignfolderApi()  # noqa: E501
+        self.api = ObjectEzsignfolderApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,189 +30,203 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
     def test_ezsignfolder_archive_v1(self) -> None:
         """Test case for ezsignfolder_archive_v1
 
-        Archive the Ezsignfolder  # noqa: E501
+        Archive the Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_batch_download_v1(self) -> None:
         """Test case for ezsignfolder_batch_download_v1
 
-        Download multiples files from an Ezsignfolder  # noqa: E501
+        Download multiples files from an Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_create_object_v1(self) -> None:
         """Test case for ezsignfolder_create_object_v1
 
-        Create a new Ezsignfolder  # noqa: E501
+        Create a new Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_create_object_v2(self) -> None:
         """Test case for ezsignfolder_create_object_v2
 
-        Create a new Ezsignfolder  # noqa: E501
+        Create a new Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_delete_object_v1(self) -> None:
         """Test case for ezsignfolder_delete_object_v1
 
-        Delete an existing Ezsignfolder  # noqa: E501
+        Delete an existing Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_dispose_ezsignfolders_v1(self) -> None:
         """Test case for ezsignfolder_dispose_ezsignfolders_v1
 
-        Dispose Ezsignfolders  # noqa: E501
+        Dispose Ezsignfolders
         """
         pass
 
     def test_ezsignfolder_dispose_v1(self) -> None:
         """Test case for ezsignfolder_dispose_v1
 
-        Dispose the Ezsignfolder  # noqa: E501
+        Dispose the Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_edit_object_v1(self) -> None:
         """Test case for ezsignfolder_edit_object_v1
 
-        Edit an existing Ezsignfolder  # noqa: E501
+        Edit an existing Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_get_actionable_elements_v1(self) -> None:
         """Test case for ezsignfolder_get_actionable_elements_v1
 
-        Retrieve actionable elements for the Ezsignfolder  # noqa: E501
+        Retrieve actionable elements for the Ezsignfolder
+        """
+        pass
+
+    def test_ezsignfolder_get_attachment_count_v1(self) -> None:
+        """Test case for ezsignfolder_get_attachment_count_v1
+
+        Retrieve Attachment count
+        """
+        pass
+
+    def test_ezsignfolder_get_attachments_v1(self) -> None:
+        """Test case for ezsignfolder_get_attachments_v1
+
+        Retrieve Ezsignfolder's Attachments
         """
         pass
 
     def test_ezsignfolder_get_communication_count_v1(self) -> None:
         """Test case for ezsignfolder_get_communication_count_v1
 
-        Retrieve Communication count  # noqa: E501
+        Retrieve Communication count
         """
         pass
 
     def test_ezsignfolder_get_communication_list_v1(self) -> None:
         """Test case for ezsignfolder_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 
     def test_ezsignfolder_get_communicationrecipients_v1(self) -> None:
         """Test case for ezsignfolder_get_communicationrecipients_v1
 
-        Retrieve Ezsignfolder's Communicationrecipient  # noqa: E501
+        Retrieve Ezsignfolder's Communicationrecipient
         """
         pass
 
     def test_ezsignfolder_get_communicationsenders_v1(self) -> None:
         """Test case for ezsignfolder_get_communicationsenders_v1
 
-        Retrieve Ezsignfolder's Communicationsender  # noqa: E501
+        Retrieve Ezsignfolder's Communicationsender
         """
         pass
 
     def test_ezsignfolder_get_ezsigndocuments_v1(self) -> None:
         """Test case for ezsignfolder_get_ezsigndocuments_v1
 
-        Retrieve an existing Ezsignfolder's Ezsigndocuments  # noqa: E501
+        Retrieve an existing Ezsignfolder's Ezsigndocuments
         """
         pass
 
     def test_ezsignfolder_get_ezsignfoldersignerassociations_v1(self) -> None:
         """Test case for ezsignfolder_get_ezsignfoldersignerassociations_v1
 
-        Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations  # noqa: E501
+        Retrieve an existing Ezsignfolder's Ezsignfoldersignerassociations
         """
         pass
 
     def test_ezsignfolder_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsignfolder_get_ezsignsignatures_automatic_v1
 
-        Retrieve an existing Ezsignfolder's automatic Ezsignsignatures  # noqa: E501
+        Retrieve an existing Ezsignfolder's automatic Ezsignsignatures
         """
         pass
 
     def test_ezsignfolder_get_forms_data_v1(self) -> None:
         """Test case for ezsignfolder_get_forms_data_v1
 
-        Retrieve an existing Ezsignfolder's forms data  # noqa: E501
+        Retrieve an existing Ezsignfolder's forms data
         """
         pass
 
     def test_ezsignfolder_get_list_v1(self) -> None:
         """Test case for ezsignfolder_get_list_v1
 
-        Retrieve Ezsignfolder list  # noqa: E501
+        Retrieve Ezsignfolder list
         """
         pass
 
     def test_ezsignfolder_get_object_v1(self) -> None:
         """Test case for ezsignfolder_get_object_v1
 
-        Retrieve an existing Ezsignfolder  # noqa: E501
+        Retrieve an existing Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_get_object_v2(self) -> None:
         """Test case for ezsignfolder_get_object_v2
 
-        Retrieve an existing Ezsignfolder  # noqa: E501
+        Retrieve an existing Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_import_ezsignfoldersignerassociations_v1(self) -> None:
         """Test case for ezsignfolder_import_ezsignfoldersignerassociations_v1
 
-        Import an existing Ezsignfoldersignerassociation into this Ezsignfolder  # noqa: E501
+        Import an existing Ezsignfoldersignerassociation into this Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_import_ezsigntemplatepackage_v1(self) -> None:
         """Test case for ezsignfolder_import_ezsigntemplatepackage_v1
 
-        Import an Ezsigntemplatepackage in the Ezsignfolder.  # noqa: E501
+        Import an Ezsigntemplatepackage in the Ezsignfolder.
         """
         pass
 
     def test_ezsignfolder_reorder_v1(self) -> None:
         """Test case for ezsignfolder_reorder_v1
 
-        Reorder Ezsigndocuments in the Ezsignfolder  # noqa: E501
+        Reorder Ezsigndocuments in the Ezsignfolder
         """
         pass
 
     def test_ezsignfolder_send_v1(self) -> None:
         """Test case for ezsignfolder_send_v1
 
-        Send the Ezsignfolder to the signatories for signature  # noqa: E501
+        Send the Ezsignfolder to the signatories for signature
         """
         pass
 
     def test_ezsignfolder_send_v2(self) -> None:
         """Test case for ezsignfolder_send_v2
 
-        Send the Ezsignfolder to the signatories for signature  # noqa: E501
+        Send the Ezsignfolder to the signatories for signature
         """
         pass
 
     def test_ezsignfolder_send_v3(self) -> None:
         """Test case for ezsignfolder_send_v3
 
-        Send the Ezsignfolder to the signatories for signature  # noqa: E501
+        Send the Ezsignfolder to the signatories for signature
         """
         pass
 
     def test_ezsignfolder_unsend_v1(self) -> None:
         """Test case for ezsignfolder_unsend_v1
 
-        Unsend the Ezsignfolder  # noqa: E501
+        Unsend the Ezsignfolder
         """
         pass
 

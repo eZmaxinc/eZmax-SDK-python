@@ -3,13 +3,14 @@
 A Communicationexternalrecipient Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_communicationexternalrecipient_id** | **int** | The unique ID of the Communicationexternalrecipient | [optional] 
 **s_email_address** | **str** | The email address. | [optional] 
 **s_phone_e164** | **str** | A phone number in E.164 Format | [optional] 
 **e_communicationexternalrecipient_type** | [**FieldECommunicationexternalrecipientType**](FieldECommunicationexternalrecipientType.md) |  | [optional] 
-**s_communicationexternalrecipient_name** | **str** | The name of the Communicationexternalrecipient | 
+**s_communicationexternalrecipient_name** | **str** | The name of the Communicationexternalrecipient | [optional] 
 
 ## Example
 

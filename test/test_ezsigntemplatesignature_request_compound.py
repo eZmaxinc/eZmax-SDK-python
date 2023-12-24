@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatesignature_request_compound import EzsigntemplatesignatureRequestCompound  # noqa: E501
+from eZmaxApi.models.ezsigntemplatesignature_request_compound import EzsigntemplatesignatureRequestCompound
 
 class TestEzsigntemplatesignatureRequestCompound(unittest.TestCase):
     """EzsigntemplatesignatureRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatesignatureRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatesignatureRequestCompound`
         """
-        model = EzsigntemplatesignatureRequestCompound()  # noqa: E501
+        model = EzsigntemplatesignatureRequestCompound()
         if include_optional:
             return EzsigntemplatesignatureRequestCompound(
                 pki_ezsigntemplatesignature_id = 99,

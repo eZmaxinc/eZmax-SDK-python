@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.paymentterm_create_object_v1_response_m_payload import PaymenttermCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.paymentterm_create_object_v1_response_m_payload import PaymenttermCreateObjectV1ResponseMPayload
 
 class TestPaymenttermCreateObjectV1ResponseMPayload(unittest.TestCase):
     """PaymenttermCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestPaymenttermCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PaymenttermCreateObjectV1ResponseMPayload`
         """
-        model = PaymenttermCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = PaymenttermCreateObjectV1ResponseMPayload()
         if include_optional:
             return PaymenttermCreateObjectV1ResponseMPayload(
                 a_pki_paymentterm_id = [

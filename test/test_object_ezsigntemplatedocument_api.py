@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplatedocument_api import ObjectEzsigntemplatedocumentApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplatedocument_api import ObjectEzsigntemplatedocumentApi
 
 
 class TestObjectEzsigntemplatedocumentApi(unittest.TestCase):
     """ObjectEzsigntemplatedocumentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplatedocumentApi()  # noqa: E501
+        self.api = ObjectEzsigntemplatedocumentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,77 +30,77 @@ class TestObjectEzsigntemplatedocumentApi(unittest.TestCase):
     def test_ezsigntemplatedocument_create_object_v1(self) -> None:
         """Test case for ezsigntemplatedocument_create_object_v1
 
-        Create a new Ezsigntemplatedocument  # noqa: E501
+        Create a new Ezsigntemplatedocument
         """
         pass
 
     def test_ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1(self) -> None:
         """Test case for ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1
 
-        Edit multiple Ezsigntemplateformfieldgroups  # noqa: E501
+        Edit multiple Ezsigntemplateformfieldgroups
         """
         pass
 
     def test_ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1(self) -> None:
         """Test case for ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1
 
-        Edit multiple Ezsigntemplatesignatures  # noqa: E501
+        Edit multiple Ezsigntemplatesignatures
         """
         pass
 
     def test_ezsigntemplatedocument_edit_object_v1(self) -> None:
         """Test case for ezsigntemplatedocument_edit_object_v1
 
-        Edit an existing Ezsigntemplatedocument  # noqa: E501
+        Edit an existing Ezsigntemplatedocument
         """
         pass
 
     def test_ezsigntemplatedocument_flatten_v1(self) -> None:
         """Test case for ezsigntemplatedocument_flatten_v1
 
-        Flatten  # noqa: E501
+        Flatten
         """
         pass
 
     def test_ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1(self) -> None:
         """Test case for ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1
 
-        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages  # noqa: E501
+        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages
         """
         pass
 
     def test_ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1(self) -> None:
         """Test case for ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1
 
-        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups  # noqa: E501
+        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups
         """
         pass
 
     def test_ezsigntemplatedocument_get_ezsigntemplatesignatures_v1(self) -> None:
         """Test case for ezsigntemplatedocument_get_ezsigntemplatesignatures_v1
 
-        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures  # noqa: E501
+        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
         """
         pass
 
     def test_ezsigntemplatedocument_get_object_v2(self) -> None:
         """Test case for ezsigntemplatedocument_get_object_v2
 
-        Retrieve an existing Ezsigntemplatedocument  # noqa: E501
+        Retrieve an existing Ezsigntemplatedocument
         """
         pass
 
     def test_ezsigntemplatedocument_get_words_positions_v1(self) -> None:
         """Test case for ezsigntemplatedocument_get_words_positions_v1
 
-        Retrieve positions X,Y of given words from a Ezsigntemplatedocument  # noqa: E501
+        Retrieve positions X,Y of given words from a Ezsigntemplatedocument
         """
         pass
 
     def test_ezsigntemplatedocument_patch_object_v1(self) -> None:
         """Test case for ezsigntemplatedocument_patch_object_v1
 
-        Patch an existing Ezsigntemplatedocument  # noqa: E501
+        Patch an existing Ezsigntemplatedocument
         """
         pass
 

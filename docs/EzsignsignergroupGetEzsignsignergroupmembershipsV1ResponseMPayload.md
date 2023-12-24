@@ -3,6 +3,7 @@
 Response for GET /1/object/ezsignsignergroup/{pkiEzsignsignergroupID}/getEzsignsignergroupmemberships
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignsignergroupmembership** | [**List[EzsignsignergroupmembershipResponseCompound]**](EzsignsignergroupmembershipResponseCompound.md) |  | 

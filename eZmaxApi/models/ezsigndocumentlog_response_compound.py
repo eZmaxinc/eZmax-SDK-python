@@ -19,68 +19,87 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigndocumentlog_type import FieldEEzsigndocumentlogType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigndocumentlogResponseCompound(BaseModel):
     """
-    An Ezsigndocumentlog Object and children to create a complete structure  # noqa: E501
-    """
-    fki_user_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiUserID", description="The unique ID of the User")
-    fki_ezsignsigner_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsignsignerID", description="The unique ID of the Ezsignsigner")
-    dt_ezsigndocumentlog_datetime: StrictStr = Field(..., alias="dtEzsigndocumentlogDatetime", description="The date and time at which the event was logged")
-    e_ezsigndocumentlog_type: FieldEEzsigndocumentlogType = Field(..., alias="eEzsigndocumentlogType")
-    s_ezsigndocumentlog_detail: StrictStr = Field(..., alias="sEzsigndocumentlogDetail", description="The detail of the Ezsigndocumentlog")
-    s_ezsigndocumentlog_lastname: StrictStr = Field(..., alias="sEzsigndocumentlogLastname", description="The last name of the User or Ezsignsigner")
-    s_ezsigndocumentlog_firstname: StrictStr = Field(..., alias="sEzsigndocumentlogFirstname", description="The first name of the User or Ezsignsigner")
-    s_ezsigndocumentlog_ip: StrictStr = Field(..., alias="sEzsigndocumentlogIP", description="Represent an IP address.")
-    __properties = ["fkiUserID", "fkiEzsignsignerID", "dtEzsigndocumentlogDatetime", "eEzsigndocumentlogType", "sEzsigndocumentlogDetail", "sEzsigndocumentlogLastname", "sEzsigndocumentlogFirstname", "sEzsigndocumentlogIP"]
+    An Ezsigndocumentlog Object and children to create a complete structure
+    """ # noqa: E501
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
+    dt_ezsigndocumentlog_datetime: StrictStr = Field(description="The date and time at which the event was logged", alias="dtEzsigndocumentlogDatetime")
+    e_ezsigndocumentlog_type: FieldEEzsigndocumentlogType = Field(alias="eEzsigndocumentlogType")
+    s_ezsigndocumentlog_detail: StrictStr = Field(description="The detail of the Ezsigndocumentlog", alias="sEzsigndocumentlogDetail")
+    s_ezsigndocumentlog_lastname: StrictStr = Field(description="The last name of the User or Ezsignsigner", alias="sEzsigndocumentlogLastname")
+    s_ezsigndocumentlog_firstname: StrictStr = Field(description="The first name of the User or Ezsignsigner", alias="sEzsigndocumentlogFirstname")
+    s_ezsigndocumentlog_ip: StrictStr = Field(description="Represent an IP address.", alias="sEzsigndocumentlogIP")
+    __properties: ClassVar[List[str]] = ["fkiUserID", "fkiEzsignsignerID", "dtEzsigndocumentlogDatetime", "eEzsigndocumentlogType", "sEzsigndocumentlogDetail", "sEzsigndocumentlogLastname", "sEzsigndocumentlogFirstname", "sEzsigndocumentlogIP"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigndocumentlogResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigndocumentlogResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigndocumentlogResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigndocumentlogResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigndocumentlogResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigndocumentlogResponseCompound.parse_obj({
-            "fki_user_id": obj.get("fkiUserID"),
-            "fki_ezsignsigner_id": obj.get("fkiEzsignsignerID"),
-            "dt_ezsigndocumentlog_datetime": obj.get("dtEzsigndocumentlogDatetime"),
-            "e_ezsigndocumentlog_type": obj.get("eEzsigndocumentlogType"),
-            "s_ezsigndocumentlog_detail": obj.get("sEzsigndocumentlogDetail"),
-            "s_ezsigndocumentlog_lastname": obj.get("sEzsigndocumentlogLastname"),
-            "s_ezsigndocumentlog_firstname": obj.get("sEzsigndocumentlogFirstname"),
-            "s_ezsigndocumentlog_ip": obj.get("sEzsigndocumentlogIP")
+        _obj = cls.model_validate({
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiEzsignsignerID": obj.get("fkiEzsignsignerID"),
+            "dtEzsigndocumentlogDatetime": obj.get("dtEzsigndocumentlogDatetime"),
+            "eEzsigndocumentlogType": obj.get("eEzsigndocumentlogType"),
+            "sEzsigndocumentlogDetail": obj.get("sEzsigndocumentlogDetail"),
+            "sEzsigndocumentlogLastname": obj.get("sEzsigndocumentlogLastname"),
+            "sEzsigndocumentlogFirstname": obj.get("sEzsigndocumentlogFirstname"),
+            "sEzsigndocumentlogIP": obj.get("sEzsigndocumentlogIP")
         })
         return _obj
 

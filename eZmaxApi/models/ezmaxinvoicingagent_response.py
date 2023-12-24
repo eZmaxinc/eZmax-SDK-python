@@ -19,93 +19,112 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezmax import FieldEEzmaxinvoicingagentVariationezmax
 from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezsign import FieldEEzmaxinvoicingagentVariationezsign
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzmaxinvoicingagentResponse(BaseModel):
     """
-    A Ezmaxinvoicingagent Object  # noqa: E501
-    """
-    pki_ezmaxinvoicingagent_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="pkiEzmaxinvoicingagentID", description="The unique ID of the Ezmaxinvoicingagent")
-    fki_ezmaxinvoicing_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzmaxinvoicingID", description="The unique ID of the Ezmaxinvoicing")
-    fki_billingentityinternal_id: conint(strict=True, ge=0) = Field(..., alias="fkiBillingentityinternalID", description="The unique ID of the Billingentityinternal.")
-    s_billingentityinternal_description_x: StrictStr = Field(..., alias="sBillingentityinternalDescriptionX", description="The description of the Billingentityinternal in the language of the requester")
-    fki_agent_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiAgentID", description="The unique ID of the Agent.")
-    fki_broker_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiBrokerID", description="The unique ID of the Broker.")
-    i_ezmaxinvoicingagent_session: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentSession", description="The number of sessions")
-    i_ezmaxinvoicingagent_cloned: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentCloned", description="The number of times this user was cloned")
-    i_ezmaxinvoicingagent_invoice: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentInvoice", description="The number of invoices")
-    i_ezmaxinvoicingagent_inscription: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentInscription", description="The number of inscriptions")
-    i_ezmaxinvoicingagent_inscriptionactive: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentInscriptionactive", description="The number of active inscriptions")
-    i_ezmaxinvoicingagent_sale: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentSale", description="The number of sales")
-    i_ezmaxinvoicingagent_otherincome: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentOtherincome", description="The number of otherincomes")
-    i_ezmaxinvoicingagent_commissioncalculation: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentCommissioncalculation", description="The number of commission calculations")
-    i_ezmaxinvoicingagent_ezsigndocument: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingagentEzsigndocument", description="The number of ezsign documents")
-    b_ezmaxinvoicingagent_ezsignaccount: StrictBool = Field(..., alias="bEzmaxinvoicingagentEzsignaccount", description="Whether the agent has an eZsign account")
-    b_ezmaxinvoicingagent_billableezmax: StrictBool = Field(..., alias="bEzmaxinvoicingagentBillableezmax", description="Whether it is billable for eZmax")
-    e_ezmaxinvoicingagent_variationezmax: FieldEEzmaxinvoicingagentVariationezmax = Field(..., alias="eEzmaxinvoicingagentVariationezmax")
-    b_ezmaxinvoicingagent_billableezsign: StrictBool = Field(..., alias="bEzmaxinvoicingagentBillableezsign", description="Whether it is billable for eZsign")
-    e_ezmaxinvoicingagent_variationezsign: FieldEEzmaxinvoicingagentVariationezsign = Field(..., alias="eEzmaxinvoicingagentVariationezsign")
-    __properties = ["pkiEzmaxinvoicingagentID", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiAgentID", "fkiBrokerID", "iEzmaxinvoicingagentSession", "iEzmaxinvoicingagentCloned", "iEzmaxinvoicingagentInvoice", "iEzmaxinvoicingagentInscription", "iEzmaxinvoicingagentInscriptionactive", "iEzmaxinvoicingagentSale", "iEzmaxinvoicingagentOtherincome", "iEzmaxinvoicingagentCommissioncalculation", "iEzmaxinvoicingagentEzsigndocument", "bEzmaxinvoicingagentEzsignaccount", "bEzmaxinvoicingagentBillableezmax", "eEzmaxinvoicingagentVariationezmax", "bEzmaxinvoicingagentBillableezsign", "eEzmaxinvoicingagentVariationezsign"]
+    A Ezmaxinvoicingagent Object
+    """ # noqa: E501
+    pki_ezmaxinvoicingagent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingagent", alias="pkiEzmaxinvoicingagentID")
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    i_ezmaxinvoicingagent_session: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of sessions", alias="iEzmaxinvoicingagentSession")
+    i_ezmaxinvoicingagent_cloned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of times this user was cloned", alias="iEzmaxinvoicingagentCloned")
+    i_ezmaxinvoicingagent_invoice: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of invoices", alias="iEzmaxinvoicingagentInvoice")
+    i_ezmaxinvoicingagent_inscription: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of inscriptions", alias="iEzmaxinvoicingagentInscription")
+    i_ezmaxinvoicingagent_inscriptionactive: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of active inscriptions", alias="iEzmaxinvoicingagentInscriptionactive")
+    i_ezmaxinvoicingagent_sale: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of sales", alias="iEzmaxinvoicingagentSale")
+    i_ezmaxinvoicingagent_otherincome: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of otherincomes", alias="iEzmaxinvoicingagentOtherincome")
+    i_ezmaxinvoicingagent_commissioncalculation: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of commission calculations", alias="iEzmaxinvoicingagentCommissioncalculation")
+    i_ezmaxinvoicingagent_ezsigndocument: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of ezsign documents", alias="iEzmaxinvoicingagentEzsigndocument")
+    b_ezmaxinvoicingagent_ezsignaccount: StrictBool = Field(description="Whether the agent has an eZsign account", alias="bEzmaxinvoicingagentEzsignaccount")
+    b_ezmaxinvoicingagent_billableezmax: StrictBool = Field(description="Whether it is billable for eZmax", alias="bEzmaxinvoicingagentBillableezmax")
+    e_ezmaxinvoicingagent_variationezmax: FieldEEzmaxinvoicingagentVariationezmax = Field(alias="eEzmaxinvoicingagentVariationezmax")
+    b_ezmaxinvoicingagent_billableezsign: StrictBool = Field(description="Whether it is billable for eZsign", alias="bEzmaxinvoicingagentBillableezsign")
+    e_ezmaxinvoicingagent_variationezsign: FieldEEzmaxinvoicingagentVariationezsign = Field(alias="eEzmaxinvoicingagentVariationezsign")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingagentID", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiAgentID", "fkiBrokerID", "iEzmaxinvoicingagentSession", "iEzmaxinvoicingagentCloned", "iEzmaxinvoicingagentInvoice", "iEzmaxinvoicingagentInscription", "iEzmaxinvoicingagentInscriptionactive", "iEzmaxinvoicingagentSale", "iEzmaxinvoicingagentOtherincome", "iEzmaxinvoicingagentCommissioncalculation", "iEzmaxinvoicingagentEzsigndocument", "bEzmaxinvoicingagentEzsignaccount", "bEzmaxinvoicingagentBillableezmax", "eEzmaxinvoicingagentVariationezmax", "bEzmaxinvoicingagentBillableezsign", "eEzmaxinvoicingagentVariationezsign"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzmaxinvoicingagentResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzmaxinvoicingagentResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzmaxinvoicingagentResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzmaxinvoicingagentResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzmaxinvoicingagentResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzmaxinvoicingagentResponse.parse_obj({
-            "pki_ezmaxinvoicingagent_id": obj.get("pkiEzmaxinvoicingagentID"),
-            "fki_ezmaxinvoicing_id": obj.get("fkiEzmaxinvoicingID"),
-            "fki_billingentityinternal_id": obj.get("fkiBillingentityinternalID"),
-            "s_billingentityinternal_description_x": obj.get("sBillingentityinternalDescriptionX"),
-            "fki_agent_id": obj.get("fkiAgentID"),
-            "fki_broker_id": obj.get("fkiBrokerID"),
-            "i_ezmaxinvoicingagent_session": obj.get("iEzmaxinvoicingagentSession"),
-            "i_ezmaxinvoicingagent_cloned": obj.get("iEzmaxinvoicingagentCloned"),
-            "i_ezmaxinvoicingagent_invoice": obj.get("iEzmaxinvoicingagentInvoice"),
-            "i_ezmaxinvoicingagent_inscription": obj.get("iEzmaxinvoicingagentInscription"),
-            "i_ezmaxinvoicingagent_inscriptionactive": obj.get("iEzmaxinvoicingagentInscriptionactive"),
-            "i_ezmaxinvoicingagent_sale": obj.get("iEzmaxinvoicingagentSale"),
-            "i_ezmaxinvoicingagent_otherincome": obj.get("iEzmaxinvoicingagentOtherincome"),
-            "i_ezmaxinvoicingagent_commissioncalculation": obj.get("iEzmaxinvoicingagentCommissioncalculation"),
-            "i_ezmaxinvoicingagent_ezsigndocument": obj.get("iEzmaxinvoicingagentEzsigndocument"),
-            "b_ezmaxinvoicingagent_ezsignaccount": obj.get("bEzmaxinvoicingagentEzsignaccount"),
-            "b_ezmaxinvoicingagent_billableezmax": obj.get("bEzmaxinvoicingagentBillableezmax"),
-            "e_ezmaxinvoicingagent_variationezmax": obj.get("eEzmaxinvoicingagentVariationezmax"),
-            "b_ezmaxinvoicingagent_billableezsign": obj.get("bEzmaxinvoicingagentBillableezsign"),
-            "e_ezmaxinvoicingagent_variationezsign": obj.get("eEzmaxinvoicingagentVariationezsign")
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingagentID": obj.get("pkiEzmaxinvoicingagentID"),
+            "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
+            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
+            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
+            "fkiAgentID": obj.get("fkiAgentID"),
+            "fkiBrokerID": obj.get("fkiBrokerID"),
+            "iEzmaxinvoicingagentSession": obj.get("iEzmaxinvoicingagentSession"),
+            "iEzmaxinvoicingagentCloned": obj.get("iEzmaxinvoicingagentCloned"),
+            "iEzmaxinvoicingagentInvoice": obj.get("iEzmaxinvoicingagentInvoice"),
+            "iEzmaxinvoicingagentInscription": obj.get("iEzmaxinvoicingagentInscription"),
+            "iEzmaxinvoicingagentInscriptionactive": obj.get("iEzmaxinvoicingagentInscriptionactive"),
+            "iEzmaxinvoicingagentSale": obj.get("iEzmaxinvoicingagentSale"),
+            "iEzmaxinvoicingagentOtherincome": obj.get("iEzmaxinvoicingagentOtherincome"),
+            "iEzmaxinvoicingagentCommissioncalculation": obj.get("iEzmaxinvoicingagentCommissioncalculation"),
+            "iEzmaxinvoicingagentEzsigndocument": obj.get("iEzmaxinvoicingagentEzsigndocument"),
+            "bEzmaxinvoicingagentEzsignaccount": obj.get("bEzmaxinvoicingagentEzsignaccount"),
+            "bEzmaxinvoicingagentBillableezmax": obj.get("bEzmaxinvoicingagentBillableezmax"),
+            "eEzmaxinvoicingagentVariationezmax": obj.get("eEzmaxinvoicingagentVariationezmax"),
+            "bEzmaxinvoicingagentBillableezsign": obj.get("bEzmaxinvoicingagentBillableezsign"),
+            "eEzmaxinvoicingagentVariationezsign": obj.get("eEzmaxinvoicingagentVariationezsign")
         })
         return _obj
 

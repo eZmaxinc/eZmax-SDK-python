@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_redirect_s_secretquestion_text_x import CommonResponseRedirectSSecretquestionTextX  # noqa: E501
+from eZmaxApi.models.common_response_redirect_s_secretquestion_text_x import CommonResponseRedirectSSecretquestionTextX
 
 class TestCommonResponseRedirectSSecretquestionTextX(unittest.TestCase):
     """CommonResponseRedirectSSecretquestionTextX unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseRedirectSSecretquestionTextX(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseRedirectSSecretquestionTextX`
         """
-        model = CommonResponseRedirectSSecretquestionTextX()  # noqa: E501
+        model = CommonResponseRedirectSSecretquestionTextX()
         if include_optional:
             return CommonResponseRedirectSSecretquestionTextX(
                 s_secretquestion_text_x = 'The name of the hospital in which you were born'

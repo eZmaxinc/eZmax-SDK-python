@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_billingentityexternal_api import ObjectBillingentityexternalApi  # noqa: E501
+from eZmaxApi.api.object_billingentityexternal_api import ObjectBillingentityexternalApi
 
 
 class TestObjectBillingentityexternalApi(unittest.TestCase):
     """ObjectBillingentityexternalApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectBillingentityexternalApi()  # noqa: E501
+        self.api = ObjectBillingentityexternalApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectBillingentityexternalApi(unittest.TestCase):
     def test_billingentityexternal_get_autocomplete_v2(self) -> None:
         """Test case for billingentityexternal_get_autocomplete_v2
 
-        Retrieve Billingentityexternals and IDs  # noqa: E501
+        Retrieve Billingentityexternals and IDs
         """
         pass
 

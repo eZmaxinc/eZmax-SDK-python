@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplate_copy_v1_response_m_payload import EzsigntemplateCopyV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigntemplate_copy_v1_response_m_payload import EzsigntemplateCopyV1ResponseMPayload
 
 class TestEzsigntemplateCopyV1ResponseMPayload(unittest.TestCase):
     """EzsigntemplateCopyV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateCopyV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateCopyV1ResponseMPayload`
         """
-        model = EzsigntemplateCopyV1ResponseMPayload()  # noqa: E501
+        model = EzsigntemplateCopyV1ResponseMPayload()
         if include_optional:
             return EzsigntemplateCopyV1ResponseMPayload(
                 a_pki_ezsigntemplate_id = [

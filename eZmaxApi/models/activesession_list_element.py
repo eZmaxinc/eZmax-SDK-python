@@ -19,103 +19,122 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ActivesessionListElement(BaseModel):
     """
-    A Activesession List Element  # noqa: E501
-    """
-    pki_activesession_id: StrictInt = Field(..., alias="pkiActivesessionID", description="The unique ID of the Activesession")
-    fki_user_id: conint(strict=True, ge=0) = Field(..., alias="fkiUserID", description="The unique ID of the User")
-    fki_computer_id: conint(strict=True, le=65535, ge=1) = Field(..., alias="fkiComputerID", description="The unique ID of the Computer")
-    fki_company_id: conint(strict=True, le=255, ge=1) = Field(..., alias="fkiCompanyID", description="The unique ID of the Company")
-    fki_department_id: conint(strict=True, ge=0) = Field(..., alias="fkiDepartmentID", description="The unique ID of the Department")
-    s_company_name_x: StrictStr = Field(..., alias="sCompanyNameX", description="The Name of the Company in the language of the requester")
-    s_department_name_x: StrictStr = Field(..., alias="sDepartmentNameX", description="The Name of the Department in the language of the requester")
-    s_activesession_loginname: constr(strict=True) = Field(..., alias="sActivesessionLoginname", description="The loginname of the Activesession")
-    s_computer_description: constr(strict=True) = Field(..., alias="sComputerDescription", description="The description of the Computer")
-    dt_activesession_firsthit: constr(strict=True) = Field(..., alias="dtActivesessionFirsthit", description="The first hit of the Activesession")
-    dt_activesession_lasthit: constr(strict=True) = Field(..., alias="dtActivesessionLasthit", description="The last hit of the Activesession")
-    s_activesession_ip: StrictStr = Field(..., alias="sActivesessionIP", description="Represent an IP address.")
-    __properties = ["pkiActivesessionID", "fkiUserID", "fkiComputerID", "fkiCompanyID", "fkiDepartmentID", "sCompanyNameX", "sDepartmentNameX", "sActivesessionLoginname", "sComputerDescription", "dtActivesessionFirsthit", "dtActivesessionLasthit", "sActivesessionIP"]
+    A Activesession List Element
+    """ # noqa: E501
+    pki_activesession_id: StrictInt = Field(description="The unique ID of the Activesession", alias="pkiActivesessionID")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    fki_computer_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Computer", alias="fkiComputerID")
+    fki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyID")
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
+    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
+    s_activesession_loginname: Annotated[str, Field(strict=True)] = Field(description="The loginname of the Activesession", alias="sActivesessionLoginname")
+    s_computer_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Computer", alias="sComputerDescription")
+    dt_activesession_firsthit: Annotated[str, Field(strict=True)] = Field(description="The first hit of the Activesession", alias="dtActivesessionFirsthit")
+    dt_activesession_lasthit: Annotated[str, Field(strict=True)] = Field(description="The last hit of the Activesession", alias="dtActivesessionLasthit")
+    s_activesession_ip: StrictStr = Field(description="Represent an IP address.", alias="sActivesessionIP")
+    __properties: ClassVar[List[str]] = ["pkiActivesessionID", "fkiUserID", "fkiComputerID", "fkiCompanyID", "fkiDepartmentID", "sCompanyNameX", "sDepartmentNameX", "sActivesessionLoginname", "sComputerDescription", "dtActivesessionFirsthit", "dtActivesessionLasthit", "sActivesessionIP"]
 
-    @validator('s_activesession_loginname')
+    @field_validator('s_activesession_loginname')
     def s_activesession_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,32}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,32}$/")
         return value
 
-    @validator('s_computer_description')
+    @field_validator('s_computer_description')
     def s_computer_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @validator('dt_activesession_firsthit')
+    @field_validator('dt_activesession_firsthit')
     def dt_activesession_firsthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @validator('dt_activesession_lasthit')
+    @field_validator('dt_activesession_lasthit')
     def dt_activesession_lasthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ActivesessionListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ActivesessionListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ActivesessionListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ActivesessionListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ActivesessionListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ActivesessionListElement.parse_obj({
-            "pki_activesession_id": obj.get("pkiActivesessionID"),
-            "fki_user_id": obj.get("fkiUserID"),
-            "fki_computer_id": obj.get("fkiComputerID"),
-            "fki_company_id": obj.get("fkiCompanyID"),
-            "fki_department_id": obj.get("fkiDepartmentID"),
-            "s_company_name_x": obj.get("sCompanyNameX"),
-            "s_department_name_x": obj.get("sDepartmentNameX"),
-            "s_activesession_loginname": obj.get("sActivesessionLoginname"),
-            "s_computer_description": obj.get("sComputerDescription"),
-            "dt_activesession_firsthit": obj.get("dtActivesessionFirsthit"),
-            "dt_activesession_lasthit": obj.get("dtActivesessionLasthit"),
-            "s_activesession_ip": obj.get("sActivesessionIP")
+        _obj = cls.model_validate({
+            "pkiActivesessionID": obj.get("pkiActivesessionID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiComputerID": obj.get("fkiComputerID"),
+            "fkiCompanyID": obj.get("fkiCompanyID"),
+            "fkiDepartmentID": obj.get("fkiDepartmentID"),
+            "sCompanyNameX": obj.get("sCompanyNameX"),
+            "sDepartmentNameX": obj.get("sDepartmentNameX"),
+            "sActivesessionLoginname": obj.get("sActivesessionLoginname"),
+            "sComputerDescription": obj.get("sComputerDescription"),
+            "dtActivesessionFirsthit": obj.get("dtActivesessionFirsthit"),
+            "dtActivesessionLasthit": obj.get("dtActivesessionLasthit"),
+            "sActivesessionIP": obj.get("sActivesessionIP")
         })
         return _obj
 

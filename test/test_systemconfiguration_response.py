@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.systemconfiguration_response import SystemconfigurationResponse  # noqa: E501
+from eZmaxApi.models.systemconfiguration_response import SystemconfigurationResponse
 
 class TestSystemconfigurationResponse(unittest.TestCase):
     """SystemconfigurationResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestSystemconfigurationResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SystemconfigurationResponse`
         """
-        model = SystemconfigurationResponse()  # noqa: E501
+        model = SystemconfigurationResponse()
         if include_optional:
             return SystemconfigurationResponse(
                 pki_systemconfiguration_id = 1,

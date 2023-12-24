@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi  # noqa: E501
+from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi
 
 
 class TestObjectTaxassignmentApi(unittest.TestCase):
     """ObjectTaxassignmentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectTaxassignmentApi()  # noqa: E501
+        self.api = ObjectTaxassignmentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectTaxassignmentApi(unittest.TestCase):
     def test_taxassignment_get_autocomplete_v2(self) -> None:
         """Test case for taxassignment_get_autocomplete_v2
 
-        Retrieve Taxassignments and IDs  # noqa: E501
+        Retrieve Taxassignments and IDs
         """
         pass
 

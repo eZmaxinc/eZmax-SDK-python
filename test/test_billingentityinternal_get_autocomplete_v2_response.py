@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_get_autocomplete_v2_response import BillingentityinternalGetAutocompleteV2Response  # noqa: E501
+from eZmaxApi.models.billingentityinternal_get_autocomplete_v2_response import BillingentityinternalGetAutocompleteV2Response
 
 class TestBillingentityinternalGetAutocompleteV2Response(unittest.TestCase):
     """BillingentityinternalGetAutocompleteV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalGetAutocompleteV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalGetAutocompleteV2Response`
         """
-        model = BillingentityinternalGetAutocompleteV2Response()  # noqa: E501
+        model = BillingentityinternalGetAutocompleteV2Response()
         if include_optional:
             return BillingentityinternalGetAutocompleteV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

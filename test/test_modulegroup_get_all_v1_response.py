@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.modulegroup_get_all_v1_response import ModulegroupGetAllV1Response  # noqa: E501
+from eZmaxApi.models.modulegroup_get_all_v1_response import ModulegroupGetAllV1Response
 
 class TestModulegroupGetAllV1Response(unittest.TestCase):
     """ModulegroupGetAllV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestModulegroupGetAllV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ModulegroupGetAllV1Response`
         """
-        model = ModulegroupGetAllV1Response()  # noqa: E501
+        model = ModulegroupGetAllV1Response()
         if include_optional:
             return ModulegroupGetAllV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

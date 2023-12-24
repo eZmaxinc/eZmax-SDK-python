@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_create_object_v1_request import UserCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.user_create_object_v1_request import UserCreateObjectV1Request
 
 class TestUserCreateObjectV1Request(unittest.TestCase):
     """UserCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserCreateObjectV1Request`
         """
-        model = UserCreateObjectV1Request()  # noqa: E501
+        model = UserCreateObjectV1Request()
         if include_optional:
             return UserCreateObjectV1Request(
                 a_obj_user = [

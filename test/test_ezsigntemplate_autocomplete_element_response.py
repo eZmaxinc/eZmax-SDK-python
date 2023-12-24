@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplate_autocomplete_element_response import EzsigntemplateAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.ezsigntemplate_autocomplete_element_response import EzsigntemplateAutocompleteElementResponse
 
 class TestEzsigntemplateAutocompleteElementResponse(unittest.TestCase):
     """EzsigntemplateAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateAutocompleteElementResponse`
         """
-        model = EzsigntemplateAutocompleteElementResponse()  # noqa: E501
+        model = EzsigntemplateAutocompleteElementResponse()
         if include_optional:
             return EzsigntemplateAutocompleteElementResponse(
                 e_ezsignfoldertype_privacylevel = 'User',

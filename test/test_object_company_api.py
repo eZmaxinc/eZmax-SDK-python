@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_company_api import ObjectCompanyApi  # noqa: E501
+from eZmaxApi.api.object_company_api import ObjectCompanyApi
 
 
 class TestObjectCompanyApi(unittest.TestCase):
     """ObjectCompanyApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectCompanyApi()  # noqa: E501
+        self.api = ObjectCompanyApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectCompanyApi(unittest.TestCase):
     def test_company_get_autocomplete_v2(self) -> None:
         """Test case for company_get_autocomplete_v2
 
-        Retrieve Companys and IDs  # noqa: E501
+        Retrieve Companys and IDs
         """
         pass
 

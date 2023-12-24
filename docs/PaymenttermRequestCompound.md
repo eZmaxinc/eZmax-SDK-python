@@ -3,6 +3,7 @@
 A Paymentterm Object and children
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_paymentterm_id** | **int** | The unique ID of the Paymentterm | [optional] 

@@ -3,6 +3,7 @@
 A Usergroup Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_usergroup_id** | **int** | The unique ID of the Usergroup | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk  # noqa: E501
+from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk
 
 class TestScimServiceProviderConfigBulk(unittest.TestCase):
     """ScimServiceProviderConfigBulk unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimServiceProviderConfigBulk(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimServiceProviderConfigBulk`
         """
-        model = ScimServiceProviderConfigBulk()  # noqa: E501
+        model = ScimServiceProviderConfigBulk()
         if include_optional:
             return ScimServiceProviderConfigBulk(
                 supported = False,

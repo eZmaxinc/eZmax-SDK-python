@@ -3,6 +3,7 @@
 Description of the Ezmaxinvoicingsummaryinternal
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_ezmaxinvoicingsummaryinternal_description1** | **str** | The Ezmaxinvoicingsummaryinternal description in French | [optional] 

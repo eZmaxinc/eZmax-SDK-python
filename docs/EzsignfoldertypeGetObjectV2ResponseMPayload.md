@@ -3,6 +3,7 @@
 Payload for GET /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsignfoldertype** | [**EzsignfoldertypeResponseCompound**](EzsignfoldertypeResponseCompound.md) |  | 

@@ -14,6 +14,7 @@ Get Service Provider Configuration
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -46,6 +47,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -62,6 +64,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

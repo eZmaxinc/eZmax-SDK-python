@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.franchisereferalincome_request import FranchisereferalincomeRequest  # noqa: E501
+from eZmaxApi.models.franchisereferalincome_request import FranchisereferalincomeRequest
 
 class TestFranchisereferalincomeRequest(unittest.TestCase):
     """FranchisereferalincomeRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestFranchisereferalincomeRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `FranchisereferalincomeRequest`
         """
-        model = FranchisereferalincomeRequest()  # noqa: E501
+        model = FranchisereferalincomeRequest()
         if include_optional:
             return FranchisereferalincomeRequest(
                 pki_franchisereferalincome_id = 35,

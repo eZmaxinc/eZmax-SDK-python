@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userlogintype_get_autocomplete_v2_response import UserlogintypeGetAutocompleteV2Response  # noqa: E501
+from eZmaxApi.models.userlogintype_get_autocomplete_v2_response import UserlogintypeGetAutocompleteV2Response
 
 class TestUserlogintypeGetAutocompleteV2Response(unittest.TestCase):
     """UserlogintypeGetAutocompleteV2Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserlogintypeGetAutocompleteV2Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserlogintypeGetAutocompleteV2Response`
         """
-        model = UserlogintypeGetAutocompleteV2Response()  # noqa: E501
+        model = UserlogintypeGetAutocompleteV2Response()
         if include_optional:
             return UserlogintypeGetAutocompleteV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

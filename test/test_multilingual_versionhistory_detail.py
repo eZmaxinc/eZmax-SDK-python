@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail  # noqa: E501
+from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail
 
 class TestMultilingualVersionhistoryDetail(unittest.TestCase):
     """MultilingualVersionhistoryDetail unit test stubs"""
@@ -34,7 +34,7 @@ class TestMultilingualVersionhistoryDetail(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `MultilingualVersionhistoryDetail`
         """
-        model = MultilingualVersionhistoryDetail()  # noqa: E501
+        model = MultilingualVersionhistoryDetail()
         if include_optional:
             return MultilingualVersionhistoryDetail(
                 t_versionhistory_detail1 = 'Message important',

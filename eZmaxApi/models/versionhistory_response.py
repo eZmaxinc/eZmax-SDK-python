@@ -19,79 +19,98 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_versionhistory_type import FieldEVersionhistoryType
 from eZmaxApi.models.field_e_versionhistory_usertype import FieldEVersionhistoryUsertype
 from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class VersionhistoryResponse(BaseModel):
     """
-    A Versionhistory Object  # noqa: E501
-    """
-    pki_versionhistory_id: conint(strict=True, ge=0) = Field(..., alias="pkiVersionhistoryID", description="The unique ID of the Versionhistory")
-    fki_module_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiModuleID", description="The unique ID of the Module")
-    fki_modulesection_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiModulesectionID", description="The unique ID of the Modulesection")
-    s_module_name_x: Optional[StrictStr] = Field(None, alias="sModuleNameX", description="The Name of the Module in the language of the requester")
-    s_modulesection_name_x: Optional[StrictStr] = Field(None, alias="sModulesectionNameX", description="The Name of the Modulesection in the language of the requester")
-    e_versionhistory_usertype: Optional[FieldEVersionhistoryUsertype] = Field(None, alias="eVersionhistoryUsertype")
-    obj_versionhistory_detail: MultilingualVersionhistoryDetail = Field(..., alias="objVersionhistoryDetail")
-    dt_versionhistory_date: StrictStr = Field(..., alias="dtVersionhistoryDate", description="The date  at which the Versionhistory was published or should be published")
-    dt_versionhistory_dateend: Optional[StrictStr] = Field(None, alias="dtVersionhistoryDateend", description="The date  at which the Versionhistory will no longer be visible")
-    e_versionhistory_type: FieldEVersionhistoryType = Field(..., alias="eVersionhistoryType")
-    b_versionhistory_draft: StrictBool = Field(..., alias="bVersionhistoryDraft", description="Whether the Versionhistory is published or still a draft")
-    __properties = ["pkiVersionhistoryID", "fkiModuleID", "fkiModulesectionID", "sModuleNameX", "sModulesectionNameX", "eVersionhistoryUsertype", "objVersionhistoryDetail", "dtVersionhistoryDate", "dtVersionhistoryDateend", "eVersionhistoryType", "bVersionhistoryDraft"]
+    A Versionhistory Object
+    """ # noqa: E501
+    pki_versionhistory_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Versionhistory", alias="pkiVersionhistoryID")
+    fki_module_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleID")
+    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID")
+    s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX")
+    s_modulesection_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
+    e_versionhistory_usertype: Optional[FieldEVersionhistoryUsertype] = Field(default=None, alias="eVersionhistoryUsertype")
+    obj_versionhistory_detail: MultilingualVersionhistoryDetail = Field(alias="objVersionhistoryDetail")
+    dt_versionhistory_date: StrictStr = Field(description="The date  at which the Versionhistory was published or should be published", alias="dtVersionhistoryDate")
+    dt_versionhistory_dateend: Optional[StrictStr] = Field(default=None, description="The date  at which the Versionhistory will no longer be visible", alias="dtVersionhistoryDateend")
+    e_versionhistory_type: FieldEVersionhistoryType = Field(alias="eVersionhistoryType")
+    b_versionhistory_draft: StrictBool = Field(description="Whether the Versionhistory is published or still a draft", alias="bVersionhistoryDraft")
+    __properties: ClassVar[List[str]] = ["pkiVersionhistoryID", "fkiModuleID", "fkiModulesectionID", "sModuleNameX", "sModulesectionNameX", "eVersionhistoryUsertype", "objVersionhistoryDetail", "dtVersionhistoryDate", "dtVersionhistoryDateend", "eVersionhistoryType", "bVersionhistoryDraft"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> VersionhistoryResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of VersionhistoryResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_versionhistory_detail
         if self.obj_versionhistory_detail:
             _dict['objVersionhistoryDetail'] = self.obj_versionhistory_detail.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> VersionhistoryResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of VersionhistoryResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return VersionhistoryResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = VersionhistoryResponse.parse_obj({
-            "pki_versionhistory_id": obj.get("pkiVersionhistoryID"),
-            "fki_module_id": obj.get("fkiModuleID"),
-            "fki_modulesection_id": obj.get("fkiModulesectionID"),
-            "s_module_name_x": obj.get("sModuleNameX"),
-            "s_modulesection_name_x": obj.get("sModulesectionNameX"),
-            "e_versionhistory_usertype": obj.get("eVersionhistoryUsertype"),
-            "obj_versionhistory_detail": MultilingualVersionhistoryDetail.from_dict(obj.get("objVersionhistoryDetail")) if obj.get("objVersionhistoryDetail") is not None else None,
-            "dt_versionhistory_date": obj.get("dtVersionhistoryDate"),
-            "dt_versionhistory_dateend": obj.get("dtVersionhistoryDateend"),
-            "e_versionhistory_type": obj.get("eVersionhistoryType"),
-            "b_versionhistory_draft": obj.get("bVersionhistoryDraft")
+        _obj = cls.model_validate({
+            "pkiVersionhistoryID": obj.get("pkiVersionhistoryID"),
+            "fkiModuleID": obj.get("fkiModuleID"),
+            "fkiModulesectionID": obj.get("fkiModulesectionID"),
+            "sModuleNameX": obj.get("sModuleNameX"),
+            "sModulesectionNameX": obj.get("sModulesectionNameX"),
+            "eVersionhistoryUsertype": obj.get("eVersionhistoryUsertype"),
+            "objVersionhistoryDetail": MultilingualVersionhistoryDetail.from_dict(obj.get("objVersionhistoryDetail")) if obj.get("objVersionhistoryDetail") is not None else None,
+            "dtVersionhistoryDate": obj.get("dtVersionhistoryDate"),
+            "dtVersionhistoryDateend": obj.get("dtVersionhistoryDateend"),
+            "eVersionhistoryType": obj.get("eVersionhistoryType"),
+            "bVersionhistoryDraft": obj.get("bVersionhistoryDraft")
         })
         return _obj
 

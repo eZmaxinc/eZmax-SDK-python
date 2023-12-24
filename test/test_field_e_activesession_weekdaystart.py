@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart  # noqa: E501
+from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
 
 class TestFieldEActivesessionWeekdaystart(unittest.TestCase):
     """FieldEActivesessionWeekdaystart unit test stubs"""

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response_m_payload import EzsignfolderGetActionableElementsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response_m_payload import EzsignfolderGetActionableElementsV1ResponseMPayload
 
 class TestEzsignfolderGetActionableElementsV1ResponseMPayload(unittest.TestCase):
     """EzsignfolderGetActionableElementsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderGetActionableElementsV1ResponseMPayload(unittest.TestCase)
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderGetActionableElementsV1ResponseMPayload`
         """
-        model = EzsignfolderGetActionableElementsV1ResponseMPayload()  # noqa: E501
+        model = EzsignfolderGetActionableElementsV1ResponseMPayload()
         if include_optional:
             return EzsignfolderGetActionableElementsV1ResponseMPayload(
                 a_obj_ezsignsignature = [

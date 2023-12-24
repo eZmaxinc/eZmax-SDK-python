@@ -3,6 +3,7 @@
 Payload for GET /2/object/userstaged/{pkiUserstagedID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_userstaged** | [**UserstagedResponseCompound**](UserstagedResponseCompound.md) |  | 

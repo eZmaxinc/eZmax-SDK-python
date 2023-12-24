@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi  # noqa: E501
+from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 
 
 class TestObjectActivesessionApi(unittest.TestCase):
     """ObjectActivesessionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectActivesessionApi()  # noqa: E501
+        self.api = ObjectActivesessionApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestObjectActivesessionApi(unittest.TestCase):
     def test_activesession_get_current_v1(self) -> None:
         """Test case for activesession_get_current_v1
 
-        Get Current Activesession  # noqa: E501
+        Get Current Activesession
         """
         pass
 
     def test_activesession_get_list_v1(self) -> None:
         """Test case for activesession_get_list_v1
 
-        Retrieve Activesession list  # noqa: E501
+        Retrieve Activesession list
         """
         pass
 

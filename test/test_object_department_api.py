@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_department_api import ObjectDepartmentApi  # noqa: E501
+from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 
 
 class TestObjectDepartmentApi(unittest.TestCase):
     """ObjectDepartmentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectDepartmentApi()  # noqa: E501
+        self.api = ObjectDepartmentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectDepartmentApi(unittest.TestCase):
     def test_department_get_autocomplete_v2(self) -> None:
         """Test case for department_get_autocomplete_v2
 
-        Retrieve Departments and IDs  # noqa: E501
+        Retrieve Departments and IDs
         """
         pass
 

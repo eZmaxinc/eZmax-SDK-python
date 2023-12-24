@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignsignature** | [**List[EzsignsignatureResponseCompound]**](EzsignsignatureResponseCompound.md) |  | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_edit_object_v1_request import BrandingEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.branding_edit_object_v1_request import BrandingEditObjectV1Request
 
 class TestBrandingEditObjectV1Request(unittest.TestCase):
     """BrandingEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingEditObjectV1Request`
         """
-        model = BrandingEditObjectV1Request()  # noqa: E501
+        model = BrandingEditObjectV1Request()
         if include_optional:
             return BrandingEditObjectV1Request(
                 obj_branding = eZmaxApi.models.branding_request_compound.branding-RequestCompound()

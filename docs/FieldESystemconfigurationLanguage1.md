@@ -3,6 +3,7 @@
 The type of the french for the client
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

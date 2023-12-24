@@ -3,6 +3,7 @@
 Payload for POST /2/object/emailtype/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_emailtype** | [**List[EmailtypeAutocompleteElementResponse]**](EmailtypeAutocompleteElementResponse.md) | An array of Emailtype autocomplete element response. | 

@@ -3,6 +3,7 @@
 A group of reports  Each Reportgroup is for a specific recipient or for a specific context.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_report** | [**List[CommonReport]**](CommonReport.md) |  | 

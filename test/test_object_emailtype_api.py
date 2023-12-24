@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_emailtype_api import ObjectEmailtypeApi  # noqa: E501
+from eZmaxApi.api.object_emailtype_api import ObjectEmailtypeApi
 
 
 class TestObjectEmailtypeApi(unittest.TestCase):
     """ObjectEmailtypeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEmailtypeApi()  # noqa: E501
+        self.api = ObjectEmailtypeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectEmailtypeApi(unittest.TestCase):
     def test_emailtype_get_autocomplete_v2(self) -> None:
         """Test case for emailtype_get_autocomplete_v2
 
-        Retrieve Emailtypes and IDs  # noqa: E501
+        Retrieve Emailtypes and IDs
         """
         pass
 

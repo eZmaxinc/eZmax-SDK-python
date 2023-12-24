@@ -15,22 +15,36 @@
 
 import unittest
 
-from eZmaxApi.api.object_inscription_api import ObjectInscriptionApi  # noqa: E501
+from eZmaxApi.api.object_inscription_api import ObjectInscriptionApi
 
 
 class TestObjectInscriptionApi(unittest.TestCase):
     """ObjectInscriptionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectInscriptionApi()  # noqa: E501
+        self.api = ObjectInscriptionApi()
 
     def tearDown(self) -> None:
+        pass
+
+    def test_inscription_get_attachments_v1(self) -> None:
+        """Test case for inscription_get_attachments_v1
+
+        Retrieve Inscription's Attachments
+        """
         pass
 
     def test_inscription_get_communication_list_v1(self) -> None:
         """Test case for inscription_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
+        """
+        pass
+
+    def test_inscription_get_communicationsenders_v1(self) -> None:
+        """Test case for inscription_get_communicationsenders_v1
+
+        Retrieve Inscription's Communicationsender
         """
         pass
 

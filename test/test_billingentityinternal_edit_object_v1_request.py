@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_edit_object_v1_request import BillingentityinternalEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.billingentityinternal_edit_object_v1_request import BillingentityinternalEditObjectV1Request
 
 class TestBillingentityinternalEditObjectV1Request(unittest.TestCase):
     """BillingentityinternalEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalEditObjectV1Request`
         """
-        model = BillingentityinternalEditObjectV1Request()  # noqa: E501
+        model = BillingentityinternalEditObjectV1Request()
         if include_optional:
             return BillingentityinternalEditObjectV1Request(
                 obj_billingentityinternal = eZmaxApi.models.billingentityinternal_request_compound.billingentityinternal-RequestCompound()

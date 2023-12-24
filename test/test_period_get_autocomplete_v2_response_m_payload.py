@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.period_get_autocomplete_v2_response_m_payload import PeriodGetAutocompleteV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.period_get_autocomplete_v2_response_m_payload import PeriodGetAutocompleteV2ResponseMPayload
 
 class TestPeriodGetAutocompleteV2ResponseMPayload(unittest.TestCase):
     """PeriodGetAutocompleteV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestPeriodGetAutocompleteV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PeriodGetAutocompleteV2ResponseMPayload`
         """
-        model = PeriodGetAutocompleteV2ResponseMPayload()  # noqa: E501
+        model = PeriodGetAutocompleteV2ResponseMPayload()
         if include_optional:
             return PeriodGetAutocompleteV2ResponseMPayload(
                 a_obj_period = [

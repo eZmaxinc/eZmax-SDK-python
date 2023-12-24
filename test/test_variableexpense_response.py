@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_response import VariableexpenseResponse  # noqa: E501
+from eZmaxApi.models.variableexpense_response import VariableexpenseResponse
 
 class TestVariableexpenseResponse(unittest.TestCase):
     """VariableexpenseResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseResponse`
         """
-        model = VariableexpenseResponse()  # noqa: E501
+        model = VariableexpenseResponse()
         if include_optional:
             return VariableexpenseResponse(
                 pki_variableexpense_id = 2,

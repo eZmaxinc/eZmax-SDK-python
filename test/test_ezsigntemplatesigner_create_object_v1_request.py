@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplatesigner_create_object_v1_request import EzsigntemplatesignerCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.ezsigntemplatesigner_create_object_v1_request import EzsigntemplatesignerCreateObjectV1Request
 
 class TestEzsigntemplatesignerCreateObjectV1Request(unittest.TestCase):
     """EzsigntemplatesignerCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplatesignerCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatesignerCreateObjectV1Request`
         """
-        model = EzsigntemplatesignerCreateObjectV1Request()  # noqa: E501
+        model = EzsigntemplatesignerCreateObjectV1Request()
         if include_optional:
             return EzsigntemplatesignerCreateObjectV1Request(
                 a_obj_ezsigntemplatesigner = [

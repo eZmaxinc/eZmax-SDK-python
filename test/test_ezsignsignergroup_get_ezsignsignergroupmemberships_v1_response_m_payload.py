@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response_m_payload import EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response_m_payload import EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload
 
 class TestEzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload(unittest.TestCase):
     """EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload(uni
             optional params are included """
         # uncomment below to create an instance of `EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload`
         """
-        model = EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload()  # noqa: E501
+        model = EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload()
         if include_optional:
             return EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload(
                 a_obj_ezsignsignergroupmembership = [

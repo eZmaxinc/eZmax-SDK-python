@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksendsignermapping_create_object_v1_response_m_payload import EzsignbulksendsignermappingCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignbulksendsignermapping_create_object_v1_response_m_payload import EzsignbulksendsignermappingCreateObjectV1ResponseMPayload
 
 class TestEzsignbulksendsignermappingCreateObjectV1ResponseMPayload(unittest.TestCase):
     """EzsignbulksendsignermappingCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendsignermappingCreateObjectV1ResponseMPayload(unittest.Tes
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendsignermappingCreateObjectV1ResponseMPayload`
         """
-        model = EzsignbulksendsignermappingCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = EzsignbulksendsignermappingCreateObjectV1ResponseMPayload()
         if include_optional:
             return EzsignbulksendsignermappingCreateObjectV1ResponseMPayload(
                 a_pki_ezsignbulksendsignermapping_id = [

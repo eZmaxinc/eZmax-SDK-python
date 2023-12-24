@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_clonehistory_api import ObjectClonehistoryApi  # noqa: E501
+from eZmaxApi.api.object_clonehistory_api import ObjectClonehistoryApi
 
 
 class TestObjectClonehistoryApi(unittest.TestCase):
     """ObjectClonehistoryApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectClonehistoryApi()  # noqa: E501
+        self.api = ObjectClonehistoryApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectClonehistoryApi(unittest.TestCase):
     def test_clonehistory_get_list_v1(self) -> None:
         """Test case for clonehistory_get_list_v1
 
-        Retrieve Clonehistory list  # noqa: E501
+        Retrieve Clonehistory list
         """
         pass
 

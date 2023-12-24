@@ -3,6 +3,7 @@
 The description of the Variableexpense
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_variableexpense_description1** | **str** | The description of the Variableexpense in French | [optional] 

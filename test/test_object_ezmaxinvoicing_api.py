@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi  # noqa: E501
+from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
 
 
 class TestObjectEzmaxinvoicingApi(unittest.TestCase):
     """ObjectEzmaxinvoicingApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzmaxinvoicingApi()  # noqa: E501
+        self.api = ObjectEzmaxinvoicingApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzmaxinvoicingApi(unittest.TestCase):
     def test_ezmaxinvoicing_get_autocomplete_v1(self) -> None:
         """Test case for ezmaxinvoicing_get_autocomplete_v1
 
-        Retrieve Ezmaxinvoicings and IDs  # noqa: E501
+        Retrieve Ezmaxinvoicings and IDs
         """
         pass
 
     def test_ezmaxinvoicing_get_autocomplete_v2(self) -> None:
         """Test case for ezmaxinvoicing_get_autocomplete_v2
 
-        Retrieve Ezmaxinvoicings and IDs  # noqa: E501
+        Retrieve Ezmaxinvoicings and IDs
         """
         pass
 
     def test_ezmaxinvoicing_get_object_v2(self) -> None:
         """Test case for ezmaxinvoicing_get_object_v2
 
-        Retrieve an existing Ezmaxinvoicing  # noqa: E501
+        Retrieve an existing Ezmaxinvoicing
         """
         pass
 
     def test_ezmaxinvoicing_get_provisional_v1(self) -> None:
         """Test case for ezmaxinvoicing_get_provisional_v1
 
-        Retrieve provisional Ezmaxinvoicing  # noqa: E501
+        Retrieve provisional Ezmaxinvoicing
         """
         pass
 

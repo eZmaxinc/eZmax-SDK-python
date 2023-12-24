@@ -19,27 +19,33 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplateelementdependency_operator import FieldEEzsigntemplateelementdependencyOperator
 from eZmaxApi.models.field_e_ezsigntemplateelementdependency_validation import FieldEEzsigntemplateelementdependencyValidation
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigntemplateelementdependencyResponseCompound(BaseModel):
     """
-    An Ezsigntemplateelementdependency Object and children to create a complete structure  # noqa: E501
-    """
-    pki_ezsigntemplateelementdependency_id: conint(strict=True, le=65535, ge=0) = Field(..., alias="pkiEzsigntemplateelementdependencyID", description="The unique ID of the Ezsigntemplateelementdependency")
-    fki_ezsigntemplateformfield_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplateformfieldID", description="The unique ID of the Ezsigntemplateformfield")
-    fki_ezsigntemplatesignature_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplatesignatureID", description="The unique ID of the Ezsigntemplatesignature")
-    fki_ezsigntemplateformfield_id_validation: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplateformfieldIDValidation", description="The unique ID of the Ezsigntemplateformfield")
-    fki_ezsigntemplateformfieldgroup_id_validation: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzsigntemplateformfieldgroupIDValidation", description="The unique ID of the Ezsigntemplateformfieldgroup")
-    e_ezsigntemplateelementdependency_validation: FieldEEzsigntemplateelementdependencyValidation = Field(..., alias="eEzsigntemplateelementdependencyValidation")
-    b_ezsigntemplateelementdependency_selected: Optional[StrictBool] = Field(None, alias="bEzsigntemplateelementdependencySelected", description="Whether if it's selected or not when using eEzsigntemplateelementdependencyValidation = Selected")
-    e_ezsigntemplateelementdependency_operator: Optional[FieldEEzsigntemplateelementdependencyOperator] = Field(None, alias="eEzsigntemplateelementdependencyOperator")
-    s_ezsigntemplateelementdependency_value: Optional[constr(strict=True)] = Field(None, alias="sEzsigntemplateelementdependencyValue", description="The value of the Ezsignelementdependency")
-    __properties = ["pkiEzsigntemplateelementdependencyID", "fkiEzsigntemplateformfieldID", "fkiEzsigntemplatesignatureID", "fkiEzsigntemplateformfieldIDValidation", "fkiEzsigntemplateformfieldgroupIDValidation", "eEzsigntemplateelementdependencyValidation", "bEzsigntemplateelementdependencySelected", "eEzsigntemplateelementdependencyOperator", "sEzsigntemplateelementdependencyValue"]
+    An Ezsigntemplateelementdependency Object and children to create a complete structure
+    """ # noqa: E501
+    pki_ezsigntemplateelementdependency_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateelementdependency", alias="pkiEzsigntemplateelementdependencyID")
+    fki_ezsigntemplateformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldID")
+    fki_ezsigntemplatesignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesignature", alias="fkiEzsigntemplatesignatureID")
+    fki_ezsigntemplateformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldIDValidation")
+    fki_ezsigntemplateformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfieldgroup", alias="fkiEzsigntemplateformfieldgroupIDValidation")
+    e_ezsigntemplateelementdependency_validation: FieldEEzsigntemplateelementdependencyValidation = Field(alias="eEzsigntemplateelementdependencyValidation")
+    b_ezsigntemplateelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsigntemplateelementdependencyValidation = Selected", alias="bEzsigntemplateelementdependencySelected")
+    e_ezsigntemplateelementdependency_operator: Optional[FieldEEzsigntemplateelementdependencyOperator] = Field(default=None, alias="eEzsigntemplateelementdependencyOperator")
+    s_ezsigntemplateelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsigntemplateelementdependencyValue")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateelementdependencyID", "fkiEzsigntemplateformfieldID", "fkiEzsigntemplatesignatureID", "fkiEzsigntemplateformfieldIDValidation", "fkiEzsigntemplateformfieldgroupIDValidation", "eEzsigntemplateelementdependencyValidation", "bEzsigntemplateelementdependencySelected", "eEzsigntemplateelementdependencyOperator", "sEzsigntemplateelementdependencyValue"]
 
-    @validator('s_ezsigntemplateelementdependency_value')
+    @field_validator('s_ezsigntemplateelementdependency_value')
     def s_ezsigntemplateelementdependency_value_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -49,51 +55,64 @@ class EzsigntemplateelementdependencyResponseCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigntemplateelementdependencyResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigntemplateelementdependencyResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigntemplateelementdependencyResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigntemplateelementdependencyResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigntemplateelementdependencyResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigntemplateelementdependencyResponseCompound.parse_obj({
-            "pki_ezsigntemplateelementdependency_id": obj.get("pkiEzsigntemplateelementdependencyID"),
-            "fki_ezsigntemplateformfield_id": obj.get("fkiEzsigntemplateformfieldID"),
-            "fki_ezsigntemplatesignature_id": obj.get("fkiEzsigntemplatesignatureID"),
-            "fki_ezsigntemplateformfield_id_validation": obj.get("fkiEzsigntemplateformfieldIDValidation"),
-            "fki_ezsigntemplateformfieldgroup_id_validation": obj.get("fkiEzsigntemplateformfieldgroupIDValidation"),
-            "e_ezsigntemplateelementdependency_validation": obj.get("eEzsigntemplateelementdependencyValidation"),
-            "b_ezsigntemplateelementdependency_selected": obj.get("bEzsigntemplateelementdependencySelected"),
-            "e_ezsigntemplateelementdependency_operator": obj.get("eEzsigntemplateelementdependencyOperator"),
-            "s_ezsigntemplateelementdependency_value": obj.get("sEzsigntemplateelementdependencyValue")
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateelementdependencyID": obj.get("pkiEzsigntemplateelementdependencyID"),
+            "fkiEzsigntemplateformfieldID": obj.get("fkiEzsigntemplateformfieldID"),
+            "fkiEzsigntemplatesignatureID": obj.get("fkiEzsigntemplatesignatureID"),
+            "fkiEzsigntemplateformfieldIDValidation": obj.get("fkiEzsigntemplateformfieldIDValidation"),
+            "fkiEzsigntemplateformfieldgroupIDValidation": obj.get("fkiEzsigntemplateformfieldgroupIDValidation"),
+            "eEzsigntemplateelementdependencyValidation": obj.get("eEzsigntemplateelementdependencyValidation"),
+            "bEzsigntemplateelementdependencySelected": obj.get("bEzsigntemplateelementdependencySelected"),
+            "eEzsigntemplateelementdependencyOperator": obj.get("eEzsigntemplateelementdependencyOperator"),
+            "sEzsigntemplateelementdependencyValue": obj.get("sEzsigntemplateelementdependencyValue")
         })
         return _obj
 

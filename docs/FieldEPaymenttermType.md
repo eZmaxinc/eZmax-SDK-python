@@ -3,6 +3,7 @@
 The type of the Paymentterm
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

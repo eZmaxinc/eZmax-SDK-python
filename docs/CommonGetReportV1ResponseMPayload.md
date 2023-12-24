@@ -3,6 +3,7 @@
 Payload for POST /1/report/xxx/xxx and and /1/module/report/getReportFromCache
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_reportgroup** | [**CommonReportgroup**](CommonReportgroup.md) |  | 

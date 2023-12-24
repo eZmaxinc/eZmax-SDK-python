@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.website_request_compound import WebsiteRequestCompound  # noqa: E501
+from eZmaxApi.models.website_request_compound import WebsiteRequestCompound
 
 class TestWebsiteRequestCompound(unittest.TestCase):
     """WebsiteRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebsiteRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsiteRequestCompound`
         """
-        model = WebsiteRequestCompound()  # noqa: E501
+        model = WebsiteRequestCompound()
         if include_optional:
             return WebsiteRequestCompound(
                 fki_websitetype_id = 1,

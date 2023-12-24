@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_language_api import ObjectLanguageApi  # noqa: E501
+from eZmaxApi.api.object_language_api import ObjectLanguageApi
 
 
 class TestObjectLanguageApi(unittest.TestCase):
     """ObjectLanguageApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectLanguageApi()  # noqa: E501
+        self.api = ObjectLanguageApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectLanguageApi(unittest.TestCase):
     def test_language_get_autocomplete_v2(self) -> None:
         """Test case for language_get_autocomplete_v2
 
-        Retrieve Languages and IDs  # noqa: E501
+        Retrieve Languages and IDs
         """
         pass
 

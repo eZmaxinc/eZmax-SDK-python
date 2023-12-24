@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi  # noqa: E501
+from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi
 
 
 class TestObjectSessionhistoryApi(unittest.TestCase):
     """ObjectSessionhistoryApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectSessionhistoryApi()  # noqa: E501
+        self.api = ObjectSessionhistoryApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectSessionhistoryApi(unittest.TestCase):
     def test_sessionhistory_get_list_v1(self) -> None:
         """Test case for sessionhistory_get_list_v1
 
-        Retrieve Sessionhistory list  # noqa: E501
+        Retrieve Sessionhistory list
         """
         pass
 

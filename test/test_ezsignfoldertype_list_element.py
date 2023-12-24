@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldertype_list_element import EzsignfoldertypeListElement  # noqa: E501
+from eZmaxApi.models.ezsignfoldertype_list_element import EzsignfoldertypeListElement
 
 class TestEzsignfoldertypeListElement(unittest.TestCase):
     """EzsignfoldertypeListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldertypeListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeListElement`
         """
-        model = EzsignfoldertypeListElement()  # noqa: E501
+        model = EzsignfoldertypeListElement()
         if include_optional:
             return EzsignfoldertypeListElement(
                 pki_ezsignfoldertype_id = 5,

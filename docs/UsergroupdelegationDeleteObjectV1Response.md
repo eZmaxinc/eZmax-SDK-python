@@ -3,6 +3,7 @@
 Response for DELETE /1/object/usergroupdelegation/{pkiUsergroupdelegationID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 

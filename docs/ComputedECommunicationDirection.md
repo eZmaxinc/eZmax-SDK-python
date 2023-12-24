@@ -3,6 +3,7 @@
 The direction of the Communication
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

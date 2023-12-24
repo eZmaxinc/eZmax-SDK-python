@@ -3,6 +3,7 @@
 The display status for the Notificationtest.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

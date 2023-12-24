@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.versionhistory_get_object_v2_response_m_payload import VersionhistoryGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.versionhistory_get_object_v2_response_m_payload import VersionhistoryGetObjectV2ResponseMPayload
 
 class TestVersionhistoryGetObjectV2ResponseMPayload(unittest.TestCase):
     """VersionhistoryGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestVersionhistoryGetObjectV2ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VersionhistoryGetObjectV2ResponseMPayload`
         """
-        model = VersionhistoryGetObjectV2ResponseMPayload()  # noqa: E501
+        model = VersionhistoryGetObjectV2ResponseMPayload()
         if include_optional:
             return VersionhistoryGetObjectV2ResponseMPayload(
                 obj_versionhistory = eZmaxApi.models.versionhistory_response_compound.versionhistory-ResponseCompound()

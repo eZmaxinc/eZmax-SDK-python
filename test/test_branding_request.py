@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_request import BrandingRequest  # noqa: E501
+from eZmaxApi.models.branding_request import BrandingRequest
 
 class TestBrandingRequest(unittest.TestCase):
     """BrandingRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingRequest`
         """
-        model = BrandingRequest()  # noqa: E501
+        model = BrandingRequest()
         if include_optional:
             return BrandingRequest(
                 pki_branding_id = 78,
@@ -42,7 +42,7 @@ class TestBrandingRequest(unittest.TestCase):
                     s_branding_description1 = 'Compagnie X', 
                     s_branding_description2 = 'Company X', ),
                 e_branding_logo = 'Default',
-                s_branding_base64 = '[B@2cf92cc7',
+                s_branding_base64 = '[B@6ffab045',
                 i_branding_colortext = 3752795,
                 i_branding_colortextlinkbox = 0,
                 i_branding_colortextbutton = 16777215,

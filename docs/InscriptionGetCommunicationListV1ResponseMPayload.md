@@ -3,6 +3,7 @@
 Response for GET /1/object/inscription/{pkiInscriptionID}/getCommunicationList
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_communication** | [**List[CustomCommunicationListElementResponse]**](CustomCommunicationListElementResponse.md) |  | 

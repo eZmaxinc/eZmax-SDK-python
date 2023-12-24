@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_versionhistory_api import ObjectVersionhistoryApi  # noqa: E501
+from eZmaxApi.api.object_versionhistory_api import ObjectVersionhistoryApi
 
 
 class TestObjectVersionhistoryApi(unittest.TestCase):
     """ObjectVersionhistoryApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectVersionhistoryApi()  # noqa: E501
+        self.api = ObjectVersionhistoryApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectVersionhistoryApi(unittest.TestCase):
     def test_versionhistory_get_object_v2(self) -> None:
         """Test case for versionhistory_get_object_v2
 
-        Retrieve an existing Versionhistory  # noqa: E501
+        Retrieve an existing Versionhistory
         """
         pass
 

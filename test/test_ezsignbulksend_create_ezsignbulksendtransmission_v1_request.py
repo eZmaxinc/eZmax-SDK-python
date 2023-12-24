@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_request import EzsignbulksendCreateEzsignbulksendtransmissionV1Request  # noqa: E501
+from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_request import EzsignbulksendCreateEzsignbulksendtransmissionV1Request
 
 class TestEzsignbulksendCreateEzsignbulksendtransmissionV1Request(unittest.TestCase):
     """EzsignbulksendCreateEzsignbulksendtransmissionV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignbulksendCreateEzsignbulksendtransmissionV1Request(unittest.TestC
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendCreateEzsignbulksendtransmissionV1Request`
         """
-        model = EzsignbulksendCreateEzsignbulksendtransmissionV1Request()  # noqa: E501
+        model = EzsignbulksendCreateEzsignbulksendtransmissionV1Request()
         if include_optional:
             return EzsignbulksendCreateEzsignbulksendtransmissionV1Request(
                 fki_userlogintype_id = 2,

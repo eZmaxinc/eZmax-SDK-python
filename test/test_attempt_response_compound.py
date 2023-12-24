@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound  # noqa: E501
+from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 
 class TestAttemptResponseCompound(unittest.TestCase):
     """AttemptResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestAttemptResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `AttemptResponseCompound`
         """
-        model = AttemptResponseCompound()  # noqa: E501
+        model = AttemptResponseCompound()
         if include_optional:
             return AttemptResponseCompound(
                 dt_attempt_start = '2020-12-31 23:59:59',

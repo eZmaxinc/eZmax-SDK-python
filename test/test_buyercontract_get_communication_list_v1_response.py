@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.buyercontract_get_communication_list_v1_response import BuyercontractGetCommunicationListV1Response  # noqa: E501
+from eZmaxApi.models.buyercontract_get_communication_list_v1_response import BuyercontractGetCommunicationListV1Response
 
 class TestBuyercontractGetCommunicationListV1Response(unittest.TestCase):
     """BuyercontractGetCommunicationListV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestBuyercontractGetCommunicationListV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BuyercontractGetCommunicationListV1Response`
         """
-        model = BuyercontractGetCommunicationListV1Response()  # noqa: E501
+        model = BuyercontractGetCommunicationListV1Response()
         if include_optional:
             return BuyercontractGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource  # noqa: E501
+from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
 
 class TestFieldEEzsignsignatureAttachmentnamesource(unittest.TestCase):
     """FieldEEzsignsignatureAttachmentnamesource unit test stubs"""

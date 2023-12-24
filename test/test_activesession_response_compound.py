@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound  # noqa: E501
+from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound
 
 class TestActivesessionResponseCompound(unittest.TestCase):
     """ActivesessionResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionResponseCompound`
         """
-        model = ActivesessionResponseCompound()  # noqa: E501
+        model = ActivesessionResponseCompound()
         if include_optional:
             return ActivesessionResponseCompound(
                 e_activesession_usertype = 'Normal',
@@ -48,6 +48,9 @@ class TestActivesessionResponseCompound(unittest.TestCase):
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 fki_signature_id = 12,
+                e_user_ezsignaccess = 'PaidByOffice',
+                e_user_ezsignprepaid = 'Basic',
+                dt_user_ezsignprepaidexpiration = '2020-12-31',
                 a_pki_permission_id = [
                     53
                     ],
@@ -92,6 +95,7 @@ class TestActivesessionResponseCompound(unittest.TestCase):
                 b_activesession_issuperadmin = False,
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
+                e_user_ezsignaccess = 'PaidByOffice',
                 a_pki_permission_id = [
                     53
                     ],

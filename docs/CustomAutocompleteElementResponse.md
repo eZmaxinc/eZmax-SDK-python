@@ -3,6 +3,7 @@
 Generic AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_category** | **str** | The Category for the dropdown or an empty string if not categorized | 

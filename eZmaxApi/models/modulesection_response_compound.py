@@ -19,45 +19,64 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.permission_response_compound import PermissionResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ModulesectionResponseCompound(BaseModel):
     """
-    A Modulesection Object  # noqa: E501
-    """
-    pki_modulesection_id: conint(strict=True, ge=0) = Field(..., alias="pkiModulesectionID", description="The unique ID of the Modulesection")
-    fki_module_id: conint(strict=True, ge=0) = Field(..., alias="fkiModuleID", description="The unique ID of the Module")
-    s_modulesection_internalname: StrictStr = Field(..., alias="sModulesectionInternalname", description="The Internal name of the Module section.")
-    s_modulesection_name_x: StrictStr = Field(..., alias="sModulesectionNameX", description="The Name of the Modulesection in the language of the requester")
-    a_obj_permission: Optional[conlist(PermissionResponseCompound)] = Field(None, alias="a_objPermission")
-    __properties = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX", "a_objPermission"]
+    A Modulesection Object
+    """ # noqa: E501
+    pki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="pkiModulesectionID")
+    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID")
+    s_modulesection_internalname: StrictStr = Field(description="The Internal name of the Module section.", alias="sModulesectionInternalname")
+    s_modulesection_name_x: StrictStr = Field(description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
+    a_obj_permission: Optional[List[PermissionResponseCompound]] = Field(default=None, alias="a_objPermission")
+    __properties: ClassVar[List[str]] = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX", "a_objPermission"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ModulesectionResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ModulesectionResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_permission (list)
         _items = []
         if self.a_obj_permission:
@@ -68,20 +87,20 @@ class ModulesectionResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ModulesectionResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ModulesectionResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ModulesectionResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ModulesectionResponseCompound.parse_obj({
-            "pki_modulesection_id": obj.get("pkiModulesectionID"),
-            "fki_module_id": obj.get("fkiModuleID"),
-            "s_modulesection_internalname": obj.get("sModulesectionInternalname"),
-            "s_modulesection_name_x": obj.get("sModulesectionNameX"),
-            "a_obj_permission": [PermissionResponseCompound.from_dict(_item) for _item in obj.get("a_objPermission")] if obj.get("a_objPermission") is not None else None
+        _obj = cls.model_validate({
+            "pkiModulesectionID": obj.get("pkiModulesectionID"),
+            "fkiModuleID": obj.get("fkiModuleID"),
+            "sModulesectionInternalname": obj.get("sModulesectionInternalname"),
+            "sModulesectionNameX": obj.get("sModulesectionNameX"),
+            "a_objPermission": [PermissionResponseCompound.from_dict(_item) for _item in obj.get("a_objPermission")] if obj.get("a_objPermission") is not None else None
         })
         return _obj
 

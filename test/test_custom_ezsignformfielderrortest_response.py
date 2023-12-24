@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsignformfielderrortest_response import CustomEzsignformfielderrortestResponse  # noqa: E501
+from eZmaxApi.models.custom_ezsignformfielderrortest_response import CustomEzsignformfielderrortestResponse
 
 class TestCustomEzsignformfielderrortestResponse(unittest.TestCase):
     """CustomEzsignformfielderrortestResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsignformfielderrortestResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignformfielderrortestResponse`
         """
-        model = CustomEzsignformfielderrortestResponse()  # noqa: E501
+        model = CustomEzsignformfielderrortestResponse()
         if include_optional:
             return CustomEzsignformfielderrortestResponse(
                 s_ezsignformfielderrortest_name = 'jUR,rZ#UM/?',

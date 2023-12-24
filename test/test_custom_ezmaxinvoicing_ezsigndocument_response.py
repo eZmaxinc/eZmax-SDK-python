@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezmaxinvoicing_ezsigndocument_response import CustomEzmaxinvoicingEzsigndocumentResponse  # noqa: E501
+from eZmaxApi.models.custom_ezmaxinvoicing_ezsigndocument_response import CustomEzmaxinvoicingEzsigndocumentResponse
 
 class TestCustomEzmaxinvoicingEzsigndocumentResponse(unittest.TestCase):
     """CustomEzmaxinvoicingEzsigndocumentResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzmaxinvoicingEzsigndocumentResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomEzmaxinvoicingEzsigndocumentResponse`
         """
-        model = CustomEzmaxinvoicingEzsigndocumentResponse()  # noqa: E501
+        model = CustomEzmaxinvoicingEzsigndocumentResponse()
         if include_optional:
             return CustomEzmaxinvoicingEzsigndocumentResponse(
                 fki_ezsignfolder_id = 33,

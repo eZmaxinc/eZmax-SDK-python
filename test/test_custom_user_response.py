@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_user_response import CustomUserResponse  # noqa: E501
+from eZmaxApi.models.custom_user_response import CustomUserResponse
 
 class TestCustomUserResponse(unittest.TestCase):
     """CustomUserResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomUserResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomUserResponse`
         """
-        model = CustomUserResponse()  # noqa: E501
+        model = CustomUserResponse()
         if include_optional:
             return CustomUserResponse(
                 pki_user_id = 70,

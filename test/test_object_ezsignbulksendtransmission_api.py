@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignbulksendtransmission_api import ObjectEzsignbulksendtransmissionApi  # noqa: E501
+from eZmaxApi.api.object_ezsignbulksendtransmission_api import ObjectEzsignbulksendtransmissionApi
 
 
 class TestObjectEzsignbulksendtransmissionApi(unittest.TestCase):
     """ObjectEzsignbulksendtransmissionApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignbulksendtransmissionApi()  # noqa: E501
+        self.api = ObjectEzsignbulksendtransmissionApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzsignbulksendtransmissionApi(unittest.TestCase):
     def test_ezsignbulksendtransmission_get_csv_errors_v1(self) -> None:
         """Test case for ezsignbulksendtransmission_get_csv_errors_v1
 
-        Retrieve an existing Ezsignbulksendtransmission's Csv containing errors  # noqa: E501
+        Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
         """
         pass
 
     def test_ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1
 
-        Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures  # noqa: E501
+        Retrieve an existing Ezsignbulksendtransmission's automatic Ezsignsignatures
         """
         pass
 
     def test_ezsignbulksendtransmission_get_forms_data_v1(self) -> None:
         """Test case for ezsignbulksendtransmission_get_forms_data_v1
 
-        Retrieve an existing Ezsignbulksendtransmission's forms data  # noqa: E501
+        Retrieve an existing Ezsignbulksendtransmission's forms data
         """
         pass
 
     def test_ezsignbulksendtransmission_get_object_v2(self) -> None:
         """Test case for ezsignbulksendtransmission_get_object_v2
 
-        Retrieve an existing Ezsignbulksendtransmission  # noqa: E501
+        Retrieve an existing Ezsignbulksendtransmission
         """
         pass
 

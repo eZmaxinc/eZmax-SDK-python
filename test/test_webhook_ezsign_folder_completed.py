@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_ezsign_folder_completed import WebhookEzsignFolderCompleted  # noqa: E501
+from eZmaxApi.models.webhook_ezsign_folder_completed import WebhookEzsignFolderCompleted
 
 class TestWebhookEzsignFolderCompleted(unittest.TestCase):
     """WebhookEzsignFolderCompleted unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookEzsignFolderCompleted(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookEzsignFolderCompleted`
         """
-        model = WebhookEzsignFolderCompleted()  # noqa: E501
+        model = WebhookEzsignFolderCompleted()
         if include_optional:
             return WebhookEzsignFolderCompleted(
                 obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),

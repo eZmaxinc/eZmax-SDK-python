@@ -3,6 +3,7 @@
 352 Redirect Message containing secret question
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_secretquestion_text_x** | **str** | The text of the Secretquestion in the language of the requester | 

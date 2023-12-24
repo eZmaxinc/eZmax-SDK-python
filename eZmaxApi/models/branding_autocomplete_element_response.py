@@ -19,57 +19,76 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class BrandingAutocompleteElementResponse(BaseModel):
     """
-    Branding AutocompleteElement Response  # noqa: E501
-    """
-    s_branding_description_x: StrictStr = Field(..., alias="sBrandingDescriptionX", description="The Description of the Branding in the language of the requester")
-    pki_branding_id: conint(strict=True, ge=0) = Field(..., alias="pkiBrandingID", description="The unique ID of the Branding")
-    b_branding_isactive: StrictBool = Field(..., alias="bBrandingIsactive", description="Whether the Branding is active or not")
-    __properties = ["sBrandingDescriptionX", "pkiBrandingID", "bBrandingIsactive"]
+    Branding AutocompleteElement Response
+    """ # noqa: E501
+    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
+    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID")
+    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
+    __properties: ClassVar[List[str]] = ["sBrandingDescriptionX", "pkiBrandingID", "bBrandingIsactive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> BrandingAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of BrandingAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> BrandingAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of BrandingAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return BrandingAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = BrandingAutocompleteElementResponse.parse_obj({
-            "s_branding_description_x": obj.get("sBrandingDescriptionX"),
-            "pki_branding_id": obj.get("pkiBrandingID"),
-            "b_branding_isactive": obj.get("bBrandingIsactive")
+        _obj = cls.model_validate({
+            "sBrandingDescriptionX": obj.get("sBrandingDescriptionX"),
+            "pkiBrandingID": obj.get("pkiBrandingID"),
+            "bBrandingIsactive": obj.get("bBrandingIsactive")
         })
         return _obj
 

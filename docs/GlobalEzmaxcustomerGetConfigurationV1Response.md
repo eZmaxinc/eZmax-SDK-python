@@ -3,6 +3,7 @@
 Response for GET /1/ezmaxcustomer/{pksEzmaxcustomerCode}/getConfiguration
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_infrastructureregion_code** | **str** | The region code | 

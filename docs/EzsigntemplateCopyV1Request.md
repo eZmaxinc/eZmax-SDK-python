@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_fki_ezsignfoldertype_id** | **List[int]** |  | 

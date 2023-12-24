@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfoldersignerassociation_get_object_v2_response_m_payload import EzsignfoldersignerassociationGetObjectV2ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfoldersignerassociation_get_object_v2_response_m_payload import EzsignfoldersignerassociationGetObjectV2ResponseMPayload
 
 class TestEzsignfoldersignerassociationGetObjectV2ResponseMPayload(unittest.TestCase):
     """EzsignfoldersignerassociationGetObjectV2ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfoldersignerassociationGetObjectV2ResponseMPayload(unittest.Test
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldersignerassociationGetObjectV2ResponseMPayload`
         """
-        model = EzsignfoldersignerassociationGetObjectV2ResponseMPayload()  # noqa: E501
+        model = EzsignfoldersignerassociationGetObjectV2ResponseMPayload()
         if include_optional:
             return EzsignfoldersignerassociationGetObjectV2ResponseMPayload(
                 obj_ezsignfoldersignerassociation = eZmaxApi.models.ezsignfoldersignerassociation_response_compound.ezsignfoldersignerassociation-ResponseCompound()

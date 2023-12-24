@@ -3,6 +3,7 @@
 A Department AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_company_name_x** | **str** | The Name of the Company in the language of the requester | 

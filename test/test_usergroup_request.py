@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroup_request import UsergroupRequest  # noqa: E501
+from eZmaxApi.models.usergroup_request import UsergroupRequest
 
 class TestUsergroupRequest(unittest.TestCase):
     """UsergroupRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupRequest`
         """
-        model = UsergroupRequest()  # noqa: E501
+        model = UsergroupRequest()
         if include_optional:
             return UsergroupRequest(
                 pki_usergroup_id = 2,

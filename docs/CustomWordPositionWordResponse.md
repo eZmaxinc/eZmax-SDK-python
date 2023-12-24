@@ -3,6 +3,7 @@
 A Word Position Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_word** | **str** | The searched word | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignfolder_get_communicationsenders_v1_response_m_payload import EzsignfolderGetCommunicationsendersV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsignfolder_get_communicationsenders_v1_response_m_payload import EzsignfolderGetCommunicationsendersV1ResponseMPayload
 
 class TestEzsignfolderGetCommunicationsendersV1ResponseMPayload(unittest.TestCase):
     """EzsignfolderGetCommunicationsendersV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignfolderGetCommunicationsendersV1ResponseMPayload(unittest.TestCas
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderGetCommunicationsendersV1ResponseMPayload`
         """
-        model = EzsignfolderGetCommunicationsendersV1ResponseMPayload()  # noqa: E501
+        model = EzsignfolderGetCommunicationsendersV1ResponseMPayload()
         if include_optional:
             return EzsignfolderGetCommunicationsendersV1ResponseMPayload(
                 a_obj_communicationsenders = [
@@ -43,13 +43,15 @@ class TestEzsignfolderGetCommunicationsendersV1ResponseMPayload(unittest.TestCas
                         fki_broker_id = 26, 
                         fki_user_id = 70, 
                         fki_mailboxshared_id = 47, 
+                        fki_phonelineshared_id = 47, 
                         e_communicationsender_objecttype = 'User', 
                         obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                             s_contact_firstname = 'John', 
                             s_contact_lastname = 'Doe', 
                             s_contact_company = 'eZmax Solutions Inc.', ), 
-                        s_email_address = 'email@example.com', 
-                        s_phone_e164 = '+15149901516', )
+                        obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(), 
+                        obj_phone_fax = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(), 
+                        obj_phone_sms = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(), )
                     ]
             )
         else:
@@ -60,13 +62,15 @@ class TestEzsignfolderGetCommunicationsendersV1ResponseMPayload(unittest.TestCas
                         fki_broker_id = 26, 
                         fki_user_id = 70, 
                         fki_mailboxshared_id = 47, 
+                        fki_phonelineshared_id = 47, 
                         e_communicationsender_objecttype = 'User', 
                         obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                             s_contact_firstname = 'John', 
                             s_contact_lastname = 'Doe', 
                             s_contact_company = 'eZmax Solutions Inc.', ), 
-                        s_email_address = 'email@example.com', 
-                        s_phone_e164 = '+15149901516', )
+                        obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(), 
+                        obj_phone_fax = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(), 
+                        obj_phone_sms = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(), )
                     ],
         )
         """

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.cors_response import CorsResponse  # noqa: E501
+from eZmaxApi.models.cors_response import CorsResponse
 
 class TestCorsResponse(unittest.TestCase):
     """CorsResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCorsResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CorsResponse`
         """
-        model = CorsResponse()  # noqa: E501
+        model = CorsResponse()
         if include_optional:
             return CorsResponse(
                 pki_cors_id = 228,

@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi  # noqa: E501
+from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi
 
 
 class TestObjectPhonetypeApi(unittest.TestCase):
     """ObjectPhonetypeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectPhonetypeApi()  # noqa: E501
+        self.api = ObjectPhonetypeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectPhonetypeApi(unittest.TestCase):
     def test_phonetype_get_autocomplete_v2(self) -> None:
         """Test case for phonetype_get_autocomplete_v2
 
-        Retrieve Phonetypes and IDs  # noqa: E501
+        Retrieve Phonetypes and IDs
         """
         pass
 

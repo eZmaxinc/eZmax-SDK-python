@@ -3,6 +3,7 @@
 The type of authentication for the User
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

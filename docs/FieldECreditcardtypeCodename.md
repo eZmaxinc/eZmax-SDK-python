@@ -3,6 +3,7 @@
 The codename of the Creditcardtype
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

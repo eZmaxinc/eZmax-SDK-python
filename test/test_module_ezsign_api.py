@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.module_ezsign_api import ModuleEzsignApi  # noqa: E501
+from eZmaxApi.api.module_ezsign_api import ModuleEzsignApi
 
 
 class TestModuleEzsignApi(unittest.TestCase):
     """ModuleEzsignApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ModuleEzsignApi()  # noqa: E501
+        self.api = ModuleEzsignApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestModuleEzsignApi(unittest.TestCase):
     def test_ezsign_suggest_signers_v1(self) -> None:
         """Test case for ezsign_suggest_signers_v1
 
-        Suggest signers  # noqa: E501
+        Suggest signers
         """
         pass
 
     def test_ezsign_suggest_templates_v1(self) -> None:
         """Test case for ezsign_suggest_templates_v1
 
-        Suggest templates  # noqa: E501
+        Suggest templates
         """
         pass
 

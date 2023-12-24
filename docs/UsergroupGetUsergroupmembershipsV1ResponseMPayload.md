@@ -3,6 +3,7 @@
 Response for GET /1/object/usergroup/{pkiUsergroupID}/getUsergroupmemberships
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroupmembership** | [**List[UsergroupmembershipResponseCompound]**](UsergroupmembershipResponseCompound.md) |  | 

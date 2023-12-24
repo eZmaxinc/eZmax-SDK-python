@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignature_create_object_v2_request import EzsignsignatureCreateObjectV2Request  # noqa: E501
+from eZmaxApi.models.ezsignsignature_create_object_v2_request import EzsignsignatureCreateObjectV2Request
 
 class TestEzsignsignatureCreateObjectV2Request(unittest.TestCase):
     """EzsignsignatureCreateObjectV2Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignatureCreateObjectV2Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureCreateObjectV2Request`
         """
-        model = EzsignsignatureCreateObjectV2Request()  # noqa: E501
+        model = EzsignsignatureCreateObjectV2Request()
         if include_optional:
             return EzsignsignatureCreateObjectV2Request(
                 a_obj_ezsignsignature = [

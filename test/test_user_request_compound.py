@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.user_request_compound import UserRequestCompound  # noqa: E501
+from eZmaxApi.models.user_request_compound import UserRequestCompound
 
 class TestUserRequestCompound(unittest.TestCase):
     """UserRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserRequestCompound`
         """
-        model = UserRequestCompound()  # noqa: E501
+        model = UserRequestCompound()
         if include_optional:
             return UserRequestCompound(
                 pki_user_id = 70,

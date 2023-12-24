@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_reportsubsectionpart import CommonReportsubsectionpart  # noqa: E501
+from eZmaxApi.models.common_reportsubsectionpart import CommonReportsubsectionpart
 
 class TestCommonReportsubsectionpart(unittest.TestCase):
     """CommonReportsubsectionpart unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonReportsubsectionpart(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonReportsubsectionpart`
         """
-        model = CommonReportsubsectionpart()  # noqa: E501
+        model = CommonReportsubsectionpart()
         if include_optional:
             return CommonReportsubsectionpart(
                 e_reportsubsectionpart_type = 'Header',

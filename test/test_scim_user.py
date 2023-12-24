@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.scim_user import ScimUser  # noqa: E501
+from eZmaxApi.models.scim_user import ScimUser
 
 class TestScimUser(unittest.TestCase):
     """ScimUser unit test stubs"""
@@ -34,7 +34,7 @@ class TestScimUser(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ScimUser`
         """
-        model = ScimUser()  # noqa: E501
+        model = ScimUser()
         if include_optional:
             return ScimUser(
                 id = '',

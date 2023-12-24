@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.usergroupdelegation_create_object_v1_response_m_payload import UsergroupdelegationCreateObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.usergroupdelegation_create_object_v1_response_m_payload import UsergroupdelegationCreateObjectV1ResponseMPayload
 
 class TestUsergroupdelegationCreateObjectV1ResponseMPayload(unittest.TestCase):
     """UsergroupdelegationCreateObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUsergroupdelegationCreateObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UsergroupdelegationCreateObjectV1ResponseMPayload`
         """
-        model = UsergroupdelegationCreateObjectV1ResponseMPayload()  # noqa: E501
+        model = UsergroupdelegationCreateObjectV1ResponseMPayload()
         if include_optional:
             return UsergroupdelegationCreateObjectV1ResponseMPayload(
                 a_pki_usergroupdelegation_id = [

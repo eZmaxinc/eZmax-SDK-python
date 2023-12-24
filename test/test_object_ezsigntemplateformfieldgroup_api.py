@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplateformfieldgroup_api import ObjectEzsigntemplateformfieldgroupApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplateformfieldgroup_api import ObjectEzsigntemplateformfieldgroupApi
 
 
 class TestObjectEzsigntemplateformfieldgroupApi(unittest.TestCase):
     """ObjectEzsigntemplateformfieldgroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplateformfieldgroupApi()  # noqa: E501
+        self.api = ObjectEzsigntemplateformfieldgroupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,28 +30,28 @@ class TestObjectEzsigntemplateformfieldgroupApi(unittest.TestCase):
     def test_ezsigntemplateformfieldgroup_create_object_v1(self) -> None:
         """Test case for ezsigntemplateformfieldgroup_create_object_v1
 
-        Create a new Ezsigntemplateformfieldgroup  # noqa: E501
+        Create a new Ezsigntemplateformfieldgroup
         """
         pass
 
     def test_ezsigntemplateformfieldgroup_delete_object_v1(self) -> None:
         """Test case for ezsigntemplateformfieldgroup_delete_object_v1
 
-        Delete an existing Ezsigntemplateformfieldgroup  # noqa: E501
+        Delete an existing Ezsigntemplateformfieldgroup
         """
         pass
 
     def test_ezsigntemplateformfieldgroup_edit_object_v1(self) -> None:
         """Test case for ezsigntemplateformfieldgroup_edit_object_v1
 
-        Edit an existing Ezsigntemplateformfieldgroup  # noqa: E501
+        Edit an existing Ezsigntemplateformfieldgroup
         """
         pass
 
     def test_ezsigntemplateformfieldgroup_get_object_v2(self) -> None:
         """Test case for ezsigntemplateformfieldgroup_get_object_v2
 
-        Retrieve an existing Ezsigntemplateformfieldgroup  # noqa: E501
+        Retrieve an existing Ezsigntemplateformfieldgroup
         """
         pass
 

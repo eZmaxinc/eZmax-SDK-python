@@ -3,6 +3,7 @@
 Payload for GET /1/module/ezsign/suggestSigners
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignfoldersignerassociation** | [**List[EzsignfoldersignerassociationResponseCompound]**](EzsignfoldersignerassociationResponseCompound.md) |  | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.permission_create_object_v1_response import PermissionCreateObjectV1Response  # noqa: E501
+from eZmaxApi.models.permission_create_object_v1_response import PermissionCreateObjectV1Response
 
 class TestPermissionCreateObjectV1Response(unittest.TestCase):
     """PermissionCreateObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestPermissionCreateObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PermissionCreateObjectV1Response`
         """
-        model = PermissionCreateObjectV1Response()  # noqa: E501
+        model = PermissionCreateObjectV1Response()
         if include_optional:
             return PermissionCreateObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

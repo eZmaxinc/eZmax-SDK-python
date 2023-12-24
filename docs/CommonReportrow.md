@@ -3,6 +3,7 @@
 A row in a Reportsubsectionpart 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_reportcell** | [**List[CommonReportcell]**](CommonReportcell.md) |  | 

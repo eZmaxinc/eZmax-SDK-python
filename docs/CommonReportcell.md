@@ -3,6 +3,7 @@
 A cell in a Reportrow 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_reportcell_columnspan** | **int** | The number of Reportcolumns the Reportcell spans | 

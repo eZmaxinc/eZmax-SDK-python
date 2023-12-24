@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_words_positions_v1_response import EzsigndocumentGetWordsPositionsV1Response  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_words_positions_v1_response import EzsigndocumentGetWordsPositionsV1Response
 
 class TestEzsigndocumentGetWordsPositionsV1Response(unittest.TestCase):
     """EzsigndocumentGetWordsPositionsV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetWordsPositionsV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetWordsPositionsV1Response`
         """
-        model = EzsigndocumentGetWordsPositionsV1Response()  # noqa: E501
+        model = EzsigndocumentGetWordsPositionsV1Response()
         if include_optional:
             return EzsigndocumentGetWordsPositionsV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

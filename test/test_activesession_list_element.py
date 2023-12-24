@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_list_element import ActivesessionListElement  # noqa: E501
+from eZmaxApi.models.activesession_list_element import ActivesessionListElement
 
 class TestActivesessionListElement(unittest.TestCase):
     """ActivesessionListElement unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionListElement(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionListElement`
         """
-        model = ActivesessionListElement()  # noqa: E501
+        model = ActivesessionListElement()
         if include_optional:
             return ActivesessionListElement(
                 pki_activesession_id = 16,

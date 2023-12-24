@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.variableexpense_autocomplete_element_response import VariableexpenseAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.variableexpense_autocomplete_element_response import VariableexpenseAutocompleteElementResponse
 
 class TestVariableexpenseAutocompleteElementResponse(unittest.TestCase):
     """VariableexpenseAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestVariableexpenseAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `VariableexpenseAutocompleteElementResponse`
         """
-        model = VariableexpenseAutocompleteElementResponse()  # noqa: E501
+        model = VariableexpenseAutocompleteElementResponse()
         if include_optional:
             return VariableexpenseAutocompleteElementResponse(
                 s_variableexpense_description_x = 'Équipements de bureau',

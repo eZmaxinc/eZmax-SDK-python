@@ -3,6 +3,7 @@
 A Ezmaxinvoicingagent Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxinvoicingagent_id** | **int** | The unique ID of the Ezmaxinvoicingagent | [optional] 

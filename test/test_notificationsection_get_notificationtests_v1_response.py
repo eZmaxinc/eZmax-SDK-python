@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response  # noqa: E501
+from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response
 
 class TestNotificationsectionGetNotificationtestsV1Response(unittest.TestCase):
     """NotificationsectionGetNotificationtestsV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestNotificationsectionGetNotificationtestsV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `NotificationsectionGetNotificationtestsV1Response`
         """
-        model = NotificationsectionGetNotificationtestsV1Response()  # noqa: E501
+        model = NotificationsectionGetNotificationtestsV1Response()
         if include_optional:
             return NotificationsectionGetNotificationtestsV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

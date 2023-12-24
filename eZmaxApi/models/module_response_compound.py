@@ -19,47 +19,66 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.modulesection_response_compound import ModulesectionResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ModuleResponseCompound(BaseModel):
     """
-    A Module Object  # noqa: E501
-    """
-    pki_module_id: conint(strict=True, ge=0) = Field(..., alias="pkiModuleID", description="The unique ID of the Module")
-    fki_modulegroup_id: conint(strict=True, le=255, ge=1) = Field(..., alias="fkiModulegroupID", description="The unique ID of the Modulegroup")
-    e_module_internalname: StrictStr = Field(..., alias="eModuleInternalname", description="The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.")
-    s_module_name_x: StrictStr = Field(..., alias="sModuleNameX", description="The Name of the Module in the language of the requester")
-    b_module_registered: StrictBool = Field(..., alias="bModuleRegistered", description="Whether the Module is registered or not")
-    b_module_registeredapi: StrictBool = Field(..., alias="bModuleRegisteredapi", description="Whether the Module is registered or not for api use")
-    a_obj_modulesection: Optional[conlist(ModulesectionResponseCompound)] = Field(None, alias="a_objModulesection")
-    __properties = ["pkiModuleID", "fkiModulegroupID", "eModuleInternalname", "sModuleNameX", "bModuleRegistered", "bModuleRegisteredapi", "a_objModulesection"]
+    A Module Object
+    """ # noqa: E501
+    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID")
+    fki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="fkiModulegroupID")
+    e_module_internalname: StrictStr = Field(description="The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.", alias="eModuleInternalname")
+    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX")
+    b_module_registered: StrictBool = Field(description="Whether the Module is registered or not", alias="bModuleRegistered")
+    b_module_registeredapi: StrictBool = Field(description="Whether the Module is registered or not for api use", alias="bModuleRegisteredapi")
+    a_obj_modulesection: Optional[List[ModulesectionResponseCompound]] = Field(default=None, alias="a_objModulesection")
+    __properties: ClassVar[List[str]] = ["pkiModuleID", "fkiModulegroupID", "eModuleInternalname", "sModuleNameX", "bModuleRegistered", "bModuleRegisteredapi", "a_objModulesection"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ModuleResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ModuleResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_modulesection (list)
         _items = []
         if self.a_obj_modulesection:
@@ -70,22 +89,22 @@ class ModuleResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ModuleResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ModuleResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ModuleResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ModuleResponseCompound.parse_obj({
-            "pki_module_id": obj.get("pkiModuleID"),
-            "fki_modulegroup_id": obj.get("fkiModulegroupID"),
-            "e_module_internalname": obj.get("eModuleInternalname"),
-            "s_module_name_x": obj.get("sModuleNameX"),
-            "b_module_registered": obj.get("bModuleRegistered"),
-            "b_module_registeredapi": obj.get("bModuleRegisteredapi"),
-            "a_obj_modulesection": [ModulesectionResponseCompound.from_dict(_item) for _item in obj.get("a_objModulesection")] if obj.get("a_objModulesection") is not None else None
+        _obj = cls.model_validate({
+            "pkiModuleID": obj.get("pkiModuleID"),
+            "fkiModulegroupID": obj.get("fkiModulegroupID"),
+            "eModuleInternalname": obj.get("eModuleInternalname"),
+            "sModuleNameX": obj.get("sModuleNameX"),
+            "bModuleRegistered": obj.get("bModuleRegistered"),
+            "bModuleRegisteredapi": obj.get("bModuleRegisteredapi"),
+            "a_objModulesection": [ModulesectionResponseCompound.from_dict(_item) for _item in obj.get("a_objModulesection")] if obj.get("a_objModulesection") is not None else None
         })
         return _obj
 

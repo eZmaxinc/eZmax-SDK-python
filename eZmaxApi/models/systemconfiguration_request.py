@@ -19,29 +19,35 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_systemconfiguration_ezsign import FieldESystemconfigurationEzsign
 from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1
 from eZmaxApi.models.field_e_systemconfiguration_language2 import FieldESystemconfigurationLanguage2
 from eZmaxApi.models.field_e_systemconfiguration_newexternaluseraction import FieldESystemconfigurationNewexternaluseraction
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class SystemconfigurationRequest(BaseModel):
     """
-    A Systemconfiguration Object  # noqa: E501
-    """
-    pki_systemconfiguration_id: Optional[conint(strict=True, le=1, ge=1)] = Field(None, alias="pkiSystemconfigurationID", description="The unique ID of the Systemconfiguration")
-    e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(..., alias="eSystemconfigurationNewexternaluseraction")
-    e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(..., alias="eSystemconfigurationLanguage1")
-    e_systemconfiguration_language2: FieldESystemconfigurationLanguage2 = Field(..., alias="eSystemconfigurationLanguage2")
-    e_systemconfiguration_ezsign: Optional[FieldESystemconfigurationEzsign] = Field(None, alias="eSystemconfigurationEzsign")
-    b_systemconfiguration_ezsignpersonnal: StrictBool = Field(..., alias="bSystemconfigurationEzsignpersonnal", description="Whether if we allow the creation of personal files in eZsign")
-    b_systemconfiguration_sspr: StrictBool = Field(..., alias="bSystemconfigurationSspr", description="Whether if we allow SSPR")
-    dt_systemconfiguration_readonlyexpirationstart: Optional[constr(strict=True)] = Field(None, alias="dtSystemconfigurationReadonlyexpirationstart", description="The start date where the system will be in read only")
-    dt_systemconfiguration_readonlyexpirationend: Optional[constr(strict=True)] = Field(None, alias="dtSystemconfigurationReadonlyexpirationend", description="The end date where the system will be in read only")
-    __properties = ["pkiSystemconfigurationID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
+    A Systemconfiguration Object
+    """ # noqa: E501
+    pki_systemconfiguration_id: Optional[Annotated[int, Field(le=1, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID")
+    e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(alias="eSystemconfigurationNewexternaluseraction")
+    e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
+    e_systemconfiguration_language2: FieldESystemconfigurationLanguage2 = Field(alias="eSystemconfigurationLanguage2")
+    e_systemconfiguration_ezsign: Optional[FieldESystemconfigurationEzsign] = Field(default=None, alias="eSystemconfigurationEzsign")
+    b_systemconfiguration_ezsignpersonnal: StrictBool = Field(description="Whether if we allow the creation of personal files in eZsign", alias="bSystemconfigurationEzsignpersonnal")
+    b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
+    dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
+    dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
+    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
 
-    @validator('dt_systemconfiguration_readonlyexpirationstart')
+    @field_validator('dt_systemconfiguration_readonlyexpirationstart')
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -51,7 +57,7 @@ class SystemconfigurationRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @validator('dt_systemconfiguration_readonlyexpirationend')
+    @field_validator('dt_systemconfiguration_readonlyexpirationend')
     def dt_systemconfiguration_readonlyexpirationend_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -61,51 +67,64 @@ class SystemconfigurationRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SystemconfigurationRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of SystemconfigurationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SystemconfigurationRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of SystemconfigurationRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SystemconfigurationRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SystemconfigurationRequest.parse_obj({
-            "pki_systemconfiguration_id": obj.get("pkiSystemconfigurationID"),
-            "e_systemconfiguration_newexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
-            "e_systemconfiguration_language1": obj.get("eSystemconfigurationLanguage1"),
-            "e_systemconfiguration_language2": obj.get("eSystemconfigurationLanguage2"),
-            "e_systemconfiguration_ezsign": obj.get("eSystemconfigurationEzsign"),
-            "b_systemconfiguration_ezsignpersonnal": obj.get("bSystemconfigurationEzsignpersonnal"),
-            "b_systemconfiguration_sspr": obj.get("bSystemconfigurationSspr"),
-            "dt_systemconfiguration_readonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
-            "dt_systemconfiguration_readonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend")
+        _obj = cls.model_validate({
+            "pkiSystemconfigurationID": obj.get("pkiSystemconfigurationID"),
+            "eSystemconfigurationNewexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
+            "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
+            "eSystemconfigurationLanguage2": obj.get("eSystemconfigurationLanguage2"),
+            "eSystemconfigurationEzsign": obj.get("eSystemconfigurationEzsign"),
+            "bSystemconfigurationEzsignpersonnal": obj.get("bSystemconfigurationEzsignpersonnal"),
+            "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
+            "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
+            "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend")
         })
         return _obj
 

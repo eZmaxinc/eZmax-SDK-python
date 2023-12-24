@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_error import CommonResponseError  # noqa: E501
+from eZmaxApi.models.common_response_error import CommonResponseError
 
 class TestCommonResponseError(unittest.TestCase):
     """CommonResponseError unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseError(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseError`
         """
-        model = CommonResponseError()  # noqa: E501
+        model = CommonResponseError()
         if include_optional:
             return CommonResponseError(
                 s_error_message = 'Invalid Signature Headers',

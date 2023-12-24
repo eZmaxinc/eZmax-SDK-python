@@ -3,6 +3,7 @@
 Request for POST /1/object/billingentityinternal
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_billingentityinternal** | [**List[BillingentityinternalRequestCompound]**](BillingentityinternalRequestCompound.md) |  | 

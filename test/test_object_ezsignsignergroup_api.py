@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignsignergroup_api import ObjectEzsignsignergroupApi  # noqa: E501
+from eZmaxApi.api.object_ezsignsignergroup_api import ObjectEzsignsignergroupApi
 
 
 class TestObjectEzsignsignergroupApi(unittest.TestCase):
     """ObjectEzsignsignergroupApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignsignergroupApi()  # noqa: E501
+        self.api = ObjectEzsignsignergroupApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,42 +30,42 @@ class TestObjectEzsignsignergroupApi(unittest.TestCase):
     def test_ezsignsignergroup_create_object_v1(self) -> None:
         """Test case for ezsignsignergroup_create_object_v1
 
-        Create a new Ezsignsignergroup  # noqa: E501
+        Create a new Ezsignsignergroup
         """
         pass
 
     def test_ezsignsignergroup_delete_object_v1(self) -> None:
         """Test case for ezsignsignergroup_delete_object_v1
 
-        Delete an existing Ezsignsignergroup  # noqa: E501
+        Delete an existing Ezsignsignergroup
         """
         pass
 
     def test_ezsignsignergroup_edit_ezsignsignergroupmemberships_v1(self) -> None:
         """Test case for ezsignsignergroup_edit_ezsignsignergroupmemberships_v1
 
-        Edit multiple Ezsignsignergroupmemberships  # noqa: E501
+        Edit multiple Ezsignsignergroupmemberships
         """
         pass
 
     def test_ezsignsignergroup_edit_object_v1(self) -> None:
         """Test case for ezsignsignergroup_edit_object_v1
 
-        Edit an existing Ezsignsignergroup  # noqa: E501
+        Edit an existing Ezsignsignergroup
         """
         pass
 
     def test_ezsignsignergroup_get_ezsignsignergroupmemberships_v1(self) -> None:
         """Test case for ezsignsignergroup_get_ezsignsignergroupmemberships_v1
 
-        Retrieve an existing Ezsignsignergroup's Ezsignsignergroupmemberships  # noqa: E501
+        Retrieve an existing Ezsignsignergroup's Ezsignsignergroupmemberships
         """
         pass
 
     def test_ezsignsignergroup_get_object_v2(self) -> None:
         """Test case for ezsignsignergroup_get_object_v2
 
-        Retrieve an existing Ezsignsignergroup  # noqa: E501
+        Retrieve an existing Ezsignsignergroup
         """
         pass
 

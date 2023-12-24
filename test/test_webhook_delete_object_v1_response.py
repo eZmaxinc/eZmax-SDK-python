@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response  # noqa: E501
+from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response
 
 class TestWebhookDeleteObjectV1Response(unittest.TestCase):
     """WebhookDeleteObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestWebhookDeleteObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebhookDeleteObjectV1Response`
         """
-        model = WebhookDeleteObjectV1Response()  # noqa: E501
+        model = WebhookDeleteObjectV1Response()
         if include_optional:
             return WebhookDeleteObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

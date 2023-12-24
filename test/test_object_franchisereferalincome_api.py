@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi  # noqa: E501
+from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi
 
 
 class TestObjectFranchisereferalincomeApi(unittest.TestCase):
     """ObjectFranchisereferalincomeApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectFranchisereferalincomeApi()  # noqa: E501
+        self.api = ObjectFranchisereferalincomeApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,14 +30,14 @@ class TestObjectFranchisereferalincomeApi(unittest.TestCase):
     def test_franchisereferalincome_create_object_v1(self) -> None:
         """Test case for franchisereferalincome_create_object_v1
 
-        Create a new Franchisereferalincome  # noqa: E501
+        Create a new Franchisereferalincome
         """
         pass
 
     def test_franchisereferalincome_create_object_v2(self) -> None:
         """Test case for franchisereferalincome_create_object_v2
 
-        Create a new Franchisereferalincome  # noqa: E501
+        Create a new Franchisereferalincome
         """
         pass
 

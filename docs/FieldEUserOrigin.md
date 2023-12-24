@@ -3,6 +3,7 @@
 The origin of the User
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

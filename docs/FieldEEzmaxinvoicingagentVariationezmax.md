@@ -3,6 +3,7 @@
 Variation type for eZmax
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsigner_response_compound_contact import EzsignsignerResponseCompoundContact  # noqa: E501
+from eZmaxApi.models.ezsignsigner_response_compound_contact import EzsignsignerResponseCompoundContact
 
 class TestEzsignsignerResponseCompoundContact(unittest.TestCase):
     """EzsignsignerResponseCompoundContact unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignerResponseCompoundContact(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignerResponseCompoundContact`
         """
-        model = EzsignsignerResponseCompoundContact()  # noqa: E501
+        model = EzsignsignerResponseCompoundContact()
         if include_optional:
             return EzsignsignerResponseCompoundContact(
                 pki_contact_id = 21,

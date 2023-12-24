@@ -3,6 +3,7 @@
 Payload for Websocket GetWebsocketID V1
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_websocket_id** | **str** | The Unique ID of the Websocket Connection | 

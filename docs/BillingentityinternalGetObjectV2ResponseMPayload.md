@@ -3,6 +3,7 @@
 Payload for GET /2/object/billingentityinternal/{pkiBillingentityinternalID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_billingentityinternal** | [**BillingentityinternalResponseCompound**](BillingentityinternalResponseCompound.md) |  | 

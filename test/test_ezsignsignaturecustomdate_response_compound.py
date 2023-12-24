@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignaturecustomdate_response_compound import EzsignsignaturecustomdateResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsignsignaturecustomdate_response_compound import EzsignsignaturecustomdateResponseCompound
 
 class TestEzsignsignaturecustomdateResponseCompound(unittest.TestCase):
     """EzsignsignaturecustomdateResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignaturecustomdateResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignaturecustomdateResponseCompound`
         """
-        model = EzsignsignaturecustomdateResponseCompound()  # noqa: E501
+        model = EzsignsignaturecustomdateResponseCompound()
         if include_optional:
             return EzsignsignaturecustomdateResponseCompound(
                 pki_ezsignsignaturecustomdate_id = 27,

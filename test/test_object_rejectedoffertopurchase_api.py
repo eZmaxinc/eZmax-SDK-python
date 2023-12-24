@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi  # noqa: E501
+from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi
 
 
 class TestObjectRejectedoffertopurchaseApi(unittest.TestCase):
     """ObjectRejectedoffertopurchaseApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectRejectedoffertopurchaseApi()  # noqa: E501
+        self.api = ObjectRejectedoffertopurchaseApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestObjectRejectedoffertopurchaseApi(unittest.TestCase):
     def test_rejectedoffertopurchase_get_communication_list_v1(self) -> None:
         """Test case for rejectedoffertopurchase_get_communication_list_v1
 
-        Retrieve Communication list  # noqa: E501
+        Retrieve Communication list
         """
         pass
 

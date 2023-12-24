@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigndocument_api import ObjectEzsigndocumentApi  # noqa: E501
+from eZmaxApi.api.object_ezsigndocument_api import ObjectEzsigndocumentApi
 
 
 class TestObjectEzsigndocumentApi(unittest.TestCase):
     """ObjectEzsigndocumentApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigndocumentApi()  # noqa: E501
+        self.api = ObjectEzsigndocumentApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,182 +30,189 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
     def test_ezsigndocument_apply_ezsigntemplate_v1(self) -> None:
         """Test case for ezsigndocument_apply_ezsigntemplate_v1
 
-        Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
+        Apply an Ezsigntemplate to the Ezsigndocument.
         """
         pass
 
     def test_ezsigndocument_apply_ezsigntemplate_v2(self) -> None:
         """Test case for ezsigndocument_apply_ezsigntemplate_v2
 
-        Apply an Ezsigntemplate to the Ezsigndocument.  # noqa: E501
+        Apply an Ezsigntemplate to the Ezsigndocument.
         """
         pass
 
     def test_ezsigndocument_create_object_v1(self) -> None:
         """Test case for ezsigndocument_create_object_v1
 
-        Create a new Ezsigndocument  # noqa: E501
+        Create a new Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_create_object_v2(self) -> None:
         """Test case for ezsigndocument_create_object_v2
 
-        Create a new Ezsigndocument  # noqa: E501
+        Create a new Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_decline_to_sign_v1(self) -> None:
         """Test case for ezsigndocument_decline_to_sign_v1
 
-        Decline to sign  # noqa: E501
+        Decline to sign
         """
         pass
 
     def test_ezsigndocument_delete_object_v1(self) -> None:
         """Test case for ezsigndocument_delete_object_v1
 
-        Delete an existing Ezsigndocument  # noqa: E501
+        Delete an existing Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_edit_ezsignformfieldgroups_v1(self) -> None:
         """Test case for ezsigndocument_edit_ezsignformfieldgroups_v1
 
-        Edit multiple Ezsignformfieldgroups  # noqa: E501
+        Edit multiple Ezsignformfieldgroups
         """
         pass
 
     def test_ezsigndocument_edit_ezsignsignatures_v1(self) -> None:
         """Test case for ezsigndocument_edit_ezsignsignatures_v1
 
-        Edit multiple Ezsignsignatures  # noqa: E501
+        Edit multiple Ezsignsignatures
         """
         pass
 
     def test_ezsigndocument_end_prematurely_v1(self) -> None:
         """Test case for ezsigndocument_end_prematurely_v1
 
-        End prematurely  # noqa: E501
+        End prematurely
         """
         pass
 
     def test_ezsigndocument_flatten_v1(self) -> None:
         """Test case for ezsigndocument_flatten_v1
 
-        Flatten  # noqa: E501
+        Flatten
         """
         pass
 
     def test_ezsigndocument_get_actionable_elements_v1(self) -> None:
         """Test case for ezsigndocument_get_actionable_elements_v1
 
-        Retrieve actionable elements for the Ezsigndocument  # noqa: E501
+        Retrieve actionable elements for the Ezsigndocument
+        """
+        pass
+
+    def test_ezsigndocument_get_attachments_v1(self) -> None:
+        """Test case for ezsigndocument_get_attachments_v1
+
+        Retrieve Ezsigndocument's Attachments
         """
         pass
 
     def test_ezsigndocument_get_completed_elements_v1(self) -> None:
         """Test case for ezsigndocument_get_completed_elements_v1
 
-        Retrieve completed elements for the Ezsigndocument  # noqa: E501
+        Retrieve completed elements for the Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_get_download_url_v1(self) -> None:
         """Test case for ezsigndocument_get_download_url_v1
 
-        Retrieve a URL to download documents.  # noqa: E501
+        Retrieve a URL to download documents.
         """
         pass
 
     def test_ezsigndocument_get_ezsignannotations_v1(self) -> None:
         """Test case for ezsigndocument_get_ezsignannotations_v1
 
-        Retrieve an existing Ezsigndocument's Ezsignannotations  # noqa: E501
+        Retrieve an existing Ezsigndocument's Ezsignannotations
         """
         pass
 
     def test_ezsigndocument_get_ezsignformfieldgroups_v1(self) -> None:
         """Test case for ezsigndocument_get_ezsignformfieldgroups_v1
 
-        Retrieve an existing Ezsigndocument's Ezsignformfieldgroups  # noqa: E501
+        Retrieve an existing Ezsigndocument's Ezsignformfieldgroups
         """
         pass
 
     def test_ezsigndocument_get_ezsignpages_v1(self) -> None:
         """Test case for ezsigndocument_get_ezsignpages_v1
 
-        Retrieve an existing Ezsigndocument's Ezsignpages  # noqa: E501
+        Retrieve an existing Ezsigndocument's Ezsignpages
         """
         pass
 
     def test_ezsigndocument_get_ezsignsignatures_automatic_v1(self) -> None:
         """Test case for ezsigndocument_get_ezsignsignatures_automatic_v1
 
-        Retrieve an existing Ezsigndocument's automatic Ezsignsignatures  # noqa: E501
+        Retrieve an existing Ezsigndocument's automatic Ezsignsignatures
         """
         pass
 
     def test_ezsigndocument_get_ezsignsignatures_v1(self) -> None:
         """Test case for ezsigndocument_get_ezsignsignatures_v1
 
-        Retrieve an existing Ezsigndocument's Ezsignsignatures  # noqa: E501
+        Retrieve an existing Ezsigndocument's Ezsignsignatures
         """
         pass
 
     def test_ezsigndocument_get_form_data_v1(self) -> None:
         """Test case for ezsigndocument_get_form_data_v1
 
-        Retrieve an existing Ezsigndocument's Form Data  # noqa: E501
+        Retrieve an existing Ezsigndocument's Form Data
         """
         pass
 
     def test_ezsigndocument_get_object_v1(self) -> None:
         """Test case for ezsigndocument_get_object_v1
 
-        Retrieve an existing Ezsigndocument  # noqa: E501
+        Retrieve an existing Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_get_object_v2(self) -> None:
         """Test case for ezsigndocument_get_object_v2
 
-        Retrieve an existing Ezsigndocument  # noqa: E501
+        Retrieve an existing Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_get_temporary_proof_v1(self) -> None:
         """Test case for ezsigndocument_get_temporary_proof_v1
 
-        Retrieve the temporary proof  # noqa: E501
+        Retrieve the temporary proof
         """
         pass
 
     def test_ezsigndocument_get_words_positions_v1(self) -> None:
         """Test case for ezsigndocument_get_words_positions_v1
 
-        Retrieve positions X,Y of given words from a Ezsigndocument  # noqa: E501
+        Retrieve positions X,Y of given words from a Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_patch_object_v1(self) -> None:
         """Test case for ezsigndocument_patch_object_v1
 
-        Patch an existing Ezsigndocument  # noqa: E501
+        Patch an existing Ezsigndocument
         """
         pass
 
     def test_ezsigndocument_submit_ezsignform_v1(self) -> None:
         """Test case for ezsigndocument_submit_ezsignform_v1
 
-        Submit the Ezsignform  # noqa: E501
+        Submit the Ezsignform
         """
         pass
 
     def test_ezsigndocument_unsend_v1(self) -> None:
         """Test case for ezsigndocument_unsend_v1
 
-        Unsend the Ezsigndocument  # noqa: E501
+        Unsend the Ezsigndocument
         """
         pass
 

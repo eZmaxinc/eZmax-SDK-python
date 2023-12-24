@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.branding_response import BrandingResponse  # noqa: E501
+from eZmaxApi.models.branding_response import BrandingResponse
 
 class TestBrandingResponse(unittest.TestCase):
     """BrandingResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestBrandingResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BrandingResponse`
         """
-        model = BrandingResponse()  # noqa: E501
+        model = BrandingResponse()
         if include_optional:
             return BrandingResponse(
                 pki_branding_id = 78,

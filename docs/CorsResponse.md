@@ -3,6 +3,7 @@
 A Cors Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_cors_id** | **int** | The unique ID of the Cors | 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response  # noqa: E501
+from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response
 
 class TestUserstagedMapV1Response(unittest.TestCase):
     """UserstagedMapV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserstagedMapV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserstagedMapV1Response`
         """
-        model = UserstagedMapV1Response()  # noqa: E501
+        model = UserstagedMapV1Response()
         if include_optional:
             return UserstagedMapV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

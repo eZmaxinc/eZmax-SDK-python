@@ -3,6 +3,7 @@
 A User AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_user_type** | [**FieldEUserType**](FieldEUserType.md) |  | 

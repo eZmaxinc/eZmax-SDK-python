@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsignfoldersignerassociation/getInPersonLoginUrl
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_login_url** | **str** | The Url to login to the signing application.    Url will expire after 30 minutes.   | 

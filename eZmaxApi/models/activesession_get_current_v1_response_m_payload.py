@@ -19,60 +19,94 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist, constr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 from eZmaxApi.models.activesession_response_compound_user import ActivesessionResponseCompoundUser
 from eZmaxApi.models.field_e_activesession_origin import FieldEActivesessionOrigin
 from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype
 from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
+from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
+from eZmaxApi.models.field_e_user_ezsignprepaid import FieldEUserEzsignprepaid
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     """
-    Payload for GET /1/object/activesession/getCurrent  # noqa: E501
-    """
-    e_activesession_usertype: FieldEActivesessionUsertype = Field(..., alias="eActivesessionUsertype")
-    e_activesession_origin: FieldEActivesessionOrigin = Field(..., alias="eActivesessionOrigin")
-    e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(..., alias="eActivesessionWeekdaystart")
-    fki_language_id: conint(strict=True, le=2, ge=1) = Field(..., alias="fkiLanguageID", description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|")
-    s_company_name_x: StrictStr = Field(..., alias="sCompanyNameX", description="The Name of the Company in the language of the requester")
-    s_department_name_x: StrictStr = Field(..., alias="sDepartmentNameX", description="The Name of the Department in the language of the requester")
-    b_activesession_debug: StrictBool = Field(..., alias="bActivesessionDebug", description="Whether the active session is in debug or not")
-    b_activesession_issuperadmin: StrictBool = Field(..., alias="bActivesessionIssuperadmin", description="Whether the active session is superadmin or not")
-    pks_customer_code: constr(strict=True, max_length=6, min_length=2) = Field(..., alias="pksCustomerCode", description="The customer code assigned to your account")
-    fki_systemconfigurationtype_id: conint(strict=True, ge=1) = Field(..., alias="fkiSystemconfigurationtypeID", description="The unique ID of the Systemconfigurationtype")
-    fki_signature_id: Optional[conint(strict=True, le=16777215, ge=0)] = Field(None, alias="fkiSignatureID", description="The unique ID of the Signature")
-    a_pki_permission_id: conlist(conint(strict=True, ge=0)) = Field(..., alias="a_pkiPermissionID", description="An array of permissions granted to the user or api key")
-    obj_user_real: ActivesessionResponseCompoundUser = Field(..., alias="objUserReal")
-    obj_user_cloned: Optional[ActivesessionResponseCompoundUser] = Field(None, alias="objUserCloned")
-    obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(None, alias="objApikey")
-    a_e_module_internalname: conlist(StrictStr) = Field(..., alias="a_eModuleInternalname", description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.")
-    __properties = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
+    Payload for GET /1/object/activesession/getCurrent
+    """ # noqa: E501
+    e_activesession_usertype: FieldEActivesessionUsertype = Field(alias="eActivesessionUsertype")
+    e_activesession_origin: FieldEActivesessionOrigin = Field(alias="eActivesessionOrigin")
+    e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(alias="eActivesessionWeekdaystart")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
+    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
+    b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug")
+    b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin")
+    pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
+    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
+    fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID")
+    e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
+    e_user_ezsignprepaid: Optional[FieldEUserEzsignprepaid] = Field(default=None, alias="eUserEzsignprepaid")
+    dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
+    a_pki_permission_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="An array of permissions granted to the user or api key", alias="a_pkiPermissionID")
+    obj_user_real: ActivesessionResponseCompoundUser = Field(alias="objUserReal")
+    obj_user_cloned: Optional[ActivesessionResponseCompoundUser] = Field(default=None, alias="objUserCloned")
+    obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(default=None, alias="objApikey")
+    a_e_module_internalname: List[StrictStr] = Field(description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.", alias="a_eModuleInternalname")
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "eUserEzsignaccess", "eUserEzsignprepaid", "dtUserEzsignprepaidexpiration", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    @field_validator('dt_user_ezsignprepaidexpiration')
+    def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+        return value
+
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ActivesessionGetCurrentV1ResponseMPayload:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ActivesessionGetCurrentV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_user_real
         if self.obj_user_real:
             _dict['objUserReal'] = self.obj_user_real.to_dict()
@@ -85,31 +119,34 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ActivesessionGetCurrentV1ResponseMPayload:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ActivesessionGetCurrentV1ResponseMPayload from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ActivesessionGetCurrentV1ResponseMPayload.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ActivesessionGetCurrentV1ResponseMPayload.parse_obj({
-            "e_activesession_usertype": obj.get("eActivesessionUsertype"),
-            "e_activesession_origin": obj.get("eActivesessionOrigin"),
-            "e_activesession_weekdaystart": obj.get("eActivesessionWeekdaystart"),
-            "fki_language_id": obj.get("fkiLanguageID"),
-            "s_company_name_x": obj.get("sCompanyNameX"),
-            "s_department_name_x": obj.get("sDepartmentNameX"),
-            "b_activesession_debug": obj.get("bActivesessionDebug"),
-            "b_activesession_issuperadmin": obj.get("bActivesessionIssuperadmin"),
-            "pks_customer_code": obj.get("pksCustomerCode"),
-            "fki_systemconfigurationtype_id": obj.get("fkiSystemconfigurationtypeID"),
-            "fki_signature_id": obj.get("fkiSignatureID"),
-            "a_pki_permission_id": obj.get("a_pkiPermissionID"),
-            "obj_user_real": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserReal")) if obj.get("objUserReal") is not None else None,
-            "obj_user_cloned": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserCloned")) if obj.get("objUserCloned") is not None else None,
-            "obj_apikey": ActivesessionResponseCompoundApikey.from_dict(obj.get("objApikey")) if obj.get("objApikey") is not None else None,
-            "a_e_module_internalname": obj.get("a_eModuleInternalname")
+        _obj = cls.model_validate({
+            "eActivesessionUsertype": obj.get("eActivesessionUsertype"),
+            "eActivesessionOrigin": obj.get("eActivesessionOrigin"),
+            "eActivesessionWeekdaystart": obj.get("eActivesessionWeekdaystart"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sCompanyNameX": obj.get("sCompanyNameX"),
+            "sDepartmentNameX": obj.get("sDepartmentNameX"),
+            "bActivesessionDebug": obj.get("bActivesessionDebug"),
+            "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),
+            "pksCustomerCode": obj.get("pksCustomerCode"),
+            "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
+            "fkiSignatureID": obj.get("fkiSignatureID"),
+            "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
+            "eUserEzsignprepaid": obj.get("eUserEzsignprepaid"),
+            "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
+            "a_pkiPermissionID": obj.get("a_pkiPermissionID"),
+            "objUserReal": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserReal")) if obj.get("objUserReal") is not None else None,
+            "objUserCloned": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserCloned")) if obj.get("objUserCloned") is not None else None,
+            "objApikey": ActivesessionResponseCompoundApikey.from_dict(obj.get("objApikey")) if obj.get("objApikey") is not None else None,
+            "a_eModuleInternalname": obj.get("a_eModuleInternalname")
         })
         return _obj
 

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.subnet_create_object_v1_request import SubnetCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.subnet_create_object_v1_request import SubnetCreateObjectV1Request
 
 class TestSubnetCreateObjectV1Request(unittest.TestCase):
     """SubnetCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestSubnetCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SubnetCreateObjectV1Request`
         """
-        model = SubnetCreateObjectV1Request()  # noqa: E501
+        model = SubnetCreateObjectV1Request()
         if include_optional:
             return SubnetCreateObjectV1Request(
                 a_obj_subnet = [

@@ -19,74 +19,93 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzmaxinvoicingcommissionResponse(BaseModel):
     """
-    A Ezmaxinvoicingcommission Object  # noqa: E501
-    """
-    pki_ezmaxinvoicingcommission_id: Optional[StrictInt] = Field(None, alias="pkiEzmaxinvoicingcommissionID", description="The unique ID of the Ezmaxinvoicingcommission")
-    fki_ezmaxinvoicingsummaryglobal_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiEzmaxinvoicingsummaryglobalID", description="The unique ID of the Ezmaxinvoicingsummaryglobal")
-    fki_ezmaxpartner_id: Optional[conint(strict=True, ge=1)] = Field(None, alias="fkiEzmaxpartnerID", description="The unique ID of the Ezmaxpartner")
-    fki_ezmaxrepresentative_id: Optional[conint(strict=True, ge=1)] = Field(None, alias="fkiEzmaxrepresentativeID", description="The unique ID of the Ezmaxrepresentative")
-    dt_ezmaxinvoicingcommission_start: StrictStr = Field(..., alias="dtEzmaxinvoicingcommissionStart", description="The start date for the Ezmaxinvoicingcommission")
-    dt_ezmaxinvoicingcommission_end: StrictStr = Field(..., alias="dtEzmaxinvoicingcommissionEnd", description="The end date for the Ezmaxinvoicingcommission")
-    i_ezmaxinvoicingcommission_days: conint(strict=True, ge=0) = Field(..., alias="iEzmaxinvoicingcommissionDays", description="This is the number of days during the month on which the Ezmaxinvoigcommission applies")
-    d_ezmaxinvoicingcommission_amount: constr(strict=True) = Field(..., alias="dEzmaxinvoicingcommissionAmount", description="The amount of Ezmaxinvoicingcommission")
-    __properties = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount"]
+    A Ezmaxinvoicingcommission Object
+    """ # noqa: E501
+    pki_ezmaxinvoicingcommission_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Ezmaxinvoicingcommission", alias="pkiEzmaxinvoicingcommissionID")
+    fki_ezmaxinvoicingsummaryglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryglobal", alias="fkiEzmaxinvoicingsummaryglobalID")
+    fki_ezmaxpartner_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxpartner", alias="fkiEzmaxpartnerID")
+    fki_ezmaxrepresentative_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxrepresentative", alias="fkiEzmaxrepresentativeID")
+    dt_ezmaxinvoicingcommission_start: StrictStr = Field(description="The start date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionStart")
+    dt_ezmaxinvoicingcommission_end: StrictStr = Field(description="The end date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionEnd")
+    i_ezmaxinvoicingcommission_days: Annotated[int, Field(strict=True, ge=0)] = Field(description="This is the number of days during the month on which the Ezmaxinvoigcommission applies", alias="iEzmaxinvoicingcommissionDays")
+    d_ezmaxinvoicingcommission_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of Ezmaxinvoicingcommission", alias="dEzmaxinvoicingcommissionAmount")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount"]
 
-    @validator('d_ezmaxinvoicingcommission_amount')
+    @field_validator('d_ezmaxinvoicingcommission_amount')
     def d_ezmaxinvoicingcommission_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzmaxinvoicingcommissionResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzmaxinvoicingcommissionResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzmaxinvoicingcommissionResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzmaxinvoicingcommissionResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzmaxinvoicingcommissionResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzmaxinvoicingcommissionResponse.parse_obj({
-            "pki_ezmaxinvoicingcommission_id": obj.get("pkiEzmaxinvoicingcommissionID"),
-            "fki_ezmaxinvoicingsummaryglobal_id": obj.get("fkiEzmaxinvoicingsummaryglobalID"),
-            "fki_ezmaxpartner_id": obj.get("fkiEzmaxpartnerID"),
-            "fki_ezmaxrepresentative_id": obj.get("fkiEzmaxrepresentativeID"),
-            "dt_ezmaxinvoicingcommission_start": obj.get("dtEzmaxinvoicingcommissionStart"),
-            "dt_ezmaxinvoicingcommission_end": obj.get("dtEzmaxinvoicingcommissionEnd"),
-            "i_ezmaxinvoicingcommission_days": obj.get("iEzmaxinvoicingcommissionDays"),
-            "d_ezmaxinvoicingcommission_amount": obj.get("dEzmaxinvoicingcommissionAmount")
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingcommissionID": obj.get("pkiEzmaxinvoicingcommissionID"),
+            "fkiEzmaxinvoicingsummaryglobalID": obj.get("fkiEzmaxinvoicingsummaryglobalID"),
+            "fkiEzmaxpartnerID": obj.get("fkiEzmaxpartnerID"),
+            "fkiEzmaxrepresentativeID": obj.get("fkiEzmaxrepresentativeID"),
+            "dtEzmaxinvoicingcommissionStart": obj.get("dtEzmaxinvoicingcommissionStart"),
+            "dtEzmaxinvoicingcommissionEnd": obj.get("dtEzmaxinvoicingcommissionEnd"),
+            "iEzmaxinvoicingcommissionDays": obj.get("iEzmaxinvoicingcommissionDays"),
+            "dEzmaxinvoicingcommissionAmount": obj.get("dEzmaxinvoicingcommissionAmount")
         })
         return _obj
 

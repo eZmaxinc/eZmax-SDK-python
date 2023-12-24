@@ -3,6 +3,7 @@
 Request for PUT /1/object/user/{pkiUserID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_user** | [**UserRequestCompound**](UserRequestCompound.md) |  | 

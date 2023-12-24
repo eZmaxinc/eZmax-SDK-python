@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userstaged_create_user_v1_response_m_payload import UserstagedCreateUserV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.userstaged_create_user_v1_response_m_payload import UserstagedCreateUserV1ResponseMPayload
 
 class TestUserstagedCreateUserV1ResponseMPayload(unittest.TestCase):
     """UserstagedCreateUserV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserstagedCreateUserV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserstagedCreateUserV1ResponseMPayload`
         """
-        model = UserstagedCreateUserV1ResponseMPayload()  # noqa: E501
+        model = UserstagedCreateUserV1ResponseMPayload()
         if include_optional:
             return UserstagedCreateUserV1ResponseMPayload(
                 pki_user_id = 70

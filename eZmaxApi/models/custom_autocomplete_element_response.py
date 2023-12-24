@@ -19,61 +19,79 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomAutocompleteElementResponse(BaseModel):
     """
-    Generic AutocompleteElement Response  # noqa: E501
-    """
-    s_category: StrictStr = Field(..., alias="sCategory", description="The Category for the dropdown or an empty string if not categorized")
-    s_label: StrictStr = Field(..., alias="sLabel", description="The Description of the element")
-    s_value: StrictStr = Field(..., alias="sValue", description="The Unique ID of the element")
-    m_value: Optional[StrictStr] = Field(None, alias="mValue", description="The Unique ID of the element")
-    b_active: StrictBool = Field(..., alias="bActive", description="Indicates if the element is active")
-    __properties = ["sCategory", "sLabel", "sValue", "mValue", "bActive"]
+    Generic AutocompleteElement Response
+    """ # noqa: E501
+    s_category: StrictStr = Field(description="The Category for the dropdown or an empty string if not categorized", alias="sCategory")
+    s_label: StrictStr = Field(description="The Description of the element", alias="sLabel")
+    s_value: StrictStr = Field(description="The Unique ID of the element", alias="sValue")
+    m_value: Optional[StrictStr] = Field(default=None, description="The Unique ID of the element", alias="mValue")
+    b_active: StrictBool = Field(description="Indicates if the element is active", alias="bActive")
+    __properties: ClassVar[List[str]] = ["sCategory", "sLabel", "sValue", "mValue", "bActive"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomAutocompleteElementResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomAutocompleteElementResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomAutocompleteElementResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomAutocompleteElementResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomAutocompleteElementResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomAutocompleteElementResponse.parse_obj({
-            "s_category": obj.get("sCategory"),
-            "s_label": obj.get("sLabel"),
-            "s_value": obj.get("sValue"),
-            "m_value": obj.get("mValue"),
-            "b_active": obj.get("bActive")
+        _obj = cls.model_validate({
+            "sCategory": obj.get("sCategory"),
+            "sLabel": obj.get("sLabel"),
+            "sValue": obj.get("sValue"),
+            "mValue": obj.get("mValue"),
+            "bActive": obj.get("bActive")
         })
         return _obj
 

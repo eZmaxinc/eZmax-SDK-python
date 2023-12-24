@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_ezsignfoldersignerassociation_actionable_element_response import CustomEzsignfoldersignerassociationActionableElementResponse  # noqa: E501
+from eZmaxApi.models.custom_ezsignfoldersignerassociation_actionable_element_response import CustomEzsignfoldersignerassociationActionableElementResponse
 
 class TestCustomEzsignfoldersignerassociationActionableElementResponse(unittest.TestCase):
     """CustomEzsignfoldersignerassociationActionableElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomEzsignfoldersignerassociationActionableElementResponse(unittest.
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignfoldersignerassociationActionableElementResponse`
         """
-        model = CustomEzsignfoldersignerassociationActionableElementResponse()  # noqa: E501
+        model = CustomEzsignfoldersignerassociationActionableElementResponse()
         if include_optional:
             return CustomEzsignfoldersignerassociationActionableElementResponse(
                 pki_ezsignfoldersignerassociation_id = 20,

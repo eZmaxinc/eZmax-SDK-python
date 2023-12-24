@@ -3,6 +3,7 @@
 Payload for POST /2/object/taxassignment/getAutocomplete
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_taxassignment** | [**List[TaxassignmentAutocompleteElementResponse]**](TaxassignmentAutocompleteElementResponse.md) | An array of Taxassignment autocomplete element response. | 

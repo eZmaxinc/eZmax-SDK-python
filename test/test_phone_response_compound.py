@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.phone_response_compound import PhoneResponseCompound  # noqa: E501
+from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
 
 class TestPhoneResponseCompound(unittest.TestCase):
     """PhoneResponseCompound unit test stubs"""
@@ -34,14 +34,15 @@ class TestPhoneResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `PhoneResponseCompound`
         """
-        model = PhoneResponseCompound()  # noqa: E501
+        model = PhoneResponseCompound()
         if include_optional:
             return PhoneResponseCompound(
                 pki_phone_id = 1,
                 fki_phonetype_id = 1,
                 e_phone_type = 'Local',
                 s_phone_e164 = '+15149901516',
-                s_phone_extension = '123'
+                s_phone_extension = '123',
+                b_phone_international = True
             )
         else:
             return PhoneResponseCompound(

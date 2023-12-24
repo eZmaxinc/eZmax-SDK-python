@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request  # noqa: E501
+from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
 
 class TestSystemconfigurationEditObjectV1Request(unittest.TestCase):
     """SystemconfigurationEditObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestSystemconfigurationEditObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SystemconfigurationEditObjectV1Request`
         """
-        model = SystemconfigurationEditObjectV1Request()  # noqa: E501
+        model = SystemconfigurationEditObjectV1Request()
         if include_optional:
             return SystemconfigurationEditObjectV1Request(
                 obj_systemconfiguration = eZmaxApi.models.systemconfiguration_request_compound.systemconfiguration-RequestCompound()

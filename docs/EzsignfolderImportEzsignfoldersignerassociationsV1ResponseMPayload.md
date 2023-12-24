@@ -3,6 +3,7 @@
 Payload for POST /1/object/ezsignfolder/{pkiEzsignfolder}/importEzsignfoldersignerassociations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_pki_ezsignfoldersignerassociation_id** | **List[int]** |  | 

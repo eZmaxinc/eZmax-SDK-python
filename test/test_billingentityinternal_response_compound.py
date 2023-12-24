@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityinternal_response_compound import BillingentityinternalResponseCompound  # noqa: E501
+from eZmaxApi.models.billingentityinternal_response_compound import BillingentityinternalResponseCompound
 
 class TestBillingentityinternalResponseCompound(unittest.TestCase):
     """BillingentityinternalResponseCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityinternalResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityinternalResponseCompound`
         """
-        model = BillingentityinternalResponseCompound()  # noqa: E501
+        model = BillingentityinternalResponseCompound()
         if include_optional:
             return BillingentityinternalResponseCompound(
                 pki_billingentityinternal_id = 1,

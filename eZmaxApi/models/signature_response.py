@@ -19,62 +19,81 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, conint, constr, validator
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class SignatureResponse(BaseModel):
     """
-    A Signature Object  # noqa: E501
-    """
-    pki_signature_id: conint(strict=True, le=16777215, ge=0) = Field(..., alias="pkiSignatureID", description="The unique ID of the Signature")
-    s_signature_url: constr(strict=True) = Field(..., alias="sSignatureUrl", description="The URL of the SVG file for the Signature")
-    __properties = ["pkiSignatureID", "sSignatureUrl"]
+    A Signature Object
+    """ # noqa: E501
+    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID")
+    s_signature_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the SVG file for the Signature", alias="sSignatureUrl")
+    __properties: ClassVar[List[str]] = ["pkiSignatureID", "sSignatureUrl"]
 
-    @validator('s_signature_url')
+    @field_validator('s_signature_url')
     def s_signature_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,2048}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,2048}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SignatureResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of SignatureResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SignatureResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of SignatureResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SignatureResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SignatureResponse.parse_obj({
-            "pki_signature_id": obj.get("pkiSignatureID"),
-            "s_signature_url": obj.get("sSignatureUrl")
+        _obj = cls.model_validate({
+            "pkiSignatureID": obj.get("pkiSignatureID"),
+            "sSignatureUrl": obj.get("sSignatureUrl")
         })
         return _obj
 

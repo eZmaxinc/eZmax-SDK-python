@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.module_user_api import ModuleUserApi  # noqa: E501
+from eZmaxApi.api.module_user_api import ModuleUserApi
 
 
 class TestModuleUserApi(unittest.TestCase):
     """ModuleUserApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ModuleUserApi()  # noqa: E501
+        self.api = ModuleUserApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,7 +30,7 @@ class TestModuleUserApi(unittest.TestCase):
     def test_user_create_ezsignuser_v1(self) -> None:
         """Test case for user_create_ezsignuser_v1
 
-        Create a new User of type Ezsignuser  # noqa: E501
+        Create a new User of type Ezsignuser
         """
         pass
 

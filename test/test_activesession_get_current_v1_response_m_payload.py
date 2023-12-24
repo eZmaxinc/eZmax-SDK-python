@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.activesession_get_current_v1_response_m_payload import ActivesessionGetCurrentV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.activesession_get_current_v1_response_m_payload import ActivesessionGetCurrentV1ResponseMPayload
 
 class TestActivesessionGetCurrentV1ResponseMPayload(unittest.TestCase):
     """ActivesessionGetCurrentV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestActivesessionGetCurrentV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ActivesessionGetCurrentV1ResponseMPayload`
         """
-        model = ActivesessionGetCurrentV1ResponseMPayload()  # noqa: E501
+        model = ActivesessionGetCurrentV1ResponseMPayload()
         if include_optional:
             return ActivesessionGetCurrentV1ResponseMPayload(
                 e_activesession_usertype = 'Normal',
@@ -48,6 +48,9 @@ class TestActivesessionGetCurrentV1ResponseMPayload(unittest.TestCase):
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 fki_signature_id = 12,
+                e_user_ezsignaccess = 'PaidByOffice',
+                e_user_ezsignprepaid = 'Basic',
+                dt_user_ezsignprepaidexpiration = '2020-12-31',
                 a_pki_permission_id = [
                     53
                     ],
@@ -92,6 +95,7 @@ class TestActivesessionGetCurrentV1ResponseMPayload(unittest.TestCase):
                 b_activesession_issuperadmin = False,
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
+                e_user_ezsignaccess = 'PaidByOffice',
                 a_pki_permission_id = [
                     53
                     ],

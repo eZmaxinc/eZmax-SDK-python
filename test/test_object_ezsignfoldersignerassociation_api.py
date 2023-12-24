@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfoldersignerassociationApi  # noqa: E501
+from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfoldersignerassociationApi
 
 
 class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
     """ObjectEzsignfoldersignerassociationApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsignfoldersignerassociationApi()  # noqa: E501
+        self.api = ObjectEzsignfoldersignerassociationApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,63 +30,63 @@ class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
     def test_ezsignfoldersignerassociation_create_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_create_object_v1
 
-        Create a new Ezsignfoldersignerassociation  # noqa: E501
+        Create a new Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_create_object_v2(self) -> None:
         """Test case for ezsignfoldersignerassociation_create_object_v2
 
-        Create a new Ezsignfoldersignerassociation  # noqa: E501
+        Create a new Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_delete_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_delete_object_v1
 
-        Delete an existing Ezsignfoldersignerassociation  # noqa: E501
+        Delete an existing Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_edit_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_edit_object_v1
 
-        Edit an existing Ezsignfoldersignerassociation  # noqa: E501
+        Edit an existing Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_force_disconnect_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_force_disconnect_v1
 
-        Disconnects the Ezsignfoldersignerassociation  # noqa: E501
+        Disconnects the Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_get_in_person_login_url_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_get_in_person_login_url_v1
 
-        Retrieve a Login Url to allow In-Person signing  # noqa: E501
+        Retrieve a Login Url to allow In-Person signing
         """
         pass
 
     def test_ezsignfoldersignerassociation_get_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_get_object_v1
 
-        Retrieve an existing Ezsignfoldersignerassociation  # noqa: E501
+        Retrieve an existing Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_get_object_v2(self) -> None:
         """Test case for ezsignfoldersignerassociation_get_object_v2
 
-        Retrieve an existing Ezsignfoldersignerassociation  # noqa: E501
+        Retrieve an existing Ezsignfoldersignerassociation
         """
         pass
 
     def test_ezsignfoldersignerassociation_patch_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_patch_object_v1
 
-        Patch an existing Ezsignfoldersignerassociation  # noqa: E501
+        Patch an existing Ezsignfoldersignerassociation
         """
         pass
 

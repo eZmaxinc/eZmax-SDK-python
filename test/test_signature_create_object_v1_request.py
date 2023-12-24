@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.signature_create_object_v1_request import SignatureCreateObjectV1Request  # noqa: E501
+from eZmaxApi.models.signature_create_object_v1_request import SignatureCreateObjectV1Request
 
 class TestSignatureCreateObjectV1Request(unittest.TestCase):
     """SignatureCreateObjectV1Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestSignatureCreateObjectV1Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SignatureCreateObjectV1Request`
         """
-        model = SignatureCreateObjectV1Request()  # noqa: E501
+        model = SignatureCreateObjectV1Request()
         if include_optional:
             return SignatureCreateObjectV1Request(
                 a_obj_signature = [

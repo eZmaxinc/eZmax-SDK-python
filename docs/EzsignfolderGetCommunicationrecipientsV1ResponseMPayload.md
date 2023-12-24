@@ -3,6 +3,7 @@
 Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_communicationrecipientsgroup** | [**List[CustomCommunicationrecipientsgroupResponse]**](CustomCommunicationrecipientsgroupResponse.md) |  | 

@@ -3,6 +3,7 @@
 A Ezmaxinvoicingsummaryexternal Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxinvoicingsummaryexternal_id** | **int** | The unique ID of the Ezmaxinvoicingsummaryexternal | [optional] 

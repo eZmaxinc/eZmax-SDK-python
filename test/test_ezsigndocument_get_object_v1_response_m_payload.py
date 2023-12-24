@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigndocument_get_object_v1_response_m_payload import EzsigndocumentGetObjectV1ResponseMPayload  # noqa: E501
+from eZmaxApi.models.ezsigndocument_get_object_v1_response_m_payload import EzsigndocumentGetObjectV1ResponseMPayload
 
 class TestEzsigndocumentGetObjectV1ResponseMPayload(unittest.TestCase):
     """EzsigndocumentGetObjectV1ResponseMPayload unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigndocumentGetObjectV1ResponseMPayload(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentGetObjectV1ResponseMPayload`
         """
-        model = EzsigndocumentGetObjectV1ResponseMPayload()  # noqa: E501
+        model = EzsigndocumentGetObjectV1ResponseMPayload()
         if include_optional:
             return EzsigndocumentGetObjectV1ResponseMPayload(
                 pki_ezsigndocument_id = 97,
@@ -74,6 +74,7 @@ class TestEzsigndocumentGetObjectV1ResponseMPayload(unittest.TestCase):
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}',
+                i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
                 e_ezsigndocument_steptype = 'Sign',
                 i_ezsigndocument_stepformtotal = 2,
                 i_ezsigndocument_stepformcurrent = 1,
@@ -105,6 +106,7 @@ class TestEzsigndocumentGetObjectV1ResponseMPayload(unittest.TestCase):
                 i_ezsigndocument_pagetotal = 4,
                 i_ezsigndocument_signaturesigned = 3,
                 i_ezsigndocument_signaturetotal = 4,
+                i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
                 e_ezsigndocument_steptype = 'Sign',
                 i_ezsigndocument_stepformtotal = 2,
                 i_ezsigndocument_stepformcurrent = 1,

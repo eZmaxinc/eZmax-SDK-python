@@ -19,88 +19,112 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
+from eZmaxApi.models.email_response_compound import EmailResponseCompound
+from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CustomCommunicationsenderResponse(BaseModel):
     """
-    Generic Communicationsender Response  # noqa: E501
-    """
-    fki_agent_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiAgentID", description="The unique ID of the Agent.")
-    fki_broker_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiBrokerID", description="The unique ID of the Broker.")
-    fki_user_id: Optional[conint(strict=True, ge=0)] = Field(None, alias="fkiUserID", description="The unique ID of the User")
-    fki_mailboxshared_id: Optional[conint(strict=True, le=255, ge=0)] = Field(None, alias="fkiMailboxsharedID", description="The unique ID of the Mailboxshared")
-    e_communicationsender_objecttype: StrictStr = Field(..., alias="eCommunicationsenderObjecttype")
-    obj_contact_name: CustomContactNameResponse = Field(..., alias="objContactName")
-    s_email_address: Optional[StrictStr] = Field(None, alias="sEmailAddress", description="The email address.")
-    s_phone_e164: Optional[constr(strict=True)] = Field(None, alias="sPhoneE164", description="A phone number in E.164 Format")
-    __properties = ["fkiAgentID", "fkiBrokerID", "fkiUserID", "fkiMailboxsharedID", "eCommunicationsenderObjecttype", "objContactName", "sEmailAddress", "sPhoneE164"]
+    Generic Communicationsender Response
+    """ # noqa: E501
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID")
+    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
+    e_communicationsender_objecttype: StrictStr = Field(alias="eCommunicationsenderObjecttype")
+    obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
+    obj_email: Optional[EmailResponseCompound] = Field(default=None, alias="objEmail")
+    obj_phone_fax: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneFax")
+    obj_phone_sms: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneSMS")
+    __properties: ClassVar[List[str]] = ["fkiAgentID", "fkiBrokerID", "fkiUserID", "fkiMailboxsharedID", "fkiPhonelinesharedID", "eCommunicationsenderObjecttype", "objContactName", "objEmail", "objPhoneFax", "objPhoneSMS"]
 
-    @validator('e_communicationsender_objecttype')
+    @field_validator('e_communicationsender_objecttype')
     def e_communicationsender_objecttype_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Agent', 'Broker', 'User', 'Mailboxshared'):
-            raise ValueError("must be one of enum values ('Agent', 'Broker', 'User', 'Mailboxshared')")
+        if value not in ('Agent', 'Broker', 'User', 'Mailboxshared', 'Phonelineshared'):
+            raise ValueError("must be one of enum values ('Agent', 'Broker', 'User', 'Mailboxshared', 'Phonelineshared')")
         return value
 
-    @validator('s_phone_e164')
-    def s_phone_e164_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
 
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
-            raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
-        return value
-
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CustomCommunicationsenderResponse:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CustomCommunicationsenderResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of obj_contact_name
         if self.obj_contact_name:
             _dict['objContactName'] = self.obj_contact_name.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_email
+        if self.obj_email:
+            _dict['objEmail'] = self.obj_email.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_phone_fax
+        if self.obj_phone_fax:
+            _dict['objPhoneFax'] = self.obj_phone_fax.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_phone_sms
+        if self.obj_phone_sms:
+            _dict['objPhoneSMS'] = self.obj_phone_sms.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CustomCommunicationsenderResponse:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CustomCommunicationsenderResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CustomCommunicationsenderResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CustomCommunicationsenderResponse.parse_obj({
-            "fki_agent_id": obj.get("fkiAgentID"),
-            "fki_broker_id": obj.get("fkiBrokerID"),
-            "fki_user_id": obj.get("fkiUserID"),
-            "fki_mailboxshared_id": obj.get("fkiMailboxsharedID"),
-            "e_communicationsender_objecttype": obj.get("eCommunicationsenderObjecttype"),
-            "obj_contact_name": CustomContactNameResponse.from_dict(obj.get("objContactName")) if obj.get("objContactName") is not None else None,
-            "s_email_address": obj.get("sEmailAddress"),
-            "s_phone_e164": obj.get("sPhoneE164")
+        _obj = cls.model_validate({
+            "fkiAgentID": obj.get("fkiAgentID"),
+            "fkiBrokerID": obj.get("fkiBrokerID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiMailboxsharedID": obj.get("fkiMailboxsharedID"),
+            "fkiPhonelinesharedID": obj.get("fkiPhonelinesharedID"),
+            "eCommunicationsenderObjecttype": obj.get("eCommunicationsenderObjecttype"),
+            "objContactName": CustomContactNameResponse.from_dict(obj.get("objContactName")) if obj.get("objContactName") is not None else None,
+            "objEmail": EmailResponseCompound.from_dict(obj.get("objEmail")) if obj.get("objEmail") is not None else None,
+            "objPhoneFax": PhoneResponseCompound.from_dict(obj.get("objPhoneFax")) if obj.get("objPhoneFax") is not None else None,
+            "objPhoneSMS": PhoneResponseCompound.from_dict(obj.get("objPhoneSMS")) if obj.get("objPhoneSMS") is not None else None
         })
         return _obj
 

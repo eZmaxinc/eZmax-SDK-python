@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userlogintype_autocomplete_element_response import UserlogintypeAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.userlogintype_autocomplete_element_response import UserlogintypeAutocompleteElementResponse
 
 class TestUserlogintypeAutocompleteElementResponse(unittest.TestCase):
     """UserlogintypeAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserlogintypeAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserlogintypeAutocompleteElementResponse`
         """
-        model = UserlogintypeAutocompleteElementResponse()  # noqa: E501
+        model = UserlogintypeAutocompleteElementResponse()
         if include_optional:
             return UserlogintypeAutocompleteElementResponse(
                 pki_userlogintype_id = 2,

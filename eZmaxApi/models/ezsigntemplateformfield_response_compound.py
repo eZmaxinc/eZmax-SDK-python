@@ -19,53 +19,72 @@ import re  # noqa: F401
 import json
 
 
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplateelementdependency_response_compound import EzsigntemplateelementdependencyResponseCompound
 from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class EzsigntemplateformfieldResponseCompound(BaseModel):
     """
-    An Ezsigntemplateformfield Object and children  # noqa: E501
-    """
-    pki_ezsigntemplateformfield_id: conint(strict=True, ge=0) = Field(..., alias="pkiEzsigntemplateformfieldID", description="The unique ID of the Ezsigntemplateformfield")
-    i_ezsigntemplatedocumentpage_pagenumber: conint(strict=True, ge=1) = Field(..., alias="iEzsigntemplatedocumentpagePagenumber", description="The page number in the Ezsigntemplatedocument")
-    s_ezsigntemplateformfield_label: StrictStr = Field(..., alias="sEzsigntemplateformfieldLabel", description="The Label for the Ezsigntemplateformfield")
-    s_ezsigntemplateformfield_value: Optional[StrictStr] = Field(None, alias="sEzsigntemplateformfieldValue", description="The value for the Ezsigntemplateformfield")
-    i_ezsigntemplateformfield_x: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldX", description="The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.")
-    i_ezsigntemplateformfield_y: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldY", description="The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.")
-    i_ezsigntemplateformfield_width: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldWidth", description="The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |")
-    i_ezsigntemplateformfield_height: conint(strict=True, ge=0) = Field(..., alias="iEzsigntemplateformfieldHeight", description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ")
-    b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldAutocomplete", description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**")
-    b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(None, alias="bEzsigntemplateformfieldSelected", description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**")
-    e_ezsigntemplateformfield_dependencyrequirement: Optional[FieldEEzsigntemplateformfieldDependencyrequirement] = Field(None, alias="eEzsigntemplateformfieldDependencyrequirement")
-    a_obj_ezsigntemplateelementdependency: Optional[conlist(EzsigntemplateelementdependencyResponseCompound)] = Field(None, alias="a_objEzsigntemplateelementdependency")
-    __properties = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "a_objEzsigntemplateelementdependency"]
+    An Ezsigntemplateformfield Object and children
+    """ # noqa: E501
+    pki_ezsigntemplateformfield_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateformfield", alias="pkiEzsigntemplateformfieldID")
+    i_ezsigntemplatedocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplatedocument", alias="iEzsigntemplatedocumentpagePagenumber")
+    s_ezsigntemplateformfield_label: StrictStr = Field(description="The Label for the Ezsigntemplateformfield", alias="sEzsigntemplateformfieldLabel")
+    s_ezsigntemplateformfield_value: Optional[StrictStr] = Field(default=None, description="The value for the Ezsigntemplateformfield", alias="sEzsigntemplateformfieldValue")
+    i_ezsigntemplateformfield_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplateformfieldX")
+    i_ezsigntemplateformfield_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsigntemplateformfieldY")
+    i_ezsigntemplateformfield_width: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |", alias="iEzsigntemplateformfieldWidth")
+    i_ezsigntemplateformfield_height: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ", alias="iEzsigntemplateformfieldHeight")
+    b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**", alias="bEzsigntemplateformfieldAutocomplete")
+    b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsigntemplateformfieldSelected")
+    e_ezsigntemplateformfield_dependencyrequirement: Optional[FieldEEzsigntemplateformfieldDependencyrequirement] = Field(default=None, alias="eEzsigntemplateformfieldDependencyrequirement")
+    a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "a_objEzsigntemplateelementdependency"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EzsigntemplateformfieldResponseCompound:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of EzsigntemplateformfieldResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateelementdependency (list)
         _items = []
         if self.a_obj_ezsigntemplateelementdependency:
@@ -76,27 +95,27 @@ class EzsigntemplateformfieldResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EzsigntemplateformfieldResponseCompound:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of EzsigntemplateformfieldResponseCompound from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EzsigntemplateformfieldResponseCompound.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EzsigntemplateformfieldResponseCompound.parse_obj({
-            "pki_ezsigntemplateformfield_id": obj.get("pkiEzsigntemplateformfieldID"),
-            "i_ezsigntemplatedocumentpage_pagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
-            "s_ezsigntemplateformfield_label": obj.get("sEzsigntemplateformfieldLabel"),
-            "s_ezsigntemplateformfield_value": obj.get("sEzsigntemplateformfieldValue"),
-            "i_ezsigntemplateformfield_x": obj.get("iEzsigntemplateformfieldX"),
-            "i_ezsigntemplateformfield_y": obj.get("iEzsigntemplateformfieldY"),
-            "i_ezsigntemplateformfield_width": obj.get("iEzsigntemplateformfieldWidth"),
-            "i_ezsigntemplateformfield_height": obj.get("iEzsigntemplateformfieldHeight"),
-            "b_ezsigntemplateformfield_autocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
-            "b_ezsigntemplateformfield_selected": obj.get("bEzsigntemplateformfieldSelected"),
-            "e_ezsigntemplateformfield_dependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement"),
-            "a_obj_ezsigntemplateelementdependency": [EzsigntemplateelementdependencyResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplateelementdependency")] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateformfieldID": obj.get("pkiEzsigntemplateformfieldID"),
+            "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
+            "sEzsigntemplateformfieldLabel": obj.get("sEzsigntemplateformfieldLabel"),
+            "sEzsigntemplateformfieldValue": obj.get("sEzsigntemplateformfieldValue"),
+            "iEzsigntemplateformfieldX": obj.get("iEzsigntemplateformfieldX"),
+            "iEzsigntemplateformfieldY": obj.get("iEzsigntemplateformfieldY"),
+            "iEzsigntemplateformfieldWidth": obj.get("iEzsigntemplateformfieldWidth"),
+            "iEzsigntemplateformfieldHeight": obj.get("iEzsigntemplateformfieldHeight"),
+            "bEzsigntemplateformfieldAutocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
+            "bEzsigntemplateformfieldSelected": obj.get("bEzsigntemplateformfieldSelected"),
+            "eEzsigntemplateformfieldDependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement"),
+            "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplateelementdependency")] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
         })
         return _obj
 

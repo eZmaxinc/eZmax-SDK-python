@@ -3,6 +3,7 @@
 Definition of objSQLQuery Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_query** | **str** | The SQL Query | 

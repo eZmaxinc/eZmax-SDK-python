@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement  # noqa: E501
+from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
 
 class TestFieldEEzsigntemplateformfieldDependencyrequirement(unittest.TestCase):
     """FieldEEzsigntemplateformfieldDependencyrequirement unit test stubs"""

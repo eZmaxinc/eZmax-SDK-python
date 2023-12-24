@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.language_autocomplete_element_response import LanguageAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.language_autocomplete_element_response import LanguageAutocompleteElementResponse
 
 class TestLanguageAutocompleteElementResponse(unittest.TestCase):
     """LanguageAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestLanguageAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `LanguageAutocompleteElementResponse`
         """
-        model = LanguageAutocompleteElementResponse()  # noqa: E501
+        model = LanguageAutocompleteElementResponse()
         if include_optional:
             return LanguageAutocompleteElementResponse(
                 pki_language_id = 2,

@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.signature_edit_object_v1_response import SignatureEditObjectV1Response  # noqa: E501
+from eZmaxApi.models.signature_edit_object_v1_response import SignatureEditObjectV1Response
 
 class TestSignatureEditObjectV1Response(unittest.TestCase):
     """SignatureEditObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestSignatureEditObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `SignatureEditObjectV1Response`
         """
-        model = SignatureEditObjectV1Response()  # noqa: E501
+        model = SignatureEditObjectV1Response()
         if include_optional:
             return SignatureEditObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

@@ -19,34 +19,40 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ClonehistoryListElement(BaseModel):
     """
-    A Clonehistory List Element  # noqa: E501
-    """
-    pki_clonehistory_id: conint(strict=True, le=16777215, ge=1) = Field(..., alias="pkiClonehistoryID", description="The unique ID of the Clonehistory")
-    fki_user_id_cloning: conint(strict=True, ge=0) = Field(..., alias="fkiUserIDCloning", description="The unique ID of the User")
-    fki_user_id_cloned: conint(strict=True, ge=0) = Field(..., alias="fkiUserIDCloned", description="The unique ID of the User")
-    dt_clonehistory_firsthit: constr(strict=True) = Field(..., alias="dtClonehistoryFirsthit", description="The firsthit of the Clonehistory")
-    dt_clonehistory_lasthit: Optional[constr(strict=True)] = Field(None, alias="dtClonehistoryLasthit", description="The lasthit of the Clonehistory")
-    s_user_loginname_cloning: constr(strict=True) = Field(..., alias="sUserLoginnameCloning", description="The login name of the User.")
-    s_user_firstname_cloning: StrictStr = Field(..., alias="sUserFirstnameCloning", description="The first name of the user")
-    s_user_lastname_cloning: StrictStr = Field(..., alias="sUserLastnameCloning", description="The last name of the user")
-    s_user_loginname_cloned: constr(strict=True) = Field(..., alias="sUserLoginnameCloned", description="The login name of the User.")
-    s_user_firstname_cloned: StrictStr = Field(..., alias="sUserFirstnameCloned", description="The first name of the user")
-    s_user_lastname_cloned: StrictStr = Field(..., alias="sUserLastnameCloned", description="The last name of the user")
-    __properties = ["pkiClonehistoryID", "fkiUserIDCloning", "fkiUserIDCloned", "dtClonehistoryFirsthit", "dtClonehistoryLasthit", "sUserLoginnameCloning", "sUserFirstnameCloning", "sUserLastnameCloning", "sUserLoginnameCloned", "sUserFirstnameCloned", "sUserLastnameCloned"]
+    A Clonehistory List Element
+    """ # noqa: E501
+    pki_clonehistory_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Clonehistory", alias="pkiClonehistoryID")
+    fki_user_id_cloning: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloning")
+    fki_user_id_cloned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloned")
+    dt_clonehistory_firsthit: Annotated[str, Field(strict=True)] = Field(description="The firsthit of the Clonehistory", alias="dtClonehistoryFirsthit")
+    dt_clonehistory_lasthit: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The lasthit of the Clonehistory", alias="dtClonehistoryLasthit")
+    s_user_loginname_cloning: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloning")
+    s_user_firstname_cloning: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloning")
+    s_user_lastname_cloning: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloning")
+    s_user_loginname_cloned: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloned")
+    s_user_firstname_cloned: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloned")
+    s_user_lastname_cloned: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloned")
+    __properties: ClassVar[List[str]] = ["pkiClonehistoryID", "fkiUserIDCloning", "fkiUserIDCloned", "dtClonehistoryFirsthit", "dtClonehistoryLasthit", "sUserLoginnameCloning", "sUserFirstnameCloning", "sUserLastnameCloning", "sUserLoginnameCloned", "sUserFirstnameCloned", "sUserLastnameCloned"]
 
-    @validator('dt_clonehistory_firsthit')
+    @field_validator('dt_clonehistory_firsthit')
     def dt_clonehistory_firsthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @validator('dt_clonehistory_lasthit')
+    @field_validator('dt_clonehistory_lasthit')
     def dt_clonehistory_lasthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -56,67 +62,80 @@ class ClonehistoryListElement(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @validator('s_user_loginname_cloning')
+    @field_validator('s_user_loginname_cloning')
     def s_user_loginname_cloning_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
-    @validator('s_user_loginname_cloned')
+    @field_validator('s_user_loginname_cloned')
     def s_user_loginname_cloned_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ClonehistoryListElement:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ClonehistoryListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ClonehistoryListElement:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ClonehistoryListElement from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ClonehistoryListElement.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ClonehistoryListElement.parse_obj({
-            "pki_clonehistory_id": obj.get("pkiClonehistoryID"),
-            "fki_user_id_cloning": obj.get("fkiUserIDCloning"),
-            "fki_user_id_cloned": obj.get("fkiUserIDCloned"),
-            "dt_clonehistory_firsthit": obj.get("dtClonehistoryFirsthit"),
-            "dt_clonehistory_lasthit": obj.get("dtClonehistoryLasthit"),
-            "s_user_loginname_cloning": obj.get("sUserLoginnameCloning"),
-            "s_user_firstname_cloning": obj.get("sUserFirstnameCloning"),
-            "s_user_lastname_cloning": obj.get("sUserLastnameCloning"),
-            "s_user_loginname_cloned": obj.get("sUserLoginnameCloned"),
-            "s_user_firstname_cloned": obj.get("sUserFirstnameCloned"),
-            "s_user_lastname_cloned": obj.get("sUserLastnameCloned")
+        _obj = cls.model_validate({
+            "pkiClonehistoryID": obj.get("pkiClonehistoryID"),
+            "fkiUserIDCloning": obj.get("fkiUserIDCloning"),
+            "fkiUserIDCloned": obj.get("fkiUserIDCloned"),
+            "dtClonehistoryFirsthit": obj.get("dtClonehistoryFirsthit"),
+            "dtClonehistoryLasthit": obj.get("dtClonehistoryLasthit"),
+            "sUserLoginnameCloning": obj.get("sUserLoginnameCloning"),
+            "sUserFirstnameCloning": obj.get("sUserFirstnameCloning"),
+            "sUserLastnameCloning": obj.get("sUserLastnameCloning"),
+            "sUserLoginnameCloned": obj.get("sUserLoginnameCloned"),
+            "sUserFirstnameCloned": obj.get("sUserFirstnameCloned"),
+            "sUserLastnameCloned": obj.get("sUserLastnameCloned")
         })
         return _obj
 

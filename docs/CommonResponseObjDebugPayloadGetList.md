@@ -3,6 +3,7 @@
 This is a debug object containing debugging information on the actual function
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_version_min** | **int** | The minimum version of the function that can be called | 

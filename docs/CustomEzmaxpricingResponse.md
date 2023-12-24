@@ -3,6 +3,7 @@
 A Custom Ezmaxpricing Object
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezmaxpricing_id** | **int** | The unique ID of the Ezmaxpricing | 

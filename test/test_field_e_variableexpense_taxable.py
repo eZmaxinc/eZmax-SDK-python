@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.field_e_variableexpense_taxable import FieldEVariableexpenseTaxable  # noqa: E501
+from eZmaxApi.models.field_e_variableexpense_taxable import FieldEVariableexpenseTaxable
 
 class TestFieldEVariableexpenseTaxable(unittest.TestCase):
     """FieldEVariableexpenseTaxable unit test stubs"""

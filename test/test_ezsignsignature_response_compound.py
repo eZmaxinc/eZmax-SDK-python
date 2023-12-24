@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignature_response_compound import EzsignsignatureResponseCompound  # noqa: E501
+from eZmaxApi.models.ezsignsignature_response_compound import EzsignsignatureResponseCompound
 
 class TestEzsignsignatureResponseCompound(unittest.TestCase):
     """EzsignsignatureResponseCompound unit test stubs"""
@@ -34,12 +34,14 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureResponseCompound`
         """
-        model = EzsignsignatureResponseCompound()  # noqa: E501
+        model = EzsignsignatureResponseCompound()
         if include_optional:
             return EzsignsignatureResponseCompound(
                 pki_ezsignsignature_id = 49,
                 fki_ezsigndocument_id = 97,
                 fki_ezsignfoldersignerassociation_id = 20,
+                fki_ezsignsigningreason_id = 194,
+                s_ezsignsigningreason_description_x = 'I approve this document',
                 i_ezsignpage_pagenumber = 1,
                 i_ezsignsignature_x = 200,
                 i_ezsignsignature_y = 300,

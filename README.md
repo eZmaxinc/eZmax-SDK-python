@@ -106,6 +106,8 @@ Class | Method | HTTP request | Description
 *ObjectApikeyApi* | [**apikey_get_subnets_v1**](docs/ObjectApikeyApi.md#apikey_get_subnets_v1) | **GET** /1/object/apikey/{pkiApikeyID}/getSubnets | Retrieve an existing Apikey&#39;s subnets
 *ObjectApikeyApi* | [**apikey_regenerate_v1**](docs/ObjectApikeyApi.md#apikey_regenerate_v1) | **POST** /1/object/apikey/{pkiApikeyID}/regenerate | Regenerate the Apikey
 *ObjectAttachmentApi* | [**attachment_download_v1**](docs/ObjectAttachmentApi.md#attachment_download_v1) | **GET** /1/object/attachment/{pkiAttachmentID}/download | Retrieve the content
+*ObjectAttachmentApi* | [**attachment_get_attachmentlogs_v1**](docs/ObjectAttachmentApi.md#attachment_get_attachmentlogs_v1) | **GET** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
+*ObjectAttachmentApi* | [**attachment_get_download_url_v1**](docs/ObjectAttachmentApi.md#attachment_get_download_url_v1) | **GET** /1/object/attachment/{pkiAttachmentID}/getDownloadUrl | Retrieve a URL to download attachments.
 *ObjectBillingentityexternalApi* | [**billingentityexternal_get_autocomplete_v2**](docs/ObjectBillingentityexternalApi.md#billingentityexternal_get_autocomplete_v2) | **GET** /2/object/billingentityexternal/getAutocomplete/{sSelector} | Retrieve Billingentityexternals and IDs
 *ObjectBillingentityinternalApi* | [**billingentityinternal_create_object_v1**](docs/ObjectBillingentityinternalApi.md#billingentityinternal_create_object_v1) | **POST** /1/object/billingentityinternal | Create a new Billingentityinternal
 *ObjectBillingentityinternalApi* | [**billingentityinternal_edit_object_v1**](docs/ObjectBillingentityinternalApi.md#billingentityinternal_edit_object_v1) | **PUT** /1/object/billingentityinternal/{pkiBillingentityinternalID} | Edit an existing Billingentityinternal
@@ -126,7 +128,7 @@ Class | Method | HTTP request | Description
 *ObjectCorsApi* | [**cors_edit_object_v1**](docs/ObjectCorsApi.md#cors_edit_object_v1) | **PUT** /1/object/cors/{pkiCorsID} | Edit an existing Cors
 *ObjectCorsApi* | [**cors_get_object_v2**](docs/ObjectCorsApi.md#cors_get_object_v2) | **GET** /2/object/cors/{pkiCorsID} | Retrieve an existing Cors
 *ObjectDepartmentApi* | [**department_get_autocomplete_v2**](docs/ObjectDepartmentApi.md#department_get_autocomplete_v2) | **GET** /2/object/department/getAutocomplete/{sSelector} | Retrieve Departments and IDs
-*ObjectElectronicfundstransferApi* | [**eletronicfundstransfer_get_communication_list_v1**](docs/ObjectElectronicfundstransferApi.md#eletronicfundstransfer_get_communication_list_v1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
+*ObjectElectronicfundstransferApi* | [**electronicfundstransfer_get_communication_list_v1**](docs/ObjectElectronicfundstransferApi.md#electronicfundstransfer_get_communication_list_v1) | **GET** /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationList | Retrieve Communication list
 *ObjectEmailtypeApi* | [**emailtype_get_autocomplete_v2**](docs/ObjectEmailtypeApi.md#emailtype_get_autocomplete_v2) | **GET** /2/object/emailtype/getAutocomplete/{sSelector} | Retrieve Emailtypes and IDs
 *ObjectEzmaxinvoicingApi* | [**ezmaxinvoicing_get_autocomplete_v1**](docs/ObjectEzmaxinvoicingApi.md#ezmaxinvoicing_get_autocomplete_v1) | **GET** /1/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
 *ObjectEzmaxinvoicingApi* | [**ezmaxinvoicing_get_autocomplete_v2**](docs/ObjectEzmaxinvoicingApi.md#ezmaxinvoicing_get_autocomplete_v2) | **GET** /2/object/ezmaxinvoicing/getAutocomplete/{sSelector} | Retrieve Ezmaxinvoicings and IDs
@@ -165,6 +167,7 @@ Class | Method | HTTP request | Description
 *ObjectEzsigndocumentApi* | [**ezsigndocument_end_prematurely_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_end_prematurely_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/endPrematurely | End prematurely
 *ObjectEzsigndocumentApi* | [**ezsigndocument_flatten_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_flatten_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/flatten | Flatten
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_actionable_elements_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_actionable_elements_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElements | Retrieve actionable elements for the Ezsigndocument
+*ObjectEzsigndocumentApi* | [**ezsigndocument_get_attachments_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_attachments_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getAttachments | Retrieve Ezsigndocument&#39;s Attachments
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_completed_elements_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_completed_elements_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getCompletedElements | Retrieve completed elements for the Ezsigndocument
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_download_url_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_download_url_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getDownloadUrl/{eDocumentType} | Retrieve a URL to download documents.
 *ObjectEzsigndocumentApi* | [**ezsigndocument_get_ezsignannotations_v1**](docs/ObjectEzsigndocumentApi.md#ezsigndocument_get_ezsignannotations_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations | Retrieve an existing Ezsigndocument&#39;s Ezsignannotations
@@ -189,6 +192,8 @@ Class | Method | HTTP request | Description
 *ObjectEzsignfolderApi* | [**ezsignfolder_dispose_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_dispose_v1) | **POST** /1/object/ezsignfolder/{pkiEzsignfolderID}/dispose | Dispose the Ezsignfolder
 *ObjectEzsignfolderApi* | [**ezsignfolder_edit_object_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_edit_object_v1) | **PUT** /1/object/ezsignfolder/{pkiEzsignfolderID} | Edit an existing Ezsignfolder
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_actionable_elements_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_actionable_elements_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElements | Retrieve actionable elements for the Ezsignfolder
+*ObjectEzsignfolderApi* | [**ezsignfolder_get_attachment_count_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_attachment_count_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount | Retrieve Attachment count
+*ObjectEzsignfolderApi* | [**ezsignfolder_get_attachments_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_attachments_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachments | Retrieve Ezsignfolder&#39;s Attachments
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_communication_count_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_communication_count_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationCount | Retrieve Communication count
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_communication_list_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_communication_list_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationList | Retrieve Communication list
 *ObjectEzsignfolderApi* | [**ezsignfolder_get_communicationrecipients_v1**](docs/ObjectEzsignfolderApi.md#ezsignfolder_get_communicationrecipients_v1) | **GET** /1/object/ezsignfolder/{pkiEzsignfolderID}/getCommunicationrecipients | Retrieve Ezsignfolder&#39;s Communicationrecipient
@@ -244,6 +249,11 @@ Class | Method | HTTP request | Description
 *ObjectEzsignsignergroupmembershipApi* | [**ezsignsignergroupmembership_create_object_v1**](docs/ObjectEzsignsignergroupmembershipApi.md#ezsignsignergroupmembership_create_object_v1) | **POST** /1/object/ezsignsignergroupmembership | Create a new Ezsignsignergroupmembership
 *ObjectEzsignsignergroupmembershipApi* | [**ezsignsignergroupmembership_delete_object_v1**](docs/ObjectEzsignsignergroupmembershipApi.md#ezsignsignergroupmembership_delete_object_v1) | **DELETE** /1/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID} | Delete an existing Ezsignsignergroupmembership
 *ObjectEzsignsignergroupmembershipApi* | [**ezsignsignergroupmembership_get_object_v2**](docs/ObjectEzsignsignergroupmembershipApi.md#ezsignsignergroupmembership_get_object_v2) | **GET** /2/object/ezsignsignergroupmembership/{pkiEzsignsignergroupmembershipID} | Retrieve an existing Ezsignsignergroupmembership
+*ObjectEzsignsigningreasonApi* | [**ezsignsigningreason_create_object_v1**](docs/ObjectEzsignsigningreasonApi.md#ezsignsigningreason_create_object_v1) | **POST** /1/object/ezsignsigningreason | Create a new Ezsignsigningreason
+*ObjectEzsignsigningreasonApi* | [**ezsignsigningreason_edit_object_v1**](docs/ObjectEzsignsigningreasonApi.md#ezsignsigningreason_edit_object_v1) | **PUT** /1/object/ezsignsigningreason/{pkiEzsignsigningreasonID} | Edit an existing Ezsignsigningreason
+*ObjectEzsignsigningreasonApi* | [**ezsignsigningreason_get_autocomplete_v2**](docs/ObjectEzsignsigningreasonApi.md#ezsignsigningreason_get_autocomplete_v2) | **GET** /2/object/ezsignsigningreason/getAutocomplete/{sSelector} | Retrieve Ezsignsigningreasons and IDs
+*ObjectEzsignsigningreasonApi* | [**ezsignsigningreason_get_list_v1**](docs/ObjectEzsignsigningreasonApi.md#ezsignsigningreason_get_list_v1) | **GET** /1/object/ezsignsigningreason/getList | Retrieve Ezsignsigningreason list
+*ObjectEzsignsigningreasonApi* | [**ezsignsigningreason_get_object_v2**](docs/ObjectEzsignsigningreasonApi.md#ezsignsigningreason_get_object_v2) | **GET** /2/object/ezsignsigningreason/{pkiEzsignsigningreasonID} | Retrieve an existing Ezsignsigningreason
 *ObjectEzsigntemplateApi* | [**ezsigntemplate_copy_v1**](docs/ObjectEzsigntemplateApi.md#ezsigntemplate_copy_v1) | **POST** /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy | Copy the Ezsigntemplate
 *ObjectEzsigntemplateApi* | [**ezsigntemplate_create_object_v1**](docs/ObjectEzsigntemplateApi.md#ezsigntemplate_create_object_v1) | **POST** /1/object/ezsigntemplate | Create a new Ezsigntemplate
 *ObjectEzsigntemplateApi* | [**ezsigntemplate_delete_object_v1**](docs/ObjectEzsigntemplateApi.md#ezsigntemplate_delete_object_v1) | **DELETE** /1/object/ezsigntemplate/{pkiEzsigntemplateID} | Delete an existing Ezsigntemplate
@@ -299,9 +309,12 @@ Class | Method | HTTP request | Description
 *ObjectFranchiseofficeApi* | [**franchiseoffice_get_autocomplete_v2**](docs/ObjectFranchiseofficeApi.md#franchiseoffice_get_autocomplete_v2) | **GET** /2/object/franchiseoffice/getAutocomplete/{sSelector} | Retrieve Franchiseoffices and IDs
 *ObjectFranchisereferalincomeApi* | [**franchisereferalincome_create_object_v1**](docs/ObjectFranchisereferalincomeApi.md#franchisereferalincome_create_object_v1) | **POST** /1/object/franchisereferalincome | Create a new Franchisereferalincome
 *ObjectFranchisereferalincomeApi* | [**franchisereferalincome_create_object_v2**](docs/ObjectFranchisereferalincomeApi.md#franchisereferalincome_create_object_v2) | **POST** /2/object/franchisereferalincome | Create a new Franchisereferalincome
+*ObjectInscriptionApi* | [**inscription_get_attachments_v1**](docs/ObjectInscriptionApi.md#inscription_get_attachments_v1) | **GET** /1/object/inscription/{pkiInscriptionID}/getAttachments | Retrieve Inscription&#39;s Attachments
 *ObjectInscriptionApi* | [**inscription_get_communication_list_v1**](docs/ObjectInscriptionApi.md#inscription_get_communication_list_v1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationList | Retrieve Communication list
+*ObjectInscriptionApi* | [**inscription_get_communicationsenders_v1**](docs/ObjectInscriptionApi.md#inscription_get_communicationsenders_v1) | **GET** /1/object/inscription/{pkiInscriptionID}/getCommunicationsenders | Retrieve Inscription&#39;s Communicationsender
 *ObjectInscriptionnotauthenticatedApi* | [**inscriptionnotauthenticated_get_communication_list_v1**](docs/ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_get_communication_list_v1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationList | Retrieve Communication list
 *ObjectInscriptiontempApi* | [**inscriptiontemp_get_communication_list_v1**](docs/ObjectInscriptiontempApi.md#inscriptiontemp_get_communication_list_v1) | **GET** /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicationList | Retrieve Communication list
+*ObjectInvoiceApi* | [**invoice_get_attachments_v1**](docs/ObjectInvoiceApi.md#invoice_get_attachments_v1) | **GET** /1/object/invoice/{pkiInvoiceID}/getAttachments | Retrieve Invoice&#39;s Attachments
 *ObjectInvoiceApi* | [**invoice_get_communication_list_v1**](docs/ObjectInvoiceApi.md#invoice_get_communication_list_v1) | **GET** /1/object/invoice/{pkiInvoiceID}/getCommunicationList | Retrieve Communication list
 *ObjectLanguageApi* | [**language_get_autocomplete_v2**](docs/ObjectLanguageApi.md#language_get_autocomplete_v2) | **GET** /2/object/language/getAutocomplete/{sSelector} | Retrieve Languages and IDs
 *ObjectModulegroupApi* | [**modulegroup_get_all_v1**](docs/ObjectModulegroupApi.md#modulegroup_get_all_v1) | **GET** /1/object/modulegroup/getAll/{eContext} | Retrieve all Modulegroups
@@ -378,11 +391,13 @@ Class | Method | HTTP request | Description
 *ObjectVariableexpenseApi* | [**variableexpense_get_object_v2**](docs/ObjectVariableexpenseApi.md#variableexpense_get_object_v2) | **GET** /2/object/variableexpense/{pkiVariableexpenseID} | Retrieve an existing Variableexpense
 *ObjectVersionhistoryApi* | [**versionhistory_get_object_v2**](docs/ObjectVersionhistoryApi.md#versionhistory_get_object_v2) | **GET** /2/object/versionhistory/{pkiVersionhistoryID} | Retrieve an existing Versionhistory
 *ObjectWebhookApi* | [**webhook_create_object_v1**](docs/ObjectWebhookApi.md#webhook_create_object_v1) | **POST** /1/object/webhook | Create a new Webhook
+*ObjectWebhookApi* | [**webhook_create_object_v2**](docs/ObjectWebhookApi.md#webhook_create_object_v2) | **POST** /2/object/webhook | Create a new Webhook
 *ObjectWebhookApi* | [**webhook_delete_object_v1**](docs/ObjectWebhookApi.md#webhook_delete_object_v1) | **DELETE** /1/object/webhook/{pkiWebhookID} | Delete an existing Webhook
 *ObjectWebhookApi* | [**webhook_edit_object_v1**](docs/ObjectWebhookApi.md#webhook_edit_object_v1) | **PUT** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
 *ObjectWebhookApi* | [**webhook_get_history_v1**](docs/ObjectWebhookApi.md#webhook_get_history_v1) | **GET** /1/object/webhook/{pkiWebhookID}/getHistory | Retrieve the logs for recent Webhook calls
 *ObjectWebhookApi* | [**webhook_get_list_v1**](docs/ObjectWebhookApi.md#webhook_get_list_v1) | **GET** /1/object/webhook/getList | Retrieve Webhook list
 *ObjectWebhookApi* | [**webhook_get_object_v2**](docs/ObjectWebhookApi.md#webhook_get_object_v2) | **GET** /2/object/webhook/{pkiWebhookID} | Retrieve an existing Webhook
+*ObjectWebhookApi* | [**webhook_regenerate_apikey_v1**](docs/ObjectWebhookApi.md#webhook_regenerate_apikey_v1) | **POST** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
 *ObjectWebhookApi* | [**webhook_test_v1**](docs/ObjectWebhookApi.md#webhook_test_v1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 *ScimGroupsApi* | [**groups_create_object_scim_v2**](docs/ScimGroupsApi.md#groups_create_object_scim_v2) | **POST** /2/scim/Groups | Create a new Usergroup
 *ScimGroupsApi* | [**groups_delete_object_scim_v2**](docs/ScimGroupsApi.md#groups_delete_object_scim_v2) | **DELETE** /2/scim/Groups/{groupId} | Delete an existing Usergroup
@@ -436,7 +451,14 @@ Class | Method | HTTP request | Description
  - [ApikeyRequestCompound](docs/ApikeyRequestCompound.md)
  - [ApikeyResponse](docs/ApikeyResponse.md)
  - [ApikeyResponseCompound](docs/ApikeyResponseCompound.md)
- - [AttachmentDownloadV1Response](docs/AttachmentDownloadV1Response.md)
+ - [AttachmentGetAttachmentlogsV1Response](docs/AttachmentGetAttachmentlogsV1Response.md)
+ - [AttachmentGetAttachmentlogsV1ResponseMPayload](docs/AttachmentGetAttachmentlogsV1ResponseMPayload.md)
+ - [AttachmentGetDownloadUrlV1Response](docs/AttachmentGetDownloadUrlV1Response.md)
+ - [AttachmentGetDownloadUrlV1ResponseMPayload](docs/AttachmentGetDownloadUrlV1ResponseMPayload.md)
+ - [AttachmentResponse](docs/AttachmentResponse.md)
+ - [AttachmentResponseCompound](docs/AttachmentResponseCompound.md)
+ - [AttachmentlogResponse](docs/AttachmentlogResponse.md)
+ - [AttachmentlogResponseCompound](docs/AttachmentlogResponseCompound.md)
  - [AttemptResponse](docs/AttemptResponse.md)
  - [AttemptResponseCompound](docs/AttemptResponseCompound.md)
  - [BillingentityexternalAutocompleteElementResponse](docs/BillingentityexternalAutocompleteElementResponse.md)
@@ -549,6 +571,8 @@ Class | Method | HTTP request | Description
  - [CorsRequestCompound](docs/CorsRequestCompound.md)
  - [CorsResponse](docs/CorsResponse.md)
  - [CorsResponseCompound](docs/CorsResponseCompound.md)
+ - [CustomAttachmentResponse](docs/CustomAttachmentResponse.md)
+ - [CustomAttachmentdocumenttypeResponse](docs/CustomAttachmentdocumenttypeResponse.md)
  - [CustomAutocompleteElementResponse](docs/CustomAutocompleteElementResponse.md)
  - [CustomCommunicationListElementResponse](docs/CustomCommunicationListElementResponse.md)
  - [CustomCommunicationattachmentRequest](docs/CustomCommunicationattachmentRequest.md)
@@ -722,6 +746,8 @@ Class | Method | HTTP request | Description
  - [EzsigndocumentFlattenV1Response](docs/EzsigndocumentFlattenV1Response.md)
  - [EzsigndocumentGetActionableElementsV1Response](docs/EzsigndocumentGetActionableElementsV1Response.md)
  - [EzsigndocumentGetActionableElementsV1ResponseMPayload](docs/EzsigndocumentGetActionableElementsV1ResponseMPayload.md)
+ - [EzsigndocumentGetAttachmentsV1Response](docs/EzsigndocumentGetAttachmentsV1Response.md)
+ - [EzsigndocumentGetAttachmentsV1ResponseMPayload](docs/EzsigndocumentGetAttachmentsV1ResponseMPayload.md)
  - [EzsigndocumentGetCompletedElementsV1Response](docs/EzsigndocumentGetCompletedElementsV1Response.md)
  - [EzsigndocumentGetCompletedElementsV1ResponseMPayload](docs/EzsigndocumentGetCompletedElementsV1ResponseMPayload.md)
  - [EzsigndocumentGetDownloadUrlV1Response](docs/EzsigndocumentGetDownloadUrlV1Response.md)
@@ -778,6 +804,10 @@ Class | Method | HTTP request | Description
  - [EzsignfolderEditObjectV1Response](docs/EzsignfolderEditObjectV1Response.md)
  - [EzsignfolderGetActionableElementsV1Response](docs/EzsignfolderGetActionableElementsV1Response.md)
  - [EzsignfolderGetActionableElementsV1ResponseMPayload](docs/EzsignfolderGetActionableElementsV1ResponseMPayload.md)
+ - [EzsignfolderGetAttachmentCountV1Response](docs/EzsignfolderGetAttachmentCountV1Response.md)
+ - [EzsignfolderGetAttachmentCountV1ResponseMPayload](docs/EzsignfolderGetAttachmentCountV1ResponseMPayload.md)
+ - [EzsignfolderGetAttachmentsV1Response](docs/EzsignfolderGetAttachmentsV1Response.md)
+ - [EzsignfolderGetAttachmentsV1ResponseMPayload](docs/EzsignfolderGetAttachmentsV1ResponseMPayload.md)
  - [EzsignfolderGetCommunicationCountV1Response](docs/EzsignfolderGetCommunicationCountV1Response.md)
  - [EzsignfolderGetCommunicationCountV1ResponseMPayload](docs/EzsignfolderGetCommunicationCountV1ResponseMPayload.md)
  - [EzsignfolderGetCommunicationListV1Response](docs/EzsignfolderGetCommunicationListV1Response.md)
@@ -943,6 +973,23 @@ Class | Method | HTTP request | Description
  - [EzsignsignergroupmembershipRequestCompound](docs/EzsignsignergroupmembershipRequestCompound.md)
  - [EzsignsignergroupmembershipResponse](docs/EzsignsignergroupmembershipResponse.md)
  - [EzsignsignergroupmembershipResponseCompound](docs/EzsignsignergroupmembershipResponseCompound.md)
+ - [EzsignsigningreasonAutocompleteElementResponse](docs/EzsignsigningreasonAutocompleteElementResponse.md)
+ - [EzsignsigningreasonCreateObjectV1Request](docs/EzsignsigningreasonCreateObjectV1Request.md)
+ - [EzsignsigningreasonCreateObjectV1Response](docs/EzsignsigningreasonCreateObjectV1Response.md)
+ - [EzsignsigningreasonCreateObjectV1ResponseMPayload](docs/EzsignsigningreasonCreateObjectV1ResponseMPayload.md)
+ - [EzsignsigningreasonEditObjectV1Request](docs/EzsignsigningreasonEditObjectV1Request.md)
+ - [EzsignsigningreasonEditObjectV1Response](docs/EzsignsigningreasonEditObjectV1Response.md)
+ - [EzsignsigningreasonGetAutocompleteV2Response](docs/EzsignsigningreasonGetAutocompleteV2Response.md)
+ - [EzsignsigningreasonGetAutocompleteV2ResponseMPayload](docs/EzsignsigningreasonGetAutocompleteV2ResponseMPayload.md)
+ - [EzsignsigningreasonGetListV1Response](docs/EzsignsigningreasonGetListV1Response.md)
+ - [EzsignsigningreasonGetListV1ResponseMPayload](docs/EzsignsigningreasonGetListV1ResponseMPayload.md)
+ - [EzsignsigningreasonGetObjectV2Response](docs/EzsignsigningreasonGetObjectV2Response.md)
+ - [EzsignsigningreasonGetObjectV2ResponseMPayload](docs/EzsignsigningreasonGetObjectV2ResponseMPayload.md)
+ - [EzsignsigningreasonListElement](docs/EzsignsigningreasonListElement.md)
+ - [EzsignsigningreasonRequest](docs/EzsignsigningreasonRequest.md)
+ - [EzsignsigningreasonRequestCompound](docs/EzsignsigningreasonRequestCompound.md)
+ - [EzsignsigningreasonResponse](docs/EzsignsigningreasonResponse.md)
+ - [EzsignsigningreasonResponseCompound](docs/EzsignsigningreasonResponseCompound.md)
  - [EzsigntemplateAutocompleteElementResponse](docs/EzsigntemplateAutocompleteElementResponse.md)
  - [EzsigntemplateCopyV1Request](docs/EzsigntemplateCopyV1Request.md)
  - [EzsigntemplateCopyV1Response](docs/EzsigntemplateCopyV1Response.md)
@@ -1110,6 +1157,11 @@ Class | Method | HTTP request | Description
  - [FieldEActivesessionOrigin](docs/FieldEActivesessionOrigin.md)
  - [FieldEActivesessionUsertype](docs/FieldEActivesessionUsertype.md)
  - [FieldEActivesessionWeekdaystart](docs/FieldEActivesessionWeekdaystart.md)
+ - [FieldEAttachmentDocumenttype](docs/FieldEAttachmentDocumenttype.md)
+ - [FieldEAttachmentPrivacy](docs/FieldEAttachmentPrivacy.md)
+ - [FieldEAttachmentType](docs/FieldEAttachmentType.md)
+ - [FieldEAttachmentVerified](docs/FieldEAttachmentVerified.md)
+ - [FieldEAttachmentlogType](docs/FieldEAttachmentlogType.md)
  - [FieldEBrandingLogo](docs/FieldEBrandingLogo.md)
  - [FieldECommunicationImportance](docs/FieldECommunicationImportance.md)
  - [FieldECommunicationType](docs/FieldECommunicationType.md)
@@ -1161,6 +1213,7 @@ Class | Method | HTTP request | Description
  - [FieldESystemconfigurationLanguage2](docs/FieldESystemconfigurationLanguage2.md)
  - [FieldESystemconfigurationNewexternaluseraction](docs/FieldESystemconfigurationNewexternaluseraction.md)
  - [FieldEUserEzsignaccess](docs/FieldEUserEzsignaccess.md)
+ - [FieldEUserEzsignprepaid](docs/FieldEUserEzsignprepaid.md)
  - [FieldEUserEzsignsendreminderfrequency](docs/FieldEUserEzsignsendreminderfrequency.md)
  - [FieldEUserLogintype](docs/FieldEUserLogintype.md)
  - [FieldEUserOrigin](docs/FieldEUserOrigin.md)
@@ -1193,12 +1246,18 @@ Class | Method | HTTP request | Description
  - [GlobalEzmaxclientVersionV1Response](docs/GlobalEzmaxclientVersionV1Response.md)
  - [GlobalEzmaxcustomerGetConfigurationV1Response](docs/GlobalEzmaxcustomerGetConfigurationV1Response.md)
  - [HeaderAcceptLanguage](docs/HeaderAcceptLanguage.md)
+ - [InscriptionGetAttachmentsV1Response](docs/InscriptionGetAttachmentsV1Response.md)
+ - [InscriptionGetAttachmentsV1ResponseMPayload](docs/InscriptionGetAttachmentsV1ResponseMPayload.md)
  - [InscriptionGetCommunicationListV1Response](docs/InscriptionGetCommunicationListV1Response.md)
  - [InscriptionGetCommunicationListV1ResponseMPayload](docs/InscriptionGetCommunicationListV1ResponseMPayload.md)
+ - [InscriptionGetCommunicationsendersV1Response](docs/InscriptionGetCommunicationsendersV1Response.md)
+ - [InscriptionGetCommunicationsendersV1ResponseMPayload](docs/InscriptionGetCommunicationsendersV1ResponseMPayload.md)
  - [InscriptionnotauthenticatedGetCommunicationListV1Response](docs/InscriptionnotauthenticatedGetCommunicationListV1Response.md)
  - [InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload](docs/InscriptionnotauthenticatedGetCommunicationListV1ResponseMPayload.md)
  - [InscriptiontempGetCommunicationListV1Response](docs/InscriptiontempGetCommunicationListV1Response.md)
  - [InscriptiontempGetCommunicationListV1ResponseMPayload](docs/InscriptiontempGetCommunicationListV1ResponseMPayload.md)
+ - [InvoiceGetAttachmentsV1Response](docs/InvoiceGetAttachmentsV1Response.md)
+ - [InvoiceGetAttachmentsV1ResponseMPayload](docs/InvoiceGetAttachmentsV1ResponseMPayload.md)
  - [InvoiceGetCommunicationListV1Response](docs/InvoiceGetCommunicationListV1Response.md)
  - [InvoiceGetCommunicationListV1ResponseMPayload](docs/InvoiceGetCommunicationListV1ResponseMPayload.md)
  - [LanguageAutocompleteElementResponse](docs/LanguageAutocompleteElementResponse.md)
@@ -1218,6 +1277,7 @@ Class | Method | HTTP request | Description
  - [MultilingualEzmaxinvoicingsummaryinternalDescription](docs/MultilingualEzmaxinvoicingsummaryinternalDescription.md)
  - [MultilingualEzsignfoldertypeName](docs/MultilingualEzsignfoldertypeName.md)
  - [MultilingualEzsignsignergroupDescription](docs/MultilingualEzsignsignergroupDescription.md)
+ - [MultilingualEzsignsigningreasonDescription](docs/MultilingualEzsignsigningreasonDescription.md)
  - [MultilingualNotificationsubsectionName](docs/MultilingualNotificationsubsectionName.md)
  - [MultilingualNotificationtestName](docs/MultilingualNotificationtestName.md)
  - [MultilingualPaymenttermDescription](docs/MultilingualPaymenttermDescription.md)
@@ -1460,6 +1520,9 @@ Class | Method | HTTP request | Description
  - [WebhookCreateObjectV1Request](docs/WebhookCreateObjectV1Request.md)
  - [WebhookCreateObjectV1Response](docs/WebhookCreateObjectV1Response.md)
  - [WebhookCreateObjectV1ResponseMPayload](docs/WebhookCreateObjectV1ResponseMPayload.md)
+ - [WebhookCreateObjectV2Request](docs/WebhookCreateObjectV2Request.md)
+ - [WebhookCreateObjectV2Response](docs/WebhookCreateObjectV2Response.md)
+ - [WebhookCreateObjectV2ResponseMPayload](docs/WebhookCreateObjectV2ResponseMPayload.md)
  - [WebhookDeleteObjectV1Response](docs/WebhookDeleteObjectV1Response.md)
  - [WebhookEditObjectV1Request](docs/WebhookEditObjectV1Request.md)
  - [WebhookEditObjectV1Response](docs/WebhookEditObjectV1Response.md)
@@ -1474,6 +1537,9 @@ Class | Method | HTTP request | Description
  - [WebhookGetObjectV2Response](docs/WebhookGetObjectV2Response.md)
  - [WebhookGetObjectV2ResponseMPayload](docs/WebhookGetObjectV2ResponseMPayload.md)
  - [WebhookListElement](docs/WebhookListElement.md)
+ - [WebhookRegenerateApikeyV1Request](docs/WebhookRegenerateApikeyV1Request.md)
+ - [WebhookRegenerateApikeyV1Response](docs/WebhookRegenerateApikeyV1Response.md)
+ - [WebhookRegenerateApikeyV1ResponseMPayload](docs/WebhookRegenerateApikeyV1ResponseMPayload.md)
  - [WebhookRequest](docs/WebhookRequest.md)
  - [WebhookRequestCompound](docs/WebhookRequestCompound.md)
  - [WebhookResponse](docs/WebhookResponse.md)

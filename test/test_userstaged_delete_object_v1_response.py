@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response  # noqa: E501
+from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response
 
 class TestUserstagedDeleteObjectV1Response(unittest.TestCase):
     """UserstagedDeleteObjectV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestUserstagedDeleteObjectV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `UserstagedDeleteObjectV1Response`
         """
-        model = UserstagedDeleteObjectV1Response()  # noqa: E501
+        model = UserstagedDeleteObjectV1Response()
         if include_optional:
             return UserstagedDeleteObjectV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(

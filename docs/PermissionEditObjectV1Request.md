@@ -3,6 +3,7 @@
 Request for PUT /1/object/permission/{pkiPermissionID}
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_permission** | [**PermissionRequestCompound**](PermissionRequestCompound.md) |  | 

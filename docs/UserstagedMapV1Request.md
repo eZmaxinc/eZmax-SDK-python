@@ -3,6 +3,7 @@
 Request for POST /1/object/userstaged/{pkiUserstagedID}/map
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fki_user_id** | **int** | The unique ID of the User | 

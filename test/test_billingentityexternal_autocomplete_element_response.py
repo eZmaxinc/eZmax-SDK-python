@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.billingentityexternal_autocomplete_element_response import BillingentityexternalAutocompleteElementResponse  # noqa: E501
+from eZmaxApi.models.billingentityexternal_autocomplete_element_response import BillingentityexternalAutocompleteElementResponse
 
 class TestBillingentityexternalAutocompleteElementResponse(unittest.TestCase):
     """BillingentityexternalAutocompleteElementResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestBillingentityexternalAutocompleteElementResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `BillingentityexternalAutocompleteElementResponse`
         """
-        model = BillingentityexternalAutocompleteElementResponse()  # noqa: E501
+        model = BillingentityexternalAutocompleteElementResponse()
         if include_optional:
             return BillingentityexternalAutocompleteElementResponse(
                 pki_billingentityexternal_id = 83,

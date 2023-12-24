@@ -3,6 +3,7 @@
 A Webhook List Element
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_webhook_id** | **int** | The unique ID of the Webhook | 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
+**b_webhook_issigned** | **bool** | Whether the requests will be signed or not | 
 
 ## Example
 

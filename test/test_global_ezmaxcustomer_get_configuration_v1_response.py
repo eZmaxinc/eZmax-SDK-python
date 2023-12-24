@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.global_ezmaxcustomer_get_configuration_v1_response import GlobalEzmaxcustomerGetConfigurationV1Response  # noqa: E501
+from eZmaxApi.models.global_ezmaxcustomer_get_configuration_v1_response import GlobalEzmaxcustomerGetConfigurationV1Response
 
 class TestGlobalEzmaxcustomerGetConfigurationV1Response(unittest.TestCase):
     """GlobalEzmaxcustomerGetConfigurationV1Response unit test stubs"""
@@ -34,7 +34,7 @@ class TestGlobalEzmaxcustomerGetConfigurationV1Response(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `GlobalEzmaxcustomerGetConfigurationV1Response`
         """
-        model = GlobalEzmaxcustomerGetConfigurationV1Response()  # noqa: E501
+        model = GlobalEzmaxcustomerGetConfigurationV1Response()
         if include_optional:
             return GlobalEzmaxcustomerGetConfigurationV1Response(
                 s_infrastructureregion_code = 'ca-central-1',

@@ -15,14 +15,14 @@
 
 import unittest
 
-from eZmaxApi.api.object_ezsigntemplatepackagesignermembership_api import ObjectEzsigntemplatepackagesignermembershipApi  # noqa: E501
+from eZmaxApi.api.object_ezsigntemplatepackagesignermembership_api import ObjectEzsigntemplatepackagesignermembershipApi
 
 
 class TestObjectEzsigntemplatepackagesignermembershipApi(unittest.TestCase):
     """ObjectEzsigntemplatepackagesignermembershipApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = ObjectEzsigntemplatepackagesignermembershipApi()  # noqa: E501
+        self.api = ObjectEzsigntemplatepackagesignermembershipApi()
 
     def tearDown(self) -> None:
         pass
@@ -30,21 +30,21 @@ class TestObjectEzsigntemplatepackagesignermembershipApi(unittest.TestCase):
     def test_ezsigntemplatepackagesignermembership_create_object_v1(self) -> None:
         """Test case for ezsigntemplatepackagesignermembership_create_object_v1
 
-        Create a new Ezsigntemplatepackagesignermembership  # noqa: E501
+        Create a new Ezsigntemplatepackagesignermembership
         """
         pass
 
     def test_ezsigntemplatepackagesignermembership_delete_object_v1(self) -> None:
         """Test case for ezsigntemplatepackagesignermembership_delete_object_v1
 
-        Delete an existing Ezsigntemplatepackagesignermembership  # noqa: E501
+        Delete an existing Ezsigntemplatepackagesignermembership
         """
         pass
 
     def test_ezsigntemplatepackagesignermembership_get_object_v2(self) -> None:
         """Test case for ezsigntemplatepackagesignermembership_get_object_v2
 
-        Retrieve an existing Ezsigntemplatepackagesignermembership  # noqa: E501
+        Retrieve an existing Ezsigntemplatepackagesignermembership
         """
         pass
 

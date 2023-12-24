@@ -3,6 +3,7 @@
 Request for POST /2/object/ezsignfolder
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignfolder** | [**List[EzsignfolderRequestCompound]**](EzsignfolderRequestCompound.md) |  | 

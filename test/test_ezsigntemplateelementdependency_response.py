@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsigntemplateelementdependency_response import EzsigntemplateelementdependencyResponse  # noqa: E501
+from eZmaxApi.models.ezsigntemplateelementdependency_response import EzsigntemplateelementdependencyResponse
 
 class TestEzsigntemplateelementdependencyResponse(unittest.TestCase):
     """EzsigntemplateelementdependencyResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsigntemplateelementdependencyResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateelementdependencyResponse`
         """
-        model = EzsigntemplateelementdependencyResponse()  # noqa: E501
+        model = EzsigntemplateelementdependencyResponse()
         if include_optional:
             return EzsigntemplateelementdependencyResponse(
                 pki_ezsigntemplateelementdependency_id = 314,

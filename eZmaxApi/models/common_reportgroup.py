@@ -19,43 +19,61 @@ import re  # noqa: F401
 import json
 
 
-from typing import List
-from pydantic import BaseModel, Field, conlist
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel
+from pydantic import Field
 from eZmaxApi.models.common_report import CommonReport
 from eZmaxApi.models.common_reportcellstyle import CommonReportcellstyle
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommonReportgroup(BaseModel):
     """
-    A group of reports  Each Reportgroup is for a specific recipient or for a specific context.  # noqa: E501
-    """
-    a_obj_report: conlist(CommonReport) = Field(..., alias="a_objReport")
-    a_obj_reportcellstyle_custom: conlist(CommonReportcellstyle) = Field(..., alias="a_objReportcellstyleCustom")
-    __properties = ["a_objReport", "a_objReportcellstyleCustom"]
+    A group of reports  Each Reportgroup is for a specific recipient or for a specific context.
+    """ # noqa: E501
+    a_obj_report: List[CommonReport] = Field(alias="a_objReport")
+    a_obj_reportcellstyle_custom: List[CommonReportcellstyle] = Field(alias="a_objReportcellstyleCustom")
+    __properties: ClassVar[List[str]] = ["a_objReport", "a_objReportcellstyleCustom"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommonReportgroup:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommonReportgroup from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_report (list)
         _items = []
         if self.a_obj_report:
@@ -73,17 +91,17 @@ class CommonReportgroup(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommonReportgroup:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommonReportgroup from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommonReportgroup.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommonReportgroup.parse_obj({
-            "a_obj_report": [CommonReport.from_dict(_item) for _item in obj.get("a_objReport")] if obj.get("a_objReport") is not None else None,
-            "a_obj_reportcellstyle_custom": [CommonReportcellstyle.from_dict(_item) for _item in obj.get("a_objReportcellstyleCustom")] if obj.get("a_objReportcellstyleCustom") is not None else None
+        _obj = cls.model_validate({
+            "a_objReport": [CommonReport.from_dict(_item) for _item in obj.get("a_objReport")] if obj.get("a_objReport") is not None else None,
+            "a_objReportcellstyleCustom": [CommonReportcellstyle.from_dict(_item) for _item in obj.get("a_objReportcellstyleCustom")] if obj.get("a_objReportcellstyleCustom") is not None else None
         })
         return _obj
 

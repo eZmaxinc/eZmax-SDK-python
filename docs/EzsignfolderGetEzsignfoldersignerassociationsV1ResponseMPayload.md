@@ -3,6 +3,7 @@
 Payload for GET /1/object/ezsignfolder/{pkiEzsignfolder}/getEzsignfoldersignerassociations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignfoldersignerassociation** | [**List[CustomEzsignfoldersignerassociationActionableElementResponse]**](CustomEzsignfoldersignerassociationActionableElementResponse.md) |  | 

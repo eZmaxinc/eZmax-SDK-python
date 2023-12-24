@@ -19,53 +19,73 @@ import re  # noqa: F401
 import json
 
 
-
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class GlobalEzmaxclientVersionV1Response(BaseModel):
     """
-    Response for GET /1/ezmaxclient/{pksEzmaxclientOs}/version  # noqa: E501
-    """
-    s_ezmaxclient_version: StrictStr = Field(..., alias="sEzmaxclientVersion", description="The version on the store")
-    __properties = ["sEzmaxclientVersion"]
+    Response for GET /1/ezmaxclient/{pksEzmaxclientOs}/version
+    """ # noqa: E501
+    s_ezmaxclient_version: StrictStr = Field(description="The version on the store", alias="sEzmaxclientVersion")
+    s_ezmaxclient_oslatestversion: StrictStr = Field(description="The latest OS version of the system running the application at the time of release", alias="sEzmaxclientOslatestversion")
+    __properties: ClassVar[List[str]] = ["sEzmaxclientVersion", "sEzmaxclientOslatestversion"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> GlobalEzmaxclientVersionV1Response:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of GlobalEzmaxclientVersionV1Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> GlobalEzmaxclientVersionV1Response:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of GlobalEzmaxclientVersionV1Response from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return GlobalEzmaxclientVersionV1Response.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = GlobalEzmaxclientVersionV1Response.parse_obj({
-            "s_ezmaxclient_version": obj.get("sEzmaxclientVersion")
+        _obj = cls.model_validate({
+            "sEzmaxclientVersion": obj.get("sEzmaxclientVersion"),
+            "sEzmaxclientOslatestversion": obj.get("sEzmaxclientOslatestversion") if obj.get("sEzmaxclientOslatestversion") is not None else '11'
         })
         return _obj
 

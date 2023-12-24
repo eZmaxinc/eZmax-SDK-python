@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.ezsignsignergroup_request_compound import EzsignsignergroupRequestCompound  # noqa: E501
+from eZmaxApi.models.ezsignsignergroup_request_compound import EzsignsignergroupRequestCompound
 
 class TestEzsignsignergroupRequestCompound(unittest.TestCase):
     """EzsignsignergroupRequestCompound unit test stubs"""
@@ -34,7 +34,7 @@ class TestEzsignsignergroupRequestCompound(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `EzsignsignergroupRequestCompound`
         """
-        model = EzsignsignergroupRequestCompound()  # noqa: E501
+        model = EzsignsignergroupRequestCompound()
         if include_optional:
             return EzsignsignergroupRequestCompound(
                 pki_ezsignsignergroup_id = 27,

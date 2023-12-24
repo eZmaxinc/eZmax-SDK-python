@@ -3,6 +3,7 @@
 A Period AutocompleteElement Response
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_period_yyyymm** | **str** | The YYYYMM of the Period | 

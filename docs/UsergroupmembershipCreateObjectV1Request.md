@@ -3,6 +3,7 @@
 Request for POST /1/object/usergroupmembership
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_usergroupmembership** | [**List[UsergroupmembershipRequestCompound]**](UsergroupmembershipRequestCompound.md) |  | 

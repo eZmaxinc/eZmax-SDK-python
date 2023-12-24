@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.apikey_create_object_v2_request import ApikeyCreateObjectV2Request  # noqa: E501
+from eZmaxApi.models.apikey_create_object_v2_request import ApikeyCreateObjectV2Request
 
 class TestApikeyCreateObjectV2Request(unittest.TestCase):
     """ApikeyCreateObjectV2Request unit test stubs"""
@@ -34,7 +34,7 @@ class TestApikeyCreateObjectV2Request(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `ApikeyCreateObjectV2Request`
         """
-        model = ApikeyCreateObjectV2Request()  # noqa: E501
+        model = ApikeyCreateObjectV2Request()
         if include_optional:
             return ApikeyCreateObjectV2Request(
                 a_obj_apikey = [

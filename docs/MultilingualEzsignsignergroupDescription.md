@@ -3,6 +3,7 @@
 Description of the Ezsignsignergroup
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_ezsignsignergroup_description1** | **str** | The description of the Ezsignsignergroup in French | [optional] 

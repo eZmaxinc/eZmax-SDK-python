@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_dropdown_element_request import CustomDropdownElementRequest  # noqa: E501
+from eZmaxApi.models.custom_dropdown_element_request import CustomDropdownElementRequest
 
 class TestCustomDropdownElementRequest(unittest.TestCase):
     """CustomDropdownElementRequest unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomDropdownElementRequest(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomDropdownElementRequest`
         """
-        model = CustomDropdownElementRequest()  # noqa: E501
+        model = CustomDropdownElementRequest()
         if include_optional:
             return CustomDropdownElementRequest(
                 s_label = '',

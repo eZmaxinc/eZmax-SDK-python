@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug  # noqa: E501
+from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 
 class TestCommonResponseObjDebug(unittest.TestCase):
     """CommonResponseObjDebug unit test stubs"""
@@ -34,7 +34,7 @@ class TestCommonResponseObjDebug(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CommonResponseObjDebug`
         """
-        model = CommonResponseObjDebug()  # noqa: E501
+        model = CommonResponseObjDebug()
         if include_optional:
             return CommonResponseObjDebug(
                 s_memory_usage = '',

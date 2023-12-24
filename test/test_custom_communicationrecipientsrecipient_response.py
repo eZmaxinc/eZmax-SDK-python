@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.custom_communicationrecipientsrecipient_response import CustomCommunicationrecipientsrecipientResponse  # noqa: E501
+from eZmaxApi.models.custom_communicationrecipientsrecipient_response import CustomCommunicationrecipientsrecipientResponse
 
 class TestCustomCommunicationrecipientsrecipientResponse(unittest.TestCase):
     """CustomCommunicationrecipientsrecipientResponse unit test stubs"""
@@ -34,7 +34,7 @@ class TestCustomCommunicationrecipientsrecipientResponse(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationrecipientsrecipientResponse`
         """
-        model = CustomCommunicationrecipientsrecipientResponse()  # noqa: E501
+        model = CustomCommunicationrecipientsrecipientResponse()
         if include_optional:
             return CustomCommunicationrecipientsrecipientResponse(
                 fki_agent_id = 1,

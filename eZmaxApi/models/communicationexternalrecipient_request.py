@@ -19,22 +19,28 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, constr, validator
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import Field
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_communicationexternalrecipient_type import FieldECommunicationexternalrecipientType
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class CommunicationexternalrecipientRequest(BaseModel):
     """
-    A Communicationexternalrecipient Object  # noqa: E501
-    """
-    pki_communicationexternalrecipient_id: Optional[StrictInt] = Field(None, alias="pkiCommunicationexternalrecipientID", description="The unique ID of the Communicationexternalrecipient")
-    s_email_address: Optional[StrictStr] = Field(None, alias="sEmailAddress", description="The email address.")
-    s_phone_e164: Optional[constr(strict=True)] = Field(None, alias="sPhoneE164", description="A phone number in E.164 Format")
-    e_communicationexternalrecipient_type: Optional[FieldECommunicationexternalrecipientType] = Field(None, alias="eCommunicationexternalrecipientType")
-    s_communicationexternalrecipient_name: constr(strict=True) = Field(..., alias="sCommunicationexternalrecipientName", description="The name of the Communicationexternalrecipient")
-    __properties = ["pkiCommunicationexternalrecipientID", "sEmailAddress", "sPhoneE164", "eCommunicationexternalrecipientType", "sCommunicationexternalrecipientName"]
+    A Communicationexternalrecipient Object
+    """ # noqa: E501
+    pki_communicationexternalrecipient_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationexternalrecipient", alias="pkiCommunicationexternalrecipientID")
+    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
+    e_communicationexternalrecipient_type: Optional[FieldECommunicationexternalrecipientType] = Field(default=None, alias="eCommunicationexternalrecipientType")
+    s_communicationexternalrecipient_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Communicationexternalrecipient", alias="sCommunicationexternalrecipientName")
+    __properties: ClassVar[List[str]] = ["pkiCommunicationexternalrecipientID", "sEmailAddress", "sPhoneE164", "eCommunicationexternalrecipientType", "sCommunicationexternalrecipientName"]
 
-    @validator('s_phone_e164')
+    @field_validator('s_phone_e164')
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
@@ -44,54 +50,70 @@ class CommunicationexternalrecipientRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @validator('s_communicationexternalrecipient_name')
+    @field_validator('s_communicationexternalrecipient_name')
     def s_communicationexternalrecipient_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> CommunicationexternalrecipientRequest:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CommunicationexternalrecipientRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> CommunicationexternalrecipientRequest:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of CommunicationexternalrecipientRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return CommunicationexternalrecipientRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = CommunicationexternalrecipientRequest.parse_obj({
-            "pki_communicationexternalrecipient_id": obj.get("pkiCommunicationexternalrecipientID"),
-            "s_email_address": obj.get("sEmailAddress"),
-            "s_phone_e164": obj.get("sPhoneE164"),
-            "e_communicationexternalrecipient_type": obj.get("eCommunicationexternalrecipientType"),
-            "s_communicationexternalrecipient_name": obj.get("sCommunicationexternalrecipientName")
+        _obj = cls.model_validate({
+            "pkiCommunicationexternalrecipientID": obj.get("pkiCommunicationexternalrecipientID"),
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "sPhoneE164": obj.get("sPhoneE164"),
+            "eCommunicationexternalrecipientType": obj.get("eCommunicationexternalrecipientType"),
+            "sCommunicationexternalrecipientName": obj.get("sCommunicationexternalrecipientName")
         })
         return _obj
 

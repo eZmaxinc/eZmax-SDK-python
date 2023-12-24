@@ -16,7 +16,7 @@
 import unittest
 import datetime
 
-from eZmaxApi.models.websocket_response_information_v1 import WebsocketResponseInformationV1  # noqa: E501
+from eZmaxApi.models.websocket_response_information_v1 import WebsocketResponseInformationV1
 
 class TestWebsocketResponseInformationV1(unittest.TestCase):
     """WebsocketResponseInformationV1 unit test stubs"""
@@ -34,16 +34,18 @@ class TestWebsocketResponseInformationV1(unittest.TestCase):
             optional params are included """
         # uncomment below to create an instance of `WebsocketResponseInformationV1`
         """
-        model = WebsocketResponseInformationV1()  # noqa: E501
+        model = WebsocketResponseInformationV1()
         if include_optional:
             return WebsocketResponseInformationV1(
                 e_websocket_messagetype = 'Response-Information-V1',
+                s_websocket_channel = 'Ch@nnel_1.0',
                 m_payload = eZmaxApi.models.websocket_response_information_v1_m_payload.Websocket-Response-Information-V1-mPayload(
                     s_information_message = 'Rasterizing pages', )
             )
         else:
             return WebsocketResponseInformationV1(
                 e_websocket_messagetype = 'Response-Information-V1',
+                s_websocket_channel = 'Ch@nnel_1.0',
                 m_payload = eZmaxApi.models.websocket_response_information_v1_m_payload.Websocket-Response-Information-V1-mPayload(
                     s_information_message = 'Rasterizing pages', ),
         )

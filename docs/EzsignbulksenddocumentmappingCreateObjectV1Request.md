@@ -3,6 +3,7 @@
 Request for POST /1/object/ezsignbulksenddocumentmapping
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsignbulksenddocumentmapping** | [**List[EzsignbulksenddocumentmappingRequestCompound]**](EzsignbulksenddocumentmappingRequestCompound.md) |  | 
