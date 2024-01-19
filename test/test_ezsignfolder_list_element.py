@@ -44,6 +44,7 @@ class TestEzsignfolderListElement(unittest.TestCase):
                 s_ezsignfolder_description = 'Test eZsign Folder',
                 e_ezsignfolder_step = 'Completed',
                 dt_created_date = '2020-12-31 23:59:59',
+                dt_ezsignfolder_delayedsenddate = '2020-12-31T23:59:59.000Z',
                 dt_ezsignfolder_sentdate = '2020-12-31T23:59:59.000Z',
                 dt_ezsignfolder_duedate = '2020-12-31 23:59:59',
                 i_ezsigndocument = 56,

@@ -58,19 +58,30 @@ class UserRequest(BaseModel):
     s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
     s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
+    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
     b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
     b_user_validatebyadministration: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by administrative personnel or not", alias="bUserValidatebyadministration")
     b_user_validatebydirector: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by a director or not", alias="bUserValidatebydirector")
     b_user_attachmentautoverified: Optional[StrictBool] = Field(default=None, description="Whether if Attachments uploaded by the User must be validated or not", alias="bUserAttachmentautoverified")
     b_user_changepassword: Optional[StrictBool] = Field(default=None, description="Whether if the User is forced to change its password", alias="bUserChangepassword")
-    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword"]
+    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
+        return value
+
+    @field_validator('s_user_jobtitle')
+    def s_user_jobtitle_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = {
@@ -152,6 +163,7 @@ class UserRequest(BaseModel):
             "sUserFirstname": obj.get("sUserFirstname"),
             "sUserLastname": obj.get("sUserLastname"),
             "sUserLoginname": obj.get("sUserLoginname"),
+            "sUserJobtitle": obj.get("sUserJobtitle"),
             "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
             "bUserIsactive": obj.get("bUserIsactive"),
             "bUserValidatebyadministration": obj.get("bUserValidatebyadministration"),

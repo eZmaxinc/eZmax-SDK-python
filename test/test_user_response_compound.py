@@ -64,6 +64,7 @@ class TestUserResponseCompound(unittest.TestCase):
                 s_user_firstname = 'John',
                 s_user_lastname = 'Doe',
                 s_user_loginname = 'JohnDoe',
+                s_user_jobtitle = 'Sales Representative',
                 e_user_ezsignaccess = 'PaidByOffice',
                 dt_user_lastlogondate = '2020-12-31 23:59:59',
                 dt_user_passwordchanged = '2020-12-31 23:59:59',

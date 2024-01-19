@@ -44,6 +44,7 @@ class FieldEEzsigntemplatesignatureType(str, Enum):
     ATTACHMENTS = 'Attachments'
     FIELDTEXT = 'FieldText'
     FIELDTEXTAREA = 'FieldTextarea'
+    CONSULTATION = 'Consultation'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

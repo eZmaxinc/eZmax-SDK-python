@@ -41,6 +41,7 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 fki_ezsigntemplatedocument_id = 133,
                 fki_ezsigntemplatesigner_id = 9,
                 fki_ezsigntemplatesigner_id_validation = 9,
+                e_ezsigntemplatesignature_positioning = 'PerCoordinates',
                 i_ezsigntemplatedocumentpage_pagenumber = 1,
                 i_ezsigntemplatesignature_x = 200,
                 i_ezsigntemplatesignature_y = 300,
@@ -58,7 +59,11 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 i_ezsigntemplatesignature_maxlength = 75,
                 s_ezsigntemplatesignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
                 e_ezsigntemplatesignature_textvalidation = 'None',
-                e_ezsigntemplatesignature_dependencyrequirement = 'AllOf'
+                e_ezsigntemplatesignature_dependencyrequirement = 'AllOf',
+                s_ezsigntemplatesignature_positioningpattern = 'Signature',
+                i_ezsigntemplatesignature_positioningoffsetx = 200,
+                i_ezsigntemplatesignature_positioningoffsety = 200,
+                e_ezsigntemplatesignature_positioningoccurence = 'All'
             )
         else:
             return EzsigntemplatesignatureResponse(
@@ -66,8 +71,6 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 fki_ezsigntemplatedocument_id = 133,
                 fki_ezsigntemplatesigner_id = 9,
                 i_ezsigntemplatedocumentpage_pagenumber = 1,
-                i_ezsigntemplatesignature_x = 200,
-                i_ezsigntemplatesignature_y = 300,
                 i_ezsigntemplatesignature_step = 1,
                 e_ezsigntemplatesignature_type = 'Name',
         )

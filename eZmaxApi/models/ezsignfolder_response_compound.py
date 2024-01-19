@@ -25,6 +25,7 @@ from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
+from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
 from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 try:
@@ -39,6 +40,7 @@ class EzsignfolderResponseCompound(BaseModel):
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     obj_ezsignfoldertype: Optional[CustomEzsignfoldertypeResponse] = Field(default=None, alias="objEzsignfoldertype")
+    e_ezsignfolder_completion: Optional[FieldEEzsignfolderCompletion] = Field(default=None, alias="eEzsignfolderCompletion")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, alias="sEzsignfoldertypeNameX")
     fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_billingentityinternal_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
@@ -58,7 +60,7 @@ class EzsignfolderResponseCompound(BaseModel):
     t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "eEzsignfolderSendreminderfrequency", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "tEzsignfolderMessage", "objAudit", "sEzsignfolderExternalid"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "eEzsignfolderCompletion", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "eEzsignfolderSendreminderfrequency", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "tEzsignfolderMessage", "objAudit", "sEzsignfolderExternalid"]
 
     @field_validator('s_ezsignfolder_externalid')
     def s_ezsignfolder_externalid_validate_regular_expression(cls, value):
@@ -128,6 +130,7 @@ class EzsignfolderResponseCompound(BaseModel):
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj.get("objEzsignfoldertype")) if obj.get("objEzsignfoldertype") is not None else None,
+            "eEzsignfolderCompletion": obj.get("eEzsignfolderCompletion"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),

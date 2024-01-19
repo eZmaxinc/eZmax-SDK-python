@@ -58,6 +58,7 @@ class TestUserRequest(unittest.TestCase):
                 s_user_firstname = 'John',
                 s_user_lastname = 'Doe',
                 s_user_loginname = 'JohnDoe',
+                s_user_jobtitle = 'Sales Representative',
                 e_user_ezsignaccess = 'PaidByOffice',
                 b_user_isactive = True,
                 b_user_validatebyadministration = False,

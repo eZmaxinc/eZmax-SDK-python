@@ -45,7 +45,9 @@ class TestCustomEzsignfoldertypeResponse(unittest.TestCase):
                 b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False,
                 b_ezsignfoldertype_allowdownloadproofezsignsigner = False,
                 b_ezsignfoldertype_delegate = True,
-                b_ezsignfoldertype_reassign = True
+                b_ezsignfoldertype_reassign = True,
+                b_ezsignfoldertype_reassignezsignsigner = True,
+                b_ezsignfoldertype_reassignuser = True
             )
         else:
             return CustomEzsignfoldertypeResponse(

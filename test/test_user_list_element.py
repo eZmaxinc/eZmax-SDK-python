@@ -46,7 +46,8 @@ class TestUserListElement(unittest.TestCase):
                 e_user_origin = 'BuiltIn',
                 e_user_ezsignaccess = 'PaidByOffice',
                 dt_user_ezsignprepaidexpiration = '2020-12-31',
-                s_email_address = 'email@example.com'
+                s_email_address = 'email@example.com',
+                s_user_jobtitle = 'Sales Representative'
             )
         else:
             return UserListElement(

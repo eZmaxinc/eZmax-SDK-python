@@ -44,7 +44,12 @@ class TestEzsigndocumentApplyEzsigntemplateV2Response(unittest.TestCase):
                         117
                         ], 
                     b_version_deprecated = False, ),
-                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]}
+                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
+                a_obj_warning = [
+                    eZmaxApi.models.common_response_warning.Common-Response-Warning(
+                        s_warning_message = '', 
+                        e_warning_code = '', )
+                    ]
             )
         else:
             return EzsigndocumentApplyEzsigntemplateV2Response(

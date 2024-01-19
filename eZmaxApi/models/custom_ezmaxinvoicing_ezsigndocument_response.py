@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
@@ -33,11 +33,12 @@ class CustomEzmaxinvoicingEzsigndocumentResponse(BaseModel):
     An EzmaxinvoicingEzsigndocument object containing information about the Ezmaxinvoicing for an Ezsigndocument
     """ # noqa: E501
     fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_name: StrictStr = Field(alias="sName")
     s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
     b_ezsignfolder_allowed: StrictBool = Field(description="Whether you have access to the Ezsignfolder or not", alias="bEzsignfolderAllowed")
-    __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "sName", "sEzsignfolderDescription", "sEzsigndocumentName", "bEzsignfolderAllowed"]
+    __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "fkiBillingentityinternalID", "sName", "sEzsignfolderDescription", "sEzsigndocumentName", "bEzsignfolderAllowed"]
 
     model_config = {
         "populate_by_name": True,
@@ -89,6 +90,7 @@ class CustomEzmaxinvoicingEzsigndocumentResponse(BaseModel):
 
         _obj = cls.model_validate({
             "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sName": obj.get("sName"),
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
             "sEzsigndocumentName": obj.get("sEzsigndocumentName"),

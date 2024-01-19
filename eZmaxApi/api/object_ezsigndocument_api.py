@@ -34,6 +34,8 @@ from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_request import Ezsig
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v2_request import EzsigndocumentApplyEzsigntemplateV2Request
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v2_response import EzsigndocumentApplyEzsigntemplateV2Response
+from eZmaxApi.models.ezsigndocument_create_ezsignelements_positioned_by_word_v1_request import EzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+from eZmaxApi.models.ezsigndocument_create_ezsignelements_positioned_by_word_v1_response import EzsigndocumentCreateEzsignelementsPositionedByWordV1Response
 from eZmaxApi.models.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 from eZmaxApi.models.ezsigndocument_create_object_v1_response import EzsigndocumentCreateObjectV1Response
 from eZmaxApi.models.ezsigndocument_create_object_v2_request import EzsigndocumentCreateObjectV2Request
@@ -52,6 +54,7 @@ from eZmaxApi.models.ezsigndocument_get_attachments_v1_response import Ezsigndoc
 from eZmaxApi.models.ezsigndocument_get_completed_elements_v1_response import EzsigndocumentGetCompletedElementsV1Response
 from eZmaxApi.models.ezsigndocument_get_download_url_v1_response import EzsigndocumentGetDownloadUrlV1Response
 from eZmaxApi.models.ezsigndocument_get_ezsignannotations_v1_response import EzsigndocumentGetEzsignannotationsV1Response
+from eZmaxApi.models.ezsigndocument_get_ezsigndiscussions_v1_response import EzsigndocumentGetEzsigndiscussionsV1Response
 from eZmaxApi.models.ezsigndocument_get_ezsignformfieldgroups_v1_response import EzsigndocumentGetEzsignformfieldgroupsV1Response
 from eZmaxApi.models.ezsigndocument_get_ezsignpages_v1_response import EzsigndocumentGetEzsignpagesV1Response
 from eZmaxApi.models.ezsigndocument_get_ezsignsignatures_automatic_v1_response import EzsigndocumentGetEzsignsignaturesAutomaticV1Response
@@ -658,6 +661,298 @@ class ObjectEzsigndocumentApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigndocument_create_ezsignelements_positioned_by_word_v1(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigndocumentCreateEzsignelementsPositionedByWordV1Response:
+        """Create multiple Ezsignsignatures/Ezsignformfieldgroups
+
+        Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: (required)
+        :type ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_create_ezsignelements_positioned_by_word_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            ezsigndocument_create_ezsignelements_positioned_by_word_v1_request=ezsigndocument_create_ezsignelements_positioned_by_word_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentCreateEzsignelementsPositionedByWordV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsigndocument_create_ezsignelements_positioned_by_word_v1_with_http_info(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigndocumentCreateEzsignelementsPositionedByWordV1Response]:
+        """Create multiple Ezsignsignatures/Ezsignformfieldgroups
+
+        Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: (required)
+        :type ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_create_ezsignelements_positioned_by_word_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            ezsigndocument_create_ezsignelements_positioned_by_word_v1_request=ezsigndocument_create_ezsignelements_positioned_by_word_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentCreateEzsignelementsPositionedByWordV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigndocument_create_ezsignelements_positioned_by_word_v1_without_preload_content(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create multiple Ezsignsignatures/Ezsignformfieldgroups
+
+        Using this endpoint, you can create multiple Ezsignsignatures/Ezsignformfieldgroups positioned by word at the same time.
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: (required)
+        :type ezsigndocument_create_ezsignelements_positioned_by_word_v1_request: EzsigndocumentCreateEzsignelementsPositionedByWordV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_create_ezsignelements_positioned_by_word_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            ezsigndocument_create_ezsignelements_positioned_by_word_v1_request=ezsigndocument_create_ezsignelements_positioned_by_word_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentCreateEzsignelementsPositionedByWordV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigndocument_create_ezsignelements_positioned_by_word_v1_serialize(
+        self,
+        pki_ezsigndocument_id,
+        ezsigndocument_create_ezsignelements_positioned_by_word_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigndocument_id is not None:
+            _path_params['pkiEzsigndocumentID'] = pki_ezsigndocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsigndocument_create_ezsignelements_positioned_by_word_v1_request is not None:
+            _body_params = ezsigndocument_create_ezsignelements_positioned_by_word_v1_request
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3742,7 +4037,7 @@ class ObjectEzsigndocumentApi:
     def ezsigndocument_get_download_url_v1(
         self,
         pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
-        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
+        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3762,7 +4057,7 @@ class ObjectEzsigndocumentApi:
 
         :param pki_ezsigndocument_id: (required)
         :type pki_ezsigndocument_id: int
-        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
+        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
         :type e_document_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3815,7 +4110,7 @@ class ObjectEzsigndocumentApi:
     def ezsigndocument_get_download_url_v1_with_http_info(
         self,
         pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
-        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
+        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3835,7 +4130,7 @@ class ObjectEzsigndocumentApi:
 
         :param pki_ezsigndocument_id: (required)
         :type pki_ezsigndocument_id: int
-        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
+        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
         :type e_document_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3888,7 +4183,7 @@ class ObjectEzsigndocumentApi:
     def ezsigndocument_get_download_url_v1_without_preload_content(
         self,
         pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
-        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
+        e_document_type: Annotated[StrictStr, Field(description="The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more. ")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3908,7 +4203,7 @@ class ObjectEzsigndocumentApi:
 
         :param pki_ezsigndocument_id: (required)
         :type pki_ezsigndocument_id: int
-        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
+        :param e_document_type: The type of document to retrieve.  1. **Initial** Is the initial document before any signature were applied. 2. **SignatureReady** Is the version containing the annotations/form to show the signer. 3. **Signed** Is the final document once all signatures were applied in current document if eEzsignfolderCompletion is PerEzsigndocument.<br>     Is the final document once all signatures were applied in all documents if eEzsignfolderCompletion is PerEzsignfolder. 4. **Proofdocument** Is the evidence report. 5. **Proof** Is the complete evidence archive including all of the above and more.  (required)
         :type e_document_type: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4266,6 +4561,270 @@ class ObjectEzsigndocumentApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignannotations',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsigndocument_get_ezsigndiscussions_v1(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsigndocumentGetEzsigndiscussionsV1Response:
+        """Retrieve an existing Ezsigndocument's Ezsigndiscussions
+
+        
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_get_ezsigndiscussions_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentGetEzsigndiscussionsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsigndocument_get_ezsigndiscussions_v1_with_http_info(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsigndocumentGetEzsigndiscussionsV1Response]:
+        """Retrieve an existing Ezsigndocument's Ezsigndiscussions
+
+        
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_get_ezsigndiscussions_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentGetEzsigndiscussionsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsigndocument_get_ezsigndiscussions_v1_without_preload_content(
+        self,
+        pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsigndocument's Ezsigndiscussions
+
+        
+
+        :param pki_ezsigndocument_id: (required)
+        :type pki_ezsigndocument_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsigndocument_get_ezsigndiscussions_v1_serialize(
+            pki_ezsigndocument_id=pki_ezsigndocument_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsigndocumentGetEzsigndiscussionsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsigndocument_get_ezsigndiscussions_v1_serialize(
+        self,
+        pki_ezsigndocument_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsigndocument_id is not None:
+            _path_params['pkiEzsigndocumentID'] = pki_ezsigndocument_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsigndiscussions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

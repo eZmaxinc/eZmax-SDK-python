@@ -20,10 +20,12 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
 from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
+from eZmaxApi.models.field_e_ezsigntemplateformfield_positioning import FieldEEzsigntemplateformfieldPositioning
+from eZmaxApi.models.field_e_ezsigntemplateformfield_positioningoccurence import FieldEEzsigntemplateformfieldPositioningoccurence
 try:
     from typing import Self
 except ImportError:
@@ -34,17 +36,32 @@ class EzsigntemplateformfieldResponse(BaseModel):
     An Ezsigntemplateformfield Object
     """ # noqa: E501
     pki_ezsigntemplateformfield_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateformfield", alias="pkiEzsigntemplateformfieldID")
+    e_ezsigntemplateformfield_positioning: Optional[FieldEEzsigntemplateformfieldPositioning] = Field(default=None, alias="eEzsigntemplateformfieldPositioning")
     i_ezsigntemplatedocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplatedocument", alias="iEzsigntemplatedocumentpagePagenumber")
     s_ezsigntemplateformfield_label: StrictStr = Field(description="The Label for the Ezsigntemplateformfield", alias="sEzsigntemplateformfieldLabel")
     s_ezsigntemplateformfield_value: Optional[StrictStr] = Field(default=None, description="The value for the Ezsigntemplateformfield", alias="sEzsigntemplateformfieldValue")
-    i_ezsigntemplateformfield_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplateformfieldX")
-    i_ezsigntemplateformfield_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsigntemplateformfieldY")
+    i_ezsigntemplateformfield_x: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The X coordinate (Horizontal) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplateformfieldX")
+    i_ezsigntemplateformfield_y: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Y coordinate (Vertical) where to put the Ezsigntemplateformfield on the Ezsigntemplatepage.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplateformfield 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsigntemplateformfieldY")
     i_ezsigntemplateformfield_width: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22-65535     | | Radio                     | 22           | | Text                      | 22-65535     | | Textarea                  | 22-65535     |", alias="iEzsigntemplateformfieldWidth")
     i_ezsigntemplateformfield_height: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the Ezsigntemplateformfield in pixels calculated at 100 DPI  The allowed values are varying based on the eEzsigntemplateformfieldgroupType.  | eEzsigntemplateformfieldgroupType | Valid values | | ------------------------- | ------------ | | Checkbox                  | 22           | | Dropdown                  | 22           | | Radio                     | 22           | | Text                      | 22           | | Textarea                  | 22-65535     | ", alias="iEzsigntemplateformfieldHeight")
     b_ezsigntemplateformfield_autocomplete: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplateformfield allows the use of the autocomplete of the browser.  This can only be set if eEzsigntemplateformfieldgroupType is **Text**", alias="bEzsigntemplateformfieldAutocomplete")
     b_ezsigntemplateformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplateformfield is selected or not by default.  This can only be set if eEzsigntemplateformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsigntemplateformfieldSelected")
     e_ezsigntemplateformfield_dependencyrequirement: Optional[FieldEEzsigntemplateformfieldDependencyrequirement] = Field(default=None, alias="eEzsigntemplateformfieldDependencyrequirement")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldID", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement"]
+    s_ezsigntemplateformfield_positioningpattern: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**", alias="sEzsigntemplateformfieldPositioningpattern")
+    i_ezsigntemplateformfield_positioningoffsetx: Optional[StrictInt] = Field(default=None, description="The offset X  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**", alias="iEzsigntemplateformfieldPositioningoffsetx")
+    i_ezsigntemplateformfield_positioningoffsety: Optional[StrictInt] = Field(default=None, description="The offset Y  This will be required if **eEzsigntemplateformfieldPositioning** is set to **PerCoordinates**", alias="iEzsigntemplateformfieldPositioningoffsety")
+    e_ezsigntemplateformfield_positioningoccurence: Optional[FieldEEzsigntemplateformfieldPositioningoccurence] = Field(default=None, alias="eEzsigntemplateformfieldPositioningoccurence")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldID", "eEzsigntemplateformfieldPositioning", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "sEzsigntemplateformfieldPositioningpattern", "iEzsigntemplateformfieldPositioningoffsetx", "iEzsigntemplateformfieldPositioningoffsety", "eEzsigntemplateformfieldPositioningoccurence"]
+
+    @field_validator('s_ezsigntemplateformfield_positioningpattern')
+    def s_ezsigntemplateformfield_positioningpattern_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,30}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,30}$/")
+        return value
 
     model_config = {
         "populate_by_name": True,
@@ -96,6 +113,7 @@ class EzsigntemplateformfieldResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzsigntemplateformfieldID": obj.get("pkiEzsigntemplateformfieldID"),
+            "eEzsigntemplateformfieldPositioning": obj.get("eEzsigntemplateformfieldPositioning"),
             "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
             "sEzsigntemplateformfieldLabel": obj.get("sEzsigntemplateformfieldLabel"),
             "sEzsigntemplateformfieldValue": obj.get("sEzsigntemplateformfieldValue"),
@@ -105,7 +123,11 @@ class EzsigntemplateformfieldResponse(BaseModel):
             "iEzsigntemplateformfieldHeight": obj.get("iEzsigntemplateformfieldHeight"),
             "bEzsigntemplateformfieldAutocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
             "bEzsigntemplateformfieldSelected": obj.get("bEzsigntemplateformfieldSelected"),
-            "eEzsigntemplateformfieldDependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement")
+            "eEzsigntemplateformfieldDependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement"),
+            "sEzsigntemplateformfieldPositioningpattern": obj.get("sEzsigntemplateformfieldPositioningpattern"),
+            "iEzsigntemplateformfieldPositioningoffsetx": obj.get("iEzsigntemplateformfieldPositioningoffsetx"),
+            "iEzsigntemplateformfieldPositioningoffsety": obj.get("iEzsigntemplateformfieldPositioningoffsety"),
+            "eEzsigntemplateformfieldPositioningoccurence": obj.get("eEzsigntemplateformfieldPositioningoccurence")
         })
         return _obj
 

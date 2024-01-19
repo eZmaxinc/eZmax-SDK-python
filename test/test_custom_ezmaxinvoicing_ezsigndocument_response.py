@@ -38,6 +38,7 @@ class TestCustomEzmaxinvoicingEzsigndocumentResponse(unittest.TestCase):
         if include_optional:
             return CustomEzmaxinvoicingEzsigndocumentResponse(
                 fki_ezsignfolder_id = 33,
+                fki_billingentityinternal_id = 1,
                 s_name = '',
                 s_ezsignfolder_description = 'Test eZsign Folder',
                 s_ezsigndocument_name = 'Contract #123',

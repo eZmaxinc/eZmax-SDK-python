@@ -40,6 +40,7 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
                 pki_ezsignfolder_id = 33,
                 fki_ezsignfoldertype_id = 5,
                 obj_ezsignfoldertype = eZmaxApi.models.custom_ezsignfoldertype_response.Custom-Ezsignfoldertype-Response(),
+                e_ezsignfolder_completion = 'PerEzsigndocument',
                 s_ezsignfoldertype_name_x = '',
                 fki_billingentityinternal_id = 1,
                 s_billingentityinternal_description_x = 'Default',

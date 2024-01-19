@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
 **b_webhook_issigned** | **bool** | Whether the requests will be signed or not | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **b_webhook_test** | **bool** | Wheter the webhook received is a manual test or a real event | 
 

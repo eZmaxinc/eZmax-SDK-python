@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
@@ -33,12 +33,13 @@ class CustomEzmaxinvoicingEzsignfolderResponse(BaseModel):
     An EzmaxinvoicingEzsignfolder object containing information about the Ezmaxinvoicing for an Ezsignfolder
     """ # noqa: E501
     fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     b_ezsigntsarequirement_billable: StrictBool = Field(description="Whether the TSA requirement is billable or not", alias="bEzsigntsarequirementBillable")
     b_ezsignfolder_mfaused: StrictBool = Field(description="Whether the MFA was used or not for the Ezsignfolder", alias="bEzsignfolderMfaused")
     b_ezsignfolder_paymentused: StrictBool = Field(description="Whether there was a signature is of type payment", alias="bEzsignfolderPaymentused")
     b_ezsignfolder_allowed: StrictBool = Field(description="Whether you have access to the Ezsignfolder or not", alias="bEzsignfolderAllowed")
-    __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "sEzsignfolderDescription", "bEzsigntsarequirementBillable", "bEzsignfolderMfaused", "bEzsignfolderPaymentused", "bEzsignfolderAllowed"]
+    __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "fkiBillingentityinternalID", "sEzsignfolderDescription", "bEzsigntsarequirementBillable", "bEzsignfolderMfaused", "bEzsignfolderPaymentused", "bEzsignfolderAllowed"]
 
     model_config = {
         "populate_by_name": True,
@@ -90,6 +91,7 @@ class CustomEzmaxinvoicingEzsignfolderResponse(BaseModel):
 
         _obj = cls.model_validate({
             "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
             "bEzsigntsarequirementBillable": obj.get("bEzsigntsarequirementBillable"),
             "bEzsignfolderMfaused": obj.get("bEzsignfolderMfaused"),

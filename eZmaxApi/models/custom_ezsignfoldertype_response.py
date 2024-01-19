@@ -41,7 +41,9 @@ class CustomEzsignfoldertypeResponse(BaseModel):
     b_ezsignfoldertype_allowdownloadproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the proof to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadproofezsignsigner")
     b_ezsignfoldertype_delegate: Optional[StrictBool] = Field(default=None, description="Wheter if delegation of signature is allowed to another user or not", alias="bEzsignfoldertypeDelegate")
     b_ezsignfoldertype_reassign: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed to another signatory or not", alias="bEzsignfoldertypeReassign")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeIncludeproofsigner", "bEzsignfoldertypeIncludeproofuser", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeReassign"]
+    b_ezsignfoldertype_reassignezsignsigner: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a signatory to another signatory or not", alias="bEzsignfoldertypeReassignezsignsigner")
+    b_ezsignfoldertype_reassignuser: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not", alias="bEzsignfoldertypeReassignuser")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeIncludeproofsigner", "bEzsignfoldertypeIncludeproofuser", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeReassign", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser"]
 
     model_config = {
         "populate_by_name": True,
@@ -100,7 +102,9 @@ class CustomEzsignfoldertypeResponse(BaseModel):
             "bEzsignfoldertypeAllowdownloadattachmentezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadattachmentezsignsigner"),
             "bEzsignfoldertypeAllowdownloadproofezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadproofezsignsigner"),
             "bEzsignfoldertypeDelegate": obj.get("bEzsignfoldertypeDelegate"),
-            "bEzsignfoldertypeReassign": obj.get("bEzsignfoldertypeReassign")
+            "bEzsignfoldertypeReassign": obj.get("bEzsignfoldertypeReassign"),
+            "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
+            "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser")
         })
         return _obj
 

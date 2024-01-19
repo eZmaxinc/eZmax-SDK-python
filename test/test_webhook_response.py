@@ -50,7 +50,24 @@ class TestWebhookResponse(unittest.TestCase):
                 s_webhook_secret = '',
                 b_webhook_isactive = True,
                 b_webhook_issigned = True,
-                b_webhook_skipsslvalidation = False
+                b_webhook_skipsslvalidation = False,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return WebhookResponse(
@@ -62,6 +79,23 @@ class TestWebhookResponse(unittest.TestCase):
                 b_webhook_isactive = True,
                 b_webhook_issigned = True,
                 b_webhook_skipsslvalidation = False,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

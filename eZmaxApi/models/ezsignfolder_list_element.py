@@ -41,13 +41,14 @@ class EzsignfolderListElement(BaseModel):
     s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     e_ezsignfolder_step: FieldEEzsignfolderStep = Field(alias="eEzsignfolderStep")
     dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate")
+    dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
     dt_ezsignfolder_sentdate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was sent the last time.", alias="dtEzsignfolderSentdate")
     dt_ezsignfolder_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsignfolder can be signed.", alias="dtEzsignfolderDuedate")
     i_ezsigndocument: StrictInt = Field(description="The total number of Ezsigndocument in the folder", alias="iEzsigndocument")
     i_ezsigndocument_edm: StrictInt = Field(description="The total number of Ezsigndocument in the folder that were saved in the edm system", alias="iEzsigndocumentEdm")
     i_ezsignsignature: StrictInt = Field(description="The total number of signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignature")
     i_ezsignsignature_signed: StrictInt = Field(description="The total number of already signed signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignatureSigned")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned"]
 
     model_config = {
         "populate_by_name": True,
@@ -105,6 +106,7 @@ class EzsignfolderListElement(BaseModel):
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
             "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
             "dtCreatedDate": obj.get("dtCreatedDate"),
+            "dtEzsignfolderDelayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
             "dtEzsignfolderSentdate": obj.get("dtEzsignfolderSentdate"),
             "dtEzsignfolderDuedate": obj.get("dtEzsignfolderDuedate"),
             "iEzsigndocument": obj.get("iEzsigndocument"),

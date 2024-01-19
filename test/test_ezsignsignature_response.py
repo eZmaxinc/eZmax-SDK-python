@@ -48,6 +48,7 @@ class TestEzsignsignatureResponse(unittest.TestCase):
                 i_ezsignsignature_height = 200,
                 i_ezsignsignature_width = 200,
                 i_ezsignsignature_step = 1,
+                i_ezsignsignature_stepadjusted = 1,
                 e_ezsignsignature_type = 'Name',
                 t_ezsignsignature_tooltip = 'Please sign here if you agree to the terms',
                 e_ezsignsignature_tooltipposition = 'TopLeft',

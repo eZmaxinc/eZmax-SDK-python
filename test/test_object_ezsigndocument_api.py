@@ -41,6 +41,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_create_ezsignelements_positioned_by_word_v1(self) -> None:
+        """Test case for ezsigndocument_create_ezsignelements_positioned_by_word_v1
+
+        Create multiple Ezsignsignatures/Ezsignformfieldgroups
+        """
+        pass
+
     def test_ezsigndocument_create_object_v1(self) -> None:
         """Test case for ezsigndocument_create_object_v1
 
@@ -129,6 +136,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """Test case for ezsigndocument_get_ezsignannotations_v1
 
         Retrieve an existing Ezsigndocument's Ezsignannotations
+        """
+        pass
+
+    def test_ezsigndocument_get_ezsigndiscussions_v1(self) -> None:
+        """Test case for ezsigndocument_get_ezsigndiscussions_v1
+
+        Retrieve an existing Ezsigndocument's Ezsigndiscussions
         """
         pass
 

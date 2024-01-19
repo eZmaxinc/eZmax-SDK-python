@@ -45,7 +45,8 @@ class UserListElement(BaseModel):
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
     s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
-    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress"]
+    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
+    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
@@ -62,6 +63,16 @@ class UserListElement(BaseModel):
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+        return value
+
+    @field_validator('s_user_jobtitle')
+    def s_user_jobtitle_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = {
@@ -122,7 +133,8 @@ class UserListElement(BaseModel):
             "eUserOrigin": obj.get("eUserOrigin"),
             "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
             "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
-            "sEmailAddress": obj.get("sEmailAddress")
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "sUserJobtitle": obj.get("sUserJobtitle")
         })
         return _obj
 

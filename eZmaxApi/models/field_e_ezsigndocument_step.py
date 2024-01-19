@@ -40,6 +40,7 @@ class FieldEEzsigndocumentStep(str, Enum):
     PARTIALLYSIGNED = 'PartiallySigned'
     DECLINEDTOSIGN = 'DeclinedToSign'
     PREMATURELYENDED = 'PrematurelyEnded'
+    PENDINGCOMPLETION = 'PendingCompletion'
     COMPLETED = 'Completed'
     DISPOSED = 'Disposed'
 

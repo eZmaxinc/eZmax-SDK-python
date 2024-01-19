@@ -40,13 +40,13 @@ class TestEzsigntemplatesignaturecustomdateResponse(unittest.TestCase):
                 pki_ezsigntemplatesignaturecustomdate_id = 58,
                 i_ezsigntemplatesignaturecustomdate_x = 200,
                 i_ezsigntemplatesignaturecustomdate_y = 300,
+                i_ezsigntemplatesignaturecustomdate_offsetx = 200,
+                i_ezsigntemplatesignaturecustomdate_offsety = 200,
                 s_ezsigntemplatesignaturecustomdate_format = 'Signature date: {YYYY}/{MM}/{DD} {hh}:{mm}{ss} {Z}'
             )
         else:
             return EzsigntemplatesignaturecustomdateResponse(
                 pki_ezsigntemplatesignaturecustomdate_id = 58,
-                i_ezsigntemplatesignaturecustomdate_x = 200,
-                i_ezsigntemplatesignaturecustomdate_y = 300,
                 s_ezsigntemplatesignaturecustomdate_format = 'Signature date: {YYYY}/{MM}/{DD} {hh}:{mm}{ss} {Z}',
         )
         """

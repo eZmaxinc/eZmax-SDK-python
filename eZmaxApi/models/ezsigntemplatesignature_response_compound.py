@@ -29,6 +29,8 @@ from eZmaxApi.models.ezsigntemplatesignaturecustomdate_response_compound import 
 from eZmaxApi.models.field_e_ezsigntemplatesignature_attachmentnamesource import FieldEEzsigntemplatesignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsigntemplatesignature_dependencyrequirement import FieldEEzsigntemplatesignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont
+from eZmaxApi.models.field_e_ezsigntemplatesignature_positioning import FieldEEzsigntemplatesignaturePositioning
+from eZmaxApi.models.field_e_ezsigntemplatesignature_positioningoccurence import FieldEEzsigntemplatesignaturePositioningoccurence
 from eZmaxApi.models.field_e_ezsigntemplatesignature_tooltipposition import FieldEEzsigntemplatesignatureTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplatesignature_type import FieldEEzsigntemplatesignatureType
 try:
@@ -44,9 +46,10 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
     fki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
     fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
     fki_ezsigntemplatesigner_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerIDValidation")
+    e_ezsigntemplatesignature_positioning: Optional[FieldEEzsigntemplatesignaturePositioning] = Field(default=None, alias="eEzsigntemplatesignaturePositioning")
     i_ezsigntemplatedocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplatedocument", alias="iEzsigntemplatedocumentpagePagenumber")
-    i_ezsigntemplatesignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplatesignatureX")
-    i_ezsigntemplatesignature_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsigntemplatesignatureY")
+    i_ezsigntemplatesignature_x: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplatesignatureX")
+    i_ezsigntemplatesignature_y: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Y coordinate (Vertical) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsigntemplatesignatureY")
     i_ezsigntemplatesignature_width: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The width of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have a width of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureWidth.", alias="iEzsigntemplatesignatureWidth")
     i_ezsigntemplatesignature_height: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The height of the Ezsigntemplatesignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsigntemplatesignature to have an height of 2 inches, you would use \"200\" for the iEzsigntemplatesignatureHeight.", alias="iEzsigntemplatesignatureHeight")
     i_ezsigntemplatesignature_step: Annotated[int, Field(strict=True, ge=1)] = Field(description="The step when the Ezsigntemplatesigner will be invited to sign", alias="iEzsigntemplatesignatureStep")
@@ -62,10 +65,14 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
     s_ezsigntemplatesignature_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsigntemplatesignature.  This can only be set if eEzsigntemplatesignatureType is **Text** or **Textarea**", alias="sEzsigntemplatesignatureRegexp")
     e_ezsigntemplatesignature_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsigntemplatesignatureTextvalidation")
     e_ezsigntemplatesignature_dependencyrequirement: Optional[FieldEEzsigntemplatesignatureDependencyrequirement] = Field(default=None, alias="eEzsigntemplatesignatureDependencyrequirement")
+    s_ezsigntemplatesignature_positioningpattern: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The string pattern to search for the positioning. **This is not a regexp**  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**", alias="sEzsigntemplatesignaturePositioningpattern")
+    i_ezsigntemplatesignature_positioningoffsetx: Optional[StrictInt] = Field(default=None, description="The offset X  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**", alias="iEzsigntemplatesignaturePositioningoffsetx")
+    i_ezsigntemplatesignature_positioningoffsety: Optional[StrictInt] = Field(default=None, description="The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**", alias="iEzsigntemplatesignaturePositioningoffsety")
+    e_ezsigntemplatesignature_positioningoccurence: Optional[FieldEEzsigntemplatesignaturePositioningoccurence] = Field(default=None, alias="eEzsigntemplatesignaturePositioningoccurence")
     b_ezsigntemplatesignature_customdate: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)", alias="bEzsigntemplatesignatureCustomdate")
     a_obj_ezsigntemplatesignaturecustomdate: Optional[List[EzsigntemplatesignaturecustomdateResponseCompound]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsigntemplatesignaturecustomdate")
     a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "eEzsigntemplatesignatureDependencyrequirement", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "eEzsigntemplatesignaturePositioning", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "eEzsigntemplatesignatureDependencyrequirement", "sEzsigntemplatesignaturePositioningpattern", "iEzsigntemplatesignaturePositioningoffsetx", "iEzsigntemplatesignaturePositioningoffsety", "eEzsigntemplatesignaturePositioningoccurence", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency"]
 
     @field_validator('s_ezsigntemplatesignature_regexp')
     def s_ezsigntemplatesignature_regexp_validate_regular_expression(cls, value):
@@ -75,6 +82,16 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
 
         if not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
+        return value
+
+    @field_validator('s_ezsigntemplatesignature_positioningpattern')
+    def s_ezsigntemplatesignature_positioningpattern_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,30}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 
     model_config = {
@@ -144,6 +161,7 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
             "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
             "fkiEzsigntemplatesignerID": obj.get("fkiEzsigntemplatesignerID"),
             "fkiEzsigntemplatesignerIDValidation": obj.get("fkiEzsigntemplatesignerIDValidation"),
+            "eEzsigntemplatesignaturePositioning": obj.get("eEzsigntemplatesignaturePositioning"),
             "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
             "iEzsigntemplatesignatureX": obj.get("iEzsigntemplatesignatureX"),
             "iEzsigntemplatesignatureY": obj.get("iEzsigntemplatesignatureY"),
@@ -162,6 +180,10 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
             "sEzsigntemplatesignatureRegexp": obj.get("sEzsigntemplatesignatureRegexp"),
             "eEzsigntemplatesignatureTextvalidation": obj.get("eEzsigntemplatesignatureTextvalidation"),
             "eEzsigntemplatesignatureDependencyrequirement": obj.get("eEzsigntemplatesignatureDependencyrequirement"),
+            "sEzsigntemplatesignaturePositioningpattern": obj.get("sEzsigntemplatesignaturePositioningpattern"),
+            "iEzsigntemplatesignaturePositioningoffsetx": obj.get("iEzsigntemplatesignaturePositioningoffsetx"),
+            "iEzsigntemplatesignaturePositioningoffsety": obj.get("iEzsigntemplatesignaturePositioningoffsety"),
+            "eEzsigntemplatesignaturePositioningoccurence": obj.get("eEzsigntemplatesignaturePositioningoccurence"),
             "bEzsigntemplatesignatureCustomdate": obj.get("bEzsigntemplatesignatureCustomdate"),
             "a_objEzsigntemplatesignaturecustomdate": [EzsigntemplatesignaturecustomdateResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatesignaturecustomdate")] if obj.get("a_objEzsigntemplatesignaturecustomdate") is not None else None,
             "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplateelementdependency")] if obj.get("a_objEzsigntemplateelementdependency") is not None else None

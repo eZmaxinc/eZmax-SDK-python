@@ -51,6 +51,7 @@ class EzsignsignatureResponse(BaseModel):
     i_ezsignsignature_height: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The height of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have an height of 2 inches, you would use \"200\" for the iEzsignsignatureHeight.", alias="iEzsignsignatureHeight")
     i_ezsignsignature_width: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The width of the Ezsignsignature.  Size is calculated at 100dpi (dot per inch). So for example, if you want the Ezsignsignature to have a width of 2 inches, you would use \"200\" for the iEzsignsignatureWidth.", alias="iEzsignsignatureWidth")
     i_ezsignsignature_step: StrictInt = Field(description="The step when the Ezsignsigner will be invited to sign", alias="iEzsignsignatureStep")
+    i_ezsignsignature_stepadjusted: Optional[StrictInt] = Field(default=None, description="The step when the Ezsignsigner will be invited to sign", alias="iEzsignsignatureStepadjusted")
     e_ezsignsignature_type: FieldEEzsignsignatureType = Field(alias="eEzsignsignatureType")
     t_ezsignsignature_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsignsigner about the Ezsignsignature", alias="tEzsignsignatureTooltip")
     e_ezsignsignature_tooltipposition: Optional[FieldEEzsignsignatureTooltipposition] = Field(default=None, alias="eEzsignsignatureTooltipposition")
@@ -70,7 +71,7 @@ class EzsignsignatureResponse(BaseModel):
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(default=None, alias="objSignature")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
 
     @field_validator('s_ezsignsigningreason_description_x')
     def s_ezsignsigningreason_description_x_validate_regular_expression(cls, value):
@@ -171,6 +172,7 @@ class EzsignsignatureResponse(BaseModel):
             "iEzsignsignatureHeight": obj.get("iEzsignsignatureHeight"),
             "iEzsignsignatureWidth": obj.get("iEzsignsignatureWidth"),
             "iEzsignsignatureStep": obj.get("iEzsignsignatureStep"),
+            "iEzsignsignatureStepadjusted": obj.get("iEzsignsignatureStepadjusted"),
             "eEzsignsignatureType": obj.get("eEzsignsignatureType"),
             "tEzsignsignatureTooltip": obj.get("tEzsignsignatureTooltip"),
             "eEzsignsignatureTooltipposition": obj.get("eEzsignsignatureTooltipposition"),

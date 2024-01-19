@@ -24,6 +24,7 @@ from pydantic import BaseModel
 from pydantic import Field
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+from eZmaxApi.models.common_response_warning import CommonResponseWarning
 try:
     from typing import Self
 except ImportError:
@@ -35,7 +36,8 @@ class EzsigndocumentApplyEzsigntemplateV2Response(BaseModel):
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
-    __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug"]
+    a_obj_warning: Optional[List[CommonResponseWarning]] = Field(default=None, alias="a_objWarning")
+    __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "a_objWarning"]
 
     model_config = {
         "populate_by_name": True,
@@ -80,6 +82,13 @@ class EzsigndocumentApplyEzsigntemplateV2Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_debug
         if self.obj_debug:
             _dict['objDebug'] = self.obj_debug.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_warning (list)
+        _items = []
+        if self.a_obj_warning:
+            for _item in self.a_obj_warning:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objWarning'] = _items
         return _dict
 
     @classmethod
@@ -93,7 +102,8 @@ class EzsigndocumentApplyEzsigntemplateV2Response(BaseModel):
 
         _obj = cls.model_validate({
             "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj.get("objDebugPayload")) if obj.get("objDebugPayload") is not None else None,
-            "objDebug": CommonResponseObjDebug.from_dict(obj.get("objDebug")) if obj.get("objDebug") is not None else None
+            "objDebug": CommonResponseObjDebug.from_dict(obj.get("objDebug")) if obj.get("objDebug") is not None else None,
+            "a_objWarning": [CommonResponseWarning.from_dict(_item) for _item in obj.get("a_objWarning")] if obj.get("a_objWarning") is not None else None
         })
         return _obj
 

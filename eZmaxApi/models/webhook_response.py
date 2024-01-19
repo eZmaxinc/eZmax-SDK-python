@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
@@ -49,7 +50,8 @@ class WebhookResponse(BaseModel):
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
     b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation"]
+    obj_audit: CommonAudit = Field(alias="objAudit")
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "objAudit"]
 
     model_config = {
         "populate_by_name": True,
@@ -88,6 +90,9 @@ class WebhookResponse(BaseModel):
             },
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_audit
+        if self.obj_audit:
+            _dict['objAudit'] = self.obj_audit.to_dict()
         return _dict
 
     @classmethod
@@ -113,7 +118,8 @@ class WebhookResponse(BaseModel):
             "sWebhookSecret": obj.get("sWebhookSecret"),
             "bWebhookIsactive": obj.get("bWebhookIsactive"),
             "bWebhookIssigned": obj.get("bWebhookIssigned"),
-            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation")
+            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation"),
+            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
         })
         return _obj
 

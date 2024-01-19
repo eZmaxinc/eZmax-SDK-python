@@ -38,6 +38,7 @@ class TestCustomEzmaxinvoicingEzsignfolderResponse(unittest.TestCase):
         if include_optional:
             return CustomEzmaxinvoicingEzsignfolderResponse(
                 fki_ezsignfolder_id = 33,
+                fki_billingentityinternal_id = 1,
                 s_ezsignfolder_description = 'Test eZsign Folder',
                 b_ezsigntsarequirement_billable = True,
                 b_ezsignfolder_mfaused = True,
