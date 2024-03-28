@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BillingentityinternalGetAutocompleteV2ResponseMPayload from a JSON string
 billingentityinternal_get_autocomplete_v2_response_m_payload_instance = BillingentityinternalGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalGetAutocompleteV2ResponseMPayload.to_json()
+print(BillingentityinternalGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 billingentityinternal_get_autocomplete_v2_response_m_payload_dict = billingentityinternal_get_autocomplete_v2_response_m_payload_instance.to_dict()

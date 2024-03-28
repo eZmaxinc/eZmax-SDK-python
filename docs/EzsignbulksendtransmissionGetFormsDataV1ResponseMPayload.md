@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload from a JSON string
 ezsignbulksendtransmission_get_forms_data_v1_response_m_payload_instance = EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload.to_json()
+print(EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignbulksendtransmission_get_forms_data_v1_response_m_payload_dict = ezsignbulksendtransmission_get_forms_data_v1_response_m_payload_instance.to_dict()

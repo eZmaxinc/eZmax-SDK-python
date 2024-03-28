@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CustomEzsignfoldersignerassociationstatusResponse from a JSON string
 custom_ezsignfoldersignerassociationstatus_response_instance = CustomEzsignfoldersignerassociationstatusResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignfoldersignerassociationstatusResponse.to_json()
+print(CustomEzsignfoldersignerassociationstatusResponse.to_json())
 
 # convert the object into a dict
 custom_ezsignfoldersignerassociationstatus_response_dict = custom_ezsignfoldersignerassociationstatus_response_instance.to_dict()

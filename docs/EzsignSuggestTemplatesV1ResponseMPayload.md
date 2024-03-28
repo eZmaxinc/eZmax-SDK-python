@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_ezsigntemplate** | [**List[EzsigntemplateResponseCompound]**](EzsigntemplateResponseCompound.md) |  | 
 **a_obj_ezsigntemplatepackage** | [**List[EzsigntemplatepackageResponseCompound]**](EzsigntemplatepackageResponseCompound.md) |  | 
+**a_obj_ezsigntemplateglobal** | [**List[EzsigntemplateglobalResponseCompound]**](EzsigntemplateglobalResponseCompound.md) |  | 
 
 ## Example
 
@@ -19,7 +20,7 @@ json = "{}"
 # create an instance of EzsignSuggestTemplatesV1ResponseMPayload from a JSON string
 ezsign_suggest_templates_v1_response_m_payload_instance = EzsignSuggestTemplatesV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignSuggestTemplatesV1ResponseMPayload.to_json()
+print(EzsignSuggestTemplatesV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsign_suggest_templates_v1_response_m_payload_dict = ezsign_suggest_templates_v1_response_m_payload_instance.to_dict()

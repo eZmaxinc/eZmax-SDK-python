@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PermissionCreateObjectV1Request from a JSON string
 permission_create_object_v1_request_instance = PermissionCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print PermissionCreateObjectV1Request.to_json()
+print(PermissionCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 permission_create_object_v1_request_dict = permission_create_object_v1_request_instance.to_dict()

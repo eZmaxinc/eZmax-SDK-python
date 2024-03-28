@@ -18,19 +18,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype
 from eZmaxApi.models.custom_ezsignfoldersignerassociationstatus_response import CustomEzsignfoldersignerassociationstatusResponse
 from eZmaxApi.models.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
     """
@@ -58,13 +54,14 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
     i_ezsigndocument_ezsignsignatureattachmenttotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of Ezsigndocumentattachment total", alias="iEzsigndocumentEzsignsignatureattachmenttotal")
+    i_ezsigndocument_ezsigndiscussiontotal: StrictInt = Field(description="The total number of Ezsigndiscussions", alias="iEzsigndocumentEzsigndiscussiontotal")
     e_ezsigndocument_steptype: ComputedEEzsigndocumentSteptype = Field(alias="eEzsigndocumentSteptype")
     i_ezsigndocument_stepformtotal: StrictInt = Field(description="The total number of steps in the form filling phase", alias="iEzsigndocumentStepformtotal")
     i_ezsigndocument_stepformcurrent: StrictInt = Field(description="The current step in the form filling phase", alias="iEzsigndocumentStepformcurrent")
     i_ezsigndocument_stepsignaturetotal: StrictInt = Field(description="The total number of steps in the signature filling phase", alias="iEzsigndocumentStepsignaturetotal")
     i_ezsigndocument_stepsignature_current: StrictInt = Field(description="The current step in the signature phase", alias="iEzsigndocumentStepsignatureCurrent")
     a_obj_ezsignfoldersignerassociationstatus: List[CustomEzsignfoldersignerassociationstatusResponse] = Field(alias="a_objEzsignfoldersignerassociationstatus")
-    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus"]
 
     @field_validator('s_ezsigndocument_externalid')
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
@@ -76,11 +73,11 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -93,7 +90,7 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigndocumentGetObjectV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -107,10 +104,12 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
@@ -126,7 +125,7 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigndocumentGetObjectV1ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -154,15 +153,16 @@ class EzsigndocumentGetObjectV1ResponseMPayload(BaseModel):
             "sEzsigndocumentMD5signed": obj.get("sEzsigndocumentMD5signed"),
             "bEzsigndocumentEzsignform": obj.get("bEzsigndocumentEzsignform"),
             "bEzsigndocumentHassignedsignatures": obj.get("bEzsigndocumentHassignedsignatures"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
             "sEzsigndocumentExternalid": obj.get("sEzsigndocumentExternalid"),
             "iEzsigndocumentEzsignsignatureattachmenttotal": obj.get("iEzsigndocumentEzsignsignatureattachmenttotal"),
+            "iEzsigndocumentEzsigndiscussiontotal": obj.get("iEzsigndocumentEzsigndiscussiontotal"),
             "eEzsigndocumentSteptype": obj.get("eEzsigndocumentSteptype"),
             "iEzsigndocumentStepformtotal": obj.get("iEzsigndocumentStepformtotal"),
             "iEzsigndocumentStepformcurrent": obj.get("iEzsigndocumentStepformcurrent"),
             "iEzsigndocumentStepsignaturetotal": obj.get("iEzsigndocumentStepsignaturetotal"),
             "iEzsigndocumentStepsignatureCurrent": obj.get("iEzsigndocumentStepsignatureCurrent"),
-            "a_objEzsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj.get("a_objEzsignfoldersignerassociationstatus")] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None
+            "a_objEzsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj["a_objEzsignfoldersignerassociationstatus"]] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None
         })
         return _obj
 

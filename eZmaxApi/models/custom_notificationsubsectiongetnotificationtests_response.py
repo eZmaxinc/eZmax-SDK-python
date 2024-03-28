@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_notificationtestgetnotificationtests_response import CustomNotificationtestgetnotificationtestsResponse
 from eZmaxApi.models.multilingual_notificationsubsection_name import MultilingualNotificationsubsectionName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
     """
@@ -42,11 +38,11 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
     a_obj_notificationtest: List[CustomNotificationtestgetnotificationtestsResponse] = Field(alias="a_objNotificationtest")
     __properties: ClassVar[List[str]] = ["pkiNotificationsubsectionID", "fkiNotificationsectionID", "objNotificationsubsectionName", "sNotificationsectionNameX", "sNotificationsubsectionNameX", "a_objNotificationtest"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -59,7 +55,7 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CustomNotificationsubsectiongetnotificationtestsResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -73,10 +69,12 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_notificationsubsection_name
@@ -92,7 +90,7 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CustomNotificationsubsectiongetnotificationtestsResponse from a dict"""
         if obj is None:
             return None
@@ -103,10 +101,10 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiNotificationsubsectionID": obj.get("pkiNotificationsubsectionID"),
             "fkiNotificationsectionID": obj.get("fkiNotificationsectionID"),
-            "objNotificationsubsectionName": MultilingualNotificationsubsectionName.from_dict(obj.get("objNotificationsubsectionName")) if obj.get("objNotificationsubsectionName") is not None else None,
+            "objNotificationsubsectionName": MultilingualNotificationsubsectionName.from_dict(obj["objNotificationsubsectionName"]) if obj.get("objNotificationsubsectionName") is not None else None,
             "sNotificationsectionNameX": obj.get("sNotificationsectionNameX"),
             "sNotificationsubsectionNameX": obj.get("sNotificationsubsectionNameX"),
-            "a_objNotificationtest": [CustomNotificationtestgetnotificationtestsResponse.from_dict(_item) for _item in obj.get("a_objNotificationtest")] if obj.get("a_objNotificationtest") is not None else None
+            "a_objNotificationtest": [CustomNotificationtestgetnotificationtestsResponse.from_dict(_item) for _item in obj["a_objNotificationtest"]] if obj.get("a_objNotificationtest") is not None else None
         })
         return _obj
 

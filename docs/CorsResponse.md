@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CorsResponse from a JSON string
 cors_response_instance = CorsResponse.from_json(json)
 # print the JSON string representation of the object
-print CorsResponse.to_json()
+print(CorsResponse.to_json())
 
 # convert the object into a dict
 cors_response_dict = cors_response_instance.to_dict()

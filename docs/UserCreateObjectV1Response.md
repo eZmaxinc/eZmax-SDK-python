@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserCreateObjectV1Response from a JSON string
 user_create_object_v1_response_instance = UserCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print UserCreateObjectV1Response.to_json()
+print(UserCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 user_create_object_v1_response_dict = user_create_object_v1_response_instance.to_dict()

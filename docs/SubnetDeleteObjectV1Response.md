@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SubnetDeleteObjectV1Response from a JSON string
 subnet_delete_object_v1_response_instance = SubnetDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print SubnetDeleteObjectV1Response.to_json()
+print(SubnetDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 subnet_delete_object_v1_response_dict = subnet_delete_object_v1_response_instance.to_dict()

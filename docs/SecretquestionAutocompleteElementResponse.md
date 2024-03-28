@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of SecretquestionAutocompleteElementResponse from a JSON string
 secretquestion_autocomplete_element_response_instance = SecretquestionAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print SecretquestionAutocompleteElementResponse.to_json()
+print(SecretquestionAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 secretquestion_autocomplete_element_response_dict = secretquestion_autocomplete_element_response_instance.to_dict()

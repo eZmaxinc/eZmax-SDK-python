@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_communicationsender_request import CustomCommunicationsenderRequest
 from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance
 from eZmaxApi.models.field_e_communication_type import FieldECommunicationType
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CommunicationRequest(BaseModel):
     """
@@ -63,15 +59,15 @@ class CommunicationRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Attachment', 'Url'):
+        if value not in set(['Attachment', 'Url']):
             raise ValueError("must be one of enum values ('Attachment', 'Url')")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -84,7 +80,7 @@ class CommunicationRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CommunicationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -98,10 +94,12 @@ class CommunicationRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_communicationsender
@@ -110,7 +108,7 @@ class CommunicationRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CommunicationRequest from a dict"""
         if obj is None:
             return None
@@ -122,7 +120,7 @@ class CommunicationRequest(BaseModel):
             "pkiCommunicationID": obj.get("pkiCommunicationID"),
             "eCommunicationImportance": obj.get("eCommunicationImportance"),
             "eCommunicationType": obj.get("eCommunicationType"),
-            "objCommunicationsender": CustomCommunicationsenderRequest.from_dict(obj.get("objCommunicationsender")) if obj.get("objCommunicationsender") is not None else None,
+            "objCommunicationsender": CustomCommunicationsenderRequest.from_dict(obj["objCommunicationsender"]) if obj.get("objCommunicationsender") is not None else None,
             "sCommunicationSubject": obj.get("sCommunicationSubject"),
             "tCommunicationBody": obj.get("tCommunicationBody"),
             "bCommunicationPrivate": obj.get("bCommunicationPrivate"),

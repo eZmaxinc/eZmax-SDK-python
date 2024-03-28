@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_create_object_v1_response_m_payload import EzsigntemplateCreateObjectV1ResponseMPayload
 

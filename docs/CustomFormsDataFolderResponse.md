@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CustomFormsDataFolderResponse from a JSON string
 custom_forms_data_folder_response_instance = CustomFormsDataFolderResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomFormsDataFolderResponse.to_json()
+print(CustomFormsDataFolderResponse.to_json())
 
 # convert the object into a dict
 custom_forms_data_folder_response_dict = custom_forms_data_folder_response_instance.to_dict()

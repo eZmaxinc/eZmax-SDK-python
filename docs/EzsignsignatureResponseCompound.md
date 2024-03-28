@@ -52,7 +52,7 @@ json = "{}"
 # create an instance of EzsignsignatureResponseCompound from a JSON string
 ezsignsignature_response_compound_instance = EzsignsignatureResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignatureResponseCompound.to_json()
+print(EzsignsignatureResponseCompound.to_json())
 
 # convert the object into a dict
 ezsignsignature_response_compound_dict = ezsignsignature_response_compound_instance.to_dict()

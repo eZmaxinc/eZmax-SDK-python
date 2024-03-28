@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonWebhook from a JSON string
 common_webhook_instance = CommonWebhook.from_json(json)
 # print the JSON string representation of the object
-print CommonWebhook.to_json()
+print(CommonWebhook.to_json())
 
 # convert the object into a dict
 common_webhook_dict = common_webhook_instance.to_dict()

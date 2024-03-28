@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of VariableexpenseCreateObjectV1ResponseMPayload from a JSON string
 variableexpense_create_object_v1_response_m_payload_instance = VariableexpenseCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseCreateObjectV1ResponseMPayload.to_json()
+print(VariableexpenseCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 variableexpense_create_object_v1_response_m_payload_dict = variableexpense_create_object_v1_response_m_payload_instance.to_dict()

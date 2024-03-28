@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of WebhookCreateObjectV2Response from a JSON string
 webhook_create_object_v2_response_instance = WebhookCreateObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print WebhookCreateObjectV2Response.to_json()
+print(WebhookCreateObjectV2Response.to_json())
 
 # convert the object into a dict
 webhook_create_object_v2_response_dict = webhook_create_object_v2_response_instance.to_dict()

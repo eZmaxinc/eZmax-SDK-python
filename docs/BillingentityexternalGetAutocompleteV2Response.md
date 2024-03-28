@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BillingentityexternalGetAutocompleteV2Response from a JSON string
 billingentityexternal_get_autocomplete_v2_response_instance = BillingentityexternalGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print BillingentityexternalGetAutocompleteV2Response.to_json()
+print(BillingentityexternalGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 billingentityexternal_get_autocomplete_v2_response_dict = billingentityexternal_get_autocomplete_v2_response_instance.to_dict()

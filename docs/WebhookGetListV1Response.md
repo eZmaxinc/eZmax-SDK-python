@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of WebhookGetListV1Response from a JSON string
 webhook_get_list_v1_response_instance = WebhookGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print WebhookGetListV1Response.to_json()
+print(WebhookGetListV1Response.to_json())
 
 # convert the object into a dict
 webhook_get_list_v1_response_dict = webhook_get_list_v1_response_instance.to_dict()

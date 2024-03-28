@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_get_list_v1_response_m_payload import EzsignfolderGetListV1ResponseMPayload
 
@@ -54,7 +53,11 @@ class TestEzsignfolderGetListV1ResponseMPayload(unittest.TestCase):
                         i_ezsigndocument = 56, 
                         i_ezsigndocument_edm = 56, 
                         i_ezsignsignature = 56, 
-                        i_ezsignsignature_signed = 56, )
+                        i_ezsignsignature_signed = 56, 
+                        i_ezsignformfieldgroup = 56, 
+                        i_ezsignformfieldgroup_completed = 56, 
+                        b_ezsignform_hasdependencies = True, 
+                        d_ezsignfolder_completedpercentage = '-072.88', )
                     ]
             )
         else:
@@ -76,7 +79,11 @@ class TestEzsignfolderGetListV1ResponseMPayload(unittest.TestCase):
                         i_ezsigndocument = 56, 
                         i_ezsigndocument_edm = 56, 
                         i_ezsignsignature = 56, 
-                        i_ezsignsignature_signed = 56, )
+                        i_ezsignsignature_signed = 56, 
+                        i_ezsignformfieldgroup = 56, 
+                        i_ezsignformfieldgroup_completed = 56, 
+                        b_ezsignform_hasdependencies = True, 
+                        d_ezsignfolder_completedpercentage = '-072.88', )
                     ],
         )
         """

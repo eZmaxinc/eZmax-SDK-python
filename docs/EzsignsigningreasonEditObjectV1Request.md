@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignsigningreasonEditObjectV1Request from a JSON string
 ezsignsigningreason_edit_object_v1_request_instance = EzsignsigningreasonEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignsigningreasonEditObjectV1Request.to_json()
+print(EzsignsigningreasonEditObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsignsigningreason_edit_object_v1_request_dict = ezsignsigningreason_edit_object_v1_request_instance.to_dict()

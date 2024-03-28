@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntsarequirementGetAutocompleteV2ResponseMPayload from a JSON string
 ezsigntsarequirement_get_autocomplete_v2_response_m_payload_instance = EzsigntsarequirementGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigntsarequirementGetAutocompleteV2ResponseMPayload.to_json()
+print(EzsigntsarequirementGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigntsarequirement_get_autocomplete_v2_response_m_payload_dict = ezsigntsarequirement_get_autocomplete_v2_response_m_payload_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentPatchObjectV1Request from a JSON string
 ezsigntemplatedocument_patch_object_v1_request_instance = EzsigntemplatedocumentPatchObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentPatchObjectV1Request.to_json()
+print(EzsigntemplatedocumentPatchObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocument_patch_object_v1_request_dict = ezsigntemplatedocument_patch_object_v1_request_instance.to_dict()

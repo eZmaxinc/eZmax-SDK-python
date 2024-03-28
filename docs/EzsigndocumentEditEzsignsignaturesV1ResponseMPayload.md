@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigndocumentEditEzsignsignaturesV1ResponseMPayload from a JSON string
 ezsigndocument_edit_ezsignsignatures_v1_response_m_payload_instance = EzsigndocumentEditEzsignsignaturesV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentEditEzsignsignaturesV1ResponseMPayload.to_json()
+print(EzsigndocumentEditEzsignsignaturesV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigndocument_edit_ezsignsignatures_v1_response_m_payload_dict = ezsigndocument_edit_ezsignsignatures_v1_response_m_payload_instance.to_dict()

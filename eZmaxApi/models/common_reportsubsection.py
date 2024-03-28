@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
 from eZmaxApi.models.common_reportsubsectionpart import CommonReportsubsectionpart
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CommonReportsubsection(BaseModel):
     """
@@ -37,11 +33,11 @@ class CommonReportsubsection(BaseModel):
     obj_reportsubsectionpart_footer: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartFooter")
     __properties: ClassVar[List[str]] = ["objReportsubsectionpartHeader", "objReportsubsectionpartBody", "objReportsubsectionpartFooter"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +50,7 @@ class CommonReportsubsection(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CommonReportsubsection from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class CommonReportsubsection(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_reportsubsectionpart_header
@@ -86,7 +84,7 @@ class CommonReportsubsection(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CommonReportsubsection from a dict"""
         if obj is None:
             return None
@@ -95,9 +93,9 @@ class CommonReportsubsection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objReportsubsectionpartHeader": CommonReportsubsectionpart.from_dict(obj.get("objReportsubsectionpartHeader")) if obj.get("objReportsubsectionpartHeader") is not None else None,
-            "objReportsubsectionpartBody": CommonReportsubsectionpart.from_dict(obj.get("objReportsubsectionpartBody")) if obj.get("objReportsubsectionpartBody") is not None else None,
-            "objReportsubsectionpartFooter": CommonReportsubsectionpart.from_dict(obj.get("objReportsubsectionpartFooter")) if obj.get("objReportsubsectionpartFooter") is not None else None
+            "objReportsubsectionpartHeader": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartHeader"]) if obj.get("objReportsubsectionpartHeader") is not None else None,
+            "objReportsubsectionpartBody": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartBody"]) if obj.get("objReportsubsectionpartBody") is not None else None,
+            "objReportsubsectionpartFooter": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartFooter"]) if obj.get("objReportsubsectionpartFooter") is not None else None
         })
         return _obj
 

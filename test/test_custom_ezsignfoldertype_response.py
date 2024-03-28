@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
 
@@ -40,12 +39,10 @@ class TestCustomEzsignfoldertypeResponse(unittest.TestCase):
                 pki_ezsignfoldertype_id = 5,
                 s_ezsignfoldertype_name_x = 'Default',
                 b_ezsignfoldertype_sendproofezsignsigner = False,
-                b_ezsignfoldertype_includeproofsigner = True,
-                b_ezsignfoldertype_includeproofuser = True,
                 b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False,
                 b_ezsignfoldertype_allowdownloadproofezsignsigner = False,
                 b_ezsignfoldertype_delegate = True,
-                b_ezsignfoldertype_reassign = True,
+                b_ezsignfoldertype_discussion = True,
                 b_ezsignfoldertype_reassignezsignsigner = True,
                 b_ezsignfoldertype_reassignuser = True
             )

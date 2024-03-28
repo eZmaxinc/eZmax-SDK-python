@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.website_request_compound import WebsiteRequestCompound
 

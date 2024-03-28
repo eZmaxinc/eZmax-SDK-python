@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CustomCreditcardtransactionResponse from a JSON string
 custom_creditcardtransaction_response_instance = CustomCreditcardtransactionResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomCreditcardtransactionResponse.to_json()
+print(CustomCreditcardtransactionResponse.to_json())
 
 # convert the object into a dict
 custom_creditcardtransaction_response_dict = custom_creditcardtransaction_response_instance.to_dict()

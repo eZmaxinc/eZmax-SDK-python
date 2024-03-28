@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of AttemptResponseCompound from a JSON string
 attempt_response_compound_instance = AttemptResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print AttemptResponseCompound.to_json()
+print(AttemptResponseCompound.to_json())
 
 # convert the object into a dict
 attempt_response_compound_dict = attempt_response_compound_instance.to_dict()

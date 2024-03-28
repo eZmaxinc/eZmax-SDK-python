@@ -44,7 +44,7 @@ json = "{}"
 # create an instance of EzsigntemplatesignatureResponse from a JSON string
 ezsigntemplatesignature_response_instance = EzsigntemplatesignatureResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatesignatureResponse.to_json()
+print(EzsigntemplatesignatureResponse.to_json())
 
 # convert the object into a dict
 ezsigntemplatesignature_response_dict = ezsigntemplatesignature_response_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserstagedGetObjectV2Response from a JSON string
 userstaged_get_object_v2_response_instance = UserstagedGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print UserstagedGetObjectV2Response.to_json()
+print(UserstagedGetObjectV2Response.to_json())
 
 # convert the object into a dict
 userstaged_get_object_v2_response_dict = userstaged_get_object_v2_response_instance.to_dict()

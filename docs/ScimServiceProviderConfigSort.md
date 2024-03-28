@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ScimServiceProviderConfigSort from a JSON string
 scim_service_provider_config_sort_instance = ScimServiceProviderConfigSort.from_json(json)
 # print the JSON string representation of the object
-print ScimServiceProviderConfigSort.to_json()
+print(ScimServiceProviderConfigSort.to_json())
 
 # convert the object into a dict
 scim_service_provider_config_sort_dict = scim_service_provider_config_sort_instance.to_dict()

@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of ApikeyResponseCompound from a JSON string
 apikey_response_compound_instance = ApikeyResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print ApikeyResponseCompound.to_json()
+print(ApikeyResponseCompound.to_json())
 
 # convert the object into a dict
 apikey_response_compound_dict = apikey_response_compound_instance.to_dict()

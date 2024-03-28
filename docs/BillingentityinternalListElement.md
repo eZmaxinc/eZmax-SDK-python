@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of BillingentityinternalListElement from a JSON string
 billingentityinternal_list_element_instance = BillingentityinternalListElement.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalListElement.to_json()
+print(BillingentityinternalListElement.to_json())
 
 # convert the object into a dict
 billingentityinternal_list_element_dict = billingentityinternal_list_element_instance.to_dict()

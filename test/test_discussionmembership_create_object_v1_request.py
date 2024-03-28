@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.discussionmembership_create_object_v1_request import DiscussionmembershipCreateObjectV1Request
 

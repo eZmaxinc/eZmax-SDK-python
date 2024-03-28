@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of LanguageAutocompleteElementResponse from a JSON string
 language_autocomplete_element_response_instance = LanguageAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print LanguageAutocompleteElementResponse.to_json()
+print(LanguageAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 language_autocomplete_element_response_dict = language_autocomplete_element_response_instance.to_dict()

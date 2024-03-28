@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CommunicationexternalrecipientRequest from a JSON string
 communicationexternalrecipient_request_instance = CommunicationexternalrecipientRequest.from_json(json)
 # print the JSON string representation of the object
-print CommunicationexternalrecipientRequest.to_json()
+print(CommunicationexternalrecipientRequest.to_json())
 
 # convert the object into a dict
 communicationexternalrecipient_request_dict = communicationexternalrecipient_request_instance.to_dict()

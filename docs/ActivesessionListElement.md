@@ -29,7 +29,7 @@ json = "{}"
 # create an instance of ActivesessionListElement from a JSON string
 activesession_list_element_instance = ActivesessionListElement.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionListElement.to_json()
+print(ActivesessionListElement.to_json())
 
 # convert the object into a dict
 activesession_list_element_dict = activesession_list_element_instance.to_dict()

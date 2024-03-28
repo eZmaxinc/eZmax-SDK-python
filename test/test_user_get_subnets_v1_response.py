@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.user_get_subnets_v1_response import UserGetSubnetsV1Response
 

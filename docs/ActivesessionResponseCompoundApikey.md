@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ActivesessionResponseCompoundApikey from a JSON string
 activesession_response_compound_apikey_instance = ActivesessionResponseCompoundApikey.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionResponseCompoundApikey.to_json()
+print(ActivesessionResponseCompoundApikey.to_json())
 
 # convert the object into a dict
 activesession_response_compound_apikey_dict = activesession_response_compound_apikey_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ModulegroupResponseCompound from a JSON string
 modulegroup_response_compound_instance = ModulegroupResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print ModulegroupResponseCompound.to_json()
+print(ModulegroupResponseCompound.to_json())
 
 # convert the object into a dict
 modulegroup_response_compound_dict = modulegroup_response_compound_instance.to_dict()

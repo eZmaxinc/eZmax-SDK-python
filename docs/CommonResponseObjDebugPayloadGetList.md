@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of CommonResponseObjDebugPayloadGetList from a JSON string
 common_response_obj_debug_payload_get_list_instance = CommonResponseObjDebugPayloadGetList.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseObjDebugPayloadGetList.to_json()
+print(CommonResponseObjDebugPayloadGetList.to_json())
 
 # convert the object into a dict
 common_response_obj_debug_payload_get_list_dict = common_response_obj_debug_payload_get_list_instance.to_dict()

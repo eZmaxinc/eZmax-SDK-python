@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_dropdown_element_request_compound import CustomDropdownElementRequestCompound
 

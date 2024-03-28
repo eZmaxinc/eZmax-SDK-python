@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.franchisereferalincome_create_object_v2_response import FranchisereferalincomeCreateObjectV2Response
 

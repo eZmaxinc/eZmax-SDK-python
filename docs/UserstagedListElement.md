@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of UserstagedListElement from a JSON string
 userstaged_list_element_instance = UserstagedListElement.from_json(json)
 # print the JSON string representation of the object
-print UserstagedListElement.to_json()
+print(UserstagedListElement.to_json())
 
 # convert the object into a dict
 userstaged_list_element_dict = userstaged_list_element_instance.to_dict()

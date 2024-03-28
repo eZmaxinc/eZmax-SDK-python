@@ -12,17 +12,10 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
@@ -31,7 +24,7 @@ from eZmaxApi.models.ezsigndiscussion_create_object_v1_response import Ezsigndis
 from eZmaxApi.models.ezsigndiscussion_delete_object_v1_response import EzsigndiscussionDeleteObjectV1Response
 from eZmaxApi.models.ezsigndiscussion_get_object_v2_response import EzsigndiscussionGetObjectV2Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -253,7 +246,7 @@ class ObjectEzsigndiscussionApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -527,7 +520,7 @@ class ObjectEzsigndiscussionApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -788,7 +781,7 @@ class ObjectEzsigndiscussionApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

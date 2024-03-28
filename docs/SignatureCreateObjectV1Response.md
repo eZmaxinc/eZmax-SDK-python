@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of SignatureCreateObjectV1Response from a JSON string
 signature_create_object_v1_response_instance = SignatureCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print SignatureCreateObjectV1Response.to_json()
+print(SignatureCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 signature_create_object_v1_response_dict = signature_create_object_v1_response_instance.to_dict()

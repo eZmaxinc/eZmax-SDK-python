@@ -4,7 +4,6 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**webhook_create_object_v1**](ObjectWebhookApi.md#webhook_create_object_v1) | **POST** /1/object/webhook | Create a new Webhook
 [**webhook_create_object_v2**](ObjectWebhookApi.md#webhook_create_object_v2) | **POST** /2/object/webhook | Create a new Webhook
 [**webhook_delete_object_v1**](ObjectWebhookApi.md#webhook_delete_object_v1) | **DELETE** /1/object/webhook/{pkiWebhookID} | Delete an existing Webhook
 [**webhook_edit_object_v1**](ObjectWebhookApi.md#webhook_edit_object_v1) | **PUT** /1/object/webhook/{pkiWebhookID} | Edit an existing Webhook
@@ -14,88 +13,6 @@ Method | HTTP request | Description
 [**webhook_regenerate_apikey_v1**](ObjectWebhookApi.md#webhook_regenerate_apikey_v1) | **POST** /1/object/webhook/{pkiWebhookID}/regenerateApikey | Regenerate the Apikey
 [**webhook_test_v1**](ObjectWebhookApi.md#webhook_test_v1) | **POST** /1/object/webhook/{pkiWebhookID}/test | Test the Webhook by calling the Url
 
-
-# **webhook_create_object_v1**
-> WebhookCreateObjectV1Response webhook_create_object_v1(webhook_create_object_v1_request)
-
-Create a new Webhook
-
-The endpoint allows to create one or many elements at once.
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import time
-import os
-import eZmaxApi
-from eZmaxApi.models.webhook_create_object_v1_request import WebhookCreateObjectV1Request
-from eZmaxApi.models.webhook_create_object_v1_response import WebhookCreateObjectV1Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectWebhookApi(api_client)
-    webhook_create_object_v1_request = eZmaxApi.WebhookCreateObjectV1Request() # WebhookCreateObjectV1Request | 
-
-    try:
-        # Create a new Webhook
-        api_response = api_instance.webhook_create_object_v1(webhook_create_object_v1_request)
-        print("The response of ObjectWebhookApi->webhook_create_object_v1:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectWebhookApi->webhook_create_object_v1: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_create_object_v1_request** | [**WebhookCreateObjectV1Request**](WebhookCreateObjectV1Request.md)|  | 
-
-### Return type
-
-[**WebhookCreateObjectV1Response**](WebhookCreateObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Successful response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **webhook_create_object_v2**
 > WebhookCreateObjectV2Response webhook_create_object_v2(webhook_create_object_v2_request)
@@ -109,8 +26,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_create_object_v2_request import WebhookCreateObjectV2Request
 from eZmaxApi.models.webhook_create_object_v2_response import WebhookCreateObjectV2Response
@@ -191,8 +106,6 @@ Delete an existing Webhook
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -273,8 +186,6 @@ Edit an existing Webhook
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_edit_object_v1_request import WebhookEditObjectV1Request
 from eZmaxApi.models.webhook_edit_object_v1_response import WebhookEditObjectV1Response
@@ -358,8 +269,6 @@ Retrieve the logs for recent Webhook calls
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_get_history_v1_response import WebhookGetHistoryV1Response
 from eZmaxApi.rest import ApiException
@@ -443,8 +352,6 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.webhook_get_list_v1_response import WebhookGetListV1Response
@@ -534,8 +441,6 @@ Retrieve an existing Webhook
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_get_object_v2_response import WebhookGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -616,8 +521,6 @@ Regenerate the Apikey
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_regenerate_apikey_v1_request import WebhookRegenerateApikeyV1Request
 from eZmaxApi.models.webhook_regenerate_apikey_v1_response import WebhookRegenerateApikeyV1Response
@@ -701,8 +604,6 @@ Test the Webhook by calling the Url
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.webhook_test_v1_response import WebhookTestV1Response
 from eZmaxApi.rest import ApiException

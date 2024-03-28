@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomDropdownElementRequest from a JSON string
 custom_dropdown_element_request_instance = CustomDropdownElementRequest.from_json(json)
 # print the JSON string representation of the object
-print CustomDropdownElementRequest.to_json()
+print(CustomDropdownElementRequest.to_json())
 
 # convert the object into a dict
 custom_dropdown_element_request_dict = custom_dropdown_element_request_instance.to_dict()

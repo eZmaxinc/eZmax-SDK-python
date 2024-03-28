@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.systemconfiguration_response_compound import SystemconfigurationResponseCompound
 
@@ -44,7 +43,10 @@ class TestSystemconfigurationResponseCompound(unittest.TestCase):
                 e_systemconfiguration_language1 = 'fr_QC',
                 e_systemconfiguration_language2 = 'en_CA',
                 e_systemconfiguration_ezsign = 'Yes',
+                e_systemconfiguration_ezsignofficeplan = 'Standard',
+                b_systemconfiguration_ezsignpaidbyoffice = True,
                 b_systemconfiguration_ezsignpersonnal = True,
+                b_systemconfiguration_isdisposalactive = True,
                 b_systemconfiguration_sspr = True,
                 dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',
                 dt_systemconfiguration_readonlyexpirationend = '2021-12-31'
@@ -57,7 +59,6 @@ class TestSystemconfigurationResponseCompound(unittest.TestCase):
                 e_systemconfiguration_newexternaluseraction = 'Stage',
                 e_systemconfiguration_language1 = 'fr_QC',
                 e_systemconfiguration_language2 = 'en_CA',
-                e_systemconfiguration_ezsign = 'Yes',
                 b_systemconfiguration_ezsignpersonnal = True,
                 b_systemconfiguration_sspr = True,
         )

@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of EzsignsignerResponseCompoundContact from a JSON string
 ezsignsigner_response_compound_contact_instance = EzsignsignerResponseCompoundContact.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignerResponseCompoundContact.to_json()
+print(EzsignsignerResponseCompoundContact.to_json())
 
 # convert the object into a dict
 ezsignsigner_response_compound_contact_dict = ezsignsigner_response_compound_contact_instance.to_dict()

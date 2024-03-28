@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CustomImportEzsigntemplatepackageRelationRequest from a JSON string
 custom_import_ezsigntemplatepackage_relation_request_instance = CustomImportEzsigntemplatepackageRelationRequest.from_json(json)
 # print the JSON string representation of the object
-print CustomImportEzsigntemplatepackageRelationRequest.to_json()
+print(CustomImportEzsigntemplatepackageRelationRequest.to_json())
 
 # convert the object into a dict
 custom_import_ezsigntemplatepackage_relation_request_dict = custom_import_ezsigntemplatepackage_relation_request_instance.to_dict()

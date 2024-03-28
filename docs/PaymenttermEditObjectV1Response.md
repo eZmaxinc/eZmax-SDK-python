@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of PaymenttermEditObjectV1Response from a JSON string
 paymentterm_edit_object_v1_response_instance = PaymenttermEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermEditObjectV1Response.to_json()
+print(PaymenttermEditObjectV1Response.to_json())
 
 # convert the object into a dict
 paymentterm_edit_object_v1_response_dict = paymentterm_edit_object_v1_response_instance.to_dict()

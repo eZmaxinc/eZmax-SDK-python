@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.webhook_request_compound import WebhookRequestCompound
 
@@ -47,7 +46,10 @@ class TestWebhookRequestCompound(unittest.TestCase):
                 s_webhook_emailfailed = 'email@example.com',
                 b_webhook_isactive = True,
                 b_webhook_issigned = True,
-                b_webhook_skipsslvalidation = False
+                b_webhook_skipsslvalidation = False,
+                a_obj_webhookheader = [
+                    eZmaxApi.models.webhookheader_request_compound.webhookheader-RequestCompound()
+                    ]
             )
         else:
             return WebhookRequestCompound(

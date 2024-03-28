@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword
 

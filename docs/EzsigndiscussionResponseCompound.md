@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of EzsigndiscussionResponseCompound from a JSON string
 ezsigndiscussion_response_compound_instance = EzsigndiscussionResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigndiscussionResponseCompound.to_json()
+print(EzsigndiscussionResponseCompound.to_json())
 
 # convert the object into a dict
 ezsigndiscussion_response_compound_dict = ezsigndiscussion_response_compound_instance.to_dict()

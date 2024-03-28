@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignbulksendGetFormsDataV1Response from a JSON string
 ezsignbulksend_get_forms_data_v1_response_instance = EzsignbulksendGetFormsDataV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendGetFormsDataV1Response.to_json()
+print(EzsignbulksendGetFormsDataV1Response.to_json())
 
 # convert the object into a dict
 ezsignbulksend_get_forms_data_v1_response_dict = ezsignbulksend_get_forms_data_v1_response_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommonResponseErrorEzsignformValidation from a JSON string
 common_response_error_ezsignform_validation_instance = CommonResponseErrorEzsignformValidation.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseErrorEzsignformValidation.to_json()
+print(CommonResponseErrorEzsignformValidation.to_json())
 
 # convert the object into a dict
 common_response_error_ezsignform_validation_dict = common_response_error_ezsignform_validation_instance.to_dict()

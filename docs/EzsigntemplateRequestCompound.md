@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
 **fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **s_ezsigntemplate_description** | **str** | The description of the Ezsigntemplate | 
+**s_ezsigntemplate_filenamepattern** | **str** | The filename pattern of the Ezsigntemplate | [optional] 
 **b_ezsigntemplate_adminonly** | **bool** | Whether the Ezsigntemplate can be accessed by admin users only (eUserType&#x3D;Normal) | 
 
 ## Example
@@ -22,7 +23,7 @@ json = "{}"
 # create an instance of EzsigntemplateRequestCompound from a JSON string
 ezsigntemplate_request_compound_instance = EzsigntemplateRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateRequestCompound.to_json()
+print(EzsigntemplateRequestCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplate_request_compound_dict = ezsigntemplate_request_compound_instance.to_dict()

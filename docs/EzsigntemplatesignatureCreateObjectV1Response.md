@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigntemplatesignatureCreateObjectV1Response from a JSON string
 ezsigntemplatesignature_create_object_v1_response_instance = EzsigntemplatesignatureCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatesignatureCreateObjectV1Response.to_json()
+print(EzsigntemplatesignatureCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplatesignature_create_object_v1_response_dict = ezsigntemplatesignature_create_object_v1_response_instance.to_dict()

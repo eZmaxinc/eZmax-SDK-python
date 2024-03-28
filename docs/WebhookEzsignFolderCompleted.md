@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of WebhookEzsignFolderCompleted from a JSON string
 webhook_ezsign_folder_completed_instance = WebhookEzsignFolderCompleted.from_json(json)
 # print the JSON string representation of the object
-print WebhookEzsignFolderCompleted.to_json()
+print(WebhookEzsignFolderCompleted.to_json())
 
 # convert the object into a dict
 webhook_ezsign_folder_completed_dict = webhook_ezsign_folder_completed_instance.to_dict()

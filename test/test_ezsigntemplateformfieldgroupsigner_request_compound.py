@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request_compound import EzsigntemplateformfieldgroupsignerRequestCompound
 

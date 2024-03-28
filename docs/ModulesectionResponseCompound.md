@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of ModulesectionResponseCompound from a JSON string
 modulesection_response_compound_instance = ModulesectionResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print ModulesectionResponseCompound.to_json()
+print(ModulesectionResponseCompound.to_json())
 
 # convert the object into a dict
 modulesection_response_compound_dict = modulesection_response_compound_instance.to_dict()

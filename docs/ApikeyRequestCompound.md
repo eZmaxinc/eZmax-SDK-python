@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of ApikeyRequestCompound from a JSON string
 apikey_request_compound_instance = ApikeyRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print ApikeyRequestCompound.to_json()
+print(ApikeyRequestCompound.to_json())
 
 # convert the object into a dict
 apikey_request_compound_dict = apikey_request_compound_instance.to_dict()

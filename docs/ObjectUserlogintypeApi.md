@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **userlogintype_get_autocomplete_v2**
-> UserlogintypeGetAutocompleteV2Response userlogintype_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+> UserlogintypeGetAutocompleteV2Response userlogintype_get_autocomplete_v2(s_selector, fki_ezsignfoldertype_id=fki_ezsignfoldertype_id, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
 
 Retrieve Userlogintypes and IDs
 
@@ -19,8 +19,6 @@ Get the list of Userlogintype to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.userlogintype_get_autocomplete_v2_response import UserlogintypeGetAutocompleteV2Response
@@ -49,13 +47,14 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectUserlogintypeApi(api_client)
     s_selector = 's_selector_example' # str | The type of Userlogintypes to return
+    fki_ezsignfoldertype_id = 56 # int |  (optional)
     e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
     try:
         # Retrieve Userlogintypes and IDs
-        api_response = api_instance.userlogintype_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+        api_response = api_instance.userlogintype_get_autocomplete_v2(s_selector, fki_ezsignfoldertype_id=fki_ezsignfoldertype_id, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
         print("The response of ObjectUserlogintypeApi->userlogintype_get_autocomplete_v2:\n")
         pprint(api_response)
     except Exception as e:
@@ -70,6 +69,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Userlogintypes to return | 
+ **fki_ezsignfoldertype_id** | **int**|  | [optional] 
  **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 

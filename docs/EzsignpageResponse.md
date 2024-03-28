@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of EzsignpageResponse from a JSON string
 ezsignpage_response_instance = EzsignpageResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignpageResponse.to_json()
+print(EzsignpageResponse.to_json())
 
 # convert the object into a dict
 ezsignpage_response_dict = ezsignpage_response_instance.to_dict()

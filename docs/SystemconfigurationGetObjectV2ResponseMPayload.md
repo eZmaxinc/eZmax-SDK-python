@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SystemconfigurationGetObjectV2ResponseMPayload from a JSON string
 systemconfiguration_get_object_v2_response_m_payload_instance = SystemconfigurationGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print SystemconfigurationGetObjectV2ResponseMPayload.to_json()
+print(SystemconfigurationGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 systemconfiguration_get_object_v2_response_m_payload_dict = systemconfiguration_get_object_v2_response_m_payload_instance.to_dict()

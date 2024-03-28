@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ModulegroupGetAllV1Response from a JSON string
 modulegroup_get_all_v1_response_instance = ModulegroupGetAllV1Response.from_json(json)
 # print the JSON string representation of the object
-print ModulegroupGetAllV1Response.to_json()
+print(ModulegroupGetAllV1Response.to_json())
 
 # convert the object into a dict
 modulegroup_get_all_v1_response_dict = modulegroup_get_all_v1_response_instance.to_dict()

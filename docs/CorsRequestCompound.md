@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CorsRequestCompound from a JSON string
 cors_request_compound_instance = CorsRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print CorsRequestCompound.to_json()
+print(CorsRequestCompound.to_json())
 
 # convert the object into a dict
 cors_request_compound_dict = cors_request_compound_instance.to_dict()

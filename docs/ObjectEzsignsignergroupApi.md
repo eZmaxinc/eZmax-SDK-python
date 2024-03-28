@@ -24,8 +24,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_create_object_v1_request import EzsignsignergroupCreateObjectV1Request
 from eZmaxApi.models.ezsignsignergroup_create_object_v1_response import EzsignsignergroupCreateObjectV1Response
@@ -106,8 +104,6 @@ Delete an existing Ezsignsignergroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_delete_object_v1_response import EzsignsignergroupDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -188,8 +184,6 @@ Using this endpoint, you can edit multiple Ezsignsignergroupmemberships at the s
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request import EzsignsignergroupEditEzsignsignergroupmembershipsV1Request
 from eZmaxApi.models.ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_response import EzsignsignergroupEditEzsignsignergroupmembershipsV1Response
@@ -274,8 +268,6 @@ Edit an existing Ezsignsignergroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_edit_object_v1_request import EzsignsignergroupEditObjectV1Request
 from eZmaxApi.models.ezsignsignergroup_edit_object_v1_response import EzsignsignergroupEditObjectV1Response
@@ -357,8 +349,6 @@ Retrieve an existing Ezsignsignergroup's Ezsignsignergroupmemberships
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response import EzsignsignergroupGetEzsignsignergroupmembershipsV1Response
 from eZmaxApi.rest import ApiException
@@ -439,8 +429,6 @@ Retrieve an existing Ezsignsignergroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroup_get_object_v2_response import EzsignsignergroupGetObjectV2Response
 from eZmaxApi.rest import ApiException

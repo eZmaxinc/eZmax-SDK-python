@@ -19,8 +19,6 @@ Get the list of Emailtype to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.emailtype_get_autocomplete_v2_response import EmailtypeGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage

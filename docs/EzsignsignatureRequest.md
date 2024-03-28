@@ -39,7 +39,7 @@ json = "{}"
 # create an instance of EzsignsignatureRequest from a JSON string
 ezsignsignature_request_instance = EzsignsignatureRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignatureRequest.to_json()
+print(EzsignsignatureRequest.to_json())
 
 # convert the object into a dict
 ezsignsignature_request_dict = ezsignsignature_request_instance.to_dict()

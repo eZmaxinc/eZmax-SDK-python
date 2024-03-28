@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_response_m_payload import UsergroupEditUsergroupdelegationsV1ResponseMPayload
 

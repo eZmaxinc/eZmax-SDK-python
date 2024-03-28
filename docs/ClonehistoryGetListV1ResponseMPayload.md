@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ClonehistoryGetListV1ResponseMPayload from a JSON string
 clonehistory_get_list_v1_response_m_payload_instance = ClonehistoryGetListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ClonehistoryGetListV1ResponseMPayload.to_json()
+print(ClonehistoryGetListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 clonehistory_get_list_v1_response_m_payload_dict = clonehistory_get_list_v1_response_m_payload_instance.to_dict()

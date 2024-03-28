@@ -23,8 +23,6 @@ Default values will be used while creating the User. If you need to change those
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.userstaged_create_user_v1_response import UserstagedCreateUserV1Response
 from eZmaxApi.rest import ApiException
@@ -107,8 +105,6 @@ Delete an existing Userstaged
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -189,8 +185,6 @@ Retrieve Userstaged list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.userstaged_get_list_v1_response import UserstagedGetListV1Response
@@ -280,8 +274,6 @@ Retrieve an existing Userstaged
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.userstaged_get_object_v2_response import UserstagedGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -362,8 +354,6 @@ Map the Userstaged to an existing user
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request
 from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response

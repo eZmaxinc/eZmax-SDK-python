@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of CustomEzsignfoldersignerassociationActionableElementResponse from a JSON string
 custom_ezsignfoldersignerassociation_actionable_element_response_instance = CustomEzsignfoldersignerassociationActionableElementResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignfoldersignerassociationActionableElementResponse.to_json()
+print(CustomEzsignfoldersignerassociationActionableElementResponse.to_json())
 
 # convert the object into a dict
 custom_ezsignfoldersignerassociation_actionable_element_response_dict = custom_ezsignfoldersignerassociation_actionable_element_response_instance.to_dict()

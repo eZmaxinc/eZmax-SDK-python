@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SubnetCreateObjectV1ResponseMPayload from a JSON string
 subnet_create_object_v1_response_m_payload_instance = SubnetCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print SubnetCreateObjectV1ResponseMPayload.to_json()
+print(SubnetCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 subnet_create_object_v1_response_m_payload_dict = subnet_create_object_v1_response_m_payload_instance.to_dict()

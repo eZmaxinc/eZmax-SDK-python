@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_response_m_payload import EzsigndocumentEditEzsignsignaturesV1ResponseMPayload
 

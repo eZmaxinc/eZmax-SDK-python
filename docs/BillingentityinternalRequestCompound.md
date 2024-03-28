@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BillingentityinternalRequestCompound from a JSON string
 billingentityinternal_request_compound_instance = BillingentityinternalRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalRequestCompound.to_json()
+print(BillingentityinternalRequestCompound.to_json())
 
 # convert the object into a dict
 billingentityinternal_request_compound_dict = billingentityinternal_request_compound_instance.to_dict()

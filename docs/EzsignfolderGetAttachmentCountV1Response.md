@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfolderGetAttachmentCountV1Response from a JSON string
 ezsignfolder_get_attachment_count_v1_response_instance = EzsignfolderGetAttachmentCountV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetAttachmentCountV1Response.to_json()
+print(EzsignfolderGetAttachmentCountV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_attachment_count_v1_response_dict = ezsignfolder_get_attachment_count_v1_response_instance.to_dict()

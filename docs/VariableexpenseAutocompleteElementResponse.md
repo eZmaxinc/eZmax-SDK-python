@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of VariableexpenseAutocompleteElementResponse from a JSON string
 variableexpense_autocomplete_element_response_instance = VariableexpenseAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseAutocompleteElementResponse.to_json()
+print(VariableexpenseAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 variableexpense_autocomplete_element_response_dict = variableexpense_autocomplete_element_response_instance.to_dict()

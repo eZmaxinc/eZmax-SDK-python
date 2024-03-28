@@ -41,6 +41,13 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigntemplate_create_object_v2(self) -> None:
+        """Test case for ezsigntemplate_create_object_v2
+
+        Create a new Ezsigntemplate
+        """
+        pass
+
     def test_ezsigntemplate_delete_object_v1(self) -> None:
         """Test case for ezsigntemplate_delete_object_v1
 
@@ -50,6 +57,13 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
 
     def test_ezsigntemplate_edit_object_v1(self) -> None:
         """Test case for ezsigntemplate_edit_object_v1
+
+        Edit an existing Ezsigntemplate
+        """
+        pass
+
+    def test_ezsigntemplate_edit_object_v2(self) -> None:
+        """Test case for ezsigntemplate_edit_object_v2
 
         Edit an existing Ezsigntemplate
         """

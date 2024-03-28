@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplatepackage_delete_object_v1_response import EzsigntemplatepackageDeleteObjectV1Response
 

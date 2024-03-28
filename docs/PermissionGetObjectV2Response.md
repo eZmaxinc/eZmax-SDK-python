@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of PermissionGetObjectV2Response from a JSON string
 permission_get_object_v2_response_instance = PermissionGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print PermissionGetObjectV2Response.to_json()
+print(PermissionGetObjectV2Response.to_json())
 
 # convert the object into a dict
 permission_get_object_v2_response_dict = permission_get_object_v2_response_instance.to_dict()

@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of EzsignsignergroupmembershipRequestCompound from a JSON string
 ezsignsignergroupmembership_request_compound_instance = EzsignsignergroupmembershipRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignergroupmembershipRequestCompound.to_json()
+print(EzsignsignergroupmembershipRequestCompound.to_json())
 
 # convert the object into a dict
 ezsignsignergroupmembership_request_compound_dict = ezsignsignergroupmembership_request_compound_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.common_file import CommonFile
 
@@ -39,7 +38,7 @@ class TestCommonFile(unittest.TestCase):
             return CommonFile(
                 s_file_name = 'example.pdf',
                 s_file_url = '',
-                s_file_base64 = '[B@f9d87b',
+                s_file_base64 = '[B@63c5efee',
                 e_file_source = 'Base64'
             )
         else:

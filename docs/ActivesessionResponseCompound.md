@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **fki_systemconfigurationtype_id** | **int** | The unique ID of the Systemconfigurationtype | 
 **fki_signature_id** | **int** | The unique ID of the Signature | [optional] 
+**b_systemconfiguration_ezsignpaidbyoffice** | **bool** | Whether if Ezsign is paid by the company or not | [optional] 
+**e_systemconfiguration_ezsignofficeplan** | [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
 **e_user_ezsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **e_user_ezsignprepaid** | [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **dt_user_ezsignprepaidexpiration** | **str** | The eZsign prepaid expiration date | [optional] 
@@ -36,7 +38,7 @@ json = "{}"
 # create an instance of ActivesessionResponseCompound from a JSON string
 activesession_response_compound_instance = ActivesessionResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionResponseCompound.to_json()
+print(ActivesessionResponseCompound.to_json())
 
 # convert the object into a dict
 activesession_response_compound_dict = activesession_response_compound_instance.to_dict()

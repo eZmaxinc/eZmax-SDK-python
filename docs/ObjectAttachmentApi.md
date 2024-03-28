@@ -22,8 +22,6 @@ Using this endpoint, you can retrieve the content of an attachment.
 * Api Key Authentication (Presigned):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.rest import ApiException
 from pprint import pprint
@@ -107,8 +105,6 @@ Using this endpoint, you can retrieve the Attachmentlogs of an attachment.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.attachment_get_attachmentlogs_v1_response import AttachmentGetAttachmentlogsV1Response
 from eZmaxApi.rest import ApiException
@@ -189,8 +185,6 @@ This endpoint returns an URL to download the attachment.  These links will expir
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.attachment_get_download_url_v1_response import AttachmentGetDownloadUrlV1Response
 from eZmaxApi.rest import ApiException

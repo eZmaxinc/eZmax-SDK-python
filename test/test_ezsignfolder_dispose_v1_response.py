@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_dispose_v1_response import EzsignfolderDisposeV1Response
 

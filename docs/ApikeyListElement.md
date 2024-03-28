@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of ApikeyListElement from a JSON string
 apikey_list_element_instance = ApikeyListElement.from_json(json)
 # print the JSON string representation of the object
-print ApikeyListElement.to_json()
+print(ApikeyListElement.to_json())
 
 # convert the object into a dict
 apikey_list_element_dict = apikey_list_element_instance.to_dict()

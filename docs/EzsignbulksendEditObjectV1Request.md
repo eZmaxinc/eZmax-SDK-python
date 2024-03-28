@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignbulksendEditObjectV1Request from a JSON string
 ezsignbulksend_edit_object_v1_request_instance = EzsignbulksendEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendEditObjectV1Request.to_json()
+print(EzsignbulksendEditObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsignbulksend_edit_object_v1_request_dict = ezsignbulksend_edit_object_v1_request_instance.to_dict()

@@ -21,8 +21,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendsignermapping_create_object_v1_request import EzsignbulksendsignermappingCreateObjectV1Request
 from eZmaxApi.models.ezsignbulksendsignermapping_create_object_v1_response import EzsignbulksendsignermappingCreateObjectV1Response
@@ -103,8 +101,6 @@ Delete an existing Ezsignbulksendsignermapping
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendsignermapping_delete_object_v1_response import EzsignbulksendsignermappingDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -185,8 +181,6 @@ Retrieve an existing Ezsignbulksendsignermapping
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendsignermapping_get_object_v2_response import EzsignbulksendsignermappingGetObjectV2Response
 from eZmaxApi.rest import ApiException

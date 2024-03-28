@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
 

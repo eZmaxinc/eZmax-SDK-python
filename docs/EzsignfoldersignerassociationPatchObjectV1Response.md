@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationPatchObjectV1Response from a JSON string
 ezsignfoldersignerassociation_patch_object_v1_response_instance = EzsignfoldersignerassociationPatchObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationPatchObjectV1Response.to_json()
+print(EzsignfoldersignerassociationPatchObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_patch_object_v1_response_dict = ezsignfoldersignerassociation_patch_object_v1_response_instance.to_dict()

@@ -18,16 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from eZmaxApi.models.field_e_ezsigntemplate_type import FieldEEzsigntemplateType
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplateResponse(BaseModel):
     """
@@ -35,20 +32,33 @@ class EzsigntemplateResponse(BaseModel):
     """ # noqa: E501
     pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
     fki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
     s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_filenamepattern: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The filename pattern of the Ezsigntemplate", alias="sEzsigntemplateFilenamepattern")
     b_ezsigntemplate_adminonly: StrictBool = Field(description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplateAdminonly")
-    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     obj_audit: CommonAudit = Field(alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplateDescription", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit"]
+    b_ezsigntemplate_editallowed: StrictBool = Field(description="Whether the Ezsigntemplate if allowed to edit or not", alias="bEzsigntemplateEditallowed")
+    e_ezsigntemplate_type: Optional[FieldEEzsigntemplateType] = Field(default=None, alias="eEzsigntemplateType")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('s_ezsigntemplate_filenamepattern')
+    def s_ezsigntemplate_filenamepattern_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{1,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,50}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -61,7 +71,7 @@ class EzsigntemplateResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplateResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -75,10 +85,12 @@ class EzsigntemplateResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
@@ -87,7 +99,7 @@ class EzsigntemplateResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateResponse from a dict"""
         if obj is None:
             return None
@@ -102,9 +114,12 @@ class EzsigntemplateResponse(BaseModel):
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "sLanguageNameX": obj.get("sLanguageNameX"),
             "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
+            "sEzsigntemplateFilenamepattern": obj.get("sEzsigntemplateFilenamepattern"),
             "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
+            "bEzsigntemplateEditallowed": obj.get("bEzsigntemplateEditallowed"),
+            "eEzsigntemplateType": obj.get("eEzsigntemplateType")
         })
         return _obj
 

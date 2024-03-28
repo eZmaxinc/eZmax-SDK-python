@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ActivesessionGetListV1Response from a JSON string
 activesession_get_list_v1_response_instance = ActivesessionGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionGetListV1Response.to_json()
+print(ActivesessionGetListV1Response.to_json())
 
 # convert the object into a dict
 activesession_get_list_v1_response_dict = activesession_get_list_v1_response_instance.to_dict()

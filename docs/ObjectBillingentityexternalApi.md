@@ -19,8 +19,6 @@ Get the list of Billingentityexternal to be used in a dropdown or autocomplete c
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityexternal_get_autocomplete_v2_response import BillingentityexternalGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage

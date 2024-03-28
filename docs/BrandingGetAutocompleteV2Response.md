@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BrandingGetAutocompleteV2Response from a JSON string
 branding_get_autocomplete_v2_response_instance = BrandingGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print BrandingGetAutocompleteV2Response.to_json()
+print(BrandingGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 branding_get_autocomplete_v2_response_dict = branding_get_autocomplete_v2_response_instance.to_dict()

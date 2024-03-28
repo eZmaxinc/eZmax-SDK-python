@@ -12,22 +12,14 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field
-from typing_extensions import Annotated
 from typing import Any, Dict
-
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_request import EzsigntemplatedocumentCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_response import EzsigntemplatedocumentCreateObjectV1Response
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request import EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
@@ -46,7 +38,7 @@ from eZmaxApi.models.ezsigntemplatedocument_get_words_positions_v1_response impo
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_request import EzsigntemplatedocumentPatchObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_response import EzsigntemplatedocumentPatchObjectV1Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -119,6 +111,7 @@ class ObjectEzsigntemplatedocumentApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "EzsigntemplatedocumentCreateObjectV1Response",
+            '413': "CommonResponseError",
             '422': "CommonResponseErrorSTemporaryFileUrl",
         }
         response_data = self.api_client.call_api(
@@ -187,6 +180,7 @@ class ObjectEzsigntemplatedocumentApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "EzsigntemplatedocumentCreateObjectV1Response",
+            '413': "CommonResponseError",
             '422': "CommonResponseErrorSTemporaryFileUrl",
         }
         response_data = self.api_client.call_api(
@@ -255,6 +249,7 @@ class ObjectEzsigntemplatedocumentApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "EzsigntemplatedocumentCreateObjectV1Response",
+            '413': "CommonResponseError",
             '422': "CommonResponseErrorSTemporaryFileUrl",
         }
         response_data = self.api_client.call_api(
@@ -271,7 +266,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -561,7 +556,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -853,7 +848,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1145,7 +1140,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1437,7 +1432,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1713,7 +1708,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1977,7 +1972,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2241,7 +2236,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2502,7 +2497,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -2776,7 +2771,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -3065,7 +3060,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

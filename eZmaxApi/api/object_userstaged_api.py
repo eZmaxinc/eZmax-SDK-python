@@ -12,24 +12,14 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
 from typing import Any, Dict, Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.userstaged_create_user_v1_response import UserstagedCreateUserV1Response
 from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response
@@ -38,7 +28,7 @@ from eZmaxApi.models.userstaged_get_object_v2_response import UserstagedGetObjec
 from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request
 from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -276,7 +266,7 @@ class ObjectUserstagedApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -552,7 +542,7 @@ class ObjectUserstagedApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -865,7 +855,7 @@ class ObjectUserstagedApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1143,7 +1133,7 @@ class ObjectUserstagedApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1420,7 +1410,7 @@ class ObjectUserstagedApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

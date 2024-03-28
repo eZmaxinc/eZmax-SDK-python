@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_request import EzsigndocumentDeclineToSignV1Request
 

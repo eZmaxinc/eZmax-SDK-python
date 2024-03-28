@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.systemconfiguration_request_compound import SystemconfigurationRequestCompound
 
@@ -42,6 +41,8 @@ class TestSystemconfigurationRequestCompound(unittest.TestCase):
                 e_systemconfiguration_language1 = 'fr_QC',
                 e_systemconfiguration_language2 = 'en_CA',
                 e_systemconfiguration_ezsign = 'Yes',
+                e_systemconfiguration_ezsignofficeplan = 'Standard',
+                b_systemconfiguration_ezsignpaidbyoffice = True,
                 b_systemconfiguration_ezsignpersonnal = True,
                 b_systemconfiguration_sspr = True,
                 dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',

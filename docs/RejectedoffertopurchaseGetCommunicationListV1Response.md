@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of RejectedoffertopurchaseGetCommunicationListV1Response from a JSON string
 rejectedoffertopurchase_get_communication_list_v1_response_instance = RejectedoffertopurchaseGetCommunicationListV1Response.from_json(json)
 # print the JSON string representation of the object
-print RejectedoffertopurchaseGetCommunicationListV1Response.to_json()
+print(RejectedoffertopurchaseGetCommunicationListV1Response.to_json())
 
 # convert the object into a dict
 rejectedoffertopurchase_get_communication_list_v1_response_dict = rejectedoffertopurchase_get_communication_list_v1_response_instance.to_dict()

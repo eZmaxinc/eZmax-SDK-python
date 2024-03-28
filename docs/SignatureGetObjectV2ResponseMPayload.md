@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SignatureGetObjectV2ResponseMPayload from a JSON string
 signature_get_object_v2_response_m_payload_instance = SignatureGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print SignatureGetObjectV2ResponseMPayload.to_json()
+print(SignatureGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 signature_get_object_v2_response_m_payload_dict = signature_get_object_v2_response_m_payload_instance.to_dict()

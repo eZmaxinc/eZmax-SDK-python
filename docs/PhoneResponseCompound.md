@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of PhoneResponseCompound from a JSON string
 phone_response_compound_instance = PhoneResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print PhoneResponseCompound.to_json()
+print(PhoneResponseCompound.to_json())
 
 # convert the object into a dict
 phone_response_compound_dict = phone_response_compound_instance.to_dict()

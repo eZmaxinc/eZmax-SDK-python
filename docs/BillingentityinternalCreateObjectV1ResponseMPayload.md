@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BillingentityinternalCreateObjectV1ResponseMPayload from a JSON string
 billingentityinternal_create_object_v1_response_m_payload_instance = BillingentityinternalCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalCreateObjectV1ResponseMPayload.to_json()
+print(BillingentityinternalCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 billingentityinternal_create_object_v1_response_m_payload_dict = billingentityinternal_create_object_v1_response_m_payload_instance.to_dict()

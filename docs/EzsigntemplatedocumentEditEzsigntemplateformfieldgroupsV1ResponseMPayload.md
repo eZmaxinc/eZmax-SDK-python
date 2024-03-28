@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1ResponseMPayload from a JSON string
 ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_response_m_payload_instance = EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1ResponseMPayload.to_json()
+print(EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_response_m_payload_dict = ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_response_m_payload_instance.to_dict()

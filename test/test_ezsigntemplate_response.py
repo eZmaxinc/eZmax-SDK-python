@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_response import EzsigntemplateResponse
 
@@ -43,33 +42,7 @@ class TestEzsigntemplateResponse(unittest.TestCase):
                 fki_language_id = 2,
                 s_language_name_x = 'English',
                 s_ezsigntemplate_description = 'Standard Contract',
-                b_ezsigntemplate_adminonly = True,
-                s_ezsignfoldertype_name_x = 'Default',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
-            )
-        else:
-            return EzsigntemplateResponse(
-                pki_ezsigntemplate_id = 36,
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                s_language_name_x = 'English',
-                s_ezsigntemplate_description = 'Standard Contract',
+                s_ezsigntemplate_filenamepattern = 'Contract',
                 b_ezsigntemplate_adminonly = True,
                 s_ezsignfoldertype_name_x = 'Default',
                 obj_audit = eZmaxApi.models.common_audit.Common-Audit(
@@ -89,6 +62,34 @@ class TestEzsigntemplateResponse(unittest.TestCase):
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                b_ezsigntemplate_editallowed = True,
+                e_ezsigntemplate_type = 'Usergroup'
+            )
+        else:
+            return EzsigntemplateResponse(
+                pki_ezsigntemplate_id = 36,
+                fki_language_id = 2,
+                s_language_name_x = 'English',
+                s_ezsigntemplate_description = 'Standard Contract',
+                b_ezsigntemplate_adminonly = True,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                b_ezsigntemplate_editallowed = True,
         )
         """
 

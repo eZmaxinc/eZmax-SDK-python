@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FranchisereferalincomeCreateObjectV2Request from a JSON string
 franchisereferalincome_create_object_v2_request_instance = FranchisereferalincomeCreateObjectV2Request.from_json(json)
 # print the JSON string representation of the object
-print FranchisereferalincomeCreateObjectV2Request.to_json()
+print(FranchisereferalincomeCreateObjectV2Request.to_json())
 
 # convert the object into a dict
 franchisereferalincome_create_object_v2_request_dict = franchisereferalincome_create_object_v2_request_instance.to_dict()

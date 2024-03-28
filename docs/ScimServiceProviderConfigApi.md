@@ -16,8 +16,6 @@ Get Service Provider Configuration
 
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_service_provider_config import ScimServiceProviderConfig
 from eZmaxApi.rest import ApiException

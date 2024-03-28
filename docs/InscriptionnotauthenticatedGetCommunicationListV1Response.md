@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InscriptionnotauthenticatedGetCommunicationListV1Response from a JSON string
 inscriptionnotauthenticated_get_communication_list_v1_response_instance = InscriptionnotauthenticatedGetCommunicationListV1Response.from_json(json)
 # print the JSON string representation of the object
-print InscriptionnotauthenticatedGetCommunicationListV1Response.to_json()
+print(InscriptionnotauthenticatedGetCommunicationListV1Response.to_json())
 
 # convert the object into a dict
 inscriptionnotauthenticated_get_communication_list_v1_response_dict = inscriptionnotauthenticated_get_communication_list_v1_response_instance.to_dict()

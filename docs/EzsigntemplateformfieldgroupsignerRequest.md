@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplateformfieldgroupsignerRequest from a JSON string
 ezsigntemplateformfieldgroupsigner_request_instance = EzsigntemplateformfieldgroupsignerRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateformfieldgroupsignerRequest.to_json()
+print(EzsigntemplateformfieldgroupsignerRequest.to_json())
 
 # convert the object into a dict
 ezsigntemplateformfieldgroupsigner_request_dict = ezsigntemplateformfieldgroupsigner_request_instance.to_dict()

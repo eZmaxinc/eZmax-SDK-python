@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfoldertypeEditObjectV1Request from a JSON string
 ezsignfoldertype_edit_object_v1_request_instance = EzsignfoldertypeEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldertypeEditObjectV1Request.to_json()
+print(EzsignfoldertypeEditObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsignfoldertype_edit_object_v1_request_dict = ezsignfoldertype_edit_object_v1_request_instance.to_dict()

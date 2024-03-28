@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of WebsocketResponseGetWebsocketIDV1 from a JSON string
 websocket_response_get_websocket_idv1_instance = WebsocketResponseGetWebsocketIDV1.from_json(json)
 # print the JSON string representation of the object
-print WebsocketResponseGetWebsocketIDV1.to_json()
+print(WebsocketResponseGetWebsocketIDV1.to_json())
 
 # convert the object into a dict
 websocket_response_get_websocket_idv1_dict = websocket_response_get_websocket_idv1_instance.to_dict()

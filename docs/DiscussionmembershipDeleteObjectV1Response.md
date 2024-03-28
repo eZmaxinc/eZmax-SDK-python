@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of DiscussionmembershipDeleteObjectV1Response from a JSON string
 discussionmembership_delete_object_v1_response_instance = DiscussionmembershipDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print DiscussionmembershipDeleteObjectV1Response.to_json()
+print(DiscussionmembershipDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 discussionmembership_delete_object_v1_response_dict = discussionmembership_delete_object_v1_response_instance.to_dict()

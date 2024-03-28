@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.billingentityinternal_list_element import BillingentityinternalListElement
 

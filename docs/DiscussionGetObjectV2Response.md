@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of DiscussionGetObjectV2Response from a JSON string
 discussion_get_object_v2_response_instance = DiscussionGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print DiscussionGetObjectV2Response.to_json()
+print(DiscussionGetObjectV2Response.to_json())
 
 # convert the object into a dict
 discussion_get_object_v2_response_dict = discussion_get_object_v2_response_instance.to_dict()

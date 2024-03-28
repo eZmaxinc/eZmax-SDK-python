@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.field_e_attachment_privacy import FieldEAttachmentPrivacy
 

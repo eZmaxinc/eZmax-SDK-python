@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of InscriptionGetCommunicationsendersV1ResponseMPayload from a JSON string
 inscription_get_communicationsenders_v1_response_m_payload_instance = InscriptionGetCommunicationsendersV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print InscriptionGetCommunicationsendersV1ResponseMPayload.to_json()
+print(InscriptionGetCommunicationsendersV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 inscription_get_communicationsenders_v1_response_m_payload_dict = inscription_get_communicationsenders_v1_response_m_payload_instance.to_dict()

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualBillingentityinternalDescription from a JSON string
 multilingual_billingentityinternal_description_instance = MultilingualBillingentityinternalDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualBillingentityinternalDescription.to_json()
+print(MultilingualBillingentityinternalDescription.to_json())
 
 # convert the object into a dict
 multilingual_billingentityinternal_description_dict = multilingual_billingentityinternal_description_instance.to_dict()

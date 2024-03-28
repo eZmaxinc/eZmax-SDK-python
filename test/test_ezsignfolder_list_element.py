@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_list_element import EzsignfolderListElement
 
@@ -50,7 +49,11 @@ class TestEzsignfolderListElement(unittest.TestCase):
                 i_ezsigndocument = 56,
                 i_ezsigndocument_edm = 56,
                 i_ezsignsignature = 56,
-                i_ezsignsignature_signed = 56
+                i_ezsignsignature_signed = 56,
+                i_ezsignformfieldgroup = 56,
+                i_ezsignformfieldgroup_completed = 56,
+                b_ezsignform_hasdependencies = True,
+                d_ezsignfolder_completedpercentage = '-072.88'
             )
         else:
             return EzsignfolderListElement(
@@ -65,6 +68,9 @@ class TestEzsignfolderListElement(unittest.TestCase):
                 i_ezsigndocument_edm = 56,
                 i_ezsignsignature = 56,
                 i_ezsignsignature_signed = 56,
+                i_ezsignformfieldgroup = 56,
+                i_ezsignformfieldgroup_completed = 56,
+                d_ezsignfolder_completedpercentage = '-072.88',
         )
         """
 

@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezmaxinvoicing_ezsigndocument_response import CustomEzmaxinvoicingEzsigndocumentResponse
@@ -34,10 +32,8 @@ from eZmaxApi.models.ezmaxinvoicingsummaryglobal_response_compound import Ezmaxi
 from eZmaxApi.models.ezmaxinvoicingsummaryinternal_response_compound import EzmaxinvoicingsummaryinternalResponseCompound
 from eZmaxApi.models.ezmaxinvoicinguser_response_compound import EzmaxinvoicinguserResponseCompound
 from eZmaxApi.models.field_e_ezmaxinvoicing_paymenttype import FieldEEzmaxinvoicingPaymenttype
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
     """
@@ -81,11 +77,11 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -98,7 +94,7 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingGetProvisionalV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -112,10 +108,12 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
@@ -179,7 +177,7 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingGetProvisionalV1ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -200,16 +198,16 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
             "iEzmaxinvoicingContractlength": obj.get("iEzmaxinvoicingContractlength"),
             "dEzmaxinvoicingRebatecontractlength": obj.get("dEzmaxinvoicingRebatecontractlength"),
             "bEzmaxinvoicingRebateEzsignallagents": obj.get("bEzmaxinvoicingRebateEzsignallagents"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
-            "objEzmaxinvoicingcontract": EzmaxinvoicingcontractResponseCompound.from_dict(obj.get("objEzmaxinvoicingcontract")) if obj.get("objEzmaxinvoicingcontract") is not None else None,
-            "objEzmaxpricing": CustomEzmaxpricingResponse.from_dict(obj.get("objEzmaxpricing")) if obj.get("objEzmaxpricing") is not None else None,
-            "a_objEzmaxinvoicingsummaryglobal": [EzmaxinvoicingsummaryglobalResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryglobal")] if obj.get("a_objEzmaxinvoicingsummaryglobal") is not None else None,
-            "a_objEzmaxinvoicingsummaryexternal": [EzmaxinvoicingsummaryexternalResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryexternal")] if obj.get("a_objEzmaxinvoicingsummaryexternal") is not None else None,
-            "a_objEzmaxinvoicingsummaryinternal": [EzmaxinvoicingsummaryinternalResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryinternal")] if obj.get("a_objEzmaxinvoicingsummaryinternal") is not None else None,
-            "a_objEzmaxinvoicingagent": [EzmaxinvoicingagentResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingagent")] if obj.get("a_objEzmaxinvoicingagent") is not None else None,
-            "a_objEzmaxinvoicinguser": [EzmaxinvoicinguserResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicinguser")] if obj.get("a_objEzmaxinvoicinguser") is not None else None,
-            "a_objEzmaxinvoicingezsignfolder": [CustomEzmaxinvoicingEzsignfolderResponse.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingezsignfolder")] if obj.get("a_objEzmaxinvoicingezsignfolder") is not None else None,
-            "a_objEzmaxinvoicingezsigndocument": [CustomEzmaxinvoicingEzsigndocumentResponse.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingezsigndocument")] if obj.get("a_objEzmaxinvoicingezsigndocument") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
+            "objEzmaxinvoicingcontract": EzmaxinvoicingcontractResponseCompound.from_dict(obj["objEzmaxinvoicingcontract"]) if obj.get("objEzmaxinvoicingcontract") is not None else None,
+            "objEzmaxpricing": CustomEzmaxpricingResponse.from_dict(obj["objEzmaxpricing"]) if obj.get("objEzmaxpricing") is not None else None,
+            "a_objEzmaxinvoicingsummaryglobal": [EzmaxinvoicingsummaryglobalResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingsummaryglobal"]] if obj.get("a_objEzmaxinvoicingsummaryglobal") is not None else None,
+            "a_objEzmaxinvoicingsummaryexternal": [EzmaxinvoicingsummaryexternalResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingsummaryexternal"]] if obj.get("a_objEzmaxinvoicingsummaryexternal") is not None else None,
+            "a_objEzmaxinvoicingsummaryinternal": [EzmaxinvoicingsummaryinternalResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingsummaryinternal"]] if obj.get("a_objEzmaxinvoicingsummaryinternal") is not None else None,
+            "a_objEzmaxinvoicingagent": [EzmaxinvoicingagentResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingagent"]] if obj.get("a_objEzmaxinvoicingagent") is not None else None,
+            "a_objEzmaxinvoicinguser": [EzmaxinvoicinguserResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicinguser"]] if obj.get("a_objEzmaxinvoicinguser") is not None else None,
+            "a_objEzmaxinvoicingezsignfolder": [CustomEzmaxinvoicingEzsignfolderResponse.from_dict(_item) for _item in obj["a_objEzmaxinvoicingezsignfolder"]] if obj.get("a_objEzmaxinvoicingezsignfolder") is not None else None,
+            "a_objEzmaxinvoicingezsigndocument": [CustomEzmaxinvoicingEzsigndocumentResponse.from_dict(_item) for _item in obj["a_objEzmaxinvoicingezsigndocument"]] if obj.get("a_objEzmaxinvoicingezsigndocument") is not None else None
         })
         return _obj
 

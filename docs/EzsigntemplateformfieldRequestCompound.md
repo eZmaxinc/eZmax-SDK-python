@@ -34,7 +34,7 @@ json = "{}"
 # create an instance of EzsigntemplateformfieldRequestCompound from a JSON string
 ezsigntemplateformfield_request_compound_instance = EzsigntemplateformfieldRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateformfieldRequestCompound.to_json()
+print(EzsigntemplateformfieldRequestCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplateformfield_request_compound_dict = ezsigntemplateformfield_request_compound_instance.to_dict()

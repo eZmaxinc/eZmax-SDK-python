@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of UserstagedResponseCompound from a JSON string
 userstaged_response_compound_instance = UserstagedResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print UserstagedResponseCompound.to_json()
+print(UserstagedResponseCompound.to_json())
 
 # convert the object into a dict
 userstaged_response_compound_dict = userstaged_response_compound_instance.to_dict()

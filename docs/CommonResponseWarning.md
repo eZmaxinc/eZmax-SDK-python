@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonResponseWarning from a JSON string
 common_response_warning_instance = CommonResponseWarning.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseWarning.to_json()
+print(CommonResponseWarning.to_json())
 
 # convert the object into a dict
 common_response_warning_dict = common_response_warning_instance.to_dict()

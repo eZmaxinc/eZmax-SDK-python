@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.phonetype_autocomplete_element_response import PhonetypeAutocompleteElementResponse
 

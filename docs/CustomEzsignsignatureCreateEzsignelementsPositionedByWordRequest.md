@@ -43,7 +43,7 @@ json = "{}"
 # create an instance of CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest from a JSON string
 custom_ezsignsignature_create_ezsignelements_positioned_by_word_request_instance = CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest.to_json()
+print(CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest.to_json())
 
 # convert the object into a dict
 custom_ezsignsignature_create_ezsignelements_positioned_by_word_request_dict = custom_ezsignsignature_create_ezsignelements_positioned_by_word_request_instance.to_dict()

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **pki_ezsignformfieldgroup_id** | **int** | The unique ID of the Ezsignformfieldgroup | [optional] 
 **fki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | 
 **e_ezsignformfieldgroup_type** | [**FieldEEzsignformfieldgroupType**](FieldEEzsignformfieldgroupType.md) |  | 
-**e_ezsignformfieldgroup_signerrequirement** | [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | 
+**e_ezsignformfieldgroup_signerrequirement** | [**FieldEEzsignformfieldgroupSignerrequirement**](FieldEEzsignformfieldgroupSignerrequirement.md) |  | [optional] 
 **s_ezsignformfieldgroup_label** | **str** | The Label for the Ezsignformfieldgroup | 
 **i_ezsignformfieldgroup_step** | **int** | The step when the Ezsignsigner will be invited to fill the form fields | 
-**s_ezsignformfieldgroup_defaultvalue** | **str** | The default value for the Ezsignformfieldgroup | [optional] 
+**s_ezsignformfieldgroup_defaultvalue** | **str** | The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 | | [optional] 
 **i_ezsignformfieldgroup_filledmin** | **int** | The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **i_ezsignformfieldgroup_filledmax** | **int** | The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup | 
 **b_ezsignformfieldgroup_readonly** | **bool** | Whether the Ezsignformfieldgroup is read only or not. | 
@@ -36,7 +36,7 @@ json = "{}"
 # create an instance of EzsignformfieldgroupRequestCompound from a JSON string
 ezsignformfieldgroup_request_compound_instance = EzsignformfieldgroupRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignformfieldgroupRequestCompound.to_json()
+print(EzsignformfieldgroupRequestCompound.to_json())
 
 # convert the object into a dict
 ezsignformfieldgroup_request_compound_dict = ezsignformfieldgroup_request_compound_instance.to_dict()

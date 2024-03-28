@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FranchisebrokerGetAutocompleteV2ResponseMPayload from a JSON string
 franchisebroker_get_autocomplete_v2_response_m_payload_instance = FranchisebrokerGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print FranchisebrokerGetAutocompleteV2ResponseMPayload.to_json()
+print(FranchisebrokerGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 franchisebroker_get_autocomplete_v2_response_m_payload_dict = franchisebroker_get_autocomplete_v2_response_m_payload_instance.to_dict()

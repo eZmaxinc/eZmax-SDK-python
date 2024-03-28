@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of DepartmentGetAutocompleteV2Response from a JSON string
 department_get_autocomplete_v2_response_instance = DepartmentGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print DepartmentGetAutocompleteV2Response.to_json()
+print(DepartmentGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 department_get_autocomplete_v2_response_dict = department_get_autocomplete_v2_response_instance.to_dict()

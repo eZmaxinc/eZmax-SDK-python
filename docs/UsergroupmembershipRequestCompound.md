@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_usergroupmembership_id** | **int** | The unique ID of the Usergroupmembership | [optional] 
 **fki_usergroup_id** | **int** | The unique ID of the Usergroup | 
-**fki_user_id** | **int** | The unique ID of the User | 
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
+**fki_usergroupexternal_id** | **int** | The unique ID of the Usergroupexternal | [optional] 
 
 ## Example
 
@@ -20,7 +21,7 @@ json = "{}"
 # create an instance of UsergroupmembershipRequestCompound from a JSON string
 usergroupmembership_request_compound_instance = UsergroupmembershipRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print UsergroupmembershipRequestCompound.to_json()
+print(UsergroupmembershipRequestCompound.to_json())
 
 # convert the object into a dict
 usergroupmembership_request_compound_dict = usergroupmembership_request_compound_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.common_response_obj_sql_query import CommonResponseObjSQLQuery
 

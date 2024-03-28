@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzmaxinvoicingGetProvisionalV1Response from a JSON string
 ezmaxinvoicing_get_provisional_v1_response_instance = EzmaxinvoicingGetProvisionalV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzmaxinvoicingGetProvisionalV1Response.to_json()
+print(EzmaxinvoicingGetProvisionalV1Response.to_json())
 
 # convert the object into a dict
 ezmaxinvoicing_get_provisional_v1_response_dict = ezmaxinvoicing_get_provisional_v1_response_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 

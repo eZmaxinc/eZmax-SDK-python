@@ -12,28 +12,18 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
 from typing import Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntsarequirement_get_autocomplete_v2_response import EzsigntsarequirementGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -55,7 +45,7 @@ class ObjectEzsigntsarequirementApi:
     def ezsigntsarequirement_get_autocomplete_v2(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Ezsigntsarequirements to return")],
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -138,7 +128,7 @@ class ObjectEzsigntsarequirementApi:
     def ezsigntsarequirement_get_autocomplete_v2_with_http_info(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Ezsigntsarequirements to return")],
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -221,7 +211,7 @@ class ObjectEzsigntsarequirementApi:
     def ezsigntsarequirement_get_autocomplete_v2_without_preload_content(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Ezsigntsarequirements to return")],
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -307,7 +297,7 @@ class ObjectEzsigntsarequirementApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

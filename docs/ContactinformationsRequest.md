@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of ContactinformationsRequest from a JSON string
 contactinformations_request_instance = ContactinformationsRequest.from_json(json)
 # print the JSON string representation of the object
-print ContactinformationsRequest.to_json()
+print(ContactinformationsRequest.to_json())
 
 # convert the object into a dict
 contactinformations_request_dict = contactinformations_request_instance.to_dict()

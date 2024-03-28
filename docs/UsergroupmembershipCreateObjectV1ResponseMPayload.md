@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UsergroupmembershipCreateObjectV1ResponseMPayload from a JSON string
 usergroupmembership_create_object_v1_response_m_payload_instance = UsergroupmembershipCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print UsergroupmembershipCreateObjectV1ResponseMPayload.to_json()
+print(UsergroupmembershipCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 usergroupmembership_create_object_v1_response_m_payload_dict = usergroupmembership_create_object_v1_response_m_payload_instance.to_dict()

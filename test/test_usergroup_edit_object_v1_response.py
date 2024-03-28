@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroup_edit_object_v1_response import UsergroupEditObjectV1Response
 

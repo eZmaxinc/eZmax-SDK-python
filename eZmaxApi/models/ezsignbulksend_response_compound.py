@@ -18,26 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.ezsignbulksenddocumentmapping_response_compound import EzsignbulksenddocumentmappingResponseCompound
 from eZmaxApi.models.ezsignbulksendsignermapping_response import EzsignbulksendsignermappingResponse
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignbulksendResponseCompound(BaseModel):
     """
     An Ezsignbulksend Object and children to create a complete structure
     """ # noqa: E501
     pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
@@ -51,11 +47,11 @@ class EzsignbulksendResponseCompound(BaseModel):
     a_obj_ezsignbulksendsignermapping: List[EzsignbulksendsignermappingResponse] = Field(alias="a_objEzsignbulksendsignermapping")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignbulksendDescription", "tEzsignbulksendNote", "bEzsignbulksendNeedvalidation", "bEzsignbulksendIsactive", "objAudit", "a_objEzsignbulksenddocumentmapping", "a_objEzsignbulksendsignermapping"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -68,7 +64,7 @@ class EzsignbulksendResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignbulksendResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -82,10 +78,12 @@ class EzsignbulksendResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
@@ -108,7 +106,7 @@ class EzsignbulksendResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignbulksendResponseCompound from a dict"""
         if obj is None:
             return None
@@ -127,9 +125,9 @@ class EzsignbulksendResponseCompound(BaseModel):
             "tEzsignbulksendNote": obj.get("tEzsignbulksendNote"),
             "bEzsignbulksendNeedvalidation": obj.get("bEzsignbulksendNeedvalidation"),
             "bEzsignbulksendIsactive": obj.get("bEzsignbulksendIsactive"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
-            "a_objEzsignbulksenddocumentmapping": [EzsignbulksenddocumentmappingResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignbulksenddocumentmapping")] if obj.get("a_objEzsignbulksenddocumentmapping") is not None else None,
-            "a_objEzsignbulksendsignermapping": [EzsignbulksendsignermappingResponse.from_dict(_item) for _item in obj.get("a_objEzsignbulksendsignermapping")] if obj.get("a_objEzsignbulksendsignermapping") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
+            "a_objEzsignbulksenddocumentmapping": [EzsignbulksenddocumentmappingResponseCompound.from_dict(_item) for _item in obj["a_objEzsignbulksenddocumentmapping"]] if obj.get("a_objEzsignbulksenddocumentmapping") is not None else None,
+            "a_objEzsignbulksendsignermapping": [EzsignbulksendsignermappingResponse.from_dict(_item) for _item in obj["a_objEzsignbulksendsignermapping"]] if obj.get("a_objEzsignbulksendsignermapping") is not None else None
         })
         return _obj
 

@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of ModulesectionResponse from a JSON string
 modulesection_response_instance = ModulesectionResponse.from_json(json)
 # print the JSON string representation of the object
-print ModulesectionResponse.to_json()
+print(ModulesectionResponse.to_json())
 
 # convert the object into a dict
 modulesection_response_dict = modulesection_response_instance.to_dict()

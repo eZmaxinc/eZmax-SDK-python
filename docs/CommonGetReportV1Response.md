@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommonGetReportV1Response from a JSON string
 common_get_report_v1_response_instance = CommonGetReportV1Response.from_json(json)
 # print the JSON string representation of the object
-print CommonGetReportV1Response.to_json()
+print(CommonGetReportV1Response.to_json())
 
 # convert the object into a dict
 common_get_report_v1_response_dict = common_get_report_v1_response_instance.to_dict()

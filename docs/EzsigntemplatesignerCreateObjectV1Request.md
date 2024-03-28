@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntemplatesignerCreateObjectV1Request from a JSON string
 ezsigntemplatesigner_create_object_v1_request_instance = EzsigntemplatesignerCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatesignerCreateObjectV1Request.to_json()
+print(EzsigntemplatesignerCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsigntemplatesigner_create_object_v1_request_dict = ezsigntemplatesigner_create_object_v1_request_instance.to_dict()

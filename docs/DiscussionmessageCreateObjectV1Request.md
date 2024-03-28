@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of DiscussionmessageCreateObjectV1Request from a JSON string
 discussionmessage_create_object_v1_request_instance = DiscussionmessageCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print DiscussionmessageCreateObjectV1Request.to_json()
+print(DiscussionmessageCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 discussionmessage_create_object_v1_request_dict = discussionmessage_create_object_v1_request_instance.to_dict()

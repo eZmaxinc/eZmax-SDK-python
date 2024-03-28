@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_get_words_positions_v1_response import EzsigndocumentGetWordsPositionsV1Response
 

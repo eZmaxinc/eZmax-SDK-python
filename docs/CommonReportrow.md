@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonReportrow from a JSON string
 common_reportrow_instance = CommonReportrow.from_json(json)
 # print the JSON string representation of the object
-print CommonReportrow.to_json()
+print(CommonReportrow.to_json())
 
 # convert the object into a dict
 common_reportrow_dict = common_reportrow_instance.to_dict()

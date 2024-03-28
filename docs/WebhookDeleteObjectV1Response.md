@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of WebhookDeleteObjectV1Response from a JSON string
 webhook_delete_object_v1_response_instance = WebhookDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print WebhookDeleteObjectV1Response.to_json()
+print(WebhookDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 webhook_delete_object_v1_response_dict = webhook_delete_object_v1_response_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserGetSubnetsV1Response from a JSON string
 user_get_subnets_v1_response_instance = UserGetSubnetsV1Response.from_json(json)
 # print the JSON string representation of the object
-print UserGetSubnetsV1Response.to_json()
+print(UserGetSubnetsV1Response.to_json())
 
 # convert the object into a dict
 user_get_subnets_v1_response_dict = user_get_subnets_v1_response_instance.to_dict()

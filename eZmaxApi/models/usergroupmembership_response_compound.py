@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UsergroupmembershipResponseCompound(BaseModel):
     """
@@ -34,17 +30,22 @@ class UsergroupmembershipResponseCompound(BaseModel):
     """ # noqa: E501
     pki_usergroupmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupmembership", alias="pkiUsergroupmembershipID")
     fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID")
+    s_user_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the user", alias="sUserFirstname")
+    s_user_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the user", alias="sUserLastname")
+    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname")
     s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX"]
+    s_usergroupexternal_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
+    __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX", "sUsergroupexternalName"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
         if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
@@ -56,11 +57,21 @@ class UsergroupmembershipResponseCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('s_usergroupexternal_name')
+    def s_usergroupexternal_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,64}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,64}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -73,7 +84,7 @@ class UsergroupmembershipResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UsergroupmembershipResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -87,16 +98,18 @@ class UsergroupmembershipResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UsergroupmembershipResponseCompound from a dict"""
         if obj is None:
             return None
@@ -108,11 +121,13 @@ class UsergroupmembershipResponseCompound(BaseModel):
             "pkiUsergroupmembershipID": obj.get("pkiUsergroupmembershipID"),
             "fkiUsergroupID": obj.get("fkiUsergroupID"),
             "fkiUserID": obj.get("fkiUserID"),
+            "fkiUsergroupexternalID": obj.get("fkiUsergroupexternalID"),
             "sUserFirstname": obj.get("sUserFirstname"),
             "sUserLastname": obj.get("sUserLastname"),
             "sUserLoginname": obj.get("sUserLoginname"),
             "sEmailAddress": obj.get("sEmailAddress"),
-            "sUsergroupNameX": obj.get("sUsergroupNameX")
+            "sUsergroupNameX": obj.get("sUsergroupNameX"),
+            "sUsergroupexternalName": obj.get("sUsergroupexternalName")
         })
         return _obj
 

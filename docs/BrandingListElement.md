@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of BrandingListElement from a JSON string
 branding_list_element_instance = BrandingListElement.from_json(json)
 # print the JSON string representation of the object
-print BrandingListElement.to_json()
+print(BrandingListElement.to_json())
 
 # convert the object into a dict
 branding_list_element_dict = branding_list_element_instance.to_dict()

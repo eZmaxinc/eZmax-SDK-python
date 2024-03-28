@@ -19,8 +19,6 @@ The endpoint allows to send one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.communication_send_v1_request import CommunicationSendV1Request
 from eZmaxApi.models.communication_send_v1_response import CommunicationSendV1Response

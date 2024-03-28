@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of GlobalCustomerGetEndpointV1Response from a JSON string
 global_customer_get_endpoint_v1_response_instance = GlobalCustomerGetEndpointV1Response.from_json(json)
 # print the JSON string representation of the object
-print GlobalCustomerGetEndpointV1Response.to_json()
+print(GlobalCustomerGetEndpointV1Response.to_json())
 
 # convert the object into a dict
 global_customer_get_endpoint_v1_response_dict = global_customer_get_endpoint_v1_response_instance.to_dict()

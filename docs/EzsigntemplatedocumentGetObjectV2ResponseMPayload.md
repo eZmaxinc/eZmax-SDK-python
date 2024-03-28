@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentGetObjectV2ResponseMPayload from a JSON string
 ezsigntemplatedocument_get_object_v2_response_m_payload_instance = EzsigntemplatedocumentGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentGetObjectV2ResponseMPayload.to_json()
+print(EzsigntemplatedocumentGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocument_get_object_v2_response_m_payload_dict = ezsigntemplatedocument_get_object_v2_response_m_payload_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.user_send_password_reset_v1_response import UserSendPasswordResetV1Response
 

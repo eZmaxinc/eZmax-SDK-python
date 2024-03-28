@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PermissionCreateObjectV1ResponseMPayload from a JSON string
 permission_create_object_v1_response_m_payload_instance = PermissionCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print PermissionCreateObjectV1ResponseMPayload.to_json()
+print(PermissionCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 permission_create_object_v1_response_m_payload_dict = permission_create_object_v1_response_m_payload_instance.to_dict()

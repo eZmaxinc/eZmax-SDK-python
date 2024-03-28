@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ApikeyGetCorsV1Response from a JSON string
 apikey_get_cors_v1_response_instance = ApikeyGetCorsV1Response.from_json(json)
 # print the JSON string representation of the object
-print ApikeyGetCorsV1Response.to_json()
+print(ApikeyGetCorsV1Response.to_json())
 
 # convert the object into a dict
 apikey_get_cors_v1_response_dict = apikey_get_cors_v1_response_instance.to_dict()

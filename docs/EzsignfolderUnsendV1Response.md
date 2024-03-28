@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfolderUnsendV1Response from a JSON string
 ezsignfolder_unsend_v1_response_instance = EzsignfolderUnsendV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderUnsendV1Response.to_json()
+print(EzsignfolderUnsendV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_unsend_v1_response_dict = ezsignfolder_unsend_v1_response_instance.to_dict()

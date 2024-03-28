@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of WebhookListElement from a JSON string
 webhook_list_element_instance = WebhookListElement.from_json(json)
 # print the JSON string representation of the object
-print WebhookListElement.to_json()
+print(WebhookListElement.to_json())
 
 # convert the object into a dict
 webhook_list_element_dict = webhook_list_element_instance.to_dict()

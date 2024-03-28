@@ -20,8 +20,6 @@ Retrieve Invoice's Attachments
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.invoice_get_attachments_v1_response import InvoiceGetAttachmentsV1Response
 from eZmaxApi.rest import ApiException
@@ -102,8 +100,6 @@ Retrieve Communication list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.invoice_get_communication_list_v1_response import InvoiceGetCommunicationListV1Response
 from eZmaxApi.rest import ApiException

@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of NotificationsubsectionResponse from a JSON string
 notificationsubsection_response_instance = NotificationsubsectionResponse.from_json(json)
 # print the JSON string representation of the object
-print NotificationsubsectionResponse.to_json()
+print(NotificationsubsectionResponse.to_json())
 
 # convert the object into a dict
 notificationsubsection_response_dict = notificationsubsection_response_instance.to_dict()

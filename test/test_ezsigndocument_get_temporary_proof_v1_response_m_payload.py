@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_get_temporary_proof_v1_response_m_payload import EzsigndocumentGetTemporaryProofV1ResponseMPayload
 

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualBrandingDescription from a JSON string
 multilingual_branding_description_instance = MultilingualBrandingDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualBrandingDescription.to_json()
+print(MultilingualBrandingDescription.to_json())
 
 # convert the object into a dict
 multilingual_branding_description_dict = multilingual_branding_description_instance.to_dict()

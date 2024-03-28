@@ -27,8 +27,6 @@ Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_request import EzsignbulksendCreateEzsignbulksendtransmissionV1Request
 from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_response import EzsignbulksendCreateEzsignbulksendtransmissionV1Response
@@ -113,8 +111,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_create_object_v1_request import EzsignbulksendCreateObjectV1Request
 from eZmaxApi.models.ezsignbulksend_create_object_v1_response import EzsignbulksendCreateObjectV1Response
@@ -195,8 +191,6 @@ Delete an existing Ezsignbulksend
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_delete_object_v1_response import EzsignbulksendDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -278,8 +272,6 @@ Edit an existing Ezsignbulksend
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_edit_object_v1_request import EzsignbulksendEditObjectV1Request
 from eZmaxApi.models.ezsignbulksend_edit_object_v1_response import EzsignbulksendEditObjectV1Response
@@ -364,8 +356,6 @@ Retrieve an existing Ezsignbulksend's empty Csv template
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.rest import ApiException
 from pprint import pprint
@@ -449,8 +439,6 @@ Retrieve an existing Ezsignbulksend's Ezsignbulksendtransmissions
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_get_ezsignbulksendtransmissions_v1_response import EzsignbulksendGetEzsignbulksendtransmissionsV1Response
 from eZmaxApi.rest import ApiException
@@ -531,8 +519,6 @@ Return the Ezsignsignatures that can be signed by the current user at the curren
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_get_ezsignsignatures_automatic_v1_response import EzsignbulksendGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.rest import ApiException
@@ -613,8 +599,6 @@ Retrieve an existing Ezsignbulksend's forms data
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_get_forms_data_v1_response import EzsignbulksendGetFormsDataV1Response
 from eZmaxApi.rest import ApiException
@@ -697,8 +681,6 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_get_list_v1_response import EzsignbulksendGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -788,8 +770,6 @@ Retrieve an existing Ezsignbulksend
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_get_object_v2_response import EzsignbulksendGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -868,8 +848,6 @@ Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksend_reorder_v1_request import EzsignbulksendReorderV1Request
 from eZmaxApi.models.ezsignbulksend_reorder_v1_response import EzsignbulksendReorderV1Response

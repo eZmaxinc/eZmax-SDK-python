@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackagemembershipDeleteObjectV1Response from a JSON string
 ezsigntemplatepackagemembership_delete_object_v1_response_instance = EzsigntemplatepackagemembershipDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackagemembershipDeleteObjectV1Response.to_json()
+print(EzsigntemplatepackagemembershipDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackagemembership_delete_object_v1_response_dict = ezsigntemplatepackagemembership_delete_object_v1_response_instance.to_dict()

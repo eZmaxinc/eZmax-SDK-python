@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignsignatureEditObjectV1Response from a JSON string
 ezsignsignature_edit_object_v1_response_instance = EzsignsignatureEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignatureEditObjectV1Response.to_json()
+print(EzsignsignatureEditObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignsignature_edit_object_v1_response_dict = ezsignsignature_edit_object_v1_response_instance.to_dict()

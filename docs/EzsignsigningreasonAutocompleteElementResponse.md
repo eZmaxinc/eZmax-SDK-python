@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignsigningreasonAutocompleteElementResponse from a JSON string
 ezsignsigningreason_autocomplete_element_response_instance = EzsignsigningreasonAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignsigningreasonAutocompleteElementResponse.to_json()
+print(EzsignsigningreasonAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 ezsignsigningreason_autocomplete_element_response_dict = ezsignsigningreason_autocomplete_element_response_instance.to_dict()

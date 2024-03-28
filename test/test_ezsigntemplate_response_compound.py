@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_response_compound import EzsigntemplateResponseCompound
 
@@ -43,6 +42,7 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
                 fki_language_id = 2,
                 s_language_name_x = 'English',
                 s_ezsigntemplate_description = 'Standard Contract',
+                s_ezsigntemplate_filenamepattern = 'Contract',
                 b_ezsigntemplate_adminonly = True,
                 s_ezsignfoldertype_name_x = 'Default',
                 obj_audit = eZmaxApi.models.common_audit.Common-Audit(
@@ -62,6 +62,8 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                b_ezsigntemplate_editallowed = True,
+                e_ezsigntemplate_type = 'Usergroup',
                 obj_ezsigntemplatedocument = eZmaxApi.models.ezsigntemplatedocument_response.ezsigntemplatedocument-Response(
                     pki_ezsigntemplatedocument_id = 133, 
                     fki_ezsigntemplate_id = 36, 
@@ -76,12 +78,10 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
         else:
             return EzsigntemplateResponseCompound(
                 pki_ezsigntemplate_id = 36,
-                fki_ezsignfoldertype_id = 5,
                 fki_language_id = 2,
                 s_language_name_x = 'English',
                 s_ezsigntemplate_description = 'Standard Contract',
                 b_ezsigntemplate_adminonly = True,
-                s_ezsignfoldertype_name_x = 'Default',
                 obj_audit = eZmaxApi.models.common_audit.Common-Audit(
                     obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
                         fki_user_id = 70, 
@@ -99,6 +99,7 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                b_ezsigntemplate_editallowed = True,
                 a_obj_ezsigntemplatesigner = [
                     eZmaxApi.models.ezsigntemplatesigner_response_compound.ezsigntemplatesigner-ResponseCompound()
                     ],

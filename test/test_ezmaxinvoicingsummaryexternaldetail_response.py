@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response import EzmaxinvoicingsummaryexternaldetailResponse
 

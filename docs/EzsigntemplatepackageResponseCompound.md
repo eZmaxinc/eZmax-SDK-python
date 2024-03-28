@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **b_ezsigntemplatepackage_needvalidation** | **bool** | Whether the Ezsignbulksend was automatically modified and needs a manual validation | 
 **b_ezsigntemplatepackage_isactive** | **bool** | Whether the Ezsigntemplatepackage is active or not | 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | 
+**b_ezsigntemplatepackage_editallowed** | **bool** | Whether the Ezsigntemplatepackage if allowed to edit or not | 
 **a_obj_ezsigntemplatepackagesigner** | [**List[EzsigntemplatepackagesignerResponseCompound]**](EzsigntemplatepackagesignerResponseCompound.md) |  | 
 **a_obj_ezsigntemplatepackagemembership** | [**List[EzsigntemplatepackagemembershipResponseCompound]**](EzsigntemplatepackagemembershipResponseCompound.md) |  | 
 
@@ -28,7 +29,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackageResponseCompound from a JSON string
 ezsigntemplatepackage_response_compound_instance = EzsigntemplatepackageResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackageResponseCompound.to_json()
+print(EzsigntemplatepackageResponseCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackage_response_compound_dict = ezsigntemplatepackage_response_compound_instance.to_dict()

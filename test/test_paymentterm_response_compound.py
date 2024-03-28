@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.paymentterm_response_compound import PaymenttermResponseCompound
 

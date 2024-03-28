@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignformfieldgroupsignerRequestCompound from a JSON string
 ezsignformfieldgroupsigner_request_compound_instance = EzsignformfieldgroupsignerRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignformfieldgroupsignerRequestCompound.to_json()
+print(EzsignformfieldgroupsignerRequestCompound.to_json())
 
 # convert the object into a dict
 ezsignformfieldgroupsigner_request_compound_dict = ezsignformfieldgroupsigner_request_compound_instance.to_dict()

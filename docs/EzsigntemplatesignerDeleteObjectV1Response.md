@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplatesignerDeleteObjectV1Response from a JSON string
 ezsigntemplatesigner_delete_object_v1_response_instance = EzsigntemplatesignerDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatesignerDeleteObjectV1Response.to_json()
+print(EzsigntemplatesignerDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplatesigner_delete_object_v1_response_dict = ezsigntemplatesigner_delete_object_v1_response_instance.to_dict()

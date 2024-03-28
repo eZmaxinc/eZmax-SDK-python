@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of EzsignannotationResponse from a JSON string
 ezsignannotation_response_instance = EzsignannotationResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignannotationResponse.to_json()
+print(EzsignannotationResponse.to_json())
 
 # convert the object into a dict
 ezsignannotation_response_dict = ezsignannotation_response_instance.to_dict()

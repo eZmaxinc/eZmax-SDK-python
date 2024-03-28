@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of TextstylestaticResponseCompound from a JSON string
 textstylestatic_response_compound_instance = TextstylestaticResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print TextstylestaticResponseCompound.to_json()
+print(TextstylestaticResponseCompound.to_json())
 
 # convert the object into a dict
 textstylestatic_response_compound_dict = textstylestatic_response_compound_instance.to_dict()

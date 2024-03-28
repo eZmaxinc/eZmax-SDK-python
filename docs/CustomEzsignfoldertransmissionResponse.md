@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of CustomEzsignfoldertransmissionResponse from a JSON string
 custom_ezsignfoldertransmission_response_instance = CustomEzsignfoldertransmissionResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignfoldertransmissionResponse.to_json()
+print(CustomEzsignfoldertransmissionResponse.to_json())
 
 # convert the object into a dict
 custom_ezsignfoldertransmission_response_dict = custom_ezsignfoldertransmission_response_instance.to_dict()

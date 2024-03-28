@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SignatureDeleteObjectV1Response from a JSON string
 signature_delete_object_v1_response_instance = SignatureDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print SignatureDeleteObjectV1Response.to_json()
+print(SignatureDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 signature_delete_object_v1_response_dict = signature_delete_object_v1_response_instance.to_dict()

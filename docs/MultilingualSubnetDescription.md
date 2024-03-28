@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualSubnetDescription from a JSON string
 multilingual_subnet_description_instance = MultilingualSubnetDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualSubnetDescription.to_json()
+print(MultilingualSubnetDescription.to_json())
 
 # convert the object into a dict
 multilingual_subnet_description_dict = multilingual_subnet_description_instance.to_dict()

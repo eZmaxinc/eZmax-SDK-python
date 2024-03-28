@@ -21,8 +21,6 @@ Create a new Usergroup
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_group import ScimGroup
 from eZmaxApi.rest import ApiException
@@ -99,8 +97,6 @@ Delete an existing Usergroup
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.rest import ApiException
 from pprint import pprint
@@ -174,8 +170,6 @@ Edit an existing Usergroup
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_group import ScimGroup
 from eZmaxApi.rest import ApiException
@@ -254,8 +248,6 @@ Retrieve Usergroup list
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_group import ScimGroup
 from eZmaxApi.rest import ApiException
@@ -332,8 +324,6 @@ Retrieve an existing Usergroup
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_group import ScimGroup
 from eZmaxApi.rest import ApiException

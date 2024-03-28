@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.userstaged_response_compound import UserstagedResponseCompound
 

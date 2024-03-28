@@ -19,8 +19,6 @@ Get the list of Department to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.department_get_autocomplete_v2_response import DepartmentGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage

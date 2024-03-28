@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UserEditPermissionsV1Request from a JSON string
 user_edit_permissions_v1_request_instance = UserEditPermissionsV1Request.from_json(json)
 # print the JSON string representation of the object
-print UserEditPermissionsV1Request.to_json()
+print(UserEditPermissionsV1Request.to_json())
 
 # convert the object into a dict
 user_edit_permissions_v1_request_dict = user_edit_permissions_v1_request_instance.to_dict()

@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.module_response_compound import ModuleResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ModulegroupResponseCompound(BaseModel):
     """
@@ -45,11 +41,11 @@ class ModulegroupResponseCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -62,7 +58,7 @@ class ModulegroupResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ModulegroupResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,10 +72,12 @@ class ModulegroupResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_module (list)
@@ -92,7 +90,7 @@ class ModulegroupResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ModulegroupResponseCompound from a dict"""
         if obj is None:
             return None
@@ -103,7 +101,7 @@ class ModulegroupResponseCompound(BaseModel):
         _obj = cls.model_validate({
             "pkiModulegroupID": obj.get("pkiModulegroupID"),
             "sModulegroupNameX": obj.get("sModulegroupNameX"),
-            "a_objModule": [ModuleResponseCompound.from_dict(_item) for _item in obj.get("a_objModule")] if obj.get("a_objModule") is not None else None
+            "a_objModule": [ModuleResponseCompound.from_dict(_item) for _item in obj["a_objModule"]] if obj.get("a_objModule") is not None else None
         })
         return _obj
 

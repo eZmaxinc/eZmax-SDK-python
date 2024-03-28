@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CustomUserResponse from a JSON string
 custom_user_response_instance = CustomUserResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomUserResponse.to_json()
+print(CustomUserResponse.to_json())
 
 # convert the object into a dict
 custom_user_response_dict = custom_user_response_instance.to_dict()

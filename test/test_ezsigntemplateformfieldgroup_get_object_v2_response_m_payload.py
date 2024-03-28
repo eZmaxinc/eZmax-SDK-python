@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplateformfieldgroup_get_object_v2_response_m_payload import EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload
 

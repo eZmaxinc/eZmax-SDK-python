@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_response_compound import EzsignfolderResponseCompound
 
@@ -88,6 +87,7 @@ Mary',
         else:
             return EzsignfolderResponseCompound(
                 pki_ezsignfolder_id = 33,
+                e_ezsignfolder_completion = 'PerEzsigndocument',
                 s_ezsignfolder_description = 'Test eZsign Folder',
         )
         """

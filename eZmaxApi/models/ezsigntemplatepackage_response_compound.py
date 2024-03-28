@@ -18,24 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplatepackagemembership_response_compound import EzsigntemplatepackagemembershipResponseCompound
 from eZmaxApi.models.ezsigntemplatepackagesigner_response_compound import EzsigntemplatepackagesignerResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplatepackageResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackage Object
     """ # noqa: E501
     pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
     s_ezsigntemplatepackage_description: StrictStr = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
@@ -43,15 +39,16 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
     b_ezsigntemplatepackage_needvalidation: StrictBool = Field(description="Whether the Ezsignbulksend was automatically modified and needs a manual validation", alias="bEzsigntemplatepackageNeedvalidation")
     b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
     s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    b_ezsigntemplatepackage_editallowed: StrictBool = Field(description="Whether the Ezsigntemplatepackage if allowed to edit or not", alias="bEzsigntemplatepackageEditallowed")
     a_obj_ezsigntemplatepackagesigner: List[EzsigntemplatepackagesignerResponseCompound] = Field(alias="a_objEzsigntemplatepackagesigner")
     a_obj_ezsigntemplatepackagemembership: List[EzsigntemplatepackagemembershipResponseCompound] = Field(alias="a_objEzsigntemplatepackagemembership")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "a_objEzsigntemplatepackagesigner", "a_objEzsigntemplatepackagemembership"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageEditallowed", "a_objEzsigntemplatepackagesigner", "a_objEzsigntemplatepackagemembership"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -64,7 +61,7 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplatepackageResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -78,10 +75,12 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatepackagesigner (list)
@@ -101,7 +100,7 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatepackageResponseCompound from a dict"""
         if obj is None:
             return None
@@ -119,8 +118,9 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
             "bEzsigntemplatepackageNeedvalidation": obj.get("bEzsigntemplatepackageNeedvalidation"),
             "bEzsigntemplatepackageIsactive": obj.get("bEzsigntemplatepackageIsactive"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "a_objEzsigntemplatepackagesigner": [EzsigntemplatepackagesignerResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatepackagesigner")] if obj.get("a_objEzsigntemplatepackagesigner") is not None else None,
-            "a_objEzsigntemplatepackagemembership": [EzsigntemplatepackagemembershipResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatepackagemembership")] if obj.get("a_objEzsigntemplatepackagemembership") is not None else None
+            "bEzsigntemplatepackageEditallowed": obj.get("bEzsigntemplatepackageEditallowed"),
+            "a_objEzsigntemplatepackagesigner": [EzsigntemplatepackagesignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatepackagesigner"]] if obj.get("a_objEzsigntemplatepackagesigner") is not None else None,
+            "a_objEzsigntemplatepackagemembership": [EzsigntemplatepackagemembershipResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatepackagemembership"]] if obj.get("a_objEzsigntemplatepackagemembership") is not None else None
         })
         return _obj
 

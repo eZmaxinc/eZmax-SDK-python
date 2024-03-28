@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of WebhookEzsignEzsignsignerConnect from a JSON string
 webhook_ezsign_ezsignsigner_connect_instance = WebhookEzsignEzsignsignerConnect.from_json(json)
 # print the JSON string representation of the object
-print WebhookEzsignEzsignsignerConnect.to_json()
+print(WebhookEzsignEzsignsignerConnect.to_json())
 
 # convert the object into a dict
 webhook_ezsign_ezsignsigner_connect_dict = webhook_ezsign_ezsignsigner_connect_instance.to_dict()

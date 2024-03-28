@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.branding_get_autocomplete_v2_response import BrandingGetAutocompleteV2Response
 

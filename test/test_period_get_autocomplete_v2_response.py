@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.period_get_autocomplete_v2_response import PeriodGetAutocompleteV2Response
 

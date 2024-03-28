@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.billingentityinternal_get_autocomplete_v2_response import BillingentityinternalGetAutocompleteV2Response
 

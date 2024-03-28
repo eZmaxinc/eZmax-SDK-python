@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserGetEffectivePermissionsV1Response from a JSON string
 user_get_effective_permissions_v1_response_instance = UserGetEffectivePermissionsV1Response.from_json(json)
 # print the JSON string representation of the object
-print UserGetEffectivePermissionsV1Response.to_json()
+print(UserGetEffectivePermissionsV1Response.to_json())
 
 # convert the object into a dict
 user_get_effective_permissions_v1_response_dict = user_get_effective_permissions_v1_response_instance.to_dict()

@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of EzsignbulksendListElement from a JSON string
 ezsignbulksend_list_element_instance = EzsignbulksendListElement.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendListElement.to_json()
+print(EzsignbulksendListElement.to_json())
 
 # convert the object into a dict
 ezsignbulksend_list_element_dict = ezsignbulksend_list_element_instance.to_dict()

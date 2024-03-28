@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of WebhookRegenerateApikeyV1Response from a JSON string
 webhook_regenerate_apikey_v1_response_instance = WebhookRegenerateApikeyV1Response.from_json(json)
 # print the JSON string representation of the object
-print WebhookRegenerateApikeyV1Response.to_json()
+print(WebhookRegenerateApikeyV1Response.to_json())
 
 # convert the object into a dict
 webhook_regenerate_apikey_v1_response_dict = webhook_regenerate_apikey_v1_response_instance.to_dict()

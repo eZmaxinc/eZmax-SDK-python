@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigndocumentGetEzsignformfieldgroupsV1Response from a JSON string
 ezsigndocument_get_ezsignformfieldgroups_v1_response_instance = EzsigndocumentGetEzsignformfieldgroupsV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentGetEzsignformfieldgroupsV1Response.to_json()
+print(EzsigndocumentGetEzsignformfieldgroupsV1Response.to_json())
 
 # convert the object into a dict
 ezsigndocument_get_ezsignformfieldgroups_v1_response_dict = ezsigndocument_get_ezsignformfieldgroups_v1_response_instance.to_dict()

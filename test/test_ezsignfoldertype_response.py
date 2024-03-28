@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfoldertype_response import EzsignfoldertypeResponse
 
@@ -61,10 +60,9 @@ class TestEzsignfoldertypeResponse(unittest.TestCase):
                 i_ezsignfoldertype_disposaldays = 365,
                 i_ezsignfoldertype_deadlinedays = 5,
                 b_ezsignfoldertype_delegate = True,
-                b_ezsignfoldertype_reassign = True,
+                b_ezsignfoldertype_discussion = True,
                 b_ezsignfoldertype_reassignezsignsigner = True,
                 b_ezsignfoldertype_reassignuser = True,
-                b_ezsignfoldertype_sendattatchmentsigner = False,
                 b_ezsignfoldertype_sendsignedtoezsignsigner = False,
                 b_ezsignfoldertype_sendsignedtouser = False,
                 b_ezsignfoldertype_sendattachmentezsignsigner = False,
@@ -85,9 +83,15 @@ class TestEzsignfoldertypeResponse(unittest.TestCase):
                 b_ezsignfoldertype_sendsummarytofullgroup = False,
                 b_ezsignfoldertype_sendsummarytolimitedgroup = False,
                 b_ezsignfoldertype_sendsummarytocolleague = False,
-                b_ezsignfoldertype_includeproofsigner = True,
-                b_ezsignfoldertype_includeproofuser = True,
-                b_ezsignfoldertype_isactive = True
+                b_ezsignfoldertype_isactive = True,
+                a_obj_userlogintype = [
+                    eZmaxApi.models.userlogintype_response.userlogintype-Response(
+                        pki_userlogintype_id = 2, 
+                        obj_userlogintype_description = eZmaxApi.models.multilingual_userlogintype_description.Multilingual-UserlogintypeDescription(
+                            s_userlogintype_description1 = 'Courriel et téléphone ou SMS', 
+                            s_userlogintype_description2 = 'Email and phone or SMS', ), 
+                        s_userlogintype_description_x = 'Email and phone or SMS', )
+                    ]
             )
         else:
             return EzsignfoldertypeResponse(
@@ -100,6 +104,7 @@ class TestEzsignfoldertypeResponse(unittest.TestCase):
                 e_ezsignfoldertype_privacylevel = 'User',
                 i_ezsignfoldertype_archivaldays = 30,
                 e_ezsignfoldertype_disposal = 'Manual',
+                e_ezsignfoldertype_completion = 'PerEzsigndocument',
                 i_ezsignfoldertype_deadlinedays = 5,
                 b_ezsignfoldertype_sendsignedtodocumentowner = False,
                 b_ezsignfoldertype_sendsignedtofolderowner = False,
@@ -107,8 +112,15 @@ class TestEzsignfoldertypeResponse(unittest.TestCase):
                 b_ezsignfoldertype_sendsummarytodocumentowner = False,
                 b_ezsignfoldertype_sendsummarytofolderowner = False,
                 b_ezsignfoldertype_sendsummarytocolleague = False,
-                b_ezsignfoldertype_includeproofuser = True,
                 b_ezsignfoldertype_isactive = True,
+                a_obj_userlogintype = [
+                    eZmaxApi.models.userlogintype_response.userlogintype-Response(
+                        pki_userlogintype_id = 2, 
+                        obj_userlogintype_description = eZmaxApi.models.multilingual_userlogintype_description.Multilingual-UserlogintypeDescription(
+                            s_userlogintype_description1 = 'Courriel et téléphone ou SMS', 
+                            s_userlogintype_description2 = 'Email and phone or SMS', ), 
+                        s_userlogintype_description_x = 'Email and phone or SMS', )
+                    ],
         )
         """
 

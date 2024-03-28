@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UsergroupmembershipCreateObjectV1Response from a JSON string
 usergroupmembership_create_object_v1_response_instance = UsergroupmembershipCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print UsergroupmembershipCreateObjectV1Response.to_json()
+print(UsergroupmembershipCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 usergroupmembership_create_object_v1_response_dict = usergroupmembership_create_object_v1_response_instance.to_dict()

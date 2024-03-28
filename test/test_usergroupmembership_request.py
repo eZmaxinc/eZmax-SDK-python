@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroupmembership_request import UsergroupmembershipRequest
 
@@ -39,12 +38,12 @@ class TestUsergroupmembershipRequest(unittest.TestCase):
             return UsergroupmembershipRequest(
                 pki_usergroupmembership_id = 21,
                 fki_usergroup_id = 2,
-                fki_user_id = 70
+                fki_user_id = 70,
+                fki_usergroupexternal_id = 16
             )
         else:
             return UsergroupmembershipRequest(
                 fki_usergroup_id = 2,
-                fki_user_id = 70,
         )
         """
 

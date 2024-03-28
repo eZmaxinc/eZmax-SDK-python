@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CommonReportsection from a JSON string
 common_reportsection_instance = CommonReportsection.from_json(json)
 # print the JSON string representation of the object
-print CommonReportsection.to_json()
+print(CommonReportsection.to_json())
 
 # convert the object into a dict
 common_reportsection_dict = common_reportsection_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentGetWordsPositionsV1Request from a JSON string
 ezsigntemplatedocument_get_words_positions_v1_request_instance = EzsigntemplatedocumentGetWordsPositionsV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentGetWordsPositionsV1Request.to_json()
+print(EzsigntemplatedocumentGetWordsPositionsV1Request.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocument_get_words_positions_v1_request_dict = ezsigntemplatedocument_get_words_positions_v1_request_instance.to_dict()

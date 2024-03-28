@@ -45,7 +45,7 @@ json = "{}"
 # create an instance of UserRequestCompound from a JSON string
 user_request_compound_instance = UserRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print UserRequestCompound.to_json()
+print(UserRequestCompound.to_json())
 
 # convert the object into a dict
 user_request_compound_dict = user_request_compound_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserlogintypeGetAutocompleteV2Response from a JSON string
 userlogintype_get_autocomplete_v2_response_instance = UserlogintypeGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print UserlogintypeGetAutocompleteV2Response.to_json()
+print(UserlogintypeGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 userlogintype_get_autocomplete_v2_response_dict = userlogintype_get_autocomplete_v2_response_instance.to_dict()

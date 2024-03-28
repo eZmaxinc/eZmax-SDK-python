@@ -29,7 +29,7 @@ json = "{}"
 # create an instance of FranchisereferalincomeRequest from a JSON string
 franchisereferalincome_request_instance = FranchisereferalincomeRequest.from_json(json)
 # print the JSON string representation of the object
-print FranchisereferalincomeRequest.to_json()
+print(FranchisereferalincomeRequest.to_json())
 
 # convert the object into a dict
 franchisereferalincome_request_dict = franchisereferalincome_request_instance.to_dict()

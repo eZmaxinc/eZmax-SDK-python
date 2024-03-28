@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.inscription_get_communication_list_v1_response import InscriptionGetCommunicationListV1Response
 

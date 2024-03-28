@@ -20,8 +20,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussionmembership_create_object_v1_request import DiscussionmembershipCreateObjectV1Request
 from eZmaxApi.models.discussionmembership_create_object_v1_response import DiscussionmembershipCreateObjectV1Response
@@ -102,8 +100,6 @@ Delete an existing Discussionmembership
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussionmembership_delete_object_v1_response import DiscussionmembershipDeleteObjectV1Response
 from eZmaxApi.rest import ApiException

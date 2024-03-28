@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 from eZmaxApi.models.ezsignfolder_response import EzsignfolderResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
     """
@@ -41,11 +37,11 @@ class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
     obj_ezsignfoldersignerassociation: EzsignfoldersignerassociationResponseCompound = Field(alias="objEzsignfoldersignerassociation")
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objEzsignfolder", "objEzsignfoldersignerassociation"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -58,7 +54,7 @@ class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of WebhookEzsignEzsignsignerAcceptclause from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -72,10 +68,12 @@ class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_webhook
@@ -97,7 +95,7 @@ class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of WebhookEzsignEzsignsignerAcceptclause from a dict"""
         if obj is None:
             return None
@@ -106,10 +104,10 @@ class WebhookEzsignEzsignsignerAcceptclause(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objWebhook": CustomWebhookResponse.from_dict(obj.get("objWebhook")) if obj.get("objWebhook") is not None else None,
-            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj.get("a_objAttempt")] if obj.get("a_objAttempt") is not None else None,
-            "objEzsignfolder": EzsignfolderResponse.from_dict(obj.get("objEzsignfolder")) if obj.get("objEzsignfolder") is not None else None,
-            "objEzsignfoldersignerassociation": EzsignfoldersignerassociationResponseCompound.from_dict(obj.get("objEzsignfoldersignerassociation")) if obj.get("objEzsignfoldersignerassociation") is not None else None
+            "objWebhook": CustomWebhookResponse.from_dict(obj["objWebhook"]) if obj.get("objWebhook") is not None else None,
+            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
+            "objEzsignfolder": EzsignfolderResponse.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None,
+            "objEzsignfoldersignerassociation": EzsignfoldersignerassociationResponseCompound.from_dict(obj["objEzsignfoldersignerassociation"]) if obj.get("objEzsignfoldersignerassociation") is not None else None
         })
         return _obj
 

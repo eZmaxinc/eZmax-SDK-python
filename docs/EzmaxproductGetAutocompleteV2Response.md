@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzmaxproductGetAutocompleteV2Response from a JSON string
 ezmaxproduct_get_autocomplete_v2_response_instance = EzmaxproductGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print EzmaxproductGetAutocompleteV2Response.to_json()
+print(EzmaxproductGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 ezmaxproduct_get_autocomplete_v2_response_dict = ezmaxproduct_get_autocomplete_v2_response_instance.to_dict()

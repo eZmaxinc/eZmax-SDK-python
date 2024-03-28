@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ScimServiceProviderConfigBulk from a JSON string
 scim_service_provider_config_bulk_instance = ScimServiceProviderConfigBulk.from_json(json)
 # print the JSON string representation of the object
-print ScimServiceProviderConfigBulk.to_json()
+print(ScimServiceProviderConfigBulk.to_json())
 
 # convert the object into a dict
 scim_service_provider_config_bulk_dict = scim_service_provider_config_bulk_instance.to_dict()

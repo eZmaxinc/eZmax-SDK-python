@@ -18,24 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfolderListElement(BaseModel):
     """
     An Ezsignfolder List Element
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
     s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
@@ -48,13 +44,24 @@ class EzsignfolderListElement(BaseModel):
     i_ezsigndocument_edm: StrictInt = Field(description="The total number of Ezsigndocument in the folder that were saved in the edm system", alias="iEzsigndocumentEdm")
     i_ezsignsignature: StrictInt = Field(description="The total number of signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignature")
     i_ezsignsignature_signed: StrictInt = Field(description="The total number of already signed signature blocks in all Ezsigndocuments in the folder", alias="iEzsignsignatureSigned")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned"]
+    i_ezsignformfieldgroup: StrictInt = Field(description="The total number of Ezsignformfieldgroup in all Ezsigndocuments in the folder", alias="iEzsignformfieldgroup")
+    i_ezsignformfieldgroup_completed: StrictInt = Field(description="The total number of completed Ezsignformfieldgroup in all Ezsigndocuments in the folder", alias="iEzsignformfieldgroupCompleted")
+    b_ezsignform_hasdependencies: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignform/Ezsignsignatures has dependencies or not", alias="bEzsignformHasdependencies")
+    d_ezsignfolder_completedpercentage: Annotated[str, Field(strict=True)] = Field(description="Whether the Ezsignform/Ezsignsignatures has dependencies or not", alias="dEzsignfolderCompletedpercentage")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('d_ezsignfolder_completedpercentage')
+    def d_ezsignfolder_completedpercentage_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -67,7 +74,7 @@ class EzsignfolderListElement(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfolderListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -81,16 +88,18 @@ class EzsignfolderListElement(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfolderListElement from a dict"""
         if obj is None:
             return None
@@ -112,7 +121,11 @@ class EzsignfolderListElement(BaseModel):
             "iEzsigndocument": obj.get("iEzsigndocument"),
             "iEzsigndocumentEdm": obj.get("iEzsigndocumentEdm"),
             "iEzsignsignature": obj.get("iEzsignsignature"),
-            "iEzsignsignatureSigned": obj.get("iEzsignsignatureSigned")
+            "iEzsignsignatureSigned": obj.get("iEzsignsignatureSigned"),
+            "iEzsignformfieldgroup": obj.get("iEzsignformfieldgroup"),
+            "iEzsignformfieldgroupCompleted": obj.get("iEzsignformfieldgroupCompleted"),
+            "bEzsignformHasdependencies": obj.get("bEzsignformHasdependencies"),
+            "dEzsignfolderCompletedpercentage": obj.get("dEzsignfolderCompletedpercentage")
         })
         return _obj
 

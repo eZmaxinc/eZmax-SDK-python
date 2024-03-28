@@ -37,7 +37,7 @@ json = "{}"
 # create an instance of CustomCommunicationrecipientsrecipientResponse from a JSON string
 custom_communicationrecipientsrecipient_response_instance = CustomCommunicationrecipientsrecipientResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomCommunicationrecipientsrecipientResponse.to_json()
+print(CustomCommunicationrecipientsrecipientResponse.to_json())
 
 # convert the object into a dict
 custom_communicationrecipientsrecipient_response_dict = custom_communicationrecipientsrecipient_response_instance.to_dict()

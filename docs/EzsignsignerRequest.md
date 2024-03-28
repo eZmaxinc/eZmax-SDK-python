@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of EzsignsignerRequest from a JSON string
 ezsignsigner_request_instance = EzsignsignerRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignerRequest.to_json()
+print(EzsignsignerRequest.to_json())
 
 # convert the object into a dict
 ezsignsigner_request_dict = ezsignsigner_request_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfolderCreateObjectV2Request from a JSON string
 ezsignfolder_create_object_v2_request_instance = EzsignfolderCreateObjectV2Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderCreateObjectV2Request.to_json()
+print(EzsignfolderCreateObjectV2Request.to_json())
 
 # convert the object into a dict
 ezsignfolder_create_object_v2_request_dict = ezsignfolder_create_object_v2_request_instance.to_dict()

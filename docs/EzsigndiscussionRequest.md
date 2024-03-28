@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of EzsigndiscussionRequest from a JSON string
 ezsigndiscussion_request_instance = EzsigndiscussionRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsigndiscussionRequest.to_json()
+print(EzsigndiscussionRequest.to_json())
 
 # convert the object into a dict
 ezsigndiscussion_request_dict = ezsigndiscussion_request_instance.to_dict()

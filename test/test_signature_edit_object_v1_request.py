@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.signature_edit_object_v1_request import SignatureEditObjectV1Request
 

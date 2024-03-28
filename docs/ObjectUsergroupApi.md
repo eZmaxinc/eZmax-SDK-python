@@ -29,8 +29,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_create_object_v1_request import UsergroupCreateObjectV1Request
 from eZmaxApi.models.usergroup_create_object_v1_response import UsergroupCreateObjectV1Response
@@ -111,8 +109,6 @@ Edit an existing Usergroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_edit_object_v1_request import UsergroupEditObjectV1Request
 from eZmaxApi.models.usergroup_edit_object_v1_response import UsergroupEditObjectV1Response
@@ -197,8 +193,6 @@ Using this endpoint, you can edit multiple Permissions at the same time.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_edit_permissions_v1_request import UsergroupEditPermissionsV1Request
 from eZmaxApi.models.usergroup_edit_permissions_v1_response import UsergroupEditPermissionsV1Response
@@ -283,8 +277,6 @@ Edit multiple Usergroupdelegations
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_request import UsergroupEditUsergroupdelegationsV1Request
 from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_response import UsergroupEditUsergroupdelegationsV1Response
@@ -369,8 +361,6 @@ Using this endpoint, you can edit multiple Usergroupmemberships at the same time
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_edit_usergroupmemberships_v1_request import UsergroupEditUsergroupmembershipsV1Request
 from eZmaxApi.models.usergroup_edit_usergroupmemberships_v1_response import UsergroupEditUsergroupmembershipsV1Response
@@ -455,8 +445,6 @@ Get the list of Usergroup to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.usergroup_get_autocomplete_v2_response import UsergroupGetAutocompleteV2Response
@@ -543,8 +531,6 @@ Retrieve Usergroup list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.usergroup_get_list_v1_response import UsergroupGetListV1Response
@@ -634,8 +620,6 @@ Retrieve an existing Usergroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_get_object_v2_response import UsergroupGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -714,8 +698,6 @@ Retrieve an existing Usergroup's Permissions
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_get_permissions_v1_response import UsergroupGetPermissionsV1Response
 from eZmaxApi.rest import ApiException
@@ -794,8 +776,6 @@ Retrieve an existing Usergroup's Usergroupdelegations
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_get_usergroupdelegations_v1_response import UsergroupGetUsergroupdelegationsV1Response
 from eZmaxApi.rest import ApiException
@@ -874,8 +854,6 @@ Retrieve an existing Usergroup's Usergroupmemberships
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroup_get_usergroupmemberships_v1_response import UsergroupGetUsergroupmembershipsV1Response
 from eZmaxApi.rest import ApiException

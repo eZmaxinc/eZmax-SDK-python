@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of VersionhistoryResponseCompound from a JSON string
 versionhistory_response_compound_instance = VersionhistoryResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print VersionhistoryResponseCompound.to_json()
+print(VersionhistoryResponseCompound.to_json())
 
 # convert the object into a dict
 versionhistory_response_compound_dict = versionhistory_response_compound_instance.to_dict()

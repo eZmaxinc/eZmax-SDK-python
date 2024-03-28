@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignformfieldgroupCreateObjectV1Request from a JSON string
 ezsignformfieldgroup_create_object_v1_request_instance = EzsignformfieldgroupCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignformfieldgroupCreateObjectV1Request.to_json()
+print(EzsignformfieldgroupCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsignformfieldgroup_create_object_v1_request_dict = ezsignformfieldgroup_create_object_v1_request_instance.to_dict()

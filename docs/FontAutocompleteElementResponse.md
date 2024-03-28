@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of FontAutocompleteElementResponse from a JSON string
 font_autocomplete_element_response_instance = FontAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print FontAutocompleteElementResponse.to_json()
+print(FontAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 font_autocomplete_element_response_dict = font_autocomplete_element_response_instance.to_dict()

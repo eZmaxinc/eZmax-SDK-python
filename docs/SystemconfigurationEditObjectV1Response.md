@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SystemconfigurationEditObjectV1Response from a JSON string
 systemconfiguration_edit_object_v1_response_instance = SystemconfigurationEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print SystemconfigurationEditObjectV1Response.to_json()
+print(SystemconfigurationEditObjectV1Response.to_json())
 
 # convert the object into a dict
 systemconfiguration_edit_object_v1_response_dict = systemconfiguration_edit_object_v1_response_instance.to_dict()

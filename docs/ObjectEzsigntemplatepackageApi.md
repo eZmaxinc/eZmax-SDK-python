@@ -25,8 +25,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_create_object_v1_request import EzsigntemplatepackageCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatepackage_create_object_v1_response import EzsigntemplatepackageCreateObjectV1Response
@@ -107,8 +105,6 @@ Delete an existing Ezsigntemplatepackage
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_delete_object_v1_response import EzsigntemplatepackageDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -189,8 +185,6 @@ Using this endpoint, you can edit multiple Ezsigntemplatepackagesigners at the s
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request
 from eZmaxApi.models.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_response import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response
@@ -275,8 +269,6 @@ Edit an existing Ezsigntemplatepackage
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_edit_object_v1_request import EzsigntemplatepackageEditObjectV1Request
 from eZmaxApi.models.ezsigntemplatepackage_edit_object_v1_response import EzsigntemplatepackageEditObjectV1Response
@@ -361,8 +353,6 @@ Get the list of Ezsigntemplatepackage to be used in a dropdown or autocomplete c
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_get_autocomplete_v2_response import EzsigntemplatepackageGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -449,8 +439,6 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_get_list_v1_response import EzsigntemplatepackageGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -540,8 +528,6 @@ Retrieve an existing Ezsigntemplatepackage
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatepackage_get_object_v2_response import EzsigntemplatepackageGetObjectV2Response
 from eZmaxApi.rest import ApiException

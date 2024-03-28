@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of ActivesessionResponse from a JSON string
 activesession_response_instance = ActivesessionResponse.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionResponse.to_json()
+print(ActivesessionResponse.to_json())
 
 # convert the object into a dict
 activesession_response_dict = activesession_response_instance.to_dict()

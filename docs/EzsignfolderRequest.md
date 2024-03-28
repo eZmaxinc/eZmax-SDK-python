@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of EzsignfolderRequest from a JSON string
 ezsignfolder_request_instance = EzsignfolderRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderRequest.to_json()
+print(EzsignfolderRequest.to_json())
 
 # convert the object into a dict
 ezsignfolder_request_dict = ezsignfolder_request_instance.to_dict()

@@ -34,6 +34,13 @@ class TestObjectUserApi(unittest.TestCase):
         """
         pass
 
+    def test_user_create_object_v2(self) -> None:
+        """Test case for user_create_object_v2
+
+        Create a new User
+        """
+        pass
+
     def test_user_edit_object_v1(self) -> None:
         """Test case for user_edit_object_v1
 
@@ -94,6 +101,20 @@ class TestObjectUserApi(unittest.TestCase):
         """Test case for user_get_subnets_v1
 
         Retrieve an existing User's Subnets
+        """
+        pass
+
+    def test_user_get_usergroupexternals_v1(self) -> None:
+        """Test case for user_get_usergroupexternals_v1
+
+        Get User's Usergroupexternals
+        """
+        pass
+
+    def test_user_get_usergroups_v1(self) -> None:
+        """Test case for user_get_usergroups_v1
+
+        Get User's Usergroups
         """
         pass
 

@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword
@@ -29,10 +27,8 @@ from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProvide
 from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter
 from eZmaxApi.models.scim_service_provider_config_patch import ScimServiceProviderConfigPatch
 from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ScimServiceProviderConfig(BaseModel):
     """
@@ -48,11 +44,11 @@ class ScimServiceProviderConfig(BaseModel):
     sort: ScimServiceProviderConfigSort
     __properties: ClassVar[List[str]] = ["authenticationSchemes", "bulk", "changePassword", "documentationUri", "etag", "filter", "patch", "sort"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -65,7 +61,7 @@ class ScimServiceProviderConfig(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ScimServiceProviderConfig from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -79,10 +75,12 @@ class ScimServiceProviderConfig(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in authentication_schemes (list)
@@ -113,7 +111,7 @@ class ScimServiceProviderConfig(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ScimServiceProviderConfig from a dict"""
         if obj is None:
             return None
@@ -122,14 +120,14 @@ class ScimServiceProviderConfig(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "authenticationSchemes": [ScimAuthenticationScheme.from_dict(_item) for _item in obj.get("authenticationSchemes")] if obj.get("authenticationSchemes") is not None else None,
-            "bulk": ScimServiceProviderConfigBulk.from_dict(obj.get("bulk")) if obj.get("bulk") is not None else None,
-            "changePassword": ScimServiceProviderConfigChangePassword.from_dict(obj.get("changePassword")) if obj.get("changePassword") is not None else None,
+            "authenticationSchemes": [ScimAuthenticationScheme.from_dict(_item) for _item in obj["authenticationSchemes"]] if obj.get("authenticationSchemes") is not None else None,
+            "bulk": ScimServiceProviderConfigBulk.from_dict(obj["bulk"]) if obj.get("bulk") is not None else None,
+            "changePassword": ScimServiceProviderConfigChangePassword.from_dict(obj["changePassword"]) if obj.get("changePassword") is not None else None,
             "documentationUri": obj.get("documentationUri"),
-            "etag": ScimServiceProviderConfigEtag.from_dict(obj.get("etag")) if obj.get("etag") is not None else None,
-            "filter": ScimServiceProviderConfigFilter.from_dict(obj.get("filter")) if obj.get("filter") is not None else None,
-            "patch": ScimServiceProviderConfigPatch.from_dict(obj.get("patch")) if obj.get("patch") is not None else None,
-            "sort": ScimServiceProviderConfigSort.from_dict(obj.get("sort")) if obj.get("sort") is not None else None
+            "etag": ScimServiceProviderConfigEtag.from_dict(obj["etag"]) if obj.get("etag") is not None else None,
+            "filter": ScimServiceProviderConfigFilter.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
+            "patch": ScimServiceProviderConfigPatch.from_dict(obj["patch"]) if obj.get("patch") is not None else None,
+            "sort": ScimServiceProviderConfigSort.from_dict(obj["sort"]) if obj.get("sort") is not None else None
         })
         return _obj
 

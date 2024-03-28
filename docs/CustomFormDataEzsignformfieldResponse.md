@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomFormDataEzsignformfieldResponse from a JSON string
 custom_form_data_ezsignformfield_response_instance = CustomFormDataEzsignformfieldResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomFormDataEzsignformfieldResponse.to_json()
+print(CustomFormDataEzsignformfieldResponse.to_json())
 
 # convert the object into a dict
 custom_form_data_ezsignformfield_response_dict = custom_form_data_ezsignformfield_response_instance.to_dict()

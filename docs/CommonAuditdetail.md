@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of CommonAuditdetail from a JSON string
 common_auditdetail_instance = CommonAuditdetail.from_json(json)
 # print the JSON string representation of the object
-print CommonAuditdetail.to_json()
+print(CommonAuditdetail.to_json())
 
 # convert the object into a dict
 common_auditdetail_dict = common_auditdetail_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UsergroupGetPermissionsV1ResponseMPayload from a JSON string
 usergroup_get_permissions_v1_response_m_payload_instance = UsergroupGetPermissionsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print UsergroupGetPermissionsV1ResponseMPayload.to_json()
+print(UsergroupGetPermissionsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 usergroup_get_permissions_v1_response_m_payload_dict = usergroup_get_permissions_v1_response_m_payload_instance.to_dict()

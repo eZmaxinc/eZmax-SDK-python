@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.userstaged_create_user_v1_response import UserstagedCreateUserV1Response
 

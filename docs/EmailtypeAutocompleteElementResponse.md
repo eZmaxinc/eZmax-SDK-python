@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EmailtypeAutocompleteElementResponse from a JSON string
 emailtype_autocomplete_element_response_instance = EmailtypeAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print EmailtypeAutocompleteElementResponse.to_json()
+print(EmailtypeAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 emailtype_autocomplete_element_response_dict = emailtype_autocomplete_element_response_instance.to_dict()

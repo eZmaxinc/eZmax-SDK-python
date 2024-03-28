@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.signature_create_object_v1_request import SignatureCreateObjectV1Request
 from eZmaxApi.models.signature_create_object_v1_response import SignatureCreateObjectV1Response
@@ -104,8 +102,6 @@ Delete an existing Signature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.signature_delete_object_v1_response import SignatureDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -186,8 +182,6 @@ Edit an existing Signature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.signature_edit_object_v1_request import SignatureEditObjectV1Request
 from eZmaxApi.models.signature_edit_object_v1_response import SignatureEditObjectV1Response
@@ -272,8 +266,6 @@ Retrieve an existing Signature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.signature_get_object_v2_response import SignatureGetObjectV2Response
 from eZmaxApi.rest import ApiException

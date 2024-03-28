@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigntsarequirementGetAutocompleteV2Response from a JSON string
 ezsigntsarequirement_get_autocomplete_v2_response_instance = EzsigntsarequirementGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntsarequirementGetAutocompleteV2Response.to_json()
+print(EzsigntsarequirementGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 ezsigntsarequirement_get_autocomplete_v2_response_dict = ezsigntsarequirement_get_autocomplete_v2_response_instance.to_dict()

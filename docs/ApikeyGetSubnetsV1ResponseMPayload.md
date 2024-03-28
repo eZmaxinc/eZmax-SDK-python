@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ApikeyGetSubnetsV1ResponseMPayload from a JSON string
 apikey_get_subnets_v1_response_m_payload_instance = ApikeyGetSubnetsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ApikeyGetSubnetsV1ResponseMPayload.to_json()
+print(ApikeyGetSubnetsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 apikey_get_subnets_v1_response_m_payload_dict = apikey_get_subnets_v1_response_m_payload_instance.to_dict()

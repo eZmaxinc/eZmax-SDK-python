@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
 

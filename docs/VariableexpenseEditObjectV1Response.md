@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of VariableexpenseEditObjectV1Response from a JSON string
 variableexpense_edit_object_v1_response_instance = VariableexpenseEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseEditObjectV1Response.to_json()
+print(VariableexpenseEditObjectV1Response.to_json())
 
 # convert the object into a dict
 variableexpense_edit_object_v1_response_dict = variableexpense_edit_object_v1_response_instance.to_dict()

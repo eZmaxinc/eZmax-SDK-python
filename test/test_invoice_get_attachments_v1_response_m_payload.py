@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.invoice_get_attachments_v1_response_m_payload import InvoiceGetAttachmentsV1ResponseMPayload
 

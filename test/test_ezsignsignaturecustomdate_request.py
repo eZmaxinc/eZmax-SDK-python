@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
 
@@ -40,12 +39,12 @@ class TestEzsignsignaturecustomdateRequest(unittest.TestCase):
                 pki_ezsignsignaturecustomdate_id = 27,
                 i_ezsignsignaturecustomdate_x = 200,
                 i_ezsignsignaturecustomdate_y = 300,
+                i_ezsignsignaturecustomdate_offsetx = 200,
+                i_ezsignsignaturecustomdate_offsety = 300,
                 s_ezsignsignaturecustomdate_format = 'Signature date: {YYYY}/{MM}/{DD} {hh}:{mm}{ss} {Z}'
             )
         else:
             return EzsignsignaturecustomdateRequest(
-                i_ezsignsignaturecustomdate_x = 200,
-                i_ezsignsignaturecustomdate_y = 300,
                 s_ezsignsignaturecustomdate_format = 'Signature date: {YYYY}/{MM}/{DD} {hh}:{mm}{ss} {Z}',
         )
         """

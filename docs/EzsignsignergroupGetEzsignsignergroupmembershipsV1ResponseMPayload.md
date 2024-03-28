@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload from a JSON string
 ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response_m_payload_instance = EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload.to_json()
+print(EzsignsignergroupGetEzsignsignergroupmembershipsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response_m_payload_dict = ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response_m_payload_instance.to_dict()

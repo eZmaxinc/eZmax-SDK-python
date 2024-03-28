@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignsigningreasonGetListV1Response from a JSON string
 ezsignsigningreason_get_list_v1_response_instance = EzsignsigningreasonGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignsigningreasonGetListV1Response.to_json()
+print(EzsignsigningreasonGetListV1Response.to_json())
 
 # convert the object into a dict
 ezsignsigningreason_get_list_v1_response_dict = ezsignsigningreason_get_list_v1_response_instance.to_dict()

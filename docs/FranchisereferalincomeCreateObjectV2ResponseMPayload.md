@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FranchisereferalincomeCreateObjectV2ResponseMPayload from a JSON string
 franchisereferalincome_create_object_v2_response_m_payload_instance = FranchisereferalincomeCreateObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print FranchisereferalincomeCreateObjectV2ResponseMPayload.to_json()
+print(FranchisereferalincomeCreateObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 franchisereferalincome_create_object_v2_response_m_payload_dict = franchisereferalincome_create_object_v2_response_m_payload_instance.to_dict()

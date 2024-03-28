@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignpage_consult_v1_response import EzsignpageConsultV1Response
 

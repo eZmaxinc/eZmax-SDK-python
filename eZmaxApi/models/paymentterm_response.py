@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictInt, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_paymentterm_type import FieldEPaymenttermType
 from eZmaxApi.models.multilingual_paymentterm_description import MultilingualPaymenttermDescription
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PaymenttermResponse(BaseModel):
     """
@@ -51,11 +47,11 @@ class PaymenttermResponse(BaseModel):
             raise ValueError(r"must validate the regular expression /^[A-Z0-9]{1,4}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -68,7 +64,7 @@ class PaymenttermResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PaymenttermResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -82,10 +78,12 @@ class PaymenttermResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_paymentterm_description
@@ -97,7 +95,7 @@ class PaymenttermResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PaymenttermResponse from a dict"""
         if obj is None:
             return None
@@ -110,9 +108,9 @@ class PaymenttermResponse(BaseModel):
             "sPaymenttermCode": obj.get("sPaymenttermCode"),
             "ePaymenttermType": obj.get("ePaymenttermType"),
             "iPaymenttermDay": obj.get("iPaymenttermDay"),
-            "objPaymenttermDescription": MultilingualPaymenttermDescription.from_dict(obj.get("objPaymenttermDescription")) if obj.get("objPaymenttermDescription") is not None else None,
+            "objPaymenttermDescription": MultilingualPaymenttermDescription.from_dict(obj["objPaymenttermDescription"]) if obj.get("objPaymenttermDescription") is not None else None,
             "bPaymenttermIsactive": obj.get("bPaymenttermIsactive"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
         })
         return _obj
 

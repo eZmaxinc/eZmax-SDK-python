@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.common_response_redirect_s_secretquestion_text_x import CommonResponseRedirectSSecretquestionTextX
 

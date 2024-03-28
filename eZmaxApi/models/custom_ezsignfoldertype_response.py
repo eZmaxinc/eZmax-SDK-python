@@ -18,38 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CustomEzsignfoldertypeResponse(BaseModel):
     """
     A Custom Ezsignfoldertype Object
     """ # noqa: E501
-    pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
+    pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     b_ezsignfoldertype_sendproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send the proof in the email to Ezsignsigner", alias="bEzsignfoldertypeSendproofezsignsigner")
-    b_ezsignfoldertype_includeproofsigner: Optional[StrictBool] = Field(default=None, description="THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners", alias="bEzsignfoldertypeIncludeproofsigner")
-    b_ezsignfoldertype_includeproofuser: Optional[StrictBool] = Field(default=None, description="Whether we include the proof with the signed Ezsigndocument for users", alias="bEzsignfoldertypeIncludeproofuser")
     b_ezsignfoldertype_allowdownloadattachmentezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadattachmentezsignsigner")
     b_ezsignfoldertype_allowdownloadproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the proof to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadproofezsignsigner")
     b_ezsignfoldertype_delegate: Optional[StrictBool] = Field(default=None, description="Wheter if delegation of signature is allowed to another user or not", alias="bEzsignfoldertypeDelegate")
-    b_ezsignfoldertype_reassign: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed to another signatory or not", alias="bEzsignfoldertypeReassign")
+    b_ezsignfoldertype_discussion: Optional[StrictBool] = Field(default=None, description="Wheter if creating a new Discussion is allowed or not", alias="bEzsignfoldertypeDiscussion")
     b_ezsignfoldertype_reassignezsignsigner: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a signatory to another signatory or not", alias="bEzsignfoldertypeReassignezsignsigner")
     b_ezsignfoldertype_reassignuser: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not", alias="bEzsignfoldertypeReassignuser")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeIncludeproofsigner", "bEzsignfoldertypeIncludeproofuser", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeReassign", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -62,7 +56,7 @@ class CustomEzsignfoldertypeResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CustomEzsignfoldertypeResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,16 +70,18 @@ class CustomEzsignfoldertypeResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CustomEzsignfoldertypeResponse from a dict"""
         if obj is None:
             return None
@@ -97,12 +93,10 @@ class CustomEzsignfoldertypeResponse(BaseModel):
             "pkiEzsignfoldertypeID": obj.get("pkiEzsignfoldertypeID"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "bEzsignfoldertypeSendproofezsignsigner": obj.get("bEzsignfoldertypeSendproofezsignsigner"),
-            "bEzsignfoldertypeIncludeproofsigner": obj.get("bEzsignfoldertypeIncludeproofsigner"),
-            "bEzsignfoldertypeIncludeproofuser": obj.get("bEzsignfoldertypeIncludeproofuser"),
             "bEzsignfoldertypeAllowdownloadattachmentezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadattachmentezsignsigner"),
             "bEzsignfoldertypeAllowdownloadproofezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadproofezsignsigner"),
             "bEzsignfoldertypeDelegate": obj.get("bEzsignfoldertypeDelegate"),
-            "bEzsignfoldertypeReassign": obj.get("bEzsignfoldertypeReassign"),
+            "bEzsignfoldertypeDiscussion": obj.get("bEzsignfoldertypeDiscussion"),
             "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
             "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser")
         })

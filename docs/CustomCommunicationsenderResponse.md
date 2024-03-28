@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of CustomCommunicationsenderResponse from a JSON string
 custom_communicationsender_response_instance = CustomCommunicationsenderResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomCommunicationsenderResponse.to_json()
+print(CustomCommunicationsenderResponse.to_json())
 
 # convert the object into a dict
 custom_communicationsender_response_dict = custom_communicationsender_response_instance.to_dict()

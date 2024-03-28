@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.activesession_response_compound_user import ActivesessionResponseCompoundUser
 
@@ -52,10 +51,8 @@ class TestActivesessionResponseCompoundUser(unittest.TestCase):
             return ActivesessionResponseCompoundUser(
                 pki_user_id = 70,
                 fki_timezone_id = 247,
-                s_avatar_url = 'http://www.website.com/avatar.jpg',
                 s_user_firstname = 'John',
                 s_user_lastname = 'Doe',
-                s_email_address = 'email@example.com',
                 e_user_ezsignsendreminderfrequency = 'None',
                 i_user_interfacecolor = 3752795,
                 b_user_interfacedark = False,

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ApikeyCreateObjectV2Request from a JSON string
 apikey_create_object_v2_request_instance = ApikeyCreateObjectV2Request.from_json(json)
 # print the JSON string representation of the object
-print ApikeyCreateObjectV2Request.to_json()
+print(ApikeyCreateObjectV2Request.to_json())
 
 # convert the object into a dict
 apikey_create_object_v2_request_dict = apikey_create_object_v2_request_instance.to_dict()

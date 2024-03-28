@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignformfieldgroupDeleteObjectV1Response from a JSON string
 ezsignformfieldgroup_delete_object_v1_response_instance = EzsignformfieldgroupDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignformfieldgroupDeleteObjectV1Response.to_json()
+print(EzsignformfieldgroupDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignformfieldgroup_delete_object_v1_response_dict = ezsignformfieldgroup_delete_object_v1_response_instance.to_dict()

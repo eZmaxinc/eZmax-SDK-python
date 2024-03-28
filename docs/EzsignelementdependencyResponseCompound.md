@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of EzsignelementdependencyResponseCompound from a JSON string
 ezsignelementdependency_response_compound_instance = EzsignelementdependencyResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignelementdependencyResponseCompound.to_json()
+print(EzsignelementdependencyResponseCompound.to_json())
 
 # convert the object into a dict
 ezsignelementdependency_response_compound_dict = ezsignelementdependency_response_compound_instance.to_dict()

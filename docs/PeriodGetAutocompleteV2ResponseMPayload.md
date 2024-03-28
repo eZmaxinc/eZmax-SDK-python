@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PeriodGetAutocompleteV2ResponseMPayload from a JSON string
 period_get_autocomplete_v2_response_m_payload_instance = PeriodGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print PeriodGetAutocompleteV2ResponseMPayload.to_json()
+print(PeriodGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 period_get_autocomplete_v2_response_m_payload_dict = period_get_autocomplete_v2_response_m_payload_instance.to_dict()

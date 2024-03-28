@@ -18,14 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplatedocumentGetWordsPositionsV1Request(BaseModel):
     """
@@ -39,15 +35,15 @@ class EzsigntemplatedocumentGetWordsPositionsV1Request(BaseModel):
     @field_validator('e_get')
     def e_get_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('All', 'Words'):
+        if value not in set(['All', 'Words']):
             raise ValueError("must be one of enum values ('All', 'Words')")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +56,7 @@ class EzsigntemplatedocumentGetWordsPositionsV1Request(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentGetWordsPositionsV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,16 +70,18 @@ class EzsigntemplatedocumentGetWordsPositionsV1Request(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentGetWordsPositionsV1Request from a dict"""
         if obj is None:
             return None

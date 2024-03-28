@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.paymentterm_edit_object_v1_request import PaymenttermEditObjectV1Request
 

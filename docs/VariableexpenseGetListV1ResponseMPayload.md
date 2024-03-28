@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of VariableexpenseGetListV1ResponseMPayload from a JSON string
 variableexpense_get_list_v1_response_m_payload_instance = VariableexpenseGetListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseGetListV1ResponseMPayload.to_json()
+print(VariableexpenseGetListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 variableexpense_get_list_v1_response_m_payload_dict = variableexpense_get_list_v1_response_m_payload_instance.to_dict()

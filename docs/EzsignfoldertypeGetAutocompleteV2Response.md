@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfoldertypeGetAutocompleteV2Response from a JSON string
 ezsignfoldertype_get_autocomplete_v2_response_instance = EzsignfoldertypeGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldertypeGetAutocompleteV2Response.to_json()
+print(EzsignfoldertypeGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 ezsignfoldertype_get_autocomplete_v2_response_dict = ezsignfoldertype_get_autocomplete_v2_response_instance.to_dict()

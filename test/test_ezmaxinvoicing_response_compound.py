@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezmaxinvoicing_response_compound import EzmaxinvoicingResponseCompound
 

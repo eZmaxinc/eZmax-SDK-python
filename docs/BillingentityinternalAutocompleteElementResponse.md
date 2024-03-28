@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BillingentityinternalAutocompleteElementResponse from a JSON string
 billingentityinternal_autocomplete_element_response_instance = BillingentityinternalAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalAutocompleteElementResponse.to_json()
+print(BillingentityinternalAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 billingentityinternal_autocomplete_element_response_dict = billingentityinternal_autocomplete_element_response_instance.to_dict()

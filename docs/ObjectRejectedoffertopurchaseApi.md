@@ -19,8 +19,6 @@ Retrieve Communication list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_list_v1_response import RejectedoffertopurchaseGetCommunicationListV1Response
 from eZmaxApi.rest import ApiException

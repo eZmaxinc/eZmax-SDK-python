@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request
 

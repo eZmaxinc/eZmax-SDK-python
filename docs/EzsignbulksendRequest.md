@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of EzsignbulksendRequest from a JSON string
 ezsignbulksend_request_instance = EzsignbulksendRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendRequest.to_json()
+print(EzsignbulksendRequest.to_json())
 
 # convert the object into a dict
 ezsignbulksend_request_dict = ezsignbulksend_request_instance.to_dict()

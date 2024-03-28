@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UsergroupRequestCompound from a JSON string
 usergroup_request_compound_instance = UsergroupRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print UsergroupRequestCompound.to_json()
+print(UsergroupRequestCompound.to_json())
 
 # convert the object into a dict
 usergroup_request_compound_dict = usergroup_request_compound_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EmailResponseCompound from a JSON string
 email_response_compound_instance = EmailResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EmailResponseCompound.to_json()
+print(EmailResponseCompound.to_json())
 
 # convert the object into a dict
 email_response_compound_dict = email_response_compound_instance.to_dict()

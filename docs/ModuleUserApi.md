@@ -19,8 +19,6 @@ The endpoint allows to initiate the creation or a user of type Ezsignuser.  The 
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.user_create_ezsignuser_v1_request import UserCreateEzsignuserV1Request
 from eZmaxApi.models.user_create_ezsignuser_v1_response import UserCreateEzsignuserV1Response

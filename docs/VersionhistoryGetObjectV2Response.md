@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of VersionhistoryGetObjectV2Response from a JSON string
 versionhistory_get_object_v2_response_instance = VersionhistoryGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print VersionhistoryGetObjectV2Response.to_json()
+print(VersionhistoryGetObjectV2Response.to_json())
 
 # convert the object into a dict
 versionhistory_get_object_v2_response_dict = versionhistory_get_object_v2_response_instance.to_dict()

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SignatureResponse from a JSON string
 signature_response_instance = SignatureResponse.from_json(json)
 # print the JSON string representation of the object
-print SignatureResponse.to_json()
+print(SignatureResponse.to_json())
 
 # convert the object into a dict
 signature_response_dict = signature_response_instance.to_dict()

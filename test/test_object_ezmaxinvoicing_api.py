@@ -27,13 +27,6 @@ class TestObjectEzmaxinvoicingApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ezmaxinvoicing_get_autocomplete_v1(self) -> None:
-        """Test case for ezmaxinvoicing_get_autocomplete_v1
-
-        Retrieve Ezmaxinvoicings and IDs
-        """
-        pass
-
     def test_ezmaxinvoicing_get_autocomplete_v2(self) -> None:
         """Test case for ezmaxinvoicing_get_autocomplete_v2
 

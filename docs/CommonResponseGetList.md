@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonResponseGetList from a JSON string
 common_response_get_list_instance = CommonResponseGetList.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseGetList.to_json()
+print(CommonResponseGetList.to_json())
 
 # convert the object into a dict
 common_response_get_list_dict = common_response_get_list_instance.to_dict()

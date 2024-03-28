@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationRequestPatch from a JSON string
 ezsignfoldersignerassociation_request_patch_instance = EzsignfoldersignerassociationRequestPatch.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationRequestPatch.to_json()
+print(EzsignfoldersignerassociationRequestPatch.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_request_patch_dict = ezsignfoldersignerassociation_request_patch_instance.to_dict()

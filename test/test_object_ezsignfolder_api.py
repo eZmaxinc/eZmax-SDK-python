@@ -83,6 +83,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_end_prematurely_v1(self) -> None:
+        """Test case for ezsignfolder_end_prematurely_v1
+
+        End prematurely
+        """
+        pass
+
     def test_ezsignfolder_get_actionable_elements_v1(self) -> None:
         """Test case for ezsignfolder_get_actionable_elements_v1
 
@@ -204,13 +211,6 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
 
     def test_ezsignfolder_send_v1(self) -> None:
         """Test case for ezsignfolder_send_v1
-
-        Send the Ezsignfolder to the signatories for signature
-        """
-        pass
-
-    def test_ezsignfolder_send_v2(self) -> None:
-        """Test case for ezsignfolder_send_v2
 
         Send the Ezsignfolder to the signatories for signature
         """

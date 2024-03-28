@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroupdelegation_delete_object_v1_response import UsergroupdelegationDeleteObjectV1Response
 

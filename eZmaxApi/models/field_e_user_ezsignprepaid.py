@@ -15,16 +15,8 @@
 
 from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
 from enum import Enum
-
-
-
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing_extensions import Self
 
 
 class FieldEUserEzsignprepaid(str, Enum):
@@ -35,8 +27,9 @@ class FieldEUserEzsignprepaid(str, Enum):
     """
     allowed enum values
     """
+    NO = 'No'
     BASIC = 'Basic'
-    UNLIMITED = 'Unlimited'
+    STANDARD = 'Standard'
     PRO = 'Pro'
 
     @classmethod

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroup_response_compound import UsergroupResponseCompound
 
@@ -40,7 +39,8 @@ class TestUsergroupResponseCompound(unittest.TestCase):
                 pki_usergroup_id = 2,
                 obj_usergroup_name = eZmaxApi.models.multilingual_usergroup_name.Multilingual-UsergroupName(
                     s_usergroup_name1 = 'Direction', 
-                    s_usergroup_name2 = 'Management', )
+                    s_usergroup_name2 = 'Management', ),
+                s_usergroup_name_x = 'Administration'
             )
         else:
             return UsergroupResponseCompound(

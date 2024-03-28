@@ -12,35 +12,27 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
 from typing import Optional
-
-from eZmaxApi.models.common_get_autocomplete_v1_response import CommonGetAutocompleteV1Response
-from eZmaxApi.models.ezsignfoldertype_create_object_v1_request import EzsignfoldertypeCreateObjectV1Request
-from eZmaxApi.models.ezsignfoldertype_create_object_v1_response import EzsignfoldertypeCreateObjectV1Response
+from typing_extensions import Annotated
+from eZmaxApi.models.ezsignfoldertype_create_object_v2_request import EzsignfoldertypeCreateObjectV2Request
+from eZmaxApi.models.ezsignfoldertype_create_object_v2_response import EzsignfoldertypeCreateObjectV2Response
 from eZmaxApi.models.ezsignfoldertype_edit_object_v1_request import EzsignfoldertypeEditObjectV1Request
 from eZmaxApi.models.ezsignfoldertype_edit_object_v1_response import EzsignfoldertypeEditObjectV1Response
+from eZmaxApi.models.ezsignfoldertype_edit_object_v2_request import EzsignfoldertypeEditObjectV2Request
+from eZmaxApi.models.ezsignfoldertype_edit_object_v2_response import EzsignfoldertypeEditObjectV2Response
 from eZmaxApi.models.ezsignfoldertype_get_autocomplete_v2_response import EzsignfoldertypeGetAutocompleteV2Response
 from eZmaxApi.models.ezsignfoldertype_get_list_v1_response import EzsignfoldertypeGetListV1Response
 from eZmaxApi.models.ezsignfoldertype_get_object_v2_response import EzsignfoldertypeGetObjectV2Response
+from eZmaxApi.models.ezsignfoldertype_get_object_v3_response import EzsignfoldertypeGetObjectV3Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -59,9 +51,9 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_create_object_v1(
+    def ezsignfoldertype_create_object_v2(
         self,
-        ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request,
+        ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -74,13 +66,13 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfoldertypeCreateObjectV1Response:
+    ) -> EzsignfoldertypeCreateObjectV2Response:
         """Create a new Ezsignfoldertype
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsignfoldertype_create_object_v1_request: (required)
-        :type ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request
+        :param ezsignfoldertype_create_object_v2_request: (required)
+        :type ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -103,8 +95,8 @@ class ObjectEzsignfoldertypeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignfoldertype_create_object_v1_serialize(
-            ezsignfoldertype_create_object_v1_request=ezsignfoldertype_create_object_v1_request,
+        _param = self._ezsignfoldertype_create_object_v2_serialize(
+            ezsignfoldertype_create_object_v2_request=ezsignfoldertype_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -112,7 +104,7 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsignfoldertypeCreateObjectV1Response",
+            '201': "EzsignfoldertypeCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -126,9 +118,9 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_create_object_v1_with_http_info(
+    def ezsignfoldertype_create_object_v2_with_http_info(
         self,
-        ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request,
+        ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -141,13 +133,13 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfoldertypeCreateObjectV1Response]:
+    ) -> ApiResponse[EzsignfoldertypeCreateObjectV2Response]:
         """Create a new Ezsignfoldertype
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsignfoldertype_create_object_v1_request: (required)
-        :type ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request
+        :param ezsignfoldertype_create_object_v2_request: (required)
+        :type ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -170,8 +162,8 @@ class ObjectEzsignfoldertypeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignfoldertype_create_object_v1_serialize(
-            ezsignfoldertype_create_object_v1_request=ezsignfoldertype_create_object_v1_request,
+        _param = self._ezsignfoldertype_create_object_v2_serialize(
+            ezsignfoldertype_create_object_v2_request=ezsignfoldertype_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -179,7 +171,7 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsignfoldertypeCreateObjectV1Response",
+            '201': "EzsignfoldertypeCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -193,9 +185,9 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_create_object_v1_without_preload_content(
+    def ezsignfoldertype_create_object_v2_without_preload_content(
         self,
-        ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request,
+        ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -213,8 +205,8 @@ class ObjectEzsignfoldertypeApi:
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsignfoldertype_create_object_v1_request: (required)
-        :type ezsignfoldertype_create_object_v1_request: EzsignfoldertypeCreateObjectV1Request
+        :param ezsignfoldertype_create_object_v2_request: (required)
+        :type ezsignfoldertype_create_object_v2_request: EzsignfoldertypeCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -237,8 +229,8 @@ class ObjectEzsignfoldertypeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignfoldertype_create_object_v1_serialize(
-            ezsignfoldertype_create_object_v1_request=ezsignfoldertype_create_object_v1_request,
+        _param = self._ezsignfoldertype_create_object_v2_serialize(
+            ezsignfoldertype_create_object_v2_request=ezsignfoldertype_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -246,7 +238,7 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsignfoldertypeCreateObjectV1Response",
+            '201': "EzsignfoldertypeCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -255,14 +247,14 @@ class ObjectEzsignfoldertypeApi:
         return response_data.response
 
 
-    def _ezsignfoldertype_create_object_v1_serialize(
+    def _ezsignfoldertype_create_object_v2_serialize(
         self,
-        ezsignfoldertype_create_object_v1_request,
+        ezsignfoldertype_create_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -281,8 +273,8 @@ class ObjectEzsignfoldertypeApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if ezsignfoldertype_create_object_v1_request is not None:
-            _body_params = ezsignfoldertype_create_object_v1_request
+        if ezsignfoldertype_create_object_v2_request is not None:
+            _body_params = ezsignfoldertype_create_object_v2_request
 
 
         # set the HTTP header `Accept`
@@ -313,7 +305,7 @@ class ObjectEzsignfoldertypeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/1/object/ezsignfoldertype',
+            resource_path='/2/object/ezsignfoldertype',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -332,7 +324,7 @@ class ObjectEzsignfoldertypeApi:
     @validate_call
     def ezsignfoldertype_edit_object_v1(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         ezsignfoldertype_edit_object_v1_request: EzsignfoldertypeEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -347,7 +339,7 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> EzsignfoldertypeEditObjectV1Response:
-        """Edit an existing Ezsignfoldertype
+        """(Deprecated) Edit an existing Ezsignfoldertype
 
         
 
@@ -376,6 +368,7 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfoldertype_edit_object_v1_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
@@ -405,7 +398,7 @@ class ObjectEzsignfoldertypeApi:
     @validate_call
     def ezsignfoldertype_edit_object_v1_with_http_info(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         ezsignfoldertype_edit_object_v1_request: EzsignfoldertypeEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -420,7 +413,7 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[EzsignfoldertypeEditObjectV1Response]:
-        """Edit an existing Ezsignfoldertype
+        """(Deprecated) Edit an existing Ezsignfoldertype
 
         
 
@@ -449,6 +442,7 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfoldertype_edit_object_v1_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
@@ -478,7 +472,7 @@ class ObjectEzsignfoldertypeApi:
     @validate_call
     def ezsignfoldertype_edit_object_v1_without_preload_content(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         ezsignfoldertype_edit_object_v1_request: EzsignfoldertypeEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -493,7 +487,7 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Edit an existing Ezsignfoldertype
+        """(Deprecated) Edit an existing Ezsignfoldertype
 
         
 
@@ -522,6 +516,7 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("PUT /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfoldertype_edit_object_v1_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
@@ -552,7 +547,7 @@ class ObjectEzsignfoldertypeApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -622,12 +617,10 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_get_autocomplete_v1(
+    def ezsignfoldertype_edit_object_v2(
         self,
-        s_selector: Annotated[StrictStr, Field(description="The type of Ezsignfoldertypes to return")],
-        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
-        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
-        accept_language: Optional[HeaderAcceptLanguage] = None,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -640,19 +633,15 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonGetAutocompleteV1Response:
-        """(Deprecated) Retrieve Ezsignfoldertypes and IDs
+    ) -> EzsignfoldertypeEditObjectV2Response:
+        """Edit an existing Ezsignfoldertype
 
-        Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
+        
 
-        :param s_selector: The type of Ezsignfoldertypes to return (required)
-        :type s_selector: str
-        :param e_filter_active: Specify which results we want to display.
-        :type e_filter_active: str
-        :param s_query: Allow to filter the returned results
-        :type s_query: str
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param ezsignfoldertype_edit_object_v2_request: (required)
+        :type ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -674,13 +663,10 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
-        warnings.warn("GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
-        _param = self._ezsignfoldertype_get_autocomplete_v1_serialize(
-            s_selector=s_selector,
-            e_filter_active=e_filter_active,
-            s_query=s_query,
-            accept_language=accept_language,
+        _param = self._ezsignfoldertype_edit_object_v2_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            ezsignfoldertype_edit_object_v2_request=ezsignfoldertype_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -688,7 +674,9 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CommonGetAutocompleteV1Response",
+            '200': "EzsignfoldertypeEditObjectV2Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -702,12 +690,10 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_get_autocomplete_v1_with_http_info(
+    def ezsignfoldertype_edit_object_v2_with_http_info(
         self,
-        s_selector: Annotated[StrictStr, Field(description="The type of Ezsignfoldertypes to return")],
-        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
-        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
-        accept_language: Optional[HeaderAcceptLanguage] = None,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -720,19 +706,15 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonGetAutocompleteV1Response]:
-        """(Deprecated) Retrieve Ezsignfoldertypes and IDs
+    ) -> ApiResponse[EzsignfoldertypeEditObjectV2Response]:
+        """Edit an existing Ezsignfoldertype
 
-        Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
+        
 
-        :param s_selector: The type of Ezsignfoldertypes to return (required)
-        :type s_selector: str
-        :param e_filter_active: Specify which results we want to display.
-        :type e_filter_active: str
-        :param s_query: Allow to filter the returned results
-        :type s_query: str
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param ezsignfoldertype_edit_object_v2_request: (required)
+        :type ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -754,13 +736,10 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
-        warnings.warn("GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
-        _param = self._ezsignfoldertype_get_autocomplete_v1_serialize(
-            s_selector=s_selector,
-            e_filter_active=e_filter_active,
-            s_query=s_query,
-            accept_language=accept_language,
+        _param = self._ezsignfoldertype_edit_object_v2_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            ezsignfoldertype_edit_object_v2_request=ezsignfoldertype_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -768,7 +747,9 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CommonGetAutocompleteV1Response",
+            '200': "EzsignfoldertypeEditObjectV2Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -782,12 +763,10 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_get_autocomplete_v1_without_preload_content(
+    def ezsignfoldertype_edit_object_v2_without_preload_content(
         self,
-        s_selector: Annotated[StrictStr, Field(description="The type of Ezsignfoldertypes to return")],
-        e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
-        s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
-        accept_language: Optional[HeaderAcceptLanguage] = None,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -801,18 +780,14 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """(Deprecated) Retrieve Ezsignfoldertypes and IDs
+        """Edit an existing Ezsignfoldertype
 
-        Get the list of Ezsignfoldertypes to be used in a dropdown or autocomplete control.
+        
 
-        :param s_selector: The type of Ezsignfoldertypes to return (required)
-        :type s_selector: str
-        :param e_filter_active: Specify which results we want to display.
-        :type e_filter_active: str
-        :param s_query: Allow to filter the returned results
-        :type s_query: str
-        :param accept_language:
-        :type accept_language: HeaderAcceptLanguage
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param ezsignfoldertype_edit_object_v2_request: (required)
+        :type ezsignfoldertype_edit_object_v2_request: EzsignfoldertypeEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -834,13 +809,10 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
-        warnings.warn("GET /1/object/ezsignfoldertype/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
-        _param = self._ezsignfoldertype_get_autocomplete_v1_serialize(
-            s_selector=s_selector,
-            e_filter_active=e_filter_active,
-            s_query=s_query,
-            accept_language=accept_language,
+        _param = self._ezsignfoldertype_edit_object_v2_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            ezsignfoldertype_edit_object_v2_request=ezsignfoldertype_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -848,7 +820,9 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CommonGetAutocompleteV1Response",
+            '200': "EzsignfoldertypeEditObjectV2Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -857,17 +831,15 @@ class ObjectEzsignfoldertypeApi:
         return response_data.response
 
 
-    def _ezsignfoldertype_get_autocomplete_v1_serialize(
+    def _ezsignfoldertype_edit_object_v2_serialize(
         self,
-        s_selector,
-        e_filter_active,
-        s_query,
-        accept_language,
+        pki_ezsignfoldertype_id,
+        ezsignfoldertype_edit_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -882,22 +854,14 @@ class ObjectEzsignfoldertypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if s_selector is not None:
-            _path_params['sSelector'] = s_selector
+        if pki_ezsignfoldertype_id is not None:
+            _path_params['pkiEzsignfoldertypeID'] = pki_ezsignfoldertype_id
         # process the query parameters
-        if e_filter_active is not None:
-            
-            _query_params.append(('eFilterActive', e_filter_active))
-            
-        if s_query is not None:
-            
-            _query_params.append(('sQuery', s_query))
-            
         # process the header parameters
-        if accept_language is not None:
-            _header_params['Accept-Language'] = accept_language
         # process the form parameters
         # process the body parameter
+        if ezsignfoldertype_edit_object_v2_request is not None:
+            _body_params = ezsignfoldertype_edit_object_v2_request
 
 
         # set the HTTP header `Accept`
@@ -907,6 +871,19 @@ class ObjectEzsignfoldertypeApi:
             ]
         )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -914,8 +891,8 @@ class ObjectEzsignfoldertypeApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/1/object/ezsignfoldertype/getAutocomplete/{sSelector}',
+            method='PUT',
+            resource_path='/2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1174,7 +1151,7 @@ class ObjectEzsignfoldertypeApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1497,7 +1474,7 @@ class ObjectEzsignfoldertypeApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1571,7 +1548,7 @@ class ObjectEzsignfoldertypeApi:
     @validate_call
     def ezsignfoldertype_get_object_v2(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1585,7 +1562,7 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> EzsignfoldertypeGetObjectV2Response:
-        """Retrieve an existing Ezsignfoldertype
+        """(Deprecated) Retrieve an existing Ezsignfoldertype
 
         
 
@@ -1612,6 +1589,7 @@ class ObjectEzsignfoldertypeApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfoldertype_get_object_v2_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
@@ -1639,7 +1617,7 @@ class ObjectEzsignfoldertypeApi:
     @validate_call
     def ezsignfoldertype_get_object_v2_with_http_info(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1653,6 +1631,201 @@ class ObjectEzsignfoldertypeApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[EzsignfoldertypeGetObjectV2Response]:
+        """(Deprecated) Retrieve an existing Ezsignfoldertype
+
+        
+
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+        warnings.warn("GET /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
+
+        _param = self._ezsignfoldertype_get_object_v2_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfoldertypeGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfoldertype_get_object_v2_without_preload_content(
+        self,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """(Deprecated) Retrieve an existing Ezsignfoldertype
+
+        
+
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+        warnings.warn("GET /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} is deprecated.", DeprecationWarning)
+
+        _param = self._ezsignfoldertype_get_object_v2_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfoldertypeGetObjectV2Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfoldertype_get_object_v2_serialize(
+        self,
+        pki_ezsignfoldertype_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfoldertype_id is not None:
+            _path_params['pkiEzsignfoldertypeID'] = pki_ezsignfoldertype_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignfoldertype_get_object_v3(
+        self,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfoldertypeGetObjectV3Response:
         """Retrieve an existing Ezsignfoldertype
 
         
@@ -1681,7 +1854,7 @@ class ObjectEzsignfoldertypeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignfoldertype_get_object_v2_serialize(
+        _param = self._ezsignfoldertype_get_object_v3_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1690,7 +1863,75 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsignfoldertypeGetObjectV2Response",
+            '200': "EzsignfoldertypeGetObjectV3Response",
+            '404': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfoldertype_get_object_v3_with_http_info(
+        self,
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfoldertypeGetObjectV3Response]:
+        """Retrieve an existing Ezsignfoldertype
+
+        
+
+        :param pki_ezsignfoldertype_id: (required)
+        :type pki_ezsignfoldertype_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfoldertype_get_object_v3_serialize(
+            pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfoldertypeGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1705,9 +1946,9 @@ class ObjectEzsignfoldertypeApi:
 
 
     @validate_call
-    def ezsignfoldertype_get_object_v2_without_preload_content(
+    def ezsignfoldertype_get_object_v3_without_preload_content(
         self,
-        pki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)],
+        pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1749,7 +1990,7 @@ class ObjectEzsignfoldertypeApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignfoldertype_get_object_v2_serialize(
+        _param = self._ezsignfoldertype_get_object_v3_serialize(
             pki_ezsignfoldertype_id=pki_ezsignfoldertype_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1758,7 +1999,7 @@ class ObjectEzsignfoldertypeApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsignfoldertypeGetObjectV2Response",
+            '200': "EzsignfoldertypeGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1768,14 +2009,14 @@ class ObjectEzsignfoldertypeApi:
         return response_data.response
 
 
-    def _ezsignfoldertype_get_object_v2_serialize(
+    def _ezsignfoldertype_get_object_v3_serialize(
         self,
         pki_ezsignfoldertype_id,
         _request_auth,
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1813,7 +2054,7 @@ class ObjectEzsignfoldertypeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/2/object/ezsignfoldertype/{pkiEzsignfoldertypeID}',
+            resource_path='/3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

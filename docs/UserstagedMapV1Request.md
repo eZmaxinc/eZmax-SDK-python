@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UserstagedMapV1Request from a JSON string
 userstaged_map_v1_request_instance = UserstagedMapV1Request.from_json(json)
 # print the JSON string representation of the object
-print UserstagedMapV1Request.to_json()
+print(UserstagedMapV1Request.to_json())
 
 # convert the object into a dict
 userstaged_map_v1_request_dict = userstaged_map_v1_request_instance.to_dict()

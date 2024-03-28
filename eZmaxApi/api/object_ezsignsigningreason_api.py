@@ -12,24 +12,14 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
 from typing import Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_request import EzsignsigningreasonCreateObjectV1Request
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_response import EzsignsigningreasonCreateObjectV1Response
 from eZmaxApi.models.ezsignsigningreason_edit_object_v1_request import EzsignsigningreasonEditObjectV1Request
@@ -39,7 +29,7 @@ from eZmaxApi.models.ezsignsigningreason_get_list_v1_response import Ezsignsigni
 from eZmaxApi.models.ezsignsigningreason_get_object_v2_response import EzsignsigningreasonGetObjectV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -261,7 +251,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -551,7 +541,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -863,7 +853,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1186,7 +1176,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1464,7 +1454,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

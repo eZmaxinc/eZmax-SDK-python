@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
 from eZmaxApi.models.ezsignsigner_response_compound import EzsignsignerResponseCompound
 from eZmaxApi.models.ezsignsignergroup_response_compound import EzsignsignergroupResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
     """
@@ -45,11 +41,11 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
     obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(default=None, alias="objEzsignsigner")
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationDelayedsend", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "objEzsignsignergroup", "objUser", "objEzsignsigner"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -62,7 +58,7 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationGetObjectV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,10 +72,12 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignsignergroup
@@ -94,7 +92,7 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationGetObjectV1ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -108,9 +106,9 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
             "bEzsignfoldersignerassociationDelayedsend": obj.get("bEzsignfoldersignerassociationDelayedsend"),
             "bEzsignfoldersignerassociationReceivecopy": obj.get("bEzsignfoldersignerassociationReceivecopy"),
             "tEzsignfoldersignerassociationMessage": obj.get("tEzsignfoldersignerassociationMessage"),
-            "objEzsignsignergroup": EzsignsignergroupResponseCompound.from_dict(obj.get("objEzsignsignergroup")) if obj.get("objEzsignsignergroup") is not None else None,
-            "objUser": EzsignfoldersignerassociationResponseCompoundUser.from_dict(obj.get("objUser")) if obj.get("objUser") is not None else None,
-            "objEzsignsigner": EzsignsignerResponseCompound.from_dict(obj.get("objEzsignsigner")) if obj.get("objEzsignsigner") is not None else None
+            "objEzsignsignergroup": EzsignsignergroupResponseCompound.from_dict(obj["objEzsignsignergroup"]) if obj.get("objEzsignsignergroup") is not None else None,
+            "objUser": EzsignfoldersignerassociationResponseCompoundUser.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None,
+            "objEzsignsigner": EzsignsignerResponseCompound.from_dict(obj["objEzsignsigner"]) if obj.get("objEzsignsigner") is not None else None
         })
         return _obj
 

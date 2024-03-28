@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignformfieldgroup_create_object_v1_request import EzsignformfieldgroupCreateObjectV1Request
 

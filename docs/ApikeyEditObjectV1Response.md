@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ApikeyEditObjectV1Response from a JSON string
 apikey_edit_object_v1_response_instance = ApikeyEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print ApikeyEditObjectV1Response.to_json()
+print(ApikeyEditObjectV1Response.to_json())
 
 # convert the object into a dict
 apikey_edit_object_v1_response_dict = apikey_edit_object_v1_response_instance.to_dict()

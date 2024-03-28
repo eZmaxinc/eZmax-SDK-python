@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UsergroupGetAutocompleteV2ResponseMPayload from a JSON string
 usergroup_get_autocomplete_v2_response_m_payload_instance = UsergroupGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print UsergroupGetAutocompleteV2ResponseMPayload.to_json()
+print(UsergroupGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 usergroup_get_autocomplete_v2_response_m_payload_dict = usergroup_get_autocomplete_v2_response_m_payload_instance.to_dict()

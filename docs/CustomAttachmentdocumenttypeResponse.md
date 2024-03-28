@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomAttachmentdocumenttypeResponse from a JSON string
 custom_attachmentdocumenttype_response_instance = CustomAttachmentdocumenttypeResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomAttachmentdocumenttypeResponse.to_json()
+print(CustomAttachmentdocumenttypeResponse.to_json())
 
 # convert the object into a dict
 custom_attachmentdocumenttype_response_dict = custom_attachmentdocumenttype_response_instance.to_dict()

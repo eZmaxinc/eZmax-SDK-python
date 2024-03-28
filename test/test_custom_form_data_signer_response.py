@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_form_data_signer_response import CustomFormDataSignerResponse
 

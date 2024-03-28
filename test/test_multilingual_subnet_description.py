@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.multilingual_subnet_description import MultilingualSubnetDescription
 

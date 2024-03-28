@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.user_edit_permissions_v1_request import UserEditPermissionsV1Request
 

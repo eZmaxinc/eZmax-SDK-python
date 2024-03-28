@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of PaymenttermAutocompleteElementResponse from a JSON string
 paymentterm_autocomplete_element_response_instance = PaymenttermAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermAutocompleteElementResponse.to_json()
+print(PaymenttermAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 paymentterm_autocomplete_element_response_dict = paymentterm_autocomplete_element_response_instance.to_dict()

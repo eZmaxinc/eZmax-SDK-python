@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of WebhookGetHistoryV1ResponseMPayload from a JSON string
 webhook_get_history_v1_response_m_payload_instance = WebhookGetHistoryV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print WebhookGetHistoryV1ResponseMPayload.to_json()
+print(WebhookGetHistoryV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 webhook_get_history_v1_response_m_payload_dict = webhook_get_history_v1_response_m_payload_instance.to_dict()

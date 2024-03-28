@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroupdelegation_create_object_v1_request import UsergroupdelegationCreateObjectV1Request
 from eZmaxApi.models.usergroupdelegation_create_object_v1_response import UsergroupdelegationCreateObjectV1Response
@@ -104,8 +102,6 @@ Delete an existing Usergroupdelegation
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroupdelegation_delete_object_v1_response import UsergroupdelegationDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -186,8 +182,6 @@ Edit an existing Usergroupdelegation
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroupdelegation_edit_object_v1_request import UsergroupdelegationEditObjectV1Request
 from eZmaxApi.models.usergroupdelegation_edit_object_v1_response import UsergroupdelegationEditObjectV1Response
@@ -272,8 +266,6 @@ Retrieve an existing Usergroupdelegation
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.usergroupdelegation_get_object_v2_response import UsergroupdelegationGetObjectV2Response
 from eZmaxApi.rest import ApiException

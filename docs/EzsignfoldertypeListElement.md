@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of EzsignfoldertypeListElement from a JSON string
 ezsignfoldertype_list_element_instance = EzsignfoldertypeListElement.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldertypeListElement.to_json()
+print(EzsignfoldertypeListElement.to_json())
 
 # convert the object into a dict
 ezsignfoldertype_list_element_dict = ezsignfoldertype_list_element_instance.to_dict()

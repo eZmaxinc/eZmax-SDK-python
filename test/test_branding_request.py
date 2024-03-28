@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.branding_request import BrandingRequest
 
@@ -42,13 +41,16 @@ class TestBrandingRequest(unittest.TestCase):
                     s_branding_description1 = 'Compagnie X', 
                     s_branding_description2 = 'Company X', ),
                 e_branding_logo = 'Default',
-                s_branding_base64 = '[B@6ffab045',
+                s_branding_base64 = '[B@2d10e0b1',
+                e_branding_logointerface = 'Default',
+                s_branding_logointerface_base64 = '[B@1c98290c',
                 i_branding_colortext = 3752795,
                 i_branding_colortextlinkbox = 0,
                 i_branding_colortextbutton = 16777215,
                 i_branding_colorbackground = 15658734,
                 i_branding_colorbackgroundbutton = 13577007,
                 i_branding_colorbackgroundsmallbox = 16777215,
+                i_branding_interfacecolor = 15658734,
                 s_branding_name = 'eZmax (Corp)',
                 s_email_address = 'email@example.com',
                 b_branding_isactive = True

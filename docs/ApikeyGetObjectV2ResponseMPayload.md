@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ApikeyGetObjectV2ResponseMPayload from a JSON string
 apikey_get_object_v2_response_m_payload_instance = ApikeyGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ApikeyGetObjectV2ResponseMPayload.to_json()
+print(ApikeyGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 apikey_get_object_v2_response_m_payload_dict = apikey_get_object_v2_response_m_payload_instance.to_dict()

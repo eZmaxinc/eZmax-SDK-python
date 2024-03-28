@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload from a JSON string
 ezsignbulksend_create_ezsignbulksendtransmission_v1_response_m_payload_instance = EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload.to_json()
+print(EzsignbulksendCreateEzsignbulksendtransmissionV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignbulksend_create_ezsignbulksendtransmission_v1_response_m_payload_dict = ezsignbulksend_create_ezsignbulksendtransmission_v1_response_m_payload_instance.to_dict()

@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of VariableexpenseRequest from a JSON string
 variableexpense_request_instance = VariableexpenseRequest.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseRequest.to_json()
+print(VariableexpenseRequest.to_json())
 
 # convert the object into a dict
 variableexpense_request_dict = variableexpense_request_instance.to_dict()

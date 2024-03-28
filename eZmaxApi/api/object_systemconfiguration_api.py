@@ -12,17 +12,10 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
@@ -30,7 +23,7 @@ from eZmaxApi.models.systemconfiguration_edit_object_v1_request import Systemcon
 from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
 from eZmaxApi.models.systemconfiguration_get_object_v2_response import SystemconfigurationGetObjectV2Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -271,7 +264,7 @@ class ObjectSystemconfigurationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -547,7 +540,7 @@ class ObjectSystemconfigurationApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

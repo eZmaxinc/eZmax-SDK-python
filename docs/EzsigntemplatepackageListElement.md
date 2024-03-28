@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackageListElement from a JSON string
 ezsigntemplatepackage_list_element_instance = EzsigntemplatepackageListElement.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackageListElement.to_json()
+print(EzsigntemplatepackageListElement.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackage_list_element_dict = ezsigntemplatepackage_list_element_instance.to_dict()

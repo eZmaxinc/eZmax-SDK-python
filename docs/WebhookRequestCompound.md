@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
 **b_webhook_issigned** | **bool** | Whether the requests will be signed or not | [optional] 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
+**a_obj_webhookheader** | [**List[WebhookheaderRequestCompound]**](WebhookheaderRequestCompound.md) |  | [optional] 
 
 ## Example
 
@@ -28,7 +29,7 @@ json = "{}"
 # create an instance of WebhookRequestCompound from a JSON string
 webhook_request_compound_instance = WebhookRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print WebhookRequestCompound.to_json()
+print(WebhookRequestCompound.to_json())
 
 # convert the object into a dict
 webhook_request_compound_dict = webhook_request_compound_instance.to_dict()

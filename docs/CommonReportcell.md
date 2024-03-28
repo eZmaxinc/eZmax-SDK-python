@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonReportcell from a JSON string
 common_reportcell_instance = CommonReportcell.from_json(json)
 # print the JSON string representation of the object
-print CommonReportcell.to_json()
+print(CommonReportcell.to_json())
 
 # convert the object into a dict
 common_reportcell_dict = common_reportcell_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ScimServiceProviderConfigPatch from a JSON string
 scim_service_provider_config_patch_instance = ScimServiceProviderConfigPatch.from_json(json)
 # print the JSON string representation of the object
-print ScimServiceProviderConfigPatch.to_json()
+print(ScimServiceProviderConfigPatch.to_json())
 
 # convert the object into a dict
 scim_service_provider_config_patch_dict = scim_service_provider_config_patch_instance.to_dict()

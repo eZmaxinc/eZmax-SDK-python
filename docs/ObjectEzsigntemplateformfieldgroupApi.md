@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplateformfieldgroup_create_object_v1_request import EzsigntemplateformfieldgroupCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplateformfieldgroup_create_object_v1_response import EzsigntemplateformfieldgroupCreateObjectV1Response
@@ -104,8 +102,6 @@ Delete an existing Ezsigntemplateformfieldgroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplateformfieldgroup_delete_object_v1_response import EzsigntemplateformfieldgroupDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -186,8 +182,6 @@ Edit an existing Ezsigntemplateformfieldgroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplateformfieldgroup_edit_object_v1_request import EzsigntemplateformfieldgroupEditObjectV1Request
 from eZmaxApi.models.ezsigntemplateformfieldgroup_edit_object_v1_response import EzsigntemplateformfieldgroupEditObjectV1Response
@@ -272,8 +266,6 @@ Retrieve an existing Ezsigntemplateformfieldgroup
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplateformfieldgroup_get_object_v2_response import EzsigntemplateformfieldgroupGetObjectV2Response
 from eZmaxApi.rest import ApiException

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommonResponseFilter from a JSON string
 common_response_filter_instance = CommonResponseFilter.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseFilter.to_json()
+print(CommonResponseFilter.to_json())
 
 # convert the object into a dict
 common_response_filter_dict = common_response_filter_instance.to_dict()

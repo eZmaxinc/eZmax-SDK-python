@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
 
@@ -51,6 +50,9 @@ class TestEzsignSuggestTemplatesV1Response(unittest.TestCase):
                         ], 
                     a_obj_ezsigntemplatepackage = [
                         eZmaxApi.models.ezsigntemplatepackage_response_compound.ezsigntemplatepackage-ResponseCompound()
+                        ], 
+                    a_obj_ezsigntemplateglobal = [
+                        eZmaxApi.models.ezsigntemplateglobal_response_compound.ezsigntemplateglobal-ResponseCompound()
                         ], )
             )
         else:
@@ -68,6 +70,9 @@ class TestEzsignSuggestTemplatesV1Response(unittest.TestCase):
                         ], 
                     a_obj_ezsigntemplatepackage = [
                         eZmaxApi.models.ezsigntemplatepackage_response_compound.ezsigntemplatepackage-ResponseCompound()
+                        ], 
+                    a_obj_ezsigntemplateglobal = [
+                        eZmaxApi.models.ezsigntemplateglobal_response_compound.ezsigntemplateglobal-ResponseCompound()
                         ], ),
         )
         """

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonResponseErrorTooManyRequests from a JSON string
 common_response_error_too_many_requests_instance = CommonResponseErrorTooManyRequests.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseErrorTooManyRequests.to_json()
+print(CommonResponseErrorTooManyRequests.to_json())
 
 # convert the object into a dict
 common_response_error_too_many_requests_dict = common_response_error_too_many_requests_instance.to_dict()

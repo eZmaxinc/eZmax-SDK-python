@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of DiscussionCreateObjectV1ResponseMPayload from a JSON string
 discussion_create_object_v1_response_m_payload_instance = DiscussionCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print DiscussionCreateObjectV1ResponseMPayload.to_json()
+print(DiscussionCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 discussion_create_object_v1_response_m_payload_dict = discussion_create_object_v1_response_m_payload_instance.to_dict()

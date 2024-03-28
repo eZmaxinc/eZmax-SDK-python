@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_create_object_v1_request import EzsigndocumentCreateObjectV1Request
 
@@ -45,7 +44,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
                     fki_language_id = 2, 
                     e_ezsigndocument_source = 'Base64', 
                     e_ezsigndocument_format = 'Pdf', 
-                    s_ezsigndocument_base64 = '[B@26fb628', 
+                    s_ezsigndocument_base64 = '[B@172ca72b', 
                     s_ezsigndocument_url = 'http://www.example.com/document.pdf', 
                     b_ezsigndocument_forcerepair = True, 
                     s_ezsigndocument_password = 'SecretPassword123', 

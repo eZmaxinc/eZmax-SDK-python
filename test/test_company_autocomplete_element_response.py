@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.company_autocomplete_element_response import CompanyAutocompleteElementResponse
 

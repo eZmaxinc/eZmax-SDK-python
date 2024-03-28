@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignbulksendReorderV1Response from a JSON string
 ezsignbulksend_reorder_v1_response_instance = EzsignbulksendReorderV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendReorderV1Response.to_json()
+print(EzsignbulksendReorderV1Response.to_json())
 
 # convert the object into a dict
 ezsignbulksend_reorder_v1_response_dict = ezsignbulksend_reorder_v1_response_instance.to_dict()

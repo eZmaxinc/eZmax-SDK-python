@@ -29,8 +29,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_request import EzsigntemplatedocumentCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_response import EzsigntemplatedocumentCreateObjectV1Response
@@ -96,6 +94,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
+**413** | The request was large. Look for detail about the error in the body |  -  |
 **422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body. If the error is recoverable sTemporaryFileUrl will be set and you can use this url to try a new request without sending the file over again |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -112,8 +111,6 @@ Using this endpoint, you can edit multiple Ezsigntemplateformfieldgroups at the 
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_request import EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Request
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1_response import EzsigntemplatedocumentEditEzsigntemplateformfieldgroupsV1Response
@@ -198,8 +195,6 @@ Using this endpoint, you can edit multiple Ezsigntemplatesignatures at the same 
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_request import EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Request
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1_response import EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response
@@ -284,8 +279,6 @@ Edit an existing Ezsigntemplatedocument
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_edit_object_v1_request import EzsigntemplatedocumentEditObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_edit_object_v1_response import EzsigntemplatedocumentEditObjectV1Response
@@ -370,8 +363,6 @@ Flatten an Ezsigntemplatedocument signatures, forms and annotations. This proces
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_flatten_v1_response import EzsigntemplatedocumentFlattenV1Response
 from eZmaxApi.rest import ApiException
@@ -455,8 +446,6 @@ Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpages
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_response import EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response
 from eZmaxApi.rest import ApiException
@@ -537,8 +526,6 @@ Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateformfieldgroups
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_response import EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response
 from eZmaxApi.rest import ApiException
@@ -620,8 +607,6 @@ Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatesignatures
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_response import EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response
 from eZmaxApi.rest import ApiException
@@ -703,8 +688,6 @@ Retrieve an existing Ezsigntemplatedocument
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_get_object_v2_response import EzsigntemplatedocumentGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -785,8 +768,6 @@ Retrieve positions X,Y of given words from a Ezsigntemplatedocument
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_get_words_positions_v1_request import EzsigntemplatedocumentGetWordsPositionsV1Request
 from eZmaxApi.models.ezsigntemplatedocument_get_words_positions_v1_response import EzsigntemplatedocumentGetWordsPositionsV1Response
@@ -870,8 +851,6 @@ Patch an existing Ezsigntemplatedocument
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_request import EzsigntemplatedocumentPatchObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_response import EzsigntemplatedocumentPatchObjectV1Response

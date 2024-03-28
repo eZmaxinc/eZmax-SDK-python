@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfolderSendV3Request from a JSON string
 ezsignfolder_send_v3_request_instance = EzsignfolderSendV3Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderSendV3Request.to_json()
+print(EzsignfolderSendV3Request.to_json())
 
 # convert the object into a dict
 ezsignfolder_send_v3_request_dict = ezsignfolder_send_v3_request_instance.to_dict()

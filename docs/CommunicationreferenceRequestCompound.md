@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of CommunicationreferenceRequestCompound from a JSON string
 communicationreference_request_compound_instance = CommunicationreferenceRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print CommunicationreferenceRequestCompound.to_json()
+print(CommunicationreferenceRequestCompound.to_json())
 
 # convert the object into a dict
 communicationreference_request_compound_dict = communicationreference_request_compound_instance.to_dict()

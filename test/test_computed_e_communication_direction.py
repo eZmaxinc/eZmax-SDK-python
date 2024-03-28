@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection
 

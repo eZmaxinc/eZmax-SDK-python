@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of PaymenttermRequest from a JSON string
 paymentterm_request_instance = PaymenttermRequest.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermRequest.to_json()
+print(PaymenttermRequest.to_json())
 
 # convert the object into a dict
 paymentterm_request_dict = paymentterm_request_instance.to_dict()

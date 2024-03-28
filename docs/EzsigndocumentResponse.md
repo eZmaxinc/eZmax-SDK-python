@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **s_ezsigndocument_externalid** | **str** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **i_ezsigndocument_ezsignsignatureattachmenttotal** | **int** | The number of Ezsigndocumentattachment total | 
+**i_ezsigndocument_ezsigndiscussiontotal** | **int** | The total number of Ezsigndiscussions | 
 
 ## Example
 
@@ -39,7 +40,7 @@ json = "{}"
 # create an instance of EzsigndocumentResponse from a JSON string
 ezsigndocument_response_instance = EzsigndocumentResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentResponse.to_json()
+print(EzsigndocumentResponse.to_json())
 
 # convert the object into a dict
 ezsigndocument_response_dict = ezsigndocument_response_instance.to_dict()

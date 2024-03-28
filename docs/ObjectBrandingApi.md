@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.branding_create_object_v1_request import BrandingCreateObjectV1Request
 from eZmaxApi.models.branding_create_object_v1_response import BrandingCreateObjectV1Response
@@ -105,8 +103,6 @@ Edit an existing Branding
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.branding_edit_object_v1_request import BrandingEditObjectV1Request
 from eZmaxApi.models.branding_edit_object_v1_response import BrandingEditObjectV1Response
@@ -190,8 +186,6 @@ Get the list of Branding to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.branding_get_autocomplete_v2_response import BrandingGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -271,15 +265,13 @@ Name | Type | Description  | Notes
 
 Retrieve Branding list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBrandingLogo | Default<br>JPEG<br>PNG |
+Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eBrandingLogo | Default<br>JPEG<br>PNG | | eBrandingLogointerface | Default<br>JPEG<br>PNG |
 
 ### Example
 
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.branding_get_list_v1_response import BrandingGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -369,8 +361,6 @@ Retrieve an existing Branding
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.branding_get_object_v2_response import BrandingGetObjectV2Response
 from eZmaxApi.rest import ApiException

@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_request import EzsignsigningreasonCreateObjectV1Request
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_response import EzsignsigningreasonCreateObjectV1Response
@@ -105,8 +103,6 @@ Edit an existing Ezsignsigningreason
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsigningreason_edit_object_v1_request import EzsignsigningreasonEditObjectV1Request
 from eZmaxApi.models.ezsignsigningreason_edit_object_v1_response import EzsignsigningreasonEditObjectV1Response
@@ -191,8 +187,6 @@ Get the list of Ezsignsigningreason to be used in a dropdown or autocomplete con
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsigningreason_get_autocomplete_v2_response import EzsignsigningreasonGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -279,8 +273,6 @@ Retrieve Ezsignsigningreason list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsigningreason_get_list_v1_response import EzsignsigningreasonGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -370,8 +362,6 @@ Retrieve an existing Ezsignsigningreason
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsigningreason_get_object_v2_response import EzsignsigningreasonGetObjectV2Response
 from eZmaxApi.rest import ApiException

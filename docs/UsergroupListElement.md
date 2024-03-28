@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UsergroupListElement from a JSON string
 usergroup_list_element_instance = UsergroupListElement.from_json(json)
 # print the JSON string representation of the object
-print UsergroupListElement.to_json()
+print(UsergroupListElement.to_json())
 
 # convert the object into a dict
 usergroup_list_element_dict = usergroup_list_element_instance.to_dict()

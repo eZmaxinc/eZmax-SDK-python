@@ -30,7 +30,7 @@ json = "{}"
 # create an instance of EzsignbulksendResponseCompound from a JSON string
 ezsignbulksend_response_compound_instance = EzsignbulksendResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendResponseCompound.to_json()
+print(EzsignbulksendResponseCompound.to_json())
 
 # convert the object into a dict
 ezsignbulksend_response_compound_dict = ezsignbulksend_response_compound_instance.to_dict()

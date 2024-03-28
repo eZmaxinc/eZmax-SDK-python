@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.inscription_get_attachments_v1_response_m_payload import InscriptionGetAttachmentsV1ResponseMPayload
 

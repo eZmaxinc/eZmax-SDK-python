@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.modulegroup_get_all_v1_response import ModulegroupGetAllV1Response
 

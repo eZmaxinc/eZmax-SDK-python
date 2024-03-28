@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.communicationreference_request import CommunicationreferenceRequest
 

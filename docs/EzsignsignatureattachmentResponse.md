@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of EzsignsignatureattachmentResponse from a JSON string
 ezsignsignatureattachment_response_instance = EzsignsignatureattachmentResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignsignatureattachmentResponse.to_json()
+print(EzsignsignatureattachmentResponse.to_json())
 
 # convert the object into a dict
 ezsignsignatureattachment_response_dict = ezsignsignatureattachment_response_instance.to_dict()

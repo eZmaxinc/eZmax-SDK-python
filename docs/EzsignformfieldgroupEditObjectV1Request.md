@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignformfieldgroupEditObjectV1Request from a JSON string
 ezsignformfieldgroup_edit_object_v1_request_instance = EzsignformfieldgroupEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignformfieldgroupEditObjectV1Request.to_json()
+print(EzsignformfieldgroupEditObjectV1Request.to_json())
 
 # convert the object into a dict
 ezsignformfieldgroup_edit_object_v1_request_dict = ezsignformfieldgroup_edit_object_v1_request_instance.to_dict()

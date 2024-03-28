@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignbulksend_list_element import EzsignbulksendListElement
 

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 
@@ -68,6 +67,10 @@ class TestCustomWebhookResponse(unittest.TestCase):
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                s_webhook_event = 'Ezsign-DocumentCompleted',
+                a_obj_webhookheader = [
+                    eZmaxApi.models.webhookheader_response_compound.webhookheader-ResponseCompound()
+                    ],
                 pks_customer_code = 'demo',
                 b_webhook_test = True
             )

@@ -18,19 +18,15 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_signerrequirement import FieldEEzsigntemplateformfieldgroupSignerrequirement
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_tooltipposition import FieldEEzsigntemplateformfieldgroupTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_type import FieldEEzsigntemplateformfieldgroupType
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplateformfieldgroupRequest(BaseModel):
     """
@@ -39,10 +35,10 @@ class EzsigntemplateformfieldgroupRequest(BaseModel):
     pki_ezsigntemplateformfieldgroup_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfieldgroup", alias="pkiEzsigntemplateformfieldgroupID")
     fki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
     e_ezsigntemplateformfieldgroup_type: FieldEEzsigntemplateformfieldgroupType = Field(alias="eEzsigntemplateformfieldgroupType")
-    e_ezsigntemplateformfieldgroup_signerrequirement: FieldEEzsigntemplateformfieldgroupSignerrequirement = Field(alias="eEzsigntemplateformfieldgroupSignerrequirement")
+    e_ezsigntemplateformfieldgroup_signerrequirement: Optional[FieldEEzsigntemplateformfieldgroupSignerrequirement] = Field(default=None, alias="eEzsigntemplateformfieldgroupSignerrequirement")
     s_ezsigntemplateformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsigntemplateformfieldgroup", alias="sEzsigntemplateformfieldgroupLabel")
     i_ezsigntemplateformfieldgroup_step: Annotated[int, Field(strict=True, ge=1)] = Field(description="The step when the Ezsigntemplatesigner will be invited to fill the form fields", alias="iEzsigntemplateformfieldgroupStep")
-    s_ezsigntemplateformfieldgroup_defaultvalue: StrictStr = Field(description="The default value for the Ezsigntemplateformfieldgroup", alias="sEzsigntemplateformfieldgroupDefaultvalue")
+    s_ezsigntemplateformfieldgroup_defaultvalue: StrictStr = Field(description="The default value for the Ezsigntemplateformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |", alias="sEzsigntemplateformfieldgroupDefaultvalue")
     i_ezsigntemplateformfieldgroup_filledmin: Annotated[int, Field(strict=True, ge=0)] = Field(description="The minimum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup", alias="iEzsigntemplateformfieldgroupFilledmin")
     i_ezsigntemplateformfieldgroup_filledmax: Annotated[int, Field(strict=True, ge=0)] = Field(description="The maximum number of Ezsigntemplateformfield that must be filled in the Ezsigntemplateformfieldgroup", alias="iEzsigntemplateformfieldgroupFilledmax")
     b_ezsigntemplateformfieldgroup_readonly: StrictBool = Field(description="Whether the Ezsigntemplateformfieldgroup is read only or not.", alias="bEzsigntemplateformfieldgroupReadonly")
@@ -64,11 +60,11 @@ class EzsigntemplateformfieldgroupRequest(BaseModel):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -81,7 +77,7 @@ class EzsigntemplateformfieldgroupRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplateformfieldgroupRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -95,16 +91,18 @@ class EzsigntemplateformfieldgroupRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateformfieldgroupRequest from a dict"""
         if obj is None:
             return None

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignbulksendDeleteObjectV1Response from a JSON string
 ezsignbulksend_delete_object_v1_response_instance = EzsignbulksendDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendDeleteObjectV1Response.to_json()
+print(EzsignbulksendDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignbulksend_delete_object_v1_response_dict = ezsignbulksend_delete_object_v1_response_instance.to_dict()

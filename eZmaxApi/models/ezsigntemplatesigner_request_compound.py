@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplatesignerRequestCompound(BaseModel):
     """
@@ -34,14 +30,21 @@ class EzsigntemplatesignerRequestCompound(BaseModel):
     """ # noqa: E501
     pki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="pkiEzsigntemplatesignerID")
     fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
-    s_ezsigntemplatesigner_description: StrictStr = Field(description="The description of the Ezsigntemplatesigner", alias="sEzsigntemplatesignerDescription")
+    s_ezsigntemplatesigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatesigner", alias="sEzsigntemplatesignerDescription")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignerID", "fkiEzsigntemplateID", "sEzsigntemplatesignerDescription"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('s_ezsigntemplatesigner_description')
+    def s_ezsigntemplatesigner_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,50}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +57,7 @@ class EzsigntemplatesignerRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplatesignerRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,16 +71,18 @@ class EzsigntemplatesignerRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatesignerRequestCompound from a dict"""
         if obj is None:
             return None

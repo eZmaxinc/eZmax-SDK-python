@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroup_get_permissions_v1_response_m_payload import UsergroupGetPermissionsV1ResponseMPayload
 

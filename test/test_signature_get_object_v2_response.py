@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.signature_get_object_v2_response import SignatureGetObjectV2Response
 

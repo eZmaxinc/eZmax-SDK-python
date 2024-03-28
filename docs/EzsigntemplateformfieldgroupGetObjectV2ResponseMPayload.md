@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload from a JSON string
 ezsigntemplateformfieldgroup_get_object_v2_response_m_payload_instance = EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload.to_json()
+print(EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigntemplateformfieldgroup_get_object_v2_response_m_payload_dict = ezsigntemplateformfieldgroup_get_object_v2_response_m_payload_instance.to_dict()

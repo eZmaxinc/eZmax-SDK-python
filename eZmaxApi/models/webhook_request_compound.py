@@ -18,25 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from eZmaxApi.models.webhookheader_request_compound import WebhookheaderRequestCompound
+from typing import Optional, Set
+from typing_extensions import Self
 
 class WebhookRequestCompound(BaseModel):
     """
     A Webhook Object and children
     """ # noqa: E501
     pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
@@ -46,13 +43,14 @@ class WebhookRequestCompound(BaseModel):
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
     b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation"]
+    a_obj_webhookheader: Optional[List[WebhookheaderRequestCompound]] = Field(default=None, alias="a_objWebhookheader")
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "a_objWebhookheader"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -65,7 +63,7 @@ class WebhookRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of WebhookRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -79,16 +77,25 @@ class WebhookRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_webhookheader (list)
+        _items = []
+        if self.a_obj_webhookheader:
+            for _item in self.a_obj_webhookheader:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objWebhookheader'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of WebhookRequestCompound from a dict"""
         if obj is None:
             return None
@@ -107,7 +114,8 @@ class WebhookRequestCompound(BaseModel):
             "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
             "bWebhookIsactive": obj.get("bWebhookIsactive"),
             "bWebhookIssigned": obj.get("bWebhookIssigned"),
-            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation")
+            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation"),
+            "a_objWebhookheader": [WebhookheaderRequestCompound.from_dict(_item) for _item in obj["a_objWebhookheader"]] if obj.get("a_objWebhookheader") is not None else None
         })
         return _obj
 

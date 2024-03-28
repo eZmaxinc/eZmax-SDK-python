@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.global_ezmaxclient_version_v1_response import GlobalEzmaxclientVersionV1Response
 

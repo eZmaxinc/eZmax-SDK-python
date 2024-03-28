@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BillingentityinternalGetListV1ResponseMPayload from a JSON string
 billingentityinternal_get_list_v1_response_m_payload_instance = BillingentityinternalGetListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalGetListV1ResponseMPayload.to_json()
+print(BillingentityinternalGetListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 billingentityinternal_get_list_v1_response_m_payload_dict = billingentityinternal_get_list_v1_response_m_payload_instance.to_dict()

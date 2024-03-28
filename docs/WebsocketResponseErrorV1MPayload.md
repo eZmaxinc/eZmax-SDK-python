@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of WebsocketResponseErrorV1MPayload from a JSON string
 websocket_response_error_v1_m_payload_instance = WebsocketResponseErrorV1MPayload.from_json(json)
 # print the JSON string representation of the object
-print WebsocketResponseErrorV1MPayload.to_json()
+print(WebsocketResponseErrorV1MPayload.to_json())
 
 # convert the object into a dict
 websocket_response_error_v1_m_payload_dict = websocket_response_error_v1_m_payload_instance.to_dict()

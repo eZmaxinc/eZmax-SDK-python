@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackagesignerResponseCompound from a JSON string
 ezsigntemplatepackagesigner_response_compound_instance = EzsigntemplatepackagesignerResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackagesignerResponseCompound.to_json()
+print(EzsigntemplatepackagesignerResponseCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackagesigner_response_compound_dict = ezsigntemplatepackagesigner_response_compound_instance.to_dict()

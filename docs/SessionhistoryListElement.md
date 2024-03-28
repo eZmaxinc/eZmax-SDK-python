@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of SessionhistoryListElement from a JSON string
 sessionhistory_list_element_instance = SessionhistoryListElement.from_json(json)
 # print the JSON string representation of the object
-print SessionhistoryListElement.to_json()
+print(SessionhistoryListElement.to_json())
 
 # convert the object into a dict
 sessionhistory_list_element_dict = sessionhistory_list_element_instance.to_dict()

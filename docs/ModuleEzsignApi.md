@@ -20,8 +20,6 @@ Retrieve previously used Ezsignsigners and all users from the system
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsign_suggest_signers_v1_response import EzsignSuggestSignersV1Response
 from eZmaxApi.rest import ApiException
@@ -97,8 +95,6 @@ Retrieve Ezsigntemplates and Ezsigntemplatepackages that can be imported in a Ez
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
 from eZmaxApi.rest import ApiException

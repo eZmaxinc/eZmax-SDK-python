@@ -18,32 +18,39 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplateRequest(BaseModel):
     """
     A Ezsigntemplate Object
     """ # noqa: E501
     pki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_filenamepattern: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The filename pattern of the Ezsigntemplate", alias="sEzsigntemplateFilenamepattern")
     b_ezsigntemplate_adminonly: StrictBool = Field(description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplateAdminonly")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "bEzsigntemplateAdminonly"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('s_ezsigntemplate_filenamepattern')
+    def s_ezsigntemplate_filenamepattern_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{1,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,50}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -56,7 +63,7 @@ class EzsigntemplateRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplateRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,16 +77,18 @@ class EzsigntemplateRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateRequest from a dict"""
         if obj is None:
             return None
@@ -92,6 +101,7 @@ class EzsigntemplateRequest(BaseModel):
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
+            "sEzsigntemplateFilenamepattern": obj.get("sEzsigntemplateFilenamepattern"),
             "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly")
         })
         return _obj

@@ -20,8 +20,6 @@ Edit an existing Systemconfiguration
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
 from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
@@ -106,8 +104,6 @@ Retrieve an existing Systemconfiguration
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.systemconfiguration_get_object_v2_response import SystemconfigurationGetObjectV2Response
 from eZmaxApi.rest import ApiException

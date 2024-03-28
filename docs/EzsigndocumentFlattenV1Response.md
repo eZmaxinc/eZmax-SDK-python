@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigndocumentFlattenV1Response from a JSON string
 ezsigndocument_flatten_v1_response_instance = EzsigndocumentFlattenV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentFlattenV1Response.to_json()
+print(EzsigndocumentFlattenV1Response.to_json())
 
 # convert the object into a dict
 ezsigndocument_flatten_v1_response_dict = ezsigndocument_flatten_v1_response_instance.to_dict()

@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictBool, StrictBytes, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigndocumentRequestCompound(BaseModel):
     """
@@ -43,7 +39,7 @@ class EzsigndocumentRequestCompound(BaseModel):
     s_ezsigndocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.", alias="sEzsigndocumentUrl")
     b_ezsigndocument_forcerepair: Optional[StrictBool] = Field(default=True, description="Try to repair the document or flatten it if it cannot be used for electronic signature. ", alias="bEzsigndocumentForcerepair")
     s_ezsigndocument_password: Optional[StrictStr] = Field(default=None, description="If the source document is password protected, the password to open/modify it.", alias="sEzsigndocumentPassword")
-    e_ezsigndocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**", alias="eEzsigndocumentForm")
+    e_ezsigndocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.", alias="eEzsigndocumentForm")
     dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
     s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
     s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
@@ -52,7 +48,7 @@ class EzsigndocumentRequestCompound(BaseModel):
     @field_validator('e_ezsigndocument_source')
     def e_ezsigndocument_source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Base64', 'Ezsigntemplate', 'Url'):
+        if value not in set(['Base64', 'Ezsigntemplate', 'Url']):
             raise ValueError("must be one of enum values ('Base64', 'Ezsigntemplate', 'Url')")
         return value
 
@@ -62,7 +58,7 @@ class EzsigndocumentRequestCompound(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx'):
+        if value not in set(['Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx']):
             raise ValueError("must be one of enum values ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx')")
         return value
 
@@ -72,8 +68,8 @@ class EzsigndocumentRequestCompound(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Keep', 'Convert'):
-            raise ValueError("must be one of enum values ('Keep', 'Convert')")
+        if value not in set(['Keep', 'Convert', 'Discard']):
+            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard')")
         return value
 
     @field_validator('s_ezsigndocument_externalid')
@@ -86,11 +82,11 @@ class EzsigndocumentRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -103,7 +99,7 @@ class EzsigndocumentRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigndocumentRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -117,16 +113,18 @@ class EzsigndocumentRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigndocumentRequestCompound from a dict"""
         if obj is None:
             return None

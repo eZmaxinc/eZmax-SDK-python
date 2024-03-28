@@ -17,8 +17,6 @@ Retrieve Sessionhistory list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.sessionhistory_get_list_v1_response import SessionhistoryGetListV1Response

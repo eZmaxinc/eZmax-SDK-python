@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of DiscussionmessageRequestPatch from a JSON string
 discussionmessage_request_patch_instance = DiscussionmessageRequestPatch.from_json(json)
 # print the JSON string representation of the object
-print DiscussionmessageRequestPatch.to_json()
+print(DiscussionmessageRequestPatch.to_json())
 
 # convert the object into a dict
 discussionmessage_request_patch_dict = discussionmessage_request_patch_instance.to_dict()

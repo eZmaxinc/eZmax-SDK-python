@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackageEditObjectV1Response from a JSON string
 ezsigntemplatepackage_edit_object_v1_response_instance = EzsigntemplatepackageEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackageEditObjectV1Response.to_json()
+print(EzsigntemplatepackageEditObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackage_edit_object_v1_response_dict = ezsigntemplatepackage_edit_object_v1_response_instance.to_dict()

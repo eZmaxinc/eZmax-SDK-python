@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityinternal_create_object_v1_request import BillingentityinternalCreateObjectV1Request
 from eZmaxApi.models.billingentityinternal_create_object_v1_response import BillingentityinternalCreateObjectV1Response
@@ -105,8 +103,6 @@ Edit an existing Billingentityinternal
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityinternal_edit_object_v1_request import BillingentityinternalEditObjectV1Request
 from eZmaxApi.models.billingentityinternal_edit_object_v1_response import BillingentityinternalEditObjectV1Response
@@ -191,8 +187,6 @@ Get the list of Billingentityinternal to be used in a dropdown or autocomplete c
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityinternal_get_autocomplete_v2_response import BillingentityinternalGetAutocompleteV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -279,8 +273,6 @@ Retrieve Billingentityinternal list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityinternal_get_list_v1_response import BillingentityinternalGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -370,8 +362,6 @@ Retrieve an existing Billingentityinternal
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.billingentityinternal_get_object_v2_response import BillingentityinternalGetObjectV2Response
 from eZmaxApi.rest import ApiException

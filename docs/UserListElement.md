@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of UserListElement from a JSON string
 user_list_element_instance = UserListElement.from_json(json)
 # print the JSON string representation of the object
-print UserListElement.to_json()
+print(UserListElement.to_json())
 
 # convert the object into a dict
 user_list_element_dict = user_list_element_instance.to_dict()

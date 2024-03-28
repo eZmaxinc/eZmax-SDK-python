@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PaymenttermCreateObjectV1Request from a JSON string
 paymentterm_create_object_v1_request_instance = PaymenttermCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermCreateObjectV1Request.to_json()
+print(PaymenttermCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 paymentterm_create_object_v1_request_dict = paymentterm_create_object_v1_request_instance.to_dict()

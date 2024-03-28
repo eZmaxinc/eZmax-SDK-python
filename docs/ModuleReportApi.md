@@ -20,8 +20,6 @@ Retrieve a report that was previously generated and cached
 * Api Key Authentication (Presigned):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.common_get_report_v1_response import CommonGetReportV1Response
 from eZmaxApi.rest import ApiException

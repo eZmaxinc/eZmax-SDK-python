@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfolderGetCommunicationsendersV1ResponseMPayload from a JSON string
 ezsignfolder_get_communicationsenders_v1_response_m_payload_instance = EzsignfolderGetCommunicationsendersV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetCommunicationsendersV1ResponseMPayload.to_json()
+print(EzsignfolderGetCommunicationsendersV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_communicationsenders_v1_response_m_payload_dict = ezsignfolder_get_communicationsenders_v1_response_m_payload_instance.to_dict()

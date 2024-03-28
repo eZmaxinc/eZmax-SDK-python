@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of DiscussionRequestCompound from a JSON string
 discussion_request_compound_instance = DiscussionRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print DiscussionRequestCompound.to_json()
+print(DiscussionRequestCompound.to_json())
 
 # convert the object into a dict
 discussion_request_compound_dict = discussion_request_compound_instance.to_dict()

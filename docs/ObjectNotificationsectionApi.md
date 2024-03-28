@@ -19,8 +19,6 @@ Retrieve an existing Notificationsection's Notificationtests
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response
 from eZmaxApi.rest import ApiException

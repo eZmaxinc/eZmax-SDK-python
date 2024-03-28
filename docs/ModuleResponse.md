@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of ModuleResponse from a JSON string
 module_response_instance = ModuleResponse.from_json(json)
 # print the JSON string representation of the object
-print ModuleResponse.to_json()
+print(ModuleResponse.to_json())
 
 # convert the object into a dict
 module_response_dict = module_response_instance.to_dict()

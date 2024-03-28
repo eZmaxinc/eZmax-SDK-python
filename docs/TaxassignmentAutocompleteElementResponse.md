@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TaxassignmentAutocompleteElementResponse from a JSON string
 taxassignment_autocomplete_element_response_instance = TaxassignmentAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print TaxassignmentAutocompleteElementResponse.to_json()
+print(TaxassignmentAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 taxassignment_autocomplete_element_response_dict = taxassignment_autocomplete_element_response_instance.to_dict()

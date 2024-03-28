@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.ezmaxinvoicingsummaryinternaldetail_response_compound import EzmaxinvoicingsummaryinternaldetailResponseCompound
 from eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description import MultilingualEzmaxinvoicingsummaryinternalDescription
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
     """
@@ -43,11 +39,11 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
     a_obj_ezmaxinvoicingsummaryinternaldetail: List[EzmaxinvoicingsummaryinternaldetailResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryinternaldetail")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryinternalID", "objEzmaxinvoicingsummaryinternalDescription", "sEzmaxinvoicingsummaryinternalDescriptionX", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "a_objEzmaxinvoicingsummaryinternaldetail"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +56,7 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingsummaryinternalResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,10 +70,12 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezmaxinvoicingsummaryinternal_description
@@ -93,7 +91,7 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingsummaryinternalResponseCompound from a dict"""
         if obj is None:
             return None
@@ -103,12 +101,12 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzmaxinvoicingsummaryinternalID": obj.get("pkiEzmaxinvoicingsummaryinternalID"),
-            "objEzmaxinvoicingsummaryinternalDescription": MultilingualEzmaxinvoicingsummaryinternalDescription.from_dict(obj.get("objEzmaxinvoicingsummaryinternalDescription")) if obj.get("objEzmaxinvoicingsummaryinternalDescription") is not None else None,
+            "objEzmaxinvoicingsummaryinternalDescription": MultilingualEzmaxinvoicingsummaryinternalDescription.from_dict(obj["objEzmaxinvoicingsummaryinternalDescription"]) if obj.get("objEzmaxinvoicingsummaryinternalDescription") is not None else None,
             "sEzmaxinvoicingsummaryinternalDescriptionX": obj.get("sEzmaxinvoicingsummaryinternalDescriptionX"),
             "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
-            "a_objEzmaxinvoicingsummaryinternaldetail": [EzmaxinvoicingsummaryinternaldetailResponseCompound.from_dict(_item) for _item in obj.get("a_objEzmaxinvoicingsummaryinternaldetail")] if obj.get("a_objEzmaxinvoicingsummaryinternaldetail") is not None else None
+            "a_objEzmaxinvoicingsummaryinternaldetail": [EzmaxinvoicingsummaryinternaldetailResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingsummaryinternaldetail"]] if obj.get("a_objEzmaxinvoicingsummaryinternaldetail") is not None else None
         })
         return _obj
 

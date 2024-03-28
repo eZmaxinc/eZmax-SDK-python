@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of DiscussionPatchObjectV1Response from a JSON string
 discussion_patch_object_v1_response_instance = DiscussionPatchObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print DiscussionPatchObjectV1Response.to_json()
+print(DiscussionPatchObjectV1Response.to_json())
 
 # convert the object into a dict
 discussion_patch_object_v1_response_dict = discussion_patch_object_v1_response_instance.to_dict()

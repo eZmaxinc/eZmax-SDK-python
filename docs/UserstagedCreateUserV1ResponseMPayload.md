@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UserstagedCreateUserV1ResponseMPayload from a JSON string
 userstaged_create_user_v1_response_m_payload_instance = UserstagedCreateUserV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print UserstagedCreateUserV1ResponseMPayload.to_json()
+print(UserstagedCreateUserV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 userstaged_create_user_v1_response_m_payload_dict = userstaged_create_user_v1_response_m_payload_instance.to_dict()

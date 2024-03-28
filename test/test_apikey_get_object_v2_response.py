@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.apikey_get_object_v2_response import ApikeyGetObjectV2Response
 

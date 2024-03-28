@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfoldersignerassociationCreateObjectV2ResponseMPayload(BaseModel):
     """
@@ -35,11 +31,11 @@ class EzsignfoldersignerassociationCreateObjectV2ResponseMPayload(BaseModel):
     a_pki_ezsignfoldersignerassociation_id: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1)] = Field(description="An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.", alias="a_pkiEzsignfoldersignerassociationID")
     __properties: ClassVar[List[str]] = ["a_pkiEzsignfoldersignerassociationID"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -52,7 +48,7 @@ class EzsignfoldersignerassociationCreateObjectV2ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationCreateObjectV2ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -66,16 +62,18 @@ class EzsignfoldersignerassociationCreateObjectV2ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationCreateObjectV2ResponseMPayload from a dict"""
         if obj is None:
             return None

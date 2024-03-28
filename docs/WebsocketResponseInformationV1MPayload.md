@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of WebsocketResponseInformationV1MPayload from a JSON string
 websocket_response_information_v1_m_payload_instance = WebsocketResponseInformationV1MPayload.from_json(json)
 # print the JSON string representation of the object
-print WebsocketResponseInformationV1MPayload.to_json()
+print(WebsocketResponseInformationV1MPayload.to_json())
 
 # convert the object into a dict
 websocket_response_information_v1_m_payload_dict = websocket_response_information_v1_m_payload_instance.to_dict()

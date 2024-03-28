@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of WebsocketRequestServerGetWebsocketIDV1 from a JSON string
 websocket_request_server_get_websocket_idv1_instance = WebsocketRequestServerGetWebsocketIDV1.from_json(json)
 # print the JSON string representation of the object
-print WebsocketRequestServerGetWebsocketIDV1.to_json()
+print(WebsocketRequestServerGetWebsocketIDV1.to_json())
 
 # convert the object into a dict
 websocket_request_server_get_websocket_idv1_dict = websocket_request_server_get_websocket_idv1_instance.to_dict()

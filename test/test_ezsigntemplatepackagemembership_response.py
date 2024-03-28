@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplatepackagemembership_response import EzsigntemplatepackagemembershipResponse
 

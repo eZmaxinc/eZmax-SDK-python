@@ -29,7 +29,7 @@ json = "{}"
 # create an instance of EzsignannotationResponseCompound from a JSON string
 ezsignannotation_response_compound_instance = EzsignannotationResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignannotationResponseCompound.to_json()
+print(EzsignannotationResponseCompound.to_json())
 
 # convert the object into a dict
 ezsignannotation_response_compound_dict = ezsignannotation_response_compound_instance.to_dict()

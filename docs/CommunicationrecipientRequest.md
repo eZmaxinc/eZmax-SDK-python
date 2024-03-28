@@ -32,7 +32,7 @@ json = "{}"
 # create an instance of CommunicationrecipientRequest from a JSON string
 communicationrecipient_request_instance = CommunicationrecipientRequest.from_json(json)
 # print the JSON string representation of the object
-print CommunicationrecipientRequest.to_json()
+print(CommunicationrecipientRequest.to_json())
 
 # convert the object into a dict
 communicationrecipient_request_dict = communicationrecipient_request_instance.to_dict()

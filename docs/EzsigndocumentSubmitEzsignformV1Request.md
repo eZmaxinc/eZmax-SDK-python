@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigndocumentSubmitEzsignformV1Request from a JSON string
 ezsigndocument_submit_ezsignform_v1_request_instance = EzsigndocumentSubmitEzsignformV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentSubmitEzsignformV1Request.to_json()
+print(EzsigndocumentSubmitEzsignformV1Request.to_json())
 
 # convert the object into a dict
 ezsigndocument_submit_ezsignform_v1_request_dict = ezsigndocument_submit_ezsignform_v1_request_instance.to_dict()

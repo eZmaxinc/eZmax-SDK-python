@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussion_create_object_v1_request import DiscussionCreateObjectV1Request
 from eZmaxApi.models.discussion_create_object_v1_response import DiscussionCreateObjectV1Response
@@ -105,8 +103,6 @@ Delete an existing Discussion
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussion_delete_object_v1_response import DiscussionDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -187,8 +183,6 @@ Retrieve an existing Discussion
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussion_get_object_v2_response import DiscussionGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -269,8 +263,6 @@ Patch an existing Discussion
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussion_patch_object_v1_request import DiscussionPatchObjectV1Request
 from eZmaxApi.models.discussion_patch_object_v1_response import DiscussionPatchObjectV1Response
@@ -353,8 +345,6 @@ Update the read status of the discussion
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.discussion_update_discussionreadstatus_v1_request import DiscussionUpdateDiscussionreadstatusV1Request
 from eZmaxApi.models.discussion_update_discussionreadstatus_v1_response import DiscussionUpdateDiscussionreadstatusV1Response

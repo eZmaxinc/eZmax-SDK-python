@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs
 

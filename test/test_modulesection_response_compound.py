@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.modulesection_response_compound import ModulesectionResponseCompound
 

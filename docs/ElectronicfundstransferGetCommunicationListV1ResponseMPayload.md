@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ElectronicfundstransferGetCommunicationListV1ResponseMPayload from a JSON string
 electronicfundstransfer_get_communication_list_v1_response_m_payload_instance = ElectronicfundstransferGetCommunicationListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ElectronicfundstransferGetCommunicationListV1ResponseMPayload.to_json()
+print(ElectronicfundstransferGetCommunicationListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 electronicfundstransfer_get_communication_list_v1_response_m_payload_dict = electronicfundstransfer_get_communication_list_v1_response_m_payload_instance.to_dict()

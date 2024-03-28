@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomCommunicationrecipientsgroupResponse from a JSON string
 custom_communicationrecipientsgroup_response_instance = CustomCommunicationrecipientsgroupResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomCommunicationrecipientsgroupResponse.to_json()
+print(CustomCommunicationrecipientsgroupResponse.to_json())
 
 # convert the object into a dict
 custom_communicationrecipientsgroup_response_dict = custom_communicationrecipientsgroup_response_instance.to_dict()

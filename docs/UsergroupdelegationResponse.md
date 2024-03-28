@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of UsergroupdelegationResponse from a JSON string
 usergroupdelegation_response_instance = UsergroupdelegationResponse.from_json(json)
 # print the JSON string representation of the object
-print UsergroupdelegationResponse.to_json()
+print(UsergroupdelegationResponse.to_json())
 
 # convert the object into a dict
 usergroupdelegation_response_dict = usergroupdelegation_response_instance.to_dict()

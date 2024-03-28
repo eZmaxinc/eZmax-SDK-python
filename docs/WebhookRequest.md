@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of WebhookRequest from a JSON string
 webhook_request_instance = WebhookRequest.from_json(json)
 # print the JSON string representation of the object
-print WebhookRequest.to_json()
+print(WebhookRequest.to_json())
 
 # convert the object into a dict
 webhook_request_dict = webhook_request_instance.to_dict()

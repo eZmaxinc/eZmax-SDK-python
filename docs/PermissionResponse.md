@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of PermissionResponse from a JSON string
 permission_response_instance = PermissionResponse.from_json(json)
 # print the JSON string representation of the object
-print PermissionResponse.to_json()
+print(PermissionResponse.to_json())
 
 # convert the object into a dict
 permission_response_dict = permission_response_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_end_prematurely_v1_response import EzsigndocumentEndPrematurelyV1Response
 

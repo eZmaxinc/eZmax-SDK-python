@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SignatureRequestCompound from a JSON string
 signature_request_compound_instance = SignatureRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print SignatureRequestCompound.to_json()
+print(SignatureRequestCompound.to_json())
 
 # convert the object into a dict
 signature_request_compound_dict = signature_request_compound_instance.to_dict()

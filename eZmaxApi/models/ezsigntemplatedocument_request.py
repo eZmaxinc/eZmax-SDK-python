@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictBool, StrictBytes, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplatedocumentRequest(BaseModel):
     """
@@ -42,14 +38,14 @@ class EzsigntemplatedocumentRequest(BaseModel):
     s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64")
     s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl")
     b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(default=None, description="Try to repair the document or flatten it if it cannot be used for electronic signature.", alias="bEzsigntemplatedocumentForcerepair")
-    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**", alias="eEzsigntemplatedocumentForm")
+    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document", alias="eEzsigntemplatedocumentForm")
     s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
 
     @field_validator('e_ezsigntemplatedocument_source')
     def e_ezsigntemplatedocument_source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Base64', 'Url', 'Ezsigndocument'):
+        if value not in set(['Base64', 'Url', 'Ezsigndocument']):
             raise ValueError("must be one of enum values ('Base64', 'Url', 'Ezsigndocument')")
         return value
 
@@ -59,7 +55,7 @@ class EzsigntemplatedocumentRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx'):
+        if value not in set(['Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx']):
             raise ValueError("must be one of enum values ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx')")
         return value
 
@@ -69,15 +65,15 @@ class EzsigntemplatedocumentRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Keep', 'Convert'):
-            raise ValueError("must be one of enum values ('Keep', 'Convert')")
+        if value not in set(['Keep', 'Convert', 'Discard']):
+            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard')")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -90,7 +86,7 @@ class EzsigntemplatedocumentRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -104,16 +100,18 @@ class EzsigntemplatedocumentRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentRequest from a dict"""
         if obj is None:
             return None

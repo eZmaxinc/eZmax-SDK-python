@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.signature_delete_object_v1_response import SignatureDeleteObjectV1Response
 

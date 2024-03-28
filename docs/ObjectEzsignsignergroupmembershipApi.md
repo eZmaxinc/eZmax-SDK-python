@@ -21,8 +21,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroupmembership_create_object_v1_request import EzsignsignergroupmembershipCreateObjectV1Request
 from eZmaxApi.models.ezsignsignergroupmembership_create_object_v1_response import EzsignsignergroupmembershipCreateObjectV1Response
@@ -103,8 +101,6 @@ Delete an existing Ezsignsignergroupmembership
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroupmembership_delete_object_v1_response import EzsignsignergroupmembershipDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -185,8 +181,6 @@ Retrieve an existing Ezsignsignergroupmembership
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignergroupmembership_get_object_v2_response import EzsignsignergroupmembershipGetObjectV2Response
 from eZmaxApi.rest import ApiException

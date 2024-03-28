@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of EzsigntemplatesignaturecustomdateResponse from a JSON string
 ezsigntemplatesignaturecustomdate_response_instance = EzsigntemplatesignaturecustomdateResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatesignaturecustomdateResponse.to_json()
+print(EzsigntemplatesignaturecustomdateResponse.to_json())
 
 # convert the object into a dict
 ezsigntemplatesignaturecustomdate_response_dict = ezsigntemplatesignaturecustomdate_response_instance.to_dict()

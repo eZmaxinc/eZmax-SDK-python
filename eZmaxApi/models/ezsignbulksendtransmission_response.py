@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignbulksendtransmissionResponse(BaseModel):
     """
@@ -40,11 +36,11 @@ class EzsignbulksendtransmissionResponse(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendtransmissionID", "fkiEzsignbulksendID", "sEzsignbulksendtransmissionDescription", "iEzsignbulksendtransmissionErrors", "objAudit"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -57,7 +53,7 @@ class EzsignbulksendtransmissionResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignbulksendtransmissionResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -71,10 +67,12 @@ class EzsignbulksendtransmissionResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
@@ -83,7 +81,7 @@ class EzsignbulksendtransmissionResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignbulksendtransmissionResponse from a dict"""
         if obj is None:
             return None
@@ -96,7 +94,7 @@ class EzsignbulksendtransmissionResponse(BaseModel):
             "fkiEzsignbulksendID": obj.get("fkiEzsignbulksendID"),
             "sEzsignbulksendtransmissionDescription": obj.get("sEzsignbulksendtransmissionDescription"),
             "iEzsignbulksendtransmissionErrors": obj.get("iEzsignbulksendtransmissionErrors"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
         })
         return _obj
 

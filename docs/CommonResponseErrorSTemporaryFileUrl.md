@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommonResponseErrorSTemporaryFileUrl from a JSON string
 common_response_error_s_temporary_file_url_instance = CommonResponseErrorSTemporaryFileUrl.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseErrorSTemporaryFileUrl.to_json()
+print(CommonResponseErrorSTemporaryFileUrl.to_json())
 
 # convert the object into a dict
 common_response_error_s_temporary_file_url_dict = common_response_error_s_temporary_file_url_instance.to_dict()

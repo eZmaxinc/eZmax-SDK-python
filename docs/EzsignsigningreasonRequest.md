@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignsigningreasonRequest from a JSON string
 ezsignsigningreason_request_instance = EzsignsigningreasonRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignsigningreasonRequest.to_json()
+print(EzsignsigningreasonRequest.to_json())
 
 # convert the object into a dict
 ezsignsigningreason_request_dict = ezsignsigningreason_request_instance.to_dict()

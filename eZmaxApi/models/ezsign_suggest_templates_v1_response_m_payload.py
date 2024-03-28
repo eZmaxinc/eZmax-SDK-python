@@ -18,16 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
 from eZmaxApi.models.ezsigntemplate_response_compound import EzsigntemplateResponseCompound
+from eZmaxApi.models.ezsigntemplateglobal_response_compound import EzsigntemplateglobalResponseCompound
 from eZmaxApi.models.ezsigntemplatepackage_response_compound import EzsigntemplatepackageResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
     """
@@ -35,13 +32,14 @@ class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
     """ # noqa: E501
     a_obj_ezsigntemplate: List[EzsigntemplateResponseCompound] = Field(alias="a_objEzsigntemplate")
     a_obj_ezsigntemplatepackage: List[EzsigntemplatepackageResponseCompound] = Field(alias="a_objEzsigntemplatepackage")
-    __properties: ClassVar[List[str]] = ["a_objEzsigntemplate", "a_objEzsigntemplatepackage"]
+    a_obj_ezsigntemplateglobal: List[EzsigntemplateglobalResponseCompound] = Field(alias="a_objEzsigntemplateglobal")
+    __properties: ClassVar[List[str]] = ["a_objEzsigntemplate", "a_objEzsigntemplatepackage", "a_objEzsigntemplateglobal"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +52,7 @@ class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignSuggestTemplatesV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +66,12 @@ class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplate (list)
@@ -88,10 +88,17 @@ class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['a_objEzsigntemplatepackage'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateglobal (list)
+        _items = []
+        if self.a_obj_ezsigntemplateglobal:
+            for _item in self.a_obj_ezsigntemplateglobal:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objEzsigntemplateglobal'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignSuggestTemplatesV1ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -100,8 +107,9 @@ class EzsignSuggestTemplatesV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsigntemplate": [EzsigntemplateResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplate")] if obj.get("a_objEzsigntemplate") is not None else None,
-            "a_objEzsigntemplatepackage": [EzsigntemplatepackageResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsigntemplatepackage")] if obj.get("a_objEzsigntemplatepackage") is not None else None
+            "a_objEzsigntemplate": [EzsigntemplateResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplate"]] if obj.get("a_objEzsigntemplate") is not None else None,
+            "a_objEzsigntemplatepackage": [EzsigntemplatepackageResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatepackage"]] if obj.get("a_objEzsigntemplatepackage") is not None else None,
+            "a_objEzsigntemplateglobal": [EzsigntemplateglobalResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateglobal"]] if obj.get("a_objEzsigntemplateglobal") is not None else None
         })
         return _obj
 

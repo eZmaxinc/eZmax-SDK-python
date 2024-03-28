@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.discussion_patch_object_v1_request import DiscussionPatchObjectV1Request
 

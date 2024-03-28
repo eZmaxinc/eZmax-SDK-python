@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignbulksendtransmission_get_forms_data_v1_response_m_payload import EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload
 

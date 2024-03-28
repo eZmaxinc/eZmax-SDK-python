@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk
 

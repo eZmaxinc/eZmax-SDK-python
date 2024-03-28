@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.variableexpense_response_compound import VariableexpenseResponseCompound
 

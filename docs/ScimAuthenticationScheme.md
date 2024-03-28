@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ScimAuthenticationScheme from a JSON string
 scim_authentication_scheme_instance = ScimAuthenticationScheme.from_json(json)
 # print the JSON string representation of the object
-print ScimAuthenticationScheme.to_json()
+print(ScimAuthenticationScheme.to_json())
 
 # convert the object into a dict
 scim_authentication_scheme_dict = scim_authentication_scheme_instance.to_dict()

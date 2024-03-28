@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of PaymenttermGetListV1Response from a JSON string
 paymentterm_get_list_v1_response_instance = PaymenttermGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermGetListV1Response.to_json()
+print(PaymenttermGetListV1Response.to_json())
 
 # convert the object into a dict
 paymentterm_get_list_v1_response_dict = paymentterm_get_list_v1_response_instance.to_dict()

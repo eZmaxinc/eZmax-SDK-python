@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.websocket_request_server_get_websocket_idv1 import WebsocketRequestServerGetWebsocketIDV1
 

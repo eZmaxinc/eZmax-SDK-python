@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_response import EzsigndocumentResponse
 
@@ -74,7 +73,8 @@ class TestEzsigndocumentResponse(unittest.TestCase):
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}',
-                i_ezsigndocument_ezsignsignatureattachmenttotal = 3
+                i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
+                i_ezsigndocument_ezsigndiscussiontotal = 14
             )
         else:
             return EzsigndocumentResponse(
@@ -88,6 +88,7 @@ class TestEzsigndocumentResponse(unittest.TestCase):
                 i_ezsigndocument_signaturesigned = 3,
                 i_ezsigndocument_signaturetotal = 4,
                 i_ezsigndocument_ezsignsignatureattachmenttotal = 3,
+                i_ezsigndocument_ezsigndiscussiontotal = 14,
         )
         """
 

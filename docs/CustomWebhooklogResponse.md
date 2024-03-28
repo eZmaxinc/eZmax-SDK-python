@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomWebhooklogResponse from a JSON string
 custom_webhooklog_response_instance = CustomWebhooklogResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomWebhooklogResponse.to_json()
+print(CustomWebhooklogResponse.to_json())
 
 # convert the object into a dict
 custom_webhooklog_response_dict = custom_webhooklog_response_instance.to_dict()

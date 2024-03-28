@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CommonFile from a JSON string
 common_file_instance = CommonFile.from_json(json)
 # print the JSON string representation of the object
-print CommonFile.to_json()
+print(CommonFile.to_json())
 
 # convert the object into a dict
 common_file_dict = common_file_instance.to_dict()

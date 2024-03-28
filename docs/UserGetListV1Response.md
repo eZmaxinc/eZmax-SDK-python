@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UserGetListV1Response from a JSON string
 user_get_list_v1_response_instance = UserGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print UserGetListV1Response.to_json()
+print(UserGetListV1Response.to_json())
 
 # convert the object into a dict
 user_get_list_v1_response_dict = user_get_list_v1_response_instance.to_dict()

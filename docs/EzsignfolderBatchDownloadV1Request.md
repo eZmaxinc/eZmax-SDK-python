@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfolderBatchDownloadV1Request from a JSON string
 ezsignfolder_batch_download_v1_request_instance = EzsignfolderBatchDownloadV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderBatchDownloadV1Request.to_json()
+print(EzsignfolderBatchDownloadV1Request.to_json())
 
 # convert the object into a dict
 ezsignfolder_batch_download_v1_request_dict = ezsignfolder_batch_download_v1_request_instance.to_dict()

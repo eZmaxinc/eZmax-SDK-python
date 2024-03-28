@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of DepartmentGetAutocompleteV2ResponseMPayload from a JSON string
 department_get_autocomplete_v2_response_m_payload_instance = DepartmentGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print DepartmentGetAutocompleteV2ResponseMPayload.to_json()
+print(DepartmentGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 department_get_autocomplete_v2_response_m_payload_dict = department_get_autocomplete_v2_response_m_payload_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CustomContactNameResponse from a JSON string
 custom_contact_name_response_instance = CustomContactNameResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomContactNameResponse.to_json()
+print(CustomContactNameResponse.to_json())
 
 # convert the object into a dict
 custom_contact_name_response_dict = custom_contact_name_response_instance.to_dict()

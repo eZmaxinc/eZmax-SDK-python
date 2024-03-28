@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of BillingentityinternalEditObjectV1Response from a JSON string
 billingentityinternal_edit_object_v1_response_instance = BillingentityinternalEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalEditObjectV1Response.to_json()
+print(BillingentityinternalEditObjectV1Response.to_json())
 
 # convert the object into a dict
 billingentityinternal_edit_object_v1_response_dict = billingentityinternal_edit_object_v1_response_instance.to_dict()

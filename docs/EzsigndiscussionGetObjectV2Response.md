@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigndiscussionGetObjectV2Response from a JSON string
 ezsigndiscussion_get_object_v2_response_instance = EzsigndiscussionGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigndiscussionGetObjectV2Response.to_json()
+print(EzsigndiscussionGetObjectV2Response.to_json())
 
 # convert the object into a dict
 ezsigndiscussion_get_object_v2_response_dict = ezsigndiscussion_get_object_v2_response_instance.to_dict()

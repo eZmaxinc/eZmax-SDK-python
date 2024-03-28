@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_communicationattachment_request import CustomCommunicationattachmentRequest
 
@@ -41,7 +40,7 @@ class TestCustomCommunicationattachmentRequest(unittest.TestCase):
                 obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                     s_file_name = 'example.pdf', 
                     s_file_url = '', 
-                    s_file_base64 = '[B@f9d87b', 
+                    s_file_base64 = '[B@63c5efee', 
                     e_file_source = 'Base64', )
             )
         else:

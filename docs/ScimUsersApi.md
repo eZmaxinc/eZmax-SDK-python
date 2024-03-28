@@ -21,8 +21,6 @@ Create a new User
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_user import ScimUser
 from eZmaxApi.rest import ApiException
@@ -99,8 +97,6 @@ Delete an existing User
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.rest import ApiException
 from pprint import pprint
@@ -174,8 +170,6 @@ Edit an existing User
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_user import ScimUser
 from eZmaxApi.rest import ApiException
@@ -254,8 +248,6 @@ Retrieve User list
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_user_list import ScimUserList
 from eZmaxApi.rest import ApiException
@@ -332,8 +324,6 @@ Retrieve an existing User
 * Bearer Authentication (Bearer):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.scim_user import ScimUser
 from eZmaxApi.rest import ApiException

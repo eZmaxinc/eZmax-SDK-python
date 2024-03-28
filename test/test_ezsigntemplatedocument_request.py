@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplatedocument_request import EzsigntemplatedocumentRequest
 
@@ -44,7 +43,7 @@ class TestEzsigntemplatedocumentRequest(unittest.TestCase):
                 s_ezsigntemplatedocument_name = 'Standard Contract',
                 e_ezsigntemplatedocument_source = 'Base64',
                 e_ezsigntemplatedocument_format = 'Pdf',
-                s_ezsigntemplatedocument_base64 = '[B@3e2943ab',
+                s_ezsigntemplatedocument_base64 = '[B@5bda80bf',
                 s_ezsigntemplatedocument_url = 'http://www.example.com/template.pdf',
                 b_ezsigntemplatedocument_forcerepair = True,
                 e_ezsigntemplatedocument_form = 'Keep',

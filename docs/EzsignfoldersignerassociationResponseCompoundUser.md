@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationResponseCompoundUser from a JSON string
 ezsignfoldersignerassociation_response_compound_user_instance = EzsignfoldersignerassociationResponseCompoundUser.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationResponseCompoundUser.to_json()
+print(EzsignfoldersignerassociationResponseCompoundUser.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_response_compound_user_dict = ezsignfoldersignerassociation_response_compound_user_instance.to_dict()

@@ -30,7 +30,7 @@ json = "{}"
 # create an instance of EzmaxinvoicingResponse from a JSON string
 ezmaxinvoicing_response_instance = EzmaxinvoicingResponse.from_json(json)
 # print the JSON string representation of the object
-print EzmaxinvoicingResponse.to_json()
+print(EzmaxinvoicingResponse.to_json())
 
 # convert the object into a dict
 ezmaxinvoicing_response_dict = ezmaxinvoicing_response_instance.to_dict()

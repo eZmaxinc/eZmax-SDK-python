@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignbulksendsignermapping_delete_object_v1_response import EzsignbulksendsignermappingDeleteObjectV1Response
 

@@ -20,8 +20,6 @@ Retrieve the details about the current activesession
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.activesession_get_current_v1_response import ActivesessionGetCurrentV1Response
 from eZmaxApi.rest import ApiException
@@ -102,8 +100,6 @@ Retrieve Activesession list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.activesession_get_list_v1_response import ActivesessionGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage

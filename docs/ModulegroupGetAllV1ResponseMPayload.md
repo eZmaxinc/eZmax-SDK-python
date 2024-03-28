@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ModulegroupGetAllV1ResponseMPayload from a JSON string
 modulegroup_get_all_v1_response_m_payload_instance = ModulegroupGetAllV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ModulegroupGetAllV1ResponseMPayload.to_json()
+print(ModulegroupGetAllV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 modulegroup_get_all_v1_response_m_payload_dict = modulegroup_get_all_v1_response_m_payload_instance.to_dict()

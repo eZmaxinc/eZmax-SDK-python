@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplatepackage_response_compound import EzsigntemplatepackageResponseCompound
 
@@ -46,6 +45,7 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
                 b_ezsigntemplatepackage_needvalidation = True,
                 b_ezsigntemplatepackage_isactive = True,
                 s_ezsignfoldertype_name_x = 'Default',
+                b_ezsigntemplatepackage_editallowed = True,
                 a_obj_ezsigntemplatepackagesigner = [
                     eZmaxApi.models.ezsigntemplatepackagesigner_response_compound.ezsigntemplatepackagesigner-ResponseCompound()
                     ],
@@ -64,6 +64,7 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
                 b_ezsigntemplatepackage_needvalidation = True,
                 b_ezsigntemplatepackage_isactive = True,
                 s_ezsignfoldertype_name_x = 'Default',
+                b_ezsigntemplatepackage_editallowed = True,
                 a_obj_ezsigntemplatepackagesigner = [
                     eZmaxApi.models.ezsigntemplatepackagesigner_response_compound.ezsigntemplatepackagesigner-ResponseCompound()
                     ],

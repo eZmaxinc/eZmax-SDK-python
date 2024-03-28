@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 from eZmaxApi.models.field_e_ezmaxinvoicinguser_variationezsign import FieldEEzmaxinvoicinguserVariationezsign
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzmaxinvoicinguserResponseCompound(BaseModel):
     """
@@ -46,11 +42,11 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicinguserID", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiUserID", "iEzmaxinvoicinguserEzsigndocument", "bEzmaxinvoicinguserEzsignaccount", "bEzmaxinvoicinguserBillableezsign", "eEzmaxinvoicinguserVariationezsign", "objContactName"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -63,7 +59,7 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzmaxinvoicinguserResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -77,10 +73,12 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_contact_name
@@ -89,7 +87,7 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicinguserResponseCompound from a dict"""
         if obj is None:
             return None
@@ -107,7 +105,7 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
             "bEzmaxinvoicinguserEzsignaccount": obj.get("bEzmaxinvoicinguserEzsignaccount"),
             "bEzmaxinvoicinguserBillableezsign": obj.get("bEzmaxinvoicinguserBillableezsign"),
             "eEzmaxinvoicinguserVariationezsign": obj.get("eEzmaxinvoicinguserVariationezsign"),
-            "objContactName": CustomContactNameResponse.from_dict(obj.get("objContactName")) if obj.get("objContactName") is not None else None
+            "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None
         })
         return _obj
 

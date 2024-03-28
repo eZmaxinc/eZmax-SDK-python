@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.usergroup_get_usergroupmemberships_v1_response import UsergroupGetUsergroupmembershipsV1Response
 

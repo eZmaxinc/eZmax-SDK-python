@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_versionhistory_type import FieldEVersionhistoryType
 from eZmaxApi.models.field_e_versionhistory_usertype import FieldEVersionhistoryUsertype
 from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class VersionhistoryResponse(BaseModel):
     """
@@ -48,11 +44,11 @@ class VersionhistoryResponse(BaseModel):
     b_versionhistory_draft: StrictBool = Field(description="Whether the Versionhistory is published or still a draft", alias="bVersionhistoryDraft")
     __properties: ClassVar[List[str]] = ["pkiVersionhistoryID", "fkiModuleID", "fkiModulesectionID", "sModuleNameX", "sModulesectionNameX", "eVersionhistoryUsertype", "objVersionhistoryDetail", "dtVersionhistoryDate", "dtVersionhistoryDateend", "eVersionhistoryType", "bVersionhistoryDraft"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -65,7 +61,7 @@ class VersionhistoryResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of VersionhistoryResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -79,10 +75,12 @@ class VersionhistoryResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_versionhistory_detail
@@ -91,7 +89,7 @@ class VersionhistoryResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of VersionhistoryResponse from a dict"""
         if obj is None:
             return None
@@ -106,7 +104,7 @@ class VersionhistoryResponse(BaseModel):
             "sModuleNameX": obj.get("sModuleNameX"),
             "sModulesectionNameX": obj.get("sModulesectionNameX"),
             "eVersionhistoryUsertype": obj.get("eVersionhistoryUsertype"),
-            "objVersionhistoryDetail": MultilingualVersionhistoryDetail.from_dict(obj.get("objVersionhistoryDetail")) if obj.get("objVersionhistoryDetail") is not None else None,
+            "objVersionhistoryDetail": MultilingualVersionhistoryDetail.from_dict(obj["objVersionhistoryDetail"]) if obj.get("objVersionhistoryDetail") is not None else None,
             "dtVersionhistoryDate": obj.get("dtVersionhistoryDate"),
             "dtVersionhistoryDateend": obj.get("dtVersionhistoryDateend"),
             "eVersionhistoryType": obj.get("eVersionhistoryType"),

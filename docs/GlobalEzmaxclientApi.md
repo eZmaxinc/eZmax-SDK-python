@@ -18,8 +18,6 @@ Retrieve the latest version of the Ezmaxclient that is available on the store.
 
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs
 from eZmaxApi.models.global_ezmaxclient_version_v1_response import GlobalEzmaxclientVersionV1Response

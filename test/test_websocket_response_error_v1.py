@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.websocket_response_error_v1 import WebsocketResponseErrorV1
 

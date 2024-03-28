@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.email_response_compound import EmailResponseCompound
@@ -30,10 +28,8 @@ from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin
 from eZmaxApi.models.field_e_user_type import FieldEUserType
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UserResponse(BaseModel):
     """
@@ -126,11 +122,11 @@ class UserResponse(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -143,7 +139,7 @@ class UserResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UserResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -157,10 +153,12 @@ class UserResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_email
@@ -178,7 +176,7 @@ class UserResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UserResponse from a dict"""
         if obj is None:
             return None
@@ -200,11 +198,11 @@ class UserResponse(BaseModel):
             "sTimezoneName": obj.get("sTimezoneName"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "sLanguageNameX": obj.get("sLanguageNameX"),
-            "objEmail": EmailResponseCompound.from_dict(obj.get("objEmail")) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailResponseCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
-            "objPhoneHome": PhoneResponseCompound.from_dict(obj.get("objPhoneHome")) if obj.get("objPhoneHome") is not None else None,
-            "objPhoneSMS": PhoneResponseCompound.from_dict(obj.get("objPhoneSMS")) if obj.get("objPhoneSMS") is not None else None,
+            "objPhoneHome": PhoneResponseCompound.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
+            "objPhoneSMS": PhoneResponseCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
             "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
             "fkiModuleIDForm": obj.get("fkiModuleIDForm"),
             "sModuleNameX": obj.get("sModuleNameX"),
@@ -224,7 +222,7 @@ class UserResponse(BaseModel):
             "bUserValidatebydirector": obj.get("bUserValidatebydirector"),
             "bUserAttachmentautoverified": obj.get("bUserAttachmentautoverified"),
             "bUserChangepassword": obj.get("bUserChangepassword"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
         })
         return _obj
 

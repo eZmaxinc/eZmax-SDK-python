@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CommunicationCreateObjectV1ResponseMPayload from a JSON string
 communication_create_object_v1_response_m_payload_instance = CommunicationCreateObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print CommunicationCreateObjectV1ResponseMPayload.to_json()
+print(CommunicationCreateObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 communication_create_object_v1_response_m_payload_dict = communication_create_object_v1_response_m_payload_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of FontGetAutocompleteV2ResponseMPayload from a JSON string
 font_get_autocomplete_v2_response_m_payload_instance = FontGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print FontGetAutocompleteV2ResponseMPayload.to_json()
+print(FontGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 font_get_autocomplete_v2_response_m_payload_dict = font_get_autocomplete_v2_response_m_payload_instance.to_dict()

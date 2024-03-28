@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of EzmaxinvoicinguserResponse from a JSON string
 ezmaxinvoicinguser_response_instance = EzmaxinvoicinguserResponse.from_json(json)
 # print the JSON string representation of the object
-print EzmaxinvoicinguserResponse.to_json()
+print(EzmaxinvoicinguserResponse.to_json())
 
 # convert the object into a dict
 ezmaxinvoicinguser_response_dict = ezmaxinvoicinguser_response_instance.to_dict()

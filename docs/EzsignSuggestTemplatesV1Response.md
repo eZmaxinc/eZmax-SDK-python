@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignSuggestTemplatesV1Response from a JSON string
 ezsign_suggest_templates_v1_response_instance = EzsignSuggestTemplatesV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignSuggestTemplatesV1Response.to_json()
+print(EzsignSuggestTemplatesV1Response.to_json())
 
 # convert the object into a dict
 ezsign_suggest_templates_v1_response_dict = ezsign_suggest_templates_v1_response_instance.to_dict()

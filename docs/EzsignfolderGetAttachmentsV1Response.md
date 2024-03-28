@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfolderGetAttachmentsV1Response from a JSON string
 ezsignfolder_get_attachments_v1_response_instance = EzsignfolderGetAttachmentsV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetAttachmentsV1Response.to_json()
+print(EzsignfolderGetAttachmentsV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_attachments_v1_response_dict = ezsignfolder_get_attachments_v1_response_instance.to_dict()

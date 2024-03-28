@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
 

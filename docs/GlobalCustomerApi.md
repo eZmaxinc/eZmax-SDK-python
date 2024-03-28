@@ -18,8 +18,6 @@ Retrieve the customer's specific server endpoint where to send requests. This wi
 
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.global_customer_get_endpoint_v1_response import GlobalCustomerGetEndpointV1Response
 from eZmaxApi.rest import ApiException

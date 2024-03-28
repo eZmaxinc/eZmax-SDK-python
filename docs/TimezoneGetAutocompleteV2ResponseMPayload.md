@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of TimezoneGetAutocompleteV2ResponseMPayload from a JSON string
 timezone_get_autocomplete_v2_response_m_payload_instance = TimezoneGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print TimezoneGetAutocompleteV2ResponseMPayload.to_json()
+print(TimezoneGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 timezone_get_autocomplete_v2_response_m_payload_dict = timezone_get_autocomplete_v2_response_m_payload_instance.to_dict()

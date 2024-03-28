@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.activesession_get_list_v1_response import ActivesessionGetListV1Response
 

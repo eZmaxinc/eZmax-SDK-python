@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of InvoiceGetAttachmentsV1ResponseMPayload from a JSON string
 invoice_get_attachments_v1_response_m_payload_instance = InvoiceGetAttachmentsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print InvoiceGetAttachmentsV1ResponseMPayload.to_json()
+print(InvoiceGetAttachmentsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 invoice_get_attachments_v1_response_m_payload_dict = invoice_get_attachments_v1_response_m_payload_instance.to_dict()

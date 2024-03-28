@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of SubnetResponseCompound from a JSON string
 subnet_response_compound_instance = SubnetResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print SubnetResponseCompound.to_json()
+print(SubnetResponseCompound.to_json())
 
 # convert the object into a dict
 subnet_response_compound_dict = subnet_response_compound_instance.to_dict()

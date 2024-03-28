@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.branding_edit_object_v1_response import BrandingEditObjectV1Response
 

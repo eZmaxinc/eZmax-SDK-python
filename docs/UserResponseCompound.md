@@ -55,7 +55,7 @@ json = "{}"
 # create an instance of UserResponseCompound from a JSON string
 user_response_compound_instance = UserResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print UserResponseCompound.to_json()
+print(UserResponseCompound.to_json())
 
 # convert the object into a dict
 user_response_compound_dict = user_response_compound_instance.to_dict()

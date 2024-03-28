@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.activesession_get_current_v1_response_m_payload import ActivesessionGetCurrentV1ResponseMPayload
 
@@ -48,6 +47,8 @@ class TestActivesessionGetCurrentV1ResponseMPayload(unittest.TestCase):
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 fki_signature_id = 12,
+                b_systemconfiguration_ezsignpaidbyoffice = True,
+                e_systemconfiguration_ezsignofficeplan = 'Standard',
                 e_user_ezsignaccess = 'PaidByOffice',
                 e_user_ezsignprepaid = 'Basic',
                 dt_user_ezsignprepaidexpiration = '2020-12-31',

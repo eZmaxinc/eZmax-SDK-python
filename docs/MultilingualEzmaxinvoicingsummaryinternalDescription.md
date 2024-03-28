@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualEzmaxinvoicingsummaryinternalDescription from a JSON string
 multilingual_ezmaxinvoicingsummaryinternal_description_instance = MultilingualEzmaxinvoicingsummaryinternalDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualEzmaxinvoicingsummaryinternalDescription.to_json()
+print(MultilingualEzmaxinvoicingsummaryinternalDescription.to_json())
 
 # convert the object into a dict
 multilingual_ezmaxinvoicingsummaryinternal_description_dict = multilingual_ezmaxinvoicingsummaryinternal_description_instance.to_dict()

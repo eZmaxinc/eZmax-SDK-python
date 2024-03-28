@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UsergroupGetObjectV2ResponseMPayload from a JSON string
 usergroup_get_object_v2_response_m_payload_instance = UsergroupGetObjectV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print UsergroupGetObjectV2ResponseMPayload.to_json()
+print(UsergroupGetObjectV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 usergroup_get_object_v2_response_m_payload_dict = usergroup_get_object_v2_response_m_payload_instance.to_dict()

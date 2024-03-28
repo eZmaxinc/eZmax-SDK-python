@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigndocumentGetActionableElementsV1Response from a JSON string
 ezsigndocument_get_actionable_elements_v1_response_instance = EzsigndocumentGetActionableElementsV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentGetActionableElementsV1Response.to_json()
+print(EzsigndocumentGetActionableElementsV1Response.to_json())
 
 # convert the object into a dict
 ezsigndocument_get_actionable_elements_v1_response_dict = ezsigndocument_get_actionable_elements_v1_response_instance.to_dict()

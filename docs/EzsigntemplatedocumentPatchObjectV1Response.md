@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentPatchObjectV1Response from a JSON string
 ezsigntemplatedocument_patch_object_v1_response_instance = EzsigntemplatedocumentPatchObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentPatchObjectV1Response.to_json()
+print(EzsigntemplatedocumentPatchObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocument_patch_object_v1_response_dict = ezsigntemplatedocument_patch_object_v1_response_instance.to_dict()

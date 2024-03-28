@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PhonetypeGetAutocompleteV2ResponseMPayload from a JSON string
 phonetype_get_autocomplete_v2_response_m_payload_instance = PhonetypeGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print PhonetypeGetAutocompleteV2ResponseMPayload.to_json()
+print(PhonetypeGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 phonetype_get_autocomplete_v2_response_m_payload_dict = phonetype_get_autocomplete_v2_response_m_payload_instance.to_dict()

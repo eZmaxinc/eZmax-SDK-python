@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **obj_ezsignfoldertype** | [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
-**e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | [optional] 
+**e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **s_ezsignfoldertype_name_x** | **str** |  | [optional] 
 **fki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | [optional] 
 **s_billingentityinternal_description_x** | **str** | The description of the Billingentityinternal in the language of the requester | [optional] 
@@ -40,7 +40,7 @@ json = "{}"
 # create an instance of EzsignfolderResponse from a JSON string
 ezsignfolder_response_instance = EzsignfolderResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderResponse.to_json()
+print(EzsignfolderResponse.to_json())
 
 # convert the object into a dict
 ezsignfolder_response_dict = ezsignfolder_response_instance.to_dict()

@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of PhoneRequestCompound from a JSON string
 phone_request_compound_instance = PhoneRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print PhoneRequestCompound.to_json()
+print(PhoneRequestCompound.to_json())
 
 # convert the object into a dict
 phone_request_compound_dict = phone_request_compound_instance.to_dict()

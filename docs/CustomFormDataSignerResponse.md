@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CustomFormDataSignerResponse from a JSON string
 custom_form_data_signer_response_instance = CustomFormDataSignerResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomFormDataSignerResponse.to_json()
+print(CustomFormDataSignerResponse.to_json())
 
 # convert the object into a dict
 custom_form_data_signer_response_dict = custom_form_data_signer_response_instance.to_dict()

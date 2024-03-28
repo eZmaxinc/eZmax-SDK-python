@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.webhook_test_v1_response import WebhookTestV1Response
 

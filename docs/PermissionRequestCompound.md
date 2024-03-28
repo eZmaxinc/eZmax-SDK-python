@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of PermissionRequestCompound from a JSON string
 permission_request_compound_instance = PermissionRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print PermissionRequestCompound.to_json()
+print(PermissionRequestCompound.to_json())
 
 # convert the object into a dict
 permission_request_compound_dict = permission_request_compound_instance.to_dict()

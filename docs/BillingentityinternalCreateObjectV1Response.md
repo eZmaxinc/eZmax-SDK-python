@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BillingentityinternalCreateObjectV1Response from a JSON string
 billingentityinternal_create_object_v1_response_instance = BillingentityinternalCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalCreateObjectV1Response.to_json()
+print(BillingentityinternalCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 billingentityinternal_create_object_v1_response_dict = billingentityinternal_create_object_v1_response_instance.to_dict()

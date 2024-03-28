@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignpageConsultV1Response from a JSON string
 ezsignpage_consult_v1_response_instance = EzsignpageConsultV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignpageConsultV1Response.to_json()
+print(EzsignpageConsultV1Response.to_json())
 
 # convert the object into a dict
 ezsignpage_consult_v1_response_dict = ezsignpage_consult_v1_response_instance.to_dict()

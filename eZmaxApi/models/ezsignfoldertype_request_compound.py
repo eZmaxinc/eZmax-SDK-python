@@ -18,26 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfoldertype_completion import FieldEEzsignfoldertypeCompletion
 from eZmaxApi.models.field_e_ezsignfoldertype_disposal import FieldEEzsignfoldertypeDisposal
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
 from eZmaxApi.models.field_e_ezsignfoldertype_sendreminderfrequency import FieldEEzsignfoldertypeSendreminderfrequency
 from eZmaxApi.models.multilingual_ezsignfoldertype_name import MultilingualEzsignfoldertypeName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfoldertypeRequestCompound(BaseModel):
     """
     A Ezsignfoldertype Object and children
     """ # noqa: E501
-    pki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
+    pki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
     obj_ezsignfoldertype_name: MultilingualEzsignfoldertypeName = Field(alias="objEzsignfoldertypeName")
     fki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="fkiBrandingID")
     fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
@@ -50,14 +46,13 @@ class EzsignfoldertypeRequestCompound(BaseModel):
     e_ezsignfoldertype_sendreminderfrequency: Optional[FieldEEzsignfoldertypeSendreminderfrequency] = Field(default=None, alias="eEzsignfoldertypeSendreminderfrequency")
     i_ezsignfoldertype_archivaldays: Annotated[int, Field(le=180, strict=True, ge=0)] = Field(description="The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype", alias="iEzsignfoldertypeArchivaldays")
     e_ezsignfoldertype_disposal: FieldEEzsignfoldertypeDisposal = Field(alias="eEzsignfoldertypeDisposal")
-    e_ezsignfoldertype_completion: Optional[FieldEEzsignfoldertypeCompletion] = Field(default=None, alias="eEzsignfoldertypeCompletion")
+    e_ezsignfoldertype_completion: FieldEEzsignfoldertypeCompletion = Field(alias="eEzsignfoldertypeCompletion")
     i_ezsignfoldertype_disposaldays: Optional[Annotated[int, Field(le=9999, strict=True, ge=0)]] = Field(default=None, description="The number of days after the archival before the disposal of the Ezsignfolder", alias="iEzsignfoldertypeDisposaldays")
     i_ezsignfoldertype_deadlinedays: Annotated[int, Field(le=60, strict=True, ge=1)] = Field(description="The number of days to get all Ezsignsignatures", alias="iEzsignfoldertypeDeadlinedays")
     b_ezsignfoldertype_delegate: Optional[StrictBool] = Field(default=None, description="Wheter if delegation of signature is allowed to another user or not", alias="bEzsignfoldertypeDelegate")
-    b_ezsignfoldertype_reassign: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed to another signatory or not", alias="bEzsignfoldertypeReassign")
+    b_ezsignfoldertype_discussion: Optional[StrictBool] = Field(default=None, description="Wheter if creating a new Discussion is allowed or not", alias="bEzsignfoldertypeDiscussion")
     b_ezsignfoldertype_reassignezsignsigner: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a signatory to another signatory or not", alias="bEzsignfoldertypeReassignezsignsigner")
     b_ezsignfoldertype_reassignuser: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not", alias="bEzsignfoldertypeReassignuser")
-    b_ezsignfoldertype_sendattatchmentsigner: Optional[StrictBool] = Field(default=None, description="THIS FIELD WILL BE DELETED. Whether we send the Ezsigndocument and the proof as attachment in the email", alias="bEzsignfoldertypeSendattatchmentsigner")
     b_ezsignfoldertype_sendsignedtoezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send an email to Ezsignsigner  when document is completed", alias="bEzsignfoldertypeSendsignedtoezsignsigner")
     b_ezsignfoldertype_sendsignedtouser: Optional[StrictBool] = Field(default=None, description="Whether we send an email to User who signed when document is completed", alias="bEzsignfoldertypeSendsignedtouser")
     b_ezsignfoldertype_sendattachmentezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send the Ezsigndocument in the email to Ezsignsigner", alias="bEzsignfoldertypeSendattachmentezsignsigner")
@@ -78,18 +73,16 @@ class EzsignfoldertypeRequestCompound(BaseModel):
     b_ezsignfoldertype_sendsummarytofullgroup: Optional[StrictBool] = Field(default=None, description="Whether we send the summary to the Usergroup that has acces to all Ezsignfolders", alias="bEzsignfoldertypeSendsummarytofullgroup")
     b_ezsignfoldertype_sendsummarytolimitedgroup: Optional[StrictBool] = Field(default=None, description="Whether we send the summary to the Usergroup that has acces to only their own Ezsignfolders", alias="bEzsignfoldertypeSendsummarytolimitedgroup")
     b_ezsignfoldertype_sendsummarytocolleague: StrictBool = Field(description="Whether we send the summary to the colleagues", alias="bEzsignfoldertypeSendsummarytocolleague")
-    b_ezsignfoldertype_includeproofsigner: Optional[StrictBool] = Field(default=None, description="THIS FIELD WILL BE DELETED. Whether we include the proof with the signed Ezsigndocument for Ezsignsigners", alias="bEzsignfoldertypeIncludeproofsigner")
-    b_ezsignfoldertype_includeproofuser: StrictBool = Field(description="Whether we include the proof with the signed Ezsigndocument for users", alias="bEzsignfoldertypeIncludeproofuser")
     b_ezsignfoldertype_isactive: StrictBool = Field(description="Whether the Ezsignfoldertype is active or not", alias="bEzsignfoldertypeIsactive")
     a_fki_user_id_signed: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="a_fkiUserIDSigned")
     a_fki_user_id_summary: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="a_fkiUserIDSummary")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "objEzsignfoldertypeName", "fkiBrandingID", "fkiBillingentityinternalID", "fkiUsergroupID", "fkiUsergroupIDRestricted", "fkiEzsigntsarequirementID", "sEmailAddressSigned", "sEmailAddressSummary", "eEzsignfoldertypePrivacylevel", "eEzsignfoldertypeSendreminderfrequency", "iEzsignfoldertypeArchivaldays", "eEzsignfoldertypeDisposal", "eEzsignfoldertypeCompletion", "iEzsignfoldertypeDisposaldays", "iEzsignfoldertypeDeadlinedays", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeReassign", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeSendattatchmentsigner", "bEzsignfoldertypeSendsignedtoezsignsigner", "bEzsignfoldertypeSendsignedtouser", "bEzsignfoldertypeSendattachmentezsignsigner", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeSendattachmentuser", "bEzsignfoldertypeSendproofuser", "bEzsignfoldertypeSendproofemail", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeSendproofreceivealldocument", "bEzsignfoldertypeSendsignedtodocumentowner", "bEzsignfoldertypeSendsignedtofolderowner", "bEzsignfoldertypeSendsignedtofullgroup", "bEzsignfoldertypeSendsignedtolimitedgroup", "bEzsignfoldertypeSendsignedtocolleague", "bEzsignfoldertypeSendsummarytodocumentowner", "bEzsignfoldertypeSendsummarytofolderowner", "bEzsignfoldertypeSendsummarytofullgroup", "bEzsignfoldertypeSendsummarytolimitedgroup", "bEzsignfoldertypeSendsummarytocolleague", "bEzsignfoldertypeIncludeproofsigner", "bEzsignfoldertypeIncludeproofuser", "bEzsignfoldertypeIsactive", "a_fkiUserIDSigned", "a_fkiUserIDSummary"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "objEzsignfoldertypeName", "fkiBrandingID", "fkiBillingentityinternalID", "fkiUsergroupID", "fkiUsergroupIDRestricted", "fkiEzsigntsarequirementID", "sEmailAddressSigned", "sEmailAddressSummary", "eEzsignfoldertypePrivacylevel", "eEzsignfoldertypeSendreminderfrequency", "iEzsignfoldertypeArchivaldays", "eEzsignfoldertypeDisposal", "eEzsignfoldertypeCompletion", "iEzsignfoldertypeDisposaldays", "iEzsignfoldertypeDeadlinedays", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeSendsignedtoezsignsigner", "bEzsignfoldertypeSendsignedtouser", "bEzsignfoldertypeSendattachmentezsignsigner", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeSendattachmentuser", "bEzsignfoldertypeSendproofuser", "bEzsignfoldertypeSendproofemail", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeSendproofreceivealldocument", "bEzsignfoldertypeSendsignedtodocumentowner", "bEzsignfoldertypeSendsignedtofolderowner", "bEzsignfoldertypeSendsignedtofullgroup", "bEzsignfoldertypeSendsignedtolimitedgroup", "bEzsignfoldertypeSendsignedtocolleague", "bEzsignfoldertypeSendsummarytodocumentowner", "bEzsignfoldertypeSendsummarytofolderowner", "bEzsignfoldertypeSendsummarytofullgroup", "bEzsignfoldertypeSendsummarytolimitedgroup", "bEzsignfoldertypeSendsummarytocolleague", "bEzsignfoldertypeIsactive", "a_fkiUserIDSigned", "a_fkiUserIDSummary"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -102,7 +95,7 @@ class EzsignfoldertypeRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfoldertypeRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -116,10 +109,12 @@ class EzsignfoldertypeRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignfoldertype_name
@@ -128,7 +123,7 @@ class EzsignfoldertypeRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfoldertypeRequestCompound from a dict"""
         if obj is None:
             return None
@@ -138,7 +133,7 @@ class EzsignfoldertypeRequestCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzsignfoldertypeID": obj.get("pkiEzsignfoldertypeID"),
-            "objEzsignfoldertypeName": MultilingualEzsignfoldertypeName.from_dict(obj.get("objEzsignfoldertypeName")) if obj.get("objEzsignfoldertypeName") is not None else None,
+            "objEzsignfoldertypeName": MultilingualEzsignfoldertypeName.from_dict(obj["objEzsignfoldertypeName"]) if obj.get("objEzsignfoldertypeName") is not None else None,
             "fkiBrandingID": obj.get("fkiBrandingID"),
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "fkiUsergroupID": obj.get("fkiUsergroupID"),
@@ -154,10 +149,9 @@ class EzsignfoldertypeRequestCompound(BaseModel):
             "iEzsignfoldertypeDisposaldays": obj.get("iEzsignfoldertypeDisposaldays"),
             "iEzsignfoldertypeDeadlinedays": obj.get("iEzsignfoldertypeDeadlinedays"),
             "bEzsignfoldertypeDelegate": obj.get("bEzsignfoldertypeDelegate"),
-            "bEzsignfoldertypeReassign": obj.get("bEzsignfoldertypeReassign"),
+            "bEzsignfoldertypeDiscussion": obj.get("bEzsignfoldertypeDiscussion"),
             "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
             "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser"),
-            "bEzsignfoldertypeSendattatchmentsigner": obj.get("bEzsignfoldertypeSendattatchmentsigner"),
             "bEzsignfoldertypeSendsignedtoezsignsigner": obj.get("bEzsignfoldertypeSendsignedtoezsignsigner"),
             "bEzsignfoldertypeSendsignedtouser": obj.get("bEzsignfoldertypeSendsignedtouser"),
             "bEzsignfoldertypeSendattachmentezsignsigner": obj.get("bEzsignfoldertypeSendattachmentezsignsigner"),
@@ -178,8 +172,6 @@ class EzsignfoldertypeRequestCompound(BaseModel):
             "bEzsignfoldertypeSendsummarytofullgroup": obj.get("bEzsignfoldertypeSendsummarytofullgroup"),
             "bEzsignfoldertypeSendsummarytolimitedgroup": obj.get("bEzsignfoldertypeSendsummarytolimitedgroup"),
             "bEzsignfoldertypeSendsummarytocolleague": obj.get("bEzsignfoldertypeSendsummarytocolleague"),
-            "bEzsignfoldertypeIncludeproofsigner": obj.get("bEzsignfoldertypeIncludeproofsigner"),
-            "bEzsignfoldertypeIncludeproofuser": obj.get("bEzsignfoldertypeIncludeproofuser"),
             "bEzsignfoldertypeIsactive": obj.get("bEzsignfoldertypeIsactive"),
             "a_fkiUserIDSigned": obj.get("a_fkiUserIDSigned"),
             "a_fkiUserIDSummary": obj.get("a_fkiUserIDSummary")

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfoldertypeGetListV1ResponseMPayload from a JSON string
 ezsignfoldertype_get_list_v1_response_m_payload_instance = EzsignfoldertypeGetListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldertypeGetListV1ResponseMPayload.to_json()
+print(EzsignfoldertypeGetListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignfoldertype_get_list_v1_response_m_payload_dict = ezsignfoldertype_get_list_v1_response_m_payload_instance.to_dict()

@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of ScimUserList from a JSON string
 scim_user_list_instance = ScimUserList.from_json(json)
 # print the JSON string representation of the object
-print ScimUserList.to_json()
+print(ScimUserList.to_json())
 
 # convert the object into a dict
 scim_user_list_dict = scim_user_list_instance.to_dict()

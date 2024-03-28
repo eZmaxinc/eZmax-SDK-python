@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of PhoneRequest from a JSON string
 phone_request_instance = PhoneRequest.from_json(json)
 # print the JSON string representation of the object
-print PhoneRequest.to_json()
+print(PhoneRequest.to_json())
 
 # convert the object into a dict
 phone_request_dict = phone_request_instance.to_dict()

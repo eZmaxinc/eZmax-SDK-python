@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.clonehistory_list_element import ClonehistoryListElement
 

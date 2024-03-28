@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_communication_list_element_response import CustomCommunicationListElementResponse
 

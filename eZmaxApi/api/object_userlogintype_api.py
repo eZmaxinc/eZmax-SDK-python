@@ -12,28 +12,18 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictStr, field_validator
 
+from pydantic import Field, StrictStr, field_validator
 from typing import Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.userlogintype_get_autocomplete_v2_response import UserlogintypeGetAutocompleteV2Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -55,6 +45,7 @@ class ObjectUserlogintypeApi:
     def userlogintype_get_autocomplete_v2(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Userlogintypes to return")],
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -77,6 +68,8 @@ class ObjectUserlogintypeApi:
 
         :param s_selector: The type of Userlogintypes to return (required)
         :type s_selector: str
+        :param fki_ezsignfoldertype_id:
+        :type fki_ezsignfoldertype_id: int
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
         :param s_query: Allow to filter the returned results
@@ -107,6 +100,7 @@ class ObjectUserlogintypeApi:
 
         _param = self._userlogintype_get_autocomplete_v2_serialize(
             s_selector=s_selector,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
@@ -134,6 +128,7 @@ class ObjectUserlogintypeApi:
     def userlogintype_get_autocomplete_v2_with_http_info(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Userlogintypes to return")],
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -156,6 +151,8 @@ class ObjectUserlogintypeApi:
 
         :param s_selector: The type of Userlogintypes to return (required)
         :type s_selector: str
+        :param fki_ezsignfoldertype_id:
+        :type fki_ezsignfoldertype_id: int
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
         :param s_query: Allow to filter the returned results
@@ -186,6 +183,7 @@ class ObjectUserlogintypeApi:
 
         _param = self._userlogintype_get_autocomplete_v2_serialize(
             s_selector=s_selector,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
@@ -213,6 +211,7 @@ class ObjectUserlogintypeApi:
     def userlogintype_get_autocomplete_v2_without_preload_content(
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Userlogintypes to return")],
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
@@ -235,6 +234,8 @@ class ObjectUserlogintypeApi:
 
         :param s_selector: The type of Userlogintypes to return (required)
         :type s_selector: str
+        :param fki_ezsignfoldertype_id:
+        :type fki_ezsignfoldertype_id: int
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
         :param s_query: Allow to filter the returned results
@@ -265,6 +266,7 @@ class ObjectUserlogintypeApi:
 
         _param = self._userlogintype_get_autocomplete_v2_serialize(
             s_selector=s_selector,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
@@ -287,6 +289,7 @@ class ObjectUserlogintypeApi:
     def _userlogintype_get_autocomplete_v2_serialize(
         self,
         s_selector,
+        fki_ezsignfoldertype_id,
         e_filter_active,
         s_query,
         accept_language,
@@ -294,7 +297,7 @@ class ObjectUserlogintypeApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -312,6 +315,10 @@ class ObjectUserlogintypeApi:
         if s_selector is not None:
             _path_params['sSelector'] = s_selector
         # process the query parameters
+        if fki_ezsignfoldertype_id is not None:
+            
+            _query_params.append(('fkiEzsignfoldertypeID', fki_ezsignfoldertype_id))
+            
         if e_filter_active is not None:
             
             _query_params.append(('eFilterActive', e_filter_active))

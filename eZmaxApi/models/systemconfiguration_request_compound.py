@@ -18,19 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_systemconfiguration_ezsign import FieldESystemconfigurationEzsign
+from eZmaxApi.models.field_e_systemconfiguration_ezsignofficeplan import FieldESystemconfigurationEzsignofficeplan
 from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1
 from eZmaxApi.models.field_e_systemconfiguration_language2 import FieldESystemconfigurationLanguage2
 from eZmaxApi.models.field_e_systemconfiguration_newexternaluseraction import FieldESystemconfigurationNewexternaluseraction
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class SystemconfigurationRequestCompound(BaseModel):
     """
@@ -41,11 +38,13 @@ class SystemconfigurationRequestCompound(BaseModel):
     e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
     e_systemconfiguration_language2: FieldESystemconfigurationLanguage2 = Field(alias="eSystemconfigurationLanguage2")
     e_systemconfiguration_ezsign: Optional[FieldESystemconfigurationEzsign] = Field(default=None, alias="eSystemconfigurationEzsign")
+    e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
+    b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
     b_systemconfiguration_ezsignpersonnal: StrictBool = Field(description="Whether if we allow the creation of personal files in eZsign", alias="bSystemconfigurationEzsignpersonnal")
     b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
     dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
     dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
-    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
+    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
@@ -67,11 +66,11 @@ class SystemconfigurationRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -84,7 +83,7 @@ class SystemconfigurationRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of SystemconfigurationRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -98,16 +97,18 @@ class SystemconfigurationRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of SystemconfigurationRequestCompound from a dict"""
         if obj is None:
             return None
@@ -121,6 +122,8 @@ class SystemconfigurationRequestCompound(BaseModel):
             "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
             "eSystemconfigurationLanguage2": obj.get("eSystemconfigurationLanguage2"),
             "eSystemconfigurationEzsign": obj.get("eSystemconfigurationEzsign"),
+            "eSystemconfigurationEzsignofficeplan": obj.get("eSystemconfigurationEzsignofficeplan"),
+            "bSystemconfigurationEzsignpaidbyoffice": obj.get("bSystemconfigurationEzsignpaidbyoffice"),
             "bSystemconfigurationEzsignpersonnal": obj.get("bSystemconfigurationEzsignpersonnal"),
             "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
             "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),

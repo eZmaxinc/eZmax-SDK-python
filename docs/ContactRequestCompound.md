@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of ContactRequestCompound from a JSON string
 contact_request_compound_instance = ContactRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print ContactRequestCompound.to_json()
+print(ContactRequestCompound.to_json())
 
 # convert the object into a dict
 contact_request_compound_dict = contact_request_compound_instance.to_dict()

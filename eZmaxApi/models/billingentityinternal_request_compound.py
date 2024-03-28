@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.billingentityinternalproduct_request_compound import BillingentityinternalproductRequestCompound
 from eZmaxApi.models.multilingual_billingentityinternal_description import MultilingualBillingentityinternalDescription
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class BillingentityinternalRequestCompound(BaseModel):
     """
@@ -39,11 +35,11 @@ class BillingentityinternalRequestCompound(BaseModel):
     a_obj_billingentityinternalproduct: List[BillingentityinternalproductRequestCompound] = Field(alias="a_objBillingentityinternalproduct")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "objBillingentityinternalDescription", "a_objBillingentityinternalproduct"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -56,7 +52,7 @@ class BillingentityinternalRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of BillingentityinternalRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,10 +66,12 @@ class BillingentityinternalRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_billingentityinternal_description
@@ -89,7 +87,7 @@ class BillingentityinternalRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BillingentityinternalRequestCompound from a dict"""
         if obj is None:
             return None
@@ -99,8 +97,8 @@ class BillingentityinternalRequestCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiBillingentityinternalID": obj.get("pkiBillingentityinternalID"),
-            "objBillingentityinternalDescription": MultilingualBillingentityinternalDescription.from_dict(obj.get("objBillingentityinternalDescription")) if obj.get("objBillingentityinternalDescription") is not None else None,
-            "a_objBillingentityinternalproduct": [BillingentityinternalproductRequestCompound.from_dict(_item) for _item in obj.get("a_objBillingentityinternalproduct")] if obj.get("a_objBillingentityinternalproduct") is not None else None
+            "objBillingentityinternalDescription": MultilingualBillingentityinternalDescription.from_dict(obj["objBillingentityinternalDescription"]) if obj.get("objBillingentityinternalDescription") is not None else None,
+            "a_objBillingentityinternalproduct": [BillingentityinternalproductRequestCompound.from_dict(_item) for _item in obj["a_objBillingentityinternalproduct"]] if obj.get("a_objBillingentityinternalproduct") is not None else None
         })
         return _obj
 

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.multilingual_paymentterm_description import MultilingualPaymenttermDescription
 

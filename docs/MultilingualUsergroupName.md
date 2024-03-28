@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualUsergroupName from a JSON string
 multilingual_usergroup_name_instance = MultilingualUsergroupName.from_json(json)
 # print the JSON string representation of the object
-print MultilingualUsergroupName.to_json()
+print(MultilingualUsergroupName.to_json())
 
 # convert the object into a dict
 multilingual_usergroup_name_dict = multilingual_usergroup_name_instance.to_dict()

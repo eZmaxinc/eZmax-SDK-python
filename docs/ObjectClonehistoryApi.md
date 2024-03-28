@@ -19,8 +19,6 @@ Retrieve Clonehistory list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.clonehistory_get_list_v1_response import ClonehistoryGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage

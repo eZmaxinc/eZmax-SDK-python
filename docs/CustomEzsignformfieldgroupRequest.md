@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CustomEzsignformfieldgroupRequest from a JSON string
 custom_ezsignformfieldgroup_request_instance = CustomEzsignformfieldgroupRequest.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignformfieldgroupRequest.to_json()
+print(CustomEzsignformfieldgroupRequest.to_json())
 
 # convert the object into a dict
 custom_ezsignformfieldgroup_request_dict = custom_ezsignformfieldgroup_request_instance.to_dict()

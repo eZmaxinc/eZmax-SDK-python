@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigntemplateformfieldgroupEditObjectV1Response from a JSON string
 ezsigntemplateformfieldgroup_edit_object_v1_response_instance = EzsigntemplateformfieldgroupEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateformfieldgroupEditObjectV1Response.to_json()
+print(EzsigntemplateformfieldgroupEditObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsigntemplateformfieldgroup_edit_object_v1_response_dict = ezsigntemplateformfieldgroup_edit_object_v1_response_instance.to_dict()

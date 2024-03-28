@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ScimUser from a JSON string
 scim_user_instance = ScimUser.from_json(json)
 # print the JSON string representation of the object
-print ScimUser.to_json()
+print(ScimUser.to_json())
 
 # convert the object into a dict
 scim_user_dict = scim_user_instance.to_dict()

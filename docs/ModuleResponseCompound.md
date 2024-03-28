@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of ModuleResponseCompound from a JSON string
 module_response_compound_instance = ModuleResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print ModuleResponseCompound.to_json()
+print(ModuleResponseCompound.to_json())
 
 # convert the object into a dict
 module_response_compound_dict = module_response_compound_instance.to_dict()

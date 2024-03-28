@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BrandingEditObjectV1Request from a JSON string
 branding_edit_object_v1_request_instance = BrandingEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print BrandingEditObjectV1Request.to_json()
+print(BrandingEditObjectV1Request.to_json())
 
 # convert the object into a dict
 branding_edit_object_v1_request_dict = branding_edit_object_v1_request_instance.to_dict()

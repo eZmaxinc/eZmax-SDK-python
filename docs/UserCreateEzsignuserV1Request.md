@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of UserCreateEzsignuserV1Request from a JSON string
 user_create_ezsignuser_v1_request_instance = UserCreateEzsignuserV1Request.from_json(json)
 # print the JSON string representation of the object
-print UserCreateEzsignuserV1Request.to_json()
+print(UserCreateEzsignuserV1Request.to_json())
 
 # convert the object into a dict
 user_create_ezsignuser_v1_request_dict = user_create_ezsignuser_v1_request_instance.to_dict()

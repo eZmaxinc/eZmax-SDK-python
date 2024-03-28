@@ -31,7 +31,7 @@ json = "{}"
 # create an instance of CommunicationRequestCompound from a JSON string
 communication_request_compound_instance = CommunicationRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print CommunicationRequestCompound.to_json()
+print(CommunicationRequestCompound.to_json())
 
 # convert the object into a dict
 communication_request_compound_dict = communication_request_compound_instance.to_dict()

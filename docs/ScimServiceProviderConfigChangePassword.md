@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ScimServiceProviderConfigChangePassword from a JSON string
 scim_service_provider_config_change_password_instance = ScimServiceProviderConfigChangePassword.from_json(json)
 # print the JSON string representation of the object
-print ScimServiceProviderConfigChangePassword.to_json()
+print(ScimServiceProviderConfigChangePassword.to_json())
 
 # convert the object into a dict
 scim_service_provider_config_change_password_dict = scim_service_provider_config_change_password_instance.to_dict()

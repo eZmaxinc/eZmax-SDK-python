@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail
 

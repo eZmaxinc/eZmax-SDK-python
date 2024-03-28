@@ -12,24 +12,14 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictInt, StrictStr, field_validator
 
+from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.paymentterm_create_object_v1_request import PaymenttermCreateObjectV1Request
 from eZmaxApi.models.paymentterm_create_object_v1_response import PaymenttermCreateObjectV1Response
@@ -39,7 +29,7 @@ from eZmaxApi.models.paymentterm_get_autocomplete_v2_response import Paymentterm
 from eZmaxApi.models.paymentterm_get_list_v1_response import PaymenttermGetListV1Response
 from eZmaxApi.models.paymentterm_get_object_v2_response import PaymenttermGetObjectV2Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -264,7 +254,7 @@ class ObjectPaymenttermApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -554,7 +544,7 @@ class ObjectPaymenttermApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -866,7 +856,7 @@ class ObjectPaymenttermApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1186,7 +1176,7 @@ class ObjectPaymenttermApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -1464,7 +1454,7 @@ class ObjectPaymenttermApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

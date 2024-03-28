@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignbulksendsignermappingGetObjectV2Response from a JSON string
 ezsignbulksendsignermapping_get_object_v2_response_instance = EzsignbulksendsignermappingGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendsignermappingGetObjectV2Response.to_json()
+print(EzsignbulksendsignermappingGetObjectV2Response.to_json())
 
 # convert the object into a dict
 ezsignbulksendsignermapping_get_object_v2_response_dict = ezsignbulksendsignermapping_get_object_v2_response_instance.to_dict()

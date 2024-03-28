@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.webhook_response_compound import WebhookResponseCompound
 
@@ -68,7 +67,10 @@ class TestWebhookResponseCompound(unittest.TestCase):
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
-                s_webhook_event = 'Ezsign-DocumentCompleted'
+                s_webhook_event = 'Ezsign-DocumentCompleted',
+                a_obj_webhookheader = [
+                    eZmaxApi.models.webhookheader_response_compound.webhookheader-ResponseCompound()
+                    ]
             )
         else:
             return WebhookResponseCompound(

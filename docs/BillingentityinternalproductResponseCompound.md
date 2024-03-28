@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of BillingentityinternalproductResponseCompound from a JSON string
 billingentityinternalproduct_response_compound_instance = BillingentityinternalproductResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print BillingentityinternalproductResponseCompound.to_json()
+print(BillingentityinternalproductResponseCompound.to_json())
 
 # convert the object into a dict
 billingentityinternalproduct_response_compound_dict = billingentityinternalproduct_response_compound_instance.to_dict()

@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of CommonReportcellstyle from a JSON string
 common_reportcellstyle_instance = CommonReportcellstyle.from_json(json)
 # print the JSON string representation of the object
-print CommonReportcellstyle.to_json()
+print(CommonReportcellstyle.to_json())
 
 # convert the object into a dict
 common_reportcellstyle_dict = common_reportcellstyle_instance.to_dict()

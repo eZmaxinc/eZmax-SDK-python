@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.variableexpense_get_autocomplete_v2_response import VariableexpenseGetAutocompleteV2Response
 

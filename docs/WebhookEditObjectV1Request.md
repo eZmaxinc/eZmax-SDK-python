@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of WebhookEditObjectV1Request from a JSON string
 webhook_edit_object_v1_request_instance = WebhookEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print WebhookEditObjectV1Request.to_json()
+print(WebhookEditObjectV1Request.to_json())
 
 # convert the object into a dict
 webhook_edit_object_v1_request_dict = webhook_edit_object_v1_request_instance.to_dict()

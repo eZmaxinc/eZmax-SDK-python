@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_user_ezsignsendreminderfrequency import FieldEUserEzsignsendreminderfrequency
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ActivesessionResponseCompoundUser(BaseModel):
     """
@@ -35,21 +31,21 @@ class ActivesessionResponseCompoundUser(BaseModel):
     """ # noqa: E501
     pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
     fki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneID")
-    s_avatar_url: StrictStr = Field(description="The url of the picture used as avatar", alias="sAvatarUrl")
+    s_avatar_url: Optional[StrictStr] = Field(default=None, description="The url of the picture used as avatar", alias="sAvatarUrl")
     s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
     e_user_ezsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency = Field(alias="eUserEzsignsendreminderfrequency")
     i_user_interfacecolor: Annotated[int, Field(strict=True, ge=0)] = Field(description="The int32 representation of the interface color. For example, RGB color #39435B would be 3752795", alias="iUserInterfacecolor")
     b_user_interfacedark: StrictBool = Field(description="Whether to use a dark mode interface", alias="bUserInterfacedark")
     i_user_listresult: Annotated[int, Field(le=500, strict=True, ge=5)] = Field(description="The number of rows to return by default in lists", alias="iUserListresult")
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiTimezoneID", "sAvatarUrl", "sUserFirstname", "sUserLastname", "sEmailAddress", "eUserEzsignsendreminderfrequency", "iUserInterfacecolor", "bUserInterfacedark", "iUserListresult"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -62,7 +58,7 @@ class ActivesessionResponseCompoundUser(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ActivesessionResponseCompoundUser from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,16 +72,18 @@ class ActivesessionResponseCompoundUser(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ActivesessionResponseCompoundUser from a dict"""
         if obj is None:
             return None

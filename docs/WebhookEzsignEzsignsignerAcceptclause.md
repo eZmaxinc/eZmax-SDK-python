@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of WebhookEzsignEzsignsignerAcceptclause from a JSON string
 webhook_ezsign_ezsignsigner_acceptclause_instance = WebhookEzsignEzsignsignerAcceptclause.from_json(json)
 # print the JSON string representation of the object
-print WebhookEzsignEzsignsignerAcceptclause.to_json()
+print(WebhookEzsignEzsignsignerAcceptclause.to_json())
 
 # convert the object into a dict
 webhook_ezsign_ezsignsigner_acceptclause_dict = webhook_ezsign_ezsignsigner_acceptclause_instance.to_dict()

@@ -41,6 +41,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_apply_ezsigntemplateglobal_v1(self) -> None:
+        """Test case for ezsigndocument_apply_ezsigntemplateglobal_v1
+
+        Apply an Ezsigntemplateglobal to the Ezsigndocument.
+        """
+        pass
+
     def test_ezsigndocument_create_ezsignelements_positioned_by_word_v1(self) -> None:
         """Test case for ezsigndocument_create_ezsignelements_positioned_by_word_v1
 

@@ -23,7 +23,7 @@ json = "{}"
 # create an instance of CustomEzmaxinvoicingEzsigndocumentResponse from a JSON string
 custom_ezmaxinvoicing_ezsigndocument_response_instance = CustomEzmaxinvoicingEzsigndocumentResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzmaxinvoicingEzsigndocumentResponse.to_json()
+print(CustomEzmaxinvoicingEzsigndocumentResponse.to_json())
 
 # convert the object into a dict
 custom_ezmaxinvoicing_ezsigndocument_response_dict = custom_ezmaxinvoicing_ezsigndocument_response_instance.to_dict()

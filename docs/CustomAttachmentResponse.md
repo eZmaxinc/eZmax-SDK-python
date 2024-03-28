@@ -82,7 +82,7 @@ json = "{}"
 # create an instance of CustomAttachmentResponse from a JSON string
 custom_attachment_response_instance = CustomAttachmentResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomAttachmentResponse.to_json()
+print(CustomAttachmentResponse.to_json())
 
 # convert the object into a dict
 custom_attachment_response_dict = custom_attachment_response_instance.to_dict()

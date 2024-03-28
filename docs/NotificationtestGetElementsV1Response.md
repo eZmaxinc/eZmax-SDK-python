@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of NotificationtestGetElementsV1Response from a JSON string
 notificationtest_get_elements_v1_response_instance = NotificationtestGetElementsV1Response.from_json(json)
 # print the JSON string representation of the object
-print NotificationtestGetElementsV1Response.to_json()
+print(NotificationtestGetElementsV1Response.to_json())
 
 # convert the object into a dict
 notificationtest_get_elements_v1_response_dict = notificationtest_get_elements_v1_response_instance.to_dict()

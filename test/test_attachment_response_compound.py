@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.attachment_response_compound import AttachmentResponseCompound
 

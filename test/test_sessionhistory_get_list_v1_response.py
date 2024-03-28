@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.sessionhistory_get_list_v1_response import SessionhistoryGetListV1Response
 

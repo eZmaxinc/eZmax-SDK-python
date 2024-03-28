@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonAudit from a JSON string
 common_audit_instance = CommonAudit.from_json(json)
 # print the JSON string representation of the object
-print CommonAudit.to_json()
+print(CommonAudit.to_json())
 
 # convert the object into a dict
 common_audit_dict = common_audit_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of TimezoneAutocompleteElementResponse from a JSON string
 timezone_autocomplete_element_response_instance = TimezoneAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print TimezoneAutocompleteElementResponse.to_json()
+print(TimezoneAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 timezone_autocomplete_element_response_dict = timezone_autocomplete_element_response_instance.to_dict()

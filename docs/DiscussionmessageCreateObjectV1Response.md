@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of DiscussionmessageCreateObjectV1Response from a JSON string
 discussionmessage_create_object_v1_response_instance = DiscussionmessageCreateObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print DiscussionmessageCreateObjectV1Response.to_json()
+print(DiscussionmessageCreateObjectV1Response.to_json())
 
 # convert the object into a dict
 discussionmessage_create_object_v1_response_dict = discussionmessage_create_object_v1_response_instance.to_dict()

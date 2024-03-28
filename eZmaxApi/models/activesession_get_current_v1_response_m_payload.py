@@ -18,22 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 from eZmaxApi.models.activesession_response_compound_user import ActivesessionResponseCompoundUser
 from eZmaxApi.models.field_e_activesession_origin import FieldEActivesessionOrigin
 from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype
 from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
+from eZmaxApi.models.field_e_systemconfiguration_ezsignofficeplan import FieldESystemconfigurationEzsignofficeplan
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_ezsignprepaid import FieldEUserEzsignprepaid
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     """
@@ -50,6 +47,8 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
     fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
     fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID")
+    b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
+    e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
     e_user_ezsignprepaid: Optional[FieldEUserEzsignprepaid] = Field(default=None, alias="eUserEzsignprepaid")
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
@@ -58,7 +57,7 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     obj_user_cloned: Optional[ActivesessionResponseCompoundUser] = Field(default=None, alias="objUserCloned")
     obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(default=None, alias="objApikey")
     a_e_module_internalname: List[StrictStr] = Field(description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.", alias="a_eModuleInternalname")
-    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "eUserEzsignaccess", "eUserEzsignprepaid", "dtUserEzsignprepaidexpiration", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "dtUserEzsignprepaidexpiration", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
 
     @field_validator('dt_user_ezsignprepaidexpiration')
     def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
@@ -70,11 +69,11 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -87,7 +86,7 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ActivesessionGetCurrentV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -101,10 +100,12 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_user_real
@@ -119,7 +120,7 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ActivesessionGetCurrentV1ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -139,13 +140,15 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
             "pksCustomerCode": obj.get("pksCustomerCode"),
             "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
             "fkiSignatureID": obj.get("fkiSignatureID"),
+            "bSystemconfigurationEzsignpaidbyoffice": obj.get("bSystemconfigurationEzsignpaidbyoffice"),
+            "eSystemconfigurationEzsignofficeplan": obj.get("eSystemconfigurationEzsignofficeplan"),
             "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
             "eUserEzsignprepaid": obj.get("eUserEzsignprepaid"),
             "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
             "a_pkiPermissionID": obj.get("a_pkiPermissionID"),
-            "objUserReal": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserReal")) if obj.get("objUserReal") is not None else None,
-            "objUserCloned": ActivesessionResponseCompoundUser.from_dict(obj.get("objUserCloned")) if obj.get("objUserCloned") is not None else None,
-            "objApikey": ActivesessionResponseCompoundApikey.from_dict(obj.get("objApikey")) if obj.get("objApikey") is not None else None,
+            "objUserReal": ActivesessionResponseCompoundUser.from_dict(obj["objUserReal"]) if obj.get("objUserReal") is not None else None,
+            "objUserCloned": ActivesessionResponseCompoundUser.from_dict(obj["objUserCloned"]) if obj.get("objUserCloned") is not None else None,
+            "objApikey": ActivesessionResponseCompoundApikey.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None,
             "a_eModuleInternalname": obj.get("a_eModuleInternalname")
         })
         return _obj

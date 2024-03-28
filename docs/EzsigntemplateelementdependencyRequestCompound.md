@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of EzsigntemplateelementdependencyRequestCompound from a JSON string
 ezsigntemplateelementdependency_request_compound_instance = EzsigntemplateelementdependencyRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateelementdependencyRequestCompound.to_json()
+print(EzsigntemplateelementdependencyRequestCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplateelementdependency_request_compound_dict = ezsigntemplateelementdependency_request_compound_instance.to_dict()

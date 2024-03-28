@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of AttachmentGetAttachmentlogsV1Response from a JSON string
 attachment_get_attachmentlogs_v1_response_instance = AttachmentGetAttachmentlogsV1Response.from_json(json)
 # print the JSON string representation of the object
-print AttachmentGetAttachmentlogsV1Response.to_json()
+print(AttachmentGetAttachmentlogsV1Response.to_json())
 
 # convert the object into a dict
 attachment_get_attachmentlogs_v1_response_dict = attachment_get_attachmentlogs_v1_response_instance.to_dict()

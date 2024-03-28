@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of NotificationsectionGetNotificationtestsV1ResponseMPayload from a JSON string
 notificationsection_get_notificationtests_v1_response_m_payload_instance = NotificationsectionGetNotificationtestsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print NotificationsectionGetNotificationtestsV1ResponseMPayload.to_json()
+print(NotificationsectionGetNotificationtestsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 notificationsection_get_notificationtests_v1_response_m_payload_dict = notificationsection_get_notificationtests_v1_response_m_payload_instance.to_dict()

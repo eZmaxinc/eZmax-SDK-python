@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.notificationtest_get_elements_v1_response_m_payload import NotificationtestGetElementsV1ResponseMPayload
 

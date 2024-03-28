@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of SignatureEditObjectV1Response from a JSON string
 signature_edit_object_v1_response_instance = SignatureEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print SignatureEditObjectV1Response.to_json()
+print(SignatureEditObjectV1Response.to_json())
 
 # convert the object into a dict
 signature_edit_object_v1_response_dict = signature_edit_object_v1_response_instance.to_dict()

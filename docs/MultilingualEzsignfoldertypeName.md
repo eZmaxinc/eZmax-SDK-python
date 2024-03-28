@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualEzsignfoldertypeName from a JSON string
 multilingual_ezsignfoldertype_name_instance = MultilingualEzsignfoldertypeName.from_json(json)
 # print the JSON string representation of the object
-print MultilingualEzsignfoldertypeName.to_json()
+print(MultilingualEzsignfoldertypeName.to_json())
 
 # convert the object into a dict
 multilingual_ezsignfoldertype_name_dict = multilingual_ezsignfoldertype_name_instance.to_dict()

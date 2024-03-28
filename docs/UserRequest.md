@@ -45,7 +45,7 @@ json = "{}"
 # create an instance of UserRequest from a JSON string
 user_request_instance = UserRequest.from_json(json)
 # print the JSON string representation of the object
-print UserRequest.to_json()
+print(UserRequest.to_json())
 
 # convert the object into a dict
 user_request_dict = user_request_instance.to_dict()

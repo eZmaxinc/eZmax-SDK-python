@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InvoiceGetAttachmentsV1Response from a JSON string
 invoice_get_attachments_v1_response_instance = InvoiceGetAttachmentsV1Response.from_json(json)
 # print the JSON string representation of the object
-print InvoiceGetAttachmentsV1Response.to_json()
+print(InvoiceGetAttachmentsV1Response.to_json())
 
 # convert the object into a dict
 invoice_get_attachments_v1_response_dict = invoice_get_attachments_v1_response_instance.to_dict()

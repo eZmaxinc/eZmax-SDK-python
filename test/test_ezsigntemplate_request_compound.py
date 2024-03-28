@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_request_compound import EzsigntemplateRequestCompound
 
@@ -41,6 +40,7 @@ class TestEzsigntemplateRequestCompound(unittest.TestCase):
                 fki_ezsignfoldertype_id = 5,
                 fki_language_id = 2,
                 s_ezsigntemplate_description = 'Standard Contract',
+                s_ezsigntemplate_filenamepattern = 'Contract',
                 b_ezsigntemplate_adminonly = True
             )
         else:

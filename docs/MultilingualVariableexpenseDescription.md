@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualVariableexpenseDescription from a JSON string
 multilingual_variableexpense_description_instance = MultilingualVariableexpenseDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualVariableexpenseDescription.to_json()
+print(MultilingualVariableexpenseDescription.to_json())
 
 # convert the object into a dict
 multilingual_variableexpense_description_dict = multilingual_variableexpense_description_instance.to_dict()

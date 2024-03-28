@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PermissionEditObjectV1Request from a JSON string
 permission_edit_object_v1_request_instance = PermissionEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print PermissionEditObjectV1Request.to_json()
+print(PermissionEditObjectV1Request.to_json())
 
 # convert the object into a dict
 permission_edit_object_v1_request_dict = permission_edit_object_v1_request_instance.to_dict()

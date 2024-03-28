@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InscriptionGetAttachmentsV1Response from a JSON string
 inscription_get_attachments_v1_response_instance = InscriptionGetAttachmentsV1Response.from_json(json)
 # print the JSON string representation of the object
-print InscriptionGetAttachmentsV1Response.to_json()
+print(InscriptionGetAttachmentsV1Response.to_json())
 
 # convert the object into a dict
 inscription_get_attachments_v1_response_dict = inscription_get_attachments_v1_response_instance.to_dict()

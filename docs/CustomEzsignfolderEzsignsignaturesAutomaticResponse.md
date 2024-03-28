@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CustomEzsignfolderEzsignsignaturesAutomaticResponse from a JSON string
 custom_ezsignfolder_ezsignsignatures_automatic_response_instance = CustomEzsignfolderEzsignsignaturesAutomaticResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignfolderEzsignsignaturesAutomaticResponse.to_json()
+print(CustomEzsignfolderEzsignsignaturesAutomaticResponse.to_json())
 
 # convert the object into a dict
 custom_ezsignfolder_ezsignsignatures_automatic_response_dict = custom_ezsignfolder_ezsignsignatures_automatic_response_instance.to_dict()

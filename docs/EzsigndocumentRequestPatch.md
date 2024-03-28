@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigndocumentRequestPatch from a JSON string
 ezsigndocument_request_patch_instance = EzsigndocumentRequestPatch.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentRequestPatch.to_json()
+print(EzsigndocumentRequestPatch.to_json())
 
 # convert the object into a dict
 ezsigndocument_request_patch_dict = ezsigndocument_request_patch_instance.to_dict()

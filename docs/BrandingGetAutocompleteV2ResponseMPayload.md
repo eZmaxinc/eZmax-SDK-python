@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of BrandingGetAutocompleteV2ResponseMPayload from a JSON string
 branding_get_autocomplete_v2_response_m_payload_instance = BrandingGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print BrandingGetAutocompleteV2ResponseMPayload.to_json()
+print(BrandingGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 branding_get_autocomplete_v2_response_m_payload_dict = branding_get_autocomplete_v2_response_m_payload_instance.to_dict()

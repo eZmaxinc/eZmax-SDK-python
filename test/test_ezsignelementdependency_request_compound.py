@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
 

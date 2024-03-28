@@ -26,7 +26,7 @@ json = "{}"
 # create an instance of CustomCommunicationListElementResponse from a JSON string
 custom_communication_list_element_response_instance = CustomCommunicationListElementResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomCommunicationListElementResponse.to_json()
+print(CustomCommunicationListElementResponse.to_json())
 
 # convert the object into a dict
 custom_communication_list_element_response_dict = custom_communication_list_element_response_instance.to_dict()

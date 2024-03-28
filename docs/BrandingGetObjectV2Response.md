@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BrandingGetObjectV2Response from a JSON string
 branding_get_object_v2_response_instance = BrandingGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print BrandingGetObjectV2Response.to_json()
+print(BrandingGetObjectV2Response.to_json())
 
 # convert the object into a dict
 branding_get_object_v2_response_dict = branding_get_object_v2_response_instance.to_dict()

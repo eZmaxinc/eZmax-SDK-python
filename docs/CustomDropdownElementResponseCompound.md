@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CustomDropdownElementResponseCompound from a JSON string
 custom_dropdown_element_response_compound_instance = CustomDropdownElementResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print CustomDropdownElementResponseCompound.to_json()
+print(CustomDropdownElementResponseCompound.to_json())
 
 # convert the object into a dict
 custom_dropdown_element_response_compound_dict = custom_dropdown_element_response_compound_instance.to_dict()

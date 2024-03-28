@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SubnetEditObjectV1Request from a JSON string
 subnet_edit_object_v1_request_instance = SubnetEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print SubnetEditObjectV1Request.to_json()
+print(SubnetEditObjectV1Request.to_json())
 
 # convert the object into a dict
 subnet_edit_object_v1_request_dict = subnet_edit_object_v1_request_instance.to_dict()

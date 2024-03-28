@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of EzsigntsarequirementAutocompleteElementResponse from a JSON string
 ezsigntsarequirement_autocomplete_element_response_instance = EzsigntsarequirementAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsigntsarequirementAutocompleteElementResponse.to_json()
+print(EzsigntsarequirementAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 ezsigntsarequirement_autocomplete_element_response_dict = ezsigntsarequirement_autocomplete_element_response_instance.to_dict()

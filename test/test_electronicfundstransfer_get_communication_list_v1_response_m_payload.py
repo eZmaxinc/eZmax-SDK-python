@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.electronicfundstransfer_get_communication_list_v1_response_m_payload import ElectronicfundstransferGetCommunicationListV1ResponseMPayload
 

@@ -19,8 +19,6 @@ Retrieve Communication list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.inscriptiontemp_get_communication_list_v1_response import InscriptiontempGetCommunicationListV1Response
 from eZmaxApi.rest import ApiException

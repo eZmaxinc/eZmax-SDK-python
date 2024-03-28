@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ApikeyRegenerateV1Request from a JSON string
 apikey_regenerate_v1_request_instance = ApikeyRegenerateV1Request.from_json(json)
 # print the JSON string representation of the object
-print ApikeyRegenerateV1Request.to_json()
+print(ApikeyRegenerateV1Request.to_json())
 
 # convert the object into a dict
 apikey_regenerate_v1_request_dict = apikey_regenerate_v1_request_instance.to_dict()

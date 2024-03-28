@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsigndocumentCreateEzsignelementsPositionedByWordV1Request from a JSON string
 ezsigndocument_create_ezsignelements_positioned_by_word_v1_request_instance = EzsigndocumentCreateEzsignelementsPositionedByWordV1Request.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentCreateEzsignelementsPositionedByWordV1Request.to_json()
+print(EzsigndocumentCreateEzsignelementsPositionedByWordV1Request.to_json())
 
 # convert the object into a dict
 ezsigndocument_create_ezsignelements_positioned_by_word_v1_request_dict = ezsigndocument_create_ezsignelements_positioned_by_word_v1_request_instance.to_dict()

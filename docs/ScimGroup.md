@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of ScimGroup from a JSON string
 scim_group_instance = ScimGroup.from_json(json)
 # print the JSON string representation of the object
-print ScimGroup.to_json()
+print(ScimGroup.to_json())
 
 # convert the object into a dict
 scim_group_dict = scim_group_instance.to_dict()

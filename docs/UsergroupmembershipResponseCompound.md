@@ -8,12 +8,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_usergroupmembership_id** | **int** | The unique ID of the Usergroupmembership | 
 **fki_usergroup_id** | **int** | The unique ID of the Usergroup | 
-**fki_user_id** | **int** | The unique ID of the User | 
-**s_user_firstname** | **str** | The first name of the user | 
-**s_user_lastname** | **str** | The last name of the user | 
-**s_user_loginname** | **str** | The login name of the User. | 
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
+**fki_usergroupexternal_id** | **int** | The unique ID of the Usergroupexternal | [optional] 
+**s_user_firstname** | **str** | The first name of the user | [optional] 
+**s_user_lastname** | **str** | The last name of the user | [optional] 
+**s_user_loginname** | **str** | The login name of the User. | [optional] 
 **s_email_address** | **str** | The email address. | [optional] 
 **s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 
+**s_usergroupexternal_name** | **str** | The name of the Usergroupexternal | [optional] 
 
 ## Example
 
@@ -25,7 +27,7 @@ json = "{}"
 # create an instance of UsergroupmembershipResponseCompound from a JSON string
 usergroupmembership_response_compound_instance = UsergroupmembershipResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print UsergroupmembershipResponseCompound.to_json()
+print(UsergroupmembershipResponseCompound.to_json())
 
 # convert the object into a dict
 usergroupmembership_response_compound_dict = usergroupmembership_response_compound_instance.to_dict()

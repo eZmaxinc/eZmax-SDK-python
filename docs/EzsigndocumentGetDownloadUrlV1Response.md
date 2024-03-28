@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigndocumentGetDownloadUrlV1Response from a JSON string
 ezsigndocument_get_download_url_v1_response_instance = EzsigndocumentGetDownloadUrlV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentGetDownloadUrlV1Response.to_json()
+print(EzsigndocumentGetDownloadUrlV1Response.to_json())
 
 # convert the object into a dict
 ezsigndocument_get_download_url_v1_response_dict = ezsigndocument_get_download_url_v1_response_instance.to_dict()

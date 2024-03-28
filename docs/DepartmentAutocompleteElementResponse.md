@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of DepartmentAutocompleteElementResponse from a JSON string
 department_autocomplete_element_response_instance = DepartmentAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print DepartmentAutocompleteElementResponse.to_json()
+print(DepartmentAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 department_autocomplete_element_response_dict = department_autocomplete_element_response_instance.to_dict()

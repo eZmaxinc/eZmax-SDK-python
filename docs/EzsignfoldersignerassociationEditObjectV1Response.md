@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationEditObjectV1Response from a JSON string
 ezsignfoldersignerassociation_edit_object_v1_response_instance = EzsignfoldersignerassociationEditObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationEditObjectV1Response.to_json()
+print(EzsignfoldersignerassociationEditObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_edit_object_v1_response_dict = ezsignfoldersignerassociation_edit_object_v1_response_instance.to_dict()

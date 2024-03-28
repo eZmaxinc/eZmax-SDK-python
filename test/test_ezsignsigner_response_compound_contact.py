@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignsigner_response_compound_contact import EzsignsignerResponseCompoundContact
 

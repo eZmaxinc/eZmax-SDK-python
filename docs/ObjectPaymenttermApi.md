@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.paymentterm_create_object_v1_request import PaymenttermCreateObjectV1Request
 from eZmaxApi.models.paymentterm_create_object_v1_response import PaymenttermCreateObjectV1Response
@@ -106,8 +104,6 @@ Edit an existing Paymentterm
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.paymentterm_edit_object_v1_request import PaymenttermEditObjectV1Request
 from eZmaxApi.models.paymentterm_edit_object_v1_response import PaymenttermEditObjectV1Response
@@ -192,8 +188,6 @@ Get the list of Paymentterm to be used in a dropdown or autocomplete control.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.paymentterm_get_autocomplete_v2_response import PaymenttermGetAutocompleteV2Response
@@ -278,8 +272,6 @@ Retrieve Paymentterm list
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.paymentterm_get_list_v1_response import PaymenttermGetListV1Response
@@ -369,8 +361,6 @@ Retrieve an existing Paymentterm
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.paymentterm_get_object_v2_response import PaymenttermGetObjectV2Response
 from eZmaxApi.rest import ApiException

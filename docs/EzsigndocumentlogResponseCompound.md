@@ -25,7 +25,7 @@ json = "{}"
 # create an instance of EzsigndocumentlogResponseCompound from a JSON string
 ezsigndocumentlog_response_compound_instance = EzsigndocumentlogResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentlogResponseCompound.to_json()
+print(EzsigndocumentlogResponseCompound.to_json())
 
 # convert the object into a dict
 ezsigndocumentlog_response_compound_dict = ezsigndocumentlog_response_compound_instance.to_dict()

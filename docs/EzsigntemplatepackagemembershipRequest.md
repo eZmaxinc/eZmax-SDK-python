@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsigntemplatepackagemembershipRequest from a JSON string
 ezsigntemplatepackagemembership_request_instance = EzsigntemplatepackagemembershipRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatepackagemembershipRequest.to_json()
+print(EzsigntemplatepackagemembershipRequest.to_json())
 
 # convert the object into a dict
 ezsigntemplatepackagemembership_request_dict = ezsigntemplatepackagemembership_request_instance.to_dict()

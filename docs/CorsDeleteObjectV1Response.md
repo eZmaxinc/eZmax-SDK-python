@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CorsDeleteObjectV1Response from a JSON string
 cors_delete_object_v1_response_instance = CorsDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print CorsDeleteObjectV1Response.to_json()
+print(CorsDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 cors_delete_object_v1_response_dict = cors_delete_object_v1_response_instance.to_dict()

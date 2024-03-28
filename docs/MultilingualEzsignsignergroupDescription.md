@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualEzsignsignergroupDescription from a JSON string
 multilingual_ezsignsignergroup_description_instance = MultilingualEzsignsignergroupDescription.from_json(json)
 # print the JSON string representation of the object
-print MultilingualEzsignsignergroupDescription.to_json()
+print(MultilingualEzsignsignergroupDescription.to_json())
 
 # convert the object into a dict
 multilingual_ezsignsignergroup_description_dict = multilingual_ezsignsignergroup_description_instance.to_dict()

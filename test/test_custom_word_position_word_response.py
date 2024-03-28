@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_word_position_word_response import CustomWordPositionWordResponse
 

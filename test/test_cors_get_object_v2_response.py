@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.cors_get_object_v2_response import CorsGetObjectV2Response
 

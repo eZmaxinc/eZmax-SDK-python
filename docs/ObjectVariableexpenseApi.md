@@ -23,8 +23,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.variableexpense_create_object_v1_request import VariableexpenseCreateObjectV1Request
 from eZmaxApi.models.variableexpense_create_object_v1_response import VariableexpenseCreateObjectV1Response
@@ -105,8 +103,6 @@ Edit an existing Variableexpense
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.variableexpense_edit_object_v1_request import VariableexpenseEditObjectV1Request
 from eZmaxApi.models.variableexpense_edit_object_v1_response import VariableexpenseEditObjectV1Response
@@ -191,8 +187,6 @@ Get the list of Variableexpense to be used in a dropdown or autocomplete control
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.variableexpense_get_autocomplete_v2_response import VariableexpenseGetAutocompleteV2Response
@@ -279,8 +273,6 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.variableexpense_get_list_v1_response import VariableexpenseGetListV1Response
@@ -370,8 +362,6 @@ Retrieve an existing Variableexpense
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.variableexpense_get_object_v2_response import VariableexpenseGetObjectV2Response
 from eZmaxApi.rest import ApiException

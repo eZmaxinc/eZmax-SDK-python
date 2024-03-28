@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of CustomFormDataDocumentResponse from a JSON string
 custom_form_data_document_response_instance = CustomFormDataDocumentResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomFormDataDocumentResponse.to_json()
+print(CustomFormDataDocumentResponse.to_json())
 
 # convert the object into a dict
 custom_form_data_document_response_dict = custom_form_data_document_response_instance.to_dict()

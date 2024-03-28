@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezmaxinvoicing_get_provisional_v1_response_m_payload import EzmaxinvoicingGetProvisionalV1ResponseMPayload
 

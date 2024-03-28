@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of WebhookUserstagedUserstagedCreated from a JSON string
 webhook_userstaged_userstaged_created_instance = WebhookUserstagedUserstagedCreated.from_json(json)
 # print the JSON string representation of the object
-print WebhookUserstagedUserstagedCreated.to_json()
+print(WebhookUserstagedUserstagedCreated.to_json())
 
 # convert the object into a dict
 webhook_userstaged_userstaged_created_dict = webhook_userstaged_userstaged_created_instance.to_dict()

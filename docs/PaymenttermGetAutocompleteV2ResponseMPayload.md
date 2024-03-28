@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of PaymenttermGetAutocompleteV2ResponseMPayload from a JSON string
 paymentterm_get_autocomplete_v2_response_m_payload_instance = PaymenttermGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print PaymenttermGetAutocompleteV2ResponseMPayload.to_json()
+print(PaymenttermGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 paymentterm_get_autocomplete_v2_response_m_payload_dict = paymentterm_get_autocomplete_v2_response_m_payload_instance.to_dict()

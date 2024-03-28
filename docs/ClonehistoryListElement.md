@@ -28,7 +28,7 @@ json = "{}"
 # create an instance of ClonehistoryListElement from a JSON string
 clonehistory_list_element_instance = ClonehistoryListElement.from_json(json)
 # print the JSON string representation of the object
-print ClonehistoryListElement.to_json()
+print(ClonehistoryListElement.to_json())
 
 # convert the object into a dict
 clonehistory_list_element_dict = clonehistory_list_element_instance.to_dict()

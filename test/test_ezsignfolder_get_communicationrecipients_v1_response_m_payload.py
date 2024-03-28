@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignfolder_get_communicationrecipients_v1_response_m_payload import EzsignfolderGetCommunicationrecipientsV1ResponseMPayload
 

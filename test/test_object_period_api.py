@@ -27,13 +27,6 @@ class TestObjectPeriodApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_period_get_autocomplete_v1(self) -> None:
-        """Test case for period_get_autocomplete_v1
-
-        Retrieve Periods and IDs
-        """
-        pass
-
     def test_period_get_autocomplete_v2(self) -> None:
         """Test case for period_get_autocomplete_v2
 

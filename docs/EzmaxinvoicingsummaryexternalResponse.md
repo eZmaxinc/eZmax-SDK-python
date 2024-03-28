@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of EzmaxinvoicingsummaryexternalResponse from a JSON string
 ezmaxinvoicingsummaryexternal_response_instance = EzmaxinvoicingsummaryexternalResponse.from_json(json)
 # print the JSON string representation of the object
-print EzmaxinvoicingsummaryexternalResponse.to_json()
+print(EzmaxinvoicingsummaryexternalResponse.to_json())
 
 # convert the object into a dict
 ezmaxinvoicingsummaryexternal_response_dict = ezmaxinvoicingsummaryexternal_response_instance.to_dict()

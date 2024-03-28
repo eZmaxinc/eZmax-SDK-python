@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfolderDeleteObjectV1Response from a JSON string
 ezsignfolder_delete_object_v1_response_instance = EzsignfolderDeleteObjectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderDeleteObjectV1Response.to_json()
+print(EzsignfolderDeleteObjectV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_delete_object_v1_response_dict = ezsignfolder_delete_object_v1_response_instance.to_dict()

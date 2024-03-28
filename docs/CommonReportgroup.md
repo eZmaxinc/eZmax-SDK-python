@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonReportgroup from a JSON string
 common_reportgroup_instance = CommonReportgroup.from_json(json)
 # print the JSON string representation of the object
-print CommonReportgroup.to_json()
+print(CommonReportgroup.to_json())
 
 # convert the object into a dict
 common_reportgroup_dict = common_reportgroup_instance.to_dict()

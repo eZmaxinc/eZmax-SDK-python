@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.permission_create_object_v1_request import PermissionCreateObjectV1Request
 from eZmaxApi.models.permission_create_object_v1_response import PermissionCreateObjectV1Response
@@ -105,8 +103,6 @@ Delete an existing Permission
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.permission_delete_object_v1_response import PermissionDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -187,8 +183,6 @@ Edit an existing Permission
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.permission_edit_object_v1_request import PermissionEditObjectV1Request
 from eZmaxApi.models.permission_edit_object_v1_response import PermissionEditObjectV1Response
@@ -273,8 +267,6 @@ Retrieve an existing Permission
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.permission_get_object_v2_response import PermissionGetObjectV2Response
 from eZmaxApi.rest import ApiException

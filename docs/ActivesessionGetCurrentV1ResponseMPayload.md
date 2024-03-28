@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **fki_systemconfigurationtype_id** | **int** | The unique ID of the Systemconfigurationtype | 
 **fki_signature_id** | **int** | The unique ID of the Signature | [optional] 
+**b_systemconfiguration_ezsignpaidbyoffice** | **bool** | Whether if Ezsign is paid by the company or not | [optional] 
+**e_systemconfiguration_ezsignofficeplan** | [**FieldESystemconfigurationEzsignofficeplan**](FieldESystemconfigurationEzsignofficeplan.md) |  | [optional] 
 **e_user_ezsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **e_user_ezsignprepaid** | [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **dt_user_ezsignprepaidexpiration** | **str** | The eZsign prepaid expiration date | [optional] 
@@ -36,7 +38,7 @@ json = "{}"
 # create an instance of ActivesessionGetCurrentV1ResponseMPayload from a JSON string
 activesession_get_current_v1_response_m_payload_instance = ActivesessionGetCurrentV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print ActivesessionGetCurrentV1ResponseMPayload.to_json()
+print(ActivesessionGetCurrentV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 activesession_get_current_v1_response_m_payload_dict = activesession_get_current_v1_response_m_payload_instance.to_dict()

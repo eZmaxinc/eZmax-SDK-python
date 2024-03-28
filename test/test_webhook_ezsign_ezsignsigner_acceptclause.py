@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.webhook_ezsign_ezsignsigner_acceptclause import WebhookEzsignEzsignsignerAcceptclause
 

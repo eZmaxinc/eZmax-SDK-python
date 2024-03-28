@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.global_ezmaxcustomer_get_configuration_v1_response import GlobalEzmaxcustomerGetConfigurationV1Response
 

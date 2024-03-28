@@ -27,8 +27,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_create_object_v2_request import ApikeyCreateObjectV2Request
 from eZmaxApi.models.apikey_create_object_v2_response import ApikeyCreateObjectV2Response
@@ -109,8 +107,6 @@ Edit an existing Apikey
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_edit_object_v1_request import ApikeyEditObjectV1Request
 from eZmaxApi.models.apikey_edit_object_v1_response import ApikeyEditObjectV1Response
@@ -195,8 +191,6 @@ Using this endpoint, you can edit multiple Permissions at the same time.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_edit_permissions_v1_request import ApikeyEditPermissionsV1Request
 from eZmaxApi.models.apikey_edit_permissions_v1_response import ApikeyEditPermissionsV1Response
@@ -279,8 +273,6 @@ Retrieve an existing Apikey's cors
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_get_cors_v1_response import ApikeyGetCorsV1Response
 from eZmaxApi.rest import ApiException
@@ -361,8 +353,6 @@ Enum values that can be filtered in query parameter *sFilter*:  | Variable | Val
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_get_list_v1_response import ApikeyGetListV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -452,8 +442,6 @@ Retrieve an existing Apikey
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_get_object_v2_response import ApikeyGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -532,8 +520,6 @@ Retrieve an existing Apikey's Permissions
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_get_permissions_v1_response import ApikeyGetPermissionsV1Response
 from eZmaxApi.rest import ApiException
@@ -612,8 +598,6 @@ Retrieve an existing Apikey's subnets
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_get_subnets_v1_response import ApikeyGetSubnetsV1Response
 from eZmaxApi.rest import ApiException
@@ -694,8 +678,6 @@ Regenerate the Apikey
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.apikey_regenerate_v1_request import ApikeyRegenerateV1Request
 from eZmaxApi.models.apikey_regenerate_v1_response import ApikeyRegenerateV1Response

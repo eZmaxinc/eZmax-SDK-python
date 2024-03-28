@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UsergroupResponseCompound(BaseModel):
     """
@@ -35,13 +31,24 @@ class UsergroupResponseCompound(BaseModel):
     """ # noqa: E501
     pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID")
     obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName"]
+    s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
+    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName", "sUsergroupNameX"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    @field_validator('s_usergroup_name_x')
+    def s_usergroup_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +61,7 @@ class UsergroupResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UsergroupResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +75,12 @@ class UsergroupResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_usergroup_name
@@ -80,7 +89,7 @@ class UsergroupResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UsergroupResponseCompound from a dict"""
         if obj is None:
             return None
@@ -90,7 +99,8 @@ class UsergroupResponseCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiUsergroupID": obj.get("pkiUsergroupID"),
-            "objUsergroupName": MultilingualUsergroupName.from_dict(obj.get("objUsergroupName")) if obj.get("objUsergroupName") is not None else None
+            "objUsergroupName": MultilingualUsergroupName.from_dict(obj["objUsergroupName"]) if obj.get("objUsergroupName") is not None else None,
+            "sUsergroupNameX": obj.get("sUsergroupNameX")
         })
         return _obj
 

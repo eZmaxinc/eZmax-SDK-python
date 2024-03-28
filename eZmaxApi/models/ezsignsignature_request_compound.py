@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
@@ -31,10 +29,8 @@ from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldE
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignsignatureRequestCompound(BaseModel):
     """
@@ -77,11 +73,11 @@ class EzsignsignatureRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -94,7 +90,7 @@ class EzsignsignatureRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignsignatureRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -108,10 +104,12 @@ class EzsignsignatureRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignaturecustomdate (list)
@@ -131,7 +129,7 @@ class EzsignsignatureRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignsignatureRequestCompound from a dict"""
         if obj is None:
             return None
@@ -163,8 +161,8 @@ class EzsignsignatureRequestCompound(BaseModel):
             "sEzsignsignatureRegexp": obj.get("sEzsignsignatureRegexp"),
             "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "bEzsignsignatureCustomdate": obj.get("bEzsignsignatureCustomdate"),
-            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignsignaturecustomdate")] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj.get("a_objEzsignelementdependency")] if obj.get("a_objEzsignelementdependency") is not None else None
+            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
+            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

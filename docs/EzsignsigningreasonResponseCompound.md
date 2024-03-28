@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignsigningreasonResponseCompound from a JSON string
 ezsignsigningreason_response_compound_instance = EzsignsigningreasonResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsignsigningreasonResponseCompound.to_json()
+print(EzsignsigningreasonResponseCompound.to_json())
 
 # convert the object into a dict
 ezsignsigningreason_response_compound_dict = ezsignsigningreason_response_compound_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CommonResponseRedirectSSecretquestionTextX from a JSON string
 common_response_redirect_s_secretquestion_text_x_instance = CommonResponseRedirectSSecretquestionTextX.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseRedirectSSecretquestionTextX.to_json()
+print(CommonResponseRedirectSSecretquestionTextX.to_json())
 
 # convert the object into a dict
 common_response_redirect_s_secretquestion_text_x_dict = common_response_redirect_s_secretquestion_text_x_instance.to_dict()

@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **b_webhook_issigned** | **bool** | Whether the requests will be signed or not | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
+**s_webhook_event** | **str** | The concatenated string to describe the Webhook event | [optional] 
+**a_obj_webhookheader** | [**List[WebhookheaderResponseCompound]**](WebhookheaderResponseCompound.md) |  | [optional] 
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **b_webhook_test** | **bool** | Wheter the webhook received is a manual test or a real event | 
 
@@ -34,7 +36,7 @@ json = "{}"
 # create an instance of CustomWebhookResponse from a JSON string
 custom_webhook_response_instance = CustomWebhookResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomWebhookResponse.to_json()
+print(CustomWebhookResponse.to_json())
 
 # convert the object into a dict
 custom_webhook_response_dict = custom_webhook_response_instance.to_dict()

@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of ScimServiceProviderConfigEtag from a JSON string
 scim_service_provider_config_etag_instance = ScimServiceProviderConfigEtag.from_json(json)
 # print the JSON string representation of the object
-print ScimServiceProviderConfigEtag.to_json()
+print(ScimServiceProviderConfigEtag.to_json())
 
 # convert the object into a dict
 scim_service_provider_config_etag_dict = scim_service_provider_config_etag_instance.to_dict()

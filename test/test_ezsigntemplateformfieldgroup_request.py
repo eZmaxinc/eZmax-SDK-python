@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplateformfieldgroup_request import EzsigntemplateformfieldgroupRequest
 
@@ -58,7 +57,6 @@ class TestEzsigntemplateformfieldgroupRequest(unittest.TestCase):
             return EzsigntemplateformfieldgroupRequest(
                 fki_ezsigntemplatedocument_id = 133,
                 e_ezsigntemplateformfieldgroup_type = 'Text',
-                e_ezsigntemplateformfieldgroup_signerrequirement = 'One',
                 s_ezsigntemplateformfieldgroup_label = 'Allergies',
                 i_ezsigntemplateformfieldgroup_step = 1,
                 s_ezsigntemplateformfieldgroup_defaultvalue = 'Foo',

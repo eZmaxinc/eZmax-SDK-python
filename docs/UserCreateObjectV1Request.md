@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UserCreateObjectV1Request from a JSON string
 user_create_object_v1_request_instance = UserCreateObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print UserCreateObjectV1Request.to_json()
+print(UserCreateObjectV1Request.to_json())
 
 # convert the object into a dict
 user_create_object_v1_request_dict = user_create_object_v1_request_instance.to_dict()

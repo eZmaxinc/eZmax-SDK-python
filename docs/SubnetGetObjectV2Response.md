@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of SubnetGetObjectV2Response from a JSON string
 subnet_get_object_v2_response_instance = SubnetGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print SubnetGetObjectV2Response.to_json()
+print(SubnetGetObjectV2Response.to_json())
 
 # convert the object into a dict
 subnet_get_object_v2_response_dict = subnet_get_object_v2_response_instance.to_dict()

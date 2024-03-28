@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.multilingual_ezsignsigningreason_description import MultilingualEzsignsigningreasonDescription
 

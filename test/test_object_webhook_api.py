@@ -27,13 +27,6 @@ class TestObjectWebhookApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_webhook_create_object_v1(self) -> None:
-        """Test case for webhook_create_object_v1
-
-        Create a new Webhook
-        """
-        pass
-
     def test_webhook_create_object_v2(self) -> None:
         """Test case for webhook_create_object_v2
 

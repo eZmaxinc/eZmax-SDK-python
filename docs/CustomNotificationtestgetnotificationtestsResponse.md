@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of CustomNotificationtestgetnotificationtestsResponse from a JSON string
 custom_notificationtestgetnotificationtests_response_instance = CustomNotificationtestgetnotificationtestsResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomNotificationtestgetnotificationtestsResponse.to_json()
+print(CustomNotificationtestgetnotificationtestsResponse.to_json())
 
 # convert the object into a dict
 custom_notificationtestgetnotificationtests_response_dict = custom_notificationtestgetnotificationtests_response_instance.to_dict()

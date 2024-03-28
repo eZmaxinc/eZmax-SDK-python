@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezmax import FieldEEzmaxinvoicingagentVariationezmax
 

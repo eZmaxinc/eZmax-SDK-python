@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of GlobalEzmaxcustomerGetConfigurationV1Response from a JSON string
 global_ezmaxcustomer_get_configuration_v1_response_instance = GlobalEzmaxcustomerGetConfigurationV1Response.from_json(json)
 # print the JSON string representation of the object
-print GlobalEzmaxcustomerGetConfigurationV1Response.to_json()
+print(GlobalEzmaxcustomerGetConfigurationV1Response.to_json())
 
 # convert the object into a dict
 global_ezmaxcustomer_get_configuration_v1_response_dict = global_ezmaxcustomer_get_configuration_v1_response_instance.to_dict()

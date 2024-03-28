@@ -18,10 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
@@ -30,10 +28,8 @@ from eZmaxApi.models.ezsignformfieldgroupsigner_response_compound import Ezsignf
 from eZmaxApi.models.field_e_ezsignformfieldgroup_signerrequirement import FieldEEzsignformfieldgroupSignerrequirement
 from eZmaxApi.models.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
 from eZmaxApi.models.field_e_ezsignformfieldgroup_type import FieldEEzsignformfieldgroupType
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignformfieldgroupResponseCompound(BaseModel):
     """
@@ -42,10 +38,10 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
     pki_ezsignformfieldgroup_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignformfieldgroup", alias="pkiEzsignformfieldgroupID")
     fki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
     e_ezsignformfieldgroup_type: FieldEEzsignformfieldgroupType = Field(alias="eEzsignformfieldgroupType")
-    e_ezsignformfieldgroup_signerrequirement: FieldEEzsignformfieldgroupSignerrequirement = Field(alias="eEzsignformfieldgroupSignerrequirement")
+    e_ezsignformfieldgroup_signerrequirement: Optional[FieldEEzsignformfieldgroupSignerrequirement] = Field(default=None, alias="eEzsignformfieldgroupSignerrequirement")
     s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
     i_ezsignformfieldgroup_step: Annotated[int, Field(strict=True, ge=1)] = Field(description="The step when the Ezsignsigner will be invited to fill the form fields", alias="iEzsignformfieldgroupStep")
-    s_ezsignformfieldgroup_defaultvalue: Optional[StrictStr] = Field(default=None, description="The default value for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupDefaultvalue")
+    s_ezsignformfieldgroup_defaultvalue: Optional[StrictStr] = Field(default=None, description="The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |", alias="sEzsignformfieldgroupDefaultvalue")
     i_ezsignformfieldgroup_filledmin: Annotated[int, Field(strict=True, ge=0)] = Field(description="The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup", alias="iEzsignformfieldgroupFilledmin")
     i_ezsignformfieldgroup_filledmax: Annotated[int, Field(strict=True, ge=0)] = Field(description="The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup", alias="iEzsignformfieldgroupFilledmax")
     b_ezsignformfieldgroup_readonly: StrictBool = Field(description="Whether the Ezsignformfieldgroup is read only or not.", alias="bEzsignformfieldgroupReadonly")
@@ -70,11 +66,11 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -87,7 +83,7 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignformfieldgroupResponseCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -101,10 +97,12 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfield (list)
@@ -131,7 +129,7 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignformfieldgroupResponseCompound from a dict"""
         if obj is None:
             return None
@@ -156,9 +154,9 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
             "sEzsignformfieldgroupRegexp": obj.get("sEzsignformfieldgroupRegexp"),
             "tEzsignformfieldgroupTooltip": obj.get("tEzsignformfieldgroupTooltip"),
             "eEzsignformfieldgroupTooltipposition": obj.get("eEzsignformfieldgroupTooltipposition"),
-            "a_objEzsignformfield": [EzsignformfieldResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignformfield")] if obj.get("a_objEzsignformfield") is not None else None,
-            "a_objDropdownElement": [CustomDropdownElementResponseCompound.from_dict(_item) for _item in obj.get("a_objDropdownElement")] if obj.get("a_objDropdownElement") is not None else None,
-            "a_objEzsignformfieldgroupsigner": [EzsignformfieldgroupsignerResponseCompound.from_dict(_item) for _item in obj.get("a_objEzsignformfieldgroupsigner")] if obj.get("a_objEzsignformfieldgroupsigner") is not None else None
+            "a_objEzsignformfield": [EzsignformfieldResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfield"]] if obj.get("a_objEzsignformfield") is not None else None,
+            "a_objDropdownElement": [CustomDropdownElementResponseCompound.from_dict(_item) for _item in obj["a_objDropdownElement"]] if obj.get("a_objDropdownElement") is not None else None,
+            "a_objEzsignformfieldgroupsigner": [EzsignformfieldgroupsignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfieldgroupsigner"]] if obj.get("a_objEzsignformfieldgroupsigner") is not None else None
         })
         return _obj
 

@@ -18,17 +18,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_notificationpreference_status import FieldENotificationpreferenceStatus
 from eZmaxApi.models.multilingual_notificationtest_name import MultilingualNotificationtestName
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
     """
@@ -43,11 +39,11 @@ class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
     i_notificationtest: StrictInt = Field(description="The number of elements returned by the Notificationtest", alias="iNotificationtest")
     __properties: ClassVar[List[str]] = ["pkiNotificationtestID", "objNotificationtestName", "fkiNotificationsubsectionID", "sNotificationtestFunction", "sNotificationtestNameX", "eNotificationpreferenceStatus", "iNotificationtest"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +56,7 @@ class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CustomNotificationtestgetnotificationtestsResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,10 +70,12 @@ class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_notificationtest_name
@@ -86,7 +84,7 @@ class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CustomNotificationtestgetnotificationtestsResponse from a dict"""
         if obj is None:
             return None
@@ -96,7 +94,7 @@ class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiNotificationtestID": obj.get("pkiNotificationtestID"),
-            "objNotificationtestName": MultilingualNotificationtestName.from_dict(obj.get("objNotificationtestName")) if obj.get("objNotificationtestName") is not None else None,
+            "objNotificationtestName": MultilingualNotificationtestName.from_dict(obj["objNotificationtestName"]) if obj.get("objNotificationtestName") is not None else None,
             "fkiNotificationsubsectionID": obj.get("fkiNotificationsubsectionID"),
             "sNotificationtestFunction": obj.get("sNotificationtestFunction"),
             "sNotificationtestNameX": obj.get("sNotificationtestNameX"),

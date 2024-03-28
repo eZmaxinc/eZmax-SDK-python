@@ -18,8 +18,6 @@ Retrieve the ezmaxcustomer's specific configuration. This will help locate the p
 
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.global_ezmaxcustomer_get_configuration_v1_response import GlobalEzmaxcustomerGetConfigurationV1Response
 from eZmaxApi.rest import ApiException

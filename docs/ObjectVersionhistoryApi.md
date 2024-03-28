@@ -19,8 +19,6 @@ Retrieve an existing Versionhistory
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.versionhistory_get_object_v2_response import VersionhistoryGetObjectV2Response
 from eZmaxApi.rest import ApiException

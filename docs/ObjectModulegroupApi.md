@@ -17,8 +17,6 @@ Retrieve all Modulegroups
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.modulegroup_get_all_v1_response import ModulegroupGetAllV1Response
 from eZmaxApi.rest import ApiException

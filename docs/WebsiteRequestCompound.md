@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of WebsiteRequestCompound from a JSON string
 website_request_compound_instance = WebsiteRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print WebsiteRequestCompound.to_json()
+print(WebsiteRequestCompound.to_json())
 
 # convert the object into a dict
 website_request_compound_dict = website_request_compound_instance.to_dict()

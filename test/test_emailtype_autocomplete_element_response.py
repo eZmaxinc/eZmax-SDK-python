@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.emailtype_autocomplete_element_response import EmailtypeAutocompleteElementResponse
 

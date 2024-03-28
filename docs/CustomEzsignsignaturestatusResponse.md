@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CustomEzsignsignaturestatusResponse from a JSON string
 custom_ezsignsignaturestatus_response_instance = CustomEzsignsignaturestatusResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzsignsignaturestatusResponse.to_json()
+print(CustomEzsignsignaturestatusResponse.to_json())
 
 # convert the object into a dict
 custom_ezsignsignaturestatus_response_dict = custom_ezsignsignaturestatus_response_instance.to_dict()

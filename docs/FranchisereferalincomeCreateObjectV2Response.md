@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of FranchisereferalincomeCreateObjectV2Response from a JSON string
 franchisereferalincome_create_object_v2_response_instance = FranchisereferalincomeCreateObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print FranchisereferalincomeCreateObjectV2Response.to_json()
+print(FranchisereferalincomeCreateObjectV2Response.to_json())
 
 # convert the object into a dict
 franchisereferalincome_create_object_v2_response_dict = franchisereferalincome_create_object_v2_response_instance.to_dict()

@@ -17,8 +17,6 @@ Consult an Ezsignpage
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignpage_consult_v1_response import EzsignpageConsultV1Response
 from eZmaxApi.rest import ApiException

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of BrandingAutocompleteElementResponse from a JSON string
 branding_autocomplete_element_response_instance = BrandingAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print BrandingAutocompleteElementResponse.to_json()
+print(BrandingAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 branding_autocomplete_element_response_dict = branding_autocomplete_element_response_instance.to_dict()

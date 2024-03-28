@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of MultilingualVersionhistoryDetail from a JSON string
 multilingual_versionhistory_detail_instance = MultilingualVersionhistoryDetail.from_json(json)
 # print the JSON string representation of the object
-print MultilingualVersionhistoryDetail.to_json()
+print(MultilingualVersionhistoryDetail.to_json())
 
 # convert the object into a dict
 multilingual_versionhistory_detail_dict = multilingual_versionhistory_detail_instance.to_dict()

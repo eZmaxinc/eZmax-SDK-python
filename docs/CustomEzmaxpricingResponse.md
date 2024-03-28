@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of CustomEzmaxpricingResponse from a JSON string
 custom_ezmaxpricing_response_instance = CustomEzmaxpricingResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzmaxpricingResponse.to_json()
+print(CustomEzmaxpricingResponse.to_json())
 
 # convert the object into a dict
 custom_ezmaxpricing_response_dict = custom_ezmaxpricing_response_instance.to_dict()

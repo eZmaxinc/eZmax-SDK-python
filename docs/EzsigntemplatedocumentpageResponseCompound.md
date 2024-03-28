@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of EzsigntemplatedocumentpageResponseCompound from a JSON string
 ezsigntemplatedocumentpage_response_compound_instance = EzsigntemplatedocumentpageResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplatedocumentpageResponseCompound.to_json()
+print(EzsigntemplatedocumentpageResponseCompound.to_json())
 
 # convert the object into a dict
 ezsigntemplatedocumentpage_response_compound_dict = ezsigntemplatedocumentpage_response_compound_instance.to_dict()

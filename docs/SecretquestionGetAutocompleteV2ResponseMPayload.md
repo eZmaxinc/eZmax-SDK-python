@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of SecretquestionGetAutocompleteV2ResponseMPayload from a JSON string
 secretquestion_get_autocomplete_v2_response_m_payload_instance = SecretquestionGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print SecretquestionGetAutocompleteV2ResponseMPayload.to_json()
+print(SecretquestionGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 secretquestion_get_autocomplete_v2_response_m_payload_dict = secretquestion_get_autocomplete_v2_response_m_payload_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response
 

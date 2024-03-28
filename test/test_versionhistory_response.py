@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.versionhistory_response import VersionhistoryResponse
 

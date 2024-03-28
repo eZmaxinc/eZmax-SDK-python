@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of VariableexpenseListElement from a JSON string
 variableexpense_list_element_instance = VariableexpenseListElement.from_json(json)
 # print the JSON string representation of the object
-print VariableexpenseListElement.to_json()
+print(VariableexpenseListElement.to_json())
 
 # convert the object into a dict
 variableexpense_list_element_dict = variableexpense_list_element_instance.to_dict()

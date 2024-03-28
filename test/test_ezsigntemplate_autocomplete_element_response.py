@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_autocomplete_element_response import EzsigntemplateAutocompleteElementResponse
 

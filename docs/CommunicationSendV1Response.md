@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of CommunicationSendV1Response from a JSON string
 communication_send_v1_response_instance = CommunicationSendV1Response.from_json(json)
 # print the JSON string representation of the object
-print CommunicationSendV1Response.to_json()
+print(CommunicationSendV1Response.to_json())
 
 # convert the object into a dict
 communication_send_v1_response_dict = communication_send_v1_response_instance.to_dict()

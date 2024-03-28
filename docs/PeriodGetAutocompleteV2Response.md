@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of PeriodGetAutocompleteV2Response from a JSON string
 period_get_autocomplete_v2_response_instance = PeriodGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print PeriodGetAutocompleteV2Response.to_json()
+print(PeriodGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 period_get_autocomplete_v2_response_dict = period_get_autocomplete_v2_response_instance.to_dict()

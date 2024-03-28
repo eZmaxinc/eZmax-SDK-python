@@ -12,26 +12,18 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import Field
-from typing_extensions import Annotated
 from typing import Optional
-
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsign_suggest_signers_v1_response import EzsignSuggestSignersV1Response
 from eZmaxApi.models.ezsign_suggest_templates_v1_response import EzsignSuggestTemplatesV1Response
 
-from eZmaxApi.api_client import ApiClient
+from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
 from eZmaxApi.rest import RESTResponseType
 
@@ -240,7 +232,7 @@ class ModuleEzsignApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
@@ -295,7 +287,7 @@ class ModuleEzsignApi:
     @validate_call
     def ezsign_suggest_templates_v1(
         self,
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -362,7 +354,7 @@ class ModuleEzsignApi:
     @validate_call
     def ezsign_suggest_templates_v1_with_http_info(
         self,
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -429,7 +421,7 @@ class ModuleEzsignApi:
     @validate_call
     def ezsign_suggest_templates_v1_without_preload_content(
         self,
-        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
+        fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -496,7 +488,7 @@ class ModuleEzsignApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ApikeyGetPermissionsV1Response from a JSON string
 apikey_get_permissions_v1_response_instance = ApikeyGetPermissionsV1Response.from_json(json)
 # print the JSON string representation of the object
-print ApikeyGetPermissionsV1Response.to_json()
+print(ApikeyGetPermissionsV1Response.to_json())
 
 # convert the object into a dict
 apikey_get_permissions_v1_response_dict = apikey_get_permissions_v1_response_instance.to_dict()

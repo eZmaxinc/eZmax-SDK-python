@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.cors_create_object_v1_request import CorsCreateObjectV1Request
 from eZmaxApi.models.cors_create_object_v1_response import CorsCreateObjectV1Response
@@ -104,8 +102,6 @@ Delete an existing Cors
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.cors_delete_object_v1_response import CorsDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -186,8 +182,6 @@ Edit an existing Cors
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.cors_edit_object_v1_request import CorsEditObjectV1Request
 from eZmaxApi.models.cors_edit_object_v1_response import CorsEditObjectV1Response
@@ -272,8 +266,6 @@ Retrieve an existing Cors
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.cors_get_object_v2_response import CorsGetObjectV2Response
 from eZmaxApi.rest import ApiException

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of GlobalEzmaxclientVersionV1Response from a JSON string
 global_ezmaxclient_version_v1_response_instance = GlobalEzmaxclientVersionV1Response.from_json(json)
 # print the JSON string representation of the object
-print GlobalEzmaxclientVersionV1Response.to_json()
+print(GlobalEzmaxclientVersionV1Response.to_json())
 
 # convert the object into a dict
 global_ezmaxclient_version_v1_response_dict = global_ezmaxclient_version_v1_response_instance.to_dict()

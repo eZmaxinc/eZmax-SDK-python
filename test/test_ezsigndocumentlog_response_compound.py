@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocumentlog_response_compound import EzsigndocumentlogResponseCompound
 

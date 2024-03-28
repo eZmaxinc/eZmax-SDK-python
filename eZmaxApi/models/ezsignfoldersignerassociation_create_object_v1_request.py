@@ -18,16 +18,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from eZmaxApi.models.ezsignfoldersignerassociation_request import EzsignfoldersignerassociationRequest
 from eZmaxApi.models.ezsignfoldersignerassociation_request_compound import EzsignfoldersignerassociationRequestCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
     """
@@ -37,11 +33,11 @@ class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
     obj_ezsignfoldersignerassociation_compound: Optional[EzsignfoldersignerassociationRequestCompound] = Field(default=None, alias="objEzsignfoldersignerassociationCompound")
     __properties: ClassVar[List[str]] = ["objEzsignfoldersignerassociation", "objEzsignfoldersignerassociationCompound"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +50,7 @@ class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationCreateObjectV1Request from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignfoldersignerassociation
@@ -83,7 +81,7 @@ class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationCreateObjectV1Request from a dict"""
         if obj is None:
             return None
@@ -92,8 +90,8 @@ class EzsignfoldersignerassociationCreateObjectV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objEzsignfoldersignerassociation": EzsignfoldersignerassociationRequest.from_dict(obj.get("objEzsignfoldersignerassociation")) if obj.get("objEzsignfoldersignerassociation") is not None else None,
-            "objEzsignfoldersignerassociationCompound": EzsignfoldersignerassociationRequestCompound.from_dict(obj.get("objEzsignfoldersignerassociationCompound")) if obj.get("objEzsignfoldersignerassociationCompound") is not None else None
+            "objEzsignfoldersignerassociation": EzsignfoldersignerassociationRequest.from_dict(obj["objEzsignfoldersignerassociation"]) if obj.get("objEzsignfoldersignerassociation") is not None else None,
+            "objEzsignfoldersignerassociationCompound": EzsignfoldersignerassociationRequestCompound.from_dict(obj["objEzsignfoldersignerassociationCompound"]) if obj.get("objEzsignfoldersignerassociationCompound") is not None else None
         })
         return _obj
 

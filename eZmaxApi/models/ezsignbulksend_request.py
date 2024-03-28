@@ -18,22 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignbulksendRequest(BaseModel):
     """
     A Ezsignbulksend Object
     """ # noqa: E501
     pki_ezsignbulksend_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
     t_ezsignbulksend_note: StrictStr = Field(description="Note about the Ezsignbulksend", alias="tEzsignbulksendNote")
@@ -41,11 +37,11 @@ class EzsignbulksendRequest(BaseModel):
     b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsignbulksendDescription", "tEzsignbulksendNote", "bEzsignbulksendNeedvalidation", "bEzsignbulksendIsactive"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -58,7 +54,7 @@ class EzsignbulksendRequest(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignbulksendRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -72,16 +68,18 @@ class EzsignbulksendRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignbulksendRequest from a dict"""
         if obj is None:
             return None

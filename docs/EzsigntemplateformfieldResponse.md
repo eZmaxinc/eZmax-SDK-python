@@ -33,7 +33,7 @@ json = "{}"
 # create an instance of EzsigntemplateformfieldResponse from a JSON string
 ezsigntemplateformfield_response_instance = EzsigntemplateformfieldResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsigntemplateformfieldResponse.to_json()
+print(EzsigntemplateformfieldResponse.to_json())
 
 # convert the object into a dict
 ezsigntemplateformfield_response_dict = ezsigntemplateformfield_response_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplateelementdependency_request import EzsigntemplateelementdependencyRequest
 

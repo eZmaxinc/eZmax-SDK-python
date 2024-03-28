@@ -18,18 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt
-from pydantic import Field
 from eZmaxApi.models.address_request_compound import AddressRequestCompound
 from eZmaxApi.models.email_request_compound import EmailRequestCompound
 from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
 from eZmaxApi.models.website_request_compound import WebsiteRequestCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ContactinformationsRequestCompound(BaseModel):
     """
@@ -45,11 +41,11 @@ class ContactinformationsRequestCompound(BaseModel):
     a_obj_website: List[WebsiteRequestCompound] = Field(alias="a_objWebsite")
     __properties: ClassVar[List[str]] = ["iAddressDefault", "iPhoneDefault", "iEmailDefault", "iWebsiteDefault", "a_objAddress", "a_objPhone", "a_objEmail", "a_objWebsite"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -62,7 +58,7 @@ class ContactinformationsRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ContactinformationsRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -76,10 +72,12 @@ class ContactinformationsRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_address (list)
@@ -113,7 +111,7 @@ class ContactinformationsRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ContactinformationsRequestCompound from a dict"""
         if obj is None:
             return None
@@ -126,10 +124,10 @@ class ContactinformationsRequestCompound(BaseModel):
             "iPhoneDefault": obj.get("iPhoneDefault"),
             "iEmailDefault": obj.get("iEmailDefault"),
             "iWebsiteDefault": obj.get("iWebsiteDefault"),
-            "a_objAddress": [AddressRequestCompound.from_dict(_item) for _item in obj.get("a_objAddress")] if obj.get("a_objAddress") is not None else None,
-            "a_objPhone": [PhoneRequestCompound.from_dict(_item) for _item in obj.get("a_objPhone")] if obj.get("a_objPhone") is not None else None,
-            "a_objEmail": [EmailRequestCompound.from_dict(_item) for _item in obj.get("a_objEmail")] if obj.get("a_objEmail") is not None else None,
-            "a_objWebsite": [WebsiteRequestCompound.from_dict(_item) for _item in obj.get("a_objWebsite")] if obj.get("a_objWebsite") is not None else None
+            "a_objAddress": [AddressRequestCompound.from_dict(_item) for _item in obj["a_objAddress"]] if obj.get("a_objAddress") is not None else None,
+            "a_objPhone": [PhoneRequestCompound.from_dict(_item) for _item in obj["a_objPhone"]] if obj.get("a_objPhone") is not None else None,
+            "a_objEmail": [EmailRequestCompound.from_dict(_item) for _item in obj["a_objEmail"]] if obj.get("a_objEmail") is not None else None,
+            "a_objWebsite": [WebsiteRequestCompound.from_dict(_item) for _item in obj["a_objWebsite"]] if obj.get("a_objWebsite") is not None else None
         })
         return _obj
 

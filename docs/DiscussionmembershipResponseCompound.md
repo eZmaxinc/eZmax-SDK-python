@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of DiscussionmembershipResponseCompound from a JSON string
 discussionmembership_response_compound_instance = DiscussionmembershipResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print DiscussionmembershipResponseCompound.to_json()
+print(DiscussionmembershipResponseCompound.to_json())
 
 # convert the object into a dict
 discussionmembership_response_compound_dict = discussionmembership_response_compound_instance.to_dict()

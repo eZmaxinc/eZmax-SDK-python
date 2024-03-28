@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of PhonetypeAutocompleteElementResponse from a JSON string
 phonetype_autocomplete_element_response_instance = PhonetypeAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print PhonetypeAutocompleteElementResponse.to_json()
+print(PhonetypeAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 phonetype_autocomplete_element_response_dict = phonetype_autocomplete_element_response_instance.to_dict()

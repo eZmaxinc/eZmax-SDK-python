@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of UserstagedMapV1Response from a JSON string
 userstaged_map_v1_response_instance = UserstagedMapV1Response.from_json(json)
 # print the JSON string representation of the object
-print UserstagedMapV1Response.to_json()
+print(UserstagedMapV1Response.to_json())
 
 # convert the object into a dict
 userstaged_map_v1_response_dict = userstaged_map_v1_response_instance.to_dict()

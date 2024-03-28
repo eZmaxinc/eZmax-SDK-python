@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignbulksendGetEzsignbulksendtransmissionsV1Response from a JSON string
 ezsignbulksend_get_ezsignbulksendtransmissions_v1_response_instance = EzsignbulksendGetEzsignbulksendtransmissionsV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendGetEzsignbulksendtransmissionsV1Response.to_json()
+print(EzsignbulksendGetEzsignbulksendtransmissionsV1Response.to_json())
 
 # convert the object into a dict
 ezsignbulksend_get_ezsignbulksendtransmissions_v1_response_dict = ezsignbulksend_get_ezsignbulksendtransmissions_v1_response_instance.to_dict()

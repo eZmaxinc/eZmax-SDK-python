@@ -18,15 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
 from eZmaxApi.models.ezsignfolder_response_compound import EzsignfolderResponseCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
     """
@@ -35,11 +31,11 @@ class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
     obj_ezsignfolder: EzsignfolderResponseCompound = Field(alias="objEzsignfolder")
     __properties: ClassVar[List[str]] = ["objEzsignfolder"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -52,7 +48,7 @@ class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfolderGetObjectV2ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -66,10 +62,12 @@ class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignfolder
@@ -78,7 +76,7 @@ class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfolderGetObjectV2ResponseMPayload from a dict"""
         if obj is None:
             return None
@@ -87,7 +85,7 @@ class EzsignfolderGetObjectV2ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objEzsignfolder": EzsignfolderResponseCompound.from_dict(obj.get("objEzsignfolder")) if obj.get("objEzsignfolder") is not None else None
+            "objEzsignfolder": EzsignfolderResponseCompound.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None
         })
         return _obj
 

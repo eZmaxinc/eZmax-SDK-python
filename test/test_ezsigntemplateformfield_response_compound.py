@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplateformfield_response_compound import EzsigntemplateformfieldResponseCompound
 

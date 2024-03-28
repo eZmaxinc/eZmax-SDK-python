@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of FranchisebrokerGetAutocompleteV2Response from a JSON string
 franchisebroker_get_autocomplete_v2_response_instance = FranchisebrokerGetAutocompleteV2Response.from_json(json)
 # print the JSON string representation of the object
-print FranchisebrokerGetAutocompleteV2Response.to_json()
+print(FranchisebrokerGetAutocompleteV2Response.to_json())
 
 # convert the object into a dict
 franchisebroker_get_autocomplete_v2_response_dict = franchisebroker_get_autocomplete_v2_response_instance.to_dict()

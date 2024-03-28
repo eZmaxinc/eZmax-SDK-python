@@ -27,13 +27,6 @@ class TestObjectFranchisebrokerApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_franchisebroker_get_autocomplete_v1(self) -> None:
-        """Test case for franchisebroker_get_autocomplete_v1
-
-        Retrieve Franchisebrokers and IDs
-        """
-        pass
-
     def test_franchisebroker_get_autocomplete_v2(self) -> None:
         """Test case for franchisebroker_get_autocomplete_v2
 

@@ -22,8 +22,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.subnet_create_object_v1_request import SubnetCreateObjectV1Request
 from eZmaxApi.models.subnet_create_object_v1_response import SubnetCreateObjectV1Response
@@ -105,8 +103,6 @@ Delete an existing Subnet
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.subnet_delete_object_v1_response import SubnetDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -188,8 +184,6 @@ Edit an existing Subnet
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.subnet_edit_object_v1_request import SubnetEditObjectV1Request
 from eZmaxApi.models.subnet_edit_object_v1_response import SubnetEditObjectV1Response
@@ -274,8 +268,6 @@ Retrieve an existing Subnet
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.subnet_get_object_v2_response import SubnetGetObjectV2Response
 from eZmaxApi.rest import ApiException

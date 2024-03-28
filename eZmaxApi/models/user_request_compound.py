@@ -18,20 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.email_request_compound import EmailRequestCompound
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 from eZmaxApi.models.field_e_user_type import FieldEUserType
 from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class UserRequestCompound(BaseModel):
     """
@@ -84,11 +80,11 @@ class UserRequestCompound(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -101,7 +97,7 @@ class UserRequestCompound(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of UserRequestCompound from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -115,10 +111,12 @@ class UserRequestCompound(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_email
@@ -133,7 +131,7 @@ class UserRequestCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UserRequestCompound from a dict"""
         if obj is None:
             return None
@@ -151,10 +149,10 @@ class UserRequestCompound(BaseModel):
             "fkiDepartmentIDDefault": obj.get("fkiDepartmentIDDefault"),
             "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
-            "objEmail": EmailRequestCompound.from_dict(obj.get("objEmail")) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailRequestCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "objPhoneHome": PhoneRequestCompound.from_dict(obj.get("objPhoneHome")) if obj.get("objPhoneHome") is not None else None,
-            "objPhoneSMS": PhoneRequestCompound.from_dict(obj.get("objPhoneSMS")) if obj.get("objPhoneSMS") is not None else None,
+            "objPhoneHome": PhoneRequestCompound.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
+            "objPhoneSMS": PhoneRequestCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
             "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
             "sUserSecretresponse": obj.get("sUserSecretresponse"),
             "fkiModuleIDForm": obj.get("fkiModuleIDForm"),

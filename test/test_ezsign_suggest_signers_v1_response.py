@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsign_suggest_signers_v1_response import EzsignSuggestSignersV1Response
 

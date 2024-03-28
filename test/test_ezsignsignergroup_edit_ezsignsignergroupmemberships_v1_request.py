@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request import EzsignsignergroupEditEzsignsignergroupmembershipsV1Request
 

@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of CommonResponseObjSQLQuery from a JSON string
 common_response_obj_sql_query_instance = CommonResponseObjSQLQuery.from_json(json)
 # print the JSON string representation of the object
-print CommonResponseObjSQLQuery.to_json()
+print(CommonResponseObjSQLQuery.to_json())
 
 # convert the object into a dict
 common_response_obj_sql_query_dict = common_response_obj_sql_query_instance.to_dict()

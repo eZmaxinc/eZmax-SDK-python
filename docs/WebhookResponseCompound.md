@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 **s_webhook_event** | **str** | The concatenated string to describe the Webhook event | [optional] 
+**a_obj_webhookheader** | [**List[WebhookheaderResponseCompound]**](WebhookheaderResponseCompound.md) |  | [optional] 
 
 ## Example
 
@@ -33,7 +34,7 @@ json = "{}"
 # create an instance of WebhookResponseCompound from a JSON string
 webhook_response_compound_instance = WebhookResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print WebhookResponseCompound.to_json()
+print(WebhookResponseCompound.to_json())
 
 # convert the object into a dict
 webhook_response_compound_dict = webhook_response_compound_instance.to_dict()

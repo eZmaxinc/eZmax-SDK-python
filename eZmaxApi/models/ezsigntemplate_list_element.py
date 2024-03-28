@@ -18,36 +18,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from eZmaxApi.models.field_e_ezsigntemplate_type import FieldEEzsigntemplateType
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsigntemplateListElement(BaseModel):
     """
     A Ezsigntemplate List Element
     """ # noqa: E501
     pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
     i_ezsigntemplatedocument_pagetotal: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal")
     i_ezsigntemplate_signaturetotal: Optional[StrictInt] = Field(default=None, description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplateSignaturetotal")
     i_ezsigntemplate_formfieldtotal: Optional[StrictInt] = Field(default=None, description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplateFormfieldtotal")
     b_ezsigntemplate_incomplete: StrictBool = Field(description="Indicate the Ezsigntemplate is incomplete and cannot be used", alias="bEzsigntemplateIncomplete")
-    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplateSignaturetotal", "iEzsigntemplateFormfieldtotal", "bEzsigntemplateIncomplete", "sEzsignfoldertypeNameX"]
+    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    e_ezsigntemplate_type: FieldEEzsigntemplateType = Field(alias="eEzsigntemplateType")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplateSignaturetotal", "iEzsigntemplateFormfieldtotal", "bEzsigntemplateIncomplete", "sEzsignfoldertypeNameX", "eEzsigntemplateType"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +58,7 @@ class EzsigntemplateListElement(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsigntemplateListElement from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,16 +72,18 @@ class EzsigntemplateListElement(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateListElement from a dict"""
         if obj is None:
             return None
@@ -100,7 +100,8 @@ class EzsigntemplateListElement(BaseModel):
             "iEzsigntemplateSignaturetotal": obj.get("iEzsigntemplateSignaturetotal"),
             "iEzsigntemplateFormfieldtotal": obj.get("iEzsigntemplateFormfieldtotal"),
             "bEzsigntemplateIncomplete": obj.get("bEzsigntemplateIncomplete"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX")
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "eEzsigntemplateType": obj.get("eEzsigntemplateType")
         })
         return _obj
 

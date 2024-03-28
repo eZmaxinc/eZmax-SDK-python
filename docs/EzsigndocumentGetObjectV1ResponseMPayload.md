@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **s_ezsigndocument_externalid** | **str** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
 **i_ezsigndocument_ezsignsignatureattachmenttotal** | **int** | The number of Ezsigndocumentattachment total | 
+**i_ezsigndocument_ezsigndiscussiontotal** | **int** | The total number of Ezsigndiscussions | 
 **e_ezsigndocument_steptype** | [**ComputedEEzsigndocumentSteptype**](ComputedEEzsigndocumentSteptype.md) |  | 
 **i_ezsigndocument_stepformtotal** | **int** | The total number of steps in the form filling phase | 
 **i_ezsigndocument_stepformcurrent** | **int** | The current step in the form filling phase | 
@@ -45,7 +46,7 @@ json = "{}"
 # create an instance of EzsigndocumentGetObjectV1ResponseMPayload from a JSON string
 ezsigndocument_get_object_v1_response_m_payload_instance = EzsigndocumentGetObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsigndocumentGetObjectV1ResponseMPayload.to_json()
+print(EzsigndocumentGetObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsigndocument_get_object_v1_response_m_payload_dict = ezsigndocument_get_object_v1_response_m_payload_instance.to_dict()

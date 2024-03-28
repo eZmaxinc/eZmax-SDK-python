@@ -27,6 +27,13 @@ class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_ezsignfoldersignerassociation_create_embedded_url_v1(self) -> None:
+        """Test case for ezsignfoldersignerassociation_create_embedded_url_v1
+
+        Creates an Url to allow embedded signing
+        """
+        pass
+
     def test_ezsignfoldersignerassociation_create_object_v1(self) -> None:
         """Test case for ezsignfoldersignerassociation_create_object_v1
 

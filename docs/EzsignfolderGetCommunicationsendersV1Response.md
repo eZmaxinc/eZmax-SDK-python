@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfolderGetCommunicationsendersV1Response from a JSON string
 ezsignfolder_get_communicationsenders_v1_response_instance = EzsignfolderGetCommunicationsendersV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetCommunicationsendersV1Response.to_json()
+print(EzsignfolderGetCommunicationsendersV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_communicationsenders_v1_response_dict = ezsignfolder_get_communicationsenders_v1_response_instance.to_dict()

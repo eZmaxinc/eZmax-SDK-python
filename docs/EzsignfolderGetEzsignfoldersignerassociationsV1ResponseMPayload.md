@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload from a JSON string
 ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload_instance = EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.to_json()
+print(EzsignfolderGetEzsignfoldersignerassociationsV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload_dict = ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload_instance.to_dict()

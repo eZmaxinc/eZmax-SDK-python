@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response
 

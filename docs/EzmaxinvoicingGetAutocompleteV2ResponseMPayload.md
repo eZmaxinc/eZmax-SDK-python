@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzmaxinvoicingGetAutocompleteV2ResponseMPayload from a JSON string
 ezmaxinvoicing_get_autocomplete_v2_response_m_payload_instance = EzmaxinvoicingGetAutocompleteV2ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzmaxinvoicingGetAutocompleteV2ResponseMPayload.to_json()
+print(EzmaxinvoicingGetAutocompleteV2ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezmaxinvoicing_get_autocomplete_v2_response_m_payload_dict = ezmaxinvoicing_get_autocomplete_v2_response_m_payload_instance.to_dict()

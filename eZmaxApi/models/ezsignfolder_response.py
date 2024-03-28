@@ -18,29 +18,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, field_validator
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
 from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
 from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EzsignfolderResponse(BaseModel):
     """
     An Ezsignfolder Object
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     obj_ezsignfoldertype: Optional[CustomEzsignfoldertypeResponse] = Field(default=None, alias="objEzsignfoldertype")
-    e_ezsignfolder_completion: Optional[FieldEEzsignfolderCompletion] = Field(default=None, alias="eEzsignfolderCompletion")
+    e_ezsignfolder_completion: FieldEEzsignfolderCompletion = Field(alias="eEzsignfolderCompletion")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, alias="sEzsignfoldertypeNameX")
     fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_billingentityinternal_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
@@ -72,11 +68,11 @@ class EzsignfolderResponse(BaseModel):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -89,7 +85,7 @@ class EzsignfolderResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EzsignfolderResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -103,10 +99,12 @@ class EzsignfolderResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignfoldertype
@@ -118,7 +116,7 @@ class EzsignfolderResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfolderResponse from a dict"""
         if obj is None:
             return None
@@ -129,7 +127,7 @@ class EzsignfolderResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj.get("objEzsignfoldertype")) if obj.get("objEzsignfoldertype") is not None else None,
+            "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj["objEzsignfoldertype"]) if obj.get("objEzsignfoldertype") is not None else None,
             "eEzsignfolderCompletion": obj.get("eEzsignfolderCompletion"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
@@ -148,7 +146,7 @@ class EzsignfolderResponse(BaseModel):
             "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
             "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
             "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
             "sEzsignfolderExternalid": obj.get("sEzsignfolderExternalid")
         })
         return _obj

@@ -78,7 +78,7 @@ json = "{}"
 # create an instance of AttachmentResponseCompound from a JSON string
 attachment_response_compound_instance = AttachmentResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print AttachmentResponseCompound.to_json()
+print(AttachmentResponseCompound.to_json())
 
 # convert the object into a dict
 attachment_response_compound_dict = attachment_response_compound_instance.to_dict()

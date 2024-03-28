@@ -18,19 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from eZmaxApi.models.webhookheader_response_compound import WebhookheaderResponseCompound
+from typing import Optional, Set
+from typing_extensions import Self
 
 class CustomWebhookResponse(BaseModel):
     """
@@ -38,7 +35,7 @@ class CustomWebhookResponse(BaseModel):
     """ # noqa: E501
     pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
@@ -51,15 +48,17 @@ class CustomWebhookResponse(BaseModel):
     b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
     obj_audit: CommonAudit = Field(alias="objAudit")
+    s_webhook_event: Optional[StrictStr] = Field(default=None, description="The concatenated string to describe the Webhook event", alias="sWebhookEvent")
+    a_obj_webhookheader: Optional[List[WebhookheaderResponseCompound]] = Field(default=None, alias="a_objWebhookheader")
     pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
     b_webhook_test: StrictBool = Field(description="Wheter the webhook received is a manual test or a real event", alias="bWebhookTest")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "objAudit", "pksCustomerCode", "bWebhookTest"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "objAudit", "sWebhookEvent", "a_objWebhookheader", "pksCustomerCode", "bWebhookTest"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -72,7 +71,7 @@ class CustomWebhookResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of CustomWebhookResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -86,19 +85,28 @@ class CustomWebhookResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_webhookheader (list)
+        _items = []
+        if self.a_obj_webhookheader:
+            for _item in self.a_obj_webhookheader:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['a_objWebhookheader'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CustomWebhookResponse from a dict"""
         if obj is None:
             return None
@@ -121,7 +129,9 @@ class CustomWebhookResponse(BaseModel):
             "bWebhookIsactive": obj.get("bWebhookIsactive"),
             "bWebhookIssigned": obj.get("bWebhookIssigned"),
             "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation"),
-            "objAudit": CommonAudit.from_dict(obj.get("objAudit")) if obj.get("objAudit") is not None else None,
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
+            "sWebhookEvent": obj.get("sWebhookEvent"),
+            "a_objWebhookheader": [WebhookheaderResponseCompound.from_dict(_item) for _item in obj["a_objWebhookheader"]] if obj.get("a_objWebhookheader") is not None else None,
             "pksCustomerCode": obj.get("pksCustomerCode"),
             "bWebhookTest": obj.get("bWebhookTest")
         })

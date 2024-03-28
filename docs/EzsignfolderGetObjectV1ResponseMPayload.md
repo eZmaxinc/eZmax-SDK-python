@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **obj_ezsignfoldertype** | [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
-**e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | [optional] 
+**e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **s_ezsignfoldertype_name_x** | **str** |  | [optional] 
 **fki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | [optional] 
 **s_billingentityinternal_description_x** | **str** | The description of the Billingentityinternal in the language of the requester | [optional] 
@@ -40,7 +40,7 @@ json = "{}"
 # create an instance of EzsignfolderGetObjectV1ResponseMPayload from a JSON string
 ezsignfolder_get_object_v1_response_m_payload_instance = EzsignfolderGetObjectV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetObjectV1ResponseMPayload.to_json()
+print(EzsignfolderGetObjectV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_object_v1_response_m_payload_dict = ezsignfolder_get_object_v1_response_m_payload_instance.to_dict()

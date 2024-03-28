@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.common_get_report_v1_response_m_payload import CommonGetReportV1ResponseMPayload
 

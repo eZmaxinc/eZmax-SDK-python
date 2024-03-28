@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.address_request import AddressRequest
 
@@ -44,7 +43,9 @@ class TestAddressRequest(unittest.TestCase):
                 s_address_city = 'Laval',
                 fki_province_id = 11,
                 fki_country_id = 1,
-                s_address_zip = 'H7T2S3'
+                s_address_zip = 'H7T2S3',
+                f_address_longitude = 'doej',
+                f_address_latitude = 'doej'
             )
         else:
             return AddressRequest(

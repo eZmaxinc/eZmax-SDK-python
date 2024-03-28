@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound
 

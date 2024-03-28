@@ -19,7 +19,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationForceDisconnectV1Response from a JSON string
 ezsignfoldersignerassociation_force_disconnect_v1_response_instance = EzsignfoldersignerassociationForceDisconnectV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationForceDisconnectV1Response.to_json()
+print(EzsignfoldersignerassociationForceDisconnectV1Response.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_force_disconnect_v1_response_dict = ezsignfoldersignerassociation_force_disconnect_v1_response_instance.to_dict()

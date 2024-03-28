@@ -26,8 +26,6 @@ The endpoint allows to create one or many elements at once.  The array can conta
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_create_object_v1_request import EzsignsignatureCreateObjectV1Request
 from eZmaxApi.models.ezsignsignature_create_object_v1_response import EzsignsignatureCreateObjectV1Response
@@ -108,8 +106,6 @@ The endpoint allows to create one or many elements at once.
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_create_object_v2_request import EzsignsignatureCreateObjectV2Request
 from eZmaxApi.models.ezsignsignature_create_object_v2_response import EzsignsignatureCreateObjectV2Response
@@ -190,8 +186,6 @@ Delete an existing Ezsignsignature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
@@ -273,8 +267,6 @@ Edit an existing Ezsignsignature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_edit_object_v1_request import EzsignsignatureEditObjectV1Request
 from eZmaxApi.models.ezsignsignature_edit_object_v1_response import EzsignsignatureEditObjectV1Response
@@ -357,8 +349,6 @@ Retrieve an existing Ezsignsignature's Ezsignsignatureattachments
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatureattachment_v1_response import EzsignsignatureGetEzsignsignatureattachmentV1Response
 from eZmaxApi.rest import ApiException
@@ -440,8 +430,6 @@ Return all the Ezsignsignatures that can be signed by the current user
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatures_automatic_v1_response import EzsignsignatureGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.rest import ApiException
@@ -517,8 +505,6 @@ Retrieve an existing Ezsignsignature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_get_object_v2_response import EzsignsignatureGetObjectV2Response
 from eZmaxApi.rest import ApiException
@@ -599,8 +585,6 @@ Sign the Ezsignsignature
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignsignature_sign_v1_request import EzsignsignatureSignV1Request
 from eZmaxApi.models.ezsignsignature_sign_v1_response import EzsignsignatureSignV1Response

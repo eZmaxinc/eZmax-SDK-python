@@ -27,7 +27,7 @@ json = "{}"
 # create an instance of CommunicationRequest from a JSON string
 communication_request_instance = CommunicationRequest.from_json(json)
 # print the JSON string representation of the object
-print CommunicationRequest.to_json()
+print(CommunicationRequest.to_json())
 
 # convert the object into a dict
 communication_request_dict = communication_request_instance.to_dict()

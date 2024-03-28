@@ -13,14 +13,17 @@ Name | Type | Description | Notes
 **s_branding_name** | **str** | The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty | [optional] 
 **s_email_address** | **str** | The email address. | [optional] 
 **e_branding_logo** | [**FieldEBrandingLogo**](FieldEBrandingLogo.md) |  | 
+**e_branding_logointerface** | [**FieldEBrandingLogointerface**](FieldEBrandingLogointerface.md) |  | [optional] 
 **i_branding_colortext** | **int** | The color of the text. This is a RGB color converted into integer | 
 **i_branding_colortextlinkbox** | **int** | The color of the text in the link box. This is a RGB color converted into integer | 
 **i_branding_colortextbutton** | **int** | The color of the text in the button. This is a RGB color converted into integer | 
 **i_branding_colorbackground** | **int** | The color of the background. This is a RGB color converted into integer | 
 **i_branding_colorbackgroundbutton** | **int** | The color of the background of the button. This is a RGB color converted into integer | 
 **i_branding_colorbackgroundsmallbox** | **int** | The color of the background of the small box. This is a RGB color converted into integer | 
+**i_branding_interfacecolor** | **int** | The color of the interface. This is a RGB color converted into integer | [optional] 
 **b_branding_isactive** | **bool** | Whether the Branding is active or not | 
 **s_branding_logourl** | **str** | The url of the picture used as logo in the Branding | [optional] 
+**s_branding_logointerfaceurl** | **str** | The url of the picture used as logo in the Branding | [optional] 
 
 ## Example
 
@@ -32,7 +35,7 @@ json = "{}"
 # create an instance of BrandingResponseCompound from a JSON string
 branding_response_compound_instance = BrandingResponseCompound.from_json(json)
 # print the JSON string representation of the object
-print BrandingResponseCompound.to_json()
+print(BrandingResponseCompound.to_json())
 
 # convert the object into a dict
 branding_response_compound_dict = branding_response_compound_instance.to_dict()

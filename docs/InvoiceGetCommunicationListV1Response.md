@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of InvoiceGetCommunicationListV1Response from a JSON string
 invoice_get_communication_list_v1_response_instance = InvoiceGetCommunicationListV1Response.from_json(json)
 # print the JSON string representation of the object
-print InvoiceGetCommunicationListV1Response.to_json()
+print(InvoiceGetCommunicationListV1Response.to_json())
 
 # convert the object into a dict
 invoice_get_communication_list_v1_response_dict = invoice_get_communication_list_v1_response_instance.to_dict()

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UsergroupEditUsergroupdelegationsV1Response from a JSON string
 usergroup_edit_usergroupdelegations_v1_response_instance = UsergroupEditUsergroupdelegationsV1Response.from_json(json)
 # print the JSON string representation of the object
-print UsergroupEditUsergroupdelegationsV1Response.to_json()
+print(UsergroupEditUsergroupdelegationsV1Response.to_json())
 
 # convert the object into a dict
 usergroup_edit_usergroupdelegations_v1_response_dict = usergroup_edit_usergroupdelegations_v1_response_instance.to_dict()

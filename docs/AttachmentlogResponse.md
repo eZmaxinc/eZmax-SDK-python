@@ -22,7 +22,7 @@ json = "{}"
 # create an instance of AttachmentlogResponse from a JSON string
 attachmentlog_response_instance = AttachmentlogResponse.from_json(json)
 # print the JSON string representation of the object
-print AttachmentlogResponse.to_json()
+print(AttachmentlogResponse.to_json())
 
 # convert the object into a dict
 attachmentlog_response_dict = attachmentlog_response_instance.to_dict()

@@ -18,6 +18,7 @@ from eZmaxApi.api.object_clonehistory_api import ObjectClonehistoryApi
 from eZmaxApi.api.object_communication_api import ObjectCommunicationApi
 from eZmaxApi.api.object_company_api import ObjectCompanyApi
 from eZmaxApi.api.object_cors_api import ObjectCorsApi
+from eZmaxApi.api.object_country_api import ObjectCountryApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi
 from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembershipApi
@@ -44,6 +45,7 @@ from eZmaxApi.api.object_ezsignsigningreason_api import ObjectEzsignsigningreaso
 from eZmaxApi.api.object_ezsigntemplate_api import ObjectEzsigntemplateApi
 from eZmaxApi.api.object_ezsigntemplatedocument_api import ObjectEzsigntemplatedocumentApi
 from eZmaxApi.api.object_ezsigntemplateformfieldgroup_api import ObjectEzsigntemplateformfieldgroupApi
+from eZmaxApi.api.object_ezsigntemplateglobal_api import ObjectEzsigntemplateglobalApi
 from eZmaxApi.api.object_ezsigntemplatepackage_api import ObjectEzsigntemplatepackageApi
 from eZmaxApi.api.object_ezsigntemplatepackagemembership_api import ObjectEzsigntemplatepackagemembershipApi
 from eZmaxApi.api.object_ezsigntemplatepackagesigner_api import ObjectEzsigntemplatepackagesignerApi
@@ -60,6 +62,7 @@ from eZmaxApi.api.object_inscriptionnotauthenticated_api import ObjectInscriptio
 from eZmaxApi.api.object_inscriptiontemp_api import ObjectInscriptiontempApi
 from eZmaxApi.api.object_invoice_api import ObjectInvoiceApi
 from eZmaxApi.api.object_language_api import ObjectLanguageApi
+from eZmaxApi.api.object_module_api import ObjectModuleApi
 from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi
 from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi
 from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi
@@ -68,6 +71,7 @@ from eZmaxApi.api.object_paymentterm_api import ObjectPaymenttermApi
 from eZmaxApi.api.object_period_api import ObjectPeriodApi
 from eZmaxApi.api.object_permission_api import ObjectPermissionApi
 from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi
+from eZmaxApi.api.object_province_api import ObjectProvinceApi
 from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi
 from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi
 from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi
@@ -79,6 +83,7 @@ from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
 from eZmaxApi.api.object_user_api import ObjectUserApi
 from eZmaxApi.api.object_usergroup_api import ObjectUsergroupApi
 from eZmaxApi.api.object_usergroupdelegation_api import ObjectUsergroupdelegationApi
+from eZmaxApi.api.object_usergroupexternal_api import ObjectUsergroupexternalApi
 from eZmaxApi.api.object_usergroupmembership_api import ObjectUsergroupmembershipApi
 from eZmaxApi.api.object_userlogintype_api import ObjectUserlogintypeApi
 from eZmaxApi.api.object_userstaged_api import ObjectUserstagedApi

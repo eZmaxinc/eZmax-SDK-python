@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.custom_ezsignsignature_create_ezsignelements_positioned_by_word_request import CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest
 

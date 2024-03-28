@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of UsergroupdelegationRequestCompound from a JSON string
 usergroupdelegation_request_compound_instance = UsergroupdelegationRequestCompound.from_json(json)
 # print the JSON string representation of the object
-print UsergroupdelegationRequestCompound.to_json()
+print(UsergroupdelegationRequestCompound.to_json())
 
 # convert the object into a dict
 usergroupdelegation_request_compound_dict = usergroupdelegation_request_compound_instance.to_dict()

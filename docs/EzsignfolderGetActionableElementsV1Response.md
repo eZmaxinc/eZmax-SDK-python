@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of EzsignfolderGetActionableElementsV1Response from a JSON string
 ezsignfolder_get_actionable_elements_v1_response_instance = EzsignfolderGetActionableElementsV1Response.from_json(json)
 # print the JSON string representation of the object
-print EzsignfolderGetActionableElementsV1Response.to_json()
+print(EzsignfolderGetActionableElementsV1Response.to_json())
 
 # convert the object into a dict
 ezsignfolder_get_actionable_elements_v1_response_dict = ezsignfolder_get_actionable_elements_v1_response_instance.to_dict()

@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of EzsignfoldertypeAutocompleteElementResponse from a JSON string
 ezsignfoldertype_autocomplete_element_response_instance = EzsignfoldertypeAutocompleteElementResponse.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldertypeAutocompleteElementResponse.to_json()
+print(EzsignfoldertypeAutocompleteElementResponse.to_json())
 
 # convert the object into a dict
 ezsignfoldertype_autocomplete_element_response_dict = ezsignfoldertype_autocomplete_element_response_instance.to_dict()

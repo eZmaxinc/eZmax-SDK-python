@@ -19,8 +19,6 @@ Retrieve an existing Notificationtest's Elements
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.notificationtest_get_elements_v1_response import NotificationtestGetElementsV1Response
 from eZmaxApi.rest import ApiException

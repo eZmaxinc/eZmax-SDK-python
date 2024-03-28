@@ -24,7 +24,7 @@ json = "{}"
 # create an instance of CustomEzmaxinvoicingEzsignfolderResponse from a JSON string
 custom_ezmaxinvoicing_ezsignfolder_response_instance = CustomEzmaxinvoicingEzsignfolderResponse.from_json(json)
 # print the JSON string representation of the object
-print CustomEzmaxinvoicingEzsignfolderResponse.to_json()
+print(CustomEzmaxinvoicingEzsignfolderResponse.to_json())
 
 # convert the object into a dict
 custom_ezmaxinvoicing_ezsignfolder_response_dict = custom_ezmaxinvoicing_ezsignfolder_response_instance.to_dict()

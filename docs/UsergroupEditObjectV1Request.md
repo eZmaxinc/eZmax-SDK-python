@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of UsergroupEditObjectV1Request from a JSON string
 usergroup_edit_object_v1_request_instance = UsergroupEditObjectV1Request.from_json(json)
 # print the JSON string representation of the object
-print UsergroupEditObjectV1Request.to_json()
+print(UsergroupEditObjectV1Request.to_json())
 
 # convert the object into a dict
 usergroup_edit_object_v1_request_dict = usergroup_edit_object_v1_request_instance.to_dict()

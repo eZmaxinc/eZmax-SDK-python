@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of EzsignfoldersignerassociationCreateObjectV2Request from a JSON string
 ezsignfoldersignerassociation_create_object_v2_request_instance = EzsignfoldersignerassociationCreateObjectV2Request.from_json(json)
 # print the JSON string representation of the object
-print EzsignfoldersignerassociationCreateObjectV2Request.to_json()
+print(EzsignfoldersignerassociationCreateObjectV2Request.to_json())
 
 # convert the object into a dict
 ezsignfoldersignerassociation_create_object_v2_request_dict = ezsignfoldersignerassociation_create_object_v2_request_instance.to_dict()

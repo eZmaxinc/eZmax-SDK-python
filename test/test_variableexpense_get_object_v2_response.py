@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.variableexpense_get_object_v2_response import VariableexpenseGetObjectV2Response
 

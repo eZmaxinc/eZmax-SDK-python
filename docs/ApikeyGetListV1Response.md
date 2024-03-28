@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of ApikeyGetListV1Response from a JSON string
 apikey_get_list_v1_response_instance = ApikeyGetListV1Response.from_json(json)
 # print the JSON string representation of the object
-print ApikeyGetListV1Response.to_json()
+print(ApikeyGetListV1Response.to_json())
 
 # convert the object into a dict
 apikey_get_list_v1_response_dict = apikey_get_list_v1_response_instance.to_dict()

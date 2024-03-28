@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of SignatureGetObjectV2Response from a JSON string
 signature_get_object_v2_response_instance = SignatureGetObjectV2Response.from_json(json)
 # print the JSON string representation of the object
-print SignatureGetObjectV2Response.to_json()
+print(SignatureGetObjectV2Response.to_json())
 
 # convert the object into a dict
 signature_get_object_v2_response_dict = signature_get_object_v2_response_instance.to_dict()

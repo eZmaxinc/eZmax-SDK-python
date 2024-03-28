@@ -22,8 +22,6 @@ Retrieve an existing Ezsignbulksendtransmission's Csv containing errors
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.rest import ApiException
 from pprint import pprint
@@ -105,8 +103,6 @@ Return the Ezsignsignatures that can be signed by the current user at the curren
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response import EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.rest import ApiException
@@ -187,8 +183,6 @@ Retrieve an existing Ezsignbulksendtransmission's forms data
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendtransmission_get_forms_data_v1_response import EzsignbulksendtransmissionGetFormsDataV1Response
 from eZmaxApi.rest import ApiException
@@ -271,8 +265,6 @@ Retrieve an existing Ezsignbulksendtransmission
 * Api Key Authentication (Authorization):
 
 ```python
-import time
-import os
 import eZmaxApi
 from eZmaxApi.models.ezsignbulksendtransmission_get_object_v2_response import EzsignbulksendtransmissionGetObjectV2Response
 from eZmaxApi.rest import ApiException

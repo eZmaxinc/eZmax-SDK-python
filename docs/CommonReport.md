@@ -18,7 +18,7 @@ json = "{}"
 # create an instance of CommonReport from a JSON string
 common_report_instance = CommonReport.from_json(json)
 # print the JSON string representation of the object
-print CommonReport.to_json()
+print(CommonReport.to_json())
 
 # convert the object into a dict
 common_report_dict = common_report_instance.to_dict()

@@ -21,7 +21,7 @@ json = "{}"
 # create an instance of EzsignbulksendsignermappingRequest from a JSON string
 ezsignbulksendsignermapping_request_instance = EzsignbulksendsignermappingRequest.from_json(json)
 # print the JSON string representation of the object
-print EzsignbulksendsignermappingRequest.to_json()
+print(EzsignbulksendsignermappingRequest.to_json())
 
 # convert the object into a dict
 ezsignbulksendsignermapping_request_dict = ezsignbulksendsignermapping_request_instance.to_dict()

@@ -14,7 +14,6 @@
 
 
 import unittest
-import datetime
 
 from eZmaxApi.models.ezsigntemplate_get_list_v1_response_m_payload import EzsigntemplateGetListV1ResponseMPayload
 
@@ -49,7 +48,8 @@ class TestEzsigntemplateGetListV1ResponseMPayload(unittest.TestCase):
                         i_ezsigntemplate_signaturetotal = 8, 
                         i_ezsigntemplate_formfieldtotal = 8, 
                         b_ezsigntemplate_incomplete = False, 
-                        s_ezsignfoldertype_name_x = 'Default', )
+                        s_ezsignfoldertype_name_x = 'Default', 
+                        e_ezsigntemplate_type = 'Usergroup', )
                     ]
             )
         else:
@@ -66,7 +66,8 @@ class TestEzsigntemplateGetListV1ResponseMPayload(unittest.TestCase):
                         i_ezsigntemplate_signaturetotal = 8, 
                         i_ezsigntemplate_formfieldtotal = 8, 
                         b_ezsigntemplate_incomplete = False, 
-                        s_ezsignfoldertype_name_x = 'Default', )
+                        s_ezsignfoldertype_name_x = 'Default', 
+                        e_ezsigntemplate_type = 'Usergroup', )
                     ],
         )
         """

@@ -20,7 +20,7 @@ json = "{}"
 # create an instance of SessionhistoryGetListV1ResponseMPayload from a JSON string
 sessionhistory_get_list_v1_response_m_payload_instance = SessionhistoryGetListV1ResponseMPayload.from_json(json)
 # print the JSON string representation of the object
-print SessionhistoryGetListV1ResponseMPayload.to_json()
+print(SessionhistoryGetListV1ResponseMPayload.to_json())
 
 # convert the object into a dict
 sessionhistory_get_list_v1_response_m_payload_dict = sessionhistory_get_list_v1_response_m_payload_instance.to_dict()
