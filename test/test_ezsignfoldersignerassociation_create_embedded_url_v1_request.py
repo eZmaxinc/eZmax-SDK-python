@@ -38,7 +38,7 @@ class TestEzsignfoldersignerassociationCreateEmbeddedUrlV1Request(unittest.TestC
             return EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(
                 s_return_url = 'Https://www.example.com',
                 s_iframedomain = '*.example.com',
-                b_isiframe = True
+                b_is_iframe = True
             )
         else:
             return EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(

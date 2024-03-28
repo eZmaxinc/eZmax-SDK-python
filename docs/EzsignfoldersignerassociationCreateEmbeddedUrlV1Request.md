@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_return_url** | **str** | The return Url to redirect after the signing is completed | [optional] 
 **s_iframedomain** | **str** | Domain protection for the iFrame | [optional] 
-**b_isiframe** | **bool** | Whether the url would be in an iFrame or not | [optional] 
+**b_is_iframe** | **bool** | Whether the url would be in an iFrame or not | [optional] 
 
 ## Example
 

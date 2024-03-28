@@ -30,8 +30,8 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(BaseModel):
     """ # noqa: E501
     s_return_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The return Url to redirect after the signing is completed", alias="sReturnUrl")
     s_iframedomain: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Domain protection for the iFrame", alias="sIframedomain")
-    b_isiframe: Optional[StrictBool] = Field(default=None, description="Whether the url would be in an iFrame or not", alias="bIsiframe")
-    __properties: ClassVar[List[str]] = ["sReturnUrl", "sIframedomain", "bIsiframe"]
+    b_is_iframe: Optional[StrictBool] = Field(default=None, description="Whether the url would be in an iFrame or not", alias="bIsIframe")
+    __properties: ClassVar[List[str]] = ["sReturnUrl", "sIframedomain", "bIsIframe"]
 
     @field_validator('s_return_url')
     def s_return_url_validate_regular_expression(cls, value):
@@ -106,7 +106,7 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(BaseModel):
         _obj = cls.model_validate({
             "sReturnUrl": obj.get("sReturnUrl"),
             "sIframedomain": obj.get("sIframedomain"),
-            "bIsiframe": obj.get("bIsiframe")
+            "bIsIframe": obj.get("bIsIframe")
         })
         return _obj
 
