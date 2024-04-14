@@ -42,7 +42,8 @@ class TestUsergroupdelegationCreateObjectV1Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.usergroupdelegation_create_object_v1_response_m_payload.usergroupdelegation-createObject-v1-Response-mPayload(
                     a_pki_usergroupdelegation_id = [
@@ -57,7 +58,8 @@ class TestUsergroupdelegationCreateObjectV1Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.usergroupdelegation_create_object_v1_response_m_payload.usergroupdelegation-createObject-v1-Response-mPayload(
                     a_pki_usergroupdelegation_id = [
                         141

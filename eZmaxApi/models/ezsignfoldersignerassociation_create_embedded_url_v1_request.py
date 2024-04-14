@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(BaseModel):
     Request for POST /1/object/ezsignfoldersignerassociation/createEmbeddedUrl
     """ # noqa: E501
     s_return_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The return Url to redirect after the signing is completed", alias="sReturnUrl")
-    s_iframedomain: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Domain protection for the iFrame", alias="sIframedomain")
+    s_iframedomain: Optional[StrictStr] = Field(default=None, description="Domain protection for the iFrame", alias="sIframedomain")
     b_is_iframe: Optional[StrictBool] = Field(default=None, description="Whether the url would be in an iFrame or not", alias="bIsIframe")
     __properties: ClassVar[List[str]] = ["sReturnUrl", "sIframedomain", "bIsIframe"]
 
@@ -39,18 +39,8 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^.{0,2048}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,2048}$/")
-        return value
-
-    @field_validator('s_iframedomain')
-    def s_iframedomain_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,2048}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,2048}$/")
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(

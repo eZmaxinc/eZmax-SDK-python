@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -32,8 +32,15 @@ class EzsignfoldersignerassociationResponseCompoundUser(BaseModel):
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress"]
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -30,11 +30,18 @@ class UserstagedResponseCompound(BaseModel):
     """ # noqa: E501
     pki_userstaged_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Userstaged", alias="pkiUserstagedID")
     fki_email_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Email", alias="fkiEmailID")
-    s_email_address: StrictStr = Field(description="The email address.", alias="sEmailAddress")
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
     s_userstaged_firstname: Annotated[str, Field(strict=True)] = Field(description="The firstname of the Userstaged", alias="sUserstagedFirstname")
     s_userstaged_lastname: Annotated[str, Field(strict=True)] = Field(description="The lastname of the Userstaged", alias="sUserstagedLastname")
     s_userstaged_externalid: Annotated[str, Field(strict=True)] = Field(description="The externalid of the Userstaged", alias="sUserstagedExternalid")
     __properties: ClassVar[List[str]] = ["pkiUserstagedID", "fkiEmailID", "sEmailAddress", "sUserstagedFirstname", "sUserstagedLastname", "sUserstagedExternalid"]
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     @field_validator('s_userstaged_firstname')
     def s_userstaged_firstname_validate_regular_expression(cls, value):

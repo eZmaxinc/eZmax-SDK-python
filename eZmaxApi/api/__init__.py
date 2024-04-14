@@ -19,6 +19,8 @@ from eZmaxApi.api.object_communication_api import ObjectCommunicationApi
 from eZmaxApi.api.object_company_api import ObjectCompanyApi
 from eZmaxApi.api.object_cors_api import ObjectCorsApi
 from eZmaxApi.api.object_country_api import ObjectCountryApi
+from eZmaxApi.api.object_creditcardclient_api import ObjectCreditcardclientApi
+from eZmaxApi.api.object_creditcardtype_api import ObjectCreditcardtypeApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi
 from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembershipApi

@@ -48,7 +48,8 @@ Could you sign it before Monday please.
 
 Best Regards.
 
-Mary'
+Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True
             )
         else:
             return EzsignfoldersignerassociationResponse(
@@ -65,6 +66,7 @@ Could you sign it before Monday please.
 Best Regards.
 
 Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True,
         )
         """
 

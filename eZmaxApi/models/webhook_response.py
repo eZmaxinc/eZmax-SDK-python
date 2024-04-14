@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
@@ -39,7 +39,7 @@ class WebhookResponse(BaseModel):
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
-    s_webhook_url: StrictStr = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
+    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
     s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
     s_webhook_apikey: Optional[StrictStr] = Field(default=None, description="The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sWebhookApikey")
     s_webhook_secret: Optional[StrictStr] = Field(default=None, description="The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sWebhookSecret")
@@ -48,6 +48,13 @@ class WebhookResponse(BaseModel):
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "objAudit"]
+
+    @field_validator('s_webhook_url')
+    def s_webhook_url_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

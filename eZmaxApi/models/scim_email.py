@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +28,19 @@ class ScimEmail(BaseModel):
     """
     ScimEmail
     """ # noqa: E501
-    value: Optional[StrictStr] = Field(default=None, description="The email address.")
+    value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.")
     primary: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["value", "primary"]
+
+    @field_validator('value')
+    def value_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

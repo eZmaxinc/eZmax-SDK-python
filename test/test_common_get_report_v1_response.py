@@ -42,7 +42,8 @@ class TestCommonGetReportV1Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.common_get_report_v1_response_m_payload.Common-getReport-v1-Response-mPayload(
                     obj_reportgroup = eZmaxApi.models.common_reportgroup.Common-Reportgroup(
@@ -114,7 +115,8 @@ class TestCommonGetReportV1Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.common_get_report_v1_response_m_payload.Common-getReport-v1-Response-mPayload(
                     obj_reportgroup = eZmaxApi.models.common_reportgroup.Common-Reportgroup(
                         a_obj_report = [

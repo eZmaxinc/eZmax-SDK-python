@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_communicationexternalrecipient_type import FieldECommunicationexternalrecipientType
@@ -30,11 +30,21 @@ class CommunicationexternalrecipientRequest(BaseModel):
     A Communicationexternalrecipient Object
     """ # noqa: E501
     pki_communicationexternalrecipient_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationexternalrecipient", alias="pkiCommunicationexternalrecipientID")
-    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
     e_communicationexternalrecipient_type: Optional[FieldECommunicationexternalrecipientType] = Field(default=None, alias="eCommunicationexternalrecipientType")
     s_communicationexternalrecipient_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Communicationexternalrecipient", alias="sCommunicationexternalrecipientName")
     __properties: ClassVar[List[str]] = ["pkiCommunicationexternalrecipientID", "sEmailAddress", "sPhoneE164", "eCommunicationexternalrecipientType", "sCommunicationexternalrecipientName"]
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     @field_validator('s_phone_e164')
     def s_phone_e164_validate_regular_expression(cls, value):

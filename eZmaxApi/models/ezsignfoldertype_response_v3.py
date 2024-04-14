@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfoldertype_completion import FieldEEzsignfoldertypeCompletion
@@ -43,8 +43,8 @@ class EzsignfoldertypeResponseV3(BaseModel):
     s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
     s_billingentityinternal_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
     s_ezsigntsarequirement_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntsarequirement in the language of the requester", alias="sEzsigntsarequirementDescriptionX")
-    s_email_address_signed: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddressSigned")
-    s_email_address_summary: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddressSummary")
+    s_email_address_signed: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddressSigned")
+    s_email_address_summary: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddressSummary")
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
     e_ezsignfoldertype_sendreminderfrequency: Optional[FieldEEzsignfoldertypeSendreminderfrequency] = Field(default=None, alias="eEzsignfoldertypeSendreminderfrequency")
     i_ezsignfoldertype_archivaldays: Annotated[int, Field(le=180, strict=True, ge=0)] = Field(description="The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype", alias="iEzsignfoldertypeArchivaldays")
@@ -82,6 +82,26 @@ class EzsignfoldertypeResponseV3(BaseModel):
     a_obj_usergroup_restricted: Optional[List[UsergroupResponse]] = Field(default=None, alias="a_objUsergroupRestricted")
     a_obj_usergroup_template: Optional[List[UsergroupResponse]] = Field(default=None, alias="a_objUsergroupTemplate")
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "objEzsignfoldertypeName", "fkiBrandingID", "fkiBillingentityinternalID", "fkiEzsigntsarequirementID", "sBrandingDescriptionX", "sBillingentityinternalDescriptionX", "sEzsigntsarequirementDescriptionX", "sEmailAddressSigned", "sEmailAddressSummary", "eEzsignfoldertypePrivacylevel", "eEzsignfoldertypeSendreminderfrequency", "iEzsignfoldertypeArchivaldays", "eEzsignfoldertypeDisposal", "eEzsignfoldertypeCompletion", "iEzsignfoldertypeDisposaldays", "iEzsignfoldertypeDeadlinedays", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeSendsignedtoezsignsigner", "bEzsignfoldertypeSendsignedtouser", "bEzsignfoldertypeSendattachmentezsignsigner", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeSendattachmentuser", "bEzsignfoldertypeSendproofuser", "bEzsignfoldertypeSendproofemail", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeSendproofreceivealldocument", "bEzsignfoldertypeSendsignedtodocumentowner", "bEzsignfoldertypeSendsignedtofolderowner", "bEzsignfoldertypeSendsignedtofullgroup", "bEzsignfoldertypeSendsignedtolimitedgroup", "bEzsignfoldertypeSendsignedtocolleague", "bEzsignfoldertypeSendsummarytodocumentowner", "bEzsignfoldertypeSendsummarytofolderowner", "bEzsignfoldertypeSendsummarytofullgroup", "bEzsignfoldertypeSendsummarytolimitedgroup", "bEzsignfoldertypeSendsummarytocolleague", "bEzsignfoldertypeIsactive", "a_objUserlogintype", "a_objUsergroupAll", "a_objUsergroupRestricted", "a_objUsergroupTemplate"]
+
+    @field_validator('s_email_address_signed')
+    def s_email_address_signed_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
+
+    @field_validator('s_email_address_summary')
+    def s_email_address_summary_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

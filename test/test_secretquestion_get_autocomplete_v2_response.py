@@ -42,7 +42,8 @@ class TestSecretquestionGetAutocompleteV2Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.secretquestion_get_autocomplete_v2_response_m_payload.secretquestion-getAutocomplete-v2-Response-mPayload(
                     a_obj_secretquestion = [
@@ -60,7 +61,8 @@ class TestSecretquestionGetAutocompleteV2Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.secretquestion_get_autocomplete_v2_response_m_payload.secretquestion-getAutocomplete-v2-Response-mPayload(
                     a_obj_secretquestion = [
                         eZmaxApi.models.secretquestion_autocomplete_element_response.secretquestion-AutocompleteElement-Response(

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
@@ -32,7 +33,7 @@ class WebhookListElement(BaseModel):
     """ # noqa: E501
     pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
-    s_webhook_url: StrictStr = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
+    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
     s_webhook_event: StrictStr = Field(description="The concatenated string to describe the Webhook event", alias="sWebhookEvent")
     s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
@@ -41,6 +42,13 @@ class WebhookListElement(BaseModel):
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
     b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "bWebhookIsactive", "bWebhookIssigned"]
+
+    @field_validator('s_webhook_url')
+    def s_webhook_url_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -35,7 +35,7 @@ class UsergroupmembershipResponseCompound(BaseModel):
     s_user_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the user", alias="sUserFirstname")
     s_user_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the user", alias="sUserLastname")
     s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname")
-    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
     s_usergroupexternal_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
     __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX", "sUsergroupexternalName"]
@@ -46,8 +46,18 @@ class UsergroupmembershipResponseCompound(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$", value):
-            raise ValueError(r"must validate the regular expression /^(?:([\w\.-]+@[\w\.-]+\.\w{2,20})|([a-zA-Z0-9]){1,32})$/")
+        if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
+            raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
+        return value
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
     @field_validator('s_usergroup_name_x')

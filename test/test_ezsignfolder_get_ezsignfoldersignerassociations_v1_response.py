@@ -42,7 +42,8 @@ class TestEzsignfolderGetEzsignfoldersignerassociationsV1Response(unittest.TestC
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload.ezsignfolder-getEzsignfoldersignerassociations-v1-Response-mPayload(
                     a_obj_ezsignfoldersignerassociation = [
@@ -57,7 +58,8 @@ class TestEzsignfolderGetEzsignfoldersignerassociationsV1Response(unittest.TestC
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignfolder_get_ezsignfoldersignerassociations_v1_response_m_payload.ezsignfolder-getEzsignfoldersignerassociations-v1-Response-mPayload(
                     a_obj_ezsignfoldersignerassociation = [
                         eZmaxApi.models.custom_ezsignfoldersignerassociation_actionable_element_response.Custom-EzsignfoldersignerassociationActionableElement-Response()

@@ -36,10 +36,11 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
     b_ezsignfoldersignerassociation_delayedsend: StrictBool = Field(description="If this flag is true the signatory is part of a delayed send.", alias="bEzsignfoldersignerassociationDelayedsend")
     b_ezsignfoldersignerassociation_receivecopy: StrictBool = Field(description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
     t_ezsignfoldersignerassociation_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
+    b_ezsignfoldersignerassociation_allowsigninginperson: StrictBool = Field(description="If the Ezsignfoldersignerassociation is allowed to sign in person or not", alias="bEzsignfoldersignerassociationAllowsigninginperson")
     obj_ezsignsignergroup: Optional[EzsignsignergroupResponseCompound] = Field(default=None, alias="objEzsignsignergroup")
     obj_user: Optional[EzsignfoldersignerassociationResponseCompoundUser] = Field(default=None, alias="objUser")
     obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(default=None, alias="objEzsignsigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationDelayedsend", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "objEzsignsignergroup", "objUser", "objEzsignsigner"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationDelayedsend", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "bEzsignfoldersignerassociationAllowsigninginperson", "objEzsignsignergroup", "objUser", "objEzsignsigner"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +107,7 @@ class EzsignfoldersignerassociationGetObjectV1ResponseMPayload(BaseModel):
             "bEzsignfoldersignerassociationDelayedsend": obj.get("bEzsignfoldersignerassociationDelayedsend"),
             "bEzsignfoldersignerassociationReceivecopy": obj.get("bEzsignfoldersignerassociationReceivecopy"),
             "tEzsignfoldersignerassociationMessage": obj.get("tEzsignfoldersignerassociationMessage"),
+            "bEzsignfoldersignerassociationAllowsigninginperson": obj.get("bEzsignfoldersignerassociationAllowsigninginperson"),
             "objEzsignsignergroup": EzsignsignergroupResponseCompound.from_dict(obj["objEzsignsignergroup"]) if obj.get("objEzsignsignergroup") is not None else None,
             "objUser": EzsignfoldersignerassociationResponseCompoundUser.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None,
             "objEzsignsigner": EzsignsignerResponseCompound.from_dict(obj["objEzsignsigner"]) if obj.get("objEzsignsigner") is not None else None

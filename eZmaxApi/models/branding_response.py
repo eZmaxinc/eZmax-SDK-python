@@ -36,7 +36,7 @@ class BrandingResponse(BaseModel):
     obj_branding_description: MultilingualBrandingDescription = Field(alias="objBrandingDescription")
     s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
     s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
-    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     e_branding_logo: FieldEBrandingLogo = Field(alias="eBrandingLogo")
     e_branding_logointerface: Optional[FieldEBrandingLogointerface] = Field(default=None, alias="eBrandingLogointerface")
     i_branding_colortext: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The color of the text. This is a RGB color converted into integer", alias="iBrandingColortext")
@@ -57,6 +57,16 @@ class BrandingResponse(BaseModel):
 
         if not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
+        return value
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
     model_config = ConfigDict(

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,8 @@ class CommonResponseObjDebugPayload(BaseModel):
     i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax")
     a_required_permission: List[StrictInt] = Field(description="An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.", alias="a_RequiredPermission")
     b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated")
-    __properties: ClassVar[List[str]] = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated"]
+    dt_response_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtResponseDate")
+    __properties: ClassVar[List[str]] = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated", "dtResponseDate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +88,8 @@ class CommonResponseObjDebugPayload(BaseModel):
             "iVersionMin": obj.get("iVersionMin"),
             "iVersionMax": obj.get("iVersionMax"),
             "a_RequiredPermission": obj.get("a_RequiredPermission"),
-            "bVersionDeprecated": obj.get("bVersionDeprecated")
+            "bVersionDeprecated": obj.get("bVersionDeprecated"),
+            "dtResponseDate": obj.get("dtResponseDate")
         })
         return _obj
 

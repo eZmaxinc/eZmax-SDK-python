@@ -42,7 +42,8 @@ class TestEzsignbulksendsignermappingGetObjectV2Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignbulksendsignermapping_get_object_v2_response_m_payload.ezsignbulksendsignermapping-getObject-v2-Response-mPayload(
                     obj_ezsignbulksendsignermapping = eZmaxApi.models.ezsignbulksendsignermapping_response_compound.ezsignbulksendsignermapping-ResponseCompound(), )
@@ -55,7 +56,8 @@ class TestEzsignbulksendsignermappingGetObjectV2Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignbulksendsignermapping_get_object_v2_response_m_payload.ezsignbulksendsignermapping-getObject-v2-Response-mPayload(
                     obj_ezsignbulksendsignermapping = eZmaxApi.models.ezsignbulksendsignermapping_response_compound.ezsignbulksendsignermapping-ResponseCompound(), ),
         )

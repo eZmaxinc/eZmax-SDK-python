@@ -42,6 +42,7 @@ class TestCommonResponseObjDebugPayloadGetList(unittest.TestCase):
                     117
                     ],
                 b_version_deprecated = False,
+                dt_response_date = '2020-12-31 23:59:59',
                 a_filter = eZmaxApi.models.common_response_filter.Common-Response-Filter(
                     a_auto_type = {
                         'key' : ''
@@ -68,6 +69,7 @@ class TestCommonResponseObjDebugPayloadGetList(unittest.TestCase):
                     117
                     ],
                 b_version_deprecated = False,
+                dt_response_date = '2020-12-31 23:59:59',
                 a_filter = eZmaxApi.models.common_response_filter.Common-Response-Filter(
                     a_auto_type = {
                         'key' : ''

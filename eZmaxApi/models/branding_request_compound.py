@@ -45,7 +45,7 @@ class BrandingRequestCompound(BaseModel):
     i_branding_colorbackgroundsmallbox: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The color of the background of the small box. This is a RGB color converted into integer", alias="iBrandingColorbackgroundsmallbox")
     i_branding_interfacecolor: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The color of the interface. This is a RGB color converted into integer", alias="iBrandingInterfacecolor")
     s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
-    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "objBrandingDescription", "eBrandingLogo", "sBrandingBase64", "eBrandingLogointerface", "sBrandingLogointerfaceBase64", "iBrandingColortext", "iBrandingColortextlinkbox", "iBrandingColortextbutton", "iBrandingColorbackground", "iBrandingColorbackgroundbutton", "iBrandingColorbackgroundsmallbox", "iBrandingInterfacecolor", "sBrandingName", "sEmailAddress", "bBrandingIsactive"]
 
@@ -57,6 +57,16 @@ class BrandingRequestCompound(BaseModel):
 
         if not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
+        return value
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
     model_config = ConfigDict(

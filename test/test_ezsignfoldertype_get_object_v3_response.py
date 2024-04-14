@@ -42,7 +42,8 @@ class TestEzsignfoldertypeGetObjectV3Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignfoldertype_get_object_v3_response_m_payload.ezsignfoldertype-getObject-v3-Response-mPayload(
                     obj_ezsignfoldertype = eZmaxApi.models.ezsignfoldertype_response_compound_v3.ezsignfoldertype-ResponseCompoundV3(), )
@@ -55,7 +56,8 @@ class TestEzsignfoldertypeGetObjectV3Response(unittest.TestCase):
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignfoldertype_get_object_v3_response_m_payload.ezsignfoldertype-getObject-v3-Response-mPayload(
                     obj_ezsignfoldertype = eZmaxApi.models.ezsignfoldertype_response_compound_v3.ezsignfoldertype-ResponseCompoundV3(), ),
         )

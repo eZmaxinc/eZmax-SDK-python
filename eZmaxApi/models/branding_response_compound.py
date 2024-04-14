@@ -36,7 +36,7 @@ class BrandingResponseCompound(BaseModel):
     obj_branding_description: MultilingualBrandingDescription = Field(alias="objBrandingDescription")
     s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
     s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
-    s_email_address: Optional[StrictStr] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     e_branding_logo: FieldEBrandingLogo = Field(alias="eBrandingLogo")
     e_branding_logointerface: Optional[FieldEBrandingLogointerface] = Field(default=None, alias="eBrandingLogointerface")
     i_branding_colortext: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The color of the text. This is a RGB color converted into integer", alias="iBrandingColortext")
@@ -47,8 +47,8 @@ class BrandingResponseCompound(BaseModel):
     i_branding_colorbackgroundsmallbox: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The color of the background of the small box. This is a RGB color converted into integer", alias="iBrandingColorbackgroundsmallbox")
     i_branding_interfacecolor: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The color of the interface. This is a RGB color converted into integer", alias="iBrandingInterfacecolor")
     b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
-    s_branding_logourl: Optional[StrictStr] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogourl")
-    s_branding_logointerfaceurl: Optional[StrictStr] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl")
+    s_branding_logourl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogourl")
+    s_branding_logointerfaceurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl")
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "fkiEmailID", "objBrandingDescription", "sBrandingDescriptionX", "sBrandingName", "sEmailAddress", "eBrandingLogo", "eBrandingLogointerface", "iBrandingColortext", "iBrandingColortextlinkbox", "iBrandingColortextbutton", "iBrandingColorbackground", "iBrandingColorbackgroundbutton", "iBrandingColorbackgroundsmallbox", "iBrandingInterfacecolor", "bBrandingIsactive", "sBrandingLogourl", "sBrandingLogointerfaceurl"]
 
     @field_validator('s_branding_name')
@@ -59,6 +59,36 @@ class BrandingResponseCompound(BaseModel):
 
         if not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
+        return value
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
+
+    @field_validator('s_branding_logourl')
+    def s_branding_logourl_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
+        return value
+
+    @field_validator('s_branding_logointerfaceurl')
+    def s_branding_logointerfaceurl_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(

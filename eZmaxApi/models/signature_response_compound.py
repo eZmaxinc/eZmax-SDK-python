@@ -35,8 +35,8 @@ class SignatureResponseCompound(BaseModel):
     @field_validator('s_signature_url')
     def s_signature_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^.{0,2048}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,2048}$/")
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(

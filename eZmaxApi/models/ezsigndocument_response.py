@@ -61,8 +61,8 @@ class EzsigndocumentResponse(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^.{0,64}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,64}$/")
+        if not re.match(r"^.{0,128}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 
     model_config = ConfigDict(

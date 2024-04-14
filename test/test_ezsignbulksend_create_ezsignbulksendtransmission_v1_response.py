@@ -42,7 +42,8 @@ class TestEzsignbulksendCreateEzsignbulksendtransmissionV1Response(unittest.Test
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_response_m_payload.ezsignbulksend-createEzsignbulksendtransmission-v1-Response-mPayload(
                     obj_ezsignbulksendtransmission = eZmaxApi.models.ezsignbulksendtransmission_response.ezsignbulksendtransmission-Response(
@@ -76,7 +77,8 @@ class TestEzsignbulksendCreateEzsignbulksendtransmissionV1Response(unittest.Test
                     a_required_permission = [
                         117
                         ], 
-                    b_version_deprecated = False, ),
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_response_m_payload.ezsignbulksend-createEzsignbulksendtransmission-v1-Response-mPayload(
                     obj_ezsignbulksendtransmission = eZmaxApi.models.ezsignbulksendtransmission_response.ezsignbulksendtransmission-Response(
                         pki_ezsignbulksendtransmission_id = 21, 

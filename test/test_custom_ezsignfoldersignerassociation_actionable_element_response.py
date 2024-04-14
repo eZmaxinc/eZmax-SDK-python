@@ -49,6 +49,7 @@ Could you sign it before Monday please.
 Best Regards.
 
 Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True,
                 obj_ezsignsignergroup = eZmaxApi.models.ezsignsignergroup_response_compound.ezsignsignergroup-ResponseCompound(),
                 obj_user = eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user.ezsignfoldersignerassociation-ResponseCompound-User(
                     pki_user_id = 70, 
@@ -75,6 +76,7 @@ Could you sign it before Monday please.
 Best Regards.
 
 Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True,
                 b_ezsignfoldersignerassociation_hasactionableelements_current = True,
                 b_ezsignfoldersignerassociation_hasactionableelements_future = True,
         )

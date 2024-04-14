@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
@@ -31,7 +31,7 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
     """ # noqa: E501
     s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
-    s_temporary_file_url: Optional[StrictStr] = Field(default=None, description="The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.", alias="sTemporaryFileUrl")
+    s_temporary_file_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.", alias="sTemporaryFileUrl")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "sTemporaryFileUrl"]
 
     @field_validator('s_error_message')
@@ -39,6 +39,16 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
         """Validates the regular expression"""
         if not re.match(r"^.{0,500}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,500}$/")
+        return value
+
+    @field_validator('s_temporary_file_url')
+    def s_temporary_file_url_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(

@@ -41,7 +41,8 @@ class TestCommonResponseObjDebugPayload(unittest.TestCase):
                 a_required_permission = [
                     117
                     ],
-                b_version_deprecated = False
+                b_version_deprecated = False,
+                dt_response_date = '2020-12-31 23:59:59'
             )
         else:
             return CommonResponseObjDebugPayload(
@@ -51,6 +52,7 @@ class TestCommonResponseObjDebugPayload(unittest.TestCase):
                     117
                     ],
                 b_version_deprecated = False,
+                dt_response_date = '2020-12-31 23:59:59',
         )
         """
 
