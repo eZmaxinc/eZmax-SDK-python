@@ -27,7 +27,7 @@ print(NotificationsubsectionResponse.to_json())
 # convert the object into a dict
 notificationsubsection_response_dict = notificationsubsection_response_instance.to_dict()
 # create an instance of NotificationsubsectionResponse from a dict
-notificationsubsection_response_form_dict = notificationsubsection_response.from_dict(notificationsubsection_response_dict)
+notificationsubsection_response_from_dict = NotificationsubsectionResponse.from_dict(notificationsubsection_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

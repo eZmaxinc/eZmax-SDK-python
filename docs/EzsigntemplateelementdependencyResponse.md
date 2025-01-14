@@ -31,7 +31,7 @@ print(EzsigntemplateelementdependencyResponse.to_json())
 # convert the object into a dict
 ezsigntemplateelementdependency_response_dict = ezsigntemplateelementdependency_response_instance.to_dict()
 # create an instance of EzsigntemplateelementdependencyResponse from a dict
-ezsigntemplateelementdependency_response_form_dict = ezsigntemplateelementdependency_response.from_dict(ezsigntemplateelementdependency_response_dict)
+ezsigntemplateelementdependency_response_from_dict = EzsigntemplateelementdependencyResponse.from_dict(ezsigntemplateelementdependency_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

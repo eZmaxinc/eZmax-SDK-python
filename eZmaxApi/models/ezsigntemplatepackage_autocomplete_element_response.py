@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
@@ -30,11 +30,18 @@ class EzsigntemplatepackageAutocompleteElementResponse(BaseModel):
     A Ezsigntemplatepackage AutocompleteElement Response
     """ # noqa: E501
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
-    s_ezsigntemplatepackage_description: StrictStr = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
+    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
     pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
     b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
     b_disabled: StrictBool = Field(description="Indicates if the element is disabled in the context", alias="bDisabled")
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplatepackageDescription", "pkiEzsigntemplatepackageID", "bEzsigntemplatepackageIsactive", "bDisabled"]
+
+    @field_validator('s_ezsigntemplatepackage_description')
+    def s_ezsigntemplatepackage_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

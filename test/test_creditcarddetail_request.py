@@ -28,7 +28,7 @@ class TestCreditcarddetailRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreditcarddetailRequest:
         """Test CreditcarddetailRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreditcarddetailRequest`
@@ -46,6 +46,9 @@ class TestCreditcarddetailRequest(unittest.TestCase):
             return CreditcarddetailRequest(
                 i_creditcarddetail_expirationmonth = 10,
                 i_creditcarddetail_expirationyear = 2024,
+                s_creditcarddetail_civic = '2500',
+                s_creditcarddetail_street = 'Daniel-Johnson Blvd.',
+                s_creditcarddetail_zip = 'H7T 2P6',
         )
         """
 

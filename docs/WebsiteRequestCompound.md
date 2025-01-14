@@ -6,6 +6,7 @@ A Website Object and children to create a complete structure
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_website_id** | **int** | The unique ID of the Website Default | [optional] 
 **fki_websitetype_id** | **int** | The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey| | 
 **s_website_address** | **str** | The URL of the website. | 
 
@@ -24,7 +25,7 @@ print(WebsiteRequestCompound.to_json())
 # convert the object into a dict
 website_request_compound_dict = website_request_compound_instance.to_dict()
 # create an instance of WebsiteRequestCompound from a dict
-website_request_compound_form_dict = website_request_compound.from_dict(website_request_compound_dict)
+website_request_compound_from_dict = WebsiteRequestCompound.from_dict(website_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

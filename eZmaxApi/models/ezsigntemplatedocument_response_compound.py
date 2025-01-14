@@ -33,8 +33,9 @@ class EzsigntemplatedocumentResponseCompound(BaseModel):
     s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
     i_ezsigntemplatedocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal")
     i_ezsigntemplatedocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplatedocumentSignaturetotal")
+    i_ezsigntemplatedocument_formfieldtotal: StrictInt = Field(description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplatedocumentFormfieldtotal")
     b_ezsigntemplatedocument_hassignedsignatures: StrictBool = Field(description="If the Ezsigntemplatedocument contains signed signatures (From internal or external sources)", alias="bEzsigntemplatedocumentHassignedsignatures")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "sEzsigntemplatedocumentName", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplatedocumentSignaturetotal", "bEzsigntemplatedocumentHassignedsignatures"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "sEzsigntemplatedocumentName", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplatedocumentSignaturetotal", "iEzsigntemplatedocumentFormfieldtotal", "bEzsigntemplatedocumentHassignedsignatures"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,7 @@ class EzsigntemplatedocumentResponseCompound(BaseModel):
             "sEzsigntemplatedocumentName": obj.get("sEzsigntemplatedocumentName"),
             "iEzsigntemplatedocumentPagetotal": obj.get("iEzsigntemplatedocumentPagetotal"),
             "iEzsigntemplatedocumentSignaturetotal": obj.get("iEzsigntemplatedocumentSignaturetotal"),
+            "iEzsigntemplatedocumentFormfieldtotal": obj.get("iEzsigntemplatedocumentFormfieldtotal"),
             "bEzsigntemplatedocumentHassignedsignatures": obj.get("bEzsigntemplatedocumentHassignedsignatures")
         })
         return _obj

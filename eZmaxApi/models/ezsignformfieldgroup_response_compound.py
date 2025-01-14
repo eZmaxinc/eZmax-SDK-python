@@ -41,7 +41,7 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
     e_ezsignformfieldgroup_signerrequirement: Optional[FieldEEzsignformfieldgroupSignerrequirement] = Field(default=None, alias="eEzsignformfieldgroupSignerrequirement")
     s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
     i_ezsignformfieldgroup_step: Annotated[int, Field(strict=True, ge=1)] = Field(description="The step when the Ezsignsigner will be invited to fill the form fields", alias="iEzsignformfieldgroupStep")
-    s_ezsignformfieldgroup_defaultvalue: Optional[StrictStr] = Field(default=None, description="The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |", alias="sEzsignformfieldgroupDefaultvalue")
+    s_ezsignformfieldgroup_defaultvalue: Optional[StrictStr] = Field(default=None, description="The default value for the Ezsignformfieldgroup  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |", alias="sEzsignformfieldgroupDefaultvalue")
     i_ezsignformfieldgroup_filledmin: Annotated[int, Field(strict=True, ge=0)] = Field(description="The minimum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup", alias="iEzsignformfieldgroupFilledmin")
     i_ezsignformfieldgroup_filledmax: Annotated[int, Field(strict=True, ge=0)] = Field(description="The maximum number of Ezsignformfield that must be filled in the Ezsignformfieldgroup", alias="iEzsignformfieldgroupFilledmax")
     b_ezsignformfieldgroup_readonly: StrictBool = Field(description="Whether the Ezsignformfieldgroup is read only or not.", alias="bEzsignformfieldgroupReadonly")
@@ -49,12 +49,13 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
     b_ezsignformfieldgroup_encrypted: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**", alias="bEzsignformfieldgroupEncrypted")
     e_ezsignformfieldgroup_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsignformfieldgroupTextvalidation")
     s_ezsignformfieldgroup_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsignformfieldgroup.  This can only be set if eEzsignformfieldgroupType is **Text** or **Textarea**", alias="sEzsignformfieldgroupRegexp")
+    s_ezsignformfieldgroup_textvalidationcustommessage: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=50)]] = Field(default=None, description="Description of validation rule. Show by signatory.", alias="sEzsignformfieldgroupTextvalidationcustommessage")
     t_ezsignformfieldgroup_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup", alias="tEzsignformfieldgroupTooltip")
     e_ezsignformfieldgroup_tooltipposition: Optional[FieldEEzsignformfieldgroupTooltipposition] = Field(default=None, alias="eEzsignformfieldgroupTooltipposition")
     a_obj_ezsignformfield: List[EzsignformfieldResponseCompound] = Field(alias="a_objEzsignformfield")
     a_obj_dropdown_element: Optional[List[CustomDropdownElementResponseCompound]] = Field(default=None, alias="a_objDropdownElement")
     a_obj_ezsignformfieldgroupsigner: List[EzsignformfieldgroupsignerResponseCompound] = Field(alias="a_objEzsignformfieldgroupsigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupID", "fkiEzsigndocumentID", "eEzsignformfieldgroupType", "eEzsignformfieldgroupSignerrequirement", "sEzsignformfieldgroupLabel", "iEzsignformfieldgroupStep", "sEzsignformfieldgroupDefaultvalue", "iEzsignformfieldgroupFilledmin", "iEzsignformfieldgroupFilledmax", "bEzsignformfieldgroupReadonly", "iEzsignformfieldgroupMaxlength", "bEzsignformfieldgroupEncrypted", "eEzsignformfieldgroupTextvalidation", "sEzsignformfieldgroupRegexp", "tEzsignformfieldgroupTooltip", "eEzsignformfieldgroupTooltipposition", "a_objEzsignformfield", "a_objDropdownElement", "a_objEzsignformfieldgroupsigner"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupID", "fkiEzsigndocumentID", "eEzsignformfieldgroupType", "eEzsignformfieldgroupSignerrequirement", "sEzsignformfieldgroupLabel", "iEzsignformfieldgroupStep", "sEzsignformfieldgroupDefaultvalue", "iEzsignformfieldgroupFilledmin", "iEzsignformfieldgroupFilledmax", "bEzsignformfieldgroupReadonly", "iEzsignformfieldgroupMaxlength", "bEzsignformfieldgroupEncrypted", "eEzsignformfieldgroupTextvalidation", "sEzsignformfieldgroupRegexp", "sEzsignformfieldgroupTextvalidationcustommessage", "tEzsignformfieldgroupTooltip", "eEzsignformfieldgroupTooltipposition", "a_objEzsignformfield", "a_objDropdownElement", "a_objEzsignformfieldgroupsigner"]
 
     @field_validator('s_ezsignformfieldgroup_regexp')
     def s_ezsignformfieldgroup_regexp_validate_regular_expression(cls, value):
@@ -108,23 +109,23 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfield (list)
         _items = []
         if self.a_obj_ezsignformfield:
-            for _item in self.a_obj_ezsignformfield:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignformfield in self.a_obj_ezsignformfield:
+                if _item_a_obj_ezsignformfield:
+                    _items.append(_item_a_obj_ezsignformfield.to_dict())
             _dict['a_objEzsignformfield'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_dropdown_element (list)
         _items = []
         if self.a_obj_dropdown_element:
-            for _item in self.a_obj_dropdown_element:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_dropdown_element in self.a_obj_dropdown_element:
+                if _item_a_obj_dropdown_element:
+                    _items.append(_item_a_obj_dropdown_element.to_dict())
             _dict['a_objDropdownElement'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfieldgroupsigner (list)
         _items = []
         if self.a_obj_ezsignformfieldgroupsigner:
-            for _item in self.a_obj_ezsignformfieldgroupsigner:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignformfieldgroupsigner in self.a_obj_ezsignformfieldgroupsigner:
+                if _item_a_obj_ezsignformfieldgroupsigner:
+                    _items.append(_item_a_obj_ezsignformfieldgroupsigner.to_dict())
             _dict['a_objEzsignformfieldgroupsigner'] = _items
         return _dict
 
@@ -152,6 +153,7 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
             "bEzsignformfieldgroupEncrypted": obj.get("bEzsignformfieldgroupEncrypted"),
             "eEzsignformfieldgroupTextvalidation": obj.get("eEzsignformfieldgroupTextvalidation"),
             "sEzsignformfieldgroupRegexp": obj.get("sEzsignformfieldgroupRegexp"),
+            "sEzsignformfieldgroupTextvalidationcustommessage": obj.get("sEzsignformfieldgroupTextvalidationcustommessage"),
             "tEzsignformfieldgroupTooltip": obj.get("tEzsignformfieldgroupTooltip"),
             "eEzsignformfieldgroupTooltipposition": obj.get("eEzsignformfieldgroupTooltipposition"),
             "a_objEzsignformfield": [EzsignformfieldResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfield"]] if obj.get("a_objEzsignformfield") is not None else None,

@@ -25,7 +25,7 @@ print(EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.to_json())
 # convert the object into a dict
 ezsignfoldersignerassociation_create_embedded_url_v1_response_dict = ezsignfoldersignerassociation_create_embedded_url_v1_response_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationCreateEmbeddedUrlV1Response from a dict
-ezsignfoldersignerassociation_create_embedded_url_v1_response_form_dict = ezsignfoldersignerassociation_create_embedded_url_v1_response.from_dict(ezsignfoldersignerassociation_create_embedded_url_v1_response_dict)
+ezsignfoldersignerassociation_create_embedded_url_v1_response_from_dict = EzsignfoldersignerassociationCreateEmbeddedUrlV1Response.from_dict(ezsignfoldersignerassociation_create_embedded_url_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

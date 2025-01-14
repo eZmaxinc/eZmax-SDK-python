@@ -74,9 +74,9 @@ class CommonReportrow(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportcell (list)
         _items = []
         if self.a_obj_reportcell:
-            for _item in self.a_obj_reportcell:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_reportcell in self.a_obj_reportcell:
+                if _item_a_obj_reportcell:
+                    _items.append(_item_a_obj_reportcell.to_dict())
             _dict['a_objReportcell'] = _items
         return _dict
 

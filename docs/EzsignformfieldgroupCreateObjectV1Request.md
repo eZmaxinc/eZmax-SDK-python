@@ -23,7 +23,7 @@ print(EzsignformfieldgroupCreateObjectV1Request.to_json())
 # convert the object into a dict
 ezsignformfieldgroup_create_object_v1_request_dict = ezsignformfieldgroup_create_object_v1_request_instance.to_dict()
 # create an instance of EzsignformfieldgroupCreateObjectV1Request from a dict
-ezsignformfieldgroup_create_object_v1_request_form_dict = ezsignformfieldgroup_create_object_v1_request.from_dict(ezsignformfieldgroup_create_object_v1_request_dict)
+ezsignformfieldgroup_create_object_v1_request_from_dict = EzsignformfieldgroupCreateObjectV1Request.from_dict(ezsignformfieldgroup_create_object_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,7 +28,7 @@ class TestCreditcardclientGetListV1ResponseMPayload(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreditcardclientGetListV1ResponseMPayload:
         """Test CreditcardclientGetListV1ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreditcardclientGetListV1ResponseMPayload`
@@ -42,15 +42,14 @@ class TestCreditcardclientGetListV1ResponseMPayload(unittest.TestCase):
                     eZmaxApi.models.creditcardclient_list_element.creditcardclient-ListElement(
                         pki_creditcardclient_id = 114, 
                         fki_creditcarddetail_id = 53, 
+                        fki_creditcardtype_id = 2, 
                         b_creditcardclientrelation_isdefault = True, 
                         s_creditcardclient_description = 'Visa', 
-                        b_creditcardclient_isactive = True, 
-                        b_creditcardclient_allowedagencypayment = True, 
-                        b_creditcardclient_allowedroyallepageprotection = True, 
+                        b_creditcardclient_allowedcompanypayment = True, 
                         b_creditcardclient_allowedtranquillit = True, 
                         i_creditcarddetail_expirationmonth = 10, 
                         i_creditcarddetail_expirationyear = 2024, 
-                        s_creditcarddetail_numbermasked = 'XXXX XXXX XXXX 4242', )
+                        i_creditcarddetail_lastdigits = 4242, )
                     ]
             )
         else:
@@ -61,15 +60,14 @@ class TestCreditcardclientGetListV1ResponseMPayload(unittest.TestCase):
                     eZmaxApi.models.creditcardclient_list_element.creditcardclient-ListElement(
                         pki_creditcardclient_id = 114, 
                         fki_creditcarddetail_id = 53, 
+                        fki_creditcardtype_id = 2, 
                         b_creditcardclientrelation_isdefault = True, 
                         s_creditcardclient_description = 'Visa', 
-                        b_creditcardclient_isactive = True, 
-                        b_creditcardclient_allowedagencypayment = True, 
-                        b_creditcardclient_allowedroyallepageprotection = True, 
+                        b_creditcardclient_allowedcompanypayment = True, 
                         b_creditcardclient_allowedtranquillit = True, 
                         i_creditcarddetail_expirationmonth = 10, 
                         i_creditcarddetail_expirationyear = 2024, 
-                        s_creditcarddetail_numbermasked = 'XXXX XXXX XXXX 4242', )
+                        i_creditcarddetail_lastdigits = 4242, )
                     ],
         )
         """

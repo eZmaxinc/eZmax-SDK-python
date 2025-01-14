@@ -23,7 +23,7 @@ print(UserstagedMapV1Request.to_json())
 # convert the object into a dict
 userstaged_map_v1_request_dict = userstaged_map_v1_request_instance.to_dict()
 # create an instance of UserstagedMapV1Request from a dict
-userstaged_map_v1_request_form_dict = userstaged_map_v1_request.from_dict(userstaged_map_v1_request_dict)
+userstaged_map_v1_request_from_dict = UserstagedMapV1Request.from_dict(userstaged_map_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ print(CorsRequestCompound.to_json())
 # convert the object into a dict
 cors_request_compound_dict = cors_request_compound_instance.to_dict()
 # create an instance of CorsRequestCompound from a dict
-cors_request_compound_form_dict = cors_request_compound.from_dict(cors_request_compound_dict)
+cors_request_compound_from_dict = CorsRequestCompound.from_dict(cors_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

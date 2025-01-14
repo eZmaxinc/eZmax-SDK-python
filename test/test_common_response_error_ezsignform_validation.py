@@ -28,7 +28,7 @@ class TestCommonResponseErrorEzsignformValidation(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CommonResponseErrorEzsignformValidation:
         """Test CommonResponseErrorEzsignformValidation
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CommonResponseErrorEzsignformValidation`
@@ -38,6 +38,9 @@ class TestCommonResponseErrorEzsignformValidation(unittest.TestCase):
             return CommonResponseErrorEzsignformValidation(
                 s_error_message = 'Invalid Signature Headers',
                 e_error_code = 'BADREQUEST',
+                a_s_error_messagedetail = [
+                    ''
+                    ],
                 a_obj_ezsignformfielderror = [
                     eZmaxApi.models.custom_ezsignformfielderror_response.Custom-Ezsignformfielderror-Response()
                     ]

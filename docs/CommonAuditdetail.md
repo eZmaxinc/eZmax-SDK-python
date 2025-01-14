@@ -29,7 +29,7 @@ print(CommonAuditdetail.to_json())
 # convert the object into a dict
 common_auditdetail_dict = common_auditdetail_instance.to_dict()
 # create an instance of CommonAuditdetail from a dict
-common_auditdetail_form_dict = common_auditdetail.from_dict(common_auditdetail_dict)
+common_auditdetail_from_dict = CommonAuditdetail.from_dict(common_auditdetail_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

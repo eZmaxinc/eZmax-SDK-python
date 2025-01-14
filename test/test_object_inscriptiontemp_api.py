@@ -27,10 +27,31 @@ class TestObjectInscriptiontempApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_inscriptiontemp_get_communication_count_v1(self) -> None:
+        """Test case for inscriptiontemp_get_communication_count_v1
+
+        Retrieve Communication count
+        """
+        pass
+
     def test_inscriptiontemp_get_communication_list_v1(self) -> None:
         """Test case for inscriptiontemp_get_communication_list_v1
 
         Retrieve Communication list
+        """
+        pass
+
+    def test_inscriptiontemp_get_communicationrecipients_v1(self) -> None:
+        """Test case for inscriptiontemp_get_communicationrecipients_v1
+
+        Retrieve Inscriptiontemp's Communicationrecipient
+        """
+        pass
+
+    def test_inscriptiontemp_get_communicationsenders_v1(self) -> None:
+        """Test case for inscriptiontemp_get_communicationsenders_v1
+
+        Retrieve Inscriptiontemp's Communicationsender
         """
         pass
 

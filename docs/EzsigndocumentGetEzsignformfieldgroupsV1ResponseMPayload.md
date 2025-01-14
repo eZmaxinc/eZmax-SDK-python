@@ -23,7 +23,7 @@ print(EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload.to_json())
 # convert the object into a dict
 ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_dict = ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload from a dict
-ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_form_dict = ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload.from_dict(ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_dict)
+ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_from_dict = EzsigndocumentGetEzsignformfieldgroupsV1ResponseMPayload.from_dict(ezsigndocument_get_ezsignformfieldgroups_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,7 +24,7 @@ print(CommonWebhook.to_json())
 # convert the object into a dict
 common_webhook_dict = common_webhook_instance.to_dict()
 # create an instance of CommonWebhook from a dict
-common_webhook_form_dict = common_webhook.from_dict(common_webhook_dict)
+common_webhook_from_dict = CommonWebhook.from_dict(common_webhook_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

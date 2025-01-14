@@ -23,7 +23,7 @@ print(EzsignbulksendEditObjectV1Request.to_json())
 # convert the object into a dict
 ezsignbulksend_edit_object_v1_request_dict = ezsignbulksend_edit_object_v1_request_instance.to_dict()
 # create an instance of EzsignbulksendEditObjectV1Request from a dict
-ezsignbulksend_edit_object_v1_request_form_dict = ezsignbulksend_edit_object_v1_request.from_dict(ezsignbulksend_edit_object_v1_request_dict)
+ezsignbulksend_edit_object_v1_request_from_dict = EzsignbulksendEditObjectV1Request.from_dict(ezsignbulksend_edit_object_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

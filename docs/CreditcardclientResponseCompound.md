@@ -8,11 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_creditcardclient_id** | **int** | The unique ID of the Creditcardclient | 
 **fki_creditcarddetail_id** | **int** | The unique ID of the Creditcarddetail | 
-**b_creditcardclientrelation_isdefault** | **bool** | Whether if it&#39;s an relationisdefault | 
+**b_creditcardclientrelation_isdefault** | **bool** | Whether if it&#39;s the creditcardclient is the default one | 
 **s_creditcardclient_description** | **str** | The description of the Creditcardclient | 
-**b_creditcardclient_isactive** | **bool** | Whether the creditcardclient is active or not | 
-**b_creditcardclient_allowedagencypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
-**b_creditcardclient_allowedroyallepageprotection** | **bool** | Whether if it&#39;s an allowedroyallepageprotection | 
+**b_creditcardclient_allowedcompanypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
 **b_creditcardclient_allowedtranquillit** | **bool** | Whether if it&#39;s an allowedtranquillit | 
 **obj_creditcarddetail** | [**CreditcarddetailResponseCompound**](CreditcarddetailResponseCompound.md) |  | 
 
@@ -31,7 +29,7 @@ print(CreditcardclientResponseCompound.to_json())
 # convert the object into a dict
 creditcardclient_response_compound_dict = creditcardclient_response_compound_instance.to_dict()
 # create an instance of CreditcardclientResponseCompound from a dict
-creditcardclient_response_compound_form_dict = creditcardclient_response_compound.from_dict(creditcardclient_response_compound_dict)
+creditcardclient_response_compound_from_dict = CreditcardclientResponseCompound.from_dict(creditcardclient_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

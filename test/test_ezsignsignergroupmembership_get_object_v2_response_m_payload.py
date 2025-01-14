@@ -28,7 +28,7 @@ class TestEzsignsignergroupmembershipGetObjectV2ResponseMPayload(unittest.TestCa
 
     def make_instance(self, include_optional) -> EzsignsignergroupmembershipGetObjectV2ResponseMPayload:
         """Test EzsignsignergroupmembershipGetObjectV2ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignergroupmembershipGetObjectV2ResponseMPayload`

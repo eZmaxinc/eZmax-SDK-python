@@ -73,9 +73,9 @@ class EzsignfoldertypeGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignfoldertype (list)
         _items = []
         if self.a_obj_ezsignfoldertype:
-            for _item in self.a_obj_ezsignfoldertype:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignfoldertype in self.a_obj_ezsignfoldertype:
+                if _item_a_obj_ezsignfoldertype:
+                    _items.append(_item_a_obj_ezsignfoldertype.to_dict())
             _dict['a_objEzsignfoldertype'] = _items
         return _dict
 

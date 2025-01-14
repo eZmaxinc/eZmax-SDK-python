@@ -7,6 +7,7 @@ A Webhook Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_webhook_id** | **int** | The unique ID of the Webhook | [optional] 
+**fki_authenticationexternal_id** | **int** | The unique ID of the Authenticationexternal | [optional] 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **s_webhook_description** | **str** | The description of the Webhook | 
 **e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
@@ -33,7 +34,7 @@ print(WebhookRequest.to_json())
 # convert the object into a dict
 webhook_request_dict = webhook_request_instance.to_dict()
 # create an instance of WebhookRequest from a dict
-webhook_request_form_dict = webhook_request.from_dict(webhook_request_dict)
+webhook_request_from_dict = WebhookRequest.from_dict(webhook_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

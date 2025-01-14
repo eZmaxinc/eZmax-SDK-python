@@ -27,7 +27,7 @@ print(EzsignsignergroupmembershipResponse.to_json())
 # convert the object into a dict
 ezsignsignergroupmembership_response_dict = ezsignsignergroupmembership_response_instance.to_dict()
 # create an instance of EzsignsignergroupmembershipResponse from a dict
-ezsignsignergroupmembership_response_form_dict = ezsignsignergroupmembership_response.from_dict(ezsignsignergroupmembership_response_dict)
+ezsignsignergroupmembership_response_from_dict = EzsignsignergroupmembershipResponse.from_dict(ezsignsignergroupmembership_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

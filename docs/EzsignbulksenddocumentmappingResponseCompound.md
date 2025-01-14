@@ -29,7 +29,7 @@ print(EzsignbulksenddocumentmappingResponseCompound.to_json())
 # convert the object into a dict
 ezsignbulksenddocumentmapping_response_compound_dict = ezsignbulksenddocumentmapping_response_compound_instance.to_dict()
 # create an instance of EzsignbulksenddocumentmappingResponseCompound from a dict
-ezsignbulksenddocumentmapping_response_compound_form_dict = ezsignbulksenddocumentmapping_response_compound.from_dict(ezsignbulksenddocumentmapping_response_compound_dict)
+ezsignbulksenddocumentmapping_response_compound_from_dict = EzsignbulksenddocumentmappingResponseCompound.from_dict(ezsignbulksenddocumentmapping_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

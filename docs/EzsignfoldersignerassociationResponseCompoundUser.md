@@ -27,7 +27,7 @@ print(EzsignfoldersignerassociationResponseCompoundUser.to_json())
 # convert the object into a dict
 ezsignfoldersignerassociation_response_compound_user_dict = ezsignfoldersignerassociation_response_compound_user_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationResponseCompoundUser from a dict
-ezsignfoldersignerassociation_response_compound_user_form_dict = ezsignfoldersignerassociation_response_compound_user.from_dict(ezsignfoldersignerassociation_response_compound_user_dict)
+ezsignfoldersignerassociation_response_compound_user_from_dict = EzsignfoldersignerassociationResponseCompoundUser.from_dict(ezsignfoldersignerassociation_response_compound_user_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

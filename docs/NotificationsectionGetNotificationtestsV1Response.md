@@ -25,7 +25,7 @@ print(NotificationsectionGetNotificationtestsV1Response.to_json())
 # convert the object into a dict
 notificationsection_get_notificationtests_v1_response_dict = notificationsection_get_notificationtests_v1_response_instance.to_dict()
 # create an instance of NotificationsectionGetNotificationtestsV1Response from a dict
-notificationsection_get_notificationtests_v1_response_form_dict = notificationsection_get_notificationtests_v1_response.from_dict(notificationsection_get_notificationtests_v1_response_dict)
+notificationsection_get_notificationtests_v1_response_from_dict = NotificationsectionGetNotificationtestsV1Response.from_dict(notificationsection_get_notificationtests_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

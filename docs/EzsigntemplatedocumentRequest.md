@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **s_ezsigntemplatedocument_base64** | **bytearray** | The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Base64. | [optional] 
 **s_ezsigntemplatedocument_url** | **str** | The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Url. | [optional] 
 **b_ezsigntemplatedocument_forcerepair** | **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature. | [optional] 
-**e_ezsigntemplatedocument_form** | **str** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document | [optional] 
+**e_ezsigntemplatedocument_form** | **str** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document. | [optional] 
 **s_ezsigntemplatedocument_password** | **str** | If the source template is password protected, the password to open/modify it. | [optional] [default to '']
 
 ## Example
@@ -34,7 +34,7 @@ print(EzsigntemplatedocumentRequest.to_json())
 # convert the object into a dict
 ezsigntemplatedocument_request_dict = ezsigntemplatedocument_request_instance.to_dict()
 # create an instance of EzsigntemplatedocumentRequest from a dict
-ezsigntemplatedocument_request_form_dict = ezsigntemplatedocument_request.from_dict(ezsigntemplatedocument_request_dict)
+ezsigntemplatedocument_request_from_dict = EzsigntemplatedocumentRequest.from_dict(ezsigntemplatedocument_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

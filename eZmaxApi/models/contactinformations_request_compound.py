@@ -83,30 +83,30 @@ class ContactinformationsRequestCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_address (list)
         _items = []
         if self.a_obj_address:
-            for _item in self.a_obj_address:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_address in self.a_obj_address:
+                if _item_a_obj_address:
+                    _items.append(_item_a_obj_address.to_dict())
             _dict['a_objAddress'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_phone (list)
         _items = []
         if self.a_obj_phone:
-            for _item in self.a_obj_phone:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_phone in self.a_obj_phone:
+                if _item_a_obj_phone:
+                    _items.append(_item_a_obj_phone.to_dict())
             _dict['a_objPhone'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_email (list)
         _items = []
         if self.a_obj_email:
-            for _item in self.a_obj_email:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_email in self.a_obj_email:
+                if _item_a_obj_email:
+                    _items.append(_item_a_obj_email.to_dict())
             _dict['a_objEmail'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_website (list)
         _items = []
         if self.a_obj_website:
-            for _item in self.a_obj_website:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_website in self.a_obj_website:
+                if _item_a_obj_website:
+                    _items.append(_item_a_obj_website.to_dict())
             _dict['a_objWebsite'] = _items
         return _dict
 

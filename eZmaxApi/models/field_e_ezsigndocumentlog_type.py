@@ -45,8 +45,10 @@ class FieldEEzsigndocumentlogType(str, Enum):
     CHANGELIMITDATE = 'Changelimitdate'
     UNSIGN = 'Unsign'
     IMPORTFROMINSTANET = 'ImportFromInstanet'
+    CREATEDFROMEZSIGNTEMPLATEPUBLIC = 'CreatedFromEzsigntemplatepublic'
     SENDEMAIL = 'SendEmail'
     FORMCOMPLETION = 'FormCompletion'
+    FORMSAVEASDRAFT = 'FormSaveAsDraft'
     SIGNATUREATTACHMENTADD = 'SignatureAttachmentAdd'
     SIGNATUREATTACHMENTVALIDATION = 'SignatureAttachmentValidation'
     SIGNATUREATTACHMENTREFUSED = 'SignatureAttachmentRefused'
@@ -58,6 +60,7 @@ class FieldEEzsigndocumentlogType(str, Enum):
     REGENERATEPAGE = 'RegeneratePage'
     REGENERATEPAGEFORM = 'RegeneratePageForm'
     REASSIGN = 'Reassign'
+    DOCUMENTCOMPLETION = 'DocumentCompletion'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

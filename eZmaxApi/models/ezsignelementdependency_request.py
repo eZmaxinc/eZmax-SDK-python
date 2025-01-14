@@ -30,7 +30,7 @@ class EzsignelementdependencyRequest(BaseModel):
     """
     An Ezsignelementdependency Object
     """ # noqa: E501
-    pki_ezsignelementdependency_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
+    pki_ezsignelementdependency_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
     fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation")
     fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation")
     s_ezsignelementdependency_ezsignformfieldgrouplabel: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignelementdependencyEzsignformfieldgrouplabel")

@@ -28,7 +28,7 @@ class TestEzsigntemplateformfieldRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplateformfieldRequest:
         """Test EzsigntemplateformfieldRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldRequest`
@@ -51,7 +51,9 @@ class TestEzsigntemplateformfieldRequest(unittest.TestCase):
                 s_ezsigntemplateformfield_positioningpattern = 'Signature',
                 i_ezsigntemplateformfield_positioningoffsetx = 200,
                 i_ezsigntemplateformfield_positioningoffsety = 200,
-                e_ezsigntemplateformfield_positioningoccurence = 'All'
+                e_ezsigntemplateformfield_positioningoccurence = 'All',
+                e_ezsigntemplateformfield_horizontalalignment = 'Center',
+                obj_textstylestatic = eZmaxApi.models.textstylestatic_request_compound.textstylestatic-RequestCompound()
             )
         else:
             return EzsigntemplateformfieldRequest(

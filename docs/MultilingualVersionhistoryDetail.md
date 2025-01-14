@@ -24,7 +24,7 @@ print(MultilingualVersionhistoryDetail.to_json())
 # convert the object into a dict
 multilingual_versionhistory_detail_dict = multilingual_versionhistory_detail_instance.to_dict()
 # create an instance of MultilingualVersionhistoryDetail from a dict
-multilingual_versionhistory_detail_form_dict = multilingual_versionhistory_detail.from_dict(multilingual_versionhistory_detail_dict)
+multilingual_versionhistory_detail_from_dict = MultilingualVersionhistoryDetail.from_dict(multilingual_versionhistory_detail_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -75,9 +75,9 @@ class UserstagedGetListV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_userstaged (list)
         _items = []
         if self.a_obj_userstaged:
-            for _item in self.a_obj_userstaged:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_userstaged in self.a_obj_userstaged:
+                if _item_a_obj_userstaged:
+                    _items.append(_item_a_obj_userstaged.to_dict())
             _dict['a_objUserstaged'] = _items
         return _dict
 

@@ -29,7 +29,7 @@ print(ScimServiceProviderConfig.to_json())
 # convert the object into a dict
 scim_service_provider_config_dict = scim_service_provider_config_instance.to_dict()
 # create an instance of ScimServiceProviderConfig from a dict
-scim_service_provider_config_form_dict = scim_service_provider_config.from_dict(scim_service_provider_config_dict)
+scim_service_provider_config_from_dict = ScimServiceProviderConfig.from_dict(scim_service_provider_config_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

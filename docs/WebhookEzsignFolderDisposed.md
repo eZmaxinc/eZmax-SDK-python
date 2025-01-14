@@ -25,7 +25,7 @@ print(WebhookEzsignFolderDisposed.to_json())
 # convert the object into a dict
 webhook_ezsign_folder_disposed_dict = webhook_ezsign_folder_disposed_instance.to_dict()
 # create an instance of WebhookEzsignFolderDisposed from a dict
-webhook_ezsign_folder_disposed_form_dict = webhook_ezsign_folder_disposed.from_dict(webhook_ezsign_folder_disposed_dict)
+webhook_ezsign_folder_disposed_from_dict = WebhookEzsignFolderDisposed.from_dict(webhook_ezsign_folder_disposed_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,7 +26,7 @@ print(DiscussionmessageRequestCompound.to_json())
 # convert the object into a dict
 discussionmessage_request_compound_dict = discussionmessage_request_compound_instance.to_dict()
 # create an instance of DiscussionmessageRequestCompound from a dict
-discussionmessage_request_compound_form_dict = discussionmessage_request_compound.from_dict(discussionmessage_request_compound_dict)
+discussionmessage_request_compound_from_dict = DiscussionmessageRequestCompound.from_dict(discussionmessage_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

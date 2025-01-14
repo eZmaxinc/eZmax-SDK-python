@@ -74,9 +74,9 @@ class SignatureCreateObjectV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_signature (list)
         _items = []
         if self.a_obj_signature:
-            for _item in self.a_obj_signature:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_signature in self.a_obj_signature:
+                if _item_a_obj_signature:
+                    _items.append(_item_a_obj_signature.to_dict())
             _dict['a_objSignature'] = _items
         return _dict
 

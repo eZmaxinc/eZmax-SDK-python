@@ -28,7 +28,7 @@ class TestCommonResponseErrorSTemporaryFileUrl(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CommonResponseErrorSTemporaryFileUrl:
         """Test CommonResponseErrorSTemporaryFileUrl
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CommonResponseErrorSTemporaryFileUrl`
@@ -38,6 +38,9 @@ class TestCommonResponseErrorSTemporaryFileUrl(unittest.TestCase):
             return CommonResponseErrorSTemporaryFileUrl(
                 s_error_message = 'Invalid Signature Headers',
                 e_error_code = 'BADREQUEST',
+                a_s_error_messagedetail = [
+                    ''
+                    ],
                 s_temporary_file_url = 'http://www.example.com/document.pdf'
             )
         else:

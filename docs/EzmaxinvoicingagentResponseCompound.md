@@ -43,7 +43,7 @@ print(EzmaxinvoicingagentResponseCompound.to_json())
 # convert the object into a dict
 ezmaxinvoicingagent_response_compound_dict = ezmaxinvoicingagent_response_compound_instance.to_dict()
 # create an instance of EzmaxinvoicingagentResponseCompound from a dict
-ezmaxinvoicingagent_response_compound_form_dict = ezmaxinvoicingagent_response_compound.from_dict(ezmaxinvoicingagent_response_compound_dict)
+ezmaxinvoicingagent_response_compound_from_dict = EzmaxinvoicingagentResponseCompound.from_dict(ezmaxinvoicingagent_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

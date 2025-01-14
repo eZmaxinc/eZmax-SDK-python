@@ -25,7 +25,7 @@ print(EzsignsigningreasonRequest.to_json())
 # convert the object into a dict
 ezsignsigningreason_request_dict = ezsignsigningreason_request_instance.to_dict()
 # create an instance of EzsignsigningreasonRequest from a dict
-ezsignsigningreason_request_form_dict = ezsignsigningreason_request.from_dict(ezsignsigningreason_request_dict)
+ezsignsigningreason_request_from_dict = EzsignsigningreasonRequest.from_dict(ezsignsigningreason_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

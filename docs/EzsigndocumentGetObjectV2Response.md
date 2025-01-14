@@ -25,7 +25,7 @@ print(EzsigndocumentGetObjectV2Response.to_json())
 # convert the object into a dict
 ezsigndocument_get_object_v2_response_dict = ezsigndocument_get_object_v2_response_instance.to_dict()
 # create an instance of EzsigndocumentGetObjectV2Response from a dict
-ezsigndocument_get_object_v2_response_form_dict = ezsigndocument_get_object_v2_response.from_dict(ezsigndocument_get_object_v2_response_dict)
+ezsigndocument_get_object_v2_response_from_dict = EzsigndocumentGetObjectV2Response.from_dict(ezsigndocument_get_object_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

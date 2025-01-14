@@ -23,7 +23,10 @@ Name | Type | Description | Notes
 **i_ezsignformfieldgroup** | **int** | The total number of Ezsignformfieldgroup in all Ezsigndocuments in the folder | 
 **i_ezsignformfieldgroup_completed** | **int** | The total number of completed Ezsignformfieldgroup in all Ezsigndocuments in the folder | 
 **b_ezsignform_hasdependencies** | **bool** | Whether the Ezsignform/Ezsignsignatures has dependencies or not | [optional] 
-**d_ezsignfolder_completedpercentage** | **str** | Whether the Ezsignform/Ezsignsignatures has dependencies or not | 
+**d_ezsignfolder_completedpercentage** | **str** | Percentage of Ezsignform/Ezsignsignatures has completed | 
+**d_ezsignfolder_formcompletedpercentage** | **str** | Percentage of Ezsignform has completed | 
+**d_ezsignfolder_signaturecompletedpercentage** | **str** | Percentage of Ezsignsignatures has signed | 
+**b_ezsignfolder_signer** | **bool** | Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user | [optional] 
 
 ## Example
 
@@ -40,7 +43,7 @@ print(EzsignfolderListElement.to_json())
 # convert the object into a dict
 ezsignfolder_list_element_dict = ezsignfolder_list_element_instance.to_dict()
 # create an instance of EzsignfolderListElement from a dict
-ezsignfolder_list_element_form_dict = ezsignfolder_list_element.from_dict(ezsignfolder_list_element_dict)
+ezsignfolder_list_element_from_dict = EzsignfolderListElement.from_dict(ezsignfolder_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

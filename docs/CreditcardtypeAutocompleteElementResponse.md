@@ -25,7 +25,7 @@ print(CreditcardtypeAutocompleteElementResponse.to_json())
 # convert the object into a dict
 creditcardtype_autocomplete_element_response_dict = creditcardtype_autocomplete_element_response_instance.to_dict()
 # create an instance of CreditcardtypeAutocompleteElementResponse from a dict
-creditcardtype_autocomplete_element_response_form_dict = creditcardtype_autocomplete_element_response.from_dict(creditcardtype_autocomplete_element_response_dict)
+creditcardtype_autocomplete_element_response_from_dict = CreditcardtypeAutocompleteElementResponse.from_dict(creditcardtype_autocomplete_element_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -27,7 +27,7 @@ print(ApikeyRequest.to_json())
 # convert the object into a dict
 apikey_request_dict = apikey_request_instance.to_dict()
 # create an instance of ApikeyRequest from a dict
-apikey_request_form_dict = apikey_request.from_dict(apikey_request_dict)
+apikey_request_from_dict = ApikeyRequest.from_dict(apikey_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

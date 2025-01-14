@@ -28,7 +28,7 @@ class TestEzsignfolderRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfolderRequestCompound:
         """Test EzsignfolderRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderRequestCompound`
@@ -38,6 +38,7 @@ class TestEzsignfolderRequestCompound(unittest.TestCase):
             return EzsignfolderRequestCompound(
                 pki_ezsignfolder_id = 33,
                 fki_ezsignfoldertype_id = 5,
+                fki_timezone_id = 247,
                 fki_ezsigntsarequirement_id = 1,
                 s_ezsignfolder_description = 'Test eZsign Folder',
                 t_ezsignfolder_note = 'This is a note',

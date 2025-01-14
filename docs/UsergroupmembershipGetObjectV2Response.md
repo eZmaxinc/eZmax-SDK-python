@@ -25,7 +25,7 @@ print(UsergroupmembershipGetObjectV2Response.to_json())
 # convert the object into a dict
 usergroupmembership_get_object_v2_response_dict = usergroupmembership_get_object_v2_response_instance.to_dict()
 # create an instance of UsergroupmembershipGetObjectV2Response from a dict
-usergroupmembership_get_object_v2_response_form_dict = usergroupmembership_get_object_v2_response.from_dict(usergroupmembership_get_object_v2_response_dict)
+usergroupmembership_get_object_v2_response_from_dict = UsergroupmembershipGetObjectV2Response.from_dict(usergroupmembership_get_object_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

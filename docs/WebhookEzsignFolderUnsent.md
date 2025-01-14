@@ -25,7 +25,7 @@ print(WebhookEzsignFolderUnsent.to_json())
 # convert the object into a dict
 webhook_ezsign_folder_unsent_dict = webhook_ezsign_folder_unsent_instance.to_dict()
 # create an instance of WebhookEzsignFolderUnsent from a dict
-webhook_ezsign_folder_unsent_form_dict = webhook_ezsign_folder_unsent.from_dict(webhook_ezsign_folder_unsent_dict)
+webhook_ezsign_folder_unsent_from_dict = WebhookEzsignFolderUnsent.from_dict(webhook_ezsign_folder_unsent_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

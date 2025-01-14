@@ -24,7 +24,7 @@ print(ScimGroup.to_json())
 # convert the object into a dict
 scim_group_dict = scim_group_instance.to_dict()
 # create an instance of ScimGroup from a dict
-scim_group_form_dict = scim_group.from_dict(scim_group_dict)
+scim_group_from_dict = ScimGroup.from_dict(scim_group_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

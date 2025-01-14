@@ -69,6 +69,13 @@ class TestObjectCreditcardclientApi(unittest.TestCase):
         """
         pass
 
+    def test_creditcardclient_patch_object_v1(self) -> None:
+        """Test case for creditcardclient_patch_object_v1
+
+        Patch an existing Creditcardclient
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

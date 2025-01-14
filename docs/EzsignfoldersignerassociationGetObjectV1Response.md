@@ -25,7 +25,7 @@ print(EzsignfoldersignerassociationGetObjectV1Response.to_json())
 # convert the object into a dict
 ezsignfoldersignerassociation_get_object_v1_response_dict = ezsignfoldersignerassociation_get_object_v1_response_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationGetObjectV1Response from a dict
-ezsignfoldersignerassociation_get_object_v1_response_form_dict = ezsignfoldersignerassociation_get_object_v1_response.from_dict(ezsignfoldersignerassociation_get_object_v1_response_dict)
+ezsignfoldersignerassociation_get_object_v1_response_from_dict = EzsignfoldersignerassociationGetObjectV1Response.from_dict(ezsignfoldersignerassociation_get_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

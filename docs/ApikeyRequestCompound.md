@@ -27,7 +27,7 @@ print(ApikeyRequestCompound.to_json())
 # convert the object into a dict
 apikey_request_compound_dict = apikey_request_compound_instance.to_dict()
 # create an instance of ApikeyRequestCompound from a dict
-apikey_request_compound_form_dict = apikey_request_compound.from_dict(apikey_request_compound_dict)
+apikey_request_compound_from_dict = ApikeyRequestCompound.from_dict(apikey_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

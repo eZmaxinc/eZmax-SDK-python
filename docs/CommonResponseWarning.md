@@ -24,7 +24,7 @@ print(CommonResponseWarning.to_json())
 # convert the object into a dict
 common_response_warning_dict = common_response_warning_instance.to_dict()
 # create an instance of CommonResponseWarning from a dict
-common_response_warning_form_dict = common_response_warning.from_dict(common_response_warning_dict)
+common_response_warning_from_dict = CommonResponseWarning.from_dict(common_response_warning_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

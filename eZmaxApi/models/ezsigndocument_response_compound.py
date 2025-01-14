@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype
 from eZmaxApi.models.custom_ezsignfoldersignerassociationstatus_response import CustomEzsignfoldersignerassociationstatusResponse
+from eZmaxApi.models.ezsigndocumentdependency_response import EzsigndocumentdependencyResponse
 from eZmaxApi.models.field_e_ezsigndocument_step import FieldEEzsigndocumentStep
 from typing import Optional, Set
 from typing_extensions import Self
@@ -46,6 +47,7 @@ class EzsigndocumentResponseCompound(BaseModel):
     i_ezsigndocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigndocument.", alias="iEzsigndocumentPagetotal")
     i_ezsigndocument_signaturesigned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of signatures that were signed in the document.", alias="iEzsigndocumentSignaturesigned")
     i_ezsigndocument_signaturetotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of total signatures that were requested in the Ezsigndocument.", alias="iEzsigndocumentSignaturetotal")
+    i_ezsigndocument_formfieldtotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of total Ezsignformfield that were requested in the Ezsigndocument.", alias="iEzsigndocumentFormfieldtotal")
     s_ezsigndocument_md5initial: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the initial PDF Document before signatures were applied to it.", alias="sEzsigndocumentMD5initial")
     t_ezsigndocument_declinedtosignreason: Optional[StrictStr] = Field(default=None, description="A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign", alias="tEzsigndocumentDeclinedtosignreason")
     s_ezsigndocument_md5signed: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the final PDF Document after all signatures were applied to it.", alias="sEzsigndocumentMD5signed")
@@ -61,7 +63,8 @@ class EzsigndocumentResponseCompound(BaseModel):
     i_ezsigndocument_stepsignaturetotal: StrictInt = Field(description="The total number of steps in the signature filling phase", alias="iEzsigndocumentStepsignaturetotal")
     i_ezsigndocument_stepsignature_current: StrictInt = Field(description="The current step in the signature phase", alias="iEzsigndocumentStepsignatureCurrent")
     a_obj_ezsignfoldersignerassociationstatus: List[CustomEzsignfoldersignerassociationstatusResponse] = Field(alias="a_objEzsignfoldersignerassociationstatus")
-    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus"]
+    a_obj_ezsigndocumentdependency: Optional[List[EzsigndocumentdependencyResponse]] = Field(default=None, alias="a_objEzsigndocumentdependency")
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "iEzsigndocumentFormfieldtotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal", "eEzsigndocumentSteptype", "iEzsigndocumentStepformtotal", "iEzsigndocumentStepformcurrent", "iEzsigndocumentStepsignaturetotal", "iEzsigndocumentStepsignatureCurrent", "a_objEzsignfoldersignerassociationstatus", "a_objEzsigndocumentdependency"]
 
     @field_validator('s_ezsigndocument_externalid')
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
@@ -118,10 +121,17 @@ class EzsigndocumentResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignfoldersignerassociationstatus (list)
         _items = []
         if self.a_obj_ezsignfoldersignerassociationstatus:
-            for _item in self.a_obj_ezsignfoldersignerassociationstatus:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignfoldersignerassociationstatus in self.a_obj_ezsignfoldersignerassociationstatus:
+                if _item_a_obj_ezsignfoldersignerassociationstatus:
+                    _items.append(_item_a_obj_ezsignfoldersignerassociationstatus.to_dict())
             _dict['a_objEzsignfoldersignerassociationstatus'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigndocumentdependency (list)
+        _items = []
+        if self.a_obj_ezsigndocumentdependency:
+            for _item_a_obj_ezsigndocumentdependency in self.a_obj_ezsigndocumentdependency:
+                if _item_a_obj_ezsigndocumentdependency:
+                    _items.append(_item_a_obj_ezsigndocumentdependency.to_dict())
+            _dict['a_objEzsigndocumentdependency'] = _items
         return _dict
 
     @classmethod
@@ -148,6 +158,7 @@ class EzsigndocumentResponseCompound(BaseModel):
             "iEzsigndocumentPagetotal": obj.get("iEzsigndocumentPagetotal"),
             "iEzsigndocumentSignaturesigned": obj.get("iEzsigndocumentSignaturesigned"),
             "iEzsigndocumentSignaturetotal": obj.get("iEzsigndocumentSignaturetotal"),
+            "iEzsigndocumentFormfieldtotal": obj.get("iEzsigndocumentFormfieldtotal"),
             "sEzsigndocumentMD5initial": obj.get("sEzsigndocumentMD5initial"),
             "tEzsigndocumentDeclinedtosignreason": obj.get("tEzsigndocumentDeclinedtosignreason"),
             "sEzsigndocumentMD5signed": obj.get("sEzsigndocumentMD5signed"),
@@ -162,7 +173,8 @@ class EzsigndocumentResponseCompound(BaseModel):
             "iEzsigndocumentStepformcurrent": obj.get("iEzsigndocumentStepformcurrent"),
             "iEzsigndocumentStepsignaturetotal": obj.get("iEzsigndocumentStepsignaturetotal"),
             "iEzsigndocumentStepsignatureCurrent": obj.get("iEzsigndocumentStepsignatureCurrent"),
-            "a_objEzsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj["a_objEzsignfoldersignerassociationstatus"]] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None
+            "a_objEzsignfoldersignerassociationstatus": [CustomEzsignfoldersignerassociationstatusResponse.from_dict(_item) for _item in obj["a_objEzsignfoldersignerassociationstatus"]] if obj.get("a_objEzsignfoldersignerassociationstatus") is not None else None,
+            "a_objEzsigndocumentdependency": [EzsigndocumentdependencyResponse.from_dict(_item) for _item in obj["a_objEzsigndocumentdependency"]] if obj.get("a_objEzsigndocumentdependency") is not None else None
         })
         return _obj
 

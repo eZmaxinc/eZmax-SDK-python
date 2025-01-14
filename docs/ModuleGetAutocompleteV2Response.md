@@ -25,7 +25,7 @@ print(ModuleGetAutocompleteV2Response.to_json())
 # convert the object into a dict
 module_get_autocomplete_v2_response_dict = module_get_autocomplete_v2_response_instance.to_dict()
 # create an instance of ModuleGetAutocompleteV2Response from a dict
-module_get_autocomplete_v2_response_form_dict = module_get_autocomplete_v2_response.from_dict(module_get_autocomplete_v2_response_dict)
+module_get_autocomplete_v2_response_from_dict = ModuleGetAutocompleteV2Response.from_dict(module_get_autocomplete_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

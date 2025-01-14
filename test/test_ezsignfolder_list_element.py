@@ -28,7 +28,7 @@ class TestEzsignfolderListElement(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfolderListElement:
         """Test EzsignfolderListElement
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderListElement`
@@ -53,7 +53,10 @@ class TestEzsignfolderListElement(unittest.TestCase):
                 i_ezsignformfieldgroup = 56,
                 i_ezsignformfieldgroup_completed = 56,
                 b_ezsignform_hasdependencies = True,
-                d_ezsignfolder_completedpercentage = '-072.88'
+                d_ezsignfolder_completedpercentage = '-072.88',
+                d_ezsignfolder_formcompletedpercentage = '-072.88',
+                d_ezsignfolder_signaturecompletedpercentage = '-072.88',
+                b_ezsignfolder_signer = True
             )
         else:
             return EzsignfolderListElement(
@@ -71,6 +74,8 @@ class TestEzsignfolderListElement(unittest.TestCase):
                 i_ezsignformfieldgroup = 56,
                 i_ezsignformfieldgroup_completed = 56,
                 d_ezsignfolder_completedpercentage = '-072.88',
+                d_ezsignfolder_formcompletedpercentage = '-072.88',
+                d_ezsignfolder_signaturecompletedpercentage = '-072.88',
         )
         """
 

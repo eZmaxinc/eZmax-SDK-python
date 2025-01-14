@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **i_ezsigndocument_pagetotal** | **int** | The number of pages in the Ezsigndocument. | 
 **i_ezsigndocument_signaturesigned** | **int** | The number of signatures that were signed in the document. | 
 **i_ezsigndocument_signaturetotal** | **int** | The number of total signatures that were requested in the Ezsigndocument. | 
+**i_ezsigndocument_formfieldtotal** | **int** | The number of total Ezsignformfield that were requested in the Ezsigndocument. | 
 **s_ezsigndocument_md5initial** | **str** | MD5 Hash of the initial PDF Document before signatures were applied to it. | [optional] 
 **t_ezsigndocument_declinedtosignreason** | **str** | A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign | [optional] 
 **s_ezsigndocument_md5signed** | **str** | MD5 Hash of the final PDF Document after all signatures were applied to it. | [optional] 
@@ -45,7 +46,7 @@ print(EzsigndocumentResponse.to_json())
 # convert the object into a dict
 ezsigndocument_response_dict = ezsigndocument_response_instance.to_dict()
 # create an instance of EzsigndocumentResponse from a dict
-ezsigndocument_response_form_dict = ezsigndocument_response.from_dict(ezsigndocument_response_dict)
+ezsigndocument_response_from_dict = EzsigndocumentResponse.from_dict(ezsigndocument_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

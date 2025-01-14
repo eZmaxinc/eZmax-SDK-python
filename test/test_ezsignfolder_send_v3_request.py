@@ -28,7 +28,7 @@ class TestEzsignfolderSendV3Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfolderSendV3Request:
         """Test EzsignfolderSendV3Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderSendV3Request`
@@ -45,6 +45,7 @@ Could you sign it before Monday please.
 Best Regards.
 
 Mary',
+                e_ezsignfolder_messageorder = 'GlobalFirst',
                 dt_ezsignfolder_delayedsenddate = '2020-12-31T23:59:59.000Z',
                 a_fki_ezsignfoldersignerassociation_id = [
                     20

@@ -28,7 +28,7 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplatepackageResponseCompound:
         """Test EzsigntemplatepackageResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackageResponseCompound`
@@ -38,7 +38,9 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
             return EzsigntemplatepackageResponseCompound(
                 pki_ezsigntemplatepackage_id = 99,
                 fki_ezsignfoldertype_id = 5,
+                fki_ezdoctemplatedocument_id = 95,
                 fki_language_id = 2,
+                s_ezdoctemplatedocument_name_x = 'Standard Contract',
                 s_language_name_x = 'English',
                 s_ezsigntemplatepackage_description = 'Package for new clients',
                 b_ezsigntemplatepackage_adminonly = True,

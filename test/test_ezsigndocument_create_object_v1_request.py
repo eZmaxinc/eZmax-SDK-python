@@ -28,7 +28,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigndocumentCreateObjectV1Request:
         """Test EzsigndocumentCreateObjectV1Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigndocumentCreateObjectV1Request`
@@ -44,7 +44,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
                     fki_language_id = 2, 
                     e_ezsigndocument_source = 'Base64', 
                     e_ezsigndocument_format = 'Pdf', 
-                    s_ezsigndocument_base64 = '[B@172ca72b', 
+                    s_ezsigndocument_base64 = '[B@a77614d', 
                     s_ezsigndocument_url = 'http://www.example.com/document.pdf', 
                     b_ezsigndocument_forcerepair = True, 
                     s_ezsigndocument_password = 'SecretPassword123', 

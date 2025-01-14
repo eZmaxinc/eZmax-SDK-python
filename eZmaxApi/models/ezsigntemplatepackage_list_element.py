@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,12 +31,19 @@ class EzsigntemplatepackageListElement(BaseModel):
     pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
     fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_ezsigntemplatepackage_description: StrictStr = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
+    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
     b_ezsigntemplatepackage_needvalidation: StrictBool = Field(description="Whether the Ezsignbulksend was automatically modified and needs a manual validation", alias="bEzsigntemplatepackageNeedvalidation")
     i_ezsigntemplatepackagemembership: StrictInt = Field(description="The total number of Ezsigntemplatepackagemembership in the Ezsigntemplatepackage", alias="iEzsigntemplatepackagemembership")
     s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageNeedvalidation", "iEzsigntemplatepackagemembership", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageIsactive"]
+
+    @field_validator('s_ezsigntemplatepackage_description')
+    def s_ezsigntemplatepackage_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

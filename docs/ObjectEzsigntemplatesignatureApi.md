@@ -4,14 +4,14 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsigntemplatesignature_create_object_v1**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_create_object_v1) | **POST** /1/object/ezsigntemplatesignature | Create a new Ezsigntemplatesignature
+[**ezsigntemplatesignature_create_object_v2**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_create_object_v2) | **POST** /2/object/ezsigntemplatesignature | Create a new Ezsigntemplatesignature
 [**ezsigntemplatesignature_delete_object_v1**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_delete_object_v1) | **DELETE** /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID} | Delete an existing Ezsigntemplatesignature
-[**ezsigntemplatesignature_edit_object_v1**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_edit_object_v1) | **PUT** /1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID} | Edit an existing Ezsigntemplatesignature
-[**ezsigntemplatesignature_get_object_v2**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_get_object_v2) | **GET** /2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID} | Retrieve an existing Ezsigntemplatesignature
+[**ezsigntemplatesignature_edit_object_v2**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_edit_object_v2) | **PUT** /2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID} | Edit an existing Ezsigntemplatesignature
+[**ezsigntemplatesignature_get_object_v3**](ObjectEzsigntemplatesignatureApi.md#ezsigntemplatesignature_get_object_v3) | **GET** /3/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID} | Retrieve an existing Ezsigntemplatesignature
 
 
-# **ezsigntemplatesignature_create_object_v1**
-> EzsigntemplatesignatureCreateObjectV1Response ezsigntemplatesignature_create_object_v1(ezsigntemplatesignature_create_object_v1_request)
+# **ezsigntemplatesignature_create_object_v2**
+> EzsigntemplatesignatureCreateObjectV2Response ezsigntemplatesignature_create_object_v2(ezsigntemplatesignature_create_object_v2_request)
 
 Create a new Ezsigntemplatesignature
 
@@ -23,8 +23,8 @@ The endpoint allows to create one or many elements at once.
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatesignature_create_object_v1_request import EzsigntemplatesignatureCreateObjectV1Request
-from eZmaxApi.models.ezsigntemplatesignature_create_object_v1_response import EzsigntemplatesignatureCreateObjectV1Response
+from eZmaxApi.models.ezsigntemplatesignature_create_object_v2_request import EzsigntemplatesignatureCreateObjectV2Request
+from eZmaxApi.models.ezsigntemplatesignature_create_object_v2_response import EzsigntemplatesignatureCreateObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -49,15 +49,15 @@ configuration.api_key['Authorization'] = os.environ["API_KEY"]
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsigntemplatesignatureApi(api_client)
-    ezsigntemplatesignature_create_object_v1_request = eZmaxApi.EzsigntemplatesignatureCreateObjectV1Request() # EzsigntemplatesignatureCreateObjectV1Request | 
+    ezsigntemplatesignature_create_object_v2_request = eZmaxApi.EzsigntemplatesignatureCreateObjectV2Request() # EzsigntemplatesignatureCreateObjectV2Request | 
 
     try:
         # Create a new Ezsigntemplatesignature
-        api_response = api_instance.ezsigntemplatesignature_create_object_v1(ezsigntemplatesignature_create_object_v1_request)
-        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_create_object_v1:\n")
+        api_response = api_instance.ezsigntemplatesignature_create_object_v2(ezsigntemplatesignature_create_object_v2_request)
+        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_create_object_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_create_object_v1: %s\n" % e)
+        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_create_object_v2: %s\n" % e)
 ```
 
 
@@ -67,11 +67,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsigntemplatesignature_create_object_v1_request** | [**EzsigntemplatesignatureCreateObjectV1Request**](EzsigntemplatesignatureCreateObjectV1Request.md)|  | 
+ **ezsigntemplatesignature_create_object_v2_request** | [**EzsigntemplatesignatureCreateObjectV2Request**](EzsigntemplatesignatureCreateObjectV2Request.md)|  | 
 
 ### Return type
 
-[**EzsigntemplatesignatureCreateObjectV1Response**](EzsigntemplatesignatureCreateObjectV1Response.md)
+[**EzsigntemplatesignatureCreateObjectV2Response**](EzsigntemplatesignatureCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -170,8 +170,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsigntemplatesignature_edit_object_v1**
-> EzsigntemplatesignatureEditObjectV1Response ezsigntemplatesignature_edit_object_v1(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v1_request)
+# **ezsigntemplatesignature_edit_object_v2**
+> EzsigntemplatesignatureEditObjectV2Response ezsigntemplatesignature_edit_object_v2(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v2_request)
 
 Edit an existing Ezsigntemplatesignature
 
@@ -183,8 +183,8 @@ Edit an existing Ezsigntemplatesignature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v1_request import EzsigntemplatesignatureEditObjectV1Request
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v1_response import EzsigntemplatesignatureEditObjectV1Response
+from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_request import EzsigntemplatesignatureEditObjectV2Request
+from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_response import EzsigntemplatesignatureEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -210,15 +210,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsigntemplatesignatureApi(api_client)
     pki_ezsigntemplatesignature_id = 56 # int | 
-    ezsigntemplatesignature_edit_object_v1_request = eZmaxApi.EzsigntemplatesignatureEditObjectV1Request() # EzsigntemplatesignatureEditObjectV1Request | 
+    ezsigntemplatesignature_edit_object_v2_request = eZmaxApi.EzsigntemplatesignatureEditObjectV2Request() # EzsigntemplatesignatureEditObjectV2Request | 
 
     try:
         # Edit an existing Ezsigntemplatesignature
-        api_response = api_instance.ezsigntemplatesignature_edit_object_v1(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v1_request)
-        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_edit_object_v1:\n")
+        api_response = api_instance.ezsigntemplatesignature_edit_object_v2(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v2_request)
+        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_edit_object_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_edit_object_v1: %s\n" % e)
+        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_edit_object_v2: %s\n" % e)
 ```
 
 
@@ -229,11 +229,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsigntemplatesignature_id** | **int**|  | 
- **ezsigntemplatesignature_edit_object_v1_request** | [**EzsigntemplatesignatureEditObjectV1Request**](EzsigntemplatesignatureEditObjectV1Request.md)|  | 
+ **ezsigntemplatesignature_edit_object_v2_request** | [**EzsigntemplatesignatureEditObjectV2Request**](EzsigntemplatesignatureEditObjectV2Request.md)|  | 
 
 ### Return type
 
-[**EzsigntemplatesignatureEditObjectV1Response**](EzsigntemplatesignatureEditObjectV1Response.md)
+[**EzsigntemplatesignatureEditObjectV2Response**](EzsigntemplatesignatureEditObjectV2Response.md)
 
 ### Authorization
 
@@ -254,8 +254,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsigntemplatesignature_get_object_v2**
-> EzsigntemplatesignatureGetObjectV2Response ezsigntemplatesignature_get_object_v2(pki_ezsigntemplatesignature_id)
+# **ezsigntemplatesignature_get_object_v3**
+> EzsigntemplatesignatureGetObjectV3Response ezsigntemplatesignature_get_object_v3(pki_ezsigntemplatesignature_id)
 
 Retrieve an existing Ezsigntemplatesignature
 
@@ -267,7 +267,7 @@ Retrieve an existing Ezsigntemplatesignature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatesignature_get_object_v2_response import EzsigntemplatesignatureGetObjectV2Response
+from eZmaxApi.models.ezsigntemplatesignature_get_object_v3_response import EzsigntemplatesignatureGetObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -296,11 +296,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an existing Ezsigntemplatesignature
-        api_response = api_instance.ezsigntemplatesignature_get_object_v2(pki_ezsigntemplatesignature_id)
-        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_get_object_v2:\n")
+        api_response = api_instance.ezsigntemplatesignature_get_object_v3(pki_ezsigntemplatesignature_id)
+        print("The response of ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_get_object_v3:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_get_object_v2: %s\n" % e)
+        print("Exception when calling ObjectEzsigntemplatesignatureApi->ezsigntemplatesignature_get_object_v3: %s\n" % e)
 ```
 
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatesignatureGetObjectV2Response**](EzsigntemplatesignatureGetObjectV2Response.md)
+[**EzsigntemplatesignatureGetObjectV3Response**](EzsigntemplatesignatureGetObjectV3Response.md)
 
 ### Authorization
 

@@ -28,7 +28,7 @@ class TestAddressRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AddressRequestCompound:
         """Test AddressRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AddressRequestCompound`
@@ -36,6 +36,7 @@ class TestAddressRequestCompound(unittest.TestCase):
         model = AddressRequestCompound()
         if include_optional:
             return AddressRequestCompound(
+                pki_address_id = 142,
                 fki_addresstype_id = 1,
                 s_address_civic = '2540',
                 s_address_street = 'Daniel-Johnson Blvd.',
@@ -52,7 +53,6 @@ class TestAddressRequestCompound(unittest.TestCase):
                 fki_addresstype_id = 1,
                 s_address_civic = '2540',
                 s_address_street = 'Daniel-Johnson Blvd.',
-                s_address_suite = '610',
                 s_address_city = 'Laval',
                 fki_province_id = 11,
                 fki_country_id = 1,

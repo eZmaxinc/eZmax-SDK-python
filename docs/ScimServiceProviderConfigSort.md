@@ -23,7 +23,7 @@ print(ScimServiceProviderConfigSort.to_json())
 # convert the object into a dict
 scim_service_provider_config_sort_dict = scim_service_provider_config_sort_instance.to_dict()
 # create an instance of ScimServiceProviderConfigSort from a dict
-scim_service_provider_config_sort_form_dict = scim_service_provider_config_sort.from_dict(scim_service_provider_config_sort_dict)
+scim_service_provider_config_sort_from_dict = ScimServiceProviderConfigSort.from_dict(scim_service_provider_config_sort_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

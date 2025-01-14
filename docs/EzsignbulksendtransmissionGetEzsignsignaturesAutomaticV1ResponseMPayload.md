@@ -24,7 +24,7 @@ print(EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1ResponseMPayload.t
 # convert the object into a dict
 ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_dict = ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1ResponseMPayload from a dict
-ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_form_dict = ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload.from_dict(ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_dict)
+ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_from_dict = EzsignbulksendtransmissionGetEzsignsignaturesAutomaticV1ResponseMPayload.from_dict(ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

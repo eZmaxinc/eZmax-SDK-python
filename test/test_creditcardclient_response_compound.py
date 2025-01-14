@@ -28,7 +28,7 @@ class TestCreditcardclientResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreditcardclientResponseCompound:
         """Test CreditcardclientResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreditcardclientResponseCompound`
@@ -40,9 +40,7 @@ class TestCreditcardclientResponseCompound(unittest.TestCase):
                 fki_creditcarddetail_id = 53,
                 b_creditcardclientrelation_isdefault = True,
                 s_creditcardclient_description = 'Visa',
-                b_creditcardclient_isactive = True,
-                b_creditcardclient_allowedagencypayment = True,
-                b_creditcardclient_allowedroyallepageprotection = True,
+                b_creditcardclient_allowedcompanypayment = True,
                 b_creditcardclient_allowedtranquillit = True,
                 obj_creditcarddetail = eZmaxApi.models.creditcarddetail_response_compound.creditcarddetail-ResponseCompound()
             )
@@ -52,9 +50,7 @@ class TestCreditcardclientResponseCompound(unittest.TestCase):
                 fki_creditcarddetail_id = 53,
                 b_creditcardclientrelation_isdefault = True,
                 s_creditcardclient_description = 'Visa',
-                b_creditcardclient_isactive = True,
-                b_creditcardclient_allowedagencypayment = True,
-                b_creditcardclient_allowedroyallepageprotection = True,
+                b_creditcardclient_allowedcompanypayment = True,
                 b_creditcardclient_allowedtranquillit = True,
                 obj_creditcarddetail = eZmaxApi.models.creditcarddetail_response_compound.creditcarddetail-ResponseCompound(),
         )

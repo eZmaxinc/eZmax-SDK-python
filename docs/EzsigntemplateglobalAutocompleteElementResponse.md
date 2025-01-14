@@ -25,7 +25,7 @@ print(EzsigntemplateglobalAutocompleteElementResponse.to_json())
 # convert the object into a dict
 ezsigntemplateglobal_autocomplete_element_response_dict = ezsigntemplateglobal_autocomplete_element_response_instance.to_dict()
 # create an instance of EzsigntemplateglobalAutocompleteElementResponse from a dict
-ezsigntemplateglobal_autocomplete_element_response_form_dict = ezsigntemplateglobal_autocomplete_element_response.from_dict(ezsigntemplateglobal_autocomplete_element_response_dict)
+ezsigntemplateglobal_autocomplete_element_response_from_dict = EzsigntemplateglobalAutocompleteElementResponse.from_dict(ezsigntemplateglobal_autocomplete_element_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,7 +28,7 @@ class TestCommonFile(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CommonFile:
         """Test CommonFile
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CommonFile`
@@ -38,7 +38,7 @@ class TestCommonFile(unittest.TestCase):
             return CommonFile(
                 s_file_name = 'example.pdf',
                 s_file_url = '',
-                s_file_base64 = '[B@63c5efee',
+                s_file_base64 = '[B@7807ac2c',
                 e_file_source = 'Base64'
             )
         else:

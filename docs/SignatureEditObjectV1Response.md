@@ -24,7 +24,7 @@ print(SignatureEditObjectV1Response.to_json())
 # convert the object into a dict
 signature_edit_object_v1_response_dict = signature_edit_object_v1_response_instance.to_dict()
 # create an instance of SignatureEditObjectV1Response from a dict
-signature_edit_object_v1_response_form_dict = signature_edit_object_v1_response.from_dict(signature_edit_object_v1_response_dict)
+signature_edit_object_v1_response_from_dict = SignatureEditObjectV1Response.from_dict(signature_edit_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

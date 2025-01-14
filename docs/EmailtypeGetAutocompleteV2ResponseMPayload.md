@@ -23,7 +23,7 @@ print(EmailtypeGetAutocompleteV2ResponseMPayload.to_json())
 # convert the object into a dict
 emailtype_get_autocomplete_v2_response_m_payload_dict = emailtype_get_autocomplete_v2_response_m_payload_instance.to_dict()
 # create an instance of EmailtypeGetAutocompleteV2ResponseMPayload from a dict
-emailtype_get_autocomplete_v2_response_m_payload_form_dict = emailtype_get_autocomplete_v2_response_m_payload.from_dict(emailtype_get_autocomplete_v2_response_m_payload_dict)
+emailtype_get_autocomplete_v2_response_m_payload_from_dict = EmailtypeGetAutocompleteV2ResponseMPayload.from_dict(emailtype_get_autocomplete_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

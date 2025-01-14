@@ -24,7 +24,7 @@ print(MultilingualEzmaxinvoicingsummaryinternalDescription.to_json())
 # convert the object into a dict
 multilingual_ezmaxinvoicingsummaryinternal_description_dict = multilingual_ezmaxinvoicingsummaryinternal_description_instance.to_dict()
 # create an instance of MultilingualEzmaxinvoicingsummaryinternalDescription from a dict
-multilingual_ezmaxinvoicingsummaryinternal_description_form_dict = multilingual_ezmaxinvoicingsummaryinternal_description.from_dict(multilingual_ezmaxinvoicingsummaryinternal_description_dict)
+multilingual_ezmaxinvoicingsummaryinternal_description_from_dict = MultilingualEzmaxinvoicingsummaryinternalDescription.from_dict(multilingual_ezmaxinvoicingsummaryinternal_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

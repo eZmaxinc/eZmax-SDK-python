@@ -30,7 +30,7 @@ print(CommonReportcellstyle.to_json())
 # convert the object into a dict
 common_reportcellstyle_dict = common_reportcellstyle_instance.to_dict()
 # create an instance of CommonReportcellstyle from a dict
-common_reportcellstyle_form_dict = common_reportcellstyle.from_dict(common_reportcellstyle_dict)
+common_reportcellstyle_from_dict = CommonReportcellstyle.from_dict(common_reportcellstyle_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

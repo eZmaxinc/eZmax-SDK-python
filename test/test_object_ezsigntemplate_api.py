@@ -34,15 +34,8 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsigntemplate_create_object_v1(self) -> None:
-        """Test case for ezsigntemplate_create_object_v1
-
-        Create a new Ezsigntemplate
-        """
-        pass
-
-    def test_ezsigntemplate_create_object_v2(self) -> None:
-        """Test case for ezsigntemplate_create_object_v2
+    def test_ezsigntemplate_create_object_v3(self) -> None:
+        """Test case for ezsigntemplate_create_object_v3
 
         Create a new Ezsigntemplate
         """
@@ -55,15 +48,8 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsigntemplate_edit_object_v1(self) -> None:
-        """Test case for ezsigntemplate_edit_object_v1
-
-        Edit an existing Ezsigntemplate
-        """
-        pass
-
-    def test_ezsigntemplate_edit_object_v2(self) -> None:
-        """Test case for ezsigntemplate_edit_object_v2
+    def test_ezsigntemplate_edit_object_v3(self) -> None:
+        """Test case for ezsigntemplate_edit_object_v3
 
         Edit an existing Ezsigntemplate
         """
@@ -83,15 +69,8 @@ class TestObjectEzsigntemplateApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsigntemplate_get_object_v1(self) -> None:
-        """Test case for ezsigntemplate_get_object_v1
-
-        Retrieve an existing Ezsigntemplate
-        """
-        pass
-
-    def test_ezsigntemplate_get_object_v2(self) -> None:
-        """Test case for ezsigntemplate_get_object_v2
+    def test_ezsigntemplate_get_object_v3(self) -> None:
+        """Test case for ezsigntemplate_get_object_v3
 
         Retrieve an existing Ezsigntemplate
         """

@@ -28,7 +28,7 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignsignatureSignV1Request:
         """Test EzsignsignatureSignV1Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureSignV1Request`
@@ -37,6 +37,7 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
         if include_optional:
             return EzsignsignatureSignV1Request(
                 fki_ezsignsigningreason_id = 194,
+                fki_font_id = 1,
                 s_value = '',
                 e_attachments_confirmation_decision = 'Accepted',
                 s_attachments_refusal_reason = '',
@@ -45,7 +46,7 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
                     eZmaxApi.models.common_file.Common-File(
                         s_file_name = 'example.pdf', 
                         s_file_url = '', 
-                        s_file_base64 = '[B@63c5efee', 
+                        s_file_base64 = '[B@7807ac2c', 
                         e_file_source = 'Base64', )
                     ],
                 b_is_automatic = True

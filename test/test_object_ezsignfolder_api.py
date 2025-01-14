@@ -55,6 +55,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_create_object_v3(self) -> None:
+        """Test case for ezsignfolder_create_object_v3
+
+        Create a new Ezsignfolder
+        """
+        pass
+
     def test_ezsignfolder_delete_object_v1(self) -> None:
         """Test case for ezsignfolder_delete_object_v1
 
@@ -76,8 +83,8 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsignfolder_edit_object_v1(self) -> None:
-        """Test case for ezsignfolder_edit_object_v1
+    def test_ezsignfolder_edit_object_v3(self) -> None:
+        """Test case for ezsignfolder_edit_object_v3
 
         Edit an existing Ezsignfolder
         """
@@ -188,6 +195,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfolder_get_object_v3(self) -> None:
+        """Test case for ezsignfolder_get_object_v3
+
+        Retrieve an existing Ezsignfolder
+        """
+        pass
+
     def test_ezsignfolder_import_ezsignfoldersignerassociations_v1(self) -> None:
         """Test case for ezsignfolder_import_ezsignfoldersignerassociations_v1
 
@@ -204,6 +218,13 @@ class TestObjectEzsignfolderApi(unittest.TestCase):
 
     def test_ezsignfolder_reorder_v1(self) -> None:
         """Test case for ezsignfolder_reorder_v1
+
+        Reorder Ezsigndocuments in the Ezsignfolder
+        """
+        pass
+
+    def test_ezsignfolder_reorder_v2(self) -> None:
+        """Test case for ezsignfolder_reorder_v2
 
         Reorder Ezsigndocuments in the Ezsignfolder
         """

@@ -25,7 +25,7 @@ print(EzsigntemplateCopyV1Response.to_json())
 # convert the object into a dict
 ezsigntemplate_copy_v1_response_dict = ezsigntemplate_copy_v1_response_instance.to_dict()
 # create an instance of EzsigntemplateCopyV1Response from a dict
-ezsigntemplate_copy_v1_response_form_dict = ezsigntemplate_copy_v1_response.from_dict(ezsigntemplate_copy_v1_response_dict)
+ezsigntemplate_copy_v1_response_from_dict = EzsigntemplateCopyV1Response.from_dict(ezsigntemplate_copy_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.field_e_signature_preference import FieldESignaturePreference
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,12 +30,28 @@ class SignatureRequestCompound(BaseModel):
     A Signature Object and children
     """ # noqa: E501
     pki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="pkiSignatureID")
-    t_signature_svg: Annotated[str, Field(strict=True)] = Field(description="The svg of the Signature", alias="tSignatureSvg")
-    __properties: ClassVar[List[str]] = ["pkiSignatureID", "tSignatureSvg"]
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
+    e_signature_preference: FieldESignaturePreference = Field(alias="eSignaturePreference")
+    t_signature_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Signature", alias="tSignatureSvg")
+    t_signature_svginitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Initials", alias="tSignatureSvginitials")
+    __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "eSignaturePreference", "tSignatureSvg", "tSignatureSvginitials"]
 
     @field_validator('t_signature_svg')
     def t_signature_svg_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{60,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{60,65535}$/")
+        return value
+
+    @field_validator('t_signature_svginitials')
+    def t_signature_svginitials_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
         if not re.match(r"^.{60,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{60,65535}$/")
         return value
@@ -91,7 +108,10 @@ class SignatureRequestCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiSignatureID": obj.get("pkiSignatureID"),
-            "tSignatureSvg": obj.get("tSignatureSvg")
+            "fkiFontID": obj.get("fkiFontID"),
+            "eSignaturePreference": obj.get("eSignaturePreference"),
+            "tSignatureSvg": obj.get("tSignatureSvg"),
+            "tSignatureSvginitials": obj.get("tSignatureSvginitials")
         })
         return _obj
 

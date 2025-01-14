@@ -28,7 +28,7 @@ class TestSystemconfigurationResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SystemconfigurationResponse:
         """Test SystemconfigurationResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SystemconfigurationResponse`
@@ -38,6 +38,7 @@ class TestSystemconfigurationResponse(unittest.TestCase):
             return SystemconfigurationResponse(
                 pki_systemconfiguration_id = 1,
                 fki_systemconfigurationtype_id = 28,
+                fki_branding_id = 78,
                 s_systemconfigurationtype_description_x = 'eZsign (Pro)',
                 e_systemconfiguration_newexternaluseraction = 'Stage',
                 e_systemconfiguration_language1 = 'fr_QC',
@@ -46,10 +47,12 @@ class TestSystemconfigurationResponse(unittest.TestCase):
                 e_systemconfiguration_ezsignofficeplan = 'Standard',
                 b_systemconfiguration_ezsignpaidbyoffice = True,
                 b_systemconfiguration_ezsignpersonnal = True,
+                b_systemconfiguration_hascreditcardmerchant = True,
                 b_systemconfiguration_isdisposalactive = True,
                 b_systemconfiguration_sspr = True,
                 dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',
-                dt_systemconfiguration_readonlyexpirationend = '2021-12-31'
+                dt_systemconfiguration_readonlyexpirationend = '2021-12-31',
+                obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response()
             )
         else:
             return SystemconfigurationResponse(

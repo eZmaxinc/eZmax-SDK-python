@@ -25,7 +25,7 @@ print(FranchisebrokerGetAutocompleteV2Response.to_json())
 # convert the object into a dict
 franchisebroker_get_autocomplete_v2_response_dict = franchisebroker_get_autocomplete_v2_response_instance.to_dict()
 # create an instance of FranchisebrokerGetAutocompleteV2Response from a dict
-franchisebroker_get_autocomplete_v2_response_form_dict = franchisebroker_get_autocomplete_v2_response.from_dict(franchisebroker_get_autocomplete_v2_response_dict)
+franchisebroker_get_autocomplete_v2_response_from_dict = FranchisebrokerGetAutocompleteV2Response.from_dict(franchisebroker_get_autocomplete_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

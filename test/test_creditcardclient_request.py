@@ -28,7 +28,7 @@ class TestCreditcardclientRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreditcardclientRequest:
         """Test CreditcardclientRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreditcardclientRequest`
@@ -40,9 +40,8 @@ class TestCreditcardclientRequest(unittest.TestCase):
                 fks_creditcardtoken_id = '6B29FC40-CA47-1067-B31D-00DD010662DA',
                 b_creditcardclientrelation_isdefault = True,
                 s_creditcardclient_description = 'Visa',
-                b_creditcardclient_isactive = True,
-                b_creditcardclient_allowedagencypayment = True,
-                b_creditcardclient_allowedroyallepageprotection = True,
+                b_creditcardclient_allowedcompanypayment = True,
+                b_creditcardclient_allowedezsign = True,
                 b_creditcardclient_allowedtranquillit = True,
                 obj_creditcarddetail = eZmaxApi.models.creditcarddetail_request.creditcarddetail-Request(
                     i_creditcarddetail_expirationmonth = 10, 
@@ -56,9 +55,8 @@ class TestCreditcardclientRequest(unittest.TestCase):
             return CreditcardclientRequest(
                 b_creditcardclientrelation_isdefault = True,
                 s_creditcardclient_description = 'Visa',
-                b_creditcardclient_isactive = True,
-                b_creditcardclient_allowedagencypayment = True,
-                b_creditcardclient_allowedroyallepageprotection = True,
+                b_creditcardclient_allowedcompanypayment = True,
+                b_creditcardclient_allowedezsign = True,
                 b_creditcardclient_allowedtranquillit = True,
                 obj_creditcarddetail = eZmaxApi.models.creditcarddetail_request.creditcarddetail-Request(
                     i_creditcarddetail_expirationmonth = 10, 

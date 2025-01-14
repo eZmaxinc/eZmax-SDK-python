@@ -39,7 +39,7 @@ class EzsigndocumentRequest(BaseModel):
     s_ezsigndocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigndocumentSource = Url.", alias="sEzsigndocumentUrl")
     b_ezsigndocument_forcerepair: Optional[StrictBool] = Field(default=True, description="Try to repair the document or flatten it if it cannot be used for electronic signature. ", alias="bEzsigndocumentForcerepair")
     s_ezsigndocument_password: Optional[StrictStr] = Field(default=None, description="If the source document is password protected, the password to open/modify it.", alias="sEzsigndocumentPassword")
-    e_ezsigndocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.", alias="eEzsigndocumentForm")
+    e_ezsigndocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsignformfieldgroups and assign them to the specified **fkiEzsignfoldersignerassociationID**  **Discard** removes the form from the document.  **Flatten** prints the form values in the document.", alias="eEzsigndocumentForm")
     dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
     s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
     s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
@@ -68,8 +68,8 @@ class EzsigndocumentRequest(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Keep', 'Convert', 'Discard']):
-            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard')")
+        if value not in set(['Keep', 'Convert', 'Discard', 'Flatten']):
+            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard', 'Flatten')")
         return value
 
     @field_validator('s_ezsigndocument_externalid')

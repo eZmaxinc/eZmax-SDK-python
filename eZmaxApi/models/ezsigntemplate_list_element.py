@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplate_type import FieldEEzsigntemplateType
@@ -32,7 +32,7 @@ class EzsigntemplateListElement(BaseModel):
     pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
     i_ezsigntemplatedocument_pagetotal: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal")
     i_ezsigntemplate_signaturetotal: Optional[StrictInt] = Field(default=None, description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplateSignaturetotal")
     i_ezsigntemplate_formfieldtotal: Optional[StrictInt] = Field(default=None, description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplateFormfieldtotal")
@@ -40,6 +40,13 @@ class EzsigntemplateListElement(BaseModel):
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     e_ezsigntemplate_type: FieldEEzsigntemplateType = Field(alias="eEzsigntemplateType")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplateSignaturetotal", "iEzsigntemplateFormfieldtotal", "bEzsigntemplateIncomplete", "sEzsignfoldertypeNameX", "eEzsigntemplateType"]
+
+    @field_validator('s_ezsigntemplate_description')
+    def s_ezsigntemplate_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

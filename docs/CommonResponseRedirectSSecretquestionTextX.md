@@ -23,7 +23,7 @@ print(CommonResponseRedirectSSecretquestionTextX.to_json())
 # convert the object into a dict
 common_response_redirect_s_secretquestion_text_x_dict = common_response_redirect_s_secretquestion_text_x_instance.to_dict()
 # create an instance of CommonResponseRedirectSSecretquestionTextX from a dict
-common_response_redirect_s_secretquestion_text_x_form_dict = common_response_redirect_s_secretquestion_text_x.from_dict(common_response_redirect_s_secretquestion_text_x_dict)
+common_response_redirect_s_secretquestion_text_x_from_dict = CommonResponseRedirectSSecretquestionTextX.from_dict(common_response_redirect_s_secretquestion_text_x_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

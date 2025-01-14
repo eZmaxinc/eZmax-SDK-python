@@ -4,17 +4,16 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsignfoldertype_create_object_v2**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_create_object_v2) | **POST** /2/object/ezsignfoldertype | Create a new Ezsignfoldertype
-[**ezsignfoldertype_edit_object_v1**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_edit_object_v1) | **PUT** /1/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
-[**ezsignfoldertype_edit_object_v2**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_edit_object_v2) | **PUT** /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
+[**ezsignfoldertype_create_object_v3**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_create_object_v3) | **POST** /3/object/ezsignfoldertype | Create a new Ezsignfoldertype
+[**ezsignfoldertype_edit_object_v3**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_edit_object_v3) | **PUT** /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Edit an existing Ezsignfoldertype
 [**ezsignfoldertype_get_autocomplete_v2**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_get_autocomplete_v2) | **GET** /2/object/ezsignfoldertype/getAutocomplete/{sSelector} | Retrieve Ezsignfoldertypes and IDs
 [**ezsignfoldertype_get_list_v1**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_get_list_v1) | **GET** /1/object/ezsignfoldertype/getList | Retrieve Ezsignfoldertype list
 [**ezsignfoldertype_get_object_v2**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_get_object_v2) | **GET** /2/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
-[**ezsignfoldertype_get_object_v3**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_get_object_v3) | **GET** /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
+[**ezsignfoldertype_get_object_v4**](ObjectEzsignfoldertypeApi.md#ezsignfoldertype_get_object_v4) | **GET** /4/object/ezsignfoldertype/{pkiEzsignfoldertypeID} | Retrieve an existing Ezsignfoldertype
 
 
-# **ezsignfoldertype_create_object_v2**
-> EzsignfoldertypeCreateObjectV2Response ezsignfoldertype_create_object_v2(ezsignfoldertype_create_object_v2_request)
+# **ezsignfoldertype_create_object_v3**
+> EzsignfoldertypeCreateObjectV3Response ezsignfoldertype_create_object_v3(ezsignfoldertype_create_object_v3_request)
 
 Create a new Ezsignfoldertype
 
@@ -26,8 +25,8 @@ The endpoint allows to create one or many elements at once.
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignfoldertype_create_object_v2_request import EzsignfoldertypeCreateObjectV2Request
-from eZmaxApi.models.ezsignfoldertype_create_object_v2_response import EzsignfoldertypeCreateObjectV2Response
+from eZmaxApi.models.ezsignfoldertype_create_object_v3_request import EzsignfoldertypeCreateObjectV3Request
+from eZmaxApi.models.ezsignfoldertype_create_object_v3_response import EzsignfoldertypeCreateObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -52,15 +51,15 @@ configuration.api_key['Authorization'] = os.environ["API_KEY"]
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsignfoldertypeApi(api_client)
-    ezsignfoldertype_create_object_v2_request = eZmaxApi.EzsignfoldertypeCreateObjectV2Request() # EzsignfoldertypeCreateObjectV2Request | 
+    ezsignfoldertype_create_object_v3_request = eZmaxApi.EzsignfoldertypeCreateObjectV3Request() # EzsignfoldertypeCreateObjectV3Request | 
 
     try:
         # Create a new Ezsignfoldertype
-        api_response = api_instance.ezsignfoldertype_create_object_v2(ezsignfoldertype_create_object_v2_request)
-        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_create_object_v2:\n")
+        api_response = api_instance.ezsignfoldertype_create_object_v3(ezsignfoldertype_create_object_v3_request)
+        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_create_object_v3:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_create_object_v2: %s\n" % e)
+        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_create_object_v3: %s\n" % e)
 ```
 
 
@@ -70,11 +69,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ezsignfoldertype_create_object_v2_request** | [**EzsignfoldertypeCreateObjectV2Request**](EzsignfoldertypeCreateObjectV2Request.md)|  | 
+ **ezsignfoldertype_create_object_v3_request** | [**EzsignfoldertypeCreateObjectV3Request**](EzsignfoldertypeCreateObjectV3Request.md)|  | 
 
 ### Return type
 
-[**EzsignfoldertypeCreateObjectV2Response**](EzsignfoldertypeCreateObjectV2Response.md)
+[**EzsignfoldertypeCreateObjectV3Response**](EzsignfoldertypeCreateObjectV3Response.md)
 
 ### Authorization
 
@@ -93,8 +92,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignfoldertype_edit_object_v1**
-> EzsignfoldertypeEditObjectV1Response ezsignfoldertype_edit_object_v1(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v1_request)
+# **ezsignfoldertype_edit_object_v3**
+> EzsignfoldertypeEditObjectV3Response ezsignfoldertype_edit_object_v3(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v3_request)
 
 Edit an existing Ezsignfoldertype
 
@@ -106,8 +105,8 @@ Edit an existing Ezsignfoldertype
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignfoldertype_edit_object_v1_request import EzsignfoldertypeEditObjectV1Request
-from eZmaxApi.models.ezsignfoldertype_edit_object_v1_response import EzsignfoldertypeEditObjectV1Response
+from eZmaxApi.models.ezsignfoldertype_edit_object_v3_request import EzsignfoldertypeEditObjectV3Request
+from eZmaxApi.models.ezsignfoldertype_edit_object_v3_response import EzsignfoldertypeEditObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -133,15 +132,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsignfoldertypeApi(api_client)
     pki_ezsignfoldertype_id = 56 # int | 
-    ezsignfoldertype_edit_object_v1_request = eZmaxApi.EzsignfoldertypeEditObjectV1Request() # EzsignfoldertypeEditObjectV1Request | 
+    ezsignfoldertype_edit_object_v3_request = eZmaxApi.EzsignfoldertypeEditObjectV3Request() # EzsignfoldertypeEditObjectV3Request | 
 
     try:
         # Edit an existing Ezsignfoldertype
-        api_response = api_instance.ezsignfoldertype_edit_object_v1(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v1_request)
-        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v1:\n")
+        api_response = api_instance.ezsignfoldertype_edit_object_v3(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v3_request)
+        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v3:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v1: %s\n" % e)
+        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v3: %s\n" % e)
 ```
 
 
@@ -152,95 +151,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignfoldertype_id** | **int**|  | 
- **ezsignfoldertype_edit_object_v1_request** | [**EzsignfoldertypeEditObjectV1Request**](EzsignfoldertypeEditObjectV1Request.md)|  | 
+ **ezsignfoldertype_edit_object_v3_request** | [**EzsignfoldertypeEditObjectV3Request**](EzsignfoldertypeEditObjectV3Request.md)|  | 
 
 ### Return type
 
-[**EzsignfoldertypeEditObjectV1Response**](EzsignfoldertypeEditObjectV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
-**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ezsignfoldertype_edit_object_v2**
-> EzsignfoldertypeEditObjectV2Response ezsignfoldertype_edit_object_v2(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v2_request)
-
-Edit an existing Ezsignfoldertype
-
-
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import eZmaxApi
-from eZmaxApi.models.ezsignfoldertype_edit_object_v2_request import EzsignfoldertypeEditObjectV2Request
-from eZmaxApi.models.ezsignfoldertype_edit_object_v2_response import EzsignfoldertypeEditObjectV2Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectEzsignfoldertypeApi(api_client)
-    pki_ezsignfoldertype_id = 56 # int | 
-    ezsignfoldertype_edit_object_v2_request = eZmaxApi.EzsignfoldertypeEditObjectV2Request() # EzsignfoldertypeEditObjectV2Request | 
-
-    try:
-        # Edit an existing Ezsignfoldertype
-        api_response = api_instance.ezsignfoldertype_edit_object_v2(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v2_request)
-        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v2:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_edit_object_v2: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_ezsignfoldertype_id** | **int**|  | 
- **ezsignfoldertype_edit_object_v2_request** | [**EzsignfoldertypeEditObjectV2Request**](EzsignfoldertypeEditObjectV2Request.md)|  | 
-
-### Return type
-
-[**EzsignfoldertypeEditObjectV2Response**](EzsignfoldertypeEditObjectV2Response.md)
+[**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
 
 ### Authorization
 
@@ -301,7 +216,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsignfoldertypeApi(api_client)
     s_selector = 's_selector_example' # str | The type of Ezsignfoldertypes to return
-    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    e_filter_active = Active # str | Specify which results we want to display. (optional) (default to Active)
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
@@ -322,7 +237,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsignfoldertypes to return | 
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to Active]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 
@@ -516,8 +431,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ezsignfoldertype_get_object_v3**
-> EzsignfoldertypeGetObjectV3Response ezsignfoldertype_get_object_v3(pki_ezsignfoldertype_id)
+# **ezsignfoldertype_get_object_v4**
+> EzsignfoldertypeGetObjectV4Response ezsignfoldertype_get_object_v4(pki_ezsignfoldertype_id)
 
 Retrieve an existing Ezsignfoldertype
 
@@ -529,7 +444,7 @@ Retrieve an existing Ezsignfoldertype
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignfoldertype_get_object_v3_response import EzsignfoldertypeGetObjectV3Response
+from eZmaxApi.models.ezsignfoldertype_get_object_v4_response import EzsignfoldertypeGetObjectV4Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -558,11 +473,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an existing Ezsignfoldertype
-        api_response = api_instance.ezsignfoldertype_get_object_v3(pki_ezsignfoldertype_id)
-        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_get_object_v3:\n")
+        api_response = api_instance.ezsignfoldertype_get_object_v4(pki_ezsignfoldertype_id)
+        print("The response of ObjectEzsignfoldertypeApi->ezsignfoldertype_get_object_v4:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_get_object_v3: %s\n" % e)
+        print("Exception when calling ObjectEzsignfoldertypeApi->ezsignfoldertype_get_object_v4: %s\n" % e)
 ```
 
 
@@ -576,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldertypeGetObjectV3Response**](EzsignfoldertypeGetObjectV3Response.md)
+[**EzsignfoldertypeGetObjectV4Response**](EzsignfoldertypeGetObjectV4Response.md)
 
 ### Authorization
 

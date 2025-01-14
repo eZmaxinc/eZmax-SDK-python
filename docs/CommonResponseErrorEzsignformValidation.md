@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_error_message** | **str** | The message giving details about the error | 
 **e_error_code** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
+**a_s_error_messagedetail** | **List[str]** | More error message detail | [optional] 
 **a_obj_ezsignformfielderror** | [**List[CustomEzsignformfielderrorResponse]**](CustomEzsignformfielderrorResponse.md) |  | 
 
 ## Example
@@ -25,7 +26,7 @@ print(CommonResponseErrorEzsignformValidation.to_json())
 # convert the object into a dict
 common_response_error_ezsignform_validation_dict = common_response_error_ezsignform_validation_instance.to_dict()
 # create an instance of CommonResponseErrorEzsignformValidation from a dict
-common_response_error_ezsignform_validation_form_dict = common_response_error_ezsignform_validation.from_dict(common_response_error_ezsignform_validation_dict)
+common_response_error_ezsignform_validation_from_dict = CommonResponseErrorEzsignformValidation.from_dict(common_response_error_ezsignform_validation_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

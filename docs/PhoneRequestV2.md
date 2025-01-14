@@ -26,7 +26,7 @@ print(PhoneRequestV2.to_json())
 # convert the object into a dict
 phone_request_v2_dict = phone_request_v2_instance.to_dict()
 # create an instance of PhoneRequestV2 from a dict
-phone_request_v2_form_dict = phone_request_v2.from_dict(phone_request_v2_dict)
+phone_request_v2_from_dict = PhoneRequestV2.from_dict(phone_request_v2_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

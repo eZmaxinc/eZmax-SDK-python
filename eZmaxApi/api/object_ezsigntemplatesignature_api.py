@@ -19,12 +19,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsigntemplatesignature_create_object_v1_request import EzsigntemplatesignatureCreateObjectV1Request
-from eZmaxApi.models.ezsigntemplatesignature_create_object_v1_response import EzsigntemplatesignatureCreateObjectV1Response
+from eZmaxApi.models.ezsigntemplatesignature_create_object_v2_request import EzsigntemplatesignatureCreateObjectV2Request
+from eZmaxApi.models.ezsigntemplatesignature_create_object_v2_response import EzsigntemplatesignatureCreateObjectV2Response
 from eZmaxApi.models.ezsigntemplatesignature_delete_object_v1_response import EzsigntemplatesignatureDeleteObjectV1Response
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v1_request import EzsigntemplatesignatureEditObjectV1Request
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v1_response import EzsigntemplatesignatureEditObjectV1Response
-from eZmaxApi.models.ezsigntemplatesignature_get_object_v2_response import EzsigntemplatesignatureGetObjectV2Response
+from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_request import EzsigntemplatesignatureEditObjectV2Request
+from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_response import EzsigntemplatesignatureEditObjectV2Response
+from eZmaxApi.models.ezsigntemplatesignature_get_object_v3_response import EzsigntemplatesignatureGetObjectV3Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -45,9 +45,9 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_create_object_v1(
+    def ezsigntemplatesignature_create_object_v2(
         self,
-        ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request,
+        ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -60,13 +60,13 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsigntemplatesignatureCreateObjectV1Response:
+    ) -> EzsigntemplatesignatureCreateObjectV2Response:
         """Create a new Ezsigntemplatesignature
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsigntemplatesignature_create_object_v1_request: (required)
-        :type ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request
+        :param ezsigntemplatesignature_create_object_v2_request: (required)
+        :type ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,8 +89,8 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_create_object_v1_serialize(
-            ezsigntemplatesignature_create_object_v1_request=ezsigntemplatesignature_create_object_v1_request,
+        _param = self._ezsigntemplatesignature_create_object_v2_serialize(
+            ezsigntemplatesignature_create_object_v2_request=ezsigntemplatesignature_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -98,7 +98,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsigntemplatesignatureCreateObjectV1Response",
+            '201': "EzsigntemplatesignatureCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -112,9 +112,9 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_create_object_v1_with_http_info(
+    def ezsigntemplatesignature_create_object_v2_with_http_info(
         self,
-        ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request,
+        ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -127,13 +127,13 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsigntemplatesignatureCreateObjectV1Response]:
+    ) -> ApiResponse[EzsigntemplatesignatureCreateObjectV2Response]:
         """Create a new Ezsigntemplatesignature
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsigntemplatesignature_create_object_v1_request: (required)
-        :type ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request
+        :param ezsigntemplatesignature_create_object_v2_request: (required)
+        :type ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -156,8 +156,8 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_create_object_v1_serialize(
-            ezsigntemplatesignature_create_object_v1_request=ezsigntemplatesignature_create_object_v1_request,
+        _param = self._ezsigntemplatesignature_create_object_v2_serialize(
+            ezsigntemplatesignature_create_object_v2_request=ezsigntemplatesignature_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -165,7 +165,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsigntemplatesignatureCreateObjectV1Response",
+            '201': "EzsigntemplatesignatureCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -179,9 +179,9 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_create_object_v1_without_preload_content(
+    def ezsigntemplatesignature_create_object_v2_without_preload_content(
         self,
-        ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request,
+        ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,8 +199,8 @@ class ObjectEzsigntemplatesignatureApi:
 
         The endpoint allows to create one or many elements at once.
 
-        :param ezsigntemplatesignature_create_object_v1_request: (required)
-        :type ezsigntemplatesignature_create_object_v1_request: EzsigntemplatesignatureCreateObjectV1Request
+        :param ezsigntemplatesignature_create_object_v2_request: (required)
+        :type ezsigntemplatesignature_create_object_v2_request: EzsigntemplatesignatureCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -223,8 +223,8 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_create_object_v1_serialize(
-            ezsigntemplatesignature_create_object_v1_request=ezsigntemplatesignature_create_object_v1_request,
+        _param = self._ezsigntemplatesignature_create_object_v2_serialize(
+            ezsigntemplatesignature_create_object_v2_request=ezsigntemplatesignature_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -232,7 +232,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "EzsigntemplatesignatureCreateObjectV1Response",
+            '201': "EzsigntemplatesignatureCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -241,9 +241,9 @@ class ObjectEzsigntemplatesignatureApi:
         return response_data.response
 
 
-    def _ezsigntemplatesignature_create_object_v1_serialize(
+    def _ezsigntemplatesignature_create_object_v2_serialize(
         self,
-        ezsigntemplatesignature_create_object_v1_request,
+        ezsigntemplatesignature_create_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -259,7 +259,9 @@ class ObjectEzsigntemplatesignatureApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -267,16 +269,17 @@ class ObjectEzsigntemplatesignatureApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if ezsigntemplatesignature_create_object_v1_request is not None:
-            _body_params = ezsigntemplatesignature_create_object_v1_request
+        if ezsigntemplatesignature_create_object_v2_request is not None:
+            _body_params = ezsigntemplatesignature_create_object_v2_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -299,7 +302,7 @@ class ObjectEzsigntemplatesignatureApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/1/object/ezsigntemplatesignature',
+            resource_path='/2/object/ezsigntemplatesignature',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -533,7 +536,9 @@ class ObjectEzsigntemplatesignatureApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -546,11 +551,12 @@ class ObjectEzsigntemplatesignatureApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -577,10 +583,10 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_edit_object_v1(
+    def ezsigntemplatesignature_edit_object_v2(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request,
+        ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -593,15 +599,15 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsigntemplatesignatureEditObjectV1Response:
+    ) -> EzsigntemplatesignatureEditObjectV2Response:
         """Edit an existing Ezsigntemplatesignature
 
         
 
         :param pki_ezsigntemplatesignature_id: (required)
         :type pki_ezsigntemplatesignature_id: int
-        :param ezsigntemplatesignature_edit_object_v1_request: (required)
-        :type ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request
+        :param ezsigntemplatesignature_edit_object_v2_request: (required)
+        :type ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -624,9 +630,9 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_edit_object_v1_serialize(
+        _param = self._ezsigntemplatesignature_edit_object_v2_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
-            ezsigntemplatesignature_edit_object_v1_request=ezsigntemplatesignature_edit_object_v1_request,
+            ezsigntemplatesignature_edit_object_v2_request=ezsigntemplatesignature_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -634,7 +640,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureEditObjectV1Response",
+            '200': "EzsigntemplatesignatureEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -650,10 +656,10 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_edit_object_v1_with_http_info(
+    def ezsigntemplatesignature_edit_object_v2_with_http_info(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request,
+        ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -666,15 +672,15 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsigntemplatesignatureEditObjectV1Response]:
+    ) -> ApiResponse[EzsigntemplatesignatureEditObjectV2Response]:
         """Edit an existing Ezsigntemplatesignature
 
         
 
         :param pki_ezsigntemplatesignature_id: (required)
         :type pki_ezsigntemplatesignature_id: int
-        :param ezsigntemplatesignature_edit_object_v1_request: (required)
-        :type ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request
+        :param ezsigntemplatesignature_edit_object_v2_request: (required)
+        :type ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -697,9 +703,9 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_edit_object_v1_serialize(
+        _param = self._ezsigntemplatesignature_edit_object_v2_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
-            ezsigntemplatesignature_edit_object_v1_request=ezsigntemplatesignature_edit_object_v1_request,
+            ezsigntemplatesignature_edit_object_v2_request=ezsigntemplatesignature_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -707,7 +713,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureEditObjectV1Response",
+            '200': "EzsigntemplatesignatureEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -723,10 +729,10 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_edit_object_v1_without_preload_content(
+    def ezsigntemplatesignature_edit_object_v2_without_preload_content(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request,
+        ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -746,8 +752,8 @@ class ObjectEzsigntemplatesignatureApi:
 
         :param pki_ezsigntemplatesignature_id: (required)
         :type pki_ezsigntemplatesignature_id: int
-        :param ezsigntemplatesignature_edit_object_v1_request: (required)
-        :type ezsigntemplatesignature_edit_object_v1_request: EzsigntemplatesignatureEditObjectV1Request
+        :param ezsigntemplatesignature_edit_object_v2_request: (required)
+        :type ezsigntemplatesignature_edit_object_v2_request: EzsigntemplatesignatureEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -770,9 +776,9 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_edit_object_v1_serialize(
+        _param = self._ezsigntemplatesignature_edit_object_v2_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
-            ezsigntemplatesignature_edit_object_v1_request=ezsigntemplatesignature_edit_object_v1_request,
+            ezsigntemplatesignature_edit_object_v2_request=ezsigntemplatesignature_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -780,7 +786,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureEditObjectV1Response",
+            '200': "EzsigntemplatesignatureEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -791,10 +797,10 @@ class ObjectEzsigntemplatesignatureApi:
         return response_data.response
 
 
-    def _ezsigntemplatesignature_edit_object_v1_serialize(
+    def _ezsigntemplatesignature_edit_object_v2_serialize(
         self,
         pki_ezsigntemplatesignature_id,
-        ezsigntemplatesignature_edit_object_v1_request,
+        ezsigntemplatesignature_edit_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -810,7 +816,9 @@ class ObjectEzsigntemplatesignatureApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -820,16 +828,17 @@ class ObjectEzsigntemplatesignatureApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if ezsigntemplatesignature_edit_object_v1_request is not None:
-            _body_params = ezsigntemplatesignature_edit_object_v1_request
+        if ezsigntemplatesignature_edit_object_v2_request is not None:
+            _body_params = ezsigntemplatesignature_edit_object_v2_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -852,7 +861,7 @@ class ObjectEzsigntemplatesignatureApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/1/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}',
+            resource_path='/2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -869,7 +878,7 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_get_object_v2(
+    def ezsigntemplatesignature_get_object_v3(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -884,7 +893,7 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsigntemplatesignatureGetObjectV2Response:
+    ) -> EzsigntemplatesignatureGetObjectV3Response:
         """Retrieve an existing Ezsigntemplatesignature
 
         
@@ -913,7 +922,7 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_get_object_v2_serialize(
+        _param = self._ezsigntemplatesignature_get_object_v3_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -922,7 +931,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureGetObjectV2Response",
+            '200': "EzsigntemplatesignatureGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -937,7 +946,7 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_get_object_v2_with_http_info(
+    def ezsigntemplatesignature_get_object_v3_with_http_info(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -952,7 +961,7 @@ class ObjectEzsigntemplatesignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsigntemplatesignatureGetObjectV2Response]:
+    ) -> ApiResponse[EzsigntemplatesignatureGetObjectV3Response]:
         """Retrieve an existing Ezsigntemplatesignature
 
         
@@ -981,7 +990,7 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_get_object_v2_serialize(
+        _param = self._ezsigntemplatesignature_get_object_v3_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -990,7 +999,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureGetObjectV2Response",
+            '200': "EzsigntemplatesignatureGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1005,7 +1014,7 @@ class ObjectEzsigntemplatesignatureApi:
 
 
     @validate_call
-    def ezsigntemplatesignature_get_object_v2_without_preload_content(
+    def ezsigntemplatesignature_get_object_v3_without_preload_content(
         self,
         pki_ezsigntemplatesignature_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -1049,7 +1058,7 @@ class ObjectEzsigntemplatesignatureApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsigntemplatesignature_get_object_v2_serialize(
+        _param = self._ezsigntemplatesignature_get_object_v3_serialize(
             pki_ezsigntemplatesignature_id=pki_ezsigntemplatesignature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1058,7 +1067,7 @@ class ObjectEzsigntemplatesignatureApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsigntemplatesignatureGetObjectV2Response",
+            '200': "EzsigntemplatesignatureGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1068,7 +1077,7 @@ class ObjectEzsigntemplatesignatureApi:
         return response_data.response
 
 
-    def _ezsigntemplatesignature_get_object_v2_serialize(
+    def _ezsigntemplatesignature_get_object_v3_serialize(
         self,
         pki_ezsigntemplatesignature_id,
         _request_auth,
@@ -1086,7 +1095,9 @@ class ObjectEzsigntemplatesignatureApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1099,11 +1110,12 @@ class ObjectEzsigntemplatesignatureApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1113,7 +1125,7 @@ class ObjectEzsigntemplatesignatureApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/2/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}',
+            resource_path='/3/object/ezsigntemplatesignature/{pkiEzsigntemplatesignatureID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

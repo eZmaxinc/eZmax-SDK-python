@@ -21,7 +21,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.field_e_activesession_ezsign import FieldEActivesessionEzsign
+from eZmaxApi.models.field_e_activesession_ezsignaccess import FieldEActivesessionEzsignaccess
+from eZmaxApi.models.field_e_activesession_ezsignprepaid import FieldEActivesessionEzsignprepaid
 from eZmaxApi.models.field_e_activesession_origin import FieldEActivesessionOrigin
+from eZmaxApi.models.field_e_activesession_realestateinprogress import FieldEActivesessionRealestateinprogress
 from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype
 from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart
 from typing import Optional, Set
@@ -39,10 +43,18 @@ class ActivesessionResponse(BaseModel):
     s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
     b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug")
     b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin")
+    b_activesession_attachment: Optional[StrictBool] = Field(default=None, description="Can access attachment when we clone a user", alias="bActivesessionAttachment")
+    b_activesession_canafe: Optional[StrictBool] = Field(default=None, description="Can access canafe when we clone a user", alias="bActivesessionCanafe")
+    b_activesession_financial: Optional[StrictBool] = Field(default=None, description="Can access financial element when we clone a user", alias="bActivesessionFinancial")
+    b_activesession_realestatecompleted: Optional[StrictBool] = Field(default=None, description="Can access closed realestate folders when we clone a user", alias="bActivesessionRealestatecompleted")
+    e_activesession_ezsign: Optional[FieldEActivesessionEzsign] = Field(default=None, alias="eActivesessionEzsign")
+    e_activesession_ezsignaccess: FieldEActivesessionEzsignaccess = Field(alias="eActivesessionEzsignaccess")
+    e_activesession_ezsignprepaid: Optional[FieldEActivesessionEzsignprepaid] = Field(default=None, alias="eActivesessionEzsignprepaid")
+    e_activesession_realestateinprogress: Optional[FieldEActivesessionRealestateinprogress] = Field(default=None, alias="eActivesessionRealestateinprogress")
     pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
     fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
     fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID")
-    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID"]
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -103,6 +115,14 @@ class ActivesessionResponse(BaseModel):
             "sDepartmentNameX": obj.get("sDepartmentNameX"),
             "bActivesessionDebug": obj.get("bActivesessionDebug"),
             "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),
+            "bActivesessionAttachment": obj.get("bActivesessionAttachment"),
+            "bActivesessionCanafe": obj.get("bActivesessionCanafe"),
+            "bActivesessionFinancial": obj.get("bActivesessionFinancial"),
+            "bActivesessionRealestatecompleted": obj.get("bActivesessionRealestatecompleted"),
+            "eActivesessionEzsign": obj.get("eActivesessionEzsign"),
+            "eActivesessionEzsignaccess": obj.get("eActivesessionEzsignaccess"),
+            "eActivesessionEzsignprepaid": obj.get("eActivesessionEzsignprepaid"),
+            "eActivesessionRealestateinprogress": obj.get("eActivesessionRealestateinprogress"),
             "pksCustomerCode": obj.get("pksCustomerCode"),
             "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
             "fkiSignatureID": obj.get("fkiSignatureID")

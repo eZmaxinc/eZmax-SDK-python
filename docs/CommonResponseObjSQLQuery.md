@@ -24,7 +24,7 @@ print(CommonResponseObjSQLQuery.to_json())
 # convert the object into a dict
 common_response_obj_sql_query_dict = common_response_obj_sql_query_instance.to_dict()
 # create an instance of CommonResponseObjSQLQuery from a dict
-common_response_obj_sql_query_form_dict = common_response_obj_sql_query.from_dict(common_response_obj_sql_query_dict)
+common_response_obj_sql_query_from_dict = CommonResponseObjSQLQuery.from_dict(common_response_obj_sql_query_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

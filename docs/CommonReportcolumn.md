@@ -24,7 +24,7 @@ print(CommonReportcolumn.to_json())
 # convert the object into a dict
 common_reportcolumn_dict = common_reportcolumn_instance.to_dict()
 # create an instance of CommonReportcolumn from a dict
-common_reportcolumn_form_dict = common_reportcolumn.from_dict(common_reportcolumn_dict)
+common_reportcolumn_from_dict = CommonReportcolumn.from_dict(common_reportcolumn_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

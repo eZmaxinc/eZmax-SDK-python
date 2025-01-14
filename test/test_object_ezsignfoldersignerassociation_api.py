@@ -97,6 +97,13 @@ class TestObjectEzsignfoldersignerassociationApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignfoldersignerassociation_reassign_v1(self) -> None:
+        """Test case for ezsignfoldersignerassociation_reassign_v1
+
+        Reassign remaining unsigned signatures and forms
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

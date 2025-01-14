@@ -74,9 +74,9 @@ class BillingentityinternalCreateObjectV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_billingentityinternal (list)
         _items = []
         if self.a_obj_billingentityinternal:
-            for _item in self.a_obj_billingentityinternal:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_billingentityinternal in self.a_obj_billingentityinternal:
+                if _item_a_obj_billingentityinternal:
+                    _items.append(_item_a_obj_billingentityinternal.to_dict())
             _dict['a_objBillingentityinternal'] = _items
         return _dict
 

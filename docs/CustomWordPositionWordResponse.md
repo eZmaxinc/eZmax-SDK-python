@@ -24,7 +24,7 @@ print(CustomWordPositionWordResponse.to_json())
 # convert the object into a dict
 custom_word_position_word_response_dict = custom_word_position_word_response_instance.to_dict()
 # create an instance of CustomWordPositionWordResponse from a dict
-custom_word_position_word_response_form_dict = custom_word_position_word_response.from_dict(custom_word_position_word_response_dict)
+custom_word_position_word_response_from_dict = CustomWordPositionWordResponse.from_dict(custom_word_position_word_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

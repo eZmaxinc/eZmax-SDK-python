@@ -26,7 +26,7 @@ print(WebhookheaderResponse.to_json())
 # convert the object into a dict
 webhookheader_response_dict = webhookheader_response_instance.to_dict()
 # create an instance of WebhookheaderResponse from a dict
-webhookheader_response_form_dict = webhookheader_response.from_dict(webhookheader_response_dict)
+webhookheader_response_from_dict = WebhookheaderResponse.from_dict(webhookheader_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

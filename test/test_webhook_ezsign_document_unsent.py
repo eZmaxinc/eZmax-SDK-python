@@ -28,7 +28,7 @@ class TestWebhookEzsignDocumentUnsent(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WebhookEzsignDocumentUnsent:
         """Test WebhookEzsignDocumentUnsent
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WebhookEzsignDocumentUnsent`
@@ -55,6 +55,7 @@ class TestWebhookEzsignDocumentUnsent(unittest.TestCase):
                     i_ezsigndocument_pagetotal = 4, 
                     i_ezsigndocument_signaturesigned = 3, 
                     i_ezsigndocument_signaturetotal = 4, 
+                    i_ezsigndocument_formfieldtotal = 4, 
                     s_ezsigndocument_md5initial = '012345678901234567890123456789AB', 
                     t_ezsigndocument_declinedtosignreason = 'The conditions in the contract are different than those discuted', 
                     s_ezsigndocument_md5signed = '012345678901234567890123456789AB', 
@@ -102,6 +103,7 @@ class TestWebhookEzsignDocumentUnsent(unittest.TestCase):
                     i_ezsigndocument_pagetotal = 4, 
                     i_ezsigndocument_signaturesigned = 3, 
                     i_ezsigndocument_signaturetotal = 4, 
+                    i_ezsigndocument_formfieldtotal = 4, 
                     s_ezsigndocument_md5initial = '012345678901234567890123456789AB', 
                     t_ezsigndocument_declinedtosignreason = 'The conditions in the contract are different than those discuted', 
                     s_ezsigndocument_md5signed = '012345678901234567890123456789AB', 

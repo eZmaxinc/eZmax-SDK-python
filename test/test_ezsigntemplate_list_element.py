@@ -28,7 +28,7 @@ class TestEzsigntemplateListElement(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplateListElement:
         """Test EzsigntemplateListElement
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateListElement`
@@ -45,7 +45,7 @@ class TestEzsigntemplateListElement(unittest.TestCase):
                 i_ezsigntemplate_formfieldtotal = 8,
                 b_ezsigntemplate_incomplete = False,
                 s_ezsignfoldertype_name_x = 'Default',
-                e_ezsigntemplate_type = 'Usergroup'
+                e_ezsigntemplate_type = 'Ezsignfoldertype'
             )
         else:
             return EzsigntemplateListElement(
@@ -53,7 +53,7 @@ class TestEzsigntemplateListElement(unittest.TestCase):
                 fki_language_id = 2,
                 s_ezsigntemplate_description = 'Standard Contract',
                 b_ezsigntemplate_incomplete = False,
-                e_ezsigntemplate_type = 'Usergroup',
+                e_ezsigntemplate_type = 'Ezsignfoldertype',
         )
         """
 

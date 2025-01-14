@@ -23,7 +23,7 @@ print(CommonReport.to_json())
 # convert the object into a dict
 common_report_dict = common_report_instance.to_dict()
 # create an instance of CommonReport from a dict
-common_report_form_dict = common_report.from_dict(common_report_dict)
+common_report_from_dict = CommonReport.from_dict(common_report_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,7 +24,7 @@ print(CommonReportcell.to_json())
 # convert the object into a dict
 common_reportcell_dict = common_reportcell_instance.to_dict()
 # create an instance of CommonReportcell from a dict
-common_reportcell_form_dict = common_reportcell.from_dict(common_reportcell_dict)
+common_reportcell_from_dict = CommonReportcell.from_dict(common_reportcell_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,7 +28,7 @@ class TestEzsigntemplatedocumentRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplatedocumentRequest:
         """Test EzsigntemplatedocumentRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatedocumentRequest`
@@ -43,7 +43,7 @@ class TestEzsigntemplatedocumentRequest(unittest.TestCase):
                 s_ezsigntemplatedocument_name = 'Standard Contract',
                 e_ezsigntemplatedocument_source = 'Base64',
                 e_ezsigntemplatedocument_format = 'Pdf',
-                s_ezsigntemplatedocument_base64 = '[B@5bda80bf',
+                s_ezsigntemplatedocument_base64 = '[B@4fd4cae3',
                 s_ezsigntemplatedocument_url = 'http://www.example.com/template.pdf',
                 b_ezsigntemplatedocument_forcerepair = True,
                 e_ezsigntemplatedocument_form = 'Keep',

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
@@ -31,8 +31,9 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
     """ # noqa: E501
     s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
+    a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
     s_temporary_file_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.", alias="sTemporaryFileUrl")
-    __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "sTemporaryFileUrl"]
+    __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "sTemporaryFileUrl"]
 
     @field_validator('s_error_message')
     def s_error_message_validate_regular_expression(cls, value):
@@ -104,6 +105,7 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
         _obj = cls.model_validate({
             "sErrorMessage": obj.get("sErrorMessage"),
             "eErrorCode": obj.get("eErrorCode"),
+            "a_sErrorMessagedetail": obj.get("a_sErrorMessagedetail"),
             "sTemporaryFileUrl": obj.get("sTemporaryFileUrl")
         })
         return _obj

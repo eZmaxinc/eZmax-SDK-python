@@ -69,6 +69,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_create_object_v3(self) -> None:
+        """Test case for ezsigndocument_create_object_v3
+
+        Create a new Ezsigndocument
+        """
+        pass
+
     def test_ezsigndocument_decline_to_sign_v1(self) -> None:
         """Test case for ezsigndocument_decline_to_sign_v1
 
@@ -80,6 +87,13 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """Test case for ezsigndocument_delete_object_v1
 
         Delete an existing Ezsigndocument
+        """
+        pass
+
+    def test_ezsigndocument_edit_ezsignannotations_v1(self) -> None:
+        """Test case for ezsigndocument_edit_ezsignannotations_v1
+
+        Edit multiple Ezsignannotations
         """
         pass
 
@@ -97,10 +111,24 @@ class TestObjectEzsigndocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigndocument_edit_object_v1(self) -> None:
+        """Test case for ezsigndocument_edit_object_v1
+
+        Edit an existing Ezsigndocument
+        """
+        pass
+
     def test_ezsigndocument_end_prematurely_v1(self) -> None:
         """Test case for ezsigndocument_end_prematurely_v1
 
         End prematurely
+        """
+        pass
+
+    def test_ezsigndocument_extract_text_v1(self) -> None:
+        """Test case for ezsigndocument_extract_text_v1
+
+        Extract text from Ezsigndocument area
         """
         pass
 

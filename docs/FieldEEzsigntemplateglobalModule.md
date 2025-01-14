@@ -2,10 +2,11 @@
 
 The Module for the Ezsigntemplateglobal
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+* `ALL` (value: `'All'`)
+
+* `INSCRIPTION` (value: `'Inscription'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

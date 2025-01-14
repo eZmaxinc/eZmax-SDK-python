@@ -25,7 +25,7 @@ print(EzsignsigningreasonListElement.to_json())
 # convert the object into a dict
 ezsignsigningreason_list_element_dict = ezsignsigningreason_list_element_instance.to_dict()
 # create an instance of EzsignsigningreasonListElement from a dict
-ezsignsigningreason_list_element_form_dict = ezsignsigningreason_list_element.from_dict(ezsignsigningreason_list_element_dict)
+ezsignsigningreason_list_element_from_dict = EzsignsigningreasonListElement.from_dict(ezsignsigningreason_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

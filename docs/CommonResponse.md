@@ -24,7 +24,7 @@ print(CommonResponse.to_json())
 # convert the object into a dict
 common_response_dict = common_response_instance.to_dict()
 # create an instance of CommonResponse from a dict
-common_response_form_dict = common_response.from_dict(common_response_dict)
+common_response_from_dict = CommonResponse.from_dict(common_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,7 +28,7 @@ print(ApikeyListElement.to_json())
 # convert the object into a dict
 apikey_list_element_dict = apikey_list_element_instance.to_dict()
 # create an instance of ApikeyListElement from a dict
-apikey_list_element_form_dict = apikey_list_element.from_dict(apikey_list_element_dict)
+apikey_list_element_from_dict = ApikeyListElement.from_dict(apikey_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

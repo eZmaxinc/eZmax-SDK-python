@@ -26,7 +26,7 @@ print(NotificationtestGetElementsV1ResponseMPayload.to_json())
 # convert the object into a dict
 notificationtest_get_elements_v1_response_m_payload_dict = notificationtest_get_elements_v1_response_m_payload_instance.to_dict()
 # create an instance of NotificationtestGetElementsV1ResponseMPayload from a dict
-notificationtest_get_elements_v1_response_m_payload_form_dict = notificationtest_get_elements_v1_response_m_payload.from_dict(notificationtest_get_elements_v1_response_m_payload_dict)
+notificationtest_get_elements_v1_response_m_payload_from_dict = NotificationtestGetElementsV1ResponseMPayload.from_dict(notificationtest_get_elements_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

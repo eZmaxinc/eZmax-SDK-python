@@ -24,7 +24,7 @@ print(CommonAudit.to_json())
 # convert the object into a dict
 common_audit_dict = common_audit_instance.to_dict()
 # create an instance of CommonAudit from a dict
-common_audit_form_dict = common_audit.from_dict(common_audit_dict)
+common_audit_from_dict = CommonAudit.from_dict(common_audit_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -30,26 +30,18 @@ class CreditcardclientListElement(BaseModel):
     """ # noqa: E501
     pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
     fki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="fkiCreditcarddetailID")
-    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's an relationisdefault", alias="bCreditcardclientrelationIsdefault")
+    fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID")
+    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
     s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
-    b_creditcardclient_isactive: StrictBool = Field(description="Whether the creditcardclient is active or not", alias="bCreditcardclientIsactive")
-    b_creditcardclient_allowedagencypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedagencypayment")
-    b_creditcardclient_allowedroyallepageprotection: StrictBool = Field(description="Whether if it's an allowedroyallepageprotection", alias="bCreditcardclientAllowedroyallepageprotection")
+    b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment")
     b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit")
     i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
     i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
-    s_creditcarddetail_numbermasked: Annotated[str, Field(strict=True)] = Field(description="The numbermasked of the Creditcarddetail", alias="sCreditcarddetailNumbermasked")
-    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientIsactive", "bCreditcardclientAllowedagencypayment", "bCreditcardclientAllowedroyallepageprotection", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "sCreditcarddetailNumbermasked"]
+    i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits")
+    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "fkiCreditcardtypeID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "iCreditcarddetailLastdigits"]
 
     @field_validator('s_creditcardclient_description')
     def s_creditcardclient_description_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,50}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
-        return value
-
-    @field_validator('s_creditcarddetail_numbermasked')
-    def s_creditcarddetail_numbermasked_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
@@ -108,15 +100,14 @@ class CreditcardclientListElement(BaseModel):
         _obj = cls.model_validate({
             "pkiCreditcardclientID": obj.get("pkiCreditcardclientID"),
             "fkiCreditcarddetailID": obj.get("fkiCreditcarddetailID"),
+            "fkiCreditcardtypeID": obj.get("fkiCreditcardtypeID"),
             "bCreditcardclientrelationIsdefault": obj.get("bCreditcardclientrelationIsdefault"),
             "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
-            "bCreditcardclientIsactive": obj.get("bCreditcardclientIsactive"),
-            "bCreditcardclientAllowedagencypayment": obj.get("bCreditcardclientAllowedagencypayment"),
-            "bCreditcardclientAllowedroyallepageprotection": obj.get("bCreditcardclientAllowedroyallepageprotection"),
+            "bCreditcardclientAllowedcompanypayment": obj.get("bCreditcardclientAllowedcompanypayment"),
             "bCreditcardclientAllowedtranquillit": obj.get("bCreditcardclientAllowedtranquillit"),
             "iCreditcarddetailExpirationmonth": obj.get("iCreditcarddetailExpirationmonth"),
             "iCreditcarddetailExpirationyear": obj.get("iCreditcarddetailExpirationyear"),
-            "sCreditcarddetailNumbermasked": obj.get("sCreditcarddetailNumbermasked")
+            "iCreditcarddetailLastdigits": obj.get("iCreditcarddetailLastdigits")
         })
         return _obj
 

@@ -28,7 +28,7 @@ print(EzsigntemplatesignaturecustomdateResponseCompound.to_json())
 # convert the object into a dict
 ezsigntemplatesignaturecustomdate_response_compound_dict = ezsigntemplatesignaturecustomdate_response_compound_instance.to_dict()
 # create an instance of EzsigntemplatesignaturecustomdateResponseCompound from a dict
-ezsigntemplatesignaturecustomdate_response_compound_form_dict = ezsigntemplatesignaturecustomdate_response_compound.from_dict(ezsigntemplatesignaturecustomdate_response_compound_dict)
+ezsigntemplatesignaturecustomdate_response_compound_from_dict = EzsigntemplatesignaturecustomdateResponseCompound.from_dict(ezsigntemplatesignaturecustomdate_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

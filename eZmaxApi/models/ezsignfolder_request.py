@@ -31,12 +31,20 @@ class EzsignfolderRequest(BaseModel):
     """ # noqa: E501
     pki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
     fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_timezone_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Timezone", alias="fkiTimezoneID")
     fki_ezsigntsarequirement_id: Optional[Annotated[int, Field(le=3, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|", alias="fkiEzsigntsarequirementID")
-    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
     e_ezsignfolder_sendreminderfrequency: FieldEEzsignfolderSendreminderfrequency = Field(alias="eEzsignfolderSendreminderfrequency")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiEzsigntsarequirementID", "sEzsignfolderDescription", "tEzsignfolderNote", "eEzsignfolderSendreminderfrequency", "sEzsignfolderExternalid"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiTimezoneID", "fkiEzsigntsarequirementID", "sEzsignfolderDescription", "tEzsignfolderNote", "eEzsignfolderSendreminderfrequency", "sEzsignfolderExternalid"]
+
+    @field_validator('s_ezsignfolder_description')
+    def s_ezsignfolder_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     @field_validator('s_ezsignfolder_externalid')
     def s_ezsignfolder_externalid_validate_regular_expression(cls, value):
@@ -101,6 +109,7 @@ class EzsignfolderRequest(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "fkiEzsigntsarequirementID": obj.get("fkiEzsigntsarequirementID"),
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
             "tEzsignfolderNote": obj.get("tEzsignfolderNote"),

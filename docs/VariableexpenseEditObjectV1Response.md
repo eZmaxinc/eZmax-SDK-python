@@ -24,7 +24,7 @@ print(VariableexpenseEditObjectV1Response.to_json())
 # convert the object into a dict
 variableexpense_edit_object_v1_response_dict = variableexpense_edit_object_v1_response_instance.to_dict()
 # create an instance of VariableexpenseEditObjectV1Response from a dict
-variableexpense_edit_object_v1_response_form_dict = variableexpense_edit_object_v1_response.from_dict(variableexpense_edit_object_v1_response_dict)
+variableexpense_edit_object_v1_response_from_dict = VariableexpenseEditObjectV1Response.from_dict(variableexpense_edit_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

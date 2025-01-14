@@ -28,7 +28,7 @@ class TestEzsignsignatureCreateObjectV2Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignsignatureCreateObjectV2Request:
         """Test EzsignsignatureCreateObjectV2Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureCreateObjectV2Request`

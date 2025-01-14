@@ -27,7 +27,7 @@ print(CustomDiscussionconfigurationResponse.to_json())
 # convert the object into a dict
 custom_discussionconfiguration_response_dict = custom_discussionconfiguration_response_instance.to_dict()
 # create an instance of CustomDiscussionconfigurationResponse from a dict
-custom_discussionconfiguration_response_form_dict = custom_discussionconfiguration_response.from_dict(custom_discussionconfiguration_response_dict)
+custom_discussionconfiguration_response_from_dict = CustomDiscussionconfigurationResponse.from_dict(custom_discussionconfiguration_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

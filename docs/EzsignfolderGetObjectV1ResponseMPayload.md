@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **obj_ezsignfoldertype** | [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
+**fki_timezone_id** | **int** | The unique ID of the Timezone | [optional] 
 **e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **s_ezsignfoldertype_name_x** | **str** |  | [optional] 
 **fki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | [optional] 
@@ -19,6 +20,8 @@ Name | Type | Description | Notes
 **t_ezsignfolder_note** | **str** | Note about the Ezsignfolder | [optional] 
 **b_ezsignfolder_isdisposable** | **bool** | If the Ezsigndocument can be disposed | [optional] 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | [optional] 
+**i_ezsignfolder_sendreminderfirstdays** | **int** | The number of days before the the first reminder sending | [optional] 
+**i_ezsignfolder_sendreminderotherdays** | **int** | The number of days after the first reminder sending | [optional] 
 **dt_ezsignfolder_delayedsenddate** | **str** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **dt_ezsignfolder_duedate** | **str** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **dt_ezsignfolder_sentdate** | **str** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
@@ -29,6 +32,7 @@ Name | Type | Description | Notes
 **t_ezsignfolder_message** | **str** | A custom text message that will be added to the email sent. | [optional] 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **s_ezsignfolder_externalid** | **str** | This field can be used to store an External ID from the client&#39;s system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format.  | [optional] 
+**obj_timezone** | [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 
 ## Example
 
@@ -45,7 +49,7 @@ print(EzsignfolderGetObjectV1ResponseMPayload.to_json())
 # convert the object into a dict
 ezsignfolder_get_object_v1_response_m_payload_dict = ezsignfolder_get_object_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsignfolderGetObjectV1ResponseMPayload from a dict
-ezsignfolder_get_object_v1_response_m_payload_form_dict = ezsignfolder_get_object_v1_response_m_payload.from_dict(ezsignfolder_get_object_v1_response_m_payload_dict)
+ezsignfolder_get_object_v1_response_m_payload_from_dict = EzsignfolderGetObjectV1ResponseMPayload.from_dict(ezsignfolder_get_object_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_creditcarddetail_expirationmonth** | **int** | The expirationmonth of the Creditcarddetail | 
 **i_creditcarddetail_expirationyear** | **int** | The expirationyear of the Creditcarddetail | 
-**s_creditcarddetail_civic** | **str** | The civic of the Creditcarddetail | [optional] 
-**s_creditcarddetail_street** | **str** | The street of the Creditcarddetail | [optional] 
-**s_creditcarddetail_zip** | **str** | The zip of the Creditcarddetail | [optional] 
+**s_creditcarddetail_civic** | **str** | The civic of the Creditcarddetail | 
+**s_creditcarddetail_street** | **str** | The street of the Creditcarddetail | 
+**s_creditcarddetail_zip** | **str** | The zip of the Creditcarddetail | 
 
 ## Example
 
@@ -27,7 +27,7 @@ print(CreditcarddetailRequest.to_json())
 # convert the object into a dict
 creditcarddetail_request_dict = creditcarddetail_request_instance.to_dict()
 # create an instance of CreditcarddetailRequest from a dict
-creditcarddetail_request_form_dict = creditcarddetail_request.from_dict(creditcarddetail_request_dict)
+creditcarddetail_request_from_dict = CreditcarddetailRequest.from_dict(creditcarddetail_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

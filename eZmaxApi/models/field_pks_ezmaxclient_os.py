@@ -27,6 +27,7 @@ class FieldPksEzmaxclientOs(str, Enum):
     """
     allowed enum values
     """
+    ANDROID = 'Android'
     IOS = 'iOS'
     IPADOS = 'iPadOS'
     MACOS = 'macOS'

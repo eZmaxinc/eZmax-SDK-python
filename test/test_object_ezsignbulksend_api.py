@@ -27,8 +27,8 @@ class TestObjectEzsignbulksendApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ezsignbulksend_create_ezsignbulksendtransmission_v1(self) -> None:
-        """Test case for ezsignbulksend_create_ezsignbulksendtransmission_v1
+    def test_ezsignbulksend_create_ezsignbulksendtransmission_v2(self) -> None:
+        """Test case for ezsignbulksend_create_ezsignbulksendtransmission_v2
 
         Create a new Ezsignbulksendtransmission in the Ezsignbulksend
         """

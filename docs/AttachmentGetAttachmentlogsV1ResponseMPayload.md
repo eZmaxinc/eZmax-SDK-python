@@ -23,7 +23,7 @@ print(AttachmentGetAttachmentlogsV1ResponseMPayload.to_json())
 # convert the object into a dict
 attachment_get_attachmentlogs_v1_response_m_payload_dict = attachment_get_attachmentlogs_v1_response_m_payload_instance.to_dict()
 # create an instance of AttachmentGetAttachmentlogsV1ResponseMPayload from a dict
-attachment_get_attachmentlogs_v1_response_m_payload_form_dict = attachment_get_attachmentlogs_v1_response_m_payload.from_dict(attachment_get_attachmentlogs_v1_response_m_payload_dict)
+attachment_get_attachmentlogs_v1_response_m_payload_from_dict = AttachmentGetAttachmentlogsV1ResponseMPayload.from_dict(attachment_get_attachmentlogs_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

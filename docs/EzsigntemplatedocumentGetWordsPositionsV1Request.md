@@ -25,7 +25,7 @@ print(EzsigntemplatedocumentGetWordsPositionsV1Request.to_json())
 # convert the object into a dict
 ezsigntemplatedocument_get_words_positions_v1_request_dict = ezsigntemplatedocument_get_words_positions_v1_request_instance.to_dict()
 # create an instance of EzsigntemplatedocumentGetWordsPositionsV1Request from a dict
-ezsigntemplatedocument_get_words_positions_v1_request_form_dict = ezsigntemplatedocument_get_words_positions_v1_request.from_dict(ezsigntemplatedocument_get_words_positions_v1_request_dict)
+ezsigntemplatedocument_get_words_positions_v1_request_from_dict = EzsigntemplatedocumentGetWordsPositionsV1Request.from_dict(ezsigntemplatedocument_get_words_positions_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
@@ -30,10 +30,17 @@ class EzsigntemplateAutocompleteElementResponse(BaseModel):
     A Ezsigntemplate AutocompleteElement Response
     """ # noqa: E501
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
-    s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
     pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
     b_ezsigntemplate_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateIsactive")
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplateDescription", "pkiEzsigntemplateID", "bEzsigntemplateIsactive"]
+
+    @field_validator('s_ezsigntemplate_description')
+    def s_ezsigntemplate_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

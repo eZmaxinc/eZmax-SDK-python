@@ -25,7 +25,7 @@ print(CustomImportEzsigntemplatepackageRelationRequest.to_json())
 # convert the object into a dict
 custom_import_ezsigntemplatepackage_relation_request_dict = custom_import_ezsigntemplatepackage_relation_request_instance.to_dict()
 # create an instance of CustomImportEzsigntemplatepackageRelationRequest from a dict
-custom_import_ezsigntemplatepackage_relation_request_form_dict = custom_import_ezsigntemplatepackage_relation_request.from_dict(custom_import_ezsigntemplatepackage_relation_request_dict)
+custom_import_ezsigntemplatepackage_relation_request_from_dict = CustomImportEzsigntemplatepackageRelationRequest.from_dict(custom_import_ezsigntemplatepackage_relation_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

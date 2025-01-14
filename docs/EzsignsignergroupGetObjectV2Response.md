@@ -25,7 +25,7 @@ print(EzsignsignergroupGetObjectV2Response.to_json())
 # convert the object into a dict
 ezsignsignergroup_get_object_v2_response_dict = ezsignsignergroup_get_object_v2_response_instance.to_dict()
 # create an instance of EzsignsignergroupGetObjectV2Response from a dict
-ezsignsignergroup_get_object_v2_response_form_dict = ezsignsignergroup_get_object_v2_response.from_dict(ezsignsignergroup_get_object_v2_response_dict)
+ezsignsignergroup_get_object_v2_response_from_dict = EzsignsignergroupGetObjectV2Response.from_dict(ezsignsignergroup_get_object_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

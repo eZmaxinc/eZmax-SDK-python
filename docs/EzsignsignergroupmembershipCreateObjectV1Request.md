@@ -23,7 +23,7 @@ print(EzsignsignergroupmembershipCreateObjectV1Request.to_json())
 # convert the object into a dict
 ezsignsignergroupmembership_create_object_v1_request_dict = ezsignsignergroupmembership_create_object_v1_request_instance.to_dict()
 # create an instance of EzsignsignergroupmembershipCreateObjectV1Request from a dict
-ezsignsignergroupmembership_create_object_v1_request_form_dict = ezsignsignergroupmembership_create_object_v1_request.from_dict(ezsignsignergroupmembership_create_object_v1_request_dict)
+ezsignsignergroupmembership_create_object_v1_request_from_dict = EzsignsignergroupmembershipCreateObjectV1Request.from_dict(ezsignsignergroupmembership_create_object_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

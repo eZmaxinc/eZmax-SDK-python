@@ -23,7 +23,7 @@ print(EzmaxproductGetAutocompleteV2ResponseMPayload.to_json())
 # convert the object into a dict
 ezmaxproduct_get_autocomplete_v2_response_m_payload_dict = ezmaxproduct_get_autocomplete_v2_response_m_payload_instance.to_dict()
 # create an instance of EzmaxproductGetAutocompleteV2ResponseMPayload from a dict
-ezmaxproduct_get_autocomplete_v2_response_m_payload_form_dict = ezmaxproduct_get_autocomplete_v2_response_m_payload.from_dict(ezmaxproduct_get_autocomplete_v2_response_m_payload_dict)
+ezmaxproduct_get_autocomplete_v2_response_m_payload_from_dict = EzmaxproductGetAutocompleteV2ResponseMPayload.from_dict(ezmaxproduct_get_autocomplete_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

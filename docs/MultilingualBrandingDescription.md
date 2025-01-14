@@ -24,7 +24,7 @@ print(MultilingualBrandingDescription.to_json())
 # convert the object into a dict
 multilingual_branding_description_dict = multilingual_branding_description_instance.to_dict()
 # create an instance of MultilingualBrandingDescription from a dict
-multilingual_branding_description_form_dict = multilingual_branding_description.from_dict(multilingual_branding_description_dict)
+multilingual_branding_description_from_dict = MultilingualBrandingDescription.from_dict(multilingual_branding_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ print(CompanyAutocompleteElementResponse.to_json())
 # convert the object into a dict
 company_autocomplete_element_response_dict = company_autocomplete_element_response_instance.to_dict()
 # create an instance of CompanyAutocompleteElementResponse from a dict
-company_autocomplete_element_response_form_dict = company_autocomplete_element_response.from_dict(company_autocomplete_element_response_dict)
+company_autocomplete_element_response_from_dict = CompanyAutocompleteElementResponse.from_dict(company_autocomplete_element_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

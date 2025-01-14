@@ -24,7 +24,7 @@ print(EzsigntemplatepackageDeleteObjectV1Response.to_json())
 # convert the object into a dict
 ezsigntemplatepackage_delete_object_v1_response_dict = ezsigntemplatepackage_delete_object_v1_response_instance.to_dict()
 # create an instance of EzsigntemplatepackageDeleteObjectV1Response from a dict
-ezsigntemplatepackage_delete_object_v1_response_form_dict = ezsigntemplatepackage_delete_object_v1_response.from_dict(ezsigntemplatepackage_delete_object_v1_response_dict)
+ezsigntemplatepackage_delete_object_v1_response_from_dict = EzsigntemplatepackageDeleteObjectV1Response.from_dict(ezsigntemplatepackage_delete_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

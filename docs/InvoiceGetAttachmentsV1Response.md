@@ -25,7 +25,7 @@ print(InvoiceGetAttachmentsV1Response.to_json())
 # convert the object into a dict
 invoice_get_attachments_v1_response_dict = invoice_get_attachments_v1_response_instance.to_dict()
 # create an instance of InvoiceGetAttachmentsV1Response from a dict
-invoice_get_attachments_v1_response_form_dict = invoice_get_attachments_v1_response.from_dict(invoice_get_attachments_v1_response_dict)
+invoice_get_attachments_v1_response_from_dict = InvoiceGetAttachmentsV1Response.from_dict(invoice_get_attachments_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

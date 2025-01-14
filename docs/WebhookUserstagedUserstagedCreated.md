@@ -25,7 +25,7 @@ print(WebhookUserstagedUserstagedCreated.to_json())
 # convert the object into a dict
 webhook_userstaged_userstaged_created_dict = webhook_userstaged_userstaged_created_instance.to_dict()
 # create an instance of WebhookUserstagedUserstagedCreated from a dict
-webhook_userstaged_userstaged_created_form_dict = webhook_userstaged_userstaged_created.from_dict(webhook_userstaged_userstaged_created_dict)
+webhook_userstaged_userstaged_created_from_dict = WebhookUserstagedUserstagedCreated.from_dict(webhook_userstaged_userstaged_created_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

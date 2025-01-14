@@ -23,7 +23,7 @@ print(ScimServiceProviderConfigChangePassword.to_json())
 # convert the object into a dict
 scim_service_provider_config_change_password_dict = scim_service_provider_config_change_password_instance.to_dict()
 # create an instance of ScimServiceProviderConfigChangePassword from a dict
-scim_service_provider_config_change_password_form_dict = scim_service_provider_config_change_password.from_dict(scim_service_provider_config_change_password_dict)
+scim_service_provider_config_change_password_from_dict = ScimServiceProviderConfigChangePassword.from_dict(scim_service_provider_config_change_password_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

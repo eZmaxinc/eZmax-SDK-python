@@ -73,9 +73,9 @@ class EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload(Bas
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatedocumentpage (list)
         _items = []
         if self.a_obj_ezsigntemplatedocumentpage:
-            for _item in self.a_obj_ezsigntemplatedocumentpage:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplatedocumentpage in self.a_obj_ezsigntemplatedocumentpage:
+                if _item_a_obj_ezsigntemplatedocumentpage:
+                    _items.append(_item_a_obj_ezsigntemplatedocumentpage.to_dict())
             _dict['a_objEzsigntemplatedocumentpage'] = _items
         return _dict
 

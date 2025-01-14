@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,39 +30,30 @@ class CreditcarddetailRequest(BaseModel):
     """ # noqa: E501
     i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
     i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
-    s_creditcarddetail_civic: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic")
-    s_creditcarddetail_street: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet")
-    s_creditcarddetail_zip: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip")
+    s_creditcarddetail_civic: Annotated[str, Field(strict=True)] = Field(description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic")
+    s_creditcarddetail_street: Annotated[str, Field(strict=True)] = Field(description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet")
+    s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip")
     __properties: ClassVar[List[str]] = ["iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "sCreditcarddetailCivic", "sCreditcarddetailStreet", "sCreditcarddetailZip"]
 
     @field_validator('s_creditcarddetail_civic')
     def s_creditcarddetail_civic_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,8}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,8}$/")
+        if not re.match(r"^[\d]{1,8}$", value):
+            raise ValueError(r"must validate the regular expression /^[\d]{1,8}$/")
         return value
 
     @field_validator('s_creditcarddetail_street')
     def s_creditcarddetail_street_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,40}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,40}$/")
+        if not re.match(r"^.{1,19}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,19}$/")
         return value
 
     @field_validator('s_creditcarddetail_zip')
     def s_creditcarddetail_zip_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,10}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,10}$/")
+        if not re.match(r"^.{0,9}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,9}$/")
         return value
 
     model_config = ConfigDict(

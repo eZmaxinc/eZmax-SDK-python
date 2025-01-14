@@ -23,7 +23,7 @@ print(EzsigntemplatepackagesignermembershipCreateObjectV1ResponseMPayload.to_jso
 # convert the object into a dict
 ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_dict = ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsigntemplatepackagesignermembershipCreateObjectV1ResponseMPayload from a dict
-ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_form_dict = ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload.from_dict(ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_dict)
+ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_from_dict = EzsigntemplatepackagesignermembershipCreateObjectV1ResponseMPayload.from_dict(ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

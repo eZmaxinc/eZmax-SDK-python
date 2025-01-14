@@ -4,7 +4,7 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezsignbulksend_create_ezsignbulksendtransmission_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_ezsignbulksendtransmission_v1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
+[**ezsignbulksend_create_ezsignbulksendtransmission_v2**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_ezsignbulksendtransmission_v2) | **POST** /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 [**ezsignbulksend_create_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_object_v1) | **POST** /1/object/ezsignbulksend | Create a new Ezsignbulksend
 [**ezsignbulksend_delete_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_delete_object_v1) | **DELETE** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
 [**ezsignbulksend_edit_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_edit_object_v1) | **PUT** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
@@ -17,8 +17,8 @@ Method | HTTP request | Description
 [**ezsignbulksend_reorder_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_reorder_v1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
-# **ezsignbulksend_create_ezsignbulksendtransmission_v1**
-> EzsignbulksendCreateEzsignbulksendtransmissionV1Response ezsignbulksend_create_ezsignbulksendtransmission_v1(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v1_request)
+# **ezsignbulksend_create_ezsignbulksendtransmission_v2**
+> EzsignbulksendCreateEzsignbulksendtransmissionV2Response ezsignbulksend_create_ezsignbulksendtransmission_v2(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v2_request)
 
 Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
@@ -28,8 +28,8 @@ Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_request import EzsignbulksendCreateEzsignbulksendtransmissionV1Request
-from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_response import EzsignbulksendCreateEzsignbulksendtransmissionV1Response
+from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_request import EzsignbulksendCreateEzsignbulksendtransmissionV2Request
+from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_response import EzsignbulksendCreateEzsignbulksendtransmissionV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -55,15 +55,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsignbulksendApi(api_client)
     pki_ezsignbulksend_id = 56 # int | 
-    ezsignbulksend_create_ezsignbulksendtransmission_v1_request = eZmaxApi.EzsignbulksendCreateEzsignbulksendtransmissionV1Request() # EzsignbulksendCreateEzsignbulksendtransmissionV1Request | 
+    ezsignbulksend_create_ezsignbulksendtransmission_v2_request = eZmaxApi.EzsignbulksendCreateEzsignbulksendtransmissionV2Request() # EzsignbulksendCreateEzsignbulksendtransmissionV2Request | 
 
     try:
         # Create a new Ezsignbulksendtransmission in the Ezsignbulksend
-        api_response = api_instance.ezsignbulksend_create_ezsignbulksendtransmission_v1(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v1_request)
-        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_create_ezsignbulksendtransmission_v1:\n")
+        api_response = api_instance.ezsignbulksend_create_ezsignbulksendtransmission_v2(pki_ezsignbulksend_id, ezsignbulksend_create_ezsignbulksendtransmission_v2_request)
+        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_create_ezsignbulksendtransmission_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_create_ezsignbulksendtransmission_v1: %s\n" % e)
+        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_create_ezsignbulksendtransmission_v2: %s\n" % e)
 ```
 
 
@@ -74,11 +74,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignbulksend_id** | **int**|  | 
- **ezsignbulksend_create_ezsignbulksendtransmission_v1_request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV1Request**](EzsignbulksendCreateEzsignbulksendtransmissionV1Request.md)|  | 
+ **ezsignbulksend_create_ezsignbulksendtransmission_v2_request** | [**EzsignbulksendCreateEzsignbulksendtransmissionV2Request**](EzsignbulksendCreateEzsignbulksendtransmissionV2Request.md)|  | 
 
 ### Return type
 
-[**EzsignbulksendCreateEzsignbulksendtransmissionV1Response**](EzsignbulksendCreateEzsignbulksendtransmissionV1Response.md)
+[**EzsignbulksendCreateEzsignbulksendtransmissionV2Response**](EzsignbulksendCreateEzsignbulksendtransmissionV2Response.md)
 
 ### Authorization
 

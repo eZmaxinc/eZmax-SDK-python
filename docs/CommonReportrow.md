@@ -24,7 +24,7 @@ print(CommonReportrow.to_json())
 # convert the object into a dict
 common_reportrow_dict = common_reportrow_instance.to_dict()
 # create an instance of CommonReportrow from a dict
-common_reportrow_form_dict = common_reportrow.from_dict(common_reportrow_dict)
+common_reportrow_from_dict = CommonReportrow.from_dict(common_reportrow_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,7 +28,7 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfolderResponseCompound:
         """Test EzsignfolderResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderResponseCompound`
@@ -39,6 +39,7 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
                 pki_ezsignfolder_id = 33,
                 fki_ezsignfoldertype_id = 5,
                 obj_ezsignfoldertype = eZmaxApi.models.custom_ezsignfoldertype_response.Custom-Ezsignfoldertype-Response(),
+                fki_timezone_id = 247,
                 e_ezsignfolder_completion = 'PerEzsigndocument',
                 s_ezsignfoldertype_name_x = '',
                 fki_billingentityinternal_id = 1,
@@ -49,6 +50,8 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
                 t_ezsignfolder_note = 'This is a note',
                 b_ezsignfolder_isdisposable = False,
                 e_ezsignfolder_sendreminderfrequency = 'None',
+                i_ezsignfolder_sendreminderfirstdays = 30,
+                i_ezsignfolder_sendreminderotherdays = 30,
                 dt_ezsignfolder_delayedsenddate = '2020-12-31T23:59:59.000Z',
                 dt_ezsignfolder_duedate = '2020-12-31 23:59:59',
                 dt_ezsignfolder_sentdate = '2020-12-31T23:59:59.000Z',
@@ -82,7 +85,10 @@ Mary',
                         s_user_firstname = 'John', 
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
-                s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}'
+                s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}',
+                obj_timezone = eZmaxApi.models.custom_timezone_with_code_response.Custom-TimezoneWithCode-Response(
+                    s_timezone_name = '', 
+                    s_code = 'EST', )
             )
         else:
             return EzsignfolderResponseCompound(

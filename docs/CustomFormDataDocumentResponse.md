@@ -27,7 +27,7 @@ print(CustomFormDataDocumentResponse.to_json())
 # convert the object into a dict
 custom_form_data_document_response_dict = custom_form_data_document_response_instance.to_dict()
 # create an instance of CustomFormDataDocumentResponse from a dict
-custom_form_data_document_response_form_dict = custom_form_data_document_response.from_dict(custom_form_data_document_response_dict)
+custom_form_data_document_response_from_dict = CustomFormDataDocumentResponse.from_dict(custom_form_data_document_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

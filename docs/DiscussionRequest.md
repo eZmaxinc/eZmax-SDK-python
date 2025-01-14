@@ -25,7 +25,7 @@ print(DiscussionRequest.to_json())
 # convert the object into a dict
 discussion_request_dict = discussion_request_instance.to_dict()
 # create an instance of DiscussionRequest from a dict
-discussion_request_form_dict = discussion_request.from_dict(discussion_request_dict)
+discussion_request_from_dict = DiscussionRequest.from_dict(discussion_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

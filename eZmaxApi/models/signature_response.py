@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,12 +29,27 @@ class SignatureResponse(BaseModel):
     A Signature Object
     """ # noqa: E501
     pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID")
-    s_signature_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the SVG file for the Signature", alias="sSignatureUrl")
-    __properties: ClassVar[List[str]] = ["pkiSignatureID", "sSignatureUrl"]
+    fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
+    s_signature_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Signature", alias="sSignatureUrl")
+    s_signature_urlinitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Initials", alias="sSignatureUrlinitials")
+    __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "sSignatureUrl", "sSignatureUrlinitials"]
 
     @field_validator('s_signature_url')
     def s_signature_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
+        return value
+
+    @field_validator('s_signature_urlinitials')
+    def s_signature_urlinitials_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
         if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
@@ -91,7 +106,9 @@ class SignatureResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiSignatureID": obj.get("pkiSignatureID"),
-            "sSignatureUrl": obj.get("sSignatureUrl")
+            "fkiFontID": obj.get("fkiFontID"),
+            "sSignatureUrl": obj.get("sSignatureUrl"),
+            "sSignatureUrlinitials": obj.get("sSignatureUrlinitials")
         })
         return _obj
 

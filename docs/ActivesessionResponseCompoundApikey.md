@@ -24,7 +24,7 @@ print(ActivesessionResponseCompoundApikey.to_json())
 # convert the object into a dict
 activesession_response_compound_apikey_dict = activesession_response_compound_apikey_instance.to_dict()
 # create an instance of ActivesessionResponseCompoundApikey from a dict
-activesession_response_compound_apikey_form_dict = activesession_response_compound_apikey.from_dict(activesession_response_compound_apikey_dict)
+activesession_response_compound_apikey_from_dict = ActivesessionResponseCompoundApikey.from_dict(activesession_response_compound_apikey_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

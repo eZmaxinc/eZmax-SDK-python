@@ -55,6 +55,27 @@ class TestObjectSignatureApi(unittest.TestCase):
         """
         pass
 
+    def test_signature_get_object_v3(self) -> None:
+        """Test case for signature_get_object_v3
+
+        Retrieve an existing Signature
+        """
+        pass
+
+    def test_signature_get_svg_initials_v1(self) -> None:
+        """Test case for signature_get_svg_initials_v1
+
+        Retrieve an existing Signature initial SVG
+        """
+        pass
+
+    def test_signature_get_svg_signature_v1(self) -> None:
+        """Test case for signature_get_svg_signature_v1
+
+        Retrieve an existing Signature SVG
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

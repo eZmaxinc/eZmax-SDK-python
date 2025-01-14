@@ -28,7 +28,7 @@ class FranchisebrokerAutocompleteElementResponse(BaseModel):
     """
     A Franchisebroker AutocompleteElement Response
     """ # noqa: E501
-    s_franchisebroker_name: StrictStr = Field(description="The name of the Franchisebroker in the language of the requester", alias="sFranchisebrokerName")
+    s_franchisebroker_name: StrictStr = Field(description="The name of the Franchisebroker", alias="sFranchisebrokerName")
     pki_franchisebroker_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisebroker", alias="pkiFranchisebrokerID")
     b_franchisebroker_isactive: StrictBool = Field(description="Whether the Franchisebroker is active or not", alias="bFranchisebrokerIsactive")
     __properties: ClassVar[List[str]] = ["sFranchisebrokerName", "pkiFranchisebrokerID", "bFranchisebrokerIsactive"]

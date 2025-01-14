@@ -74,9 +74,9 @@ class DiscussionmessageCreateObjectV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_discussionmessage (list)
         _items = []
         if self.a_obj_discussionmessage:
-            for _item in self.a_obj_discussionmessage:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_discussionmessage in self.a_obj_discussionmessage:
+                if _item_a_obj_discussionmessage:
+                    _items.append(_item_a_obj_discussionmessage.to_dict())
             _dict['a_objDiscussionmessage'] = _items
         return _dict
 

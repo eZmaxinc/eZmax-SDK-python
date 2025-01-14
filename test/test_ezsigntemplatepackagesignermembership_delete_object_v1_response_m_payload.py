@@ -28,7 +28,7 @@ class TestEzsigntemplatepackagesignermembershipDeleteObjectV1ResponseMPayload(un
 
     def make_instance(self, include_optional) -> EzsigntemplatepackagesignermembershipDeleteObjectV1ResponseMPayload:
         """Test EzsigntemplatepackagesignermembershipDeleteObjectV1ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagesignermembershipDeleteObjectV1ResponseMPayload`

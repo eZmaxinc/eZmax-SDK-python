@@ -26,7 +26,7 @@ print(EzsignbulksenddocumentmappingRequestCompound.to_json())
 # convert the object into a dict
 ezsignbulksenddocumentmapping_request_compound_dict = ezsignbulksenddocumentmapping_request_compound_instance.to_dict()
 # create an instance of EzsignbulksenddocumentmappingRequestCompound from a dict
-ezsignbulksenddocumentmapping_request_compound_form_dict = ezsignbulksenddocumentmapping_request_compound.from_dict(ezsignbulksenddocumentmapping_request_compound_dict)
+ezsignbulksenddocumentmapping_request_compound_from_dict = EzsignbulksenddocumentmappingRequestCompound.from_dict(ezsignbulksenddocumentmapping_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

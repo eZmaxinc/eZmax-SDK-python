@@ -28,7 +28,7 @@ class TestCommonResponseError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CommonResponseError:
         """Test CommonResponseError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CommonResponseError`
@@ -37,7 +37,10 @@ class TestCommonResponseError(unittest.TestCase):
         if include_optional:
             return CommonResponseError(
                 s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST'
+                e_error_code = 'BADREQUEST',
+                a_s_error_messagedetail = [
+                    ''
+                    ]
             )
         else:
             return CommonResponseError(

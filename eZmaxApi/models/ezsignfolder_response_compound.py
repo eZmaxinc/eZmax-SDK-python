@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
+from eZmaxApi.models.custom_timezone_with_code_response import CustomTimezoneWithCodeResponse
 from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
 from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
@@ -36,16 +37,19 @@ class EzsignfolderResponseCompound(BaseModel):
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     obj_ezsignfoldertype: Optional[CustomEzsignfoldertypeResponse] = Field(default=None, alias="objEzsignfoldertype")
+    fki_timezone_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Timezone", alias="fkiTimezoneID")
     e_ezsignfolder_completion: FieldEEzsignfolderCompletion = Field(alias="eEzsignfolderCompletion")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, alias="sEzsignfoldertypeNameX")
     fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_billingentityinternal_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
     fki_ezsigntsarequirement_id: Optional[Annotated[int, Field(le=3, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezsigntsarequirement.  Determine if a Time Stamping Authority should add a timestamp on each of the signature. Valid values:  |Value|Description| |-|-| |1|No. TSA Timestamping will requested. This will make all signatures a lot faster since no round-trip to the TSA server will be required. Timestamping will be made using eZsign server's time.| |2|Best effort. Timestamping from a Time Stamping Authority will be requested but is not mandatory. In the very improbable case it cannot be completed, the timestamping will be made using eZsign server's time. **Additional fee applies**| |3|Mandatory. Timestamping from a Time Stamping Authority will be requested and is mandatory. In the very improbable case it cannot be completed, the signature will fail and the user will be asked to retry. **Additional fee applies**|", alias="fkiEzsigntsarequirementID")
     s_ezsigntsarequirement_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntsarequirement in the language of the requester", alias="sEzsigntsarequirementDescriptionX")
-    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
     b_ezsignfolder_isdisposable: Optional[StrictBool] = Field(default=None, description="If the Ezsigndocument can be disposed", alias="bEzsignfolderIsdisposable")
     e_ezsignfolder_sendreminderfrequency: Optional[FieldEEzsignfolderSendreminderfrequency] = Field(default=None, alias="eEzsignfolderSendreminderfrequency")
+    i_ezsignfolder_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
+    i_ezsignfolder_sendreminderotherdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days after the first reminder sending", alias="iEzsignfolderSendreminderotherdays")
     dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
     dt_ezsignfolder_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsignfolder can be signed.", alias="dtEzsignfolderDuedate")
     dt_ezsignfolder_sentdate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was sent the last time.", alias="dtEzsignfolderSentdate")
@@ -56,7 +60,15 @@ class EzsignfolderResponseCompound(BaseModel):
     t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "eEzsignfolderCompletion", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "eEzsignfolderSendreminderfrequency", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "tEzsignfolderMessage", "objAudit", "sEzsignfolderExternalid"]
+    obj_timezone: Optional[CustomTimezoneWithCodeResponse] = Field(default=None, alias="objTimezone")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiTimezoneID", "eEzsignfolderCompletion", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "eEzsignfolderSendreminderfrequency", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "tEzsignfolderMessage", "objAudit", "sEzsignfolderExternalid", "objTimezone"]
+
+    @field_validator('s_ezsignfolder_description')
+    def s_ezsignfolder_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     @field_validator('s_ezsignfolder_externalid')
     def s_ezsignfolder_externalid_validate_regular_expression(cls, value):
@@ -113,6 +125,9 @@ class EzsignfolderResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_timezone
+        if self.obj_timezone:
+            _dict['objTimezone'] = self.obj_timezone.to_dict()
         return _dict
 
     @classmethod
@@ -128,6 +143,7 @@ class EzsignfolderResponseCompound(BaseModel):
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj["objEzsignfoldertype"]) if obj.get("objEzsignfoldertype") is not None else None,
+            "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "eEzsignfolderCompletion": obj.get("eEzsignfolderCompletion"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
@@ -138,6 +154,8 @@ class EzsignfolderResponseCompound(BaseModel):
             "tEzsignfolderNote": obj.get("tEzsignfolderNote"),
             "bEzsignfolderIsdisposable": obj.get("bEzsignfolderIsdisposable"),
             "eEzsignfolderSendreminderfrequency": obj.get("eEzsignfolderSendreminderfrequency"),
+            "iEzsignfolderSendreminderfirstdays": obj.get("iEzsignfolderSendreminderfirstdays"),
+            "iEzsignfolderSendreminderotherdays": obj.get("iEzsignfolderSendreminderotherdays"),
             "dtEzsignfolderDelayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
             "dtEzsignfolderDuedate": obj.get("dtEzsignfolderDuedate"),
             "dtEzsignfolderSentdate": obj.get("dtEzsignfolderSentdate"),
@@ -147,7 +165,8 @@ class EzsignfolderResponseCompound(BaseModel):
             "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
             "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
             "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
-            "sEzsignfolderExternalid": obj.get("sEzsignfolderExternalid")
+            "sEzsignfolderExternalid": obj.get("sEzsignfolderExternalid"),
+            "objTimezone": CustomTimezoneWithCodeResponse.from_dict(obj["objTimezone"]) if obj.get("objTimezone") is not None else None
         })
         return _obj
 

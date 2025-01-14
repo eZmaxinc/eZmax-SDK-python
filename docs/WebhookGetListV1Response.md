@@ -25,7 +25,7 @@ print(WebhookGetListV1Response.to_json())
 # convert the object into a dict
 webhook_get_list_v1_response_dict = webhook_get_list_v1_response_instance.to_dict()
 # create an instance of WebhookGetListV1Response from a dict
-webhook_get_list_v1_response_form_dict = webhook_get_list_v1_response.from_dict(webhook_get_list_v1_response_dict)
+webhook_get_list_v1_response_from_dict = WebhookGetListV1Response.from_dict(webhook_get_list_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

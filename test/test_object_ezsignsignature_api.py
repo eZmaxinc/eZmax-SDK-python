@@ -41,6 +41,13 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsignsignature_create_object_v3(self) -> None:
+        """Test case for ezsignsignature_create_object_v3
+
+        Create a new Ezsignsignature
+        """
+        pass
+
     def test_ezsignsignature_delete_object_v1(self) -> None:
         """Test case for ezsignsignature_delete_object_v1
 
@@ -48,8 +55,8 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsignsignature_edit_object_v1(self) -> None:
-        """Test case for ezsignsignature_edit_object_v1
+    def test_ezsignsignature_edit_object_v2(self) -> None:
+        """Test case for ezsignsignature_edit_object_v2
 
         Edit an existing Ezsignsignature
         """
@@ -69,8 +76,8 @@ class TestObjectEzsignsignatureApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsignsignature_get_object_v2(self) -> None:
-        """Test case for ezsignsignature_get_object_v2
+    def test_ezsignsignature_get_object_v3(self) -> None:
+        """Test case for ezsignsignature_get_object_v3
 
         Retrieve an existing Ezsignsignature
         """

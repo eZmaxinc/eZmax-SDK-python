@@ -25,7 +25,7 @@ print(UserlogintypeGetAutocompleteV2Response.to_json())
 # convert the object into a dict
 userlogintype_get_autocomplete_v2_response_dict = userlogintype_get_autocomplete_v2_response_instance.to_dict()
 # create an instance of UserlogintypeGetAutocompleteV2Response from a dict
-userlogintype_get_autocomplete_v2_response_form_dict = userlogintype_get_autocomplete_v2_response.from_dict(userlogintype_get_autocomplete_v2_response_dict)
+userlogintype_get_autocomplete_v2_response_from_dict = UserlogintypeGetAutocompleteV2Response.from_dict(userlogintype_get_autocomplete_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

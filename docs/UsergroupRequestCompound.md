@@ -7,6 +7,7 @@ A Usergroup Object and children
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_usergroup_id** | **int** | The unique ID of the Usergroup | [optional] 
+**obj_email** | [**EmailRequest**](EmailRequest.md) |  | [optional] 
 **obj_usergroup_name** | [**MultilingualUsergroupName**](MultilingualUsergroupName.md) |  | 
 
 ## Example
@@ -24,7 +25,7 @@ print(UsergroupRequestCompound.to_json())
 # convert the object into a dict
 usergroup_request_compound_dict = usergroup_request_compound_instance.to_dict()
 # create an instance of UsergroupRequestCompound from a dict
-usergroup_request_compound_form_dict = usergroup_request_compound.from_dict(usergroup_request_compound_dict)
+usergroup_request_compound_from_dict = UsergroupRequestCompound.from_dict(usergroup_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

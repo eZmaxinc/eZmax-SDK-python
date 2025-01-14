@@ -28,7 +28,7 @@ class TestEzsignsignatureGetEzsignsignaturesAutomaticV1Response(unittest.TestCas
 
     def make_instance(self, include_optional) -> EzsignsignatureGetEzsignsignaturesAutomaticV1Response:
         """Test EzsignsignatureGetEzsignsignaturesAutomaticV1Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureGetEzsignsignaturesAutomaticV1Response`

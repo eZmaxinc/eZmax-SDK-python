@@ -23,7 +23,7 @@ print(ScimServiceProviderConfigEtag.to_json())
 # convert the object into a dict
 scim_service_provider_config_etag_dict = scim_service_provider_config_etag_instance.to_dict()
 # create an instance of ScimServiceProviderConfigEtag from a dict
-scim_service_provider_config_etag_form_dict = scim_service_provider_config_etag.from_dict(scim_service_provider_config_etag_dict)
+scim_service_provider_config_etag_from_dict = ScimServiceProviderConfigEtag.from_dict(scim_service_provider_config_etag_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

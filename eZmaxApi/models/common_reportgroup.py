@@ -75,16 +75,16 @@ class CommonReportgroup(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_report (list)
         _items = []
         if self.a_obj_report:
-            for _item in self.a_obj_report:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_report in self.a_obj_report:
+                if _item_a_obj_report:
+                    _items.append(_item_a_obj_report.to_dict())
             _dict['a_objReport'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportcellstyle_custom (list)
         _items = []
         if self.a_obj_reportcellstyle_custom:
-            for _item in self.a_obj_reportcellstyle_custom:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_reportcellstyle_custom in self.a_obj_reportcellstyle_custom:
+                if _item_a_obj_reportcellstyle_custom:
+                    _items.append(_item_a_obj_reportcellstyle_custom.to_dict())
             _dict['a_objReportcellstyleCustom'] = _items
         return _dict
 

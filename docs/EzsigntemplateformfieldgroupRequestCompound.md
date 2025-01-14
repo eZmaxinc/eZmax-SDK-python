@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **i_ezsigntemplateformfieldgroup_maxlength** | **int** | The maximum length for the value in the Ezsigntemplateformfieldgroup  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
 **b_ezsigntemplateformfieldgroup_encrypted** | **bool** | Whether the Ezsigntemplateformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
 **s_ezsigntemplateformfieldgroup_regexp** | **str** | A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea** | [optional] 
+**s_ezsigntemplateformfieldgroup_textvalidationcustommessage** | **str** | Description of validation rule. Show by signatory. | [optional] 
 **e_ezsigntemplateformfieldgroup_textvalidation** | [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
 **t_ezsigntemplateformfieldgroup_tooltip** | **str** | A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup | [optional] 
 **e_ezsigntemplateformfieldgroup_tooltipposition** | [**FieldEEzsigntemplateformfieldgroupTooltipposition**](FieldEEzsigntemplateformfieldgroupTooltipposition.md) |  | [optional] 
@@ -41,7 +42,7 @@ print(EzsigntemplateformfieldgroupRequestCompound.to_json())
 # convert the object into a dict
 ezsigntemplateformfieldgroup_request_compound_dict = ezsigntemplateformfieldgroup_request_compound_instance.to_dict()
 # create an instance of EzsigntemplateformfieldgroupRequestCompound from a dict
-ezsigntemplateformfieldgroup_request_compound_form_dict = ezsigntemplateformfieldgroup_request_compound.from_dict(ezsigntemplateformfieldgroup_request_compound_dict)
+ezsigntemplateformfieldgroup_request_compound_from_dict = EzsigntemplateformfieldgroupRequestCompound.from_dict(ezsigntemplateformfieldgroup_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

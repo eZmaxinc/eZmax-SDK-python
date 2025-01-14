@@ -32,7 +32,7 @@ print(UsergroupmembershipResponse.to_json())
 # convert the object into a dict
 usergroupmembership_response_dict = usergroupmembership_response_instance.to_dict()
 # create an instance of UsergroupmembershipResponse from a dict
-usergroupmembership_response_form_dict = usergroupmembership_response.from_dict(usergroupmembership_response_dict)
+usergroupmembership_response_from_dict = UsergroupmembershipResponse.from_dict(usergroupmembership_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

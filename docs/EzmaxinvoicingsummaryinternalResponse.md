@@ -28,7 +28,7 @@ print(EzmaxinvoicingsummaryinternalResponse.to_json())
 # convert the object into a dict
 ezmaxinvoicingsummaryinternal_response_dict = ezmaxinvoicingsummaryinternal_response_instance.to_dict()
 # create an instance of EzmaxinvoicingsummaryinternalResponse from a dict
-ezmaxinvoicingsummaryinternal_response_form_dict = ezmaxinvoicingsummaryinternal_response.from_dict(ezmaxinvoicingsummaryinternal_response_dict)
+ezmaxinvoicingsummaryinternal_response_from_dict = EzmaxinvoicingsummaryinternalResponse.from_dict(ezmaxinvoicingsummaryinternal_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

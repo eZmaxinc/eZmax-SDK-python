@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -30,12 +30,19 @@ class CustomEzmaxinvoicingEzsignfolderResponse(BaseModel):
     """ # noqa: E501
     fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
     fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     b_ezsigntsarequirement_billable: StrictBool = Field(description="Whether the TSA requirement is billable or not", alias="bEzsigntsarequirementBillable")
     b_ezsignfolder_mfaused: StrictBool = Field(description="Whether the MFA was used or not for the Ezsignfolder", alias="bEzsignfolderMfaused")
     b_ezsignfolder_paymentused: StrictBool = Field(description="Whether there was a signature is of type payment", alias="bEzsignfolderPaymentused")
     b_ezsignfolder_allowed: StrictBool = Field(description="Whether you have access to the Ezsignfolder or not", alias="bEzsignfolderAllowed")
     __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "fkiBillingentityinternalID", "sEzsignfolderDescription", "bEzsigntsarequirementBillable", "bEzsignfolderMfaused", "bEzsignfolderPaymentused", "bEzsignfolderAllowed"]
+
+    @field_validator('s_ezsignfolder_description')
+    def s_ezsignfolder_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

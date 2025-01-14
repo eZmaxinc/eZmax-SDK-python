@@ -23,7 +23,7 @@ print(BillingentityinternalEditObjectV1Request.to_json())
 # convert the object into a dict
 billingentityinternal_edit_object_v1_request_dict = billingentityinternal_edit_object_v1_request_instance.to_dict()
 # create an instance of BillingentityinternalEditObjectV1Request from a dict
-billingentityinternal_edit_object_v1_request_form_dict = billingentityinternal_edit_object_v1_request.from_dict(billingentityinternal_edit_object_v1_request_dict)
+billingentityinternal_edit_object_v1_request_from_dict = BillingentityinternalEditObjectV1Request.from_dict(billingentityinternal_edit_object_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

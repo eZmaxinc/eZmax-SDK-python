@@ -28,7 +28,7 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> FranchisereferalincomeRequestCompound:
         """Test FranchisereferalincomeRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `FranchisereferalincomeRequestCompound`
@@ -49,6 +49,7 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
                 fki_franchiseoffice_id = 50,
                 s_franchisereferalincome_remoteid = '',
                 obj_address = eZmaxApi.models.address_request.address-Request(
+                    pki_address_id = 142, 
                     fki_addresstype_id = 1, 
                     s_address_civic = '2540', 
                     s_address_street = 'Daniel-Johnson Blvd.', 

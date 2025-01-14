@@ -24,7 +24,7 @@ print(CustomEzsignformfielderrorResponse.to_json())
 # convert the object into a dict
 custom_ezsignformfielderror_response_dict = custom_ezsignformfielderror_response_instance.to_dict()
 # create an instance of CustomEzsignformfielderrorResponse from a dict
-custom_ezsignformfielderror_response_form_dict = custom_ezsignformfielderror_response.from_dict(custom_ezsignformfielderror_response_dict)
+custom_ezsignformfielderror_response_from_dict = CustomEzsignformfielderrorResponse.from_dict(custom_ezsignformfielderror_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

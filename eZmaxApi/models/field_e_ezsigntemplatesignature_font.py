@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEEzsigntemplatesignatureFont(str, Enum):
     """
-    The font of the signature. This can only be set if eEzsigntemplatesignatureType is **Name** or **Initials**
+    The font of the signature. This can only be set if eEzsigntemplatesignatureType is **Name** or **Initials** **Deprecated**
     """
 
     """

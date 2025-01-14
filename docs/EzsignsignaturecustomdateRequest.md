@@ -28,7 +28,7 @@ print(EzsignsignaturecustomdateRequest.to_json())
 # convert the object into a dict
 ezsignsignaturecustomdate_request_dict = ezsignsignaturecustomdate_request_instance.to_dict()
 # create an instance of EzsignsignaturecustomdateRequest from a dict
-ezsignsignaturecustomdate_request_form_dict = ezsignsignaturecustomdate_request.from_dict(ezsignsignaturecustomdate_request_dict)
+ezsignsignaturecustomdate_request_from_dict = EzsignsignaturecustomdateRequest.from_dict(ezsignsignaturecustomdate_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

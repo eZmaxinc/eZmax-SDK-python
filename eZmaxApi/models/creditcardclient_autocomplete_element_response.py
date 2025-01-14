@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -30,8 +30,7 @@ class CreditcardclientAutocompleteElementResponse(BaseModel):
     """ # noqa: E501
     pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
     s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
-    b_creditcardclient_isactive: StrictBool = Field(description="Whether the creditcardclient is active or not", alias="bCreditcardclientIsactive")
-    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "sCreditcardclientDescription", "bCreditcardclientIsactive"]
+    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "sCreditcardclientDescription"]
 
     @field_validator('s_creditcardclient_description')
     def s_creditcardclient_description_validate_regular_expression(cls, value):
@@ -92,8 +91,7 @@ class CreditcardclientAutocompleteElementResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiCreditcardclientID": obj.get("pkiCreditcardclientID"),
-            "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
-            "bCreditcardclientIsactive": obj.get("bCreditcardclientIsactive")
+            "sCreditcardclientDescription": obj.get("sCreditcardclientDescription")
         })
         return _obj
 

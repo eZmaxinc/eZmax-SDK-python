@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_textstylestatic_id** | **int** | The unique ID of the Textstylestatic | [optional] 
 **fki_font_id** | **int** | The unique ID of the Font | 
+**s_font_name** | **str** | The name of the Font | 
 **b_textstylestatic_bold** | **bool** | Whether the Textstylestatic is Bold or not | 
 **b_textstylestatic_underline** | **bool** | Whether the Textstylestatic is Underline or not | 
 **b_textstylestatic_italic** | **bool** | Whether the Textstylestatic is Italic or not | 
@@ -30,7 +31,7 @@ print(TextstylestaticResponse.to_json())
 # convert the object into a dict
 textstylestatic_response_dict = textstylestatic_response_instance.to_dict()
 # create an instance of TextstylestaticResponse from a dict
-textstylestatic_response_form_dict = textstylestatic_response.from_dict(textstylestatic_response_dict)
+textstylestatic_response_from_dict = TextstylestaticResponse.from_dict(textstylestatic_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

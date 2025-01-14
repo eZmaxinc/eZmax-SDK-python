@@ -25,7 +25,7 @@ print(CommonReportsubsection.to_json())
 # convert the object into a dict
 common_reportsubsection_dict = common_reportsubsection_instance.to_dict()
 # create an instance of CommonReportsubsection from a dict
-common_reportsubsection_form_dict = common_reportsubsection.from_dict(common_reportsubsection_dict)
+common_reportsubsection_from_dict = CommonReportsubsection.from_dict(common_reportsubsection_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

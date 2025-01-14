@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.email_request import EmailRequest
 from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +31,9 @@ class UsergroupRequest(BaseModel):
     A Usergroup Object
     """ # noqa: E501
     pki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="pkiUsergroupID")
+    obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
     obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName"]
+    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objEmail", "objUsergroupName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class UsergroupRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_email
+        if self.obj_email:
+            _dict['objEmail'] = self.obj_email.to_dict()
         # override the default output from pydantic by calling `to_dict()` of obj_usergroup_name
         if self.obj_usergroup_name:
             _dict['objUsergroupName'] = self.obj_usergroup_name.to_dict()
@@ -88,6 +93,7 @@ class UsergroupRequest(BaseModel):
 
         _obj = cls.model_validate({
             "pkiUsergroupID": obj.get("pkiUsergroupID"),
+            "objEmail": EmailRequest.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "objUsergroupName": MultilingualUsergroupName.from_dict(obj["objUsergroupName"]) if obj.get("objUsergroupName") is not None else None
         })
         return _obj

@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +28,10 @@ class EzsigntemplateCopyV1Request(BaseModel):
     """
     Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
     """ # noqa: E501
-    a_fki_ezsignfoldertype_id: Annotated[List[Annotated[int, Field(le=65535, strict=True, ge=0)]], Field(min_length=1)] = Field(alias="a_fkiEzsignfoldertypeID")
-    __properties: ClassVar[List[str]] = ["a_fkiEzsignfoldertypeID"]
+    a_fki_ezsignfoldertype_id: Optional[Annotated[List[Annotated[int, Field(le=65535, strict=True, ge=0)]], Field(min_length=0)]] = Field(default=None, alias="a_fkiEzsignfoldertypeID")
+    b_copy_company: Optional[StrictBool] = Field(default=None, description="Whether we shall copy the Ezsigntemplate as a company Ezsigntemplate", alias="bCopyCompany")
+    b_copy_user: Optional[StrictBool] = Field(default=None, description="Whether we shall copy the Ezsigntemplate as a user Ezsigntemplate", alias="bCopyUser")
+    __properties: ClassVar[List[str]] = ["a_fkiEzsignfoldertypeID", "bCopyCompany", "bCopyUser"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +84,9 @@ class EzsigntemplateCopyV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_fkiEzsignfoldertypeID": obj.get("a_fkiEzsignfoldertypeID")
+            "a_fkiEzsignfoldertypeID": obj.get("a_fkiEzsignfoldertypeID"),
+            "bCopyCompany": obj.get("bCopyCompany"),
+            "bCopyUser": obj.get("bCopyUser")
         })
         return _obj
 

@@ -28,7 +28,7 @@ class TestActivesessionResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ActivesessionResponseCompound:
         """Test ActivesessionResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ActivesessionResponseCompound`
@@ -44,13 +44,23 @@ class TestActivesessionResponseCompound(unittest.TestCase):
                 s_department_name_x = 'Head Office',
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
+                b_activesession_attachment = False,
+                b_activesession_canafe = False,
+                b_activesession_financial = False,
+                b_activesession_realestatecompleted = False,
+                e_activesession_ezsign = 'Full',
+                e_activesession_ezsignaccess = 'Prepaid',
+                e_activesession_ezsignprepaid = 'Basic',
+                e_activesession_realestateinprogress = 'Create',
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 fki_signature_id = 12,
+                fki_ezsignuser_id = 94,
                 b_systemconfiguration_ezsignpaidbyoffice = True,
                 e_systemconfiguration_ezsignofficeplan = 'Standard',
                 e_user_ezsignaccess = 'PaidByOffice',
                 e_user_ezsignprepaid = 'Basic',
+                b_user_ezsigntrial = False,
                 dt_user_ezsignprepaidexpiration = '2020-12-31',
                 a_pki_permission_id = [
                     53
@@ -94,6 +104,7 @@ class TestActivesessionResponseCompound(unittest.TestCase):
                 s_department_name_x = 'Head Office',
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
+                e_activesession_ezsignaccess = 'Prepaid',
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 e_user_ezsignaccess = 'PaidByOffice',

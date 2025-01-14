@@ -73,9 +73,9 @@ class DepartmentGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_department (list)
         _items = []
         if self.a_obj_department:
-            for _item in self.a_obj_department:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_department in self.a_obj_department:
+                if _item_a_obj_department:
+                    _items.append(_item_a_obj_department.to_dict())
             _dict['a_objDepartment'] = _items
         return _dict
 

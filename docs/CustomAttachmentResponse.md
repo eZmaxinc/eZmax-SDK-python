@@ -87,7 +87,7 @@ print(CustomAttachmentResponse.to_json())
 # convert the object into a dict
 custom_attachment_response_dict = custom_attachment_response_instance.to_dict()
 # create an instance of CustomAttachmentResponse from a dict
-custom_attachment_response_form_dict = custom_attachment_response.from_dict(custom_attachment_response_dict)
+custom_attachment_response_from_dict = CustomAttachmentResponse.from_dict(custom_attachment_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

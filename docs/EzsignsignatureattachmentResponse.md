@@ -27,7 +27,7 @@ print(EzsignsignatureattachmentResponse.to_json())
 # convert the object into a dict
 ezsignsignatureattachment_response_dict = ezsignsignatureattachment_response_instance.to_dict()
 # create an instance of EzsignsignatureattachmentResponse from a dict
-ezsignsignatureattachment_response_form_dict = ezsignsignatureattachment_response.from_dict(ezsignsignatureattachment_response_dict)
+ezsignsignatureattachment_response_from_dict = EzsignsignatureattachmentResponse.from_dict(ezsignsignatureattachment_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

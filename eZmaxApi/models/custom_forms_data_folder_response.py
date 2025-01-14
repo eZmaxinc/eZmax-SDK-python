@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_form_data_document_response import CustomFormDataDocumentResponse
@@ -30,9 +30,16 @@ class CustomFormsDataFolderResponse(BaseModel):
     A forms Data Folder Object
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
-    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     a_obj_form_data_document: List[CustomFormDataDocumentResponse] = Field(alias="a_objFormDataDocument")
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "sEzsignfolderDescription", "a_objFormDataDocument"]
+
+    @field_validator('s_ezsignfolder_description')
+    def s_ezsignfolder_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,9 +83,9 @@ class CustomFormsDataFolderResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_form_data_document (list)
         _items = []
         if self.a_obj_form_data_document:
-            for _item in self.a_obj_form_data_document:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_form_data_document in self.a_obj_form_data_document:
+                if _item_a_obj_form_data_document:
+                    _items.append(_item_a_obj_form_data_document.to_dict())
             _dict['a_objFormDataDocument'] = _items
         return _dict
 

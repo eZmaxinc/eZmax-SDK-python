@@ -28,7 +28,7 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplatesignatureResponse:
         """Test EzsigntemplatesignatureResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatesignatureResponse`
@@ -40,6 +40,8 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 fki_ezsigntemplatedocument_id = 133,
                 fki_ezsigntemplatesigner_id = 9,
                 fki_ezsigntemplatesigner_id_validation = 9,
+                b_ezsigntemplatesignature_handwritten = True,
+                b_ezsigntemplatesignature_reason = True,
                 e_ezsigntemplatesignature_positioning = 'PerCoordinates',
                 i_ezsigntemplatedocumentpage_pagenumber = 1,
                 i_ezsigntemplatesignature_x = 200,
@@ -47,7 +49,8 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 i_ezsigntemplatesignature_width = 200,
                 i_ezsigntemplatesignature_height = 200,
                 i_ezsigntemplatesignature_step = 1,
-                e_ezsigntemplatesignature_type = 'Name',
+                e_ezsigntemplatesignature_type = 'Signature',
+                e_ezsigntemplatesignature_consultationtrigger = 'Manual',
                 t_ezsigntemplatesignature_tooltip = 'Please sign here if you agree to the terms',
                 e_ezsigntemplatesignature_tooltipposition = 'TopLeft',
                 e_ezsigntemplatesignature_font = 'Normal',
@@ -56,8 +59,10 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 e_ezsigntemplatesignature_attachmentnamesource = 'Description',
                 b_ezsigntemplatesignature_required = True,
                 i_ezsigntemplatesignature_maxlength = 75,
+                s_ezsigntemplatesignature_defaultvalue = 'Foo',
                 s_ezsigntemplatesignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
                 e_ezsigntemplatesignature_textvalidation = 'None',
+                s_ezsigntemplatesignature_textvalidationcustommessage = 'Phone number',
                 e_ezsigntemplatesignature_dependencyrequirement = 'AllOf',
                 s_ezsigntemplatesignature_positioningpattern = 'Signature',
                 i_ezsigntemplatesignature_positioningoffsetx = 200,
@@ -71,7 +76,7 @@ class TestEzsigntemplatesignatureResponse(unittest.TestCase):
                 fki_ezsigntemplatesigner_id = 9,
                 i_ezsigntemplatedocumentpage_pagenumber = 1,
                 i_ezsigntemplatesignature_step = 1,
-                e_ezsigntemplatesignature_type = 'Name',
+                e_ezsigntemplatesignature_type = 'Signature',
         )
         """
 

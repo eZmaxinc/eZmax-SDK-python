@@ -28,7 +28,7 @@ class TestCustomCommunicationattachmentRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CustomCommunicationattachmentRequest:
         """Test CustomCommunicationattachmentRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CustomCommunicationattachmentRequest`
@@ -40,7 +40,7 @@ class TestCustomCommunicationattachmentRequest(unittest.TestCase):
                 obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                     s_file_name = 'example.pdf', 
                     s_file_url = '', 
-                    s_file_base64 = '[B@63c5efee', 
+                    s_file_base64 = '[B@7807ac2c', 
                     e_file_source = 'Base64', )
             )
         else:

@@ -28,7 +28,7 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfoldertypeResponseCompound:
         """Test EzsignfoldertypeResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfoldertypeResponseCompound`
@@ -59,10 +59,12 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
                 e_ezsignfoldertype_completion = 'PerEzsigndocument',
                 i_ezsignfoldertype_disposaldays = 365,
                 i_ezsignfoldertype_deadlinedays = 5,
+                b_ezsignfoldertype_automaticsignature = False,
                 b_ezsignfoldertype_delegate = True,
                 b_ezsignfoldertype_discussion = True,
                 b_ezsignfoldertype_reassignezsignsigner = True,
                 b_ezsignfoldertype_reassignuser = True,
+                b_ezsignfoldertype_reassigngroup = True,
                 b_ezsignfoldertype_sendsignedtoezsignsigner = False,
                 b_ezsignfoldertype_sendsignedtouser = False,
                 b_ezsignfoldertype_sendattachmentezsignsigner = False,

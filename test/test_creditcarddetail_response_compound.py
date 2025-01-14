@@ -28,7 +28,7 @@ class TestCreditcarddetailResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CreditcarddetailResponseCompound:
         """Test CreditcarddetailResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CreditcarddetailResponseCompound`
@@ -38,7 +38,7 @@ class TestCreditcarddetailResponseCompound(unittest.TestCase):
             return CreditcarddetailResponseCompound(
                 pki_creditcarddetail_id = 53,
                 fki_creditcardtype_id = 2,
-                s_creditcarddetail_numbermasked = 'XXXX XXXX XXXX 4242',
+                i_creditcarddetail_lastdigits = 4242,
                 i_creditcarddetail_expirationmonth = 10,
                 i_creditcarddetail_expirationyear = 2024,
                 s_creditcarddetail_civic = '2500',
@@ -49,7 +49,7 @@ class TestCreditcarddetailResponseCompound(unittest.TestCase):
             return CreditcarddetailResponseCompound(
                 pki_creditcarddetail_id = 53,
                 fki_creditcardtype_id = 2,
-                s_creditcarddetail_numbermasked = 'XXXX XXXX XXXX 4242',
+                i_creditcarddetail_lastdigits = 4242,
                 i_creditcarddetail_expirationmonth = 10,
                 i_creditcarddetail_expirationyear = 2024,
                 s_creditcarddetail_civic = '2500',

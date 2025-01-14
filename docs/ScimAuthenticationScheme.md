@@ -24,7 +24,7 @@ print(ScimAuthenticationScheme.to_json())
 # convert the object into a dict
 scim_authentication_scheme_dict = scim_authentication_scheme_instance.to_dict()
 # create an instance of ScimAuthenticationScheme from a dict
-scim_authentication_scheme_form_dict = scim_authentication_scheme.from_dict(scim_authentication_scheme_dict)
+scim_authentication_scheme_from_dict = ScimAuthenticationScheme.from_dict(scim_authentication_scheme_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

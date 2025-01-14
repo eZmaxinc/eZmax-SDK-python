@@ -176,16 +176,16 @@ class CustomAttachmentResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_attachment_attachment (list)
         _items = []
         if self.a_obj_attachment_attachment:
-            for _item in self.a_obj_attachment_attachment:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_attachment_attachment in self.a_obj_attachment_attachment:
+                if _item_a_obj_attachment_attachment:
+                    _items.append(_item_a_obj_attachment_attachment.to_dict())
             _dict['a_objAttachmentAttachment'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_attachment_version (list)
         _items = []
         if self.a_obj_attachment_version:
-            for _item in self.a_obj_attachment_version:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_attachment_version in self.a_obj_attachment_version:
+                if _item_a_obj_attachment_version:
+                    _items.append(_item_a_obj_attachment_version.to_dict())
             _dict['a_objAttachmentVersion'] = _items
         return _dict
 

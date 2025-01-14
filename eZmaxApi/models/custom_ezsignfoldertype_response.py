@@ -29,15 +29,23 @@ class CustomEzsignfoldertypeResponse(BaseModel):
     A Custom Ezsignfoldertype Object
     """ # noqa: E501
     pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
+    fki_font_id_annotation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontIDAnnotation")
+    fki_font_id_formfield: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontIDFormfield")
+    fki_font_id_signature: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontIDSignature")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     b_ezsignfoldertype_sendproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send the proof in the email to Ezsignsigner", alias="bEzsignfoldertypeSendproofezsignsigner")
     b_ezsignfoldertype_allowdownloadattachmentezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the Ezsigndocument to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadattachmentezsignsigner")
     b_ezsignfoldertype_allowdownloadproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the proof to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadproofezsignsigner")
+    b_ezsignfoldertype_automaticsignature: Optional[StrictBool] = Field(default=None, description="Whether we allow the automatic signature by an User", alias="bEzsignfoldertypeAutomaticsignature")
     b_ezsignfoldertype_delegate: Optional[StrictBool] = Field(default=None, description="Wheter if delegation of signature is allowed to another user or not", alias="bEzsignfoldertypeDelegate")
     b_ezsignfoldertype_discussion: Optional[StrictBool] = Field(default=None, description="Wheter if creating a new Discussion is allowed or not", alias="bEzsignfoldertypeDiscussion")
     b_ezsignfoldertype_reassignezsignsigner: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a signatory to another signatory or not", alias="bEzsignfoldertypeReassignezsignsigner")
     b_ezsignfoldertype_reassignuser: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not", alias="bEzsignfoldertypeReassignuser")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser"]
+    b_ezsignfoldertype_reassigngroup: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself", alias="bEzsignfoldertypeReassigngroup")
+    i_ezsignfoldertype_deadlinedays: Optional[Annotated[int, Field(le=60, strict=True, ge=1)]] = Field(default=None, description="The number of days to get all Ezsignsignatures", alias="iEzsignfoldertypeDeadlinedays")
+    i_ezsignfoldertype_fontsizeannotation: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="Font size for annotations", alias="iEzsignfoldertypeFontsizeannotation")
+    i_ezsignfoldertype_fontsizeformfield: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="Font size for form fields", alias="iEzsignfoldertypeFontsizeformfield")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "fkiFontIDAnnotation", "fkiFontIDFormfield", "fkiFontIDSignature", "sEzsignfoldertypeNameX", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeAutomaticsignature", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeReassigngroup", "iEzsignfoldertypeDeadlinedays", "iEzsignfoldertypeFontsizeannotation", "iEzsignfoldertypeFontsizeformfield"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,14 +99,22 @@ class CustomEzsignfoldertypeResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzsignfoldertypeID": obj.get("pkiEzsignfoldertypeID"),
+            "fkiFontIDAnnotation": obj.get("fkiFontIDAnnotation"),
+            "fkiFontIDFormfield": obj.get("fkiFontIDFormfield"),
+            "fkiFontIDSignature": obj.get("fkiFontIDSignature"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "bEzsignfoldertypeSendproofezsignsigner": obj.get("bEzsignfoldertypeSendproofezsignsigner"),
             "bEzsignfoldertypeAllowdownloadattachmentezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadattachmentezsignsigner"),
             "bEzsignfoldertypeAllowdownloadproofezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadproofezsignsigner"),
+            "bEzsignfoldertypeAutomaticsignature": obj.get("bEzsignfoldertypeAutomaticsignature"),
             "bEzsignfoldertypeDelegate": obj.get("bEzsignfoldertypeDelegate"),
             "bEzsignfoldertypeDiscussion": obj.get("bEzsignfoldertypeDiscussion"),
             "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
-            "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser")
+            "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser"),
+            "bEzsignfoldertypeReassigngroup": obj.get("bEzsignfoldertypeReassigngroup"),
+            "iEzsignfoldertypeDeadlinedays": obj.get("iEzsignfoldertypeDeadlinedays"),
+            "iEzsignfoldertypeFontsizeannotation": obj.get("iEzsignfoldertypeFontsizeannotation"),
+            "iEzsignfoldertypeFontsizeformfield": obj.get("iEzsignfoldertypeFontsizeformfield")
         })
         return _obj
 

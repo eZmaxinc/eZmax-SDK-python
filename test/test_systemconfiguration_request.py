@@ -28,7 +28,7 @@ class TestSystemconfigurationRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SystemconfigurationRequest:
         """Test SystemconfigurationRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SystemconfigurationRequest`
@@ -37,6 +37,7 @@ class TestSystemconfigurationRequest(unittest.TestCase):
         if include_optional:
             return SystemconfigurationRequest(
                 pki_systemconfiguration_id = 1,
+                fki_branding_id = 78,
                 e_systemconfiguration_newexternaluseraction = 'Stage',
                 e_systemconfiguration_language1 = 'fr_QC',
                 e_systemconfiguration_language2 = 'en_CA',

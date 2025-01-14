@@ -28,7 +28,7 @@ class TestWebhookResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WebhookResponseCompound:
         """Test WebhookResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WebhookResponseCompound`
@@ -37,6 +37,7 @@ class TestWebhookResponseCompound(unittest.TestCase):
         if include_optional:
             return WebhookResponseCompound(
                 pki_webhook_id = 77,
+                fki_authenticationexternal_id = 56,
                 s_webhook_description = 'Import into our system',
                 fki_ezsignfoldertype_id = 5,
                 s_ezsignfoldertype_name_x = 'Default',
@@ -50,6 +51,7 @@ class TestWebhookResponseCompound(unittest.TestCase):
                 b_webhook_isactive = True,
                 b_webhook_issigned = True,
                 b_webhook_skipsslvalidation = False,
+                s_authenticationexternal_description = 'Authentification',
                 obj_audit = eZmaxApi.models.common_audit.Common-Audit(
                     obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
                         fki_user_id = 70, 

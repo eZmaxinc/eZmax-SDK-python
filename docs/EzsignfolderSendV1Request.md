@@ -23,7 +23,7 @@ print(EzsignfolderSendV1Request.to_json())
 # convert the object into a dict
 ezsignfolder_send_v1_request_dict = ezsignfolder_send_v1_request_instance.to_dict()
 # create an instance of EzsignfolderSendV1Request from a dict
-ezsignfolder_send_v1_request_form_dict = ezsignfolder_send_v1_request.from_dict(ezsignfolder_send_v1_request_dict)
+ezsignfolder_send_v1_request_from_dict = EzsignfolderSendV1Request.from_dict(ezsignfolder_send_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

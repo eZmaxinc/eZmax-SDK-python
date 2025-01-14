@@ -41,6 +41,13 @@ class TestObjectUserApi(unittest.TestCase):
         """
         pass
 
+    def test_user_edit_colleagues_v2(self) -> None:
+        """Test case for user_edit_colleagues_v2
+
+        Edit multiple Colleagues
+        """
+        pass
+
     def test_user_edit_object_v1(self) -> None:
         """Test case for user_edit_object_v1
 
@@ -66,6 +73,13 @@ class TestObjectUserApi(unittest.TestCase):
         """Test case for user_get_autocomplete_v2
 
         Retrieve Users and IDs
+        """
+        pass
+
+    def test_user_get_colleagues_v2(self) -> None:
+        """Test case for user_get_colleagues_v2
+
+        Retrieve an existing User's Colleagues
         """
         pass
 

@@ -28,7 +28,7 @@ class TestEzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response(unittest.
 
     def make_instance(self, include_optional) -> EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response:
         """Test EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatedocumentEditEzsigntemplatesignaturesV1Response`

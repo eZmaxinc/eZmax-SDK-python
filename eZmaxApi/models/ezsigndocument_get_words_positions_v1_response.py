@@ -83,9 +83,9 @@ class EzsigndocumentGetWordsPositionsV1Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in m_payload (list)
         _items = []
         if self.m_payload:
-            for _item in self.m_payload:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_m_payload in self.m_payload:
+                if _item_m_payload:
+                    _items.append(_item_m_payload.to_dict())
             _dict['mPayload'] = _items
         return _dict
 

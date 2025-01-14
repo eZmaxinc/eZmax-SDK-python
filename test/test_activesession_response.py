@@ -28,7 +28,7 @@ class TestActivesessionResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ActivesessionResponse:
         """Test ActivesessionResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ActivesessionResponse`
@@ -44,6 +44,14 @@ class TestActivesessionResponse(unittest.TestCase):
                 s_department_name_x = 'Head Office',
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
+                b_activesession_attachment = False,
+                b_activesession_canafe = False,
+                b_activesession_financial = False,
+                b_activesession_realestatecompleted = False,
+                e_activesession_ezsign = 'Full',
+                e_activesession_ezsignaccess = 'Prepaid',
+                e_activesession_ezsignprepaid = 'Basic',
+                e_activesession_realestateinprogress = 'Create',
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
                 fki_signature_id = 12
@@ -58,6 +66,7 @@ class TestActivesessionResponse(unittest.TestCase):
                 s_department_name_x = 'Head Office',
                 b_activesession_debug = False,
                 b_activesession_issuperadmin = False,
+                e_activesession_ezsignaccess = 'Prepaid',
                 pks_customer_code = 'demo',
                 fki_systemconfigurationtype_id = 28,
         )

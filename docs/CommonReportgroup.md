@@ -24,7 +24,7 @@ print(CommonReportgroup.to_json())
 # convert the object into a dict
 common_reportgroup_dict = common_reportgroup_instance.to_dict()
 # create an instance of CommonReportgroup from a dict
-common_reportgroup_form_dict = common_reportgroup.from_dict(common_reportgroup_dict)
+common_reportgroup_from_dict = CommonReportgroup.from_dict(common_reportgroup_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,7 +23,7 @@ print(FranchisereferalincomeCreateObjectV2ResponseMPayload.to_json())
 # convert the object into a dict
 franchisereferalincome_create_object_v2_response_m_payload_dict = franchisereferalincome_create_object_v2_response_m_payload_instance.to_dict()
 # create an instance of FranchisereferalincomeCreateObjectV2ResponseMPayload from a dict
-franchisereferalincome_create_object_v2_response_m_payload_form_dict = franchisereferalincome_create_object_v2_response_m_payload.from_dict(franchisereferalincome_create_object_v2_response_m_payload_dict)
+franchisereferalincome_create_object_v2_response_m_payload_from_dict = FranchisereferalincomeCreateObjectV2ResponseMPayload.from_dict(franchisereferalincome_create_object_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -27,7 +27,7 @@ print(UserstagedListElement.to_json())
 # convert the object into a dict
 userstaged_list_element_dict = userstaged_list_element_instance.to_dict()
 # create an instance of UserstagedListElement from a dict
-userstaged_list_element_form_dict = userstaged_list_element.from_dict(userstaged_list_element_dict)
+userstaged_list_element_from_dict = UserstagedListElement.from_dict(userstaged_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

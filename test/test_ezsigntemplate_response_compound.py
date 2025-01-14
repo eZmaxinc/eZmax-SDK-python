@@ -28,7 +28,7 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplateResponseCompound:
         """Test EzsigntemplateResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateResponseCompound`
@@ -40,8 +40,11 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
                 fki_ezsigntemplatedocument_id = 133,
                 fki_ezsignfoldertype_id = 5,
                 fki_language_id = 2,
+                fki_ezdoctemplatedocument_id = 95,
                 s_language_name_x = 'English',
                 s_ezsigntemplate_description = 'Standard Contract',
+                s_ezsigntemplate_externaldescription = 'Test eZsign Folder',
+                t_ezsigntemplate_comment = '',
                 s_ezsigntemplate_filenamepattern = 'Contract',
                 b_ezsigntemplate_adminonly = True,
                 s_ezsignfoldertype_name_x = 'Default',
@@ -63,13 +66,14 @@ class TestEzsigntemplateResponseCompound(unittest.TestCase):
                         s_apikey_description_x = 'Project X', 
                         dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 b_ezsigntemplate_editallowed = True,
-                e_ezsigntemplate_type = 'Usergroup',
+                e_ezsigntemplate_type = 'Ezsignfoldertype',
                 obj_ezsigntemplatedocument = eZmaxApi.models.ezsigntemplatedocument_response.ezsigntemplatedocument-Response(
                     pki_ezsigntemplatedocument_id = 133, 
                     fki_ezsigntemplate_id = 36, 
                     s_ezsigntemplatedocument_name = 'Standard Contract', 
                     i_ezsigntemplatedocument_pagetotal = 5, 
                     i_ezsigntemplatedocument_signaturetotal = 8, 
+                    i_ezsigntemplatedocument_formfieldtotal = 8, 
                     b_ezsigntemplatedocument_hassignedsignatures = True, ),
                 a_obj_ezsigntemplatesigner = [
                     eZmaxApi.models.ezsigntemplatesigner_response_compound.ezsigntemplatesigner-ResponseCompound()

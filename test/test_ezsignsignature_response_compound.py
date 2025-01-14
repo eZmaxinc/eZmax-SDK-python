@@ -28,7 +28,7 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignsignatureResponseCompound:
         """Test EzsignsignatureResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureResponseCompound`
@@ -40,6 +40,7 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                 fki_ezsigndocument_id = 97,
                 fki_ezsignfoldersignerassociation_id = 20,
                 fki_ezsignsigningreason_id = 194,
+                fki_font_id = 1,
                 s_ezsignsigningreason_description_x = 'I approve this document',
                 i_ezsignpage_pagenumber = 1,
                 i_ezsignsignature_x = 200,
@@ -55,6 +56,9 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                 i_ezsignsignature_validationstep = 1,
                 s_ezsignsignature_attachmentdescription = 'Attachment',
                 e_ezsignsignature_attachmentnamesource = 'Description',
+                e_ezsignsignature_consultationtrigger = 'Manual',
+                b_ezsignsignature_handwritten = True,
+                b_ezsignsignature_reason = True,
                 b_ezsignsignature_required = True,
                 fki_ezsignfoldersignerassociation_id_validation = 20,
                 dt_ezsignsignature_date = '2020-12-31 23:59:59',
@@ -62,7 +66,9 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                 s_ezsignsignature_description = 'Montreal',
                 i_ezsignsignature_maxlength = 75,
                 e_ezsignsignature_textvalidation = 'None',
+                s_ezsignsignature_textvalidationcustommessage = 'Phone number',
                 e_ezsignsignature_dependencyrequirement = 'AllOf',
+                s_ezsignsignature_defaultvalue = 'Foo',
                 s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
@@ -73,6 +79,7 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                     s_contact_lastname = 'Doe', 
                     s_contact_company = 'eZmax Solutions Inc.', ),
                 obj_signature = eZmaxApi.models.signature_response_compound.signature-ResponseCompound(),
+                dt_ezsignsignature_date_in_folder_timezone = '2020-12-31 23:59:59',
                 b_ezsignsignature_customdate = True,
                 a_obj_ezsignsignaturecustomdate = [
                     eZmaxApi.models.ezsignsignaturecustomdate_response_compound.ezsignsignaturecustomdate-ResponseCompound()
@@ -84,7 +91,10 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
                     s_creditcardtransaction_referencenumber = '651447854715478415', ),
                 a_obj_ezsignelementdependency = [
                     eZmaxApi.models.ezsignelementdependency_response_compound.ezsignelementdependency-ResponseCompound()
-                    ]
+                    ],
+                obj_timezone = eZmaxApi.models.custom_timezone_with_code_response.Custom-TimezoneWithCode-Response(
+                    s_timezone_name = '', 
+                    s_code = 'EST', )
             )
         else:
             return EzsignsignatureResponseCompound(

@@ -25,7 +25,7 @@ print(BrandingAutocompleteElementResponse.to_json())
 # convert the object into a dict
 branding_autocomplete_element_response_dict = branding_autocomplete_element_response_instance.to_dict()
 # create an instance of BrandingAutocompleteElementResponse from a dict
-branding_autocomplete_element_response_form_dict = branding_autocomplete_element_response.from_dict(branding_autocomplete_element_response_dict)
+branding_autocomplete_element_response_from_dict = BrandingAutocompleteElementResponse.from_dict(branding_autocomplete_element_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

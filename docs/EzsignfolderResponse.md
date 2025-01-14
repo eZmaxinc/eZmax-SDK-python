@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **pki_ezsignfolder_id** | **int** | The unique ID of the Ezsignfolder | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **obj_ezsignfoldertype** | [**CustomEzsignfoldertypeResponse**](CustomEzsignfoldertypeResponse.md) |  | [optional] 
+**fki_timezone_id** | **int** | The unique ID of the Timezone | [optional] 
 **e_ezsignfolder_completion** | [**FieldEEzsignfolderCompletion**](FieldEEzsignfolderCompletion.md) |  | 
 **s_ezsignfoldertype_name_x** | **str** |  | [optional] 
 **fki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | [optional] 
@@ -19,6 +20,8 @@ Name | Type | Description | Notes
 **t_ezsignfolder_note** | **str** | Note about the Ezsignfolder | [optional] 
 **b_ezsignfolder_isdisposable** | **bool** | If the Ezsigndocument can be disposed | [optional] 
 **e_ezsignfolder_sendreminderfrequency** | [**FieldEEzsignfolderSendreminderfrequency**](FieldEEzsignfolderSendreminderfrequency.md) |  | [optional] 
+**i_ezsignfolder_sendreminderfirstdays** | **int** | The number of days before the the first reminder sending | [optional] 
+**i_ezsignfolder_sendreminderotherdays** | **int** | The number of days after the first reminder sending | [optional] 
 **dt_ezsignfolder_delayedsenddate** | **str** | The date and time at which the Ezsignfolder will be sent in the future. | [optional] 
 **dt_ezsignfolder_duedate** | **str** | The maximum date and time at which the Ezsignfolder can be signed. | [optional] 
 **dt_ezsignfolder_sentdate** | **str** | The date and time at which the Ezsignfolder was sent the last time. | [optional] 
@@ -45,7 +48,7 @@ print(EzsignfolderResponse.to_json())
 # convert the object into a dict
 ezsignfolder_response_dict = ezsignfolder_response_instance.to_dict()
 # create an instance of EzsignfolderResponse from a dict
-ezsignfolder_response_form_dict = ezsignfolder_response.from_dict(ezsignfolder_response_dict)
+ezsignfolder_response_from_dict = EzsignfolderResponse.from_dict(ezsignfolder_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

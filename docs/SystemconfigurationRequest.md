@@ -7,6 +7,7 @@ A Systemconfiguration Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_systemconfiguration_id** | **int** | The unique ID of the Systemconfiguration | [optional] 
+**fki_branding_id** | **int** | The unique ID of the Branding | [optional] 
 **e_systemconfiguration_newexternaluseraction** | [**FieldESystemconfigurationNewexternaluseraction**](FieldESystemconfigurationNewexternaluseraction.md) |  | 
 **e_systemconfiguration_language1** | [**FieldESystemconfigurationLanguage1**](FieldESystemconfigurationLanguage1.md) |  | 
 **e_systemconfiguration_language2** | [**FieldESystemconfigurationLanguage2**](FieldESystemconfigurationLanguage2.md) |  | 
@@ -33,7 +34,7 @@ print(SystemconfigurationRequest.to_json())
 # convert the object into a dict
 systemconfiguration_request_dict = systemconfiguration_request_instance.to_dict()
 # create an instance of SystemconfigurationRequest from a dict
-systemconfiguration_request_form_dict = systemconfiguration_request.from_dict(systemconfiguration_request_dict)
+systemconfiguration_request_from_dict = SystemconfigurationRequest.from_dict(systemconfiguration_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

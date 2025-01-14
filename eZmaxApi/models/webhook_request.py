@@ -32,6 +32,7 @@ class WebhookRequest(BaseModel):
     A Webhook Object
     """ # noqa: E501
     pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID")
+    fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
@@ -42,7 +43,7 @@ class WebhookRequest(BaseModel):
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
     b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation"]
 
     @field_validator('s_webhook_url')
     def s_webhook_url_validate_regular_expression(cls, value):
@@ -103,6 +104,7 @@ class WebhookRequest(BaseModel):
 
         _obj = cls.model_validate({
             "pkiWebhookID": obj.get("pkiWebhookID"),
+            "fkiAuthenticationexternalID": obj.get("fkiAuthenticationexternalID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "sWebhookDescription": obj.get("sWebhookDescription"),
             "eWebhookModule": obj.get("eWebhookModule"),

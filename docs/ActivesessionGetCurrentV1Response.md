@@ -25,7 +25,7 @@ print(ActivesessionGetCurrentV1Response.to_json())
 # convert the object into a dict
 activesession_get_current_v1_response_dict = activesession_get_current_v1_response_instance.to_dict()
 # create an instance of ActivesessionGetCurrentV1Response from a dict
-activesession_get_current_v1_response_form_dict = activesession_get_current_v1_response.from_dict(activesession_get_current_v1_response_dict)
+activesession_get_current_v1_response_from_dict = ActivesessionGetCurrentV1Response.from_dict(activesession_get_current_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

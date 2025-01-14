@@ -31,15 +31,14 @@ class CreditcardclientRequest(BaseModel):
     """ # noqa: E501
     pki_creditcardclient_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
     fks_creditcardtoken_id: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The creditcard token identifier", alias="fksCreditcardtokenID")
-    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's an relationisdefault", alias="bCreditcardclientrelationIsdefault")
+    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
     s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
-    b_creditcardclient_isactive: StrictBool = Field(description="Whether the creditcardclient is active or not", alias="bCreditcardclientIsactive")
-    b_creditcardclient_allowedagencypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedagencypayment")
-    b_creditcardclient_allowedroyallepageprotection: StrictBool = Field(description="Whether if it's an allowedroyallepageprotection", alias="bCreditcardclientAllowedroyallepageprotection")
+    b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment")
+    b_creditcardclient_allowedezsign: StrictBool = Field(description="Whether if it's an allowedroyallepageprotection", alias="bCreditcardclientAllowedezsign")
     b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit")
     obj_creditcarddetail: CreditcarddetailRequest = Field(alias="objCreditcarddetail")
     s_creditcardclient_cvv: Annotated[str, Field(strict=True)] = Field(description="The creditcard card CVV", alias="sCreditcardclientCVV")
-    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fksCreditcardtokenID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientIsactive", "bCreditcardclientAllowedagencypayment", "bCreditcardclientAllowedroyallepageprotection", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail", "sCreditcardclientCVV"]
+    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fksCreditcardtokenID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedezsign", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail", "sCreditcardclientCVV"]
 
     @field_validator('fks_creditcardtoken_id')
     def fks_creditcardtoken_id_validate_regular_expression(cls, value):
@@ -123,9 +122,8 @@ class CreditcardclientRequest(BaseModel):
             "fksCreditcardtokenID": obj.get("fksCreditcardtokenID"),
             "bCreditcardclientrelationIsdefault": obj.get("bCreditcardclientrelationIsdefault"),
             "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
-            "bCreditcardclientIsactive": obj.get("bCreditcardclientIsactive"),
-            "bCreditcardclientAllowedagencypayment": obj.get("bCreditcardclientAllowedagencypayment"),
-            "bCreditcardclientAllowedroyallepageprotection": obj.get("bCreditcardclientAllowedroyallepageprotection"),
+            "bCreditcardclientAllowedcompanypayment": obj.get("bCreditcardclientAllowedcompanypayment"),
+            "bCreditcardclientAllowedezsign": obj.get("bCreditcardclientAllowedezsign"),
             "bCreditcardclientAllowedtranquillit": obj.get("bCreditcardclientAllowedtranquillit"),
             "objCreditcarddetail": CreditcarddetailRequest.from_dict(obj["objCreditcarddetail"]) if obj.get("objCreditcarddetail") is not None else None,
             "sCreditcardclientCVV": obj.get("sCreditcardclientCVV")

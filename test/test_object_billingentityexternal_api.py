@@ -27,6 +27,13 @@ class TestObjectBillingentityexternalApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_billingentityexternal_generate_federation_token_v1(self) -> None:
+        """Test case for billingentityexternal_generate_federation_token_v1
+
+        Generate a federation token
+        """
+        pass
+
     def test_billingentityexternal_get_autocomplete_v2(self) -> None:
         """Test case for billingentityexternal_get_autocomplete_v2
 

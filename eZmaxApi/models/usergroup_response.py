@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.email_request import EmailRequest
 from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +33,8 @@ class UsergroupResponse(BaseModel):
     pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID")
     obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
     s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName", "sUsergroupNameX"]
+    obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
+    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName", "sUsergroupNameX", "objEmail"]
 
     @field_validator('s_usergroup_name_x')
     def s_usergroup_name_x_validate_regular_expression(cls, value):
@@ -86,6 +88,9 @@ class UsergroupResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_usergroup_name
         if self.obj_usergroup_name:
             _dict['objUsergroupName'] = self.obj_usergroup_name.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_email
+        if self.obj_email:
+            _dict['objEmail'] = self.obj_email.to_dict()
         return _dict
 
     @classmethod
@@ -100,7 +105,8 @@ class UsergroupResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiUsergroupID": obj.get("pkiUsergroupID"),
             "objUsergroupName": MultilingualUsergroupName.from_dict(obj["objUsergroupName"]) if obj.get("objUsergroupName") is not None else None,
-            "sUsergroupNameX": obj.get("sUsergroupNameX")
+            "sUsergroupNameX": obj.get("sUsergroupNameX"),
+            "objEmail": EmailRequest.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None
         })
         return _obj
 

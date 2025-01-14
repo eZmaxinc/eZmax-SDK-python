@@ -25,7 +25,7 @@ print(EzsignsignatureCreateObjectV2Response.to_json())
 # convert the object into a dict
 ezsignsignature_create_object_v2_response_dict = ezsignsignature_create_object_v2_response_instance.to_dict()
 # create an instance of EzsignsignatureCreateObjectV2Response from a dict
-ezsignsignature_create_object_v2_response_form_dict = ezsignsignature_create_object_v2_response.from_dict(ezsignsignature_create_object_v2_response_dict)
+ezsignsignature_create_object_v2_response_from_dict = EzsignsignatureCreateObjectV2Response.from_dict(ezsignsignature_create_object_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

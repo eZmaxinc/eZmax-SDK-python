@@ -31,7 +31,7 @@ print(EzsignelementdependencyRequest.to_json())
 # convert the object into a dict
 ezsignelementdependency_request_dict = ezsignelementdependency_request_instance.to_dict()
 # create an instance of EzsignelementdependencyRequest from a dict
-ezsignelementdependency_request_form_dict = ezsignelementdependency_request.from_dict(ezsignelementdependency_request_dict)
+ezsignelementdependency_request_from_dict = EzsignelementdependencyRequest.from_dict(ezsignelementdependency_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,7 +32,7 @@ print(ActivesessionResponseCompoundUser.to_json())
 # convert the object into a dict
 activesession_response_compound_user_dict = activesession_response_compound_user_instance.to_dict()
 # create an instance of ActivesessionResponseCompoundUser from a dict
-activesession_response_compound_user_form_dict = activesession_response_compound_user.from_dict(activesession_response_compound_user_dict)
+activesession_response_compound_user_from_dict = ActivesessionResponseCompoundUser.from_dict(activesession_response_compound_user_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -73,9 +73,9 @@ class EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignbulksendtransmission (list)
         _items = []
         if self.a_obj_ezsignbulksendtransmission:
-            for _item in self.a_obj_ezsignbulksendtransmission:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignbulksendtransmission in self.a_obj_ezsignbulksendtransmission:
+                if _item_a_obj_ezsignbulksendtransmission:
+                    _items.append(_item_a_obj_ezsignbulksendtransmission.to_dict())
             _dict['a_objEzsignbulksendtransmission'] = _items
         return _dict
 

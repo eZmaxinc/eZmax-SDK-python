@@ -23,7 +23,7 @@ print(ScimEmail.to_json())
 # convert the object into a dict
 scim_email_dict = scim_email_instance.to_dict()
 # create an instance of ScimEmail from a dict
-scim_email_form_dict = scim_email.from_dict(scim_email_dict)
+scim_email_from_dict = ScimEmail.from_dict(scim_email_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

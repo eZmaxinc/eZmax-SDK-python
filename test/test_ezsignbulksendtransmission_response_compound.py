@@ -28,7 +28,7 @@ class TestEzsignbulksendtransmissionResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignbulksendtransmissionResponseCompound:
         """Test EzsignbulksendtransmissionResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignbulksendtransmissionResponseCompound`
@@ -63,6 +63,7 @@ class TestEzsignbulksendtransmissionResponseCompound(unittest.TestCase):
                         s_ezsignfolder_description = 'Test eZsign Folder', 
                         e_ezsignfolder_step = 'Completed', 
                         i_ezsignfolder_signaturetotal = 4, 
+                        i_ezsignfolder_formfieldtotal = 4, 
                         i_ezsignfolder_signaturesigned = 3, 
                         a_obj_ezsignfoldertransmission_signer = [
                             eZmaxApi.models.custom_ezsignfoldertransmission_signer_response.Custom-EzsignfoldertransmissionSigner-Response(
@@ -101,6 +102,7 @@ class TestEzsignbulksendtransmissionResponseCompound(unittest.TestCase):
                         s_ezsignfolder_description = 'Test eZsign Folder', 
                         e_ezsignfolder_step = 'Completed', 
                         i_ezsignfolder_signaturetotal = 4, 
+                        i_ezsignfolder_formfieldtotal = 4, 
                         i_ezsignfolder_signaturesigned = 3, 
                         a_obj_ezsignfoldertransmission_signer = [
                             eZmaxApi.models.custom_ezsignfoldertransmission_signer_response.Custom-EzsignfoldertransmissionSigner-Response(

@@ -31,7 +31,7 @@ print(CommunicationreferenceRequest.to_json())
 # convert the object into a dict
 communicationreference_request_dict = communicationreference_request_instance.to_dict()
 # create an instance of CommunicationreferenceRequest from a dict
-communicationreference_request_form_dict = communicationreference_request.from_dict(communicationreference_request_dict)
+communicationreference_request_from_dict = CommunicationreferenceRequest.from_dict(communicationreference_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

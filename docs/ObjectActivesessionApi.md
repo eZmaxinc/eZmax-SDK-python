@@ -4,9 +4,91 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activesession_generate_federation_token_v1**](ObjectActivesessionApi.md#activesession_generate_federation_token_v1) | **POST** /1/object/activesession/generateFederationToken | Generate a federation token
 [**activesession_get_current_v1**](ObjectActivesessionApi.md#activesession_get_current_v1) | **GET** /1/object/activesession/getCurrent | Get Current Activesession
 [**activesession_get_list_v1**](ObjectActivesessionApi.md#activesession_get_list_v1) | **GET** /1/object/activesession/getList | Retrieve Activesession list
 
+
+# **activesession_generate_federation_token_v1**
+> ActivesessionGenerateFederationTokenV1Response activesession_generate_federation_token_v1(activesession_generate_federation_token_v1_request)
+
+Generate a federation token
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.activesession_generate_federation_token_v1_request import ActivesessionGenerateFederationTokenV1Request
+from eZmaxApi.models.activesession_generate_federation_token_v1_response import ActivesessionGenerateFederationTokenV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectActivesessionApi(api_client)
+    activesession_generate_federation_token_v1_request = eZmaxApi.ActivesessionGenerateFederationTokenV1Request() # ActivesessionGenerateFederationTokenV1Request | 
+
+    try:
+        # Generate a federation token
+        api_response = api_instance.activesession_generate_federation_token_v1(activesession_generate_federation_token_v1_request)
+        print("The response of ObjectActivesessionApi->activesession_generate_federation_token_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectActivesessionApi->activesession_generate_federation_token_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activesession_generate_federation_token_v1_request** | [**ActivesessionGenerateFederationTokenV1Request**](ActivesessionGenerateFederationTokenV1Request.md)|  | 
+
+### Return type
+
+[**ActivesessionGenerateFederationTokenV1Response**](ActivesessionGenerateFederationTokenV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **activesession_get_current_v1**
 > ActivesessionGetCurrentV1Response activesession_get_current_v1()

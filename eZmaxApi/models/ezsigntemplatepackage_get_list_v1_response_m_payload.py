@@ -75,9 +75,9 @@ class EzsigntemplatepackageGetListV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatepackage (list)
         _items = []
         if self.a_obj_ezsigntemplatepackage:
-            for _item in self.a_obj_ezsigntemplatepackage:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplatepackage in self.a_obj_ezsigntemplatepackage:
+                if _item_a_obj_ezsigntemplatepackage:
+                    _items.append(_item_a_obj_ezsigntemplatepackage.to_dict())
             _dict['a_objEzsigntemplatepackage'] = _items
         return _dict
 

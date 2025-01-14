@@ -24,7 +24,7 @@ print(MultilingualPaymenttermDescription.to_json())
 # convert the object into a dict
 multilingual_paymentterm_description_dict = multilingual_paymentterm_description_instance.to_dict()
 # create an instance of MultilingualPaymenttermDescription from a dict
-multilingual_paymentterm_description_form_dict = multilingual_paymentterm_description.from_dict(multilingual_paymentterm_description_dict)
+multilingual_paymentterm_description_from_dict = MultilingualPaymenttermDescription.from_dict(multilingual_paymentterm_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

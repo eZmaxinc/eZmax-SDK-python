@@ -28,7 +28,7 @@ class TestEzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPaylo
 
     def make_instance(self, include_optional) -> EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload:
         """Test EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload`

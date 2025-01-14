@@ -29,7 +29,7 @@ print(BillingentityinternalproductResponse.to_json())
 # convert the object into a dict
 billingentityinternalproduct_response_dict = billingentityinternalproduct_response_instance.to_dict()
 # create an instance of BillingentityinternalproductResponse from a dict
-billingentityinternalproduct_response_form_dict = billingentityinternalproduct_response.from_dict(billingentityinternalproduct_response_dict)
+billingentityinternalproduct_response_from_dict = BillingentityinternalproductResponse.from_dict(billingentityinternalproduct_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

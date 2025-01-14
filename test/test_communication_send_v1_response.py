@@ -28,7 +28,7 @@ class TestCommunicationSendV1Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CommunicationSendV1Response:
         """Test CommunicationSendV1Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CommunicationSendV1Response`
@@ -45,7 +45,7 @@ class TestCommunicationSendV1Response(unittest.TestCase):
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
-                m_payload = eZmaxApi.models.communication_create_object_v1_response_m_payload.communication-createObject-v1-Response-mPayload(
+                m_payload = eZmaxApi.models.communication_send_v1_response_m_payload.communication-send-v1-Response-mPayload(
                     a_pki_communication_id = [
                         1
                         ], )
@@ -60,7 +60,7 @@ class TestCommunicationSendV1Response(unittest.TestCase):
                         ], 
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
-                m_payload = eZmaxApi.models.communication_create_object_v1_response_m_payload.communication-createObject-v1-Response-mPayload(
+                m_payload = eZmaxApi.models.communication_send_v1_response_m_payload.communication-send-v1-Response-mPayload(
                     a_pki_communication_id = [
                         1
                         ], ),

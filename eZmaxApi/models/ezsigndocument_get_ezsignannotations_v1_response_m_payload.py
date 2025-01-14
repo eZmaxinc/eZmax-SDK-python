@@ -73,9 +73,9 @@ class EzsigndocumentGetEzsignannotationsV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignannotation (list)
         _items = []
         if self.a_obj_ezsignannotation:
-            for _item in self.a_obj_ezsignannotation:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignannotation in self.a_obj_ezsignannotation:
+                if _item_a_obj_ezsignannotation:
+                    _items.append(_item_a_obj_ezsignannotation.to_dict())
             _dict['a_objEzsignannotation'] = _items
         return _dict
 

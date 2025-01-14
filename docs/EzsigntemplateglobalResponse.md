@@ -32,7 +32,7 @@ print(EzsigntemplateglobalResponse.to_json())
 # convert the object into a dict
 ezsigntemplateglobal_response_dict = ezsigntemplateglobal_response_instance.to_dict()
 # create an instance of EzsigntemplateglobalResponse from a dict
-ezsigntemplateglobal_response_form_dict = ezsigntemplateglobal_response.from_dict(ezsigntemplateglobal_response_dict)
+ezsigntemplateglobal_response_from_dict = EzsigntemplateglobalResponse.from_dict(ezsigntemplateglobal_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

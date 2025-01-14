@@ -25,7 +25,7 @@ print(EzsigntemplatepackagesignermembershipDeleteObjectV1Response.to_json())
 # convert the object into a dict
 ezsigntemplatepackagesignermembership_delete_object_v1_response_dict = ezsigntemplatepackagesignermembership_delete_object_v1_response_instance.to_dict()
 # create an instance of EzsigntemplatepackagesignermembershipDeleteObjectV1Response from a dict
-ezsigntemplatepackagesignermembership_delete_object_v1_response_form_dict = ezsigntemplatepackagesignermembership_delete_object_v1_response.from_dict(ezsigntemplatepackagesignermembership_delete_object_v1_response_dict)
+ezsigntemplatepackagesignermembership_delete_object_v1_response_from_dict = EzsigntemplatepackagesignermembershipDeleteObjectV1Response.from_dict(ezsigntemplatepackagesignermembership_delete_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

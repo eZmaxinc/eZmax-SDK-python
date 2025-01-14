@@ -25,7 +25,7 @@ print(FranchiseofficeAutocompleteElementResponse.to_json())
 # convert the object into a dict
 franchiseoffice_autocomplete_element_response_dict = franchiseoffice_autocomplete_element_response_instance.to_dict()
 # create an instance of FranchiseofficeAutocompleteElementResponse from a dict
-franchiseoffice_autocomplete_element_response_form_dict = franchiseoffice_autocomplete_element_response.from_dict(franchiseoffice_autocomplete_element_response_dict)
+franchiseoffice_autocomplete_element_response_from_dict = FranchiseofficeAutocompleteElementResponse.from_dict(franchiseoffice_autocomplete_element_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

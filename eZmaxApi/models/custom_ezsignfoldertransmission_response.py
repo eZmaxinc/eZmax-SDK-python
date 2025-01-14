@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_ezsignfoldertransmission_signer_response import CustomEzsignfoldertransmissionSignerResponse
@@ -31,12 +31,20 @@ class CustomEzsignfoldertransmissionResponse(BaseModel):
     An Ezsignfolder Object in the context of an Ezsignbulksendtransmission
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
-    s_ezsignfolder_description: StrictStr = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     e_ezsignfolder_step: FieldEEzsignfolderStep = Field(alias="eEzsignfolderStep")
     i_ezsignfolder_signaturetotal: StrictInt = Field(description="The number of total signatures that were requested in the Ezsignfolder", alias="iEzsignfolderSignaturetotal")
+    i_ezsignfolder_formfieldtotal: StrictInt = Field(description="The number of total form fields that were requested in the Ezsignfolder", alias="iEzsignfolderFormfieldtotal")
     i_ezsignfolder_signaturesigned: StrictInt = Field(description="The number of signatures that were signed in the Ezsignfolder.", alias="iEzsignfolderSignaturesigned")
     a_obj_ezsignfoldertransmission_signer: List[CustomEzsignfoldertransmissionSignerResponse] = Field(alias="a_objEzsignfoldertransmissionSigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "sEzsignfolderDescription", "eEzsignfolderStep", "iEzsignfolderSignaturetotal", "iEzsignfolderSignaturesigned", "a_objEzsignfoldertransmissionSigner"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "sEzsignfolderDescription", "eEzsignfolderStep", "iEzsignfolderSignaturetotal", "iEzsignfolderFormfieldtotal", "iEzsignfolderSignaturesigned", "a_objEzsignfoldertransmissionSigner"]
+
+    @field_validator('s_ezsignfolder_description')
+    def s_ezsignfolder_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,9 +88,9 @@ class CustomEzsignfoldertransmissionResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignfoldertransmission_signer (list)
         _items = []
         if self.a_obj_ezsignfoldertransmission_signer:
-            for _item in self.a_obj_ezsignfoldertransmission_signer:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignfoldertransmission_signer in self.a_obj_ezsignfoldertransmission_signer:
+                if _item_a_obj_ezsignfoldertransmission_signer:
+                    _items.append(_item_a_obj_ezsignfoldertransmission_signer.to_dict())
             _dict['a_objEzsignfoldertransmissionSigner'] = _items
         return _dict
 
@@ -100,6 +108,7 @@ class CustomEzsignfoldertransmissionResponse(BaseModel):
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
             "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
             "iEzsignfolderSignaturetotal": obj.get("iEzsignfolderSignaturetotal"),
+            "iEzsignfolderFormfieldtotal": obj.get("iEzsignfolderFormfieldtotal"),
             "iEzsignfolderSignaturesigned": obj.get("iEzsignfolderSignaturesigned"),
             "a_objEzsignfoldertransmissionSigner": [CustomEzsignfoldertransmissionSignerResponse.from_dict(_item) for _item in obj["a_objEzsignfoldertransmissionSigner"]] if obj.get("a_objEzsignfoldertransmissionSigner") is not None else None
         })

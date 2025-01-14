@@ -27,7 +27,7 @@ print(CustomFormDataSignerResponse.to_json())
 # convert the object into a dict
 custom_form_data_signer_response_dict = custom_form_data_signer_response_instance.to_dict()
 # create an instance of CustomFormDataSignerResponse from a dict
-custom_form_data_signer_response_form_dict = custom_form_data_signer_response.from_dict(custom_form_data_signer_response_dict)
+custom_form_data_signer_response_from_dict = CustomFormDataSignerResponse.from_dict(custom_form_data_signer_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

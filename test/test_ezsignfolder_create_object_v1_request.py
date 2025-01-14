@@ -28,7 +28,7 @@ class TestEzsignfolderCreateObjectV1Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignfolderCreateObjectV1Request:
         """Test EzsignfolderCreateObjectV1Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignfolderCreateObjectV1Request`
@@ -39,6 +39,7 @@ class TestEzsignfolderCreateObjectV1Request(unittest.TestCase):
                 obj_ezsignfolder = eZmaxApi.models.ezsignfolder_request.ezsignfolder-Request(
                     pki_ezsignfolder_id = 33, 
                     fki_ezsignfoldertype_id = 5, 
+                    fki_timezone_id = 247, 
                     fki_ezsigntsarequirement_id = 1, 
                     s_ezsignfolder_description = 'Test eZsign Folder', 
                     t_ezsignfolder_note = 'This is a note', 

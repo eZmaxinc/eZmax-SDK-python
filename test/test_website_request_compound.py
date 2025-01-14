@@ -28,7 +28,7 @@ class TestWebsiteRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WebsiteRequestCompound:
         """Test WebsiteRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WebsiteRequestCompound`
@@ -36,6 +36,7 @@ class TestWebsiteRequestCompound(unittest.TestCase):
         model = WebsiteRequestCompound()
         if include_optional:
             return WebsiteRequestCompound(
+                pki_website_id = 145,
                 fki_websitetype_id = 1,
                 s_website_address = 'https://www.example.com'
             )

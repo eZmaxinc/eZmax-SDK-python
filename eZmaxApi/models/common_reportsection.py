@@ -79,16 +79,16 @@ class CommonReportsection(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportsubsection (list)
         _items = []
         if self.a_obj_reportsubsection:
-            for _item in self.a_obj_reportsubsection:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_reportsubsection in self.a_obj_reportsubsection:
+                if _item_a_obj_reportsubsection:
+                    _items.append(_item_a_obj_reportsubsection.to_dict())
             _dict['a_objReportsubsection'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportcolumn (list)
         _items = []
         if self.a_obj_reportcolumn:
-            for _item in self.a_obj_reportcolumn:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_reportcolumn in self.a_obj_reportcolumn:
+                if _item_a_obj_reportcolumn:
+                    _items.append(_item_a_obj_reportcolumn.to_dict())
             _dict['a_objReportcolumn'] = _items
         return _dict
 

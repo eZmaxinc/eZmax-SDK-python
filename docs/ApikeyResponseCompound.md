@@ -31,7 +31,7 @@ print(ApikeyResponseCompound.to_json())
 # convert the object into a dict
 apikey_response_compound_dict = apikey_response_compound_instance.to_dict()
 # create an instance of ApikeyResponseCompound from a dict
-apikey_response_compound_form_dict = apikey_response_compound.from_dict(apikey_response_compound_dict)
+apikey_response_compound_from_dict = ApikeyResponseCompound.from_dict(apikey_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

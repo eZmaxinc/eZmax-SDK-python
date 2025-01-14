@@ -23,7 +23,7 @@ print(SubnetCreateObjectV1ResponseMPayload.to_json())
 # convert the object into a dict
 subnet_create_object_v1_response_m_payload_dict = subnet_create_object_v1_response_m_payload_instance.to_dict()
 # create an instance of SubnetCreateObjectV1ResponseMPayload from a dict
-subnet_create_object_v1_response_m_payload_form_dict = subnet_create_object_v1_response_m_payload.from_dict(subnet_create_object_v1_response_m_payload_dict)
+subnet_create_object_v1_response_m_payload_from_dict = SubnetCreateObjectV1ResponseMPayload.from_dict(subnet_create_object_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

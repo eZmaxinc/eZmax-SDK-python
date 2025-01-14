@@ -31,7 +31,8 @@ class CustomEzsignsignaturestatusResponse(BaseModel):
     i_ezsignsignaturestatus_step: StrictInt = Field(description="The step at which the Ezsignsigner will be invited to sign or fill the form fields", alias="iEzsignsignaturestatusStep")
     i_ezsignsignaturestatus_total: StrictInt = Field(description="The total number of signature or form fields the Ezsignsigner must process at the current step", alias="iEzsignsignaturestatusTotal")
     i_ezsignsignaturestatus_signed: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner has already processed at the current step", alias="iEzsignsignaturestatusSigned")
-    __properties: ClassVar[List[str]] = ["eEzsignsignaturestatusSteptype", "iEzsignsignaturestatusStep", "iEzsignsignaturestatusTotal", "iEzsignsignaturestatusSigned"]
+    i_ezsignsignaturestatus_conditional: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions.", alias="iEzsignsignaturestatusConditional")
+    __properties: ClassVar[List[str]] = ["eEzsignsignaturestatusSteptype", "iEzsignsignaturestatusStep", "iEzsignsignaturestatusTotal", "iEzsignsignaturestatusSigned", "iEzsignsignaturestatusConditional"]
 
     @field_validator('e_ezsignsignaturestatus_steptype')
     def e_ezsignsignaturestatus_steptype_validate_enum(cls, value):
@@ -94,7 +95,8 @@ class CustomEzsignsignaturestatusResponse(BaseModel):
             "eEzsignsignaturestatusSteptype": obj.get("eEzsignsignaturestatusSteptype"),
             "iEzsignsignaturestatusStep": obj.get("iEzsignsignaturestatusStep"),
             "iEzsignsignaturestatusTotal": obj.get("iEzsignsignaturestatusTotal"),
-            "iEzsignsignaturestatusSigned": obj.get("iEzsignsignaturestatusSigned")
+            "iEzsignsignaturestatusSigned": obj.get("iEzsignsignaturestatusSigned"),
+            "iEzsignsignaturestatusConditional": obj.get("iEzsignsignaturestatusConditional")
         })
         return _obj
 

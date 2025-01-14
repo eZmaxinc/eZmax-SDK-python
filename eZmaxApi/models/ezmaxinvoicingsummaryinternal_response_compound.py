@@ -84,9 +84,9 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingsummaryinternaldetail (list)
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryinternaldetail:
-            for _item in self.a_obj_ezmaxinvoicingsummaryinternaldetail:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingsummaryinternaldetail in self.a_obj_ezmaxinvoicingsummaryinternaldetail:
+                if _item_a_obj_ezmaxinvoicingsummaryinternaldetail:
+                    _items.append(_item_a_obj_ezmaxinvoicingsummaryinternaldetail.to_dict())
             _dict['a_objEzmaxinvoicingsummaryinternaldetail'] = _items
         return _dict
 

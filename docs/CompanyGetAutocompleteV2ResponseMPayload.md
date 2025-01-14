@@ -23,7 +23,7 @@ print(CompanyGetAutocompleteV2ResponseMPayload.to_json())
 # convert the object into a dict
 company_get_autocomplete_v2_response_m_payload_dict = company_get_autocomplete_v2_response_m_payload_instance.to_dict()
 # create an instance of CompanyGetAutocompleteV2ResponseMPayload from a dict
-company_get_autocomplete_v2_response_m_payload_form_dict = company_get_autocomplete_v2_response_m_payload.from_dict(company_get_autocomplete_v2_response_m_payload_dict)
+company_get_autocomplete_v2_response_m_payload_from_dict = CompanyGetAutocompleteV2ResponseMPayload.from_dict(company_get_autocomplete_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

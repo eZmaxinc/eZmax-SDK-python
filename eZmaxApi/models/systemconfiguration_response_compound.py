@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.custom_branding_response import CustomBrandingResponse
 from eZmaxApi.models.field_e_systemconfiguration_ezsign import FieldESystemconfigurationEzsign
 from eZmaxApi.models.field_e_systemconfiguration_ezsignofficeplan import FieldESystemconfigurationEzsignofficeplan
 from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1
@@ -35,6 +36,7 @@ class SystemconfigurationResponseCompound(BaseModel):
     """ # noqa: E501
     pki_systemconfiguration_id: Annotated[int, Field(le=1, strict=True, ge=1)] = Field(description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID")
     fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
+    fki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="fkiBrandingID")
     s_systemconfigurationtype_description_x: StrictStr = Field(description="The description of the Systemconfigurationtype in the language of the requester", alias="sSystemconfigurationtypeDescriptionX")
     e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(alias="eSystemconfigurationNewexternaluseraction")
     e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
@@ -43,11 +45,13 @@ class SystemconfigurationResponseCompound(BaseModel):
     e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
     b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
     b_systemconfiguration_ezsignpersonnal: StrictBool = Field(description="Whether if we allow the creation of personal files in eZsign", alias="bSystemconfigurationEzsignpersonnal")
+    b_systemconfiguration_hascreditcardmerchant: Optional[StrictBool] = Field(default=None, description="Whether there is a creditcard merchant configured or not", alias="bSystemconfigurationHascreditcardmerchant")
     b_systemconfiguration_isdisposalactive: Optional[StrictBool] = Field(default=None, description="Whether is Disposal processus is active or not", alias="bSystemconfigurationIsdisposalactive")
     b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
     dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
     dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
-    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescriptionX", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationIsdisposalactive", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
+    obj_branding: Optional[CustomBrandingResponse] = Field(default=None, alias="objBranding")
+    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiSystemconfigurationtypeID", "fkiBrandingID", "sSystemconfigurationtypeDescriptionX", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationHascreditcardmerchant", "bSystemconfigurationIsdisposalactive", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "objBranding"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
@@ -108,6 +112,9 @@ class SystemconfigurationResponseCompound(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_branding
+        if self.obj_branding:
+            _dict['objBranding'] = self.obj_branding.to_dict()
         return _dict
 
     @classmethod
@@ -122,6 +129,7 @@ class SystemconfigurationResponseCompound(BaseModel):
         _obj = cls.model_validate({
             "pkiSystemconfigurationID": obj.get("pkiSystemconfigurationID"),
             "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
+            "fkiBrandingID": obj.get("fkiBrandingID"),
             "sSystemconfigurationtypeDescriptionX": obj.get("sSystemconfigurationtypeDescriptionX"),
             "eSystemconfigurationNewexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
             "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
@@ -130,10 +138,12 @@ class SystemconfigurationResponseCompound(BaseModel):
             "eSystemconfigurationEzsignofficeplan": obj.get("eSystemconfigurationEzsignofficeplan"),
             "bSystemconfigurationEzsignpaidbyoffice": obj.get("bSystemconfigurationEzsignpaidbyoffice"),
             "bSystemconfigurationEzsignpersonnal": obj.get("bSystemconfigurationEzsignpersonnal"),
+            "bSystemconfigurationHascreditcardmerchant": obj.get("bSystemconfigurationHascreditcardmerchant"),
             "bSystemconfigurationIsdisposalactive": obj.get("bSystemconfigurationIsdisposalactive"),
             "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
             "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
-            "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend")
+            "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend"),
+            "objBranding": CustomBrandingResponse.from_dict(obj["objBranding"]) if obj.get("objBranding") is not None else None
         })
         return _obj
 

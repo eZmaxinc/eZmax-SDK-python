@@ -33,7 +33,7 @@ print(VersionhistoryResponse.to_json())
 # convert the object into a dict
 versionhistory_response_dict = versionhistory_response_instance.to_dict()
 # create an instance of VersionhistoryResponse from a dict
-versionhistory_response_form_dict = versionhistory_response.from_dict(versionhistory_response_dict)
+versionhistory_response_from_dict = VersionhistoryResponse.from_dict(versionhistory_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

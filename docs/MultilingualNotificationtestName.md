@@ -24,7 +24,7 @@ print(MultilingualNotificationtestName.to_json())
 # convert the object into a dict
 multilingual_notificationtest_name_dict = multilingual_notificationtest_name_instance.to_dict()
 # create an instance of MultilingualNotificationtestName from a dict
-multilingual_notificationtest_name_form_dict = multilingual_notificationtest_name.from_dict(multilingual_notificationtest_name_dict)
+multilingual_notificationtest_name_from_dict = MultilingualNotificationtestName.from_dict(multilingual_notificationtest_name_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

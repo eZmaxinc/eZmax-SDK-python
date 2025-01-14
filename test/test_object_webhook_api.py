@@ -76,6 +76,13 @@ class TestObjectWebhookApi(unittest.TestCase):
         """
         pass
 
+    def test_webhook_send_webhook_v1(self) -> None:
+        """Test case for webhook_send_webhook_v1
+
+        Emit a Webhook event
+        """
+        pass
+
     def test_webhook_test_v1(self) -> None:
         """Test case for webhook_test_v1
 

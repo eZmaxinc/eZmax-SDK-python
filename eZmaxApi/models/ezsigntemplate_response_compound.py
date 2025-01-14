@@ -36,8 +36,11 @@ class EzsigntemplateResponseCompound(BaseModel):
     fki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
-    s_ezsigntemplate_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
+    s_ezsigntemplate_externaldescription: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The external description of the Ezsigntemplate", alias="sEzsigntemplateExternaldescription")
+    t_ezsigntemplate_comment: Optional[StrictStr] = Field(default=None, description="The comment of the Ezsigntemplate", alias="tEzsigntemplateComment")
     s_ezsigntemplate_filenamepattern: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The filename pattern of the Ezsigntemplate", alias="sEzsigntemplateFilenamepattern")
     b_ezsigntemplate_adminonly: StrictBool = Field(description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplateAdminonly")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
@@ -46,7 +49,24 @@ class EzsigntemplateResponseCompound(BaseModel):
     e_ezsigntemplate_type: Optional[FieldEEzsigntemplateType] = Field(default=None, alias="eEzsigntemplateType")
     obj_ezsigntemplatedocument: Optional[EzsigntemplatedocumentResponse] = Field(default=None, alias="objEzsigntemplatedocument")
     a_obj_ezsigntemplatesigner: List[EzsigntemplatesignerResponseCompound] = Field(alias="a_objEzsigntemplatesigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType", "objEzsigntemplatedocument", "a_objEzsigntemplatesigner"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType", "objEzsigntemplatedocument", "a_objEzsigntemplatesigner"]
+
+    @field_validator('s_ezsigntemplate_description')
+    def s_ezsigntemplate_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
+
+    @field_validator('s_ezsigntemplate_externaldescription')
+    def s_ezsigntemplate_externaldescription_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     @field_validator('s_ezsigntemplate_filenamepattern')
     def s_ezsigntemplate_filenamepattern_validate_regular_expression(cls, value):
@@ -106,9 +126,9 @@ class EzsigntemplateResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatesigner (list)
         _items = []
         if self.a_obj_ezsigntemplatesigner:
-            for _item in self.a_obj_ezsigntemplatesigner:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplatesigner in self.a_obj_ezsigntemplatesigner:
+                if _item_a_obj_ezsigntemplatesigner:
+                    _items.append(_item_a_obj_ezsigntemplatesigner.to_dict())
             _dict['a_objEzsigntemplatesigner'] = _items
         return _dict
 
@@ -126,8 +146,11 @@ class EzsigntemplateResponseCompound(BaseModel):
             "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
+            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
             "sLanguageNameX": obj.get("sLanguageNameX"),
             "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
+            "sEzsigntemplateExternaldescription": obj.get("sEzsigntemplateExternaldescription"),
+            "tEzsigntemplateComment": obj.get("tEzsigntemplateComment"),
             "sEzsigntemplateFilenamepattern": obj.get("sEzsigntemplateFilenamepattern"),
             "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),

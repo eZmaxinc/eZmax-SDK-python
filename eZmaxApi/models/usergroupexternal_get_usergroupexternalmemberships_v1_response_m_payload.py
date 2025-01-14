@@ -73,9 +73,9 @@ class UsergroupexternalGetUsergroupexternalmembershipsV1ResponseMPayload(BaseMod
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_usergroupexternalmembership (list)
         _items = []
         if self.a_obj_usergroupexternalmembership:
-            for _item in self.a_obj_usergroupexternalmembership:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_usergroupexternalmembership in self.a_obj_usergroupexternalmembership:
+                if _item_a_obj_usergroupexternalmembership:
+                    _items.append(_item_a_obj_usergroupexternalmembership.to_dict())
             _dict['a_objUsergroupexternalmembership'] = _items
         return _dict
 

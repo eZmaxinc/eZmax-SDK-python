@@ -23,7 +23,7 @@ print(EzsigntemplateglobalGetAutocompleteV2ResponseMPayload.to_json())
 # convert the object into a dict
 ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_dict = ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_instance.to_dict()
 # create an instance of EzsigntemplateglobalGetAutocompleteV2ResponseMPayload from a dict
-ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_form_dict = ezsigntemplateglobal_get_autocomplete_v2_response_m_payload.from_dict(ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_dict)
+ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_from_dict = EzsigntemplateglobalGetAutocompleteV2ResponseMPayload.from_dict(ezsigntemplateglobal_get_autocomplete_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

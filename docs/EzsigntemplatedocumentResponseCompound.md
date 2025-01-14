@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **s_ezsigntemplatedocument_name** | **str** | The name of the Ezsigntemplatedocument. | 
 **i_ezsigntemplatedocument_pagetotal** | **int** | The number of pages in the Ezsigntemplatedocument. | 
 **i_ezsigntemplatedocument_signaturetotal** | **int** | The number of total signatures in the Ezsigntemplate. | 
+**i_ezsigntemplatedocument_formfieldtotal** | **int** | The number of total form fields in the Ezsigntemplate. | 
 **b_ezsigntemplatedocument_hassignedsignatures** | **bool** | If the Ezsigntemplatedocument contains signed signatures (From internal or external sources) | 
 
 ## Example
@@ -28,7 +29,7 @@ print(EzsigntemplatedocumentResponseCompound.to_json())
 # convert the object into a dict
 ezsigntemplatedocument_response_compound_dict = ezsigntemplatedocument_response_compound_instance.to_dict()
 # create an instance of EzsigntemplatedocumentResponseCompound from a dict
-ezsigntemplatedocument_response_compound_form_dict = ezsigntemplatedocument_response_compound.from_dict(ezsigntemplatedocument_response_compound_dict)
+ezsigntemplatedocument_response_compound_from_dict = EzsigntemplatedocumentResponseCompound.from_dict(ezsigntemplatedocument_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

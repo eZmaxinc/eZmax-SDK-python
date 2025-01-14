@@ -44,6 +44,7 @@ class EzsigndocumentResponse(BaseModel):
     i_ezsigndocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigndocument.", alias="iEzsigndocumentPagetotal")
     i_ezsigndocument_signaturesigned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of signatures that were signed in the document.", alias="iEzsigndocumentSignaturesigned")
     i_ezsigndocument_signaturetotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of total signatures that were requested in the Ezsigndocument.", alias="iEzsigndocumentSignaturetotal")
+    i_ezsigndocument_formfieldtotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of total Ezsignformfield that were requested in the Ezsigndocument.", alias="iEzsigndocumentFormfieldtotal")
     s_ezsigndocument_md5initial: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the initial PDF Document before signatures were applied to it.", alias="sEzsigndocumentMD5initial")
     t_ezsigndocument_declinedtosignreason: Optional[StrictStr] = Field(default=None, description="A custom text message that will contain the refusal message if the Ezsigndocument is declined to sign", alias="tEzsigndocumentDeclinedtosignreason")
     s_ezsigndocument_md5signed: Optional[StrictStr] = Field(default=None, description="MD5 Hash of the final PDF Document after all signatures were applied to it.", alias="sEzsigndocumentMD5signed")
@@ -53,7 +54,7 @@ class EzsigndocumentResponse(BaseModel):
     s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
     i_ezsigndocument_ezsignsignatureattachmenttotal: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of Ezsigndocumentattachment total", alias="iEzsigndocumentEzsignsignatureattachmenttotal")
     i_ezsigndocument_ezsigndiscussiontotal: StrictInt = Field(description="The total number of Ezsigndiscussions", alias="iEzsigndocumentEzsigndiscussiontotal")
-    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "iEzsigndocumentFormfieldtotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal"]
 
     @field_validator('s_ezsigndocument_externalid')
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
@@ -133,6 +134,7 @@ class EzsigndocumentResponse(BaseModel):
             "iEzsigndocumentPagetotal": obj.get("iEzsigndocumentPagetotal"),
             "iEzsigndocumentSignaturesigned": obj.get("iEzsigndocumentSignaturesigned"),
             "iEzsigndocumentSignaturetotal": obj.get("iEzsigndocumentSignaturetotal"),
+            "iEzsigndocumentFormfieldtotal": obj.get("iEzsigndocumentFormfieldtotal"),
             "sEzsigndocumentMD5initial": obj.get("sEzsigndocumentMD5initial"),
             "tEzsigndocumentDeclinedtosignreason": obj.get("tEzsigndocumentDeclinedtosignreason"),
             "sEzsigndocumentMD5signed": obj.get("sEzsigndocumentMD5signed"),

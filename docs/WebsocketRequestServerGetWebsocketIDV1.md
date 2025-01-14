@@ -23,7 +23,7 @@ print(WebsocketRequestServerGetWebsocketIDV1.to_json())
 # convert the object into a dict
 websocket_request_server_get_websocket_idv1_dict = websocket_request_server_get_websocket_idv1_instance.to_dict()
 # create an instance of WebsocketRequestServerGetWebsocketIDV1 from a dict
-websocket_request_server_get_websocket_idv1_form_dict = websocket_request_server_get_websocket_idv1.from_dict(websocket_request_server_get_websocket_idv1_dict)
+websocket_request_server_get_websocket_idv1_from_dict = WebsocketRequestServerGetWebsocketIDV1.from_dict(websocket_request_server_get_websocket_idv1_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

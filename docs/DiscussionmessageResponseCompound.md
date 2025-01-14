@@ -31,7 +31,7 @@ print(DiscussionmessageResponseCompound.to_json())
 # convert the object into a dict
 discussionmessage_response_compound_dict = discussionmessage_response_compound_instance.to_dict()
 # create an instance of DiscussionmessageResponseCompound from a dict
-discussionmessage_response_compound_form_dict = discussionmessage_response_compound.from_dict(discussionmessage_response_compound_dict)
+discussionmessage_response_compound_from_dict = DiscussionmessageResponseCompound.from_dict(discussionmessage_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

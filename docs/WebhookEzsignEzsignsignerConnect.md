@@ -26,7 +26,7 @@ print(WebhookEzsignEzsignsignerConnect.to_json())
 # convert the object into a dict
 webhook_ezsign_ezsignsigner_connect_dict = webhook_ezsign_ezsignsigner_connect_instance.to_dict()
 # create an instance of WebhookEzsignEzsignsignerConnect from a dict
-webhook_ezsign_ezsignsigner_connect_form_dict = webhook_ezsign_ezsignsigner_connect.from_dict(webhook_ezsign_ezsignsigner_connect_dict)
+webhook_ezsign_ezsignsigner_connect_from_dict = WebhookEzsignEzsignsignerConnect.from_dict(webhook_ezsign_ezsignsigner_connect_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

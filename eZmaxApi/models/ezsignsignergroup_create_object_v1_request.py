@@ -74,9 +74,9 @@ class EzsignsignergroupCreateObjectV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignergroup (list)
         _items = []
         if self.a_obj_ezsignsignergroup:
-            for _item in self.a_obj_ezsignsignergroup:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignsignergroup in self.a_obj_ezsignsignergroup:
+                if _item_a_obj_ezsignsignergroup:
+                    _items.append(_item_a_obj_ezsignsignergroup.to_dict())
             _dict['a_objEzsignsignergroup'] = _items
         return _dict
 

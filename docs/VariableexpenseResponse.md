@@ -27,7 +27,7 @@ print(VariableexpenseResponse.to_json())
 # convert the object into a dict
 variableexpense_response_dict = variableexpense_response_instance.to_dict()
 # create an instance of VariableexpenseResponse from a dict
-variableexpense_response_form_dict = variableexpense_response.from_dict(variableexpense_response_dict)
+variableexpense_response_from_dict = VariableexpenseResponse.from_dict(variableexpense_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

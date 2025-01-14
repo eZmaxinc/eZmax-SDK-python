@@ -48,13 +48,14 @@ class EzsigntemplateformfieldgroupRequestCompound(BaseModel):
     i_ezsigntemplateformfieldgroup_maxlength: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The maximum length for the value in the Ezsigntemplateformfieldgroup  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**", alias="iEzsigntemplateformfieldgroupMaxlength")
     b_ezsigntemplateformfieldgroup_encrypted: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplateformfieldgroup is encrypted in the database or not. Encrypted values are not displayed on the Ezsigndocument. This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**", alias="bEzsigntemplateformfieldgroupEncrypted")
     s_ezsigntemplateformfieldgroup_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsigntemplateformfieldgroup.  This can only be set if eEzsigntemplateformfieldgroupType is **Text** or **Textarea**", alias="sEzsigntemplateformfieldgroupRegexp")
+    s_ezsigntemplateformfieldgroup_textvalidationcustommessage: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=50)]] = Field(default=None, description="Description of validation rule. Show by signatory.", alias="sEzsigntemplateformfieldgroupTextvalidationcustommessage")
     e_ezsigntemplateformfieldgroup_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsigntemplateformfieldgroupTextvalidation")
     t_ezsigntemplateformfieldgroup_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup", alias="tEzsigntemplateformfieldgroupTooltip")
     e_ezsigntemplateformfieldgroup_tooltipposition: Optional[FieldEEzsigntemplateformfieldgroupTooltipposition] = Field(default=None, alias="eEzsigntemplateformfieldgroupTooltipposition")
     a_obj_ezsigntemplateformfieldgroupsigner: List[EzsigntemplateformfieldgroupsignerRequestCompound] = Field(alias="a_objEzsigntemplateformfieldgroupsigner")
     a_obj_dropdown_element: Optional[List[CustomDropdownElementRequestCompound]] = Field(default=None, alias="a_objDropdownElement")
     a_obj_ezsigntemplateformfield: List[EzsigntemplateformfieldRequestCompound] = Field(alias="a_objEzsigntemplateformfield")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldgroupID", "fkiEzsigntemplatedocumentID", "eEzsigntemplateformfieldgroupType", "eEzsigntemplateformfieldgroupSignerrequirement", "sEzsigntemplateformfieldgroupLabel", "iEzsigntemplateformfieldgroupStep", "sEzsigntemplateformfieldgroupDefaultvalue", "iEzsigntemplateformfieldgroupFilledmin", "iEzsigntemplateformfieldgroupFilledmax", "bEzsigntemplateformfieldgroupReadonly", "iEzsigntemplateformfieldgroupMaxlength", "bEzsigntemplateformfieldgroupEncrypted", "sEzsigntemplateformfieldgroupRegexp", "eEzsigntemplateformfieldgroupTextvalidation", "tEzsigntemplateformfieldgroupTooltip", "eEzsigntemplateformfieldgroupTooltipposition", "a_objEzsigntemplateformfieldgroupsigner", "a_objDropdownElement", "a_objEzsigntemplateformfield"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldgroupID", "fkiEzsigntemplatedocumentID", "eEzsigntemplateformfieldgroupType", "eEzsigntemplateformfieldgroupSignerrequirement", "sEzsigntemplateformfieldgroupLabel", "iEzsigntemplateformfieldgroupStep", "sEzsigntemplateformfieldgroupDefaultvalue", "iEzsigntemplateformfieldgroupFilledmin", "iEzsigntemplateformfieldgroupFilledmax", "bEzsigntemplateformfieldgroupReadonly", "iEzsigntemplateformfieldgroupMaxlength", "bEzsigntemplateformfieldgroupEncrypted", "sEzsigntemplateformfieldgroupRegexp", "sEzsigntemplateformfieldgroupTextvalidationcustommessage", "eEzsigntemplateformfieldgroupTextvalidation", "tEzsigntemplateformfieldgroupTooltip", "eEzsigntemplateformfieldgroupTooltipposition", "a_objEzsigntemplateformfieldgroupsigner", "a_objDropdownElement", "a_objEzsigntemplateformfield"]
 
     @field_validator('s_ezsigntemplateformfieldgroup_regexp')
     def s_ezsigntemplateformfieldgroup_regexp_validate_regular_expression(cls, value):
@@ -108,23 +109,23 @@ class EzsigntemplateformfieldgroupRequestCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateformfieldgroupsigner (list)
         _items = []
         if self.a_obj_ezsigntemplateformfieldgroupsigner:
-            for _item in self.a_obj_ezsigntemplateformfieldgroupsigner:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplateformfieldgroupsigner in self.a_obj_ezsigntemplateformfieldgroupsigner:
+                if _item_a_obj_ezsigntemplateformfieldgroupsigner:
+                    _items.append(_item_a_obj_ezsigntemplateformfieldgroupsigner.to_dict())
             _dict['a_objEzsigntemplateformfieldgroupsigner'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_dropdown_element (list)
         _items = []
         if self.a_obj_dropdown_element:
-            for _item in self.a_obj_dropdown_element:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_dropdown_element in self.a_obj_dropdown_element:
+                if _item_a_obj_dropdown_element:
+                    _items.append(_item_a_obj_dropdown_element.to_dict())
             _dict['a_objDropdownElement'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateformfield (list)
         _items = []
         if self.a_obj_ezsigntemplateformfield:
-            for _item in self.a_obj_ezsigntemplateformfield:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplateformfield in self.a_obj_ezsigntemplateformfield:
+                if _item_a_obj_ezsigntemplateformfield:
+                    _items.append(_item_a_obj_ezsigntemplateformfield.to_dict())
             _dict['a_objEzsigntemplateformfield'] = _items
         return _dict
 
@@ -151,6 +152,7 @@ class EzsigntemplateformfieldgroupRequestCompound(BaseModel):
             "iEzsigntemplateformfieldgroupMaxlength": obj.get("iEzsigntemplateformfieldgroupMaxlength"),
             "bEzsigntemplateformfieldgroupEncrypted": obj.get("bEzsigntemplateformfieldgroupEncrypted"),
             "sEzsigntemplateformfieldgroupRegexp": obj.get("sEzsigntemplateformfieldgroupRegexp"),
+            "sEzsigntemplateformfieldgroupTextvalidationcustommessage": obj.get("sEzsigntemplateformfieldgroupTextvalidationcustommessage"),
             "eEzsigntemplateformfieldgroupTextvalidation": obj.get("eEzsigntemplateformfieldgroupTextvalidation"),
             "tEzsigntemplateformfieldgroupTooltip": obj.get("tEzsigntemplateformfieldgroupTooltip"),
             "eEzsigntemplateformfieldgroupTooltipposition": obj.get("eEzsigntemplateformfieldgroupTooltipposition"),

@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsigntemplatepackage_id** | **int** | The unique ID of the Ezsigntemplatepackage | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**fki_ezdoctemplatedocument_id** | **int** | The unique ID of the Ezdoctemplatedocument | [optional] 
 **fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**s_ezdoctemplatedocument_name_x** | **str** | The name of the Ezdoctemplatedocument in the language of the requester | [optional] 
 **s_language_name_x** | **str** | The Name of the Language in the language of the requester | 
 **s_ezsigntemplatepackage_description** | **str** | The description of the Ezsigntemplatepackage | 
 **b_ezsigntemplatepackage_adminonly** | **bool** | Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType&#x3D;Normal) | 
@@ -32,7 +34,7 @@ print(EzsigntemplatepackageResponse.to_json())
 # convert the object into a dict
 ezsigntemplatepackage_response_dict = ezsigntemplatepackage_response_instance.to_dict()
 # create an instance of EzsigntemplatepackageResponse from a dict
-ezsigntemplatepackage_response_form_dict = ezsigntemplatepackage_response.from_dict(ezsigntemplatepackage_response_dict)
+ezsigntemplatepackage_response_from_dict = EzsigntemplatepackageResponse.from_dict(ezsigntemplatepackage_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

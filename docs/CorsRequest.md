@@ -25,7 +25,7 @@ print(CorsRequest.to_json())
 # convert the object into a dict
 cors_request_dict = cors_request_instance.to_dict()
 # create an instance of CorsRequest from a dict
-cors_request_form_dict = cors_request.from_dict(cors_request_dict)
+cors_request_from_dict = CorsRequest.from_dict(cors_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

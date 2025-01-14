@@ -29,7 +29,7 @@ print(EzsignfoldersignerassociationRequestCompound.to_json())
 # convert the object into a dict
 ezsignfoldersignerassociation_request_compound_dict = ezsignfoldersignerassociation_request_compound_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationRequestCompound from a dict
-ezsignfoldersignerassociation_request_compound_form_dict = ezsignfoldersignerassociation_request_compound.from_dict(ezsignfoldersignerassociation_request_compound_dict)
+ezsignfoldersignerassociation_request_compound_from_dict = EzsignfoldersignerassociationRequestCompound.from_dict(ezsignfoldersignerassociation_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

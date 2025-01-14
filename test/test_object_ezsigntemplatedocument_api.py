@@ -34,6 +34,13 @@ class TestObjectEzsigntemplatedocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1(self) -> None:
+        """Test case for ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1
+
+        Edit multiple Ezsigntemplatedocumentpagerecognitions
+        """
+        pass
+
     def test_ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1(self) -> None:
         """Test case for ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1
 
@@ -55,10 +62,24 @@ class TestObjectEzsigntemplatedocumentApi(unittest.TestCase):
         """
         pass
 
+    def test_ezsigntemplatedocument_extract_text_v1(self) -> None:
+        """Test case for ezsigntemplatedocument_extract_text_v1
+
+        Extract text from Ezsigntemplatedocument area
+        """
+        pass
+
     def test_ezsigntemplatedocument_flatten_v1(self) -> None:
         """Test case for ezsigntemplatedocument_flatten_v1
 
         Flatten
+        """
+        pass
+
+    def test_ezsigntemplatedocument_get_ezsigntemplatedocumentpagerecognitions_v1(self) -> None:
+        """Test case for ezsigntemplatedocument_get_ezsigntemplatedocumentpagerecognitions_v1
+
+        Retrieve an existing Ezsigntemplatedocument's Ezsigntemplatedocumentpagerecognitions
         """
         pass
 

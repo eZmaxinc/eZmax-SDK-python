@@ -27,7 +27,7 @@ print(ModulesectionResponseCompound.to_json())
 # convert the object into a dict
 modulesection_response_compound_dict = modulesection_response_compound_instance.to_dict()
 # create an instance of ModulesectionResponseCompound from a dict
-modulesection_response_compound_form_dict = modulesection_response_compound.from_dict(modulesection_response_compound_dict)
+modulesection_response_compound_from_dict = ModulesectionResponseCompound.from_dict(modulesection_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

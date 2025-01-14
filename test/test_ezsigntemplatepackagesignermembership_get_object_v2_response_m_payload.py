@@ -28,7 +28,7 @@ class TestEzsigntemplatepackagesignermembershipGetObjectV2ResponseMPayload(unitt
 
     def make_instance(self, include_optional) -> EzsigntemplatepackagesignermembershipGetObjectV2ResponseMPayload:
         """Test EzsigntemplatepackagesignermembershipGetObjectV2ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagesignermembershipGetObjectV2ResponseMPayload`

@@ -28,7 +28,7 @@ class TestEzsignformfieldRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignformfieldRequest:
         """Test EzsignformfieldRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignformfieldRequest`
@@ -47,7 +47,9 @@ class TestEzsignformfieldRequest(unittest.TestCase):
                 b_ezsignformfield_autocomplete = True,
                 b_ezsignformfield_selected = True,
                 s_ezsignformfield_enteredvalue = 'Montreal',
-                e_ezsignformfield_dependencyrequirement = 'AllOf'
+                e_ezsignformfield_dependencyrequirement = 'AllOf',
+                e_ezsignformfield_horizontalalignment = 'Center',
+                obj_textstylestatic = eZmaxApi.models.textstylestatic_request_compound.textstylestatic-RequestCompound()
             )
         else:
             return EzsignformfieldRequest(

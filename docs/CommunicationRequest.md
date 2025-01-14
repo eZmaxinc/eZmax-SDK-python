@@ -32,7 +32,7 @@ print(CommunicationRequest.to_json())
 # convert the object into a dict
 communication_request_dict = communication_request_instance.to_dict()
 # create an instance of CommunicationRequest from a dict
-communication_request_form_dict = communication_request.from_dict(communication_request_dict)
+communication_request_from_dict = CommunicationRequest.from_dict(communication_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

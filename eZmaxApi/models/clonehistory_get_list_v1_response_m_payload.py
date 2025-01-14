@@ -75,9 +75,9 @@ class ClonehistoryGetListV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_clonehistory (list)
         _items = []
         if self.a_obj_clonehistory:
-            for _item in self.a_obj_clonehistory:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_clonehistory in self.a_obj_clonehistory:
+                if _item_a_obj_clonehistory:
+                    _items.append(_item_a_obj_clonehistory.to_dict())
             _dict['a_objClonehistory'] = _items
         return _dict
 

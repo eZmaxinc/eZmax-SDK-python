@@ -28,7 +28,7 @@ print(SubnetRequestCompound.to_json())
 # convert the object into a dict
 subnet_request_compound_dict = subnet_request_compound_instance.to_dict()
 # create an instance of SubnetRequestCompound from a dict
-subnet_request_compound_form_dict = subnet_request_compound.from_dict(subnet_request_compound_dict)
+subnet_request_compound_from_dict = SubnetRequestCompound.from_dict(subnet_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

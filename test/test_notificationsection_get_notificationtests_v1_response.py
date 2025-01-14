@@ -28,7 +28,7 @@ class TestNotificationsectionGetNotificationtestsV1Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotificationsectionGetNotificationtestsV1Response:
         """Test NotificationsectionGetNotificationtestsV1Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotificationsectionGetNotificationtestsV1Response`

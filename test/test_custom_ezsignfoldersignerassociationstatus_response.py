@@ -28,7 +28,7 @@ class TestCustomEzsignfoldersignerassociationstatusResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CustomEzsignfoldersignerassociationstatusResponse:
         """Test CustomEzsignfoldersignerassociationstatusResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignfoldersignerassociationstatusResponse`
@@ -45,7 +45,8 @@ class TestCustomEzsignfoldersignerassociationstatusResponse(unittest.TestCase):
                         e_ezsignsignaturestatus_steptype = 'Form', 
                         i_ezsignsignaturestatus_step = 1, 
                         i_ezsignsignaturestatus_total = 2, 
-                        i_ezsignsignaturestatus_signed = 1, )
+                        i_ezsignsignaturestatus_signed = 1, 
+                        i_ezsignsignaturestatus_conditional = 1, )
                     ]
             )
         else:
@@ -56,7 +57,8 @@ class TestCustomEzsignfoldersignerassociationstatusResponse(unittest.TestCase):
                         e_ezsignsignaturestatus_steptype = 'Form', 
                         i_ezsignsignaturestatus_step = 1, 
                         i_ezsignsignaturestatus_total = 2, 
-                        i_ezsignsignaturestatus_signed = 1, )
+                        i_ezsignsignaturestatus_signed = 1, 
+                        i_ezsignsignaturestatus_conditional = 1, )
                     ],
         )
         """

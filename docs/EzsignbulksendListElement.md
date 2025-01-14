@@ -33,7 +33,7 @@ print(EzsignbulksendListElement.to_json())
 # convert the object into a dict
 ezsignbulksend_list_element_dict = ezsignbulksend_list_element_instance.to_dict()
 # create an instance of EzsignbulksendListElement from a dict
-ezsignbulksend_list_element_form_dict = ezsignbulksend_list_element.from_dict(ezsignbulksend_list_element_dict)
+ezsignbulksend_list_element_from_dict = EzsignbulksendListElement.from_dict(ezsignbulksend_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

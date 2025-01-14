@@ -83,7 +83,7 @@ print(AttachmentResponseCompound.to_json())
 # convert the object into a dict
 attachment_response_compound_dict = attachment_response_compound_instance.to_dict()
 # create an instance of AttachmentResponseCompound from a dict
-attachment_response_compound_form_dict = attachment_response_compound.from_dict(attachment_response_compound_dict)
+attachment_response_compound_from_dict = AttachmentResponseCompound.from_dict(attachment_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

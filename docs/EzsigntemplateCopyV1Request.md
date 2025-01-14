@@ -6,7 +6,9 @@ Request for POST /1/object/ezsigntemplate/{pkiEzsigntemplateID}/copy
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_fki_ezsignfoldertype_id** | **List[int]** |  | 
+**a_fki_ezsignfoldertype_id** | **List[int]** |  | [optional] 
+**b_copy_company** | **bool** | Whether we shall copy the Ezsigntemplate as a company Ezsigntemplate | [optional] 
+**b_copy_user** | **bool** | Whether we shall copy the Ezsigntemplate as a user Ezsigntemplate | [optional] 
 
 ## Example
 
@@ -23,7 +25,7 @@ print(EzsigntemplateCopyV1Request.to_json())
 # convert the object into a dict
 ezsigntemplate_copy_v1_request_dict = ezsigntemplate_copy_v1_request_instance.to_dict()
 # create an instance of EzsigntemplateCopyV1Request from a dict
-ezsigntemplate_copy_v1_request_form_dict = ezsigntemplate_copy_v1_request.from_dict(ezsigntemplate_copy_v1_request_dict)
+ezsigntemplate_copy_v1_request_from_dict = EzsigntemplateCopyV1Request.from_dict(ezsigntemplate_copy_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,7 +25,7 @@ print(ScimServiceProviderConfigBulk.to_json())
 # convert the object into a dict
 scim_service_provider_config_bulk_dict = scim_service_provider_config_bulk_instance.to_dict()
 # create an instance of ScimServiceProviderConfigBulk from a dict
-scim_service_provider_config_bulk_form_dict = scim_service_provider_config_bulk.from_dict(scim_service_provider_config_bulk_dict)
+scim_service_provider_config_bulk_from_dict = ScimServiceProviderConfigBulk.from_dict(scim_service_provider_config_bulk_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

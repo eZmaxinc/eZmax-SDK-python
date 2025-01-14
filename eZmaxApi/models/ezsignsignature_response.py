@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
+from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
@@ -40,6 +41,7 @@ class EzsignsignatureResponse(BaseModel):
     fki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
     fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
+    fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
     s_ezsignsigningreason_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
@@ -55,19 +57,24 @@ class EzsignsignatureResponse(BaseModel):
     i_ezsignsignature_validationstep: Optional[StrictInt] = Field(default=None, description="The step when the Ezsignsigner will be invited to validate the Ezsignsignature of eEzsignsignatureType Attachments", alias="iEzsignsignatureValidationstep")
     s_ezsignsignature_attachmentdescription: Optional[StrictStr] = Field(default=None, description="The description attached to the attachment name added in Ezsignsignature of eEzsignsignatureType Attachments", alias="sEzsignsignatureAttachmentdescription")
     e_ezsignsignature_attachmentnamesource: Optional[FieldEEzsignsignatureAttachmentnamesource] = Field(default=None, alias="eEzsignsignatureAttachmentnamesource")
-    b_ezsignsignature_required: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments.", alias="bEzsignsignatureRequired")
+    e_ezsignsignature_consultationtrigger: Optional[FieldEEzsignsignatureConsultationtrigger] = Field(default=None, alias="eEzsignsignatureConsultationtrigger")
+    b_ezsignsignature_handwritten: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature must be handwritten or not when eEzsignsignatureType = Signature.", alias="bEzsignsignatureHandwritten")
+    b_ezsignsignature_reason: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature must include a reason or not when eEzsignsignatureType = Signature.", alias="bEzsignsignatureReason")
+    b_ezsignsignature_required: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature is required or not. This field is relevant only with Ezsignsignature with eEzsignsignatureType = Attachments, Text or Textarea.", alias="bEzsignsignatureRequired")
     fki_ezsignfoldersignerassociation_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationIDValidation")
     dt_ezsignsignature_date: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date the Ezsignsignature was signed", alias="dtEzsignsignatureDate")
     i_ezsignsignatureattachment_count: Optional[StrictInt] = Field(default=None, description="The count of Ezsignsignatureattachment", alias="iEzsignsignatureattachmentCount")
     s_ezsignsignature_description: Optional[StrictStr] = Field(default=None, description="The value entered while signing Ezsignsignature of eEzsignsignatureType **City**, **FieldText** and **FieldTextarea**", alias="sEzsignsignatureDescription")
     i_ezsignsignature_maxlength: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The maximum length for the value in the Ezsignsignature  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea**", alias="iEzsignsignatureMaxlength")
     e_ezsignsignature_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsignsignatureTextvalidation")
+    s_ezsignsignature_textvalidationcustommessage: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=50)]] = Field(default=None, description="Description of validation rule. Show by signatory.", alias="sEzsignsignatureTextvalidationcustommessage")
     e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(default=None, alias="eEzsignsignatureDependencyrequirement")
+    s_ezsignsignature_defaultvalue: Optional[StrictStr] = Field(default=None, description="The default value for the Ezsignsignature  You can use the codes below and they will be replaced at signature time.    | Code | Description | Example | | ------------------------- | ------------ | ------------ | | {sUserFirstname} | The first name of the contact | John | | {sUserLastname} | The last name of the contact | Doe | | {sUserJobtitle} | The job title | Sales Representative | | {sCompany} | Company name | eZmax Solutions Inc. | | {sEmailAddress} | The email address | email@example.com | | {sPhoneE164} | A phone number in E.164 Format | +15149901516 | | {sPhoneE164Cell} | A phone number in E.164 Format | +15149901516 |", alias="sEzsignsignatureDefaultvalue")
     s_ezsignsignature_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**", alias="sEzsignsignatureRegexp")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(default=None, alias="objSignature")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
 
     @field_validator('s_ezsignsigningreason_description_x')
     def s_ezsignsigningreason_description_x_validate_regular_expression(cls, value):
@@ -163,6 +170,7 @@ class EzsignsignatureResponse(BaseModel):
             "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
             "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
+            "fkiFontID": obj.get("fkiFontID"),
             "sEzsignsigningreasonDescriptionX": obj.get("sEzsignsigningreasonDescriptionX"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
@@ -178,6 +186,9 @@ class EzsignsignatureResponse(BaseModel):
             "iEzsignsignatureValidationstep": obj.get("iEzsignsignatureValidationstep"),
             "sEzsignsignatureAttachmentdescription": obj.get("sEzsignsignatureAttachmentdescription"),
             "eEzsignsignatureAttachmentnamesource": obj.get("eEzsignsignatureAttachmentnamesource"),
+            "eEzsignsignatureConsultationtrigger": obj.get("eEzsignsignatureConsultationtrigger"),
+            "bEzsignsignatureHandwritten": obj.get("bEzsignsignatureHandwritten"),
+            "bEzsignsignatureReason": obj.get("bEzsignsignatureReason"),
             "bEzsignsignatureRequired": obj.get("bEzsignsignatureRequired"),
             "fkiEzsignfoldersignerassociationIDValidation": obj.get("fkiEzsignfoldersignerassociationIDValidation"),
             "dtEzsignsignatureDate": obj.get("dtEzsignsignatureDate"),
@@ -185,7 +196,9 @@ class EzsignsignatureResponse(BaseModel):
             "sEzsignsignatureDescription": obj.get("sEzsignsignatureDescription"),
             "iEzsignsignatureMaxlength": obj.get("iEzsignsignatureMaxlength"),
             "eEzsignsignatureTextvalidation": obj.get("eEzsignsignatureTextvalidation"),
+            "sEzsignsignatureTextvalidationcustommessage": obj.get("sEzsignsignatureTextvalidationcustommessage"),
             "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
+            "sEzsignsignatureDefaultvalue": obj.get("sEzsignsignatureDefaultvalue"),
             "sEzsignsignatureRegexp": obj.get("sEzsignsignatureRegexp"),
             "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None,
             "objContactNameDelegation": CustomContactNameResponse.from_dict(obj["objContactNameDelegation"]) if obj.get("objContactNameDelegation") is not None else None,

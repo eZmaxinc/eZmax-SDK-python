@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr, field_validator
+from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplatepackage_create_object_v1_request import EzsigntemplatepackageCreateObjectV1Request
@@ -265,7 +265,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -278,11 +280,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -539,7 +542,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -552,11 +557,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -816,7 +822,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -831,11 +839,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1108,7 +1117,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1123,11 +1134,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1173,6 +1185,7 @@ class ObjectEzsigntemplatepackageApi:
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
+        fki_ezsignfoldertype_id: Annotated[Optional[StrictInt], Field(description="The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1198,6 +1211,8 @@ class ObjectEzsigntemplatepackageApi:
         :type s_query: str
         :param accept_language:
         :type accept_language: HeaderAcceptLanguage
+        :param fki_ezsignfoldertype_id: The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic
+        :type fki_ezsignfoldertype_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1225,6 +1240,7 @@ class ObjectEzsigntemplatepackageApi:
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1252,6 +1268,7 @@ class ObjectEzsigntemplatepackageApi:
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
+        fki_ezsignfoldertype_id: Annotated[Optional[StrictInt], Field(description="The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1277,6 +1294,8 @@ class ObjectEzsigntemplatepackageApi:
         :type s_query: str
         :param accept_language:
         :type accept_language: HeaderAcceptLanguage
+        :param fki_ezsignfoldertype_id: The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic
+        :type fki_ezsignfoldertype_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1304,6 +1323,7 @@ class ObjectEzsigntemplatepackageApi:
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1331,6 +1351,7 @@ class ObjectEzsigntemplatepackageApi:
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
+        fki_ezsignfoldertype_id: Annotated[Optional[StrictInt], Field(description="The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1356,6 +1377,8 @@ class ObjectEzsigntemplatepackageApi:
         :type s_query: str
         :param accept_language:
         :type accept_language: HeaderAcceptLanguage
+        :param fki_ezsignfoldertype_id: The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic
+        :type fki_ezsignfoldertype_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1383,6 +1406,7 @@ class ObjectEzsigntemplatepackageApi:
             e_filter_active=e_filter_active,
             s_query=s_query,
             accept_language=accept_language,
+            fki_ezsignfoldertype_id=fki_ezsignfoldertype_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1405,6 +1429,7 @@ class ObjectEzsigntemplatepackageApi:
         e_filter_active,
         s_query,
         accept_language,
+        fki_ezsignfoldertype_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1420,7 +1445,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1435,6 +1462,10 @@ class ObjectEzsigntemplatepackageApi:
             
             _query_params.append(('sQuery', s_query))
             
+        if fki_ezsignfoldertype_id is not None:
+            
+            _query_params.append(('fkiEzsignfoldertypeID', fki_ezsignfoldertype_id))
+            
         # process the header parameters
         if accept_language is not None:
             _header_params['Accept-Language'] = accept_language
@@ -1443,11 +1474,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1743,7 +1775,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1772,12 +1806,13 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json', 
-                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                ]
+            )
 
 
         # authentication setting
@@ -2021,7 +2056,9 @@ class ObjectEzsigntemplatepackageApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2034,11 +2071,12 @@ class ObjectEzsigntemplatepackageApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting

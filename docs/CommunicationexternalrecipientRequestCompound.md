@@ -27,7 +27,7 @@ print(CommunicationexternalrecipientRequestCompound.to_json())
 # convert the object into a dict
 communicationexternalrecipient_request_compound_dict = communicationexternalrecipient_request_compound_instance.to_dict()
 # create an instance of CommunicationexternalrecipientRequestCompound from a dict
-communicationexternalrecipient_request_compound_form_dict = communicationexternalrecipient_request_compound.from_dict(communicationexternalrecipient_request_compound_dict)
+communicationexternalrecipient_request_compound_from_dict = CommunicationexternalrecipientRequestCompound.from_dict(communicationexternalrecipient_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

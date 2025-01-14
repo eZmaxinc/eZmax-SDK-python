@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.field_e_ezsignfolder_messageorder import FieldEEzsignfolderMessageorder
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +30,10 @@ class EzsignfolderSendV3Request(BaseModel):
     Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send
     """ # noqa: E501
     t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
+    e_ezsignfolder_messageorder: Optional[FieldEEzsignfolderMessageorder] = Field(default=FieldEEzsignfolderMessageorder.GLOBALFIRST, alias="eEzsignfolderMessageorder")
     dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
     a_fki_ezsignfoldersignerassociation_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_fkiEzsignfoldersignerassociationID")
-    __properties: ClassVar[List[str]] = ["tEzsignfolderMessage", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]
+    __properties: ClassVar[List[str]] = ["tEzsignfolderMessage", "eEzsignfolderMessageorder", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +87,7 @@ class EzsignfolderSendV3Request(BaseModel):
 
         _obj = cls.model_validate({
             "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
+            "eEzsignfolderMessageorder": obj.get("eEzsignfolderMessageorder") if obj.get("eEzsignfolderMessageorder") is not None else FieldEEzsignfolderMessageorder.GLOBALFIRST,
             "dtEzsignfolderDelayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
             "a_fkiEzsignfoldersignerassociationID": obj.get("a_fkiEzsignfoldersignerassociationID")
         })

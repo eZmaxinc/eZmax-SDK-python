@@ -28,7 +28,7 @@ class TestEzsigntemplateformfieldRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplateformfieldRequestCompound:
         """Test EzsigntemplateformfieldRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldRequestCompound`
@@ -52,6 +52,8 @@ class TestEzsigntemplateformfieldRequestCompound(unittest.TestCase):
                 i_ezsigntemplateformfield_positioningoffsetx = 200,
                 i_ezsigntemplateformfield_positioningoffsety = 200,
                 e_ezsigntemplateformfield_positioningoccurence = 'All',
+                e_ezsigntemplateformfield_horizontalalignment = 'Center',
+                obj_textstylestatic = eZmaxApi.models.textstylestatic_request_compound.textstylestatic-RequestCompound(),
                 a_obj_ezsigntemplateelementdependency = [
                     eZmaxApi.models.ezsigntemplateelementdependency_request_compound.ezsigntemplateelementdependency-RequestCompound()
                     ]

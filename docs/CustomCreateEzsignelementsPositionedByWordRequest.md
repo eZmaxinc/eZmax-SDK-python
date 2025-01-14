@@ -26,7 +26,7 @@ print(CustomCreateEzsignelementsPositionedByWordRequest.to_json())
 # convert the object into a dict
 custom_create_ezsignelements_positioned_by_word_request_dict = custom_create_ezsignelements_positioned_by_word_request_instance.to_dict()
 # create an instance of CustomCreateEzsignelementsPositionedByWordRequest from a dict
-custom_create_ezsignelements_positioned_by_word_request_form_dict = custom_create_ezsignelements_positioned_by_word_request.from_dict(custom_create_ezsignelements_positioned_by_word_request_dict)
+custom_create_ezsignelements_positioned_by_word_request_from_dict = CustomCreateEzsignelementsPositionedByWordRequest.from_dict(custom_create_ezsignelements_positioned_by_word_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

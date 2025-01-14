@@ -28,7 +28,7 @@ print(CustomEzmaxinvoicingEzsigndocumentResponse.to_json())
 # convert the object into a dict
 custom_ezmaxinvoicing_ezsigndocument_response_dict = custom_ezmaxinvoicing_ezsigndocument_response_instance.to_dict()
 # create an instance of CustomEzmaxinvoicingEzsigndocumentResponse from a dict
-custom_ezmaxinvoicing_ezsigndocument_response_form_dict = custom_ezmaxinvoicing_ezsigndocument_response.from_dict(custom_ezmaxinvoicing_ezsigndocument_response_dict)
+custom_ezmaxinvoicing_ezsigndocument_response_from_dict = CustomEzmaxinvoicingEzsigndocumentResponse.from_dict(custom_ezmaxinvoicing_ezsigndocument_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -73,9 +73,9 @@ class CreditcardclientGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_creditcardclient (list)
         _items = []
         if self.a_obj_creditcardclient:
-            for _item in self.a_obj_creditcardclient:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_creditcardclient in self.a_obj_creditcardclient:
+                if _item_a_obj_creditcardclient:
+                    _items.append(_item_a_obj_creditcardclient.to_dict())
             _dict['a_objCreditcardclient'] = _items
         return _dict
 

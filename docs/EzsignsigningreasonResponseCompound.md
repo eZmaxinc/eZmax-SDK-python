@@ -25,7 +25,7 @@ print(EzsignsigningreasonResponseCompound.to_json())
 # convert the object into a dict
 ezsignsigningreason_response_compound_dict = ezsignsigningreason_response_compound_instance.to_dict()
 # create an instance of EzsignsigningreasonResponseCompound from a dict
-ezsignsigningreason_response_compound_form_dict = ezsignsigningreason_response_compound.from_dict(ezsignsigningreason_response_compound_dict)
+ezsignsigningreason_response_compound_from_dict = EzsignsigningreasonResponseCompound.from_dict(ezsignsigningreason_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

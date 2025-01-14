@@ -26,7 +26,7 @@ print(WebhookEzsignEzsignsignerAcceptclause.to_json())
 # convert the object into a dict
 webhook_ezsign_ezsignsigner_acceptclause_dict = webhook_ezsign_ezsignsigner_acceptclause_instance.to_dict()
 # create an instance of WebhookEzsignEzsignsignerAcceptclause from a dict
-webhook_ezsign_ezsignsigner_acceptclause_form_dict = webhook_ezsign_ezsignsigner_acceptclause.from_dict(webhook_ezsign_ezsignsigner_acceptclause_dict)
+webhook_ezsign_ezsignsigner_acceptclause_from_dict = WebhookEzsignEzsignsignerAcceptclause.from_dict(webhook_ezsign_ezsignsigner_acceptclause_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

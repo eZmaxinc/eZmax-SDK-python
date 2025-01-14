@@ -73,9 +73,9 @@ class EzmaxproductGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxproduct (list)
         _items = []
         if self.a_obj_ezmaxproduct:
-            for _item in self.a_obj_ezmaxproduct:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxproduct in self.a_obj_ezmaxproduct:
+                if _item_a_obj_ezmaxproduct:
+                    _items.append(_item_a_obj_ezmaxproduct.to_dict())
             _dict['a_objEzmaxproduct'] = _items
         return _dict
 

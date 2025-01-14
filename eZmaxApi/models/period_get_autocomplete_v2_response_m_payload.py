@@ -73,9 +73,9 @@ class PeriodGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_period (list)
         _items = []
         if self.a_obj_period:
-            for _item in self.a_obj_period:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_period in self.a_obj_period:
+                if _item_a_obj_period:
+                    _items.append(_item_a_obj_period.to_dict())
             _dict['a_objPeriod'] = _items
         return _dict
 

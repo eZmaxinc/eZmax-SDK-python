@@ -77,9 +77,9 @@ class CommonResponseObjDebug(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_sql_query (list)
         _items = []
         if self.a_obj_sql_query:
-            for _item in self.a_obj_sql_query:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_sql_query in self.a_obj_sql_query:
+                if _item_a_obj_sql_query:
+                    _items.append(_item_a_obj_sql_query.to_dict())
             _dict['a_objSQLQuery'] = _items
         return _dict
 

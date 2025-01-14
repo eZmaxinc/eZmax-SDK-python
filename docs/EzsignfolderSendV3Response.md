@@ -24,7 +24,7 @@ print(EzsignfolderSendV3Response.to_json())
 # convert the object into a dict
 ezsignfolder_send_v3_response_dict = ezsignfolder_send_v3_response_instance.to_dict()
 # create an instance of EzsignfolderSendV3Response from a dict
-ezsignfolder_send_v3_response_form_dict = ezsignfolder_send_v3_response.from_dict(ezsignfolder_send_v3_response_dict)
+ezsignfolder_send_v3_response_from_dict = EzsignfolderSendV3Response.from_dict(ezsignfolder_send_v3_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

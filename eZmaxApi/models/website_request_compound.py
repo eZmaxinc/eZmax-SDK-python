@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,9 +28,10 @@ class WebsiteRequestCompound(BaseModel):
     """
     A Website Object and children to create a complete structure
     """ # noqa: E501
+    pki_website_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Website Default", alias="pkiWebsiteID")
     fki_websitetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey|", alias="fkiWebsitetypeID")
     s_website_address: StrictStr = Field(description="The URL of the website.", alias="sWebsiteAddress")
-    __properties: ClassVar[List[str]] = ["fkiWebsitetypeID", "sWebsiteAddress"]
+    __properties: ClassVar[List[str]] = ["pkiWebsiteID", "fkiWebsitetypeID", "sWebsiteAddress"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +84,7 @@ class WebsiteRequestCompound(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "pkiWebsiteID": obj.get("pkiWebsiteID"),
             "fkiWebsitetypeID": obj.get("fkiWebsitetypeID"),
             "sWebsiteAddress": obj.get("sWebsiteAddress")
         })

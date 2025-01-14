@@ -25,7 +25,7 @@ print(EzsigndocumentApplyEzsigntemplateV2Request.to_json())
 # convert the object into a dict
 ezsigndocument_apply_ezsigntemplate_v2_request_dict = ezsigndocument_apply_ezsigntemplate_v2_request_instance.to_dict()
 # create an instance of EzsigndocumentApplyEzsigntemplateV2Request from a dict
-ezsigndocument_apply_ezsigntemplate_v2_request_form_dict = ezsigndocument_apply_ezsigntemplate_v2_request.from_dict(ezsigndocument_apply_ezsigntemplate_v2_request_dict)
+ezsigndocument_apply_ezsigntemplate_v2_request_from_dict = EzsigndocumentApplyEzsigntemplateV2Request.from_dict(ezsigndocument_apply_ezsigntemplate_v2_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

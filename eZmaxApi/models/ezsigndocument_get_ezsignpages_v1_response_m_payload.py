@@ -73,9 +73,9 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignpage (list)
         _items = []
         if self.a_obj_ezsignpage:
-            for _item in self.a_obj_ezsignpage:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignpage in self.a_obj_ezsignpage:
+                if _item_a_obj_ezsignpage:
+                    _items.append(_item_a_obj_ezsignpage.to_dict())
             _dict['a_objEzsignpage'] = _items
         return _dict
 

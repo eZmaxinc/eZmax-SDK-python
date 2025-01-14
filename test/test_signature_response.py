@@ -28,7 +28,7 @@ class TestSignatureResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SignatureResponse:
         """Test SignatureResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SignatureResponse`
@@ -37,12 +37,13 @@ class TestSignatureResponse(unittest.TestCase):
         if include_optional:
             return SignatureResponse(
                 pki_signature_id = 12,
-                s_signature_url = 'https://www.example.com/signature.svg'
+                fki_font_id = 1,
+                s_signature_url = 'https://www.example.com/signature.svg',
+                s_signature_urlinitials = 'https://www.example.com/signature.svg'
             )
         else:
             return SignatureResponse(
                 pki_signature_id = 12,
-                s_signature_url = 'https://www.example.com/signature.svg',
         )
         """
 

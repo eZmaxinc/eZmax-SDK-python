@@ -30,7 +30,7 @@ print(EzsigndocumentlogResponse.to_json())
 # convert the object into a dict
 ezsigndocumentlog_response_dict = ezsigndocumentlog_response_instance.to_dict()
 # create an instance of EzsigndocumentlogResponse from a dict
-ezsigndocumentlog_response_form_dict = ezsigndocumentlog_response.from_dict(ezsigndocumentlog_response_dict)
+ezsigndocumentlog_response_from_dict = EzsigndocumentlogResponse.from_dict(ezsigndocumentlog_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

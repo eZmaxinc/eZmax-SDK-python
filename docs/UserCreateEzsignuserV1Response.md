@@ -25,7 +25,7 @@ print(UserCreateEzsignuserV1Response.to_json())
 # convert the object into a dict
 user_create_ezsignuser_v1_response_dict = user_create_ezsignuser_v1_response_instance.to_dict()
 # create an instance of UserCreateEzsignuserV1Response from a dict
-user_create_ezsignuser_v1_response_form_dict = user_create_ezsignuser_v1_response.from_dict(user_create_ezsignuser_v1_response_dict)
+user_create_ezsignuser_v1_response_from_dict = UserCreateEzsignuserV1Response.from_dict(user_create_ezsignuser_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

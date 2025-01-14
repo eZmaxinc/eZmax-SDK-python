@@ -38,7 +38,7 @@ class EzsigntemplatedocumentRequestCompound(BaseModel):
     s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64")
     s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl")
     b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(default=None, description="Try to repair the document or flatten it if it cannot be used for electronic signature.", alias="bEzsigntemplatedocumentForcerepair")
-    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document", alias="eEzsigntemplatedocumentForm")
+    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document.", alias="eEzsigntemplatedocumentForm")
     s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
 
@@ -65,8 +65,8 @@ class EzsigntemplatedocumentRequestCompound(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['Keep', 'Convert', 'Discard']):
-            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard')")
+        if value not in set(['Keep', 'Convert', 'Discard', 'Flatten']):
+            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard', 'Flatten')")
         return value
 
     model_config = ConfigDict(

@@ -75,9 +75,9 @@ class BrandingGetListV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_branding (list)
         _items = []
         if self.a_obj_branding:
-            for _item in self.a_obj_branding:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_branding in self.a_obj_branding:
+                if _item_a_obj_branding:
+                    _items.append(_item_a_obj_branding.to_dict())
             _dict['a_objBranding'] = _items
         return _dict
 

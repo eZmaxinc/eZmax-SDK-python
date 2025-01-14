@@ -36,7 +36,7 @@ print(CommunicationRequestCompound.to_json())
 # convert the object into a dict
 communication_request_compound_dict = communication_request_compound_instance.to_dict()
 # create an instance of CommunicationRequestCompound from a dict
-communication_request_compound_form_dict = communication_request_compound.from_dict(communication_request_compound_dict)
+communication_request_compound_from_dict = CommunicationRequestCompound.from_dict(communication_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

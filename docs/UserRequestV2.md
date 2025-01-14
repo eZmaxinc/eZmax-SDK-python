@@ -50,7 +50,7 @@ print(UserRequestV2.to_json())
 # convert the object into a dict
 user_request_v2_dict = user_request_v2_instance.to_dict()
 # create an instance of UserRequestV2 from a dict
-user_request_v2_form_dict = user_request_v2.from_dict(user_request_v2_dict)
+user_request_v2_from_dict = UserRequestV2.from_dict(user_request_v2_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

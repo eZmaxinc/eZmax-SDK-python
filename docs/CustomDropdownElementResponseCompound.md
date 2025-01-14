@@ -24,7 +24,7 @@ print(CustomDropdownElementResponseCompound.to_json())
 # convert the object into a dict
 custom_dropdown_element_response_compound_dict = custom_dropdown_element_response_compound_instance.to_dict()
 # create an instance of CustomDropdownElementResponseCompound from a dict
-custom_dropdown_element_response_compound_form_dict = custom_dropdown_element_response_compound.from_dict(custom_dropdown_element_response_compound_dict)
+custom_dropdown_element_response_compound_from_dict = CustomDropdownElementResponseCompound.from_dict(custom_dropdown_element_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -41,13 +41,6 @@ class TestObjectAttachmentApi(unittest.TestCase):
         """
         pass
 
-    def test_attachment_get_download_url_v1(self) -> None:
-        """Test case for attachment_get_download_url_v1
-
-        Retrieve a URL to download attachments.
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

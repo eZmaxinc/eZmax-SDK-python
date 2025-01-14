@@ -27,10 +27,31 @@ class TestObjectInscriptionnotauthenticatedApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_inscriptionnotauthenticated_get_communication_count_v1(self) -> None:
+        """Test case for inscriptionnotauthenticated_get_communication_count_v1
+
+        Retrieve Communication count
+        """
+        pass
+
     def test_inscriptionnotauthenticated_get_communication_list_v1(self) -> None:
         """Test case for inscriptionnotauthenticated_get_communication_list_v1
 
         Retrieve Communication list
+        """
+        pass
+
+    def test_inscriptionnotauthenticated_get_communicationrecipients_v1(self) -> None:
+        """Test case for inscriptionnotauthenticated_get_communicationrecipients_v1
+
+        Retrieve Inscriptionnotauthenticated's Communicationrecipient
+        """
+        pass
+
+    def test_inscriptionnotauthenticated_get_communicationsenders_v1(self) -> None:
+        """Test case for inscriptionnotauthenticated_get_communicationsenders_v1
+
+        Retrieve Inscriptionnotauthenticated's Communicationsender
         """
         pass
 

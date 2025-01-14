@@ -28,7 +28,7 @@ class TestEzsignsignatureSignV1Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignsignatureSignV1Response:
         """Test EzsignsignatureSignV1Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureSignV1Response`
@@ -44,7 +44,12 @@ class TestEzsignsignatureSignV1Response(unittest.TestCase):
                         ], 
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
-                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]}
+                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
+                m_payload = eZmaxApi.models.ezsignsignature_sign_v1_response_m_payload.ezsignsignature-sign-v1-Response-mPayload(
+                    dt_ezsignsignature_date_in_folder_timezone = '2020-12-31 23:59:59', 
+                    obj_timezone = eZmaxApi.models.custom_timezone_with_code_response.Custom-TimezoneWithCode-Response(
+                        s_timezone_name = '', 
+                        s_code = 'EST', ), )
             )
         else:
             return EzsignsignatureSignV1Response(
@@ -56,6 +61,11 @@ class TestEzsignsignatureSignV1Response(unittest.TestCase):
                         ], 
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
+                m_payload = eZmaxApi.models.ezsignsignature_sign_v1_response_m_payload.ezsignsignature-sign-v1-Response-mPayload(
+                    dt_ezsignsignature_date_in_folder_timezone = '2020-12-31 23:59:59', 
+                    obj_timezone = eZmaxApi.models.custom_timezone_with_code_response.Custom-TimezoneWithCode-Response(
+                        s_timezone_name = '', 
+                        s_code = 'EST', ), ),
         )
         """
 

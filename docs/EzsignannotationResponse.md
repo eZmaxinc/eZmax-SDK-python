@@ -33,7 +33,7 @@ print(EzsignannotationResponse.to_json())
 # convert the object into a dict
 ezsignannotation_response_dict = ezsignannotation_response_instance.to_dict()
 # create an instance of EzsignannotationResponse from a dict
-ezsignannotation_response_form_dict = ezsignannotation_response.from_dict(ezsignannotation_response_dict)
+ezsignannotation_response_from_dict = EzsignannotationResponse.from_dict(ezsignannotation_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -29,7 +29,7 @@ print(DiscussionmembershipResponse.to_json())
 # convert the object into a dict
 discussionmembership_response_dict = discussionmembership_response_instance.to_dict()
 # create an instance of DiscussionmembershipResponse from a dict
-discussionmembership_response_form_dict = discussionmembership_response.from_dict(discussionmembership_response_dict)
+discussionmembership_response_from_dict = DiscussionmembershipResponse.from_dict(discussionmembership_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

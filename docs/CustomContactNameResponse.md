@@ -25,7 +25,7 @@ print(CustomContactNameResponse.to_json())
 # convert the object into a dict
 custom_contact_name_response_dict = custom_contact_name_response_instance.to_dict()
 # create an instance of CustomContactNameResponse from a dict
-custom_contact_name_response_form_dict = custom_contact_name_response.from_dict(custom_contact_name_response_dict)
+custom_contact_name_response_from_dict = CustomContactNameResponse.from_dict(custom_contact_name_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

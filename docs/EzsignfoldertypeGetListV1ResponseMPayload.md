@@ -25,7 +25,7 @@ print(EzsignfoldertypeGetListV1ResponseMPayload.to_json())
 # convert the object into a dict
 ezsignfoldertype_get_list_v1_response_m_payload_dict = ezsignfoldertype_get_list_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsignfoldertypeGetListV1ResponseMPayload from a dict
-ezsignfoldertype_get_list_v1_response_m_payload_form_dict = ezsignfoldertype_get_list_v1_response_m_payload.from_dict(ezsignfoldertype_get_list_v1_response_m_payload_dict)
+ezsignfoldertype_get_list_v1_response_m_payload_from_dict = EzsignfoldertypeGetListV1ResponseMPayload.from_dict(ezsignfoldertype_get_list_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -73,9 +73,9 @@ class LanguageGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_language (list)
         _items = []
         if self.a_obj_language:
-            for _item in self.a_obj_language:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_language in self.a_obj_language:
+                if _item_a_obj_language:
+                    _items.append(_item_a_obj_language.to_dict())
             _dict['a_objLanguage'] = _items
         return _dict
 

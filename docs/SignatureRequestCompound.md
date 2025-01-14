@@ -7,7 +7,10 @@ A Signature Object and children
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_signature_id** | **int** | The unique ID of the Signature | [optional] 
-**t_signature_svg** | **str** | The svg of the Signature | 
+**fki_font_id** | **int** | The unique ID of the Font | 
+**e_signature_preference** | [**FieldESignaturePreference**](FieldESignaturePreference.md) |  | 
+**t_signature_svg** | **str** | The svg of the Signature | [optional] 
+**t_signature_svginitials** | **str** | The svg of the Initials | [optional] 
 
 ## Example
 
@@ -24,7 +27,7 @@ print(SignatureRequestCompound.to_json())
 # convert the object into a dict
 signature_request_compound_dict = signature_request_compound_instance.to_dict()
 # create an instance of SignatureRequestCompound from a dict
-signature_request_compound_form_dict = signature_request_compound.from_dict(signature_request_compound_dict)
+signature_request_compound_from_dict = SignatureRequestCompound.from_dict(signature_request_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

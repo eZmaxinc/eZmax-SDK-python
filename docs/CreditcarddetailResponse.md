@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_creditcarddetail_id** | **int** | The unique ID of the Creditcarddetail | 
 **fki_creditcardtype_id** | **int** | The unique ID of the Creditcardtype | 
-**s_creditcarddetail_numbermasked** | **str** | The numbermasked of the Creditcarddetail | 
+**i_creditcarddetail_lastdigits** | **int** | The last digits of the Creditcarddetail | 
 **i_creditcarddetail_expirationmonth** | **int** | The expirationmonth of the Creditcarddetail | 
 **i_creditcarddetail_expirationyear** | **int** | The expirationyear of the Creditcarddetail | 
 **s_creditcarddetail_civic** | **str** | The civic of the Creditcarddetail | 
@@ -30,7 +30,7 @@ print(CreditcarddetailResponse.to_json())
 # convert the object into a dict
 creditcarddetail_response_dict = creditcarddetail_response_instance.to_dict()
 # create an instance of CreditcarddetailResponse from a dict
-creditcarddetail_response_form_dict = creditcarddetail_response.from_dict(creditcarddetail_response_dict)
+creditcarddetail_response_from_dict = CreditcarddetailResponse.from_dict(creditcarddetail_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

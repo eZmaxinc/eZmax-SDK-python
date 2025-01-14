@@ -128,51 +128,51 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingsummaryglobal (list)
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryglobal:
-            for _item in self.a_obj_ezmaxinvoicingsummaryglobal:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingsummaryglobal in self.a_obj_ezmaxinvoicingsummaryglobal:
+                if _item_a_obj_ezmaxinvoicingsummaryglobal:
+                    _items.append(_item_a_obj_ezmaxinvoicingsummaryglobal.to_dict())
             _dict['a_objEzmaxinvoicingsummaryglobal'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingsummaryexternal (list)
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryexternal:
-            for _item in self.a_obj_ezmaxinvoicingsummaryexternal:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingsummaryexternal in self.a_obj_ezmaxinvoicingsummaryexternal:
+                if _item_a_obj_ezmaxinvoicingsummaryexternal:
+                    _items.append(_item_a_obj_ezmaxinvoicingsummaryexternal.to_dict())
             _dict['a_objEzmaxinvoicingsummaryexternal'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingsummaryinternal (list)
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryinternal:
-            for _item in self.a_obj_ezmaxinvoicingsummaryinternal:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingsummaryinternal in self.a_obj_ezmaxinvoicingsummaryinternal:
+                if _item_a_obj_ezmaxinvoicingsummaryinternal:
+                    _items.append(_item_a_obj_ezmaxinvoicingsummaryinternal.to_dict())
             _dict['a_objEzmaxinvoicingsummaryinternal'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingagent (list)
         _items = []
         if self.a_obj_ezmaxinvoicingagent:
-            for _item in self.a_obj_ezmaxinvoicingagent:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingagent in self.a_obj_ezmaxinvoicingagent:
+                if _item_a_obj_ezmaxinvoicingagent:
+                    _items.append(_item_a_obj_ezmaxinvoicingagent.to_dict())
             _dict['a_objEzmaxinvoicingagent'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicinguser (list)
         _items = []
         if self.a_obj_ezmaxinvoicinguser:
-            for _item in self.a_obj_ezmaxinvoicinguser:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicinguser in self.a_obj_ezmaxinvoicinguser:
+                if _item_a_obj_ezmaxinvoicinguser:
+                    _items.append(_item_a_obj_ezmaxinvoicinguser.to_dict())
             _dict['a_objEzmaxinvoicinguser'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingezsignfolder (list)
         _items = []
         if self.a_obj_ezmaxinvoicingezsignfolder:
-            for _item in self.a_obj_ezmaxinvoicingezsignfolder:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingezsignfolder in self.a_obj_ezmaxinvoicingezsignfolder:
+                if _item_a_obj_ezmaxinvoicingezsignfolder:
+                    _items.append(_item_a_obj_ezmaxinvoicingezsignfolder.to_dict())
             _dict['a_objEzmaxinvoicingezsignfolder'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingezsigndocument (list)
         _items = []
         if self.a_obj_ezmaxinvoicingezsigndocument:
-            for _item in self.a_obj_ezmaxinvoicingezsigndocument:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezmaxinvoicingezsigndocument in self.a_obj_ezmaxinvoicingezsigndocument:
+                if _item_a_obj_ezmaxinvoicingezsigndocument:
+                    _items.append(_item_a_obj_ezmaxinvoicingezsigndocument.to_dict())
             _dict['a_objEzmaxinvoicingezsigndocument'] = _items
         return _dict
 

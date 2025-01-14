@@ -25,7 +25,7 @@ print(BillingentityinternalGetAutocompleteV2Response.to_json())
 # convert the object into a dict
 billingentityinternal_get_autocomplete_v2_response_dict = billingentityinternal_get_autocomplete_v2_response_instance.to_dict()
 # create an instance of BillingentityinternalGetAutocompleteV2Response from a dict
-billingentityinternal_get_autocomplete_v2_response_form_dict = billingentityinternal_get_autocomplete_v2_response.from_dict(billingentityinternal_get_autocomplete_v2_response_dict)
+billingentityinternal_get_autocomplete_v2_response_from_dict = BillingentityinternalGetAutocompleteV2Response.from_dict(billingentityinternal_get_autocomplete_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

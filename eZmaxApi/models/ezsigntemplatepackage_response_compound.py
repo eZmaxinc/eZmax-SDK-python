@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplatepackagemembership_response_compound import EzsigntemplatepackagemembershipResponseCompound
 from eZmaxApi.models.ezsigntemplatepackagesigner_response_compound import EzsigntemplatepackagesignerResponseCompound
@@ -32,9 +32,11 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
     """ # noqa: E501
     pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
     fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
-    s_ezsigntemplatepackage_description: StrictStr = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
+    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
     b_ezsigntemplatepackage_adminonly: StrictBool = Field(description="Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplatepackageAdminonly")
     b_ezsigntemplatepackage_needvalidation: StrictBool = Field(description="Whether the Ezsignbulksend was automatically modified and needs a manual validation", alias="bEzsigntemplatepackageNeedvalidation")
     b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
@@ -42,7 +44,24 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
     b_ezsigntemplatepackage_editallowed: StrictBool = Field(description="Whether the Ezsigntemplatepackage if allowed to edit or not", alias="bEzsigntemplatepackageEditallowed")
     a_obj_ezsigntemplatepackagesigner: List[EzsigntemplatepackagesignerResponseCompound] = Field(alias="a_objEzsigntemplatepackagesigner")
     a_obj_ezsigntemplatepackagemembership: List[EzsigntemplatepackagemembershipResponseCompound] = Field(alias="a_objEzsigntemplatepackagemembership")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageEditallowed", "a_objEzsigntemplatepackagesigner", "a_objEzsigntemplatepackagemembership"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatedocumentID", "fkiLanguageID", "sEzdoctemplatedocumentNameX", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageEditallowed", "a_objEzsigntemplatepackagesigner", "a_objEzsigntemplatepackagemembership"]
+
+    @field_validator('s_ezdoctemplatedocument_name_x')
+    def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
+
+    @field_validator('s_ezsigntemplatepackage_description')
+    def s_ezsigntemplatepackage_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,16 +105,16 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatepackagesigner (list)
         _items = []
         if self.a_obj_ezsigntemplatepackagesigner:
-            for _item in self.a_obj_ezsigntemplatepackagesigner:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplatepackagesigner in self.a_obj_ezsigntemplatepackagesigner:
+                if _item_a_obj_ezsigntemplatepackagesigner:
+                    _items.append(_item_a_obj_ezsigntemplatepackagesigner.to_dict())
             _dict['a_objEzsigntemplatepackagesigner'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatepackagemembership (list)
         _items = []
         if self.a_obj_ezsigntemplatepackagemembership:
-            for _item in self.a_obj_ezsigntemplatepackagemembership:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplatepackagemembership in self.a_obj_ezsigntemplatepackagemembership:
+                if _item_a_obj_ezsigntemplatepackagemembership:
+                    _items.append(_item_a_obj_ezsigntemplatepackagemembership.to_dict())
             _dict['a_objEzsigntemplatepackagemembership'] = _items
         return _dict
 
@@ -111,7 +130,9 @@ class EzsigntemplatepackageResponseCompound(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsigntemplatepackageID": obj.get("pkiEzsigntemplatepackageID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sEzdoctemplatedocumentNameX": obj.get("sEzdoctemplatedocumentNameX"),
             "sLanguageNameX": obj.get("sLanguageNameX"),
             "sEzsigntemplatepackageDescription": obj.get("sEzsigntemplatepackageDescription"),
             "bEzsigntemplatepackageAdminonly": obj.get("bEzsigntemplatepackageAdminonly"),

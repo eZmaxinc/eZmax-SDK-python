@@ -24,7 +24,7 @@ print(EzsignpageConsultV1Response.to_json())
 # convert the object into a dict
 ezsignpage_consult_v1_response_dict = ezsignpage_consult_v1_response_instance.to_dict()
 # create an instance of EzsignpageConsultV1Response from a dict
-ezsignpage_consult_v1_response_form_dict = ezsignpage_consult_v1_response.from_dict(ezsignpage_consult_v1_response_dict)
+ezsignpage_consult_v1_response_from_dict = EzsignpageConsultV1Response.from_dict(ezsignpage_consult_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

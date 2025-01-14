@@ -80,9 +80,9 @@ class WebhookEzsignFolderUnsent(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_attempt (list)
         _items = []
         if self.a_obj_attempt:
-            for _item in self.a_obj_attempt:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_attempt in self.a_obj_attempt:
+                if _item_a_obj_attempt:
+                    _items.append(_item_a_obj_attempt.to_dict())
             _dict['a_objAttempt'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_ezsignfolder
         if self.obj_ezsignfolder:

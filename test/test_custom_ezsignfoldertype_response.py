@@ -28,7 +28,7 @@ class TestCustomEzsignfoldertypeResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CustomEzsignfoldertypeResponse:
         """Test CustomEzsignfoldertypeResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CustomEzsignfoldertypeResponse`
@@ -37,14 +37,22 @@ class TestCustomEzsignfoldertypeResponse(unittest.TestCase):
         if include_optional:
             return CustomEzsignfoldertypeResponse(
                 pki_ezsignfoldertype_id = 5,
+                fki_font_id_annotation = 1,
+                fki_font_id_formfield = 1,
+                fki_font_id_signature = 1,
                 s_ezsignfoldertype_name_x = 'Default',
                 b_ezsignfoldertype_sendproofezsignsigner = False,
                 b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False,
                 b_ezsignfoldertype_allowdownloadproofezsignsigner = False,
+                b_ezsignfoldertype_automaticsignature = False,
                 b_ezsignfoldertype_delegate = True,
                 b_ezsignfoldertype_discussion = True,
                 b_ezsignfoldertype_reassignezsignsigner = True,
-                b_ezsignfoldertype_reassignuser = True
+                b_ezsignfoldertype_reassignuser = True,
+                b_ezsignfoldertype_reassigngroup = True,
+                i_ezsignfoldertype_deadlinedays = 5,
+                i_ezsignfoldertype_fontsizeannotation = 10,
+                i_ezsignfoldertype_fontsizeformfield = 12
             )
         else:
             return CustomEzsignfoldertypeResponse(

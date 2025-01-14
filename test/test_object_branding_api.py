@@ -27,15 +27,15 @@ class TestObjectBrandingApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_branding_create_object_v1(self) -> None:
-        """Test case for branding_create_object_v1
+    def test_branding_create_object_v2(self) -> None:
+        """Test case for branding_create_object_v2
 
         Create a new Branding
         """
         pass
 
-    def test_branding_edit_object_v1(self) -> None:
-        """Test case for branding_edit_object_v1
+    def test_branding_edit_object_v2(self) -> None:
+        """Test case for branding_edit_object_v2
 
         Edit an existing Branding
         """
@@ -55,8 +55,8 @@ class TestObjectBrandingApi(unittest.TestCase):
         """
         pass
 
-    def test_branding_get_object_v2(self) -> None:
-        """Test case for branding_get_object_v2
+    def test_branding_get_object_v3(self) -> None:
+        """Test case for branding_get_object_v3
 
         Retrieve an existing Branding
         """

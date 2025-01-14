@@ -78,9 +78,9 @@ class CustomFormDataDocumentResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_form_data_signer (list)
         _items = []
         if self.a_obj_form_data_signer:
-            for _item in self.a_obj_form_data_signer:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_form_data_signer in self.a_obj_form_data_signer:
+                if _item_a_obj_form_data_signer:
+                    _items.append(_item_a_obj_form_data_signer.to_dict())
             _dict['a_objFormDataSigner'] = _items
         return _dict
 

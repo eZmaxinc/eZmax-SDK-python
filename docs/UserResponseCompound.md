@@ -60,7 +60,7 @@ print(UserResponseCompound.to_json())
 # convert the object into a dict
 user_response_compound_dict = user_response_compound_instance.to_dict()
 # create an instance of UserResponseCompound from a dict
-user_response_compound_form_dict = user_response_compound.from_dict(user_response_compound_dict)
+user_response_compound_from_dict = UserResponseCompound.from_dict(user_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

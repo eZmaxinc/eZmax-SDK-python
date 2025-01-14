@@ -25,7 +25,7 @@ print(UsergroupexternalRequest.to_json())
 # convert the object into a dict
 usergroupexternal_request_dict = usergroupexternal_request_instance.to_dict()
 # create an instance of UsergroupexternalRequest from a dict
-usergroupexternal_request_form_dict = usergroupexternal_request.from_dict(usergroupexternal_request_dict)
+usergroupexternal_request_from_dict = UsergroupexternalRequest.from_dict(usergroupexternal_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

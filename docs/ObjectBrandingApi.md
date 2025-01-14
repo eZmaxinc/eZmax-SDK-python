@@ -4,15 +4,15 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**branding_create_object_v1**](ObjectBrandingApi.md#branding_create_object_v1) | **POST** /1/object/branding | Create a new Branding
-[**branding_edit_object_v1**](ObjectBrandingApi.md#branding_edit_object_v1) | **PUT** /1/object/branding/{pkiBrandingID} | Edit an existing Branding
+[**branding_create_object_v2**](ObjectBrandingApi.md#branding_create_object_v2) | **POST** /2/object/branding | Create a new Branding
+[**branding_edit_object_v2**](ObjectBrandingApi.md#branding_edit_object_v2) | **PUT** /2/object/branding/{pkiBrandingID} | Edit an existing Branding
 [**branding_get_autocomplete_v2**](ObjectBrandingApi.md#branding_get_autocomplete_v2) | **GET** /2/object/branding/getAutocomplete/{sSelector} | Retrieve Brandings and IDs
 [**branding_get_list_v1**](ObjectBrandingApi.md#branding_get_list_v1) | **GET** /1/object/branding/getList | Retrieve Branding list
-[**branding_get_object_v2**](ObjectBrandingApi.md#branding_get_object_v2) | **GET** /2/object/branding/{pkiBrandingID} | Retrieve an existing Branding
+[**branding_get_object_v3**](ObjectBrandingApi.md#branding_get_object_v3) | **GET** /3/object/branding/{pkiBrandingID} | Retrieve an existing Branding
 
 
-# **branding_create_object_v1**
-> BrandingCreateObjectV1Response branding_create_object_v1(branding_create_object_v1_request)
+# **branding_create_object_v2**
+> BrandingCreateObjectV2Response branding_create_object_v2(branding_create_object_v2_request)
 
 Create a new Branding
 
@@ -24,8 +24,8 @@ The endpoint allows to create one or many elements at once.
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.branding_create_object_v1_request import BrandingCreateObjectV1Request
-from eZmaxApi.models.branding_create_object_v1_response import BrandingCreateObjectV1Response
+from eZmaxApi.models.branding_create_object_v2_request import BrandingCreateObjectV2Request
+from eZmaxApi.models.branding_create_object_v2_response import BrandingCreateObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -50,15 +50,15 @@ configuration.api_key['Authorization'] = os.environ["API_KEY"]
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectBrandingApi(api_client)
-    branding_create_object_v1_request = eZmaxApi.BrandingCreateObjectV1Request() # BrandingCreateObjectV1Request | 
+    branding_create_object_v2_request = eZmaxApi.BrandingCreateObjectV2Request() # BrandingCreateObjectV2Request | 
 
     try:
         # Create a new Branding
-        api_response = api_instance.branding_create_object_v1(branding_create_object_v1_request)
-        print("The response of ObjectBrandingApi->branding_create_object_v1:\n")
+        api_response = api_instance.branding_create_object_v2(branding_create_object_v2_request)
+        print("The response of ObjectBrandingApi->branding_create_object_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectBrandingApi->branding_create_object_v1: %s\n" % e)
+        print("Exception when calling ObjectBrandingApi->branding_create_object_v2: %s\n" % e)
 ```
 
 
@@ -68,11 +68,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **branding_create_object_v1_request** | [**BrandingCreateObjectV1Request**](BrandingCreateObjectV1Request.md)|  | 
+ **branding_create_object_v2_request** | [**BrandingCreateObjectV2Request**](BrandingCreateObjectV2Request.md)|  | 
 
 ### Return type
 
-[**BrandingCreateObjectV1Response**](BrandingCreateObjectV1Response.md)
+[**BrandingCreateObjectV2Response**](BrandingCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -91,8 +91,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **branding_edit_object_v1**
-> BrandingEditObjectV1Response branding_edit_object_v1(pki_branding_id, branding_edit_object_v1_request)
+# **branding_edit_object_v2**
+> BrandingEditObjectV2Response branding_edit_object_v2(pki_branding_id, branding_edit_object_v2_request)
 
 Edit an existing Branding
 
@@ -104,8 +104,8 @@ Edit an existing Branding
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.branding_edit_object_v1_request import BrandingEditObjectV1Request
-from eZmaxApi.models.branding_edit_object_v1_response import BrandingEditObjectV1Response
+from eZmaxApi.models.branding_edit_object_v2_request import BrandingEditObjectV2Request
+from eZmaxApi.models.branding_edit_object_v2_response import BrandingEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -131,15 +131,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectBrandingApi(api_client)
     pki_branding_id = 56 # int | 
-    branding_edit_object_v1_request = eZmaxApi.BrandingEditObjectV1Request() # BrandingEditObjectV1Request | 
+    branding_edit_object_v2_request = eZmaxApi.BrandingEditObjectV2Request() # BrandingEditObjectV2Request | 
 
     try:
         # Edit an existing Branding
-        api_response = api_instance.branding_edit_object_v1(pki_branding_id, branding_edit_object_v1_request)
-        print("The response of ObjectBrandingApi->branding_edit_object_v1:\n")
+        api_response = api_instance.branding_edit_object_v2(pki_branding_id, branding_edit_object_v2_request)
+        print("The response of ObjectBrandingApi->branding_edit_object_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectBrandingApi->branding_edit_object_v1: %s\n" % e)
+        print("Exception when calling ObjectBrandingApi->branding_edit_object_v2: %s\n" % e)
 ```
 
 
@@ -150,11 +150,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_branding_id** | **int**|  | 
- **branding_edit_object_v1_request** | [**BrandingEditObjectV1Request**](BrandingEditObjectV1Request.md)|  | 
+ **branding_edit_object_v2_request** | [**BrandingEditObjectV2Request**](BrandingEditObjectV2Request.md)|  | 
 
 ### Return type
 
-[**BrandingEditObjectV1Response**](BrandingEditObjectV1Response.md)
+[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectBrandingApi(api_client)
     s_selector = 's_selector_example' # str | The type of Brandings to return
-    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    e_filter_active = Active # str | Specify which results we want to display. (optional) (default to Active)
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
@@ -235,7 +235,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Brandings to return | 
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to Active]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 
@@ -349,8 +349,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **branding_get_object_v2**
-> BrandingGetObjectV2Response branding_get_object_v2(pki_branding_id)
+# **branding_get_object_v3**
+> BrandingGetObjectV3Response branding_get_object_v3(pki_branding_id)
 
 Retrieve an existing Branding
 
@@ -362,7 +362,7 @@ Retrieve an existing Branding
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.branding_get_object_v2_response import BrandingGetObjectV2Response
+from eZmaxApi.models.branding_get_object_v3_response import BrandingGetObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -391,11 +391,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve an existing Branding
-        api_response = api_instance.branding_get_object_v2(pki_branding_id)
-        print("The response of ObjectBrandingApi->branding_get_object_v2:\n")
+        api_response = api_instance.branding_get_object_v3(pki_branding_id)
+        print("The response of ObjectBrandingApi->branding_get_object_v3:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectBrandingApi->branding_get_object_v2: %s\n" % e)
+        print("Exception when calling ObjectBrandingApi->branding_get_object_v3: %s\n" % e)
 ```
 
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BrandingGetObjectV2Response**](BrandingGetObjectV2Response.md)
+[**BrandingGetObjectV3Response**](BrandingGetObjectV3Response.md)
 
 ### Authorization
 

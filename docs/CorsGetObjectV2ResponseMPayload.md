@@ -23,7 +23,7 @@ print(CorsGetObjectV2ResponseMPayload.to_json())
 # convert the object into a dict
 cors_get_object_v2_response_m_payload_dict = cors_get_object_v2_response_m_payload_instance.to_dict()
 # create an instance of CorsGetObjectV2ResponseMPayload from a dict
-cors_get_object_v2_response_m_payload_form_dict = cors_get_object_v2_response_m_payload.from_dict(cors_get_object_v2_response_m_payload_dict)
+cors_get_object_v2_response_m_payload_from_dict = CorsGetObjectV2ResponseMPayload.from_dict(cors_get_object_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

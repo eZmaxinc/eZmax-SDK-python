@@ -83,9 +83,9 @@ class EzsigndocumentApplyEzsigntemplateV2Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_warning (list)
         _items = []
         if self.a_obj_warning:
-            for _item in self.a_obj_warning:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_warning in self.a_obj_warning:
+                if _item_a_obj_warning:
+                    _items.append(_item_a_obj_warning.to_dict())
             _dict['a_objWarning'] = _items
         return _dict
 

@@ -27,7 +27,7 @@ print(CommonResponseObjDebugPayload.to_json())
 # convert the object into a dict
 common_response_obj_debug_payload_dict = common_response_obj_debug_payload_instance.to_dict()
 # create an instance of CommonResponseObjDebugPayload from a dict
-common_response_obj_debug_payload_form_dict = common_response_obj_debug_payload.from_dict(common_response_obj_debug_payload_dict)
+common_response_obj_debug_payload_from_dict = CommonResponseObjDebugPayload.from_dict(common_response_obj_debug_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

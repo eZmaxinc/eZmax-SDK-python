@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEEzsigntemplateType(str, Enum):
     """
-    The Type of Ezsigntemplate
+    The Type of Ezsigntemplate  **Usergroup** is now deprecated and replace with **Ezsignfoldertype**
     """
 
     """
@@ -30,6 +30,7 @@ class FieldEEzsigntemplateType(str, Enum):
     USER = 'User'
     USERGROUP = 'Usergroup'
     COMPANY = 'Company'
+    EZSIGNFOLDERTYPE = 'Ezsignfoldertype'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

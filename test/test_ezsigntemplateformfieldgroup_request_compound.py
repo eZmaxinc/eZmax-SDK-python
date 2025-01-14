@@ -28,7 +28,7 @@ class TestEzsigntemplateformfieldgroupRequestCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsigntemplateformfieldgroupRequestCompound:
         """Test EzsigntemplateformfieldgroupRequestCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplateformfieldgroupRequestCompound`
@@ -49,6 +49,7 @@ class TestEzsigntemplateformfieldgroupRequestCompound(unittest.TestCase):
                 i_ezsigntemplateformfieldgroup_maxlength = 75,
                 b_ezsigntemplateformfieldgroup_encrypted = True,
                 s_ezsigntemplateformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsigntemplateformfieldgroup_textvalidationcustommessage = 'Phone number',
                 e_ezsigntemplateformfieldgroup_textvalidation = 'None',
                 t_ezsigntemplateformfieldgroup_tooltip = 'Please enter a valid email address',
                 e_ezsigntemplateformfieldgroup_tooltipposition = 'TopLeft',

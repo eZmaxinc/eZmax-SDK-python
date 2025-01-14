@@ -24,7 +24,7 @@ print(UserstagedDeleteObjectV1Response.to_json())
 # convert the object into a dict
 userstaged_delete_object_v1_response_dict = userstaged_delete_object_v1_response_instance.to_dict()
 # create an instance of UserstagedDeleteObjectV1Response from a dict
-userstaged_delete_object_v1_response_form_dict = userstaged_delete_object_v1_response.from_dict(userstaged_delete_object_v1_response_dict)
+userstaged_delete_object_v1_response_from_dict = UserstagedDeleteObjectV1Response.from_dict(userstaged_delete_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

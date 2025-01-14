@@ -24,7 +24,7 @@ print(DiscussionRequestPatch.to_json())
 # convert the object into a dict
 discussion_request_patch_dict = discussion_request_patch_instance.to_dict()
 # create an instance of DiscussionRequestPatch from a dict
-discussion_request_patch_form_dict = discussion_request_patch.from_dict(discussion_request_patch_dict)
+discussion_request_patch_from_dict = DiscussionRequestPatch.from_dict(discussion_request_patch_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

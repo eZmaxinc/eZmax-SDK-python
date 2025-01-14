@@ -28,7 +28,7 @@ class TestWebhookRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WebhookRequest:
         """Test WebhookRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WebhookRequest`
@@ -37,6 +37,7 @@ class TestWebhookRequest(unittest.TestCase):
         if include_optional:
             return WebhookRequest(
                 pki_webhook_id = 77,
+                fki_authenticationexternal_id = 56,
                 fki_ezsignfoldertype_id = 5,
                 s_webhook_description = 'Import into our system',
                 e_webhook_module = 'Ezsign',

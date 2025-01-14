@@ -2,10 +2,13 @@
 
 The Ezmaxinvoicing payment type
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+* `CHEQUE` (value: `'Cheque'`)
+
+* `CREDITCARD` (value: `'CreditCard'`)
+
+* `DIRECTDEBIT` (value: `'DirectDebit'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

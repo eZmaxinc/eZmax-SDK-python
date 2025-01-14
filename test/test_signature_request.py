@@ -28,7 +28,7 @@ class TestSignatureRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> SignatureRequest:
         """Test SignatureRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `SignatureRequest`
@@ -37,11 +37,15 @@ class TestSignatureRequest(unittest.TestCase):
         if include_optional:
             return SignatureRequest(
                 pki_signature_id = 12,
-                t_signature_svg = '{"$ref":"#/components/examples/Svg/value"}'
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
+                t_signature_svg = '{"$ref":"#/components/examples/Svg/value"}',
+                t_signature_svginitials = '{"$ref":"#/components/examples/Svg/value"}'
             )
         else:
             return SignatureRequest(
-                t_signature_svg = '{"$ref":"#/components/examples/Svg/value"}',
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
         )
         """
 

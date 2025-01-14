@@ -25,7 +25,7 @@ print(CreditcardclientGetListV1Response.to_json())
 # convert the object into a dict
 creditcardclient_get_list_v1_response_dict = creditcardclient_get_list_v1_response_instance.to_dict()
 # create an instance of CreditcardclientGetListV1Response from a dict
-creditcardclient_get_list_v1_response_form_dict = creditcardclient_get_list_v1_response.from_dict(creditcardclient_get_list_v1_response_dict)
+creditcardclient_get_list_v1_response_from_dict = CreditcardclientGetListV1Response.from_dict(creditcardclient_get_list_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

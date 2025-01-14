@@ -34,6 +34,7 @@ class SystemconfigurationRequestCompound(BaseModel):
     A Systemconfiguration Object and children
     """ # noqa: E501
     pki_systemconfiguration_id: Optional[Annotated[int, Field(le=1, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID")
+    fki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="fkiBrandingID")
     e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(alias="eSystemconfigurationNewexternaluseraction")
     e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
     e_systemconfiguration_language2: FieldESystemconfigurationLanguage2 = Field(alias="eSystemconfigurationLanguage2")
@@ -44,7 +45,7 @@ class SystemconfigurationRequestCompound(BaseModel):
     b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
     dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
     dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
-    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
+    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiBrandingID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
@@ -118,6 +119,7 @@ class SystemconfigurationRequestCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiSystemconfigurationID": obj.get("pkiSystemconfigurationID"),
+            "fkiBrandingID": obj.get("fkiBrandingID"),
             "eSystemconfigurationNewexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
             "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
             "eSystemconfigurationLanguage2": obj.get("eSystemconfigurationLanguage2"),

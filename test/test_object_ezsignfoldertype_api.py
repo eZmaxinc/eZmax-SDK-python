@@ -27,22 +27,15 @@ class TestObjectEzsignfoldertypeApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ezsignfoldertype_create_object_v2(self) -> None:
-        """Test case for ezsignfoldertype_create_object_v2
+    def test_ezsignfoldertype_create_object_v3(self) -> None:
+        """Test case for ezsignfoldertype_create_object_v3
 
         Create a new Ezsignfoldertype
         """
         pass
 
-    def test_ezsignfoldertype_edit_object_v1(self) -> None:
-        """Test case for ezsignfoldertype_edit_object_v1
-
-        Edit an existing Ezsignfoldertype
-        """
-        pass
-
-    def test_ezsignfoldertype_edit_object_v2(self) -> None:
-        """Test case for ezsignfoldertype_edit_object_v2
+    def test_ezsignfoldertype_edit_object_v3(self) -> None:
+        """Test case for ezsignfoldertype_edit_object_v3
 
         Edit an existing Ezsignfoldertype
         """
@@ -69,8 +62,8 @@ class TestObjectEzsignfoldertypeApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsignfoldertype_get_object_v3(self) -> None:
-        """Test case for ezsignfoldertype_get_object_v3
+    def test_ezsignfoldertype_get_object_v4(self) -> None:
+        """Test case for ezsignfoldertype_get_object_v4
 
         Retrieve an existing Ezsignfoldertype
         """

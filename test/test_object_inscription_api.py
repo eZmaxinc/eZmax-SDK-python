@@ -34,10 +34,24 @@ class TestObjectInscriptionApi(unittest.TestCase):
         """
         pass
 
+    def test_inscription_get_communication_count_v1(self) -> None:
+        """Test case for inscription_get_communication_count_v1
+
+        Retrieve Communication count
+        """
+        pass
+
     def test_inscription_get_communication_list_v1(self) -> None:
         """Test case for inscription_get_communication_list_v1
 
         Retrieve Communication list
+        """
+        pass
+
+    def test_inscription_get_communicationrecipients_v1(self) -> None:
+        """Test case for inscription_get_communicationrecipients_v1
+
+        Retrieve Inscription's Communicationrecipient
         """
         pass
 

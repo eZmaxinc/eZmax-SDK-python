@@ -25,7 +25,7 @@ print(UsergroupdelegationRequest.to_json())
 # convert the object into a dict
 usergroupdelegation_request_dict = usergroupdelegation_request_instance.to_dict()
 # create an instance of UsergroupdelegationRequest from a dict
-usergroupdelegation_request_form_dict = usergroupdelegation_request.from_dict(usergroupdelegation_request_dict)
+usergroupdelegation_request_from_dict = UsergroupdelegationRequest.from_dict(usergroupdelegation_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

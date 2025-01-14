@@ -73,9 +73,9 @@ class EzsigntsarequirementGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntsarequirement (list)
         _items = []
         if self.a_obj_ezsigntsarequirement:
-            for _item in self.a_obj_ezsigntsarequirement:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntsarequirement in self.a_obj_ezsigntsarequirement:
+                if _item_a_obj_ezsigntsarequirement:
+                    _items.append(_item_a_obj_ezsigntsarequirement.to_dict())
             _dict['a_objEzsigntsarequirement'] = _items
         return _dict
 

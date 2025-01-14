@@ -28,7 +28,7 @@ class TestUsergroupRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsergroupRequest:
         """Test UsergroupRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsergroupRequest`
@@ -37,6 +37,10 @@ class TestUsergroupRequest(unittest.TestCase):
         if include_optional:
             return UsergroupRequest(
                 pki_usergroup_id = 2,
+                obj_email = eZmaxApi.models.email_request.email-Request(
+                    pki_email_id = 22, 
+                    fki_emailtype_id = 1, 
+                    s_email_address = 'email@example.com', ),
                 obj_usergroup_name = eZmaxApi.models.multilingual_usergroup_name.Multilingual-UsergroupName(
                     s_usergroup_name1 = 'Direction', 
                     s_usergroup_name2 = 'Management', )

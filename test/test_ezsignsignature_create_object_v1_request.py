@@ -28,7 +28,7 @@ class TestEzsignsignatureCreateObjectV1Request(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EzsignsignatureCreateObjectV1Request:
         """Test EzsignsignatureCreateObjectV1Request
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsignsignatureCreateObjectV1Request`
@@ -51,12 +51,17 @@ class TestEzsignsignatureCreateObjectV1Request(unittest.TestCase):
                     e_ezsignsignature_tooltipposition = 'TopLeft', 
                     e_ezsignsignature_font = 'Normal', 
                     fki_ezsignfoldersignerassociation_id_validation = 20, 
+                    b_ezsignsignature_handwritten = True, 
+                    b_ezsignsignature_reason = True, 
                     b_ezsignsignature_required = True, 
                     e_ezsignsignature_attachmentnamesource = 'Description', 
                     s_ezsignsignature_attachmentdescription = 'Attachment', 
+                    e_ezsignsignature_consultationtrigger = 'Manual', 
                     i_ezsignsignature_validationstep = 1, 
                     i_ezsignsignature_maxlength = 75, 
+                    s_ezsignsignature_defaultvalue = 'Foo', 
                     e_ezsignsignature_textvalidation = 'None', 
+                    s_ezsignsignature_textvalidationcustommessage = 'Phone number', 
                     s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/', 
                     e_ezsignsignature_dependencyrequirement = 'AllOf', ),
                 obj_ezsignsignature_compound = eZmaxApi.models.ezsignsignature_request_compound.ezsignsignature-RequestCompound()

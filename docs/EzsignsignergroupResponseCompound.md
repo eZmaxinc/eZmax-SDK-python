@@ -25,7 +25,7 @@ print(EzsignsignergroupResponseCompound.to_json())
 # convert the object into a dict
 ezsignsignergroup_response_compound_dict = ezsignsignergroup_response_compound_instance.to_dict()
 # create an instance of EzsignsignergroupResponseCompound from a dict
-ezsignsignergroup_response_compound_form_dict = ezsignsignergroup_response_compound.from_dict(ezsignsignergroup_response_compound_dict)
+ezsignsignergroup_response_compound_from_dict = EzsignsignergroupResponseCompound.from_dict(ezsignsignergroup_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

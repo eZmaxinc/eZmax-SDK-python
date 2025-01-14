@@ -30,7 +30,7 @@ print(EzsignsignerResponseCompoundContact.to_json())
 # convert the object into a dict
 ezsignsigner_response_compound_contact_dict = ezsignsigner_response_compound_contact_instance.to_dict()
 # create an instance of EzsignsignerResponseCompoundContact from a dict
-ezsignsigner_response_compound_contact_form_dict = ezsignsigner_response_compound_contact.from_dict(ezsignsigner_response_compound_contact_dict)
+ezsignsigner_response_compound_contact_from_dict = EzsignsignerResponseCompoundContact.from_dict(ezsignsigner_response_compound_contact_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

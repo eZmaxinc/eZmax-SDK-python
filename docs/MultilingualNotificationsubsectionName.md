@@ -24,7 +24,7 @@ print(MultilingualNotificationsubsectionName.to_json())
 # convert the object into a dict
 multilingual_notificationsubsection_name_dict = multilingual_notificationsubsection_name_instance.to_dict()
 # create an instance of MultilingualNotificationsubsectionName from a dict
-multilingual_notificationsubsection_name_form_dict = multilingual_notificationsubsection_name.from_dict(multilingual_notificationsubsection_name_dict)
+multilingual_notificationsubsection_name_from_dict = MultilingualNotificationsubsectionName.from_dict(multilingual_notificationsubsection_name_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

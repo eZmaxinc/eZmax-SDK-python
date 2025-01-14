@@ -24,7 +24,7 @@ print(EzsignfolderBatchDownloadV1Request.to_json())
 # convert the object into a dict
 ezsignfolder_batch_download_v1_request_dict = ezsignfolder_batch_download_v1_request_instance.to_dict()
 # create an instance of EzsignfolderBatchDownloadV1Request from a dict
-ezsignfolder_batch_download_v1_request_form_dict = ezsignfolder_batch_download_v1_request.from_dict(ezsignfolder_batch_download_v1_request_dict)
+ezsignfolder_batch_download_v1_request_from_dict = EzsignfolderBatchDownloadV1Request.from_dict(ezsignfolder_batch_download_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

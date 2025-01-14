@@ -20,8 +20,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_request import EzsignbulksendCreateEzsignbulksendtransmissionV1Request
-from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v1_response import EzsignbulksendCreateEzsignbulksendtransmissionV1Response
+from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_request import EzsignbulksendCreateEzsignbulksendtransmissionV2Request
+from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_response import EzsignbulksendCreateEzsignbulksendtransmissionV2Response
 from eZmaxApi.models.ezsignbulksend_create_object_v1_request import EzsignbulksendCreateObjectV1Request
 from eZmaxApi.models.ezsignbulksend_create_object_v1_response import EzsignbulksendCreateObjectV1Response
 from eZmaxApi.models.ezsignbulksend_delete_object_v1_response import EzsignbulksendDeleteObjectV1Response
@@ -55,10 +55,10 @@ class ObjectEzsignbulksendApi:
 
 
     @validate_call
-    def ezsignbulksend_create_ezsignbulksendtransmission_v1(
+    def ezsignbulksend_create_ezsignbulksendtransmission_v2(
         self,
         pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,14 +71,14 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignbulksendCreateEzsignbulksendtransmissionV1Response:
+    ) -> EzsignbulksendCreateEzsignbulksendtransmissionV2Response:
         """Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
-        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
+        :param ezsignbulksend_create_ezsignbulksendtransmission_v2_request: (required)
+        :type ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -101,9 +101,9 @@ class ObjectEzsignbulksendApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v2_serialize(
             pki_ezsignbulksend_id=pki_ezsignbulksend_id,
-            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            ezsignbulksend_create_ezsignbulksendtransmission_v2_request=ezsignbulksend_create_ezsignbulksendtransmission_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -111,7 +111,7 @@ class ObjectEzsignbulksendApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
+            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -127,10 +127,10 @@ class ObjectEzsignbulksendApi:
 
 
     @validate_call
-    def ezsignbulksend_create_ezsignbulksendtransmission_v1_with_http_info(
+    def ezsignbulksend_create_ezsignbulksendtransmission_v2_with_http_info(
         self,
         pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -143,14 +143,14 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignbulksendCreateEzsignbulksendtransmissionV1Response]:
+    ) -> ApiResponse[EzsignbulksendCreateEzsignbulksendtransmissionV2Response]:
         """Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
-        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
+        :param ezsignbulksend_create_ezsignbulksendtransmission_v2_request: (required)
+        :type ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -173,9 +173,9 @@ class ObjectEzsignbulksendApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v2_serialize(
             pki_ezsignbulksend_id=pki_ezsignbulksend_id,
-            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            ezsignbulksend_create_ezsignbulksendtransmission_v2_request=ezsignbulksend_create_ezsignbulksendtransmission_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -183,7 +183,7 @@ class ObjectEzsignbulksendApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
+            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -199,10 +199,10 @@ class ObjectEzsignbulksendApi:
 
 
     @validate_call
-    def ezsignbulksend_create_ezsignbulksendtransmission_v1_without_preload_content(
+    def ezsignbulksend_create_ezsignbulksendtransmission_v2_without_preload_content(
         self,
         pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)],
-        ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request,
+        ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -221,8 +221,8 @@ class ObjectEzsignbulksendApi:
 
         :param pki_ezsignbulksend_id: (required)
         :type pki_ezsignbulksend_id: int
-        :param ezsignbulksend_create_ezsignbulksendtransmission_v1_request: (required)
-        :type ezsignbulksend_create_ezsignbulksendtransmission_v1_request: EzsignbulksendCreateEzsignbulksendtransmissionV1Request
+        :param ezsignbulksend_create_ezsignbulksendtransmission_v2_request: (required)
+        :type ezsignbulksend_create_ezsignbulksendtransmission_v2_request: EzsignbulksendCreateEzsignbulksendtransmissionV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -245,9 +245,9 @@ class ObjectEzsignbulksendApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+        _param = self._ezsignbulksend_create_ezsignbulksendtransmission_v2_serialize(
             pki_ezsignbulksend_id=pki_ezsignbulksend_id,
-            ezsignbulksend_create_ezsignbulksendtransmission_v1_request=ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+            ezsignbulksend_create_ezsignbulksendtransmission_v2_request=ezsignbulksend_create_ezsignbulksendtransmission_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -255,7 +255,7 @@ class ObjectEzsignbulksendApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV1Response",
+            '200': "EzsignbulksendCreateEzsignbulksendtransmissionV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -266,10 +266,10 @@ class ObjectEzsignbulksendApi:
         return response_data.response
 
 
-    def _ezsignbulksend_create_ezsignbulksendtransmission_v1_serialize(
+    def _ezsignbulksend_create_ezsignbulksendtransmission_v2_serialize(
         self,
         pki_ezsignbulksend_id,
-        ezsignbulksend_create_ezsignbulksendtransmission_v1_request,
+        ezsignbulksend_create_ezsignbulksendtransmission_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -285,7 +285,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -295,16 +297,17 @@ class ObjectEzsignbulksendApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if ezsignbulksend_create_ezsignbulksendtransmission_v1_request is not None:
-            _body_params = ezsignbulksend_create_ezsignbulksendtransmission_v1_request
+        if ezsignbulksend_create_ezsignbulksendtransmission_v2_request is not None:
+            _body_params = ezsignbulksend_create_ezsignbulksendtransmission_v2_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -327,7 +330,7 @@ class ObjectEzsignbulksendApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/1/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission',
+            resource_path='/2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -558,7 +561,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -571,11 +576,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -835,7 +841,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -848,11 +856,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1112,7 +1121,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1127,11 +1138,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1407,7 +1419,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1424,12 +1438,13 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'text/csv', 
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'text/csv', 
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1673,7 +1688,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1686,11 +1703,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1934,7 +1952,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1947,11 +1967,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -2201,7 +2222,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2214,12 +2237,13 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json', 
-                'application/zip'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/zip'
+                ]
+            )
 
 
         # authentication setting
@@ -2515,7 +2539,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2544,12 +2570,13 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json', 
-                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                ]
+            )
 
 
         # authentication setting
@@ -2793,7 +2820,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2806,11 +2835,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -3067,7 +3097,9 @@ class ObjectEzsignbulksendApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -3082,11 +3114,12 @@ class ObjectEzsignbulksendApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:

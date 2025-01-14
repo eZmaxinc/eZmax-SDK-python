@@ -31,14 +31,12 @@ class CreditcardclientResponseCompound(BaseModel):
     """ # noqa: E501
     pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
     fki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="fkiCreditcarddetailID")
-    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's an relationisdefault", alias="bCreditcardclientrelationIsdefault")
+    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
     s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
-    b_creditcardclient_isactive: StrictBool = Field(description="Whether the creditcardclient is active or not", alias="bCreditcardclientIsactive")
-    b_creditcardclient_allowedagencypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedagencypayment")
-    b_creditcardclient_allowedroyallepageprotection: StrictBool = Field(description="Whether if it's an allowedroyallepageprotection", alias="bCreditcardclientAllowedroyallepageprotection")
+    b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment")
     b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit")
     obj_creditcarddetail: CreditcarddetailResponseCompound = Field(alias="objCreditcarddetail")
-    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientIsactive", "bCreditcardclientAllowedagencypayment", "bCreditcardclientAllowedroyallepageprotection", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail"]
+    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail"]
 
     @field_validator('s_creditcardclient_description')
     def s_creditcardclient_description_validate_regular_expression(cls, value):
@@ -105,9 +103,7 @@ class CreditcardclientResponseCompound(BaseModel):
             "fkiCreditcarddetailID": obj.get("fkiCreditcarddetailID"),
             "bCreditcardclientrelationIsdefault": obj.get("bCreditcardclientrelationIsdefault"),
             "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
-            "bCreditcardclientIsactive": obj.get("bCreditcardclientIsactive"),
-            "bCreditcardclientAllowedagencypayment": obj.get("bCreditcardclientAllowedagencypayment"),
-            "bCreditcardclientAllowedroyallepageprotection": obj.get("bCreditcardclientAllowedroyallepageprotection"),
+            "bCreditcardclientAllowedcompanypayment": obj.get("bCreditcardclientAllowedcompanypayment"),
             "bCreditcardclientAllowedtranquillit": obj.get("bCreditcardclientAllowedtranquillit"),
             "objCreditcarddetail": CreditcarddetailResponseCompound.from_dict(obj["objCreditcarddetail"]) if obj.get("objCreditcarddetail") is not None else None
         })

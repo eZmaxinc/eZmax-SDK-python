@@ -73,9 +73,9 @@ class FontGetAutocompleteV2ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_font (list)
         _items = []
         if self.a_obj_font:
-            for _item in self.a_obj_font:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_font in self.a_obj_font:
+                if _item_a_obj_font:
+                    _items.append(_item_a_obj_font.to_dict())
             _dict['a_objFont'] = _items
         return _dict
 

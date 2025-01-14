@@ -27,10 +27,31 @@ class TestObjectBuyercontractApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_buyercontract_get_communication_count_v1(self) -> None:
+        """Test case for buyercontract_get_communication_count_v1
+
+        Retrieve Communication count
+        """
+        pass
+
     def test_buyercontract_get_communication_list_v1(self) -> None:
         """Test case for buyercontract_get_communication_list_v1
 
         Retrieve Communication list
+        """
+        pass
+
+    def test_buyercontract_get_communicationrecipients_v1(self) -> None:
+        """Test case for buyercontract_get_communicationrecipients_v1
+
+        Retrieve Buyercontract's Communicationrecipient
+        """
+        pass
+
+    def test_buyercontract_get_communicationsenders_v1(self) -> None:
+        """Test case for buyercontract_get_communicationsenders_v1
+
+        Retrieve Buyercontract's Communicationsender
         """
         pass
 

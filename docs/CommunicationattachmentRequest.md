@@ -26,7 +26,7 @@ print(CommunicationattachmentRequest.to_json())
 # convert the object into a dict
 communicationattachment_request_dict = communicationattachment_request_instance.to_dict()
 # create an instance of CommunicationattachmentRequest from a dict
-communicationattachment_request_form_dict = communicationattachment_request.from_dict(communicationattachment_request_dict)
+communicationattachment_request_from_dict = CommunicationattachmentRequest.from_dict(communicationattachment_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

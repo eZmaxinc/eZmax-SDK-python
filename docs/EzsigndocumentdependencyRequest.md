@@ -1,0 +1,31 @@
+# EzsigndocumentdependencyRequest
+
+An Ezsigndocumentdependency Object
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pki_ezsigndocumentdependency_id** | **int** | The unique ID of the Ezsigndocumentdependency | [optional] 
+**fki_ezsigndocument_i_ddependency** | **int** | The unique ID of the Ezsigndocument | 
+
+## Example
+
+```python
+from eZmaxApi.models.ezsigndocumentdependency_request import EzsigndocumentdependencyRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsigndocumentdependencyRequest from a JSON string
+ezsigndocumentdependency_request_instance = EzsigndocumentdependencyRequest.from_json(json)
+# print the JSON string representation of the object
+print(EzsigndocumentdependencyRequest.to_json())
+
+# convert the object into a dict
+ezsigndocumentdependency_request_dict = ezsigndocumentdependency_request_instance.to_dict()
+# create an instance of EzsigndocumentdependencyRequest from a dict
+ezsigndocumentdependency_request_from_dict = EzsigndocumentdependencyRequest.from_dict(ezsigndocumentdependency_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

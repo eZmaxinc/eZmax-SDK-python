@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 from typing import Optional, Set
@@ -31,7 +31,8 @@ class CommonResponseErrorTooManyRequests(BaseModel):
     """ # noqa: E501
     s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
-    __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode"]
+    a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
+    __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail"]
 
     @field_validator('s_error_message')
     def s_error_message_validate_regular_expression(cls, value):
@@ -92,7 +93,8 @@ class CommonResponseErrorTooManyRequests(BaseModel):
 
         _obj = cls.model_validate({
             "sErrorMessage": obj.get("sErrorMessage"),
-            "eErrorCode": obj.get("eErrorCode")
+            "eErrorCode": obj.get("eErrorCode"),
+            "a_sErrorMessagedetail": obj.get("a_sErrorMessagedetail")
         })
         return _obj
 

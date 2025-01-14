@@ -31,7 +31,7 @@ print(EzmaxinvoicingcontractResponse.to_json())
 # convert the object into a dict
 ezmaxinvoicingcontract_response_dict = ezmaxinvoicingcontract_response_instance.to_dict()
 # create an instance of EzmaxinvoicingcontractResponse from a dict
-ezmaxinvoicingcontract_response_form_dict = ezmaxinvoicingcontract_response.from_dict(ezmaxinvoicingcontract_response_dict)
+ezmaxinvoicingcontract_response_from_dict = EzmaxinvoicingcontractResponse.from_dict(ezmaxinvoicingcontract_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

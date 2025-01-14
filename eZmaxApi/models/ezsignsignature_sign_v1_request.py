@@ -30,13 +30,14 @@ class EzsignsignatureSignV1Request(BaseModel):
     Request for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign
     """ # noqa: E501
     fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
+    fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
     s_value: Optional[StrictStr] = Field(default=None, description="The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**", alias="sValue")
     e_attachments_confirmation_decision: Optional[StrictStr] = Field(default=None, description="Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="eAttachmentsConfirmationDecision")
     s_attachments_refusal_reason: Optional[StrictStr] = Field(default=None, description="The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="sAttachmentsRefusalReason")
-    s_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The SVG of the handwritten signature.  This can only be set if eEzsignsignatureType is **Handwritten** and **bIsAutomatic** is false", alias="sSvg")
+    s_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**/**Initials** and **bIsAutomatic** is false", alias="sSvg")
     a_obj_file: Optional[List[CommonFile]] = Field(default=None, alias="a_objFile")
-    b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Handwritten**, **Initials**, **Name** or **Stamp**. ", alias="bIsAutomatic")
-    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "bIsAutomatic"]
+    b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. ", alias="bIsAutomatic")
+    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "bIsAutomatic"]
 
     @field_validator('e_attachments_confirmation_decision')
     def e_attachments_confirmation_decision_validate_enum(cls, value):
@@ -100,9 +101,9 @@ class EzsignsignatureSignV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_file (list)
         _items = []
         if self.a_obj_file:
-            for _item in self.a_obj_file:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_file in self.a_obj_file:
+                if _item_a_obj_file:
+                    _items.append(_item_a_obj_file.to_dict())
             _dict['a_objFile'] = _items
         return _dict
 
@@ -117,6 +118,7 @@ class EzsignsignatureSignV1Request(BaseModel):
 
         _obj = cls.model_validate({
             "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
+            "fkiFontID": obj.get("fkiFontID"),
             "sValue": obj.get("sValue"),
             "eAttachmentsConfirmationDecision": obj.get("eAttachmentsConfirmationDecision"),
             "sAttachmentsRefusalReason": obj.get("sAttachmentsRefusalReason"),

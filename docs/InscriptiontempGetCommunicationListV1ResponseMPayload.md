@@ -23,7 +23,7 @@ print(InscriptiontempGetCommunicationListV1ResponseMPayload.to_json())
 # convert the object into a dict
 inscriptiontemp_get_communication_list_v1_response_m_payload_dict = inscriptiontemp_get_communication_list_v1_response_m_payload_instance.to_dict()
 # create an instance of InscriptiontempGetCommunicationListV1ResponseMPayload from a dict
-inscriptiontemp_get_communication_list_v1_response_m_payload_form_dict = inscriptiontemp_get_communication_list_v1_response_m_payload.from_dict(inscriptiontemp_get_communication_list_v1_response_m_payload_dict)
+inscriptiontemp_get_communication_list_v1_response_m_payload_from_dict = InscriptiontempGetCommunicationListV1ResponseMPayload.from_dict(inscriptiontemp_get_communication_list_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,7 +23,7 @@ print(UserCreateObjectV2Request.to_json())
 # convert the object into a dict
 user_create_object_v2_request_dict = user_create_object_v2_request_instance.to_dict()
 # create an instance of UserCreateObjectV2Request from a dict
-user_create_object_v2_request_form_dict = user_create_object_v2_request.from_dict(user_create_object_v2_request_dict)
+user_create_object_v2_request_from_dict = UserCreateObjectV2Request.from_dict(user_create_object_v2_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

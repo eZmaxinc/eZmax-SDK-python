@@ -74,9 +74,9 @@ class CorsCreateObjectV1Request(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_cors (list)
         _items = []
         if self.a_obj_cors:
-            for _item in self.a_obj_cors:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_cors in self.a_obj_cors:
+                if _item_a_obj_cors:
+                    _items.append(_item_a_obj_cors.to_dict())
             _dict['a_objCors'] = _items
         return _dict
 

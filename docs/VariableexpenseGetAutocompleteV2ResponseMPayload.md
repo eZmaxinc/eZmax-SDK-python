@@ -23,7 +23,7 @@ print(VariableexpenseGetAutocompleteV2ResponseMPayload.to_json())
 # convert the object into a dict
 variableexpense_get_autocomplete_v2_response_m_payload_dict = variableexpense_get_autocomplete_v2_response_m_payload_instance.to_dict()
 # create an instance of VariableexpenseGetAutocompleteV2ResponseMPayload from a dict
-variableexpense_get_autocomplete_v2_response_m_payload_form_dict = variableexpense_get_autocomplete_v2_response_m_payload.from_dict(variableexpense_get_autocomplete_v2_response_m_payload_dict)
+variableexpense_get_autocomplete_v2_response_m_payload_from_dict = VariableexpenseGetAutocompleteV2ResponseMPayload.from_dict(variableexpense_get_autocomplete_v2_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

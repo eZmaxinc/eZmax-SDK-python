@@ -75,16 +75,16 @@ class EzsignfolderGetActionableElementsV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignature (list)
         _items = []
         if self.a_obj_ezsignsignature:
-            for _item in self.a_obj_ezsignsignature:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignsignature in self.a_obj_ezsignsignature:
+                if _item_a_obj_ezsignsignature:
+                    _items.append(_item_a_obj_ezsignsignature.to_dict())
             _dict['a_objEzsignsignature'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfieldgroup (list)
         _items = []
         if self.a_obj_ezsignformfieldgroup:
-            for _item in self.a_obj_ezsignformfieldgroup:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsignformfieldgroup in self.a_obj_ezsignformfieldgroup:
+                if _item_a_obj_ezsignformfieldgroup:
+                    _items.append(_item_a_obj_ezsignformfieldgroup.to_dict())
             _dict['a_objEzsignformfieldgroup'] = _items
         return _dict
 

@@ -28,7 +28,7 @@ print(EzsignfoldersignerassociationRequest.to_json())
 # convert the object into a dict
 ezsignfoldersignerassociation_request_dict = ezsignfoldersignerassociation_request_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationRequest from a dict
-ezsignfoldersignerassociation_request_form_dict = ezsignfoldersignerassociation_request.from_dict(ezsignfoldersignerassociation_request_dict)
+ezsignfoldersignerassociation_request_from_dict = EzsignfoldersignerassociationRequest.from_dict(ezsignfoldersignerassociation_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**apikey_create_object_v2**](ObjectApikeyApi.md#apikey_create_object_v2) | **POST** /2/object/apikey | Create a new Apikey
 [**apikey_edit_object_v1**](ObjectApikeyApi.md#apikey_edit_object_v1) | **PUT** /1/object/apikey/{pkiApikeyID} | Edit an existing Apikey
 [**apikey_edit_permissions_v1**](ObjectApikeyApi.md#apikey_edit_permissions_v1) | **PUT** /1/object/apikey/{pkiApikeyID}/editPermissions | Edit multiple Permissions
+[**apikey_generate_delegated_credentials_v1**](ObjectApikeyApi.md#apikey_generate_delegated_credentials_v1) | **POST** /1/object/apikey/generateDelegatedCredentials | Generate a delegated credentials
 [**apikey_get_cors_v1**](ObjectApikeyApi.md#apikey_get_cors_v1) | **GET** /1/object/apikey/{pkiApikeyID}/getCors | Retrieve an existing Apikey&#39;s cors
 [**apikey_get_list_v1**](ObjectApikeyApi.md#apikey_get_list_v1) | **GET** /1/object/apikey/getList | Retrieve Apikey list
 [**apikey_get_object_v2**](ObjectApikeyApi.md#apikey_get_object_v2) | **GET** /2/object/apikey/{pkiApikeyID} | Retrieve an existing Apikey
@@ -259,6 +260,87 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **apikey_generate_delegated_credentials_v1**
+> ApikeyGenerateDelegatedCredentialsV1Response apikey_generate_delegated_credentials_v1(apikey_generate_delegated_credentials_v1_request)
+
+Generate a delegated credentials
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.apikey_generate_delegated_credentials_v1_request import ApikeyGenerateDelegatedCredentialsV1Request
+from eZmaxApi.models.apikey_generate_delegated_credentials_v1_response import ApikeyGenerateDelegatedCredentialsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectApikeyApi(api_client)
+    apikey_generate_delegated_credentials_v1_request = eZmaxApi.ApikeyGenerateDelegatedCredentialsV1Request() # ApikeyGenerateDelegatedCredentialsV1Request | 
+
+    try:
+        # Generate a delegated credentials
+        api_response = api_instance.apikey_generate_delegated_credentials_v1(apikey_generate_delegated_credentials_v1_request)
+        print("The response of ObjectApikeyApi->apikey_generate_delegated_credentials_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectApikeyApi->apikey_generate_delegated_credentials_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apikey_generate_delegated_credentials_v1_request** | [**ApikeyGenerateDelegatedCredentialsV1Request**](ApikeyGenerateDelegatedCredentialsV1Request.md)|  | 
+
+### Return type
+
+[**ApikeyGenerateDelegatedCredentialsV1Response**](ApikeyGenerateDelegatedCredentialsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
 **422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -28,7 +28,7 @@ class TestUsergroupexternalGetUsergroupsV1ResponseMPayload(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UsergroupexternalGetUsergroupsV1ResponseMPayload:
         """Test UsergroupexternalGetUsergroupsV1ResponseMPayload
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UsergroupexternalGetUsergroupsV1ResponseMPayload`

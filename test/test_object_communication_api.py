@@ -27,6 +27,13 @@ class TestObjectCommunicationApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_communication_get_communication_body_v1(self) -> None:
+        """Test case for communication_get_communication_body_v1
+
+        Retrieve the communication body.
+        """
+        pass
+
     def test_communication_send_v1(self) -> None:
         """Test case for communication_send_v1
 

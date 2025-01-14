@@ -28,7 +28,7 @@ print(SubnetRequest.to_json())
 # convert the object into a dict
 subnet_request_dict = subnet_request_instance.to_dict()
 # create an instance of SubnetRequest from a dict
-subnet_request_form_dict = subnet_request.from_dict(subnet_request_dict)
+subnet_request_from_dict = SubnetRequest.from_dict(subnet_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

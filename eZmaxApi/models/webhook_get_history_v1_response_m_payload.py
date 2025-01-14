@@ -73,9 +73,9 @@ class WebhookGetHistoryV1ResponseMPayload(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_webhooklog (list)
         _items = []
         if self.a_obj_webhooklog:
-            for _item in self.a_obj_webhooklog:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_webhooklog in self.a_obj_webhooklog:
+                if _item_a_obj_webhooklog:
+                    _items.append(_item_a_obj_webhooklog.to_dict())
             _dict['a_objWebhooklog'] = _items
         return _dict
 

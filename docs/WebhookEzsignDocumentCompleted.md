@@ -25,7 +25,7 @@ print(WebhookEzsignDocumentCompleted.to_json())
 # convert the object into a dict
 webhook_ezsign_document_completed_dict = webhook_ezsign_document_completed_instance.to_dict()
 # create an instance of WebhookEzsignDocumentCompleted from a dict
-webhook_ezsign_document_completed_form_dict = webhook_ezsign_document_completed.from_dict(webhook_ezsign_document_completed_dict)
+webhook_ezsign_document_completed_from_dict = WebhookEzsignDocumentCompleted.from_dict(webhook_ezsign_document_completed_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

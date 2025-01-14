@@ -25,7 +25,7 @@ print(EzsignfolderImportEzsigntemplatepackageV1Request.to_json())
 # convert the object into a dict
 ezsignfolder_import_ezsigntemplatepackage_v1_request_dict = ezsignfolder_import_ezsigntemplatepackage_v1_request_instance.to_dict()
 # create an instance of EzsignfolderImportEzsigntemplatepackageV1Request from a dict
-ezsignfolder_import_ezsigntemplatepackage_v1_request_form_dict = ezsignfolder_import_ezsigntemplatepackage_v1_request.from_dict(ezsignfolder_import_ezsigntemplatepackage_v1_request_dict)
+ezsignfolder_import_ezsigntemplatepackage_v1_request_from_dict = EzsignfolderImportEzsigntemplatepackageV1Request.from_dict(ezsignfolder_import_ezsigntemplatepackage_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

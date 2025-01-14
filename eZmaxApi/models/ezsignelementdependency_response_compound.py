@@ -30,7 +30,7 @@ class EzsignelementdependencyResponseCompound(BaseModel):
     """
     An Ezsignelementdependency Object and children to create a complete structure
     """ # noqa: E501
-    pki_ezsignelementdependency_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
+    pki_ezsignelementdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
     fki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldID")
     fki_ezsignsignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignature", alias="fkiEzsignsignatureID")
     fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation")

@@ -23,7 +23,7 @@ print(EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload.to_json
 # convert the object into a dict
 ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_dict = ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_instance.to_dict()
 # create an instance of EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload from a dict
-ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_form_dict = ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload.from_dict(ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_dict)
+ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_from_dict = EzsignfoldersignerassociationGetInPersonLoginUrlV1ResponseMPayload.from_dict(ezsignfoldersignerassociation_get_in_person_login_url_v1_response_m_payload_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

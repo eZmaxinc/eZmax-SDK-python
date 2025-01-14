@@ -20,13 +20,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.branding_create_object_v1_request import BrandingCreateObjectV1Request
-from eZmaxApi.models.branding_create_object_v1_response import BrandingCreateObjectV1Response
-from eZmaxApi.models.branding_edit_object_v1_request import BrandingEditObjectV1Request
-from eZmaxApi.models.branding_edit_object_v1_response import BrandingEditObjectV1Response
+from eZmaxApi.models.branding_create_object_v2_request import BrandingCreateObjectV2Request
+from eZmaxApi.models.branding_create_object_v2_response import BrandingCreateObjectV2Response
+from eZmaxApi.models.branding_edit_object_v2_request import BrandingEditObjectV2Request
+from eZmaxApi.models.branding_edit_object_v2_response import BrandingEditObjectV2Response
 from eZmaxApi.models.branding_get_autocomplete_v2_response import BrandingGetAutocompleteV2Response
 from eZmaxApi.models.branding_get_list_v1_response import BrandingGetListV1Response
-from eZmaxApi.models.branding_get_object_v2_response import BrandingGetObjectV2Response
+from eZmaxApi.models.branding_get_object_v3_response import BrandingGetObjectV3Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -48,9 +48,9 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_create_object_v1(
+    def branding_create_object_v2(
         self,
-        branding_create_object_v1_request: BrandingCreateObjectV1Request,
+        branding_create_object_v2_request: BrandingCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,13 +63,13 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BrandingCreateObjectV1Response:
+    ) -> BrandingCreateObjectV2Response:
         """Create a new Branding
 
         The endpoint allows to create one or many elements at once.
 
-        :param branding_create_object_v1_request: (required)
-        :type branding_create_object_v1_request: BrandingCreateObjectV1Request
+        :param branding_create_object_v2_request: (required)
+        :type branding_create_object_v2_request: BrandingCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,8 +92,8 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_create_object_v1_serialize(
-            branding_create_object_v1_request=branding_create_object_v1_request,
+        _param = self._branding_create_object_v2_serialize(
+            branding_create_object_v2_request=branding_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -101,7 +101,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BrandingCreateObjectV1Response",
+            '201': "BrandingCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,9 +115,9 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_create_object_v1_with_http_info(
+    def branding_create_object_v2_with_http_info(
         self,
-        branding_create_object_v1_request: BrandingCreateObjectV1Request,
+        branding_create_object_v2_request: BrandingCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -130,13 +130,13 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BrandingCreateObjectV1Response]:
+    ) -> ApiResponse[BrandingCreateObjectV2Response]:
         """Create a new Branding
 
         The endpoint allows to create one or many elements at once.
 
-        :param branding_create_object_v1_request: (required)
-        :type branding_create_object_v1_request: BrandingCreateObjectV1Request
+        :param branding_create_object_v2_request: (required)
+        :type branding_create_object_v2_request: BrandingCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,8 +159,8 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_create_object_v1_serialize(
-            branding_create_object_v1_request=branding_create_object_v1_request,
+        _param = self._branding_create_object_v2_serialize(
+            branding_create_object_v2_request=branding_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -168,7 +168,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BrandingCreateObjectV1Response",
+            '201': "BrandingCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -182,9 +182,9 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_create_object_v1_without_preload_content(
+    def branding_create_object_v2_without_preload_content(
         self,
-        branding_create_object_v1_request: BrandingCreateObjectV1Request,
+        branding_create_object_v2_request: BrandingCreateObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -202,8 +202,8 @@ class ObjectBrandingApi:
 
         The endpoint allows to create one or many elements at once.
 
-        :param branding_create_object_v1_request: (required)
-        :type branding_create_object_v1_request: BrandingCreateObjectV1Request
+        :param branding_create_object_v2_request: (required)
+        :type branding_create_object_v2_request: BrandingCreateObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,8 +226,8 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_create_object_v1_serialize(
-            branding_create_object_v1_request=branding_create_object_v1_request,
+        _param = self._branding_create_object_v2_serialize(
+            branding_create_object_v2_request=branding_create_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -235,7 +235,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "BrandingCreateObjectV1Response",
+            '201': "BrandingCreateObjectV2Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -244,9 +244,9 @@ class ObjectBrandingApi:
         return response_data.response
 
 
-    def _branding_create_object_v1_serialize(
+    def _branding_create_object_v2_serialize(
         self,
-        branding_create_object_v1_request,
+        branding_create_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -262,7 +262,9 @@ class ObjectBrandingApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -270,16 +272,17 @@ class ObjectBrandingApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if branding_create_object_v1_request is not None:
-            _body_params = branding_create_object_v1_request
+        if branding_create_object_v2_request is not None:
+            _body_params = branding_create_object_v2_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -302,7 +305,7 @@ class ObjectBrandingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/1/object/branding',
+            resource_path='/2/object/branding',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -319,10 +322,10 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_edit_object_v1(
+    def branding_edit_object_v2(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
-        branding_edit_object_v1_request: BrandingEditObjectV1Request,
+        branding_edit_object_v2_request: BrandingEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -335,15 +338,15 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BrandingEditObjectV1Response:
+    ) -> BrandingEditObjectV2Response:
         """Edit an existing Branding
 
         
 
         :param pki_branding_id: (required)
         :type pki_branding_id: int
-        :param branding_edit_object_v1_request: (required)
-        :type branding_edit_object_v1_request: BrandingEditObjectV1Request
+        :param branding_edit_object_v2_request: (required)
+        :type branding_edit_object_v2_request: BrandingEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -366,9 +369,9 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_edit_object_v1_serialize(
+        _param = self._branding_edit_object_v2_serialize(
             pki_branding_id=pki_branding_id,
-            branding_edit_object_v1_request=branding_edit_object_v1_request,
+            branding_edit_object_v2_request=branding_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -376,7 +379,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingEditObjectV1Response",
+            '200': "BrandingEditObjectV2Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -391,10 +394,10 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_edit_object_v1_with_http_info(
+    def branding_edit_object_v2_with_http_info(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
-        branding_edit_object_v1_request: BrandingEditObjectV1Request,
+        branding_edit_object_v2_request: BrandingEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -407,15 +410,15 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BrandingEditObjectV1Response]:
+    ) -> ApiResponse[BrandingEditObjectV2Response]:
         """Edit an existing Branding
 
         
 
         :param pki_branding_id: (required)
         :type pki_branding_id: int
-        :param branding_edit_object_v1_request: (required)
-        :type branding_edit_object_v1_request: BrandingEditObjectV1Request
+        :param branding_edit_object_v2_request: (required)
+        :type branding_edit_object_v2_request: BrandingEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -438,9 +441,9 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_edit_object_v1_serialize(
+        _param = self._branding_edit_object_v2_serialize(
             pki_branding_id=pki_branding_id,
-            branding_edit_object_v1_request=branding_edit_object_v1_request,
+            branding_edit_object_v2_request=branding_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -448,7 +451,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingEditObjectV1Response",
+            '200': "BrandingEditObjectV2Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -463,10 +466,10 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_edit_object_v1_without_preload_content(
+    def branding_edit_object_v2_without_preload_content(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
-        branding_edit_object_v1_request: BrandingEditObjectV1Request,
+        branding_edit_object_v2_request: BrandingEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -486,8 +489,8 @@ class ObjectBrandingApi:
 
         :param pki_branding_id: (required)
         :type pki_branding_id: int
-        :param branding_edit_object_v1_request: (required)
-        :type branding_edit_object_v1_request: BrandingEditObjectV1Request
+        :param branding_edit_object_v2_request: (required)
+        :type branding_edit_object_v2_request: BrandingEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -510,9 +513,9 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_edit_object_v1_serialize(
+        _param = self._branding_edit_object_v2_serialize(
             pki_branding_id=pki_branding_id,
-            branding_edit_object_v1_request=branding_edit_object_v1_request,
+            branding_edit_object_v2_request=branding_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -520,7 +523,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingEditObjectV1Response",
+            '200': "BrandingEditObjectV2Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -530,10 +533,10 @@ class ObjectBrandingApi:
         return response_data.response
 
 
-    def _branding_edit_object_v1_serialize(
+    def _branding_edit_object_v2_serialize(
         self,
         pki_branding_id,
-        branding_edit_object_v1_request,
+        branding_edit_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -549,7 +552,9 @@ class ObjectBrandingApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -559,16 +564,17 @@ class ObjectBrandingApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if branding_edit_object_v1_request is not None:
-            _body_params = branding_edit_object_v1_request
+        if branding_edit_object_v2_request is not None:
+            _body_params = branding_edit_object_v2_request
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -591,7 +597,7 @@ class ObjectBrandingApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/1/object/branding/{pkiBrandingID}',
+            resource_path='/2/object/branding/{pkiBrandingID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -861,7 +867,9 @@ class ObjectBrandingApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -884,11 +892,12 @@ class ObjectBrandingApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1184,7 +1193,9 @@ class ObjectBrandingApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1213,12 +1224,13 @@ class ObjectBrandingApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json', 
-                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json', 
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                ]
+            )
 
 
         # authentication setting
@@ -1245,7 +1257,7 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_get_object_v2(
+    def branding_get_object_v3(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -1260,7 +1272,7 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BrandingGetObjectV2Response:
+    ) -> BrandingGetObjectV3Response:
         """Retrieve an existing Branding
 
         
@@ -1289,7 +1301,7 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_get_object_v2_serialize(
+        _param = self._branding_get_object_v3_serialize(
             pki_branding_id=pki_branding_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1298,7 +1310,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingGetObjectV2Response",
+            '200': "BrandingGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1313,7 +1325,7 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_get_object_v2_with_http_info(
+    def branding_get_object_v3_with_http_info(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -1328,7 +1340,7 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BrandingGetObjectV2Response]:
+    ) -> ApiResponse[BrandingGetObjectV3Response]:
         """Retrieve an existing Branding
 
         
@@ -1357,7 +1369,7 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_get_object_v2_serialize(
+        _param = self._branding_get_object_v3_serialize(
             pki_branding_id=pki_branding_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1366,7 +1378,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingGetObjectV2Response",
+            '200': "BrandingGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1381,7 +1393,7 @@ class ObjectBrandingApi:
 
 
     @validate_call
-    def branding_get_object_v2_without_preload_content(
+    def branding_get_object_v3_without_preload_content(
         self,
         pki_branding_id: Annotated[int, Field(strict=True, ge=0)],
         _request_timeout: Union[
@@ -1425,7 +1437,7 @@ class ObjectBrandingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._branding_get_object_v2_serialize(
+        _param = self._branding_get_object_v3_serialize(
             pki_branding_id=pki_branding_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1434,7 +1446,7 @@ class ObjectBrandingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BrandingGetObjectV2Response",
+            '200': "BrandingGetObjectV3Response",
             '404': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
@@ -1444,7 +1456,7 @@ class ObjectBrandingApi:
         return response_data.response
 
 
-    def _branding_get_object_v2_serialize(
+    def _branding_get_object_v3_serialize(
         self,
         pki_branding_id,
         _request_auth,
@@ -1462,7 +1474,9 @@ class ObjectBrandingApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1475,11 +1489,12 @@ class ObjectBrandingApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1489,7 +1504,7 @@ class ObjectBrandingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/2/object/branding/{pkiBrandingID}',
+            resource_path='/3/object/branding/{pkiBrandingID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

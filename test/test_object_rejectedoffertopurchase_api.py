@@ -27,10 +27,31 @@ class TestObjectRejectedoffertopurchaseApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_rejectedoffertopurchase_get_communication_count_v1(self) -> None:
+        """Test case for rejectedoffertopurchase_get_communication_count_v1
+
+        Retrieve Communication count
+        """
+        pass
+
     def test_rejectedoffertopurchase_get_communication_list_v1(self) -> None:
         """Test case for rejectedoffertopurchase_get_communication_list_v1
 
         Retrieve Communication list
+        """
+        pass
+
+    def test_rejectedoffertopurchase_get_communicationrecipients_v1(self) -> None:
+        """Test case for rejectedoffertopurchase_get_communicationrecipients_v1
+
+        Retrieve Rejectedoffertopurchase's Communicationrecipient
+        """
+        pass
+
+    def test_rejectedoffertopurchase_get_communicationsenders_v1(self) -> None:
+        """Test case for rejectedoffertopurchase_get_communicationsenders_v1
+
+        Retrieve Rejectedoffertopurchase's Communicationsender
         """
         pass
 

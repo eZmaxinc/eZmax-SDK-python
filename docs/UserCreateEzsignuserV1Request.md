@@ -30,7 +30,7 @@ print(UserCreateEzsignuserV1Request.to_json())
 # convert the object into a dict
 user_create_ezsignuser_v1_request_dict = user_create_ezsignuser_v1_request_instance.to_dict()
 # create an instance of UserCreateEzsignuserV1Request from a dict
-user_create_ezsignuser_v1_request_form_dict = user_create_ezsignuser_v1_request.from_dict(user_create_ezsignuser_v1_request_dict)
+user_create_ezsignuser_v1_request_from_dict = UserCreateEzsignuserV1Request.from_dict(user_create_ezsignuser_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

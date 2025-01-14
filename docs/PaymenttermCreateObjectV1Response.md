@@ -25,7 +25,7 @@ print(PaymenttermCreateObjectV1Response.to_json())
 # convert the object into a dict
 paymentterm_create_object_v1_response_dict = paymentterm_create_object_v1_response_instance.to_dict()
 # create an instance of PaymenttermCreateObjectV1Response from a dict
-paymentterm_create_object_v1_response_form_dict = paymentterm_create_object_v1_response.from_dict(paymentterm_create_object_v1_response_dict)
+paymentterm_create_object_v1_response_from_dict = PaymenttermCreateObjectV1Response.from_dict(paymentterm_create_object_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

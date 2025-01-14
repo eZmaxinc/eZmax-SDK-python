@@ -28,7 +28,7 @@ class TestWebhookCreateObjectV2Response(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WebhookCreateObjectV2Response:
         """Test WebhookCreateObjectV2Response
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WebhookCreateObjectV2Response`

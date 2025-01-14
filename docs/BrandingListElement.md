@@ -31,7 +31,7 @@ print(BrandingListElement.to_json())
 # convert the object into a dict
 branding_list_element_dict = branding_list_element_instance.to_dict()
 # create an instance of BrandingListElement from a dict
-branding_list_element_form_dict = branding_list_element.from_dict(branding_list_element_dict)
+branding_list_element_from_dict = BrandingListElement.from_dict(branding_list_element_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

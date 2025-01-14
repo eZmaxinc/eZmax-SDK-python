@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**creditcardclient_get_autocomplete_v2**](ObjectCreditcardclientApi.md#creditcardclient_get_autocomplete_v2) | **GET** /2/object/creditcardclient/getAutocomplete/{sSelector} | Retrieve Creditcardclients and IDs
 [**creditcardclient_get_list_v1**](ObjectCreditcardclientApi.md#creditcardclient_get_list_v1) | **GET** /1/object/creditcardclient/getList | Retrieve Creditcardclient list
 [**creditcardclient_get_object_v2**](ObjectCreditcardclientApi.md#creditcardclient_get_object_v2) | **GET** /2/object/creditcardclient/{pkiCreditcardclientID} | Retrieve an existing Creditcardclient
+[**creditcardclient_patch_object_v1**](ObjectCreditcardclientApi.md#creditcardclient_patch_object_v1) | **PATCH** /1/object/creditcardclient/{pkiCreditcardclientID} | Patch an existing Creditcardclient
 
 
 # **creditcardclient_create_object_v1**
@@ -89,6 +90,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful response |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -252,7 +254,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
-**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -296,7 +298,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectCreditcardclientApi(api_client)
     s_selector = 's_selector_example' # str | The type of Creditcardclients to return
-    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    e_filter_active = Active # str | Specify which results we want to display. (optional) (default to Active)
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
@@ -317,7 +319,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Creditcardclients to return | 
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to Active]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 
@@ -508,6 +510,90 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **creditcardclient_patch_object_v1**
+> CreditcardclientPatchObjectV1Response creditcardclient_patch_object_v1(pki_creditcardclient_id, creditcardclient_patch_object_v1_request)
+
+Patch an existing Creditcardclient
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.creditcardclient_patch_object_v1_request import CreditcardclientPatchObjectV1Request
+from eZmaxApi.models.creditcardclient_patch_object_v1_response import CreditcardclientPatchObjectV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectCreditcardclientApi(api_client)
+    pki_creditcardclient_id = 56 # int | The unique ID of the Creditcardclient
+    creditcardclient_patch_object_v1_request = eZmaxApi.CreditcardclientPatchObjectV1Request() # CreditcardclientPatchObjectV1Request | 
+
+    try:
+        # Patch an existing Creditcardclient
+        api_response = api_instance.creditcardclient_patch_object_v1(pki_creditcardclient_id, creditcardclient_patch_object_v1_request)
+        print("The response of ObjectCreditcardclientApi->creditcardclient_patch_object_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectCreditcardclientApi->creditcardclient_patch_object_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_creditcardclient_id** | **int**| The unique ID of the Creditcardclient | 
+ **creditcardclient_patch_object_v1_request** | [**CreditcardclientPatchObjectV1Request**](CreditcardclientPatchObjectV1Request.md)|  | 
+
+### Return type
+
+[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

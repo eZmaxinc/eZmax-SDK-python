@@ -25,7 +25,7 @@ print(CountryGetAutocompleteV2Response.to_json())
 # convert the object into a dict
 country_get_autocomplete_v2_response_dict = country_get_autocomplete_v2_response_instance.to_dict()
 # create an instance of CountryGetAutocompleteV2Response from a dict
-country_get_autocomplete_v2_response_form_dict = country_get_autocomplete_v2_response.from_dict(country_get_autocomplete_v2_response_dict)
+country_get_autocomplete_v2_response_from_dict = CountryGetAutocompleteV2Response.from_dict(country_get_autocomplete_v2_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

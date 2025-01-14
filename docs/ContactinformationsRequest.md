@@ -26,7 +26,7 @@ print(ContactinformationsRequest.to_json())
 # convert the object into a dict
 contactinformations_request_dict = contactinformations_request_instance.to_dict()
 # create an instance of ContactinformationsRequest from a dict
-contactinformations_request_form_dict = contactinformations_request.from_dict(contactinformations_request_dict)
+contactinformations_request_from_dict = ContactinformationsRequest.from_dict(contactinformations_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

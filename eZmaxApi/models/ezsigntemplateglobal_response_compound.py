@@ -98,9 +98,9 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateglobalsigner (list)
         _items = []
         if self.a_obj_ezsigntemplateglobalsigner:
-            for _item in self.a_obj_ezsigntemplateglobalsigner:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_ezsigntemplateglobalsigner in self.a_obj_ezsigntemplateglobalsigner:
+                if _item_a_obj_ezsigntemplateglobalsigner:
+                    _items.append(_item_a_obj_ezsigntemplateglobalsigner.to_dict())
             _dict['a_objEzsigntemplateglobalsigner'] = _items
         return _dict
 

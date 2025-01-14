@@ -27,8 +27,8 @@ class TestObjectEzsigntemplatesignatureApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_ezsigntemplatesignature_create_object_v1(self) -> None:
-        """Test case for ezsigntemplatesignature_create_object_v1
+    def test_ezsigntemplatesignature_create_object_v2(self) -> None:
+        """Test case for ezsigntemplatesignature_create_object_v2
 
         Create a new Ezsigntemplatesignature
         """
@@ -41,15 +41,15 @@ class TestObjectEzsigntemplatesignatureApi(unittest.TestCase):
         """
         pass
 
-    def test_ezsigntemplatesignature_edit_object_v1(self) -> None:
-        """Test case for ezsigntemplatesignature_edit_object_v1
+    def test_ezsigntemplatesignature_edit_object_v2(self) -> None:
+        """Test case for ezsigntemplatesignature_edit_object_v2
 
         Edit an existing Ezsigntemplatesignature
         """
         pass
 
-    def test_ezsigntemplatesignature_get_object_v2(self) -> None:
-        """Test case for ezsigntemplatesignature_get_object_v2
+    def test_ezsigntemplatesignature_get_object_v3(self) -> None:
+        """Test case for ezsigntemplatesignature_get_object_v3
 
         Retrieve an existing Ezsigntemplatesignature
         """

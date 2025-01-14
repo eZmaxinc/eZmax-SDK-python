@@ -24,7 +24,7 @@ print(EzsignformfieldgroupsignerRequest.to_json())
 # convert the object into a dict
 ezsignformfieldgroupsigner_request_dict = ezsignformfieldgroupsigner_request_instance.to_dict()
 # create an instance of EzsignformfieldgroupsignerRequest from a dict
-ezsignformfieldgroupsigner_request_form_dict = ezsignformfieldgroupsigner_request.from_dict(ezsignformfieldgroupsigner_request_dict)
+ezsignformfieldgroupsigner_request_from_dict = EzsignformfieldgroupsignerRequest.from_dict(ezsignformfieldgroupsigner_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

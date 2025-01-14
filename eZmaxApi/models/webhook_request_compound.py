@@ -33,6 +33,7 @@ class WebhookRequestCompound(BaseModel):
     A Webhook Object and children
     """ # noqa: E501
     pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID")
+    fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
@@ -44,7 +45,7 @@ class WebhookRequestCompound(BaseModel):
     b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
     a_obj_webhookheader: Optional[List[WebhookheaderRequestCompound]] = Field(default=None, alias="a_objWebhookheader")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "a_objWebhookheader"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "a_objWebhookheader"]
 
     @field_validator('s_webhook_url')
     def s_webhook_url_validate_regular_expression(cls, value):
@@ -95,9 +96,9 @@ class WebhookRequestCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_webhookheader (list)
         _items = []
         if self.a_obj_webhookheader:
-            for _item in self.a_obj_webhookheader:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_a_obj_webhookheader in self.a_obj_webhookheader:
+                if _item_a_obj_webhookheader:
+                    _items.append(_item_a_obj_webhookheader.to_dict())
             _dict['a_objWebhookheader'] = _items
         return _dict
 
@@ -112,6 +113,7 @@ class WebhookRequestCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiWebhookID": obj.get("pkiWebhookID"),
+            "fkiAuthenticationexternalID": obj.get("fkiAuthenticationexternalID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
             "sWebhookDescription": obj.get("sWebhookDescription"),
             "eWebhookModule": obj.get("eWebhookModule"),

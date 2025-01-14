@@ -2,10 +2,11 @@
 
 The Font Weight
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+* `NORMAL` (value: `'Normal'`)
+
+* `BOLD` (value: `'Bold'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

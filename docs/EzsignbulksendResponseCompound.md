@@ -35,7 +35,7 @@ print(EzsignbulksendResponseCompound.to_json())
 # convert the object into a dict
 ezsignbulksend_response_compound_dict = ezsignbulksend_response_compound_instance.to_dict()
 # create an instance of EzsignbulksendResponseCompound from a dict
-ezsignbulksend_response_compound_form_dict = ezsignbulksend_response_compound.from_dict(ezsignbulksend_response_compound_dict)
+ezsignbulksend_response_compound_from_dict = EzsignbulksendResponseCompound.from_dict(ezsignbulksend_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

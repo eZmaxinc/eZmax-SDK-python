@@ -28,7 +28,7 @@ print(UserstagedResponseCompound.to_json())
 # convert the object into a dict
 userstaged_response_compound_dict = userstaged_response_compound_instance.to_dict()
 # create an instance of UserstagedResponseCompound from a dict
-userstaged_response_compound_form_dict = userstaged_response_compound.from_dict(userstaged_response_compound_dict)
+userstaged_response_compound_from_dict = UserstagedResponseCompound.from_dict(userstaged_response_compound_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

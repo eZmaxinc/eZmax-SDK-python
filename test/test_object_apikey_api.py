@@ -48,6 +48,13 @@ class TestObjectApikeyApi(unittest.TestCase):
         """
         pass
 
+    def test_apikey_generate_delegated_credentials_v1(self) -> None:
+        """Test case for apikey_generate_delegated_credentials_v1
+
+        Generate a delegated credentials
+        """
+        pass
+
     def test_apikey_get_cors_v1(self) -> None:
         """Test case for apikey_get_cors_v1
 

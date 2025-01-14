@@ -28,7 +28,7 @@ class TestEzsigntemplatepackagesignermembershipResponseCompound(unittest.TestCas
 
     def make_instance(self, include_optional) -> EzsigntemplatepackagesignermembershipResponseCompound:
         """Test EzsigntemplatepackagesignermembershipResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EzsigntemplatepackagesignermembershipResponseCompound`

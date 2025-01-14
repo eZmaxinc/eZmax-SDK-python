@@ -25,7 +25,7 @@ print(WebsocketResponseInformationV1.to_json())
 # convert the object into a dict
 websocket_response_information_v1_dict = websocket_response_information_v1_instance.to_dict()
 # create an instance of WebsocketResponseInformationV1 from a dict
-websocket_response_information_v1_form_dict = websocket_response_information_v1.from_dict(websocket_response_information_v1_dict)
+websocket_response_information_v1_from_dict = WebsocketResponseInformationV1.from_dict(websocket_response_information_v1_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

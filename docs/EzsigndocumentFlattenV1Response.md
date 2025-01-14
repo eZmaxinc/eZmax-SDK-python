@@ -24,7 +24,7 @@ print(EzsigndocumentFlattenV1Response.to_json())
 # convert the object into a dict
 ezsigndocument_flatten_v1_response_dict = ezsigndocument_flatten_v1_response_instance.to_dict()
 # create an instance of EzsigndocumentFlattenV1Response from a dict
-ezsigndocument_flatten_v1_response_form_dict = ezsigndocument_flatten_v1_response.from_dict(ezsigndocument_flatten_v1_response_dict)
+ezsigndocument_flatten_v1_response_from_dict = EzsigndocumentFlattenV1Response.from_dict(ezsigndocument_flatten_v1_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

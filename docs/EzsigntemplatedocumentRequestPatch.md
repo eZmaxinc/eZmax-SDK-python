@@ -23,7 +23,7 @@ print(EzsigntemplatedocumentRequestPatch.to_json())
 # convert the object into a dict
 ezsigntemplatedocument_request_patch_dict = ezsigntemplatedocument_request_patch_instance.to_dict()
 # create an instance of EzsigntemplatedocumentRequestPatch from a dict
-ezsigntemplatedocument_request_patch_form_dict = ezsigntemplatedocument_request_patch.from_dict(ezsigntemplatedocument_request_patch_dict)
+ezsigntemplatedocument_request_patch_from_dict = EzsigntemplatedocumentRequestPatch.from_dict(ezsigntemplatedocument_request_patch_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

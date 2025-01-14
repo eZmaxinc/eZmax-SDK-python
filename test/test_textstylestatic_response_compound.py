@@ -28,7 +28,7 @@ class TestTextstylestaticResponseCompound(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TextstylestaticResponseCompound:
         """Test TextstylestaticResponseCompound
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TextstylestaticResponseCompound`
@@ -38,6 +38,7 @@ class TestTextstylestaticResponseCompound(unittest.TestCase):
             return TextstylestaticResponseCompound(
                 pki_textstylestatic_id = 216,
                 fki_font_id = 1,
+                s_font_name = 'Arial',
                 b_textstylestatic_bold = True,
                 b_textstylestatic_underline = True,
                 b_textstylestatic_italic = True,
@@ -48,6 +49,7 @@ class TestTextstylestaticResponseCompound(unittest.TestCase):
         else:
             return TextstylestaticResponseCompound(
                 fki_font_id = 1,
+                s_font_name = 'Arial',
                 b_textstylestatic_bold = True,
                 b_textstylestatic_underline = True,
                 b_textstylestatic_italic = True,

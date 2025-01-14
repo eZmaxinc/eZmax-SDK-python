@@ -23,7 +23,7 @@ print(UsergroupEditUsergroupmembershipsV1Request.to_json())
 # convert the object into a dict
 usergroup_edit_usergroupmemberships_v1_request_dict = usergroup_edit_usergroupmemberships_v1_request_instance.to_dict()
 # create an instance of UsergroupEditUsergroupmembershipsV1Request from a dict
-usergroup_edit_usergroupmemberships_v1_request_form_dict = usergroup_edit_usergroupmemberships_v1_request.from_dict(usergroup_edit_usergroupmemberships_v1_request_dict)
+usergroup_edit_usergroupmemberships_v1_request_from_dict = UsergroupEditUsergroupmembershipsV1Request.from_dict(usergroup_edit_usergroupmemberships_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
