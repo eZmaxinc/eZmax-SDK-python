@@ -19,21 +19,17 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
-from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
-from eZmaxApi.models.webhook_get_history_v1_response_m_payload import WebhookGetHistoryV1ResponseMPayload
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookGetHistoryV1Response(BaseModel):
+class ActivesessionGetCurrentV2ResponseMPayload(BaseModel):
     """
-    Response for GET /1/object/webhook/{pkiWebhookID}/getHistory
+    Payload for GET /1/object/activesession/getCurrent
     """ # noqa: E501
-    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
-    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
-    m_payload: WebhookGetHistoryV1ResponseMPayload = Field(alias="mPayload")
-    __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
+    obj_activesession: ActivesessionResponseCompound = Field(alias="objActivesession")
+    __properties: ClassVar[List[str]] = ["objActivesession"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +49,7 @@ class WebhookGetHistoryV1Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of WebhookGetHistoryV1Response from a JSON string"""
+        """Create an instance of ActivesessionGetCurrentV2ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,20 +70,14 @@ class WebhookGetHistoryV1Response(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of obj_debug_payload
-        if self.obj_debug_payload:
-            _dict['objDebugPayload'] = self.obj_debug_payload.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of obj_debug
-        if self.obj_debug:
-            _dict['objDebug'] = self.obj_debug.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of m_payload
-        if self.m_payload:
-            _dict['mPayload'] = self.m_payload.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_activesession
+        if self.obj_activesession:
+            _dict['objActivesession'] = self.obj_activesession.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of WebhookGetHistoryV1Response from a dict"""
+        """Create an instance of ActivesessionGetCurrentV2ResponseMPayload from a dict"""
         if obj is None:
             return None
 
@@ -95,9 +85,7 @@ class WebhookGetHistoryV1Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj["objDebugPayload"]) if obj.get("objDebugPayload") is not None else None,
-            "objDebug": CommonResponseObjDebug.from_dict(obj["objDebug"]) if obj.get("objDebug") is not None else None,
-            "mPayload": WebhookGetHistoryV1ResponseMPayload.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
+            "objActivesession": ActivesessionResponseCompound.from_dict(obj["objActivesession"]) if obj.get("objActivesession") is not None else None
         })
         return _obj
 

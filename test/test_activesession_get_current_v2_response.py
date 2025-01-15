@@ -15,10 +15,10 @@
 
 import unittest
 
-from eZmaxApi.models.webhook_get_history_v1_response import WebhookGetHistoryV1Response
+from eZmaxApi.models.activesession_get_current_v2_response import ActivesessionGetCurrentV2Response
 
-class TestWebhookGetHistoryV1Response(unittest.TestCase):
-    """WebhookGetHistoryV1Response unit test stubs"""
+class TestActivesessionGetCurrentV2Response(unittest.TestCase):
+    """ActivesessionGetCurrentV2Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,16 +26,16 @@ class TestWebhookGetHistoryV1Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> WebhookGetHistoryV1Response:
-        """Test WebhookGetHistoryV1Response
+    def make_instance(self, include_optional) -> ActivesessionGetCurrentV2Response:
+        """Test ActivesessionGetCurrentV2Response
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `WebhookGetHistoryV1Response`
+        # uncomment below to create an instance of `ActivesessionGetCurrentV2Response`
         """
-        model = WebhookGetHistoryV1Response()
+        model = ActivesessionGetCurrentV2Response()
         if include_optional:
-            return WebhookGetHistoryV1Response(
+            return ActivesessionGetCurrentV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
                     i_version_min = 1, 
                     i_version_max = 2, 
@@ -45,13 +45,11 @@ class TestWebhookGetHistoryV1Response(unittest.TestCase):
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
-                m_payload = eZmaxApi.models.webhook_get_history_v1_response_m_payload.webhook-getHistory-v1-Response-mPayload(
-                    a_obj_webhooklog = [
-                        eZmaxApi.models.custom_webhooklog_response.Custom-Webhooklog-Response()
-                        ], )
+                m_payload = eZmaxApi.models.activesession_get_current_v2_response_m_payload.activesession-getCurrent-v2-Response-mPayload(
+                    obj_activesession = eZmaxApi.models.activesession_response_compound.activesession-ResponseCompound(), )
             )
         else:
-            return WebhookGetHistoryV1Response(
+            return ActivesessionGetCurrentV2Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
                     i_version_min = 1, 
                     i_version_max = 2, 
@@ -60,15 +58,13 @@ class TestWebhookGetHistoryV1Response(unittest.TestCase):
                         ], 
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
-                m_payload = eZmaxApi.models.webhook_get_history_v1_response_m_payload.webhook-getHistory-v1-Response-mPayload(
-                    a_obj_webhooklog = [
-                        eZmaxApi.models.custom_webhooklog_response.Custom-Webhooklog-Response()
-                        ], ),
+                m_payload = eZmaxApi.models.activesession_get_current_v2_response_m_payload.activesession-getCurrent-v2-Response-mPayload(
+                    obj_activesession = eZmaxApi.models.activesession_response_compound.activesession-ResponseCompound(), ),
         )
         """
 
-    def testWebhookGetHistoryV1Response(self):
-        """Test WebhookGetHistoryV1Response"""
+    def testActivesessionGetCurrentV2Response(self):
+        """Test ActivesessionGetCurrentV2Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -41,6 +41,13 @@ class TestObjectActivesessionApi(unittest.TestCase):
         """
         pass
 
+    def test_activesession_get_current_v2(self) -> None:
+        """Test case for activesession_get_current_v2
+
+        Get Current Activesession
+        """
+        pass
+
     def test_activesession_get_list_v1(self) -> None:
         """Test case for activesession_get_list_v1
 
