@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
 from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
 from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzsignfolderSendreminderfrequency
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
@@ -35,7 +34,7 @@ class EzsignfolderResponse(BaseModel):
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    obj_ezsignfoldertype: Optional[CustomEzsignfoldertypeResponse] = Field(default=None, alias="objEzsignfoldertype")
+    obj_ezsignfoldertype: Optional[object] = Field(default=None, description="A Custom Ezsignfoldertype Object", alias="objEzsignfoldertype")
     fki_timezone_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Timezone", alias="fkiTimezoneID")
     e_ezsignfolder_completion: FieldEEzsignfolderCompletion = Field(alias="eEzsignfolderCompletion")
     s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, alias="sEzsignfoldertypeNameX")
@@ -117,9 +116,6 @@ class EzsignfolderResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of obj_ezsignfoldertype
-        if self.obj_ezsignfoldertype:
-            _dict['objEzsignfoldertype'] = self.obj_ezsignfoldertype.to_dict()
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
@@ -137,7 +133,7 @@ class EzsignfolderResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj["objEzsignfoldertype"]) if obj.get("objEzsignfoldertype") is not None else None,
+            "objEzsignfoldertype": obj.get("objEzsignfoldertype"),
             "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "eEzsignfolderCompletion": obj.get("eEzsignfolderCompletion"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),

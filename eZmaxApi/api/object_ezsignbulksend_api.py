@@ -20,20 +20,18 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_request import EzsignbulksendCreateEzsignbulksendtransmissionV2Request
 from eZmaxApi.models.ezsignbulksend_create_ezsignbulksendtransmission_v2_response import EzsignbulksendCreateEzsignbulksendtransmissionV2Response
 from eZmaxApi.models.ezsignbulksend_create_object_v1_request import EzsignbulksendCreateObjectV1Request
 from eZmaxApi.models.ezsignbulksend_create_object_v1_response import EzsignbulksendCreateObjectV1Response
-from eZmaxApi.models.ezsignbulksend_delete_object_v1_response import EzsignbulksendDeleteObjectV1Response
 from eZmaxApi.models.ezsignbulksend_edit_object_v1_request import EzsignbulksendEditObjectV1Request
-from eZmaxApi.models.ezsignbulksend_edit_object_v1_response import EzsignbulksendEditObjectV1Response
 from eZmaxApi.models.ezsignbulksend_get_ezsignbulksendtransmissions_v1_response import EzsignbulksendGetEzsignbulksendtransmissionsV1Response
 from eZmaxApi.models.ezsignbulksend_get_ezsignsignatures_automatic_v1_response import EzsignbulksendGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.models.ezsignbulksend_get_forms_data_v1_response import EzsignbulksendGetFormsDataV1Response
 from eZmaxApi.models.ezsignbulksend_get_list_v1_response import EzsignbulksendGetListV1Response
 from eZmaxApi.models.ezsignbulksend_get_object_v2_response import EzsignbulksendGetObjectV2Response
 from eZmaxApi.models.ezsignbulksend_reorder_v1_request import EzsignbulksendReorderV1Request
-from eZmaxApi.models.ezsignbulksend_reorder_v1_response import EzsignbulksendReorderV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -636,7 +634,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignbulksendDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Ezsignbulksend
 
         
@@ -705,7 +703,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignbulksendDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Ezsignbulksend
 
         
@@ -904,7 +902,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignbulksendEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Ezsignbulksend
 
         
@@ -977,7 +975,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignbulksendEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Ezsignbulksend
 
         
@@ -2883,7 +2881,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignbulksendReorderV1Response:
+    ) -> CommonResponse:
         """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
@@ -2955,7 +2953,7 @@ class ObjectEzsignbulksendApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignbulksendReorderV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 

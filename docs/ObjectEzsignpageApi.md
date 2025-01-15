@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **ezsignpage_consult_v1**
-> EzsignpageConsultV1Response ezsignpage_consult_v1(pki_ezsignpage_id, body)
+> CommonResponse ezsignpage_consult_v1(pki_ezsignpage_id, body)
 
 Consult an Ezsignpage
 
@@ -18,7 +18,7 @@ Consult an Ezsignpage
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignpage_consult_v1_response import EzsignpageConsultV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignpageConsultV1Response**](EzsignpageConsultV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

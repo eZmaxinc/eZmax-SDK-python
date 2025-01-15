@@ -42,7 +42,7 @@ class TestDiscussionResponse(unittest.TestCase):
                 dt_discussion_lastread = '2020-12-31 23:59:59',
                 i_discussionmessage_count = 4,
                 i_discussionmessage_countunread = 4,
-                obj_discussionconfiguration = eZmaxApi.models.custom_discussionconfiguration_response.Custom-Discussionconfiguration-Response()
+                obj_discussionconfiguration = None
             )
         else:
             return DiscussionResponse(

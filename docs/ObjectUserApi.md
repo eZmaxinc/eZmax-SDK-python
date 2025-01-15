@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_edit_object_v1**
-> UserEditObjectV1Response user_edit_object_v1(pki_user_id, user_edit_object_v1_request)
+> CommonResponse user_edit_object_v1(pki_user_id, user_edit_object_v1_request)
 
 Edit an existing User
 
@@ -279,8 +279,8 @@ Edit an existing User
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.user_edit_object_v1_request import UserEditObjectV1Request
-from eZmaxApi.models.user_edit_object_v1_response import UserEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserEditObjectV1Response**](UserEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1238,7 +1238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_send_password_reset_v1**
-> UserSendPasswordResetV1Response user_send_password_reset_v1(pki_user_id, body)
+> CommonResponse user_send_password_reset_v1(pki_user_id, body)
 
 Send password reset
 
@@ -1250,7 +1250,7 @@ Send the password reset email
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.user_send_password_reset_v1_response import UserSendPasswordResetV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserSendPasswordResetV1Response**](UserSendPasswordResetV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

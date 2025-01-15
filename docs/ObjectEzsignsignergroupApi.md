@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsignergroup_delete_object_v1**
-> EzsignsignergroupDeleteObjectV1Response ezsignsignergroup_delete_object_v1(pki_ezsignsignergroup_id)
+> CommonResponse ezsignsignergroup_delete_object_v1(pki_ezsignsignergroup_id)
 
 Delete an existing Ezsignsignergroup
 
@@ -105,7 +105,7 @@ Delete an existing Ezsignsignergroup
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignsignergroup_delete_object_v1_response import EzsignsignergroupDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupDeleteObjectV1Response**](EzsignsignergroupDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsignergroup_edit_object_v1**
-> EzsignsignergroupEditObjectV1Response ezsignsignergroup_edit_object_v1(pki_ezsignsignergroup_id, ezsignsignergroup_edit_object_v1_request)
+> CommonResponse ezsignsignergroup_edit_object_v1(pki_ezsignsignergroup_id, ezsignsignergroup_edit_object_v1_request)
 
 Edit an existing Ezsignsignergroup
 
@@ -269,8 +269,8 @@ Edit an existing Ezsignsignergroup
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsignergroup_edit_object_v1_request import EzsignsignergroupEditObjectV1Request
-from eZmaxApi.models.ezsignsignergroup_edit_object_v1_response import EzsignsignergroupEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignsignergroupEditObjectV1Response**](EzsignsignergroupEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

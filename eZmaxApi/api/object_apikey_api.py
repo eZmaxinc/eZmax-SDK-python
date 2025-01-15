@@ -23,7 +23,6 @@ from typing_extensions import Annotated
 from eZmaxApi.models.apikey_create_object_v2_request import ApikeyCreateObjectV2Request
 from eZmaxApi.models.apikey_create_object_v2_response import ApikeyCreateObjectV2Response
 from eZmaxApi.models.apikey_edit_object_v1_request import ApikeyEditObjectV1Request
-from eZmaxApi.models.apikey_edit_object_v1_response import ApikeyEditObjectV1Response
 from eZmaxApi.models.apikey_edit_permissions_v1_request import ApikeyEditPermissionsV1Request
 from eZmaxApi.models.apikey_edit_permissions_v1_response import ApikeyEditPermissionsV1Response
 from eZmaxApi.models.apikey_generate_delegated_credentials_v1_request import ApikeyGenerateDelegatedCredentialsV1Request
@@ -35,6 +34,7 @@ from eZmaxApi.models.apikey_get_permissions_v1_response import ApikeyGetPermissi
 from eZmaxApi.models.apikey_get_subnets_v1_response import ApikeyGetSubnetsV1Response
 from eZmaxApi.models.apikey_regenerate_v1_request import ApikeyRegenerateV1Request
 from eZmaxApi.models.apikey_regenerate_v1_response import ApikeyRegenerateV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -346,7 +346,7 @@ class ObjectApikeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApikeyEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Apikey
 
         
@@ -419,7 +419,7 @@ class ObjectApikeyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ApikeyEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Apikey
 
         

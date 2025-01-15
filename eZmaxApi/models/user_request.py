@@ -21,11 +21,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.email_request_compound import EmailRequestCompound
+from eZmaxApi.models.email_request import EmailRequest
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 from eZmaxApi.models.field_e_user_type import FieldEUserType
-from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
+from eZmaxApi.models.phone_request import PhoneRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -42,10 +42,10 @@ class UserRequest(BaseModel):
     fki_department_id_default: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentIDDefault")
     fki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    obj_email: EmailRequestCompound = Field(alias="objEmail")
+    obj_email: EmailRequest = Field(description="An Email Object and children to create a complete structure", alias="objEmail")
     fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    obj_phone_home: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneHome")
-    obj_phone_sms: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneSMS")
+    obj_phone_home: Optional[PhoneRequest] = Field(default=None, description="A Phone Object and children to create a complete structure", alias="objPhoneHome")
+    obj_phone_sms: Optional[PhoneRequest] = Field(default=None, description="A Phone Object and children to create a complete structure", alias="objPhoneSMS")
     fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|", alias="fkiSecretquestionID")
     s_user_secretresponse: Optional[StrictStr] = Field(default=None, description="The answer to the Secretquestion", alias="sUserSecretresponse")
     fki_module_id_form: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleIDForm")
@@ -149,10 +149,10 @@ class UserRequest(BaseModel):
             "fkiDepartmentIDDefault": obj.get("fkiDepartmentIDDefault"),
             "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
-            "objEmail": EmailRequestCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailRequest.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "objPhoneHome": PhoneRequestCompound.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
-            "objPhoneSMS": PhoneRequestCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
+            "objPhoneHome": PhoneRequest.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
+            "objPhoneSMS": PhoneRequest.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
             "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
             "sUserSecretresponse": obj.get("sUserSecretresponse"),
             "fkiModuleIDForm": obj.get("fkiModuleIDForm"),

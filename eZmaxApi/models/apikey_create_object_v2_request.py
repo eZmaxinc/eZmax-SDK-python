@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.apikey_request_compound import ApikeyRequestCompound
+from eZmaxApi.models.apikey_request import ApikeyRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class ApikeyCreateObjectV2Request(BaseModel):
     """
     Request for POST /2/object/apikey
     """ # noqa: E501
-    a_obj_apikey: Annotated[List[ApikeyRequestCompound], Field(min_length=1)] = Field(alias="a_objApikey")
+    a_obj_apikey: Annotated[List[ApikeyRequest], Field(min_length=1)] = Field(alias="a_objApikey")
     __properties: ClassVar[List[str]] = ["a_objApikey"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class ApikeyCreateObjectV2Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objApikey": [ApikeyRequestCompound.from_dict(_item) for _item in obj["a_objApikey"]] if obj.get("a_objApikey") is not None else None
+            "a_objApikey": [ApikeyRequest.from_dict(_item) for _item in obj["a_objApikey"]] if obj.get("a_objApikey") is not None else None
         })
         return _obj
 

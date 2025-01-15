@@ -20,7 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBytes, StrictStr, field_validator
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsignfolder_archive_v1_response import EzsignfolderArchiveV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_batch_download_v1_request import EzsignfolderBatchDownloadV1Request
 from eZmaxApi.models.ezsignfolder_create_object_v1_request import EzsignfolderCreateObjectV1Request
 from eZmaxApi.models.ezsignfolder_create_object_v1_response import EzsignfolderCreateObjectV1Response
@@ -28,13 +28,8 @@ from eZmaxApi.models.ezsignfolder_create_object_v2_request import EzsignfolderCr
 from eZmaxApi.models.ezsignfolder_create_object_v2_response import EzsignfolderCreateObjectV2Response
 from eZmaxApi.models.ezsignfolder_create_object_v3_request import EzsignfolderCreateObjectV3Request
 from eZmaxApi.models.ezsignfolder_create_object_v3_response import EzsignfolderCreateObjectV3Response
-from eZmaxApi.models.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
 from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request
-from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_response import EzsignfolderDisposeEzsignfoldersV1Response
-from eZmaxApi.models.ezsignfolder_dispose_v1_response import EzsignfolderDisposeV1Response
 from eZmaxApi.models.ezsignfolder_edit_object_v3_request import EzsignfolderEditObjectV3Request
-from eZmaxApi.models.ezsignfolder_edit_object_v3_response import EzsignfolderEditObjectV3Response
-from eZmaxApi.models.ezsignfolder_end_prematurely_v1_response import EzsignfolderEndPrematurelyV1Response
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response import EzsignfolderGetActionableElementsV1Response
 from eZmaxApi.models.ezsignfolder_get_attachment_count_v1_response import EzsignfolderGetAttachmentCountV1Response
 from eZmaxApi.models.ezsignfolder_get_attachments_v1_response import EzsignfolderGetAttachmentsV1Response
@@ -55,14 +50,9 @@ from eZmaxApi.models.ezsignfolder_import_ezsignfoldersignerassociations_v1_respo
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v1_request import EzsignfolderImportEzsigntemplatepackageV1Request
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v1_response import EzsignfolderImportEzsigntemplatepackageV1Response
 from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request
-from eZmaxApi.models.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response
 from eZmaxApi.models.ezsignfolder_reorder_v2_request import EzsignfolderReorderV2Request
-from eZmaxApi.models.ezsignfolder_reorder_v2_response import EzsignfolderReorderV2Response
 from eZmaxApi.models.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
-from eZmaxApi.models.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
 from eZmaxApi.models.ezsignfolder_send_v3_request import EzsignfolderSendV3Request
-from eZmaxApi.models.ezsignfolder_send_v3_response import EzsignfolderSendV3Response
-from eZmaxApi.models.ezsignfolder_unsend_v1_response import EzsignfolderUnsendV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -100,7 +90,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderArchiveV1Response:
+    ) -> CommonResponse:
         """Archive the Ezsignfolder
 
         
@@ -173,7 +163,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderArchiveV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Archive the Ezsignfolder
 
         
@@ -1519,7 +1509,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Ezsignfolder
 
 
@@ -1587,7 +1577,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Ezsignfolder
 
 
@@ -1783,7 +1773,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderDisposeEzsignfoldersV1Response:
+    ) -> CommonResponse:
         """Dispose Ezsignfolders
 
         
@@ -1852,7 +1842,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderDisposeEzsignfoldersV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Dispose Ezsignfolders
 
         
@@ -2064,7 +2054,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderDisposeV1Response:
+    ) -> CommonResponse:
         """Dispose the Ezsignfolder
 
         
@@ -2137,7 +2127,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderDisposeV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Dispose the Ezsignfolder
 
         
@@ -2359,7 +2349,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderEditObjectV3Response:
+    ) -> CommonResponse:
         """Edit an existing Ezsignfolder
 
         
@@ -2432,7 +2422,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderEditObjectV3Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Ezsignfolder
 
         
@@ -2654,7 +2644,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderEndPrematurelyV1Response:
+    ) -> CommonResponse:
         """End prematurely
 
         End prematurely all Ezsigndocument of Ezsignfolder when some signatures are still required
@@ -2727,7 +2717,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderEndPrematurelyV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """End prematurely
 
         End prematurely all Ezsigndocument of Ezsignfolder when some signatures are still required
@@ -7584,7 +7574,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderReorderV1Response:
+    ) -> CommonResponse:
         """(Deprecated) Reorder Ezsigndocuments in the Ezsignfolder
 
 
@@ -7657,7 +7647,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderReorderV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """(Deprecated) Reorder Ezsigndocuments in the Ezsignfolder
 
 
@@ -7879,7 +7869,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderReorderV2Response:
+    ) -> CommonResponse:
         """Reorder Ezsigndocuments in the Ezsignfolder
 
 
@@ -7951,7 +7941,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderReorderV2Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Reorder Ezsigndocuments in the Ezsignfolder
 
 
@@ -8171,7 +8161,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderSendV1Response:
+    ) -> CommonResponse:
         """(Deprecated) Send the Ezsignfolder to the signatories for signature
 
         
@@ -8245,7 +8235,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderSendV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """(Deprecated) Send the Ezsignfolder to the signatories for signature
 
         
@@ -8469,7 +8459,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderSendV3Response:
+    ) -> CommonResponse:
         """Send the Ezsignfolder to the signatories for signature
 
         
@@ -8542,7 +8532,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderSendV3Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Send the Ezsignfolder to the signatories for signature
 
         
@@ -8764,7 +8754,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignfolderUnsendV1Response:
+    ) -> CommonResponse:
         """Unsend the Ezsignfolder
 
         Once an Ezsignfolder has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsignfolder and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on \"Non-completed\" Ezsigndocuments will be lost.
@@ -8837,7 +8827,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignfolderUnsendV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Unsend the Ezsignfolder
 
         Once an Ezsignfolder has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsignfolder and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on \"Non-completed\" Ezsigndocuments will be lost.

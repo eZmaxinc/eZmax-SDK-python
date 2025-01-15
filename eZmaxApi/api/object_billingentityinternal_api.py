@@ -23,10 +23,10 @@ from typing_extensions import Annotated
 from eZmaxApi.models.billingentityinternal_create_object_v1_request import BillingentityinternalCreateObjectV1Request
 from eZmaxApi.models.billingentityinternal_create_object_v1_response import BillingentityinternalCreateObjectV1Response
 from eZmaxApi.models.billingentityinternal_edit_object_v1_request import BillingentityinternalEditObjectV1Request
-from eZmaxApi.models.billingentityinternal_edit_object_v1_response import BillingentityinternalEditObjectV1Response
 from eZmaxApi.models.billingentityinternal_get_autocomplete_v2_response import BillingentityinternalGetAutocompleteV2Response
 from eZmaxApi.models.billingentityinternal_get_list_v1_response import BillingentityinternalGetListV1Response
 from eZmaxApi.models.billingentityinternal_get_object_v2_response import BillingentityinternalGetObjectV2Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -338,7 +338,7 @@ class ObjectBillingentityinternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BillingentityinternalEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Billingentityinternal
 
         
@@ -411,7 +411,7 @@ class ObjectBillingentityinternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BillingentityinternalEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Billingentityinternal
 
         

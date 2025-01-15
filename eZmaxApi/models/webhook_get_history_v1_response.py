@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
-from eZmaxApi.models.webhook_get_history_v1_response_m_payload import WebhookGetHistoryV1ResponseMPayload
+from eZmaxApi.models.object import object
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +32,7 @@ class WebhookGetHistoryV1Response(BaseModel):
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
-    m_payload: WebhookGetHistoryV1ResponseMPayload = Field(alias="mPayload")
+    m_payload: object = Field(description="Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory", alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 
     model_config = ConfigDict(
@@ -80,9 +80,6 @@ class WebhookGetHistoryV1Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_debug
         if self.obj_debug:
             _dict['objDebug'] = self.obj_debug.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of m_payload
-        if self.m_payload:
-            _dict['mPayload'] = self.m_payload.to_dict()
         return _dict
 
     @classmethod
@@ -97,7 +94,7 @@ class WebhookGetHistoryV1Response(BaseModel):
         _obj = cls.model_validate({
             "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj["objDebugPayload"]) if obj.get("objDebugPayload") is not None else None,
             "objDebug": CommonResponseObjDebug.from_dict(obj["objDebug"]) if obj.get("objDebug") is not None else None,
-            "mPayload": WebhookGetHistoryV1ResponseMPayload.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
+            "mPayload": obj.get("mPayload")
         })
         return _obj
 

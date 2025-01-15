@@ -19,11 +19,10 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.cors_create_object_v1_request import CorsCreateObjectV1Request
 from eZmaxApi.models.cors_create_object_v1_response import CorsCreateObjectV1Response
-from eZmaxApi.models.cors_delete_object_v1_response import CorsDeleteObjectV1Response
 from eZmaxApi.models.cors_edit_object_v1_request import CorsEditObjectV1Request
-from eZmaxApi.models.cors_edit_object_v1_response import CorsEditObjectV1Response
 from eZmaxApi.models.cors_get_object_v2_response import CorsGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -334,7 +333,7 @@ class ObjectCorsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CorsDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Cors
 
         
@@ -402,7 +401,7 @@ class ObjectCorsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CorsDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Cors
 
         
@@ -599,7 +598,7 @@ class ObjectCorsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CorsEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Cors
 
         
@@ -672,7 +671,7 @@ class ObjectCorsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CorsEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Cors
 
         

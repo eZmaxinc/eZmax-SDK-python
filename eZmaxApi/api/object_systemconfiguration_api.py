@@ -19,8 +19,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
-from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
 from eZmaxApi.models.systemconfiguration_get_object_v2_response import SystemconfigurationGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -58,7 +58,7 @@ class ObjectSystemconfigurationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemconfigurationEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Systemconfiguration
 
         
@@ -131,7 +131,7 @@ class ObjectSystemconfigurationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemconfigurationEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Systemconfiguration
 
         

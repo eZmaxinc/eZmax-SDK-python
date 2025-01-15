@@ -21,10 +21,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.custom_dropdown_element_request_compound import CustomDropdownElementRequestCompound
+from eZmaxApi.models.custom_dropdown_element_request import CustomDropdownElementRequest
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.ezsigntemplateformfield_request_compound import EzsigntemplateformfieldRequestCompound
-from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request_compound import EzsigntemplateformfieldgroupsignerRequestCompound
+from eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request import EzsigntemplateformfieldgroupsignerRequest
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_signerrequirement import FieldEEzsigntemplateformfieldgroupSignerrequirement
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_tooltipposition import FieldEEzsigntemplateformfieldgroupTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplateformfieldgroup_type import FieldEEzsigntemplateformfieldgroupType
@@ -52,8 +52,8 @@ class EzsigntemplateformfieldgroupRequestCompound(BaseModel):
     e_ezsigntemplateformfieldgroup_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsigntemplateformfieldgroupTextvalidation")
     t_ezsigntemplateformfieldgroup_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsigntemplatesigner about the Ezsigntemplateformfieldgroup", alias="tEzsigntemplateformfieldgroupTooltip")
     e_ezsigntemplateformfieldgroup_tooltipposition: Optional[FieldEEzsigntemplateformfieldgroupTooltipposition] = Field(default=None, alias="eEzsigntemplateformfieldgroupTooltipposition")
-    a_obj_ezsigntemplateformfieldgroupsigner: List[EzsigntemplateformfieldgroupsignerRequestCompound] = Field(alias="a_objEzsigntemplateformfieldgroupsigner")
-    a_obj_dropdown_element: Optional[List[CustomDropdownElementRequestCompound]] = Field(default=None, alias="a_objDropdownElement")
+    a_obj_ezsigntemplateformfieldgroupsigner: List[EzsigntemplateformfieldgroupsignerRequest] = Field(alias="a_objEzsigntemplateformfieldgroupsigner")
+    a_obj_dropdown_element: Optional[List[CustomDropdownElementRequest]] = Field(default=None, alias="a_objDropdownElement")
     a_obj_ezsigntemplateformfield: List[EzsigntemplateformfieldRequestCompound] = Field(alias="a_objEzsigntemplateformfield")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldgroupID", "fkiEzsigntemplatedocumentID", "eEzsigntemplateformfieldgroupType", "eEzsigntemplateformfieldgroupSignerrequirement", "sEzsigntemplateformfieldgroupLabel", "iEzsigntemplateformfieldgroupStep", "sEzsigntemplateformfieldgroupDefaultvalue", "iEzsigntemplateformfieldgroupFilledmin", "iEzsigntemplateformfieldgroupFilledmax", "bEzsigntemplateformfieldgroupReadonly", "iEzsigntemplateformfieldgroupMaxlength", "bEzsigntemplateformfieldgroupEncrypted", "sEzsigntemplateformfieldgroupRegexp", "sEzsigntemplateformfieldgroupTextvalidationcustommessage", "eEzsigntemplateformfieldgroupTextvalidation", "tEzsigntemplateformfieldgroupTooltip", "eEzsigntemplateformfieldgroupTooltipposition", "a_objEzsigntemplateformfieldgroupsigner", "a_objDropdownElement", "a_objEzsigntemplateformfield"]
 
@@ -156,8 +156,8 @@ class EzsigntemplateformfieldgroupRequestCompound(BaseModel):
             "eEzsigntemplateformfieldgroupTextvalidation": obj.get("eEzsigntemplateformfieldgroupTextvalidation"),
             "tEzsigntemplateformfieldgroupTooltip": obj.get("tEzsigntemplateformfieldgroupTooltip"),
             "eEzsigntemplateformfieldgroupTooltipposition": obj.get("eEzsigntemplateformfieldgroupTooltipposition"),
-            "a_objEzsigntemplateformfieldgroupsigner": [EzsigntemplateformfieldgroupsignerRequestCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateformfieldgroupsigner"]] if obj.get("a_objEzsigntemplateformfieldgroupsigner") is not None else None,
-            "a_objDropdownElement": [CustomDropdownElementRequestCompound.from_dict(_item) for _item in obj["a_objDropdownElement"]] if obj.get("a_objDropdownElement") is not None else None,
+            "a_objEzsigntemplateformfieldgroupsigner": [EzsigntemplateformfieldgroupsignerRequest.from_dict(_item) for _item in obj["a_objEzsigntemplateformfieldgroupsigner"]] if obj.get("a_objEzsigntemplateformfieldgroupsigner") is not None else None,
+            "a_objDropdownElement": [CustomDropdownElementRequest.from_dict(_item) for _item in obj["a_objDropdownElement"]] if obj.get("a_objDropdownElement") is not None else None,
             "a_objEzsigntemplateformfield": [EzsigntemplateformfieldRequestCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateformfield"]] if obj.get("a_objEzsigntemplateformfield") is not None else None
         })
         return _obj

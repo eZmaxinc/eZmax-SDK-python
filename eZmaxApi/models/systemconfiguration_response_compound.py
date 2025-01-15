@@ -21,12 +21,12 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.custom_branding_response import CustomBrandingResponse
 from eZmaxApi.models.field_e_systemconfiguration_ezsign import FieldESystemconfigurationEzsign
 from eZmaxApi.models.field_e_systemconfiguration_ezsignofficeplan import FieldESystemconfigurationEzsignofficeplan
 from eZmaxApi.models.field_e_systemconfiguration_language1 import FieldESystemconfigurationLanguage1
 from eZmaxApi.models.field_e_systemconfiguration_language2 import FieldESystemconfigurationLanguage2
 from eZmaxApi.models.field_e_systemconfiguration_newexternaluseraction import FieldESystemconfigurationNewexternaluseraction
+from eZmaxApi.models.object import object
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -50,7 +50,7 @@ class SystemconfigurationResponseCompound(BaseModel):
     b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
     dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
     dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
-    obj_branding: Optional[CustomBrandingResponse] = Field(default=None, alias="objBranding")
+    obj_branding: Optional[object] = Field(default=None, description="A Custom Branding Object", alias="objBranding")
     __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiSystemconfigurationtypeID", "fkiBrandingID", "sSystemconfigurationtypeDescriptionX", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationHascreditcardmerchant", "bSystemconfigurationIsdisposalactive", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "objBranding"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')
@@ -112,9 +112,6 @@ class SystemconfigurationResponseCompound(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of obj_branding
-        if self.obj_branding:
-            _dict['objBranding'] = self.obj_branding.to_dict()
         return _dict
 
     @classmethod
@@ -143,7 +140,7 @@ class SystemconfigurationResponseCompound(BaseModel):
             "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
             "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
             "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend"),
-            "objBranding": CustomBrandingResponse.from_dict(obj["objBranding"]) if obj.get("objBranding") is not None else None
+            "objBranding": obj.get("objBranding")
         })
         return _obj
 

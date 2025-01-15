@@ -20,13 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatepackage_create_object_v1_request import EzsigntemplatepackageCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatepackage_create_object_v1_response import EzsigntemplatepackageCreateObjectV1Response
-from eZmaxApi.models.ezsigntemplatepackage_delete_object_v1_response import EzsigntemplatepackageDeleteObjectV1Response
 from eZmaxApi.models.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_request import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request
 from eZmaxApi.models.ezsigntemplatepackage_edit_ezsigntemplatepackagesigners_v1_response import EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Response
 from eZmaxApi.models.ezsigntemplatepackage_edit_object_v1_request import EzsigntemplatepackageEditObjectV1Request
-from eZmaxApi.models.ezsigntemplatepackage_edit_object_v1_response import EzsigntemplatepackageEditObjectV1Response
 from eZmaxApi.models.ezsigntemplatepackage_get_autocomplete_v2_response import EzsigntemplatepackageGetAutocompleteV2Response
 from eZmaxApi.models.ezsigntemplatepackage_get_list_v1_response import EzsigntemplatepackageGetListV1Response
 from eZmaxApi.models.ezsigntemplatepackage_get_object_v2_response import EzsigntemplatepackageGetObjectV2Response
@@ -340,7 +339,7 @@ class ObjectEzsigntemplatepackageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsigntemplatepackageDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Ezsigntemplatepackage
 
         
@@ -408,7 +407,7 @@ class ObjectEzsigntemplatepackageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsigntemplatepackageDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Ezsigntemplatepackage
 
         
@@ -900,7 +899,7 @@ class ObjectEzsigntemplatepackageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsigntemplatepackageEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Ezsigntemplatepackage
 
         
@@ -973,7 +972,7 @@ class ObjectEzsigntemplatepackageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsigntemplatepackageEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Ezsigntemplatepackage
 
         

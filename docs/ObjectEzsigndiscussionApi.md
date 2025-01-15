@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndiscussion_delete_object_v1**
-> EzsigndiscussionDeleteObjectV1Response ezsigndiscussion_delete_object_v1(pki_ezsigndiscussion_id)
+> CommonResponse ezsigndiscussion_delete_object_v1(pki_ezsigndiscussion_id)
 
 Delete an existing Ezsigndiscussion
 
@@ -102,7 +102,7 @@ Delete an existing Ezsigndiscussion
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigndiscussion_delete_object_v1_response import EzsigndiscussionDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigndiscussionDeleteObjectV1Response**](EzsigndiscussionDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -38,7 +38,7 @@ class TestEzsignfolderResponseV3(unittest.TestCase):
             return EzsignfolderResponseV3(
                 pki_ezsignfolder_id = 33,
                 fki_ezsignfoldertype_id = 5,
-                obj_ezsignfoldertype = eZmaxApi.models.custom_ezsignfoldertype_response.Custom-Ezsignfoldertype-Response(),
+                obj_ezsignfoldertype = None,
                 fki_timezone_id = 247,
                 e_ezsignfolder_completion = 'PerEzsigndocument',
                 e_ezsignfolder_documentdependency = 'All',

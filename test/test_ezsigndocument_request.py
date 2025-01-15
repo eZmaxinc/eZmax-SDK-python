@@ -43,7 +43,7 @@ class TestEzsigndocumentRequest(unittest.TestCase):
                 fki_language_id = 2,
                 e_ezsigndocument_source = 'Base64',
                 e_ezsigndocument_format = 'Pdf',
-                s_ezsigndocument_base64 = '[B@a77614d',
+                s_ezsigndocument_base64 = '[B@46c670a6',
                 s_ezsigndocument_url = 'http://www.example.com/document.pdf',
                 b_ezsigndocument_forcerepair = True,
                 s_ezsigndocument_password = 'SecretPassword123',

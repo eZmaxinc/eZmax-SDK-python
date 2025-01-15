@@ -19,11 +19,10 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussionmessage_create_object_v1_request import DiscussionmessageCreateObjectV1Request
 from eZmaxApi.models.discussionmessage_create_object_v1_response import DiscussionmessageCreateObjectV1Response
-from eZmaxApi.models.discussionmessage_delete_object_v1_response import DiscussionmessageDeleteObjectV1Response
 from eZmaxApi.models.discussionmessage_patch_object_v1_request import DiscussionmessagePatchObjectV1Request
-from eZmaxApi.models.discussionmessage_patch_object_v1_response import DiscussionmessagePatchObjectV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -333,7 +332,7 @@ class ObjectDiscussionmessageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionmessageDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Discussionmessage
 
         
@@ -402,7 +401,7 @@ class ObjectDiscussionmessageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionmessageDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Discussionmessage
 
         
@@ -601,7 +600,7 @@ class ObjectDiscussionmessageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionmessagePatchObjectV1Response:
+    ) -> CommonResponse:
         """Patch an existing Discussionmessage
 
         
@@ -674,7 +673,7 @@ class ObjectDiscussionmessageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionmessagePatchObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Patch an existing Discussionmessage
 
         

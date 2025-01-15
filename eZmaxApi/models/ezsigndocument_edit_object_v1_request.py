@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound
+from eZmaxApi.models.ezsigndocument_request import EzsigndocumentRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EzsigndocumentEditObjectV1Request(BaseModel):
     """
     Request for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}
     """ # noqa: E501
-    obj_ezsigndocument: EzsigndocumentRequestCompound = Field(alias="objEzsigndocument")
+    obj_ezsigndocument: EzsigndocumentRequest = Field(description="An Ezsigndocument Object and children to create a complete structure", alias="objEzsigndocument")
     __properties: ClassVar[List[str]] = ["objEzsigndocument"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class EzsigndocumentEditObjectV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objEzsigndocument": EzsigndocumentRequestCompound.from_dict(obj["objEzsigndocument"]) if obj.get("objEzsigndocument") is not None else None
+            "objEzsigndocument": EzsigndocumentRequest.from_dict(obj["objEzsigndocument"]) if obj.get("objEzsigndocument") is not None else None
         })
         return _obj
 

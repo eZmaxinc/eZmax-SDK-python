@@ -23,10 +23,10 @@ from typing_extensions import Annotated
 from eZmaxApi.models.branding_create_object_v2_request import BrandingCreateObjectV2Request
 from eZmaxApi.models.branding_create_object_v2_response import BrandingCreateObjectV2Response
 from eZmaxApi.models.branding_edit_object_v2_request import BrandingEditObjectV2Request
-from eZmaxApi.models.branding_edit_object_v2_response import BrandingEditObjectV2Response
 from eZmaxApi.models.branding_get_autocomplete_v2_response import BrandingGetAutocompleteV2Response
 from eZmaxApi.models.branding_get_list_v1_response import BrandingGetListV1Response
 from eZmaxApi.models.branding_get_object_v3_response import BrandingGetObjectV3Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -338,7 +338,7 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BrandingEditObjectV2Response:
+    ) -> CommonResponse:
         """Edit an existing Branding
 
         
@@ -410,7 +410,7 @@ class ObjectBrandingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BrandingEditObjectV2Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Branding
 
         

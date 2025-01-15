@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **paymentterm_edit_object_v1**
-> PaymenttermEditObjectV1Response paymentterm_edit_object_v1(pki_paymentterm_id, paymentterm_edit_object_v1_request)
+> CommonResponse paymentterm_edit_object_v1(pki_paymentterm_id, paymentterm_edit_object_v1_request)
 
 Edit an existing Paymentterm
 
@@ -105,8 +105,8 @@ Edit an existing Paymentterm
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.paymentterm_edit_object_v1_request import PaymenttermEditObjectV1Request
-from eZmaxApi.models.paymentterm_edit_object_v1_response import PaymenttermEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaymenttermEditObjectV1Response**](PaymenttermEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

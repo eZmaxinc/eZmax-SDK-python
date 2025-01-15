@@ -21,9 +21,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.custom_discussionconfiguration_response import CustomDiscussionconfigurationResponse
 from eZmaxApi.models.discussionmembership_response_compound import DiscussionmembershipResponseCompound
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound
+from eZmaxApi.models.object import object
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +37,7 @@ class DiscussionResponseCompound(BaseModel):
     dt_discussion_lastread: Optional[StrictStr] = Field(default=None, description="The date the Discussion was last read", alias="dtDiscussionLastread")
     i_discussionmessage_count: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCount")
     i_discussionmessage_countunread: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCountunread")
-    obj_discussionconfiguration: Optional[CustomDiscussionconfigurationResponse] = Field(default=None, alias="objDiscussionconfiguration")
+    obj_discussionconfiguration: Optional[object] = Field(default=None, description="A Custom Discussionconfiguration Object", alias="objDiscussionconfiguration")
     a_obj_discussionmembership: List[DiscussionmembershipResponseCompound] = Field(alias="a_objDiscussionmembership")
     a_obj_discussionmessage: List[DiscussionmessageResponseCompound] = Field(alias="a_objDiscussionmessage")
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed", "dtDiscussionLastread", "iDiscussionmessageCount", "iDiscussionmessageCountunread", "objDiscussionconfiguration", "a_objDiscussionmembership", "a_objDiscussionmessage"]
@@ -88,9 +88,6 @@ class DiscussionResponseCompound(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of obj_discussionconfiguration
-        if self.obj_discussionconfiguration:
-            _dict['objDiscussionconfiguration'] = self.obj_discussionconfiguration.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_discussionmembership (list)
         _items = []
         if self.a_obj_discussionmembership:
@@ -123,7 +120,7 @@ class DiscussionResponseCompound(BaseModel):
             "dtDiscussionLastread": obj.get("dtDiscussionLastread"),
             "iDiscussionmessageCount": obj.get("iDiscussionmessageCount"),
             "iDiscussionmessageCountunread": obj.get("iDiscussionmessageCountunread"),
-            "objDiscussionconfiguration": CustomDiscussionconfigurationResponse.from_dict(obj["objDiscussionconfiguration"]) if obj.get("objDiscussionconfiguration") is not None else None,
+            "objDiscussionconfiguration": obj.get("objDiscussionconfiguration"),
             "a_objDiscussionmembership": [DiscussionmembershipResponseCompound.from_dict(_item) for _item in obj["a_objDiscussionmembership"]] if obj.get("a_objDiscussionmembership") is not None else None,
             "a_objDiscussionmessage": [DiscussionmessageResponseCompound.from_dict(_item) for _item in obj["a_objDiscussionmessage"]] if obj.get("a_objDiscussionmessage") is not None else None
         })

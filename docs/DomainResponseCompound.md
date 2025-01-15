@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **b_domain_validmailfrom** | **bool** | Whether the mail from is valid or not | 
 **b_domain_validcustomer** | **bool** | Whether the customer has access to it or not | 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
-**a_obj_dnsrecord** | [**List[CustomDnsrecordResponse]**](CustomDnsrecordResponse.md) |  | 
+**a_obj_dnsrecord** | **List[CustomDnsrecordResponse]** |  | 
 
 ## Example
 

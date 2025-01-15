@@ -20,16 +20,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.creditcardclient_create_object_v1_request import CreditcardclientCreateObjectV1Request
 from eZmaxApi.models.creditcardclient_create_object_v1_response import CreditcardclientCreateObjectV1Response
-from eZmaxApi.models.creditcardclient_delete_object_v1_response import CreditcardclientDeleteObjectV1Response
 from eZmaxApi.models.creditcardclient_edit_object_v1_request import CreditcardclientEditObjectV1Request
-from eZmaxApi.models.creditcardclient_edit_object_v1_response import CreditcardclientEditObjectV1Response
 from eZmaxApi.models.creditcardclient_get_autocomplete_v2_response import CreditcardclientGetAutocompleteV2Response
 from eZmaxApi.models.creditcardclient_get_list_v1_response import CreditcardclientGetListV1Response
 from eZmaxApi.models.creditcardclient_get_object_v2_response import CreditcardclientGetObjectV2Response
 from eZmaxApi.models.creditcardclient_patch_object_v1_request import CreditcardclientPatchObjectV1Request
-from eZmaxApi.models.creditcardclient_patch_object_v1_response import CreditcardclientPatchObjectV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -343,7 +341,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreditcardclientDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Creditcardclient
 
         
@@ -411,7 +409,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreditcardclientDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Creditcardclient
 
         
@@ -608,7 +606,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreditcardclientEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Creditcardclient
 
         
@@ -681,7 +679,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreditcardclientEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Creditcardclient
 
         
@@ -1810,7 +1808,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreditcardclientPatchObjectV1Response:
+    ) -> CommonResponse:
         """Patch an existing Creditcardclient
 
         
@@ -1883,7 +1881,7 @@ class ObjectCreditcardclientApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreditcardclientPatchObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Patch an existing Creditcardclient
 
         

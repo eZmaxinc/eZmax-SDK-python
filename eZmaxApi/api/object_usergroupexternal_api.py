@@ -20,12 +20,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.usergroupexternal_create_object_v1_request import UsergroupexternalCreateObjectV1Request
 from eZmaxApi.models.usergroupexternal_create_object_v1_response import UsergroupexternalCreateObjectV1Response
-from eZmaxApi.models.usergroupexternal_delete_object_v1_response import UsergroupexternalDeleteObjectV1Response
 from eZmaxApi.models.usergroupexternal_edit_object_v1_request import UsergroupexternalEditObjectV1Request
-from eZmaxApi.models.usergroupexternal_edit_object_v1_response import UsergroupexternalEditObjectV1Response
 from eZmaxApi.models.usergroupexternal_get_autocomplete_v2_response import UsergroupexternalGetAutocompleteV2Response
 from eZmaxApi.models.usergroupexternal_get_list_v1_response import UsergroupexternalGetListV1Response
 from eZmaxApi.models.usergroupexternal_get_object_v2_response import UsergroupexternalGetObjectV2Response
@@ -340,7 +339,7 @@ class ObjectUsergroupexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UsergroupexternalDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Usergroupexternal
 
         
@@ -409,7 +408,7 @@ class ObjectUsergroupexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UsergroupexternalDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Usergroupexternal
 
         
@@ -608,7 +607,7 @@ class ObjectUsergroupexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UsergroupexternalEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Usergroupexternal
 
         
@@ -681,7 +680,7 @@ class ObjectUsergroupexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UsergroupexternalEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Usergroupexternal
 
         

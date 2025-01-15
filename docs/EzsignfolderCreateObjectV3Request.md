@@ -6,7 +6,7 @@ Request for POST /3/object/ezsignfolder
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezsignfolder** | [**List[EzsignfolderRequestCompoundV3]**](EzsignfolderRequestCompoundV3.md) |  | 
+**a_obj_ezsignfolder** | [**List[EzsignfolderRequestCompoundV3]**](EzsignfolderRequestV3.md) |  | 
 
 ## Example
 

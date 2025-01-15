@@ -20,20 +20,17 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.webhook_create_object_v2_request import WebhookCreateObjectV2Request
 from eZmaxApi.models.webhook_create_object_v2_response import WebhookCreateObjectV2Response
-from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response
 from eZmaxApi.models.webhook_edit_object_v1_request import WebhookEditObjectV1Request
-from eZmaxApi.models.webhook_edit_object_v1_response import WebhookEditObjectV1Response
 from eZmaxApi.models.webhook_get_history_v1_response import WebhookGetHistoryV1Response
 from eZmaxApi.models.webhook_get_list_v1_response import WebhookGetListV1Response
 from eZmaxApi.models.webhook_get_object_v2_response import WebhookGetObjectV2Response
 from eZmaxApi.models.webhook_regenerate_apikey_v1_request import WebhookRegenerateApikeyV1Request
 from eZmaxApi.models.webhook_regenerate_apikey_v1_response import WebhookRegenerateApikeyV1Response
 from eZmaxApi.models.webhook_send_webhook_v1_request import WebhookSendWebhookV1Request
-from eZmaxApi.models.webhook_send_webhook_v1_response import WebhookSendWebhookV1Response
-from eZmaxApi.models.webhook_test_v1_response import WebhookTestV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -343,7 +340,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WebhookDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Webhook
 
         
@@ -411,7 +408,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WebhookDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Webhook
 
         
@@ -608,7 +605,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WebhookEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Webhook
 
         
@@ -680,7 +677,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WebhookEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Webhook
 
         
@@ -2072,7 +2069,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WebhookSendWebhookV1Response:
+    ) -> CommonResponse:
         """Emit a Webhook event
 
 
@@ -2139,7 +2136,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WebhookSendWebhookV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Emit a Webhook event
 
 
@@ -2347,7 +2344,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WebhookTestV1Response:
+    ) -> CommonResponse:
         """Test the Webhook by calling the Url
 
         
@@ -2419,7 +2416,7 @@ class ObjectWebhookApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WebhookTestV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Test the Webhook by calling the Url
 
         

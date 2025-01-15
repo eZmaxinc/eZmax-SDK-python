@@ -23,8 +23,8 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_create_ezsignelements_positioned_by_word_request import CustomCreateEzsignelementsPositionedByWordRequest
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
-from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
-from eZmaxApi.models.ezsignsignaturecustomdate_request_compound import EzsignsignaturecustomdateRequestCompound
+from eZmaxApi.models.ezsignelementdependency_request import EzsignelementdependencyRequest
+from eZmaxApi.models.ezsignsignaturecustomdate_request import EzsignsignaturecustomdateRequest
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
@@ -66,8 +66,8 @@ class CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(BaseModel
     s_ezsignsignature_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**", alias="sEzsignsignatureRegexp")
     e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(default=None, alias="eEzsignsignatureDependencyrequirement")
     b_ezsignsignature_customdate: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)", alias="bEzsignsignatureCustomdate")
-    a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateRequestCompound]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
-    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequestCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
+    a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateRequest]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
+    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequest]] = Field(default=None, alias="a_objEzsignelementdependency")
     obj_createezsignelementspositionedbyword: CustomCreateEzsignelementsPositionedByWordRequest = Field(alias="objCreateezsignelementspositionedbyword")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "a_objEzsignelementdependency", "objCreateezsignelementspositionedbyword"]
 
@@ -177,8 +177,8 @@ class CustomEzsignsignatureCreateEzsignelementsPositionedByWordRequest(BaseModel
             "sEzsignsignatureRegexp": obj.get("sEzsignsignatureRegexp"),
             "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "bEzsignsignatureCustomdate": obj.get("bEzsignsignatureCustomdate"),
-            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None,
+            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateRequest.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
+            "a_objEzsignelementdependency": [EzsignelementdependencyRequest.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None,
             "objCreateezsignelementspositionedbyword": CustomCreateEzsignelementsPositionedByWordRequest.from_dict(obj["objCreateezsignelementspositionedbyword"]) if obj.get("objCreateezsignelementspositionedbyword") is not None else None
         })
         return _obj

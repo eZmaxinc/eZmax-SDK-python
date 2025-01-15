@@ -19,11 +19,10 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.usergroupmembership_create_object_v1_request import UsergroupmembershipCreateObjectV1Request
 from eZmaxApi.models.usergroupmembership_create_object_v1_response import UsergroupmembershipCreateObjectV1Response
-from eZmaxApi.models.usergroupmembership_delete_object_v1_response import UsergroupmembershipDeleteObjectV1Response
 from eZmaxApi.models.usergroupmembership_edit_object_v1_request import UsergroupmembershipEditObjectV1Request
-from eZmaxApi.models.usergroupmembership_edit_object_v1_response import UsergroupmembershipEditObjectV1Response
 from eZmaxApi.models.usergroupmembership_get_object_v2_response import UsergroupmembershipGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -334,7 +333,7 @@ class ObjectUsergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UsergroupmembershipDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Usergroupmembership
 
         
@@ -402,7 +401,7 @@ class ObjectUsergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UsergroupmembershipDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Usergroupmembership
 
         
@@ -599,7 +598,7 @@ class ObjectUsergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UsergroupmembershipEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Usergroupmembership
 
         
@@ -672,7 +671,7 @@ class ObjectUsergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UsergroupmembershipEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Usergroupmembership
 
         

@@ -38,12 +38,36 @@ class TestEzsignfolderGetCommunicationListV1Response(unittest.TestCase):
             return EzsignfolderGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
-                m_payload = eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload.ezsignfolder-getCommunicationList-v1-Response-mPayload()
+                m_payload = eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload.ezsignfolder-getCommunicationList-v1-Response-mPayload(
+                    a_obj_communication = [
+                        eZmaxApi.models.custom_communication_list_element_response.Custom-CommunicationListElement-Response(
+                            pki_communication_id = 1, 
+                            dt_created_date = '2020-12-31 23:59:59', 
+                            e_communication_direction = 'Outbound', 
+                            e_communication_importance = 'Normal', 
+                            e_communication_type = 'Email', 
+                            i_communicationrecipient_count = 8, 
+                            s_communication_subject = 'This is an example of subject', 
+                            s_communication_sender = 'John Doe', 
+                            s_communication_recipient = 'Jane Doe', )
+                        ], )
             )
         else:
             return EzsignfolderGetCommunicationListV1Response(
                 obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),
-                m_payload = eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload.ezsignfolder-getCommunicationList-v1-Response-mPayload(),
+                m_payload = eZmaxApi.models.ezsignfolder_get_communication_list_v1_response_m_payload.ezsignfolder-getCommunicationList-v1-Response-mPayload(
+                    a_obj_communication = [
+                        eZmaxApi.models.custom_communication_list_element_response.Custom-CommunicationListElement-Response(
+                            pki_communication_id = 1, 
+                            dt_created_date = '2020-12-31 23:59:59', 
+                            e_communication_direction = 'Outbound', 
+                            e_communication_importance = 'Normal', 
+                            e_communication_type = 'Email', 
+                            i_communicationrecipient_count = 8, 
+                            s_communication_subject = 'This is an example of subject', 
+                            s_communication_sender = 'John Doe', 
+                            s_communication_recipient = 'Jane Doe', )
+                        ], ),
         )
         """
 

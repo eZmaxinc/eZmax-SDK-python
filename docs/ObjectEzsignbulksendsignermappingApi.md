@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignbulksendsignermapping_delete_object_v1**
-> EzsignbulksendsignermappingDeleteObjectV1Response ezsignbulksendsignermapping_delete_object_v1(pki_ezsignbulksendsignermapping_id)
+> CommonResponse ezsignbulksendsignermapping_delete_object_v1(pki_ezsignbulksendsignermapping_id)
 
 Delete an existing Ezsignbulksendsignermapping
 
@@ -102,7 +102,7 @@ Delete an existing Ezsignbulksendsignermapping
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignbulksendsignermapping_delete_object_v1_response import EzsignbulksendsignermappingDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignbulksendsignermappingDeleteObjectV1Response**](EzsignbulksendsignermappingDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
