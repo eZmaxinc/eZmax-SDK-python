@@ -46,7 +46,9 @@ class TestEzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Response(unittest.
                     dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsigntemplatepublic_get_ezsigntemplatepublic_details_v1_response_m_payload.ezsigntemplatepublic-getEzsigntemplatepublicDetails-v1-Response-mPayload(
-                    obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(), 
+                    obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(
+                        i_branding_color = 15658734, 
+                        s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg', ), 
                     fki_userlogintype_id = 2, 
                     a_s_ezsigntemplatesigner_description = [
                         'http://www.website.com/avatar.jpg'
@@ -63,7 +65,9 @@ class TestEzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Response(unittest.
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsigntemplatepublic_get_ezsigntemplatepublic_details_v1_response_m_payload.ezsigntemplatepublic-getEzsigntemplatepublicDetails-v1-Response-mPayload(
-                    obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(), 
+                    obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(
+                        i_branding_color = 15658734, 
+                        s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg', ), 
                     fki_userlogintype_id = 2, 
                     a_s_ezsigntemplatesigner_description = [
                         'http://www.website.com/avatar.jpg'

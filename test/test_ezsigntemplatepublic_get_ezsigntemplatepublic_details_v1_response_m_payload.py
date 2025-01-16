@@ -36,7 +36,9 @@ class TestEzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload(u
         model = EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload()
         if include_optional:
             return EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1ResponseMPayload(
-                obj_branding = None,
+                obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(
+                    i_branding_color = 15658734, 
+                    s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg', ),
                 fki_userlogintype_id = 2,
                 a_s_ezsigntemplatesigner_description = [
                     'http://www.website.com/avatar.jpg'

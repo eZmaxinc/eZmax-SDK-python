@@ -52,7 +52,9 @@ class TestSystemconfigurationResponseCompound(unittest.TestCase):
                 b_systemconfiguration_sspr = True,
                 dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',
                 dt_systemconfiguration_readonlyexpirationend = '2021-12-31',
-                obj_branding = None
+                obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(
+                    i_branding_color = 15658734, 
+                    s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg', )
             )
         else:
             return SystemconfigurationResponseCompound(

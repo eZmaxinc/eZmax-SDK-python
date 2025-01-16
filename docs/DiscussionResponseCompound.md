@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **dt_discussion_lastread** | **str** | The date the Discussion was last read | [optional] 
 **i_discussionmessage_count** | **int** | The count of Attachment. | 
 **i_discussionmessage_countunread** | **int** | The count of Attachment. | 
-**obj_discussionconfiguration** | **object** | A Custom Discussionconfiguration Object | [optional] 
+**obj_discussionconfiguration** | [**CustomDiscussionconfigurationResponse**](CustomDiscussionconfigurationResponse.md) |  | [optional] 
 **a_obj_discussionmembership** | [**List[DiscussionmembershipResponseCompound]**](DiscussionmembershipResponseCompound.md) |  | 
 **a_obj_discussionmessage** | [**List[DiscussionmessageResponseCompound]**](DiscussionmessageResponseCompound.md) |  | 
 
