@@ -113,33 +113,7 @@ class WebhookResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of WebhookResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiWebhookID": obj.get("pkiWebhookID"),
-            "fkiAuthenticationexternalID": obj.get("fkiAuthenticationexternalID"),
-            "sWebhookDescription": obj.get("sWebhookDescription"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "eWebhookModule": obj.get("eWebhookModule"),
-            "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
-            "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
-            "sWebhookUrl": obj.get("sWebhookUrl"),
-            "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
-            "sWebhookApikey": obj.get("sWebhookApikey"),
-            "sWebhookSecret": obj.get("sWebhookSecret"),
-            "bWebhookIsactive": obj.get("bWebhookIsactive"),
-            "bWebhookIssigned": obj.get("bWebhookIssigned"),
-            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation"),
-            "sAuthenticationexternalDescription": obj.get("sAuthenticationexternalDescription"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
-        })
-        return _obj
 
 

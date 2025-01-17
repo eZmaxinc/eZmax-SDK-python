@@ -88,31 +88,7 @@ class CommunicationrecipientRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of CommunicationrecipientRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiCommunicationrecipientID": obj.get("pkiCommunicationrecipientID"),
-            "fkiAgentID": obj.get("fkiAgentID"),
-            "fkiBrokerID": obj.get("fkiBrokerID"),
-            "fkiContactID": obj.get("fkiContactID"),
-            "fkiCustomerID": obj.get("fkiCustomerID"),
-            "fkiEmployeeID": obj.get("fkiEmployeeID"),
-            "fkiAssistantID": obj.get("fkiAssistantID"),
-            "fkiExternalbrokerID": obj.get("fkiExternalbrokerID"),
-            "fkiEzsignsignerID": obj.get("fkiEzsignsignerID"),
-            "fkiNotaryID": obj.get("fkiNotaryID"),
-            "fkiSupplierID": obj.get("fkiSupplierID"),
-            "fkiUserID": obj.get("fkiUserID"),
-            "fkiMailboxsharedID": obj.get("fkiMailboxsharedID"),
-            "fkiPhonelinesharedID": obj.get("fkiPhonelinesharedID"),
-            "eCommunicationrecipientType": obj.get("eCommunicationrecipientType")
-        })
-        return _obj
 
 

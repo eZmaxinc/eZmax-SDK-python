@@ -18,23 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.custom_notificationtestgetnotificationtests_response import CustomNotificationtestgetnotificationtestsResponse
 from eZmaxApi.models.multilingual_notificationsubsection_name import MultilingualNotificationsubsectionName
+from eZmaxApi.models.notificationsubsection_response import NotificationsubsectionResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
+class CustomNotificationsubsectiongetnotificationtestsResponse(NotificationsubsectionResponse):
     """
     A Notificationsubsection Object in the context of getNotificationtests
     """ # noqa: E501
-    pki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="pkiNotificationsubsectionID")
-    fki_notificationsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsection", alias="fkiNotificationsectionID")
-    obj_notificationsubsection_name: Optional[MultilingualNotificationsubsectionName] = Field(default=None, alias="objNotificationsubsectionName")
-    s_notificationsection_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsection in the language of the requester", alias="sNotificationsectionNameX")
-    s_notificationsubsection_name_x: StrictStr = Field(description="The name of the Notificationsubsection in the language of the requester", alias="sNotificationsubsectionNameX")
     a_obj_notificationtest: List[CustomNotificationtestgetnotificationtestsResponse] = Field(alias="a_objNotificationtest")
     __properties: ClassVar[List[str]] = ["pkiNotificationsubsectionID", "fkiNotificationsectionID", "objNotificationsubsectionName", "sNotificationsectionNameX", "sNotificationsubsectionNameX", "a_objNotificationtest"]
 

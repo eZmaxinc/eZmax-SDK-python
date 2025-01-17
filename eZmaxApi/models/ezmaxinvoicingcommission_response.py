@@ -87,24 +87,7 @@ class EzmaxinvoicingcommissionResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingcommissionResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzmaxinvoicingcommissionID": obj.get("pkiEzmaxinvoicingcommissionID"),
-            "fkiEzmaxinvoicingsummaryglobalID": obj.get("fkiEzmaxinvoicingsummaryglobalID"),
-            "fkiEzmaxpartnerID": obj.get("fkiEzmaxpartnerID"),
-            "fkiEzmaxrepresentativeID": obj.get("fkiEzmaxrepresentativeID"),
-            "dtEzmaxinvoicingcommissionStart": obj.get("dtEzmaxinvoicingcommissionStart"),
-            "dtEzmaxinvoicingcommissionEnd": obj.get("dtEzmaxinvoicingcommissionEnd"),
-            "iEzmaxinvoicingcommissionDays": obj.get("iEzmaxinvoicingcommissionDays"),
-            "dEzmaxinvoicingcommissionAmount": obj.get("dEzmaxinvoicingcommissionAmount")
-        })
-        return _obj
 
 

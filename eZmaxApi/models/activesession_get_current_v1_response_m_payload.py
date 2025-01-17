@@ -18,9 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound
 from eZmaxApi.models.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 from eZmaxApi.models.activesession_response_compound_user import ActivesessionResponseCompoundUser
 from eZmaxApi.models.field_e_activesession_ezsign import FieldEActivesessionEzsign
@@ -36,52 +36,11 @@ from eZmaxApi.models.field_e_user_ezsignprepaid import FieldEUserEzsignprepaid
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
+class ActivesessionGetCurrentV1ResponseMPayload(ActivesessionResponseCompound):
     """
     Payload for GET /1/object/activesession/getCurrent
     """ # noqa: E501
-    e_activesession_usertype: FieldEActivesessionUsertype = Field(alias="eActivesessionUsertype")
-    e_activesession_origin: FieldEActivesessionOrigin = Field(alias="eActivesessionOrigin")
-    e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(alias="eActivesessionWeekdaystart")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
-    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
-    b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug")
-    b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin")
-    b_activesession_attachment: Optional[StrictBool] = Field(default=None, description="Can access attachment when we clone a user", alias="bActivesessionAttachment")
-    b_activesession_canafe: Optional[StrictBool] = Field(default=None, description="Can access canafe when we clone a user", alias="bActivesessionCanafe")
-    b_activesession_financial: Optional[StrictBool] = Field(default=None, description="Can access financial element when we clone a user", alias="bActivesessionFinancial")
-    b_activesession_realestatecompleted: Optional[StrictBool] = Field(default=None, description="Can access closed realestate folders when we clone a user", alias="bActivesessionRealestatecompleted")
-    e_activesession_ezsign: Optional[FieldEActivesessionEzsign] = Field(default=None, alias="eActivesessionEzsign")
-    e_activesession_ezsignaccess: FieldEActivesessionEzsignaccess = Field(alias="eActivesessionEzsignaccess")
-    e_activesession_ezsignprepaid: Optional[FieldEActivesessionEzsignprepaid] = Field(default=None, alias="eActivesessionEzsignprepaid")
-    e_activesession_realestateinprogress: Optional[FieldEActivesessionRealestateinprogress] = Field(default=None, alias="eActivesessionRealestateinprogress")
-    pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
-    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
-    fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID")
-    fki_ezsignuser_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignuser", alias="fkiEzsignuserID")
-    b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
-    e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
-    e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
-    e_user_ezsignprepaid: Optional[FieldEUserEzsignprepaid] = Field(default=None, alias="eUserEzsignprepaid")
-    b_user_ezsigntrial: Optional[StrictBool] = Field(default=None, description="Whether the User's eZsign subscription is a trial", alias="bUserEzsigntrial")
-    dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
-    a_pki_permission_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="An array of permissions granted to the user or api key", alias="a_pkiPermissionID")
-    obj_user_real: ActivesessionResponseCompoundUser = Field(alias="objUserReal")
-    obj_user_cloned: Optional[ActivesessionResponseCompoundUser] = Field(default=None, alias="objUserCloned")
-    obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(default=None, alias="objApikey")
-    a_e_module_internalname: List[StrictStr] = Field(description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.", alias="a_eModuleInternalname")
     __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "fkiEzsignuserID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "bUserEzsigntrial", "dtUserEzsignprepaidexpiration", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
-
-    @field_validator('dt_user_ezsignprepaidexpiration')
-    def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
-            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

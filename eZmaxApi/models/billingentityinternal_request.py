@@ -78,18 +78,7 @@ class BillingentityinternalRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of BillingentityinternalRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiBillingentityinternalID": obj.get("pkiBillingentityinternalID"),
-            "objBillingentityinternalDescription": MultilingualBillingentityinternalDescription.from_dict(obj["objBillingentityinternalDescription"]) if obj.get("objBillingentityinternalDescription") is not None else None
-        })
-        return _obj
 
 

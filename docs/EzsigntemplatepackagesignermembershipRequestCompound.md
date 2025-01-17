@@ -6,11 +6,6 @@ A Ezsigntemplatepackagesignermembership Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsigntemplatepackagesignermembership_id** | **int** | The unique ID of the Ezsigntemplatepackagesignermembership | [optional] 
-**fki_ezsigntemplatepackagemembership_id** | **int** | The unique ID of the Ezsigntemplatepackagemembership | 
-**fki_ezsigntemplatepackagesigner_id** | **int** | The unique ID of the Ezsigntemplatepackagesigner | 
-**fki_ezsigntemplatesigner_id** | **int** | The unique ID of the Ezsigntemplatesigner | 
-**i_ezsigntemplatepackagesignermembership_copy** | **int** | The Copy number in case of multiple copies. | [optional] 
 
 ## Example
 

@@ -119,26 +119,7 @@ class UsergroupmembershipResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of UsergroupmembershipResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiUsergroupmembershipID": obj.get("pkiUsergroupmembershipID"),
-            "fkiUsergroupID": obj.get("fkiUsergroupID"),
-            "fkiUserID": obj.get("fkiUserID"),
-            "fkiUsergroupexternalID": obj.get("fkiUsergroupexternalID"),
-            "sUserFirstname": obj.get("sUserFirstname"),
-            "sUserLastname": obj.get("sUserLastname"),
-            "sUserLoginname": obj.get("sUserLoginname"),
-            "sEmailAddress": obj.get("sEmailAddress"),
-            "sUsergroupNameX": obj.get("sUsergroupNameX"),
-            "sUsergroupexternalName": obj.get("sUsergroupexternalName")
-        })
-        return _obj
 
 

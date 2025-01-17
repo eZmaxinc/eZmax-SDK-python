@@ -36,16 +36,6 @@ class TestEzsigntemplateglobalResponseCompound(unittest.TestCase):
         model = EzsigntemplateglobalResponseCompound()
         if include_optional:
             return EzsigntemplateglobalResponseCompound(
-                pki_ezsigntemplateglobal_id = 36,
-                fki_ezsigntemplateglobaldocument_id = 133,
-                fki_module_id = 40,
-                s_module_name_x = 'Purchase',
-                fki_language_id = 2,
-                s_language_name_x = 'English',
-                e_ezsigntemplateglobal_module = 'All',
-                e_ezsigntemplateglobal_supplier = 'Centris',
-                s_ezsigntemplateglobal_code = 'DR-FR',
-                s_ezsigntemplateglobal_description = 'Standard Contract',
                 obj_ezsigntemplateglobaldocument = eZmaxApi.models.ezsigntemplateglobaldocument_response.ezsigntemplateglobaldocument-Response(
                     pki_ezsigntemplateglobaldocument_id = 133, 
                     s_ezsigntemplateglobaldocument_name = 'Standard Contract', 
@@ -57,15 +47,6 @@ class TestEzsigntemplateglobalResponseCompound(unittest.TestCase):
             )
         else:
             return EzsigntemplateglobalResponseCompound(
-                pki_ezsigntemplateglobal_id = 36,
-                fki_ezsigntemplateglobaldocument_id = 133,
-                fki_module_id = 40,
-                fki_language_id = 2,
-                s_language_name_x = 'English',
-                e_ezsigntemplateglobal_module = 'All',
-                e_ezsigntemplateglobal_supplier = 'Centris',
-                s_ezsigntemplateglobal_code = 'DR-FR',
-                s_ezsigntemplateglobal_description = 'Standard Contract',
                 a_obj_ezsigntemplateglobalsigner = [
                     eZmaxApi.models.ezsigntemplateglobalsigner_response_compound.ezsigntemplateglobalsigner-ResponseCompound()
                     ],

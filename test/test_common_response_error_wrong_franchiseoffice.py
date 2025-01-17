@@ -36,11 +36,6 @@ class TestCommonResponseErrorWrongFranchiseoffice(unittest.TestCase):
         model = CommonResponseErrorWrongFranchiseoffice()
         if include_optional:
             return CommonResponseErrorWrongFranchiseoffice(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
-                a_s_error_messagedetail = [
-                    ''
-                    ],
                 fki_franchiseagence_id = 117,
                 s_franchiseagence_name = 'Default',
                 fki_franchiseoffice_id = 50,
@@ -48,8 +43,6 @@ class TestCommonResponseErrorWrongFranchiseoffice(unittest.TestCase):
             )
         else:
             return CommonResponseErrorWrongFranchiseoffice(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
                 fki_franchiseagence_id = 117,
                 s_franchiseagence_name = 'Default',
                 fki_franchiseoffice_id = 50,

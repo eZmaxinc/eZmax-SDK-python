@@ -82,22 +82,7 @@ class EzmaxinvoicingsummaryinternalResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingsummaryinternalResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzmaxinvoicingsummaryinternalID": obj.get("pkiEzmaxinvoicingsummaryinternalID"),
-            "objEzmaxinvoicingsummaryinternalDescription": MultilingualEzmaxinvoicingsummaryinternalDescription.from_dict(obj["objEzmaxinvoicingsummaryinternalDescription"]) if obj.get("objEzmaxinvoicingsummaryinternalDescription") is not None else None,
-            "sEzmaxinvoicingsummaryinternalDescriptionX": obj.get("sEzmaxinvoicingsummaryinternalDescriptionX"),
-            "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
-            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX")
-        })
-        return _obj
 
 

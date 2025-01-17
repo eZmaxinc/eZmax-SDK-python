@@ -101,24 +101,7 @@ class CreditcarddetailResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of CreditcarddetailResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiCreditcarddetailID": obj.get("pkiCreditcarddetailID"),
-            "fkiCreditcardtypeID": obj.get("fkiCreditcardtypeID"),
-            "iCreditcarddetailLastdigits": obj.get("iCreditcarddetailLastdigits"),
-            "iCreditcarddetailExpirationmonth": obj.get("iCreditcarddetailExpirationmonth"),
-            "iCreditcarddetailExpirationyear": obj.get("iCreditcarddetailExpirationyear"),
-            "sCreditcarddetailCivic": obj.get("sCreditcarddetailCivic"),
-            "sCreditcarddetailStreet": obj.get("sCreditcarddetailStreet"),
-            "sCreditcarddetailZip": obj.get("sCreditcarddetailZip")
-        })
-        return _obj
 
 

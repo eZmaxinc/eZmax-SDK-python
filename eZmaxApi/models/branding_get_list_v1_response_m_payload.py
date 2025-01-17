@@ -18,18 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.branding_list_element import BrandingListElement
+from eZmaxApi.models.common_get_list_v1_response_m_payload import CommonGetListV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BrandingGetListV1ResponseMPayload(BaseModel):
+class BrandingGetListV1ResponseMPayload(CommonGetListV1ResponseMPayload):
     """
     Payload for GET /1/object/branding/getList
     """ # noqa: E501
-    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
-    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
     a_obj_branding: List[BrandingListElement] = Field(alias="a_objBranding")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objBranding"]
 

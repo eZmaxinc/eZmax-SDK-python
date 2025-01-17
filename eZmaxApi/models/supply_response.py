@@ -112,28 +112,7 @@ class SupplyResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of SupplyResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiSupplyID": obj.get("pkiSupplyID"),
-            "fkiGlaccountID": obj.get("fkiGlaccountID"),
-            "fkiGlaccountcontainerID": obj.get("fkiGlaccountcontainerID"),
-            "fkiVariableexpenseID": obj.get("fkiVariableexpenseID"),
-            "sSupplyCode": obj.get("sSupplyCode"),
-            "objSupplyDescription": MultilingualSupplyDescription.from_dict(obj["objSupplyDescription"]) if obj.get("objSupplyDescription") is not None else None,
-            "dSupplyUnitprice": obj.get("dSupplyUnitprice"),
-            "bSupplyIsactive": obj.get("bSupplyIsactive"),
-            "bSupplyVariableprice": obj.get("bSupplyVariableprice"),
-            "sGlaccountDescriptionX": obj.get("sGlaccountDescriptionX"),
-            "sGlaccountcontainerLongdescriptionX": obj.get("sGlaccountcontainerLongdescriptionX"),
-            "sVariableexpenseDescriptionX": obj.get("sVariableexpenseDescriptionX")
-        })
-        return _obj
 
 

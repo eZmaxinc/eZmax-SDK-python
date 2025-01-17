@@ -36,74 +36,9 @@ class TestUserRequestCompound(unittest.TestCase):
         model = UserRequestCompound()
         if include_optional:
             return UserRequestCompound(
-                pki_user_id = 70,
-                fki_agent_id = 1,
-                fki_broker_id = 26,
-                fki_assistant_id = 1,
-                fki_employee_id = 31,
-                fki_company_id_default = 1,
-                fki_department_id_default = 21,
-                fki_timezone_id = 247,
-                fki_language_id = 2,
-                obj_email = eZmaxApi.models.email_request.email-Request(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
-                fki_billingentityinternal_id = 1,
-                obj_phone_home = eZmaxApi.models.phone_request.phone-Request(
-                    pki_phone_id = 1, 
-                    fki_phonetype_id = 1, 
-                    e_phone_type = 'Local', 
-                    s_phone_region = '514', 
-                    s_phone_exchange = '990', 
-                    s_phone_number = '1516', 
-                    s_phone_international = '15149901516', 
-                    s_phone_extension = '123', 
-                    s_phone_e164 = '+15149901516', ),
-                obj_phone_sms = eZmaxApi.models.phone_request.phone-Request(
-                    pki_phone_id = 1, 
-                    fki_phonetype_id = 1, 
-                    e_phone_type = 'Local', 
-                    s_phone_region = '514', 
-                    s_phone_exchange = '990', 
-                    s_phone_number = '1516', 
-                    s_phone_international = '15149901516', 
-                    s_phone_extension = '123', 
-                    s_phone_e164 = '+15149901516', ),
-                fki_secretquestion_id = 7,
-                s_user_secretresponse = 'Montreal General Hospital',
-                fki_module_id_form = 40,
-                e_user_type = 'EzsignUser',
-                e_user_logintype = 'Password',
-                s_user_firstname = 'John',
-                s_user_lastname = 'Doe',
-                s_user_loginname = 'JohnDoe',
-                s_user_jobtitle = 'Sales Representative',
-                e_user_ezsignaccess = 'PaidByOffice',
-                b_user_isactive = True,
-                b_user_validatebyadministration = False,
-                b_user_validatebydirector = False,
-                b_user_attachmentautoverified = True,
-                b_user_changepassword = True
             )
         else:
             return UserRequestCompound(
-                fki_company_id_default = 1,
-                fki_department_id_default = 21,
-                fki_timezone_id = 247,
-                fki_language_id = 2,
-                obj_email = eZmaxApi.models.email_request.email-Request(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
-                fki_billingentityinternal_id = 1,
-                e_user_type = 'EzsignUser',
-                e_user_logintype = 'Password',
-                s_user_firstname = 'John',
-                s_user_lastname = 'Doe',
-                s_user_loginname = 'JohnDoe',
-                e_user_ezsignaccess = 'PaidByOffice',
-                b_user_isactive = True,
         )
         """
 

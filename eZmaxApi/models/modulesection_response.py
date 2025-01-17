@@ -76,20 +76,7 @@ class ModulesectionResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of ModulesectionResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiModulesectionID": obj.get("pkiModulesectionID"),
-            "fkiModuleID": obj.get("fkiModuleID"),
-            "sModulesectionInternalname": obj.get("sModulesectionInternalname"),
-            "sModulesectionNameX": obj.get("sModulesectionNameX")
-        })
-        return _obj
 
 

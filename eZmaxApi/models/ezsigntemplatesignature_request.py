@@ -133,48 +133,7 @@ class EzsigntemplatesignatureRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplatesignatureRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplatesignatureID": obj.get("pkiEzsigntemplatesignatureID"),
-            "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
-            "fkiEzsigntemplatesignerID": obj.get("fkiEzsigntemplatesignerID"),
-            "fkiEzsigntemplatesignerIDValidation": obj.get("fkiEzsigntemplatesignerIDValidation"),
-            "bEzsigntemplatesignatureHandwritten": obj.get("bEzsigntemplatesignatureHandwritten"),
-            "bEzsigntemplatesignatureReason": obj.get("bEzsigntemplatesignatureReason"),
-            "eEzsigntemplatesignaturePositioning": obj.get("eEzsigntemplatesignaturePositioning"),
-            "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
-            "iEzsigntemplatesignatureX": obj.get("iEzsigntemplatesignatureX"),
-            "iEzsigntemplatesignatureY": obj.get("iEzsigntemplatesignatureY"),
-            "iEzsigntemplatesignatureWidth": obj.get("iEzsigntemplatesignatureWidth"),
-            "iEzsigntemplatesignatureHeight": obj.get("iEzsigntemplatesignatureHeight"),
-            "iEzsigntemplatesignatureStep": obj.get("iEzsigntemplatesignatureStep"),
-            "eEzsigntemplatesignatureType": obj.get("eEzsigntemplatesignatureType"),
-            "eEzsigntemplatesignatureConsultationtrigger": obj.get("eEzsigntemplatesignatureConsultationtrigger"),
-            "tEzsigntemplatesignatureTooltip": obj.get("tEzsigntemplatesignatureTooltip"),
-            "eEzsigntemplatesignatureTooltipposition": obj.get("eEzsigntemplatesignatureTooltipposition"),
-            "eEzsigntemplatesignatureFont": obj.get("eEzsigntemplatesignatureFont"),
-            "bEzsigntemplatesignatureRequired": obj.get("bEzsigntemplatesignatureRequired"),
-            "eEzsigntemplatesignatureAttachmentnamesource": obj.get("eEzsigntemplatesignatureAttachmentnamesource"),
-            "sEzsigntemplatesignatureAttachmentdescription": obj.get("sEzsigntemplatesignatureAttachmentdescription"),
-            "iEzsigntemplatesignatureValidationstep": obj.get("iEzsigntemplatesignatureValidationstep"),
-            "iEzsigntemplatesignatureMaxlength": obj.get("iEzsigntemplatesignatureMaxlength"),
-            "sEzsigntemplatesignatureDefaultvalue": obj.get("sEzsigntemplatesignatureDefaultvalue"),
-            "sEzsigntemplatesignatureRegexp": obj.get("sEzsigntemplatesignatureRegexp"),
-            "eEzsigntemplatesignatureTextvalidation": obj.get("eEzsigntemplatesignatureTextvalidation"),
-            "sEzsigntemplatesignatureTextvalidationcustommessage": obj.get("sEzsigntemplatesignatureTextvalidationcustommessage"),
-            "eEzsigntemplatesignatureDependencyrequirement": obj.get("eEzsigntemplatesignatureDependencyrequirement"),
-            "sEzsigntemplatesignaturePositioningpattern": obj.get("sEzsigntemplatesignaturePositioningpattern"),
-            "iEzsigntemplatesignaturePositioningoffsetx": obj.get("iEzsigntemplatesignaturePositioningoffsetx"),
-            "iEzsigntemplatesignaturePositioningoffsety": obj.get("iEzsigntemplatesignaturePositioningoffsety"),
-            "eEzsigntemplatesignaturePositioningoccurence": obj.get("eEzsigntemplatesignaturePositioningoccurence")
-        })
-        return _obj
 
 

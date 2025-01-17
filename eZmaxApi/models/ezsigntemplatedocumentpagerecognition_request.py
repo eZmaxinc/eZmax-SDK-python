@@ -91,26 +91,7 @@ class EzsigntemplatedocumentpagerecognitionRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentpagerecognitionRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplatedocumentpagerecognitionID": obj.get("pkiEzsigntemplatedocumentpagerecognitionID"),
-            "fkiEzsigntemplatedocumentpageID": obj.get("fkiEzsigntemplatedocumentpageID"),
-            "eEzsigntemplatedocumentpagerecognitionOperator": obj.get("eEzsigntemplatedocumentpagerecognitionOperator"),
-            "eEzsigntemplatedocumentpagerecognitionSection": obj.get("eEzsigntemplatedocumentpagerecognitionSection"),
-            "iEzsigntemplatedocumentpagerecognitionSimilarpercentage": obj.get("iEzsigntemplatedocumentpagerecognitionSimilarpercentage"),
-            "iEzsigntemplatedocumentpagerecognitionX": obj.get("iEzsigntemplatedocumentpagerecognitionX"),
-            "iEzsigntemplatedocumentpagerecognitionY": obj.get("iEzsigntemplatedocumentpagerecognitionY"),
-            "iEzsigntemplatedocumentpagerecognitionWidth": obj.get("iEzsigntemplatedocumentpagerecognitionWidth"),
-            "iEzsigntemplatedocumentpagerecognitionHeight": obj.get("iEzsigntemplatedocumentpagerecognitionHeight"),
-            "tEzsigntemplatedocumentpagerecognitionText": obj.get("tEzsigntemplatedocumentpagerecognitionText")
-        })
-        return _obj
 
 

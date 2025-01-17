@@ -36,18 +36,9 @@ class TestEzsignsignergroupResponseCompound(unittest.TestCase):
         model = EzsignsignergroupResponseCompound()
         if include_optional:
             return EzsignsignergroupResponseCompound(
-                pki_ezsignsignergroup_id = 27,
-                obj_ezsignsignergroup_description = eZmaxApi.models.multilingual_ezsignsignergroup_description.Multilingual-EzsignsignergroupDescription(
-                    s_ezsignsignergroup_description1 = 'RH', 
-                    s_ezsignsignergroup_description2 = 'HR', ),
-                s_ezsignsignergroup_description_x = 'HR'
             )
         else:
             return EzsignsignergroupResponseCompound(
-                pki_ezsignsignergroup_id = 27,
-                obj_ezsignsignergroup_description = eZmaxApi.models.multilingual_ezsignsignergroup_description.Multilingual-EzsignsignergroupDescription(
-                    s_ezsignsignergroup_description1 = 'RH', 
-                    s_ezsignsignergroup_description2 = 'HR', ),
         )
         """
 

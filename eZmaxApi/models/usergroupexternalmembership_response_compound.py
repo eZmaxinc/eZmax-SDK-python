@@ -18,46 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from eZmaxApi.models.usergroupexternalmembership_response import UsergroupexternalmembershipResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupexternalmembershipResponseCompound(BaseModel):
+class UsergroupexternalmembershipResponseCompound(UsergroupexternalmembershipResponse):
     """
     A Usergroupexternalmembership Object
     """ # noqa: E501
-    pki_usergroupexternalmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternalmembership", alias="pkiUsergroupexternalmembershipID")
-    fki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
-    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalmembershipID", "fkiUsergroupexternalID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupexternalName"]
-
-    @field_validator('s_user_loginname')
-    def s_user_loginname_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
-            raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
-        return value
-
-    @field_validator('s_email_address')
-    def s_email_address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
-            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
-        return value
-
-    @field_validator('s_usergroupexternal_name')
-    def s_usergroupexternal_name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,64}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,64}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

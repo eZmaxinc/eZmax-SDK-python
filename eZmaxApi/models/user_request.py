@@ -131,44 +131,7 @@ class UserRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of UserRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiUserID": obj.get("pkiUserID"),
-            "fkiAgentID": obj.get("fkiAgentID"),
-            "fkiBrokerID": obj.get("fkiBrokerID"),
-            "fkiAssistantID": obj.get("fkiAssistantID"),
-            "fkiEmployeeID": obj.get("fkiEmployeeID"),
-            "fkiCompanyIDDefault": obj.get("fkiCompanyIDDefault"),
-            "fkiDepartmentIDDefault": obj.get("fkiDepartmentIDDefault"),
-            "fkiTimezoneID": obj.get("fkiTimezoneID"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "objEmail": EmailRequest.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
-            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "objPhoneHome": PhoneRequest.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
-            "objPhoneSMS": PhoneRequest.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
-            "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
-            "sUserSecretresponse": obj.get("sUserSecretresponse"),
-            "fkiModuleIDForm": obj.get("fkiModuleIDForm"),
-            "eUserType": obj.get("eUserType"),
-            "eUserLogintype": obj.get("eUserLogintype"),
-            "sUserFirstname": obj.get("sUserFirstname"),
-            "sUserLastname": obj.get("sUserLastname"),
-            "sUserLoginname": obj.get("sUserLoginname"),
-            "sUserJobtitle": obj.get("sUserJobtitle"),
-            "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
-            "bUserIsactive": obj.get("bUserIsactive"),
-            "bUserValidatebyadministration": obj.get("bUserValidatebyadministration"),
-            "bUserValidatebydirector": obj.get("bUserValidatebydirector"),
-            "bUserAttachmentautoverified": obj.get("bUserAttachmentautoverified"),
-            "bUserChangepassword": obj.get("bUserChangepassword")
-        })
-        return _obj
 
 

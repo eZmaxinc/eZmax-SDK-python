@@ -82,22 +82,7 @@ class SubnetRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of SubnetRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiSubnetID": obj.get("pkiSubnetID"),
-            "fkiUserID": obj.get("fkiUserID"),
-            "fkiApikeyID": obj.get("fkiApikeyID"),
-            "objSubnetDescription": MultilingualSubnetDescription.from_dict(obj["objSubnetDescription"]) if obj.get("objSubnetDescription") is not None else None,
-            "iSubnetNetwork": obj.get("iSubnetNetwork"),
-            "iSubnetMask": obj.get("iSubnetMask")
-        })
-        return _obj
 
 

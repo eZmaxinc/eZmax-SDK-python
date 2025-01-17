@@ -6,8 +6,6 @@ Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getAttachments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigndocumentGetAttachmentsV1ResponseMPayload**](EzsigndocumentGetAttachmentsV1ResponseMPayload.md) |  | 
 
 ## Example

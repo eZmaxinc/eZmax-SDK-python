@@ -6,8 +6,6 @@ Response for GET /1/object/inscriptiontemp/{pkiInscriptiontempID}/getCommunicati
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**InscriptiontempGetCommunicationsendersV1ResponseMPayload**](InscriptiontempGetCommunicationsendersV1ResponseMPayload.md) |  | 
 
 ## Example

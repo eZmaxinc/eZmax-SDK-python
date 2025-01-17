@@ -36,23 +36,6 @@ class TestEzsignformfieldgroupResponseCompound(unittest.TestCase):
         model = EzsignformfieldgroupResponseCompound()
         if include_optional:
             return EzsignformfieldgroupResponseCompound(
-                pki_ezsignformfieldgroup_id = 26,
-                fki_ezsigndocument_id = 97,
-                e_ezsignformfieldgroup_type = 'Text',
-                e_ezsignformfieldgroup_signerrequirement = 'One',
-                s_ezsignformfieldgroup_label = 'Allergies',
-                i_ezsignformfieldgroup_step = 1,
-                s_ezsignformfieldgroup_defaultvalue = 'Foo',
-                i_ezsignformfieldgroup_filledmin = 1,
-                i_ezsignformfieldgroup_filledmax = 2,
-                b_ezsignformfieldgroup_readonly = True,
-                i_ezsignformfieldgroup_maxlength = 75,
-                b_ezsignformfieldgroup_encrypted = True,
-                e_ezsignformfieldgroup_textvalidation = 'None',
-                s_ezsignformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
-                s_ezsignformfieldgroup_textvalidationcustommessage = 'Phone number',
-                t_ezsignformfieldgroup_tooltip = 'Please enter a valid email address',
-                e_ezsignformfieldgroup_tooltipposition = 'TopLeft',
                 a_obj_ezsignformfield = [
                     eZmaxApi.models.ezsignformfield_response_compound.ezsignformfield-ResponseCompound()
                     ],
@@ -65,14 +48,6 @@ class TestEzsignformfieldgroupResponseCompound(unittest.TestCase):
             )
         else:
             return EzsignformfieldgroupResponseCompound(
-                pki_ezsignformfieldgroup_id = 26,
-                fki_ezsigndocument_id = 97,
-                e_ezsignformfieldgroup_type = 'Text',
-                s_ezsignformfieldgroup_label = 'Allergies',
-                i_ezsignformfieldgroup_step = 1,
-                i_ezsignformfieldgroup_filledmin = 1,
-                i_ezsignformfieldgroup_filledmax = 2,
-                b_ezsignformfieldgroup_readonly = True,
                 a_obj_ezsignformfield = [
                     eZmaxApi.models.ezsignformfield_response_compound.ezsignformfield-ResponseCompound()
                     ],

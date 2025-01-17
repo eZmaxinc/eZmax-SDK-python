@@ -6,15 +6,6 @@ A Discussionmessage Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_discussionmessage_id** | **int** | The unique ID of the Discussionmessage | 
-**fki_discussion_id** | **int** | The unique ID of the Discussion | 
-**fki_discussionmembership_id** | **int** | The unique ID of the Discussionmembership | [optional] 
-**fki_discussionmembership_id_actionrequired** | **int** | The unique ID of the Discussionmembership | [optional] 
-**e_discussionmessage_status** | [**FieldEDiscussionmessageStatus**](FieldEDiscussionmessageStatus.md) |  | 
-**t_discussionmessage_content** | **str** | The content of the Discussionmessage | 
-**s_discussionmessage_creatorname** | **str** | The name the creator of the Discussionmessage. | 
-**s_discussionmessage_actionrequiredname** | **str** | The name the Actionrequired of the Discussionmessage. | [optional] 
-**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Example
 

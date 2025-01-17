@@ -36,20 +36,6 @@ class TestEzsignfoldersignerassociationResponseCompound(unittest.TestCase):
         model = EzsignfoldersignerassociationResponseCompound()
         if include_optional:
             return EzsignfoldersignerassociationResponseCompound(
-                pki_ezsignfoldersignerassociation_id = 20,
-                fki_ezsignfolder_id = 33,
-                b_ezsignfoldersignerassociation_delayedsend = True,
-                b_ezsignfoldersignerassociation_receivecopy = True,
-                t_ezsignfoldersignerassociation_message = 'Hi John,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary',
-                b_ezsignfoldersignerassociation_allowsigninginperson = True,
                 obj_ezsignsignergroup = eZmaxApi.models.ezsignsignergroup_response_compound.ezsignsignergroup-ResponseCompound(),
                 obj_user = eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user.ezsignfoldersignerassociation-ResponseCompound-User(
                     pki_user_id = 70, 
@@ -61,20 +47,6 @@ Mary',
             )
         else:
             return EzsignfoldersignerassociationResponseCompound(
-                pki_ezsignfoldersignerassociation_id = 20,
-                fki_ezsignfolder_id = 33,
-                b_ezsignfoldersignerassociation_delayedsend = True,
-                b_ezsignfoldersignerassociation_receivecopy = True,
-                t_ezsignfoldersignerassociation_message = 'Hi John,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary',
-                b_ezsignfoldersignerassociation_allowsigninginperson = True,
         )
         """
 

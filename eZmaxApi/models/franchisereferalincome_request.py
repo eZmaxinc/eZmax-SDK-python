@@ -84,28 +84,7 @@ class FranchisereferalincomeRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of FranchisereferalincomeRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiFranchisereferalincomeID": obj.get("pkiFranchisereferalincomeID"),
-            "fkiFranchisebrokerID": obj.get("fkiFranchisebrokerID"),
-            "fkiFranchisereferalincomeprogramID": obj.get("fkiFranchisereferalincomeprogramID"),
-            "fkiPeriodID": obj.get("fkiPeriodID"),
-            "dFranchisereferalincomeLoan": obj.get("dFranchisereferalincomeLoan"),
-            "dFranchisereferalincomeFranchiseamount": obj.get("dFranchisereferalincomeFranchiseamount"),
-            "dFranchisereferalincomeFranchisoramount": obj.get("dFranchisereferalincomeFranchisoramount"),
-            "dFranchisereferalincomeAgentamount": obj.get("dFranchisereferalincomeAgentamount"),
-            "dtFranchisereferalincomeDisbursed": obj.get("dtFranchisereferalincomeDisbursed"),
-            "tFranchisereferalincomeComment": obj.get("tFranchisereferalincomeComment"),
-            "fkiFranchiseofficeID": obj.get("fkiFranchiseofficeID"),
-            "sFranchisereferalincomeRemoteid": obj.get("sFranchisereferalincomeRemoteid")
-        })
-        return _obj
 
 

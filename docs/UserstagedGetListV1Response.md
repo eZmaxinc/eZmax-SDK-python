@@ -6,8 +6,6 @@ Response for GET /1/object/userstaged/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UserstagedGetListV1ResponseMPayload**](UserstagedGetListV1ResponseMPayload.md) |  | 
 
 ## Example

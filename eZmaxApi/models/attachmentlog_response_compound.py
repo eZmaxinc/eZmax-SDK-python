@@ -18,40 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.attachmentlog_response import AttachmentlogResponse
 from eZmaxApi.models.field_e_attachmentlog_type import FieldEAttachmentlogType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AttachmentlogResponseCompound(BaseModel):
+class AttachmentlogResponseCompound(AttachmentlogResponse):
     """
     A Attachmentlog Object
     """ # noqa: E501
-    fki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="fkiAttachmentID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    dt_attachmentlog_datetime: Annotated[str, Field(strict=True)] = Field(description="The created date", alias="dtAttachmentlogDatetime")
-    e_attachmentlog_type: FieldEAttachmentlogType = Field(alias="eAttachmentlogType")
-    s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail")
     __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
-
-    @field_validator('dt_attachmentlog_datetime')
-    def dt_attachmentlog_datetime_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
-            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
-        return value
-
-    @field_validator('s_attachmentlog_detail')
-    def s_attachmentlog_detail_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,75}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -36,8 +36,6 @@ class TestApikeyGetListV1ResponseMPayload(unittest.TestCase):
         model = ApikeyGetListV1ResponseMPayload()
         if include_optional:
             return ApikeyGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_apikey = [
                     eZmaxApi.models.apikey_list_element.apikey-ListElement(
                         pki_apikey_id = 99, 
@@ -50,8 +48,6 @@ class TestApikeyGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return ApikeyGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_apikey = [
                     eZmaxApi.models.apikey_list_element.apikey-ListElement(
                         pki_apikey_id = 99, 

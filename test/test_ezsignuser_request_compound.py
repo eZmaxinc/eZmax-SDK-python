@@ -36,14 +36,9 @@ class TestEzsignuserRequestCompound(unittest.TestCase):
         model = EzsignuserRequestCompound()
         if include_optional:
             return EzsignuserRequestCompound(
-                pki_ezsignuser_id = 94,
-                fki_contact_id = 21,
-                obj_contact = eZmaxApi.models.contact_request_compound_v2.contact-RequestCompoundV2()
             )
         else:
             return EzsignuserRequestCompound(
-                fki_contact_id = 21,
-                obj_contact = eZmaxApi.models.contact_request_compound_v2.contact-RequestCompoundV2(),
         )
         """
 

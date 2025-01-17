@@ -6,8 +6,6 @@ Response for POST /1/report/xxx/xxx and /1/module/report/getReportFromCache
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**CommonGetReportV1ResponseMPayload**](CommonGetReportV1ResponseMPayload.md) |  | 
 
 ## Example

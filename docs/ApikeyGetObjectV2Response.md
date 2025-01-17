@@ -6,8 +6,6 @@ Response for GET /2/object/apikey/{pkiApikeyID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**ApikeyGetObjectV2ResponseMPayload**](ApikeyGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

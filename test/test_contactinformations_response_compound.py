@@ -36,36 +36,6 @@ class TestContactinformationsResponseCompound(unittest.TestCase):
         model = ContactinformationsResponseCompound()
         if include_optional:
             return ContactinformationsResponseCompound(
-                pki_contactinformations_id = 55,
-                fki_address_id_default = 142,
-                fki_phone_id_default = 1,
-                fki_email_id_default = 22,
-                fki_website_id_default = 145,
-                e_contactinformations_type = 'BankAccount',
-                s_contactinformations_url = 'https://www.example.com',
-                obj_address_default = eZmaxApi.models.address_response.address-Response(
-                    pki_address_id = 142, 
-                    fki_addresstype_id = 1, 
-                    s_address_civic = '2540', 
-                    s_address_street = 'Daniel-Johnson Blvd.', 
-                    s_address_suite = '610', 
-                    s_address_city = 'Laval', 
-                    fki_province_id = 11, 
-                    s_province_name_x = 'Quebec', 
-                    fki_country_id = 1, 
-                    s_country_name_x = 'Canada', 
-                    s_address_zip = 'H7T2S3', 
-                    f_address_longitude = 'doej', 
-                    f_address_latitude = 'doej', ),
-                obj_phone_default = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(),
-                obj_email_default = eZmaxApi.models.email_response.email-Response(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
-                obj_website_default = eZmaxApi.models.website_response.website-Response(
-                    pki_website_id = 145, 
-                    fki_websitetype_id = 1, 
-                    s_website_address = 'https://www.example.com', ),
                 a_obj_address = [
                     eZmaxApi.models.address_response_compound.address-ResponseCompound()
                     ],
@@ -81,8 +51,6 @@ class TestContactinformationsResponseCompound(unittest.TestCase):
             )
         else:
             return ContactinformationsResponseCompound(
-                pki_contactinformations_id = 55,
-                e_contactinformations_type = 'BankAccount',
                 a_obj_address = [
                     eZmaxApi.models.address_response_compound.address-ResponseCompound()
                     ],

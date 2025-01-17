@@ -36,35 +36,9 @@ class TestCreditcardclientRequestCompound(unittest.TestCase):
         model = CreditcardclientRequestCompound()
         if include_optional:
             return CreditcardclientRequestCompound(
-                pki_creditcardclient_id = 114,
-                fks_creditcardtoken_id = '6B29FC40-CA47-1067-B31D-00DD010662DA',
-                b_creditcardclientrelation_isdefault = True,
-                s_creditcardclient_description = 'Visa',
-                b_creditcardclient_allowedcompanypayment = True,
-                b_creditcardclient_allowedezsign = True,
-                b_creditcardclient_allowedtranquillit = True,
-                obj_creditcarddetail = eZmaxApi.models.creditcarddetail_request.creditcarddetail-Request(
-                    i_creditcarddetail_expirationmonth = 10, 
-                    i_creditcarddetail_expirationyear = 2024, 
-                    s_creditcarddetail_civic = '2500', 
-                    s_creditcarddetail_street = 'Daniel-Johnson Blvd.', 
-                    s_creditcarddetail_zip = 'H7T 2P6', ),
-                s_creditcardclient_cvv = '4807'
             )
         else:
             return CreditcardclientRequestCompound(
-                b_creditcardclientrelation_isdefault = True,
-                s_creditcardclient_description = 'Visa',
-                b_creditcardclient_allowedcompanypayment = True,
-                b_creditcardclient_allowedezsign = True,
-                b_creditcardclient_allowedtranquillit = True,
-                obj_creditcarddetail = eZmaxApi.models.creditcarddetail_request.creditcarddetail-Request(
-                    i_creditcarddetail_expirationmonth = 10, 
-                    i_creditcarddetail_expirationyear = 2024, 
-                    s_creditcarddetail_civic = '2500', 
-                    s_creditcarddetail_street = 'Daniel-Johnson Blvd.', 
-                    s_creditcarddetail_zip = 'H7T 2P6', ),
-                s_creditcardclient_cvv = '4807',
         )
         """
 

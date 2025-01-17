@@ -18,52 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.discussionmessage_response import DiscussionmessageResponse
 from eZmaxApi.models.field_e_discussionmessage_status import FieldEDiscussionmessageStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DiscussionmessageResponseCompound(BaseModel):
+class DiscussionmessageResponseCompound(DiscussionmessageResponse):
     """
     A Discussionmessage Object and children
     """ # noqa: E501
-    pki_discussionmessage_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    fki_discussionmembership_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipID")
-    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired")
-    e_discussionmessage_status: FieldEDiscussionmessageStatus = Field(alias="eDiscussionmessageStatus")
-    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent")
-    s_discussionmessage_creatorname: Annotated[str, Field(strict=True)] = Field(description="The name the creator of the Discussionmessage.", alias="sDiscussionmessageCreatorname")
-    s_discussionmessage_actionrequiredname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name the Actionrequired of the Discussionmessage.", alias="sDiscussionmessageActionrequiredname")
-    obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipID", "fkiDiscussionmembershipIDActionrequired", "eDiscussionmessageStatus", "tDiscussionmessageContent", "sDiscussionmessageCreatorname", "sDiscussionmessageActionrequiredname", "objAudit"]
-
-    @field_validator('t_discussionmessage_content')
-    def t_discussionmessage_content_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,65535}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
-        return value
-
-    @field_validator('s_discussionmessage_creatorname')
-    def s_discussionmessage_creatorname_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,75}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
-        return value
-
-    @field_validator('s_discussionmessage_actionrequiredname')
-    def s_discussionmessage_actionrequiredname_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,75}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

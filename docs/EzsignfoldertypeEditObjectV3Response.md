@@ -6,8 +6,6 @@ Response for PUT /3/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Example
 

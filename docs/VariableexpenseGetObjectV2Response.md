@@ -6,8 +6,6 @@ Response for GET /2/object/variableexpense/{pkiVariableexpenseID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**VariableexpenseGetObjectV2ResponseMPayload**](VariableexpenseGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

@@ -77,21 +77,7 @@ class EzsignsignergroupmembershipRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignsignergroupmembershipRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignsignergroupmembershipID": obj.get("pkiEzsignsignergroupmembershipID"),
-            "fkiEzsignsignergroupID": obj.get("fkiEzsignsignergroupID"),
-            "fkiEzsignsignerID": obj.get("fkiEzsignsignerID"),
-            "fkiUserID": obj.get("fkiUserID"),
-            "fkiUsergroupID": obj.get("fkiUsergroupID")
-        })
-        return _obj
 
 

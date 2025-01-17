@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.attempt_response import AttemptResponse
+from eZmaxApi.models.common_webhook import CommonWebhook
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 from eZmaxApi.models.user_response import UserResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookUserUserCreated(BaseModel):
+class WebhookUserUserCreated(CommonWebhook):
     """
     This is the base Webhook object
     """ # noqa: E501
-    obj_webhook: CustomWebhookResponse = Field(alias="objWebhook")
-    a_obj_attempt: List[AttemptResponse] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
     obj_user: UserResponse = Field(description="A User Object and children to create a complete structure", alias="objUser")
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objUser"]
 

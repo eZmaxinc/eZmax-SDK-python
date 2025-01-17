@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.activesession_response import ActivesessionResponse
 from eZmaxApi.models.activesession_response_compound_apikey import ActivesessionResponseCompoundApikey
 from eZmaxApi.models.activesession_response_compound_user import ActivesessionResponseCompoundUser
 from eZmaxApi.models.field_e_activesession_ezsign import FieldEActivesessionEzsign
@@ -36,29 +37,10 @@ from eZmaxApi.models.field_e_user_ezsignprepaid import FieldEUserEzsignprepaid
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ActivesessionResponseCompound(BaseModel):
+class ActivesessionResponseCompound(ActivesessionResponse):
     """
     Payload for GET /1/object/activesession/getCurrent
     """ # noqa: E501
-    e_activesession_usertype: FieldEActivesessionUsertype = Field(alias="eActivesessionUsertype")
-    e_activesession_origin: FieldEActivesessionOrigin = Field(alias="eActivesessionOrigin")
-    e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(alias="eActivesessionWeekdaystart")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
-    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
-    b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug")
-    b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin")
-    b_activesession_attachment: Optional[StrictBool] = Field(default=None, description="Can access attachment when we clone a user", alias="bActivesessionAttachment")
-    b_activesession_canafe: Optional[StrictBool] = Field(default=None, description="Can access canafe when we clone a user", alias="bActivesessionCanafe")
-    b_activesession_financial: Optional[StrictBool] = Field(default=None, description="Can access financial element when we clone a user", alias="bActivesessionFinancial")
-    b_activesession_realestatecompleted: Optional[StrictBool] = Field(default=None, description="Can access closed realestate folders when we clone a user", alias="bActivesessionRealestatecompleted")
-    e_activesession_ezsign: Optional[FieldEActivesessionEzsign] = Field(default=None, alias="eActivesessionEzsign")
-    e_activesession_ezsignaccess: FieldEActivesessionEzsignaccess = Field(alias="eActivesessionEzsignaccess")
-    e_activesession_ezsignprepaid: Optional[FieldEActivesessionEzsignprepaid] = Field(default=None, alias="eActivesessionEzsignprepaid")
-    e_activesession_realestateinprogress: Optional[FieldEActivesessionRealestateinprogress] = Field(default=None, alias="eActivesessionRealestateinprogress")
-    pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode")
-    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
-    fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID")
     fki_ezsignuser_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignuser", alias="fkiEzsignuserID")
     b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
     e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
@@ -134,47 +116,7 @@ class ActivesessionResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of ActivesessionResponseCompound from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "eActivesessionUsertype": obj.get("eActivesessionUsertype"),
-            "eActivesessionOrigin": obj.get("eActivesessionOrigin"),
-            "eActivesessionWeekdaystart": obj.get("eActivesessionWeekdaystart"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "sCompanyNameX": obj.get("sCompanyNameX"),
-            "sDepartmentNameX": obj.get("sDepartmentNameX"),
-            "bActivesessionDebug": obj.get("bActivesessionDebug"),
-            "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),
-            "bActivesessionAttachment": obj.get("bActivesessionAttachment"),
-            "bActivesessionCanafe": obj.get("bActivesessionCanafe"),
-            "bActivesessionFinancial": obj.get("bActivesessionFinancial"),
-            "bActivesessionRealestatecompleted": obj.get("bActivesessionRealestatecompleted"),
-            "eActivesessionEzsign": obj.get("eActivesessionEzsign"),
-            "eActivesessionEzsignaccess": obj.get("eActivesessionEzsignaccess"),
-            "eActivesessionEzsignprepaid": obj.get("eActivesessionEzsignprepaid"),
-            "eActivesessionRealestateinprogress": obj.get("eActivesessionRealestateinprogress"),
-            "pksCustomerCode": obj.get("pksCustomerCode"),
-            "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
-            "fkiSignatureID": obj.get("fkiSignatureID"),
-            "fkiEzsignuserID": obj.get("fkiEzsignuserID"),
-            "bSystemconfigurationEzsignpaidbyoffice": obj.get("bSystemconfigurationEzsignpaidbyoffice"),
-            "eSystemconfigurationEzsignofficeplan": obj.get("eSystemconfigurationEzsignofficeplan"),
-            "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
-            "eUserEzsignprepaid": obj.get("eUserEzsignprepaid"),
-            "bUserEzsigntrial": obj.get("bUserEzsigntrial"),
-            "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
-            "a_pkiPermissionID": obj.get("a_pkiPermissionID"),
-            "objUserReal": ActivesessionResponseCompoundUser.from_dict(obj["objUserReal"]) if obj.get("objUserReal") is not None else None,
-            "objUserCloned": ActivesessionResponseCompoundUser.from_dict(obj["objUserCloned"]) if obj.get("objUserCloned") is not None else None,
-            "objApikey": ActivesessionResponseCompoundApikey.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None,
-            "a_eModuleInternalname": obj.get("a_eModuleInternalname")
-        })
-        return _obj
 
 

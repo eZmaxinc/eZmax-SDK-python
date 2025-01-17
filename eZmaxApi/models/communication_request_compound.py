@@ -18,9 +18,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from eZmaxApi.models.communication_request import CommunicationRequest
 from eZmaxApi.models.communicationexternalrecipient_request_compound import CommunicationexternalrecipientRequestCompound
 from eZmaxApi.models.communicationrecipient_request_compound import CommunicationrecipientRequestCompound
 from eZmaxApi.models.communicationreference_request import CommunicationreferenceRequest
@@ -31,45 +32,15 @@ from eZmaxApi.models.field_e_communication_type import FieldECommunicationType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommunicationRequestCompound(BaseModel):
+class CommunicationRequestCompound(CommunicationRequest):
     """
     Request for POST /1/object/communication
     """ # noqa: E501
-    pki_communication_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communication.", alias="pkiCommunicationID")
-    e_communication_importance: Optional[FieldECommunicationImportance] = Field(default=None, alias="eCommunicationImportance")
-    e_communication_type: FieldECommunicationType = Field(alias="eCommunicationType")
-    obj_communicationsender: Optional[CustomCommunicationsenderRequest] = Field(default=None, alias="objCommunicationsender")
-    s_communication_subject: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The subject of the Communication", alias="sCommunicationSubject")
-    t_communication_body: StrictStr = Field(description="The Body of the Communication", alias="tCommunicationBody")
-    b_communication_private: StrictBool = Field(description="Whether the Communication is private or not", alias="bCommunicationPrivate")
-    e_communication_attachmenttype: Optional[StrictStr] = Field(default=None, description="How the attachment should be included in the email.   Only used if eCommunicationType is **Email**", alias="eCommunicationAttachmenttype")
-    i_communication_attachmentlinkexpiration: Optional[Annotated[int, Field(le=30, strict=True, ge=1)]] = Field(default=None, description="The number of days before the attachment link expired.   Only used if eCommunicationType is **Email** and eCommunicationattachmentType is **Link**", alias="iCommunicationAttachmentlinkexpiration")
-    b_communication_readreceipt: Optional[StrictBool] = Field(default=None, description="Whether we ask for a read receipt or not.", alias="bCommunicationReadreceipt")
     a_obj_communicationattachment: Annotated[List[CustomCommunicationattachmentRequest], Field(min_length=0)] = Field(alias="a_objCommunicationattachment")
     a_obj_communicationrecipient: Annotated[List[CommunicationrecipientRequestCompound], Field(min_length=0)] = Field(alias="a_objCommunicationrecipient")
     a_obj_communicationreference: Annotated[List[CommunicationreferenceRequest], Field(min_length=0)] = Field(alias="a_objCommunicationreference")
     a_obj_communicationexternalrecipient: Annotated[List[CommunicationexternalrecipientRequestCompound], Field(min_length=0)] = Field(alias="a_objCommunicationexternalrecipient")
     __properties: ClassVar[List[str]] = ["pkiCommunicationID", "eCommunicationImportance", "eCommunicationType", "objCommunicationsender", "sCommunicationSubject", "tCommunicationBody", "bCommunicationPrivate", "eCommunicationAttachmenttype", "iCommunicationAttachmentlinkexpiration", "bCommunicationReadreceipt", "a_objCommunicationattachment", "a_objCommunicationrecipient", "a_objCommunicationreference", "a_objCommunicationexternalrecipient"]
-
-    @field_validator('s_communication_subject')
-    def s_communication_subject_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,200}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,200}$/")
-        return value
-
-    @field_validator('e_communication_attachmenttype')
-    def e_communication_attachmenttype_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['Attachment', 'Url']):
-            raise ValueError("must be one of enum values ('Attachment', 'Url')")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

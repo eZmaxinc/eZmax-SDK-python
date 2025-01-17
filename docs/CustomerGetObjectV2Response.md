@@ -6,8 +6,6 @@ Response for GET /2/object/customer/{pkiCustomerID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**CustomerGetObjectV2ResponseMPayload**](CustomerGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

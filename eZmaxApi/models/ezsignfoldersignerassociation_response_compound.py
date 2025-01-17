@@ -18,25 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from eZmaxApi.models.ezsignfoldersignerassociation_response import EzsignfoldersignerassociationResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
 from eZmaxApi.models.ezsignsigner_response_compound import EzsignsignerResponseCompound
 from eZmaxApi.models.ezsignsignergroup_response_compound import EzsignsignergroupResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignfoldersignerassociationResponseCompound(BaseModel):
+class EzsignfoldersignerassociationResponseCompound(EzsignfoldersignerassociationResponse):
     """
     An Ezsignfoldersignerassociation Object
     """ # noqa: E501
-    pki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID")
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    b_ezsignfoldersignerassociation_delayedsend: StrictBool = Field(description="If this flag is true the signatory is part of a delayed send.", alias="bEzsignfoldersignerassociationDelayedsend")
-    b_ezsignfoldersignerassociation_receivecopy: StrictBool = Field(description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
-    t_ezsignfoldersignerassociation_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
-    b_ezsignfoldersignerassociation_allowsigninginperson: StrictBool = Field(description="If the Ezsignfoldersignerassociation is allowed to sign in person or not", alias="bEzsignfoldersignerassociationAllowsigninginperson")
     obj_ezsignsignergroup: Optional[EzsignsignergroupResponseCompound] = Field(default=None, alias="objEzsignsignergroup")
     obj_user: Optional[EzsignfoldersignerassociationResponseCompoundUser] = Field(default=None, alias="objUser")
     obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(default=None, alias="objEzsignsigner")
@@ -93,25 +87,7 @@ class EzsignfoldersignerassociationResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationResponseCompound from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignfoldersignerassociationID": obj.get("pkiEzsignfoldersignerassociationID"),
-            "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
-            "bEzsignfoldersignerassociationDelayedsend": obj.get("bEzsignfoldersignerassociationDelayedsend"),
-            "bEzsignfoldersignerassociationReceivecopy": obj.get("bEzsignfoldersignerassociationReceivecopy"),
-            "tEzsignfoldersignerassociationMessage": obj.get("tEzsignfoldersignerassociationMessage"),
-            "bEzsignfoldersignerassociationAllowsigninginperson": obj.get("bEzsignfoldersignerassociationAllowsigninginperson"),
-            "objEzsignsignergroup": EzsignsignergroupResponseCompound.from_dict(obj["objEzsignsignergroup"]) if obj.get("objEzsignsignergroup") is not None else None,
-            "objUser": EzsignfoldersignerassociationResponseCompoundUser.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None,
-            "objEzsignsigner": EzsignsignerResponseCompound.from_dict(obj["objEzsignsigner"]) if obj.get("objEzsignsigner") is not None else None
-        })
-        return _obj
 
 

@@ -18,20 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.contact_request_compound_v2 import ContactRequestCompoundV2
+from eZmaxApi.models.ezsignuser_request import EzsignuserRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignuserRequestCompound(BaseModel):
+class EzsignuserRequestCompound(EzsignuserRequest):
     """
     A Ezsignuser Object and children
     """ # noqa: E501
-    pki_ezsignuser_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID")
-    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID")
-    obj_contact: ContactRequestCompoundV2 = Field(alias="objContact")
     __properties: ClassVar[List[str]] = ["pkiEzsignuserID", "fkiContactID", "objContact"]
 
     model_config = ConfigDict(

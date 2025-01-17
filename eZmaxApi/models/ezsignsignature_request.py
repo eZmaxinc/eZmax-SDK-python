@@ -116,43 +116,7 @@ class EzsignsignatureRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignsignatureRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignsignatureID": obj.get("pkiEzsignsignatureID"),
-            "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
-            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
-            "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
-            "iEzsignsignatureY": obj.get("iEzsignsignatureY"),
-            "iEzsignsignatureWidth": obj.get("iEzsignsignatureWidth"),
-            "iEzsignsignatureHeight": obj.get("iEzsignsignatureHeight"),
-            "iEzsignsignatureStep": obj.get("iEzsignsignatureStep"),
-            "eEzsignsignatureType": obj.get("eEzsignsignatureType"),
-            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
-            "tEzsignsignatureTooltip": obj.get("tEzsignsignatureTooltip"),
-            "eEzsignsignatureTooltipposition": obj.get("eEzsignsignatureTooltipposition"),
-            "eEzsignsignatureFont": obj.get("eEzsignsignatureFont"),
-            "fkiEzsignfoldersignerassociationIDValidation": obj.get("fkiEzsignfoldersignerassociationIDValidation"),
-            "bEzsignsignatureHandwritten": obj.get("bEzsignsignatureHandwritten"),
-            "bEzsignsignatureReason": obj.get("bEzsignsignatureReason"),
-            "bEzsignsignatureRequired": obj.get("bEzsignsignatureRequired"),
-            "eEzsignsignatureAttachmentnamesource": obj.get("eEzsignsignatureAttachmentnamesource"),
-            "sEzsignsignatureAttachmentdescription": obj.get("sEzsignsignatureAttachmentdescription"),
-            "eEzsignsignatureConsultationtrigger": obj.get("eEzsignsignatureConsultationtrigger"),
-            "iEzsignsignatureValidationstep": obj.get("iEzsignsignatureValidationstep"),
-            "iEzsignsignatureMaxlength": obj.get("iEzsignsignatureMaxlength"),
-            "sEzsignsignatureDefaultvalue": obj.get("sEzsignsignatureDefaultvalue"),
-            "eEzsignsignatureTextvalidation": obj.get("eEzsignsignatureTextvalidation"),
-            "sEzsignsignatureTextvalidationcustommessage": obj.get("sEzsignsignatureTextvalidationcustommessage"),
-            "sEzsignsignatureRegexp": obj.get("sEzsignsignatureRegexp"),
-            "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement")
-        })
-        return _obj
 
 

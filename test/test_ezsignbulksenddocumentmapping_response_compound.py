@@ -36,19 +36,11 @@ class TestEzsignbulksenddocumentmappingResponseCompound(unittest.TestCase):
         model = EzsignbulksenddocumentmappingResponseCompound()
         if include_optional:
             return EzsignbulksenddocumentmappingResponseCompound(
-                pki_ezsignbulksenddocumentmapping_id = 48,
-                fki_ezsignbulksend_id = 8,
-                fki_ezsigntemplatepackage_id = 99,
-                fki_ezsigntemplate_id = 36,
-                i_ezsignbulksenddocumentmapping_order = 1,
                 obj_ezsigntemplate = eZmaxApi.models.ezsigntemplate_response_compound.ezsigntemplate-ResponseCompound(),
                 obj_ezsigntemplatepackage = eZmaxApi.models.ezsigntemplatepackage_response_compound.ezsigntemplatepackage-ResponseCompound()
             )
         else:
             return EzsignbulksenddocumentmappingResponseCompound(
-                pki_ezsignbulksenddocumentmapping_id = 48,
-                fki_ezsignbulksend_id = 8,
-                i_ezsignbulksenddocumentmapping_order = 1,
         )
         """
 

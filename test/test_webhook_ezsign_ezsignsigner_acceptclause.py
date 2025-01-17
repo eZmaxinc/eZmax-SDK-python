@@ -36,10 +36,6 @@ class TestWebhookEzsignEzsignsignerAcceptclause(unittest.TestCase):
         model = WebhookEzsignEzsignsignerAcceptclause()
         if include_optional:
             return WebhookEzsignEzsignsignerAcceptclause(
-                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
-                a_obj_attempt = [
-                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
-                    ],
                 obj_ezsignfolder = eZmaxApi.models.ezsignfolder_response.ezsignfolder-Response(
                     pki_ezsignfolder_id = 33, 
                     fki_ezsignfoldertype_id = 5, 
@@ -112,10 +108,6 @@ Mary',
             )
         else:
             return WebhookEzsignEzsignsignerAcceptclause(
-                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
-                a_obj_attempt = [
-                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
-                    ],
                 obj_ezsignfoldersignerassociation = eZmaxApi.models.ezsignfoldersignerassociation_response_compound.ezsignfoldersignerassociation-ResponseCompound(),
         )
         """

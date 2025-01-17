@@ -75,19 +75,7 @@ class UsergroupdelegationRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of UsergroupdelegationRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiUsergroupdelegationID": obj.get("pkiUsergroupdelegationID"),
-            "fkiUsergroupID": obj.get("fkiUsergroupID"),
-            "fkiUserID": obj.get("fkiUserID")
-        })
-        return _obj
 
 

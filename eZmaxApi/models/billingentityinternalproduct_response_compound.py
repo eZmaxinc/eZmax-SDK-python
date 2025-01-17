@@ -18,23 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from eZmaxApi.models.billingentityinternalproduct_response import BillingentityinternalproductResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BillingentityinternalproductResponseCompound(BaseModel):
+class BillingentityinternalproductResponseCompound(BillingentityinternalproductResponse):
     """
     A Billingentityinternalproduct Object
     """ # noqa: E501
-    pki_billingentityinternalproduct_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternalproduct", alias="pkiBillingentityinternalproductID")
-    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
-    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
-    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
-    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
-    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalproductID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription"]
 
     model_config = ConfigDict(

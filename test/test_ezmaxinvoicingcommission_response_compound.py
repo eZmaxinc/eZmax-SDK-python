@@ -36,14 +36,6 @@ class TestEzmaxinvoicingcommissionResponseCompound(unittest.TestCase):
         model = EzmaxinvoicingcommissionResponseCompound()
         if include_optional:
             return EzmaxinvoicingcommissionResponseCompound(
-                pki_ezmaxinvoicingcommission_id = 36,
-                fki_ezmaxinvoicingsummaryglobal_id = 241,
-                fki_ezmaxpartner_id = 12,
-                fki_ezmaxrepresentative_id = 21,
-                dt_ezmaxinvoicingcommission_start = '2020-12-31',
-                dt_ezmaxinvoicingcommission_end = '2020-12-31',
-                i_ezmaxinvoicingcommission_days = 30,
-                d_ezmaxinvoicingcommission_amount = '450.34',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
@@ -51,10 +43,6 @@ class TestEzmaxinvoicingcommissionResponseCompound(unittest.TestCase):
             )
         else:
             return EzmaxinvoicingcommissionResponseCompound(
-                dt_ezmaxinvoicingcommission_start = '2020-12-31',
-                dt_ezmaxinvoicingcommission_end = '2020-12-31',
-                i_ezmaxinvoicingcommission_days = 30,
-                d_ezmaxinvoicingcommission_amount = '450.34',
         )
         """
 

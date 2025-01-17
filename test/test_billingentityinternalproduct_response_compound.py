@@ -36,23 +36,9 @@ class TestBillingentityinternalproductResponseCompound(unittest.TestCase):
         model = BillingentityinternalproductResponseCompound()
         if include_optional:
             return BillingentityinternalproductResponseCompound(
-                pki_billingentityinternalproduct_id = 254,
-                fki_billingentityinternal_id = 1,
-                s_billingentityinternal_description_x = 'Default',
-                fki_ezmaxproduct_id = 172,
-                s_ezmaxproduct_description_x = 'eZmax (License)',
-                fki_billingentityexternal_id = 83,
-                s_billingentityexternal_description = 'ACME Inc'
             )
         else:
             return BillingentityinternalproductResponseCompound(
-                pki_billingentityinternalproduct_id = 254,
-                fki_billingentityinternal_id = 1,
-                s_billingentityinternal_description_x = 'Default',
-                fki_ezmaxproduct_id = 172,
-                s_ezmaxproduct_description_x = 'eZmax (License)',
-                fki_billingentityexternal_id = 83,
-                s_billingentityexternal_description = 'ACME Inc',
         )
         """
 

@@ -36,8 +36,6 @@ class TestBillingentityinternalGetListV1ResponseMPayload(unittest.TestCase):
         model = BillingentityinternalGetListV1ResponseMPayload()
         if include_optional:
             return BillingentityinternalGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_billingentityinternal = [
                     eZmaxApi.models.billingentityinternal_list_element.billingentityinternal-ListElement(
                         pki_billingentityinternal_id = 1, 
@@ -46,8 +44,6 @@ class TestBillingentityinternalGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return BillingentityinternalGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_billingentityinternal = [
                     eZmaxApi.models.billingentityinternal_list_element.billingentityinternal-ListElement(
                         pki_billingentityinternal_id = 1, 

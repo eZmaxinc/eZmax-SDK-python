@@ -18,27 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from eZmaxApi.models.cors_response import CorsResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CorsResponseCompound(BaseModel):
+class CorsResponseCompound(CorsResponse):
     """
     A Cors Object
     """ # noqa: E501
-    pki_cors_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Cors", alias="pkiCorsID")
-    fki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="fkiApikeyID")
-    s_cors_entryurl: Annotated[str, Field(strict=True)] = Field(description="The entryurl of the Cors", alias="sCorsEntryurl")
     __properties: ClassVar[List[str]] = ["pkiCorsID", "fkiApikeyID", "sCorsEntryurl"]
-
-    @field_validator('s_cors_entryurl')
-    def s_cors_entryurl_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
-            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

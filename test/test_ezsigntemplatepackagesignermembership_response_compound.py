@@ -36,18 +36,9 @@ class TestEzsigntemplatepackagesignermembershipResponseCompound(unittest.TestCas
         model = EzsigntemplatepackagesignermembershipResponseCompound()
         if include_optional:
             return EzsigntemplatepackagesignermembershipResponseCompound(
-                pki_ezsigntemplatepackagesignermembership_id = 237,
-                fki_ezsigntemplatepackagemembership_id = 194,
-                fki_ezsigntemplatepackagesigner_id = 174,
-                fki_ezsigntemplatesigner_id = 9,
-                i_ezsigntemplatepackagesignermembership_copy = 1
             )
         else:
             return EzsigntemplatepackagesignermembershipResponseCompound(
-                pki_ezsigntemplatepackagesignermembership_id = 237,
-                fki_ezsigntemplatepackagemembership_id = 194,
-                fki_ezsigntemplatepackagesigner_id = 174,
-                fki_ezsigntemplatesigner_id = 9,
         )
         """
 

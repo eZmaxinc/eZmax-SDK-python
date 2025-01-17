@@ -18,32 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.domain_response import DomainResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainResponseCompound(BaseModel):
+class DomainResponseCompound(DomainResponse):
     """
     A Domain Object
     """ # noqa: E501
-    pki_domain_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Domain", alias="pkiDomainID")
-    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName")
-    b_domain_validdkim: StrictBool = Field(description="Whether the DKIM is valid or not", alias="bDomainValiddkim")
-    b_domain_validmailfrom: StrictBool = Field(description="Whether the mail from is valid or not", alias="bDomainValidmailfrom")
-    b_domain_validcustomer: StrictBool = Field(description="Whether the customer has access to it or not", alias="bDomainValidcustomer")
-    obj_audit: CommonAudit = Field(alias="objAudit")
     a_obj_dnsrecord: List[object] = Field(alias="a_objDnsrecord")
     __properties: ClassVar[List[str]] = ["pkiDomainID", "sDomainName", "bDomainValiddkim", "bDomainValidmailfrom", "bDomainValidcustomer", "objAudit", "a_objDnsrecord"]
-
-    @field_validator('s_domain_name')
-    def s_domain_name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
-            raise ValueError(r"must validate the regular expression /^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

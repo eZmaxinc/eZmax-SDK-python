@@ -36,19 +36,9 @@ class TestEzsigntemplatepackagesignerRequestCompound(unittest.TestCase):
         model = EzsigntemplatepackagesignerRequestCompound()
         if include_optional:
             return EzsigntemplatepackagesignerRequestCompound(
-                pki_ezsigntemplatepackagesigner_id = 174,
-                fki_ezsigntemplatepackage_id = 99,
-                fki_ezdoctemplatedocument_id = 95,
-                fki_user_id = 70,
-                fki_usergroup_id = 2,
-                b_ezsigntemplatepackagesigner_receivecopy = True,
-                e_ezsigntemplatepackagesigner_mapping = 'Manual',
-                s_ezsigntemplatepackagesigner_description = 'Customer'
             )
         else:
             return EzsigntemplatepackagesignerRequestCompound(
-                fki_ezsigntemplatepackage_id = 99,
-                s_ezsigntemplatepackagesigner_description = 'Customer',
         )
         """
 

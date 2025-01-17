@@ -36,8 +36,6 @@ class TestUserGetListV1ResponseMPayload(unittest.TestCase):
         model = UserGetListV1ResponseMPayload()
         if include_optional:
             return UserGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_user = [
                     eZmaxApi.models.user_list_element.user-ListElement(
                         pki_user_id = 70, 
@@ -55,8 +53,6 @@ class TestUserGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return UserGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_user = [
                     eZmaxApi.models.user_list_element.user-ListElement(
                         pki_user_id = 70, 

@@ -36,17 +36,10 @@ class TestCommonResponseErrorSTemporaryFileUrl(unittest.TestCase):
         model = CommonResponseErrorSTemporaryFileUrl()
         if include_optional:
             return CommonResponseErrorSTemporaryFileUrl(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
-                a_s_error_messagedetail = [
-                    ''
-                    ],
                 s_temporary_file_url = 'http://www.example.com/document.pdf'
             )
         else:
             return CommonResponseErrorSTemporaryFileUrl(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
         )
         """
 

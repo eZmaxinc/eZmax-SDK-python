@@ -36,23 +36,9 @@ class TestSubnetResponseCompound(unittest.TestCase):
         model = SubnetResponseCompound()
         if include_optional:
             return SubnetResponseCompound(
-                pki_subnet_id = 3,
-                fki_user_id = 70,
-                fki_apikey_id = 99,
-                obj_subnet_description = eZmaxApi.models.multilingual_subnet_description.Multilingual-SubnetDescription(
-                    s_subnet_description1 = 'Bureau chef', 
-                    s_subnet_description2 = 'Head office', ),
-                i_subnet_network = 134744064,
-                i_subnet_mask = 4294967040
             )
         else:
             return SubnetResponseCompound(
-                pki_subnet_id = 3,
-                obj_subnet_description = eZmaxApi.models.multilingual_subnet_description.Multilingual-SubnetDescription(
-                    s_subnet_description1 = 'Bureau chef', 
-                    s_subnet_description2 = 'Head office', ),
-                i_subnet_network = 134744064,
-                i_subnet_mask = 4294967040,
         )
         """
 

@@ -18,21 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from eZmaxApi.models.modulesection_response import ModulesectionResponse
 from eZmaxApi.models.permission_response import PermissionResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ModulesectionResponseCompound(BaseModel):
+class ModulesectionResponseCompound(ModulesectionResponse):
     """
     A Modulesection Object
     """ # noqa: E501
-    pki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="pkiModulesectionID")
-    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID")
-    s_modulesection_internalname: StrictStr = Field(description="The Internal name of the Module section.", alias="sModulesectionInternalname")
-    s_modulesection_name_x: StrictStr = Field(description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
     a_obj_permission: Optional[List[PermissionResponse]] = Field(default=None, alias="a_objPermission")
     __properties: ClassVar[List[str]] = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX", "a_objPermission"]
 

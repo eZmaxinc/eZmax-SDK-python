@@ -6,8 +6,6 @@ Response for GET /2/object/discussion/{pkiDiscussionID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**DiscussionGetObjectV2ResponseMPayload**](DiscussionGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

@@ -119,31 +119,7 @@ class EzsigntemplateResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplateResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplateID": obj.get("pkiEzsigntemplateID"),
-            "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
-            "sLanguageNameX": obj.get("sLanguageNameX"),
-            "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
-            "sEzsigntemplateExternaldescription": obj.get("sEzsigntemplateExternaldescription"),
-            "tEzsigntemplateComment": obj.get("tEzsigntemplateComment"),
-            "sEzsigntemplateFilenamepattern": obj.get("sEzsigntemplateFilenamepattern"),
-            "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
-            "bEzsigntemplateEditallowed": obj.get("bEzsigntemplateEditallowed"),
-            "eEzsigntemplateType": obj.get("eEzsigntemplateType")
-        })
-        return _obj
 
 

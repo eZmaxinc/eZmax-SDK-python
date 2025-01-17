@@ -18,22 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.ezmaxinvoicingsummaryexternal_response import EzmaxinvoicingsummaryexternalResponse
 from eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response_compound import EzmaxinvoicingsummaryexternaldetailResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingsummaryexternalResponseCompound(BaseModel):
+class EzmaxinvoicingsummaryexternalResponseCompound(EzmaxinvoicingsummaryexternalResponse):
     """
     A Ezmaxinvoicingsummaryexternal Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryexternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternal", alias="pkiEzmaxinvoicingsummaryexternalID")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
-    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
-    s_ezmaxinvoicingsummaryexternal_description: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The description of the Ezmaxinvoicingsummaryexternal", alias="sEzmaxinvoicingsummaryexternalDescription")
     a_obj_ezmaxinvoicingsummaryexternaldetail: List[EzmaxinvoicingsummaryexternaldetailResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryexternaldetail")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxinvoicingID", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "sEzmaxinvoicingsummaryexternalDescription", "a_objEzmaxinvoicingsummaryexternaldetail"]
 

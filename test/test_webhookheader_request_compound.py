@@ -36,14 +36,9 @@ class TestWebhookheaderRequestCompound(unittest.TestCase):
         model = WebhookheaderRequestCompound()
         if include_optional:
             return WebhookheaderRequestCompound(
-                pki_webhookheader_id = 77,
-                s_webhookheader_name = 'Authorization',
-                s_webhookheader_value = 'd75fca0e12b6c671e7f6d4df0cf59e4e'
             )
         else:
             return WebhookheaderRequestCompound(
-                s_webhookheader_name = 'Authorization',
-                s_webhookheader_value = 'd75fca0e12b6c671e7f6d4df0cf59e4e',
         )
         """
 

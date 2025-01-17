@@ -36,74 +36,12 @@ class TestCustomWebhookResponse(unittest.TestCase):
         model = CustomWebhookResponse()
         if include_optional:
             return CustomWebhookResponse(
-                pki_webhook_id = 77,
-                fki_authenticationexternal_id = 56,
-                s_webhook_description = 'Import into our system',
-                fki_ezsignfoldertype_id = 5,
-                s_ezsignfoldertype_name_x = 'Default',
-                e_webhook_module = 'Ezsign',
-                e_webhook_ezsignevent = 'FolderCompleted',
-                e_webhook_managementevent = 'UserCreated',
-                s_webhook_url = 'https://www.example.com',
-                s_webhook_emailfailed = 'email@example.com',
-                s_webhook_apikey = '',
-                s_webhook_secret = '',
-                b_webhook_isactive = True,
-                b_webhook_issigned = True,
-                b_webhook_skipsslvalidation = False,
-                s_authenticationexternal_description = 'Authentification',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
-                s_webhook_event = 'Ezsign-DocumentCompleted',
-                a_obj_webhookheader = [
-                    eZmaxApi.models.webhookheader_response_compound.webhookheader-ResponseCompound()
-                    ],
                 pks_customer_code = 'demo',
                 b_webhook_test = True,
                 e_webhook_emittype = 'Automatic'
             )
         else:
             return CustomWebhookResponse(
-                pki_webhook_id = 77,
-                s_webhook_description = 'Import into our system',
-                e_webhook_module = 'Ezsign',
-                s_webhook_url = 'https://www.example.com',
-                s_webhook_emailfailed = 'email@example.com',
-                b_webhook_isactive = True,
-                b_webhook_issigned = True,
-                b_webhook_skipsslvalidation = False,
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 pks_customer_code = 'demo',
                 b_webhook_test = True,
         )

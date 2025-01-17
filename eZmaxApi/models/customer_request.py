@@ -208,67 +208,7 @@ class CustomerRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of CustomerRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiCustomerID": obj.get("pkiCustomerID"),
-            "fkiCompanyID": obj.get("fkiCompanyID"),
-            "fkiCustomergroupID": obj.get("fkiCustomergroupID"),
-            "sCustomerName": obj.get("sCustomerName"),
-            "fkiContactinformationsID": obj.get("fkiContactinformationsID"),
-            "fkiContactcontainerID": obj.get("fkiContactcontainerID"),
-            "fkiImageID": obj.get("fkiImageID"),
-            "fkiGlaccountcontainerID": obj.get("fkiGlaccountcontainerID"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "fkiDepartmentID": obj.get("fkiDepartmentID"),
-            "fkiPaymentmethodID": obj.get("fkiPaymentmethodID"),
-            "fkiElectronicfundstransferbankaccountID": obj.get("fkiElectronicfundstransferbankaccountID"),
-            "fkiElectronicfundstransferbankaccountIDDirectdebit": obj.get("fkiElectronicfundstransferbankaccountIDDirectdebit"),
-            "fkiSendingmethodID": obj.get("fkiSendingmethodID"),
-            "fkiTaxassignmentID": obj.get("fkiTaxassignmentID"),
-            "fkiAttendancestatusID": obj.get("fkiAttendancestatusID"),
-            "fkiAgentIDVariableexpensechargeto": obj.get("fkiAgentIDVariableexpensechargeto"),
-            "fkiBrokerIDVariableexpensechargeto": obj.get("fkiBrokerIDVariableexpensechargeto"),
-            "fkiCustomerIDVariableexpensechargeto": obj.get("fkiCustomerIDVariableexpensechargeto"),
-            "fkiGlaccountcontainerIDVariableexpensechargeto": obj.get("fkiGlaccountcontainerIDVariableexpensechargeto"),
-            "fkiAgentIDSupplychargechargeto": obj.get("fkiAgentIDSupplychargechargeto"),
-            "fkiBrokerIDSupplychargechargeto": obj.get("fkiBrokerIDSupplychargechargeto"),
-            "fkiCustomerIDSupplychargechargeto": obj.get("fkiCustomerIDSupplychargechargeto"),
-            "fkiGlaccountcontainerIDSupplychargechargeto": obj.get("fkiGlaccountcontainerIDSupplychargechargeto"),
-            "fkiInvoicealternatelogoID": obj.get("fkiInvoicealternatelogoID"),
-            "fkiSynchronizationlinkserverID": obj.get("fkiSynchronizationlinkserverID"),
-            "efkiUserID": obj.get("efkiUserID"),
-            "efksCustomerCode": obj.get("efksCustomerCode"),
-            "sCustomerCode": obj.get("sCustomerCode"),
-            "dCustomerFulltimeequivalent": obj.get("dCustomerFulltimeequivalent"),
-            "iCustomerPhotocopiercode": obj.get("iCustomerPhotocopiercode"),
-            "iCustomerLongdistancecode": obj.get("iCustomerLongdistancecode"),
-            "iCustomerTimewindowstart": obj.get("iCustomerTimewindowstart"),
-            "iCustomerTimewindowend": obj.get("iCustomerTimewindowend"),
-            "dCustomerMinimumchargeableinterests": obj.get("dCustomerMinimumchargeableinterests"),
-            "dtCustomerBirthdate": obj.get("dtCustomerBirthdate"),
-            "dtCustomerTransfer": obj.get("dtCustomerTransfer"),
-            "dtCustomerTransferappointment": obj.get("dtCustomerTransferappointment"),
-            "dtCustomerTransfersurvey": obj.get("dtCustomerTransfersurvey"),
-            "bCustomerIsactive": obj.get("bCustomerIsactive"),
-            "bCustomerVariableexpensefinanced": obj.get("bCustomerVariableexpensefinanced"),
-            "bCustomerVariableexpensefinancedtaxes": obj.get("bCustomerVariableexpensefinancedtaxes"),
-            "bCustomerSupplychargefinanced": obj.get("bCustomerSupplychargefinanced"),
-            "bCustomerSupplychargefinancedtaxes": obj.get("bCustomerSupplychargefinancedtaxes"),
-            "bCustomerAttendance": obj.get("bCustomerAttendance"),
-            "eCustomerType": obj.get("eCustomerType"),
-            "eCustomerMarketingcorrespondence": obj.get("eCustomerMarketingcorrespondence"),
-            "bCustomerBlackcopycarbon": obj.get("bCustomerBlackcopycarbon"),
-            "bCustomerUnsubscribeinfo": obj.get("bCustomerUnsubscribeinfo"),
-            "tCustomerComment": obj.get("tCustomerComment"),
-            "IMPORTID": obj.get("IMPORTID")
-        })
-        return _obj
 
 

@@ -18,28 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from eZmaxApi.models.module_response_compound import ModuleResponseCompound
+from eZmaxApi.models.modulegroup_response import ModulegroupResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ModulegroupResponseCompound(BaseModel):
+class ModulegroupResponseCompound(ModulegroupResponse):
     """
     A Modulegroup Object
     """ # noqa: E501
-    pki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="pkiModulegroupID")
-    s_modulegroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Modulegroup in the language of the requester", alias="sModulegroupNameX")
     a_obj_module: Optional[List[ModuleResponseCompound]] = Field(default=None, alias="a_objModule")
     __properties: ClassVar[List[str]] = ["pkiModulegroupID", "sModulegroupNameX", "a_objModule"]
-
-    @field_validator('s_modulegroup_name_x')
-    def s_modulegroup_name_x_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,25}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,25}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

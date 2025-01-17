@@ -36,28 +36,11 @@ class TestEzsignuserGetObjectV2Response(unittest.TestCase):
         model = EzsignuserGetObjectV2Response()
         if include_optional:
             return EzsignuserGetObjectV2Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
-                    i_version_min = 1, 
-                    i_version_max = 2, 
-                    a_required_permission = [
-                        117
-                        ], 
-                    b_version_deprecated = False, 
-                    dt_response_date = '2020-12-31 23:59:59', ),
-                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignuser_get_object_v2_response_m_payload.ezsignuser-getObject-v2-Response-mPayload(
                     obj_ezsignuser = eZmaxApi.models.ezsignuser_response_compound.ezsignuser-ResponseCompound(), )
             )
         else:
             return EzsignuserGetObjectV2Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
-                    i_version_min = 1, 
-                    i_version_max = 2, 
-                    a_required_permission = [
-                        117
-                        ], 
-                    b_version_deprecated = False, 
-                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignuser_get_object_v2_response_m_payload.ezsignuser-getObject-v2-Response-mPayload(
                     obj_ezsignuser = eZmaxApi.models.ezsignuser_response_compound.ezsignuser-ResponseCompound(), ),
         )

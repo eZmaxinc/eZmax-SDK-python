@@ -6,8 +6,6 @@ Response for GET /1/object/branding/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**BrandingGetListV1ResponseMPayload**](BrandingGetListV1ResponseMPayload.md) |  | 
 
 ## Example

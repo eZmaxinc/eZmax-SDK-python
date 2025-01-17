@@ -36,8 +36,6 @@ class TestEzsignfolderGetListV1ResponseMPayload(unittest.TestCase):
         model = EzsignfolderGetListV1ResponseMPayload()
         if include_optional:
             return EzsignfolderGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsignfolder = [
                     eZmaxApi.models.ezsignfolder_list_element.ezsignfolder-ListElement(
                         pki_ezsignfolder_id = 33, 
@@ -65,8 +63,6 @@ class TestEzsignfolderGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzsignfolderGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsignfolder = [
                     eZmaxApi.models.ezsignfolder_list_element.ezsignfolder-ListElement(
                         pki_ezsignfolder_id = 33, 

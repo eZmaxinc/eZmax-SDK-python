@@ -94,28 +94,7 @@ class WebhookRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of WebhookRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiWebhookID": obj.get("pkiWebhookID"),
-            "fkiAuthenticationexternalID": obj.get("fkiAuthenticationexternalID"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "sWebhookDescription": obj.get("sWebhookDescription"),
-            "eWebhookModule": obj.get("eWebhookModule"),
-            "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
-            "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
-            "sWebhookUrl": obj.get("sWebhookUrl"),
-            "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
-            "bWebhookIsactive": obj.get("bWebhookIsactive"),
-            "bWebhookIssigned": obj.get("bWebhookIssigned"),
-            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation")
-        })
-        return _obj
 
 

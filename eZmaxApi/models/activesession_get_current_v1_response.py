@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ActivesessionGetCurrentV1Response(BaseModel):
+class ActivesessionGetCurrentV1Response(CommonResponse):
     """
     Response for GET /1/object/activesession/getCurrent
     """ # noqa: E501
-    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
-    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: ActivesessionResponseCompound = Field(description="Payload for GET /1/object/activesession/getCurrent", alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

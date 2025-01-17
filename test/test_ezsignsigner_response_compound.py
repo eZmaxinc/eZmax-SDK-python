@@ -36,11 +36,6 @@ class TestEzsignsignerResponseCompound(unittest.TestCase):
         model = EzsignsignerResponseCompound()
         if include_optional:
             return EzsignsignerResponseCompound(
-                pki_ezsignsigner_id = 89,
-                fki_taxassignment_id = 1,
-                fki_secretquestion_id = 7,
-                fki_userlogintype_id = 2,
-                s_userlogintype_description_x = 'Email and phone or SMS',
                 obj_contact = eZmaxApi.models.ezsignsigner_response_compound_contact.ezsignsigner-ResponseCompound-Contact(
                     pki_contact_id = 21, 
                     s_contact_firstname = 'John', 
@@ -53,10 +48,6 @@ class TestEzsignsignerResponseCompound(unittest.TestCase):
             )
         else:
             return EzsignsignerResponseCompound(
-                pki_ezsignsigner_id = 89,
-                fki_taxassignment_id = 1,
-                fki_userlogintype_id = 2,
-                s_userlogintype_description_x = 'Email and phone or SMS',
                 obj_contact = eZmaxApi.models.ezsignsigner_response_compound_contact.ezsignsigner-ResponseCompound-Contact(
                     pki_contact_id = 21, 
                     s_contact_firstname = 'John', 

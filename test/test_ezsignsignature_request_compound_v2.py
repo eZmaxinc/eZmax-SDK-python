@@ -36,33 +36,6 @@ class TestEzsignsignatureRequestCompoundV2(unittest.TestCase):
         model = EzsignsignatureRequestCompoundV2()
         if include_optional:
             return EzsignsignatureRequestCompoundV2(
-                pki_ezsignsignature_id = 49,
-                fki_ezsignfoldersignerassociation_id = 20,
-                i_ezsignpage_pagenumber = 1,
-                i_ezsignsignature_x = 200,
-                i_ezsignsignature_y = 300,
-                i_ezsignsignature_width = 200,
-                i_ezsignsignature_height = 200,
-                i_ezsignsignature_step = 1,
-                e_ezsignsignature_type = 'Name',
-                fki_ezsigndocument_id = 97,
-                t_ezsignsignature_tooltip = 'Please sign here if you agree to the terms',
-                e_ezsignsignature_tooltipposition = 'TopLeft',
-                e_ezsignsignature_font = 'Normal',
-                fki_ezsignfoldersignerassociation_id_validation = 20,
-                b_ezsignsignature_handwritten = True,
-                b_ezsignsignature_reason = True,
-                b_ezsignsignature_required = True,
-                e_ezsignsignature_attachmentnamesource = 'Description',
-                s_ezsignsignature_attachmentdescription = 'Attachment',
-                e_ezsignsignature_consultationtrigger = 'Manual',
-                i_ezsignsignature_validationstep = 1,
-                i_ezsignsignature_maxlength = 75,
-                s_ezsignsignature_defaultvalue = 'Foo',
-                e_ezsignsignature_textvalidation = 'None',
-                s_ezsignsignature_textvalidationcustommessage = 'Phone number',
-                s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
-                e_ezsignsignature_dependencyrequirement = 'AllOf',
                 b_ezsignsignature_customdate = True,
                 a_obj_ezsignsignaturecustomdate = [
                     eZmaxApi.models.ezsignsignaturecustomdate_request_compound_v2.ezsignsignaturecustomdate-RequestCompoundV2()
@@ -73,13 +46,6 @@ class TestEzsignsignatureRequestCompoundV2(unittest.TestCase):
             )
         else:
             return EzsignsignatureRequestCompoundV2(
-                fki_ezsignfoldersignerassociation_id = 20,
-                i_ezsignpage_pagenumber = 1,
-                i_ezsignsignature_x = 200,
-                i_ezsignsignature_y = 300,
-                i_ezsignsignature_step = 1,
-                e_ezsignsignature_type = 'Name',
-                fki_ezsigndocument_id = 97,
         )
         """
 

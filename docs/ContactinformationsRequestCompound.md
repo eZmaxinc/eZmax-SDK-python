@@ -6,10 +6,6 @@ A Contactinformations Object and children to create a complete structure
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**i_address_default** | **int** | The index in the a_objAddress array (zero based index) representing the Address object that should become the default one.  You can leave the value to 0 if the array is empty. | 
-**i_phone_default** | **int** | The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty. | 
-**i_email_default** | **int** | The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty. | 
-**i_website_default** | **int** | The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty. | 
 **a_obj_address** | [**List[AddressRequestCompound]**](AddressRequest.md) |  | 
 **a_obj_phone** | [**List[PhoneRequestCompound]**](PhoneRequest.md) |  | 
 **a_obj_email** | [**List[EmailRequestCompound]**](EmailRequest.md) |  | 

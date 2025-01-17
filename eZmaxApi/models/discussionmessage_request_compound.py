@@ -18,28 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.discussionmessage_request import DiscussionmessageRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DiscussionmessageRequestCompound(BaseModel):
+class DiscussionmessageRequestCompound(DiscussionmessageRequest):
     """
     A Discussionmessage Object and children
     """ # noqa: E501
-    pki_discussionmessage_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired")
-    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent")
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipIDActionrequired", "tDiscussionmessageContent"]
-
-    @field_validator('t_discussionmessage_content')
-    def t_discussionmessage_content_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,65535}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

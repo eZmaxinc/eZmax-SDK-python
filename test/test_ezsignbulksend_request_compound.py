@@ -36,22 +36,9 @@ class TestEzsignbulksendRequestCompound(unittest.TestCase):
         model = EzsignbulksendRequestCompound()
         if include_optional:
             return EzsignbulksendRequestCompound(
-                pki_ezsignbulksend_id = 8,
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                s_ezsignbulksend_description = 'Test eZsign Bulk Send',
-                t_ezsignbulksend_note = 'This is a note',
-                b_ezsignbulksend_needvalidation = True,
-                b_ezsignbulksend_isactive = True
             )
         else:
             return EzsignbulksendRequestCompound(
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                s_ezsignbulksend_description = 'Test eZsign Bulk Send',
-                t_ezsignbulksend_note = 'This is a note',
-                b_ezsignbulksend_needvalidation = True,
-                b_ezsignbulksend_isactive = True,
         )
         """
 

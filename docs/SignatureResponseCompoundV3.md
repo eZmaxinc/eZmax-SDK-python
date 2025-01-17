@@ -6,11 +6,6 @@ A Signature Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_signature_id** | **int** | The unique ID of the Signature | 
-**fki_font_id** | **int** | The unique ID of the Font | 
-**e_signature_preference** | [**FieldESignaturePreference**](FieldESignaturePreference.md) |  | 
-**b_signature_svg** | **bool** | Whether the signature has a SVG or not | 
-**b_signature_svginitials** | **bool** | Whether the initials has a SVG or not | 
 
 ## Example
 

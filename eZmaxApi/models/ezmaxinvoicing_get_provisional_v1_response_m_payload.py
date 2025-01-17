@@ -18,11 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezmaxpricing_response import CustomEzmaxpricingResponse
+from eZmaxApi.models.ezmaxinvoicing_response_compound import EzmaxinvoicingResponseCompound
 from eZmaxApi.models.ezmaxinvoicingagent_response_compound import EzmaxinvoicingagentResponseCompound
 from eZmaxApi.models.ezmaxinvoicingcontract_response_compound import EzmaxinvoicingcontractResponseCompound
 from eZmaxApi.models.ezmaxinvoicingsummaryexternal_response_compound import EzmaxinvoicingsummaryexternalResponseCompound
@@ -33,47 +33,11 @@ from eZmaxApi.models.field_e_ezmaxinvoicing_paymenttype import FieldEEzmaxinvoic
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
+class EzmaxinvoicingGetProvisionalV1ResponseMPayload(EzmaxinvoicingResponseCompound):
     """
     Payload for GET /1/object/ezmaxinvoicing/getProvisional
     """ # noqa: E501
-    pki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="pkiEzmaxinvoicingID")
-    fki_ezmaxinvoicingcontract_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxinvoicingcontract", alias="fkiEzmaxinvoicingcontractID")
-    fki_ezmaxpricing_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxpricing", alias="fkiEzmaxpricingID")
-    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
-    s_systemconfigurationtype_description_x: StrictStr = Field(description="The description of the Systemconfigurationtype in the language of the requester", alias="sSystemconfigurationtypeDescriptionX")
-    yyyymm_ezmaxinvoicing: Annotated[str, Field(strict=True, max_length=7)] = Field(description="The YYYYMM period of the Ezmaxinvoicing", alias="yyyymmEzmaxinvoicing")
-    i_ezmaxinvoicing_days: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of days invoiced", alias="iEzmaxinvoicingDays")
-    e_ezmaxinvoicing_paymenttype: FieldEEzmaxinvoicingPaymenttype = Field(alias="eEzmaxinvoicingPaymenttype")
-    d_ezmaxinvoicing_rebatepaymenttype: Annotated[str, Field(strict=True)] = Field(description="The percentage of rebate depending of the payment type", alias="dEzmaxinvoicingRebatepaymenttype")
-    i_ezmaxinvoicing_contractlength: Annotated[int, Field(strict=True, ge=1)] = Field(description="The length of the contract in years", alias="iEzmaxinvoicingContractlength")
-    d_ezmaxinvoicing_rebatecontractlength: Annotated[str, Field(strict=True)] = Field(description="The percentage of rebate depending of the contract length", alias="dEzmaxinvoicingRebatecontractlength")
-    b_ezmaxinvoicing_rebate_ezsignallagents: StrictBool = Field(description="Whether the rebate for eZsign is for all agents", alias="bEzmaxinvoicingRebateEzsignallagents")
-    obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
-    obj_ezmaxinvoicingcontract: EzmaxinvoicingcontractResponseCompound = Field(alias="objEzmaxinvoicingcontract")
-    obj_ezmaxpricing: CustomEzmaxpricingResponse = Field(alias="objEzmaxpricing")
-    a_obj_ezmaxinvoicingsummaryglobal: List[EzmaxinvoicingsummaryglobalResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryglobal")
-    a_obj_ezmaxinvoicingsummaryexternal: List[EzmaxinvoicingsummaryexternalResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryexternal")
-    a_obj_ezmaxinvoicingsummaryinternal: List[EzmaxinvoicingsummaryinternalResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryinternal")
-    a_obj_ezmaxinvoicingagent: List[EzmaxinvoicingagentResponseCompound] = Field(alias="a_objEzmaxinvoicingagent")
-    a_obj_ezmaxinvoicinguser: List[EzmaxinvoicinguserResponseCompound] = Field(alias="a_objEzmaxinvoicinguser")
-    a_obj_ezmaxinvoicingezsignfolder: List[object] = Field(alias="a_objEzmaxinvoicingezsignfolder")
-    a_obj_ezmaxinvoicingezsigndocument: List[object] = Field(alias="a_objEzmaxinvoicingezsigndocument")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingID", "fkiEzmaxinvoicingcontractID", "fkiEzmaxpricingID", "fkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescriptionX", "yyyymmEzmaxinvoicing", "iEzmaxinvoicingDays", "eEzmaxinvoicingPaymenttype", "dEzmaxinvoicingRebatepaymenttype", "iEzmaxinvoicingContractlength", "dEzmaxinvoicingRebatecontractlength", "bEzmaxinvoicingRebateEzsignallagents", "objAudit", "objEzmaxinvoicingcontract", "objEzmaxpricing", "a_objEzmaxinvoicingsummaryglobal", "a_objEzmaxinvoicingsummaryexternal", "a_objEzmaxinvoicingsummaryinternal", "a_objEzmaxinvoicingagent", "a_objEzmaxinvoicinguser", "a_objEzmaxinvoicingezsignfolder", "a_objEzmaxinvoicingezsigndocument"]
-
-    @field_validator('d_ezmaxinvoicing_rebatepaymenttype')
-    def d_ezmaxinvoicing_rebatepaymenttype_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicing_rebatecontractlength')
-    def d_ezmaxinvoicing_rebatecontractlength_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

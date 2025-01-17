@@ -6,8 +6,6 @@ Response for PUT /1/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}/ed
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseMPayload**](EzsigntemplatepackageEditEzsigntemplatepackagesignersV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -79,19 +79,7 @@ class EzsignsignergroupResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignsignergroupResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignsignergroupID": obj.get("pkiEzsignsignergroupID"),
-            "objEzsignsignergroupDescription": MultilingualEzsignsignergroupDescription.from_dict(obj["objEzsignsignergroupDescription"]) if obj.get("objEzsignsignergroupDescription") is not None else None,
-            "sEzsignsignergroupDescriptionX": obj.get("sEzsignsignergroupDescriptionX")
-        })
-        return _obj
 
 

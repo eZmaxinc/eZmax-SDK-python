@@ -36,8 +36,6 @@ class TestEzsignsigningreasonGetListV1ResponseMPayload(unittest.TestCase):
         model = EzsignsigningreasonGetListV1ResponseMPayload()
         if include_optional:
             return EzsignsigningreasonGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsignsigningreason = [
                     eZmaxApi.models.ezsignsigningreason_list_element.ezsignsigningreason-ListElement(
                         pki_ezsignsigningreason_id = 194, 
@@ -47,8 +45,6 @@ class TestEzsignsigningreasonGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzsignsigningreasonGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsignsigningreason = [
                     eZmaxApi.models.ezsignsigningreason_list_element.ezsignsigningreason-ListElement(
                         pki_ezsignsigningreason_id = 194, 

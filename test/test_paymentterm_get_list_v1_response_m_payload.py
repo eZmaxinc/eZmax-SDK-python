@@ -36,8 +36,6 @@ class TestPaymenttermGetListV1ResponseMPayload(unittest.TestCase):
         model = PaymenttermGetListV1ResponseMPayload()
         if include_optional:
             return PaymenttermGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_paymentterm = [
                     eZmaxApi.models.paymentterm_list_element.paymentterm-ListElement(
                         pki_paymentterm_id = 46, 
@@ -50,8 +48,6 @@ class TestPaymenttermGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return PaymenttermGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_paymentterm = [
                     eZmaxApi.models.paymentterm_list_element.paymentterm-ListElement(
                         pki_paymentterm_id = 46, 

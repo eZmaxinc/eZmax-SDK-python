@@ -98,21 +98,7 @@ class SignatureRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of SignatureRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiSignatureID": obj.get("pkiSignatureID"),
-            "fkiFontID": obj.get("fkiFontID"),
-            "eSignaturePreference": obj.get("eSignaturePreference"),
-            "tSignatureSvg": obj.get("tSignatureSvg"),
-            "tSignatureSvginitials": obj.get("tSignatureSvginitials")
-        })
-        return _obj
 
 

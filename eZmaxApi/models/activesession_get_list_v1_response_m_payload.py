@@ -18,18 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.activesession_list_element import ActivesessionListElement
+from eZmaxApi.models.common_get_list_v1_response_m_payload import CommonGetListV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ActivesessionGetListV1ResponseMPayload(BaseModel):
+class ActivesessionGetListV1ResponseMPayload(CommonGetListV1ResponseMPayload):
     """
     Payload for GET /1/object/activesession/getList
     """ # noqa: E501
-    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
-    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
     a_obj_activesession: List[ActivesessionListElement] = Field(alias="a_objActivesession")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objActivesession"]
 

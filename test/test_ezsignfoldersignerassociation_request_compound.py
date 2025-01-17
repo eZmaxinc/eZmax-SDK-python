@@ -36,25 +36,10 @@ class TestEzsignfoldersignerassociationRequestCompound(unittest.TestCase):
         model = EzsignfoldersignerassociationRequestCompound()
         if include_optional:
             return EzsignfoldersignerassociationRequestCompound(
-                pki_ezsignfoldersignerassociation_id = 20,
-                fki_user_id = 70,
-                fki_ezsignsignergroup_id = 27,
-                fki_ezsignfolder_id = 33,
-                b_ezsignfoldersignerassociation_receivecopy = True,
-                t_ezsignfoldersignerassociation_message = 'Hi John,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary',
                 obj_ezsignsigner = eZmaxApi.models.ezsignsigner_request_compound.ezsignsigner-RequestCompound()
             )
         else:
             return EzsignfoldersignerassociationRequestCompound(
-                fki_ezsignfolder_id = 33,
         )
         """
 

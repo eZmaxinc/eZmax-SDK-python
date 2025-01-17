@@ -36,15 +36,9 @@ class TestEzsignbulksendsignermappingRequestCompound(unittest.TestCase):
         model = EzsignbulksendsignermappingRequestCompound()
         if include_optional:
             return EzsignbulksendsignermappingRequestCompound(
-                pki_ezsignbulksendsignermapping_id = 57,
-                fki_ezsignbulksend_id = 8,
-                fki_user_id = 70,
-                s_ezsignbulksendsignermapping_description = 'Supervisor'
             )
         else:
             return EzsignbulksendsignermappingRequestCompound(
-                fki_ezsignbulksend_id = 8,
-                s_ezsignbulksendsignermapping_description = 'Supervisor',
         )
         """
 

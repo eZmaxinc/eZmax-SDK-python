@@ -101,28 +101,7 @@ class EzsigntemplatepackageResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplatepackageResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplatepackageID": obj.get("pkiEzsigntemplatepackageID"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "sEzdoctemplatedocumentNameX": obj.get("sEzdoctemplatedocumentNameX"),
-            "sLanguageNameX": obj.get("sLanguageNameX"),
-            "sEzsigntemplatepackageDescription": obj.get("sEzsigntemplatepackageDescription"),
-            "bEzsigntemplatepackageAdminonly": obj.get("bEzsigntemplatepackageAdminonly"),
-            "bEzsigntemplatepackageNeedvalidation": obj.get("bEzsigntemplatepackageNeedvalidation"),
-            "bEzsigntemplatepackageIsactive": obj.get("bEzsigntemplatepackageIsactive"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "bEzsigntemplatepackageEditallowed": obj.get("bEzsigntemplatepackageEditallowed")
-        })
-        return _obj
 
 

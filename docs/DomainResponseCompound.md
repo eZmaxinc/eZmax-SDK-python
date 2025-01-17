@@ -6,12 +6,6 @@ A Domain Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_domain_id** | **int** | The unique ID of the Domain | 
-**s_domain_name** | **str** | The name of the Domain | 
-**b_domain_validdkim** | **bool** | Whether the DKIM is valid or not | 
-**b_domain_validmailfrom** | **bool** | Whether the mail from is valid or not | 
-**b_domain_validcustomer** | **bool** | Whether the customer has access to it or not | 
-**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 **a_obj_dnsrecord** | **List[CustomDnsrecordResponse]** |  | 
 
 ## Example

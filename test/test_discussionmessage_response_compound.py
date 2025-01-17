@@ -36,56 +36,9 @@ class TestDiscussionmessageResponseCompound(unittest.TestCase):
         model = DiscussionmessageResponseCompound()
         if include_optional:
             return DiscussionmessageResponseCompound(
-                pki_discussionmessage_id = 123,
-                fki_discussion_id = 125,
-                fki_discussionmembership_id = 165,
-                fki_discussionmembership_id_actionrequired = 165,
-                e_discussionmessage_status = 'New',
-                t_discussionmessage_content = 'Hello, this is an example of content in a message',
-                s_discussionmessage_creatorname = 'John Doe',
-                s_discussionmessage_actionrequiredname = 'Jane Doe',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return DiscussionmessageResponseCompound(
-                pki_discussionmessage_id = 123,
-                fki_discussion_id = 125,
-                e_discussionmessage_status = 'New',
-                t_discussionmessage_content = 'Hello, this is an example of content in a message',
-                s_discussionmessage_creatorname = 'John Doe',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

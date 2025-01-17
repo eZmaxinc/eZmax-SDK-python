@@ -110,29 +110,7 @@ class ContactResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of ContactResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiContactID": obj.get("pkiContactID"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "fkiContacttitleID": obj.get("fkiContacttitleID"),
-            "fkiContactinformationsID": obj.get("fkiContactinformationsID"),
-            "dtContactBirthdate": obj.get("dtContactBirthdate"),
-            "eContactType": obj.get("eContactType"),
-            "sContactFirstname": obj.get("sContactFirstname"),
-            "sContactLastname": obj.get("sContactLastname"),
-            "sContactCompany": obj.get("sContactCompany"),
-            "sContactOccupation": obj.get("sContactOccupation"),
-            "tContactNote": obj.get("tContactNote"),
-            "bContactIsactive": obj.get("bContactIsactive"),
-            "objContactinformations": ContactinformationsResponseCompound.from_dict(obj["objContactinformations"]) if obj.get("objContactinformations") is not None else None
-        })
-        return _obj
 
 

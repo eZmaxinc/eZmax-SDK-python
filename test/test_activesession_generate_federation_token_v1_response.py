@@ -36,15 +36,6 @@ class TestActivesessionGenerateFederationTokenV1Response(unittest.TestCase):
         model = ActivesessionGenerateFederationTokenV1Response()
         if include_optional:
             return ActivesessionGenerateFederationTokenV1Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
-                    i_version_min = 1, 
-                    i_version_max = 2, 
-                    a_required_permission = [
-                        117
-                        ], 
-                    b_version_deprecated = False, 
-                    dt_response_date = '2020-12-31 23:59:59', ),
-                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.activesession_generate_federation_token_v1_response_m_payload.activesession-generateFederationToken-v1-Response-mPayload(
                     obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
                         s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
@@ -53,14 +44,6 @@ class TestActivesessionGenerateFederationTokenV1Response(unittest.TestCase):
             )
         else:
             return ActivesessionGenerateFederationTokenV1Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
-                    i_version_min = 1, 
-                    i_version_max = 2, 
-                    a_required_permission = [
-                        117
-                        ], 
-                    b_version_deprecated = False, 
-                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.activesession_generate_federation_token_v1_response_m_payload.activesession-generateFederationToken-v1-Response-mPayload(
                     obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
                         s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 

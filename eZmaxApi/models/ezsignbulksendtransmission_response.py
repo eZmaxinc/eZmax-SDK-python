@@ -81,21 +81,7 @@ class EzsignbulksendtransmissionResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignbulksendtransmissionResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignbulksendtransmissionID": obj.get("pkiEzsignbulksendtransmissionID"),
-            "fkiEzsignbulksendID": obj.get("fkiEzsignbulksendID"),
-            "sEzsignbulksendtransmissionDescription": obj.get("sEzsignbulksendtransmissionDescription"),
-            "iEzsignbulksendtransmissionErrors": obj.get("iEzsignbulksendtransmissionErrors"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
-        })
-        return _obj
 
 

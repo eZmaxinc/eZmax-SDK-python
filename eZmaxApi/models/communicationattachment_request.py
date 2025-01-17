@@ -76,20 +76,7 @@ class CommunicationattachmentRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of CommunicationattachmentRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiCommunicationattachmentID": obj.get("pkiCommunicationattachmentID"),
-            "fkiAttachmentID": obj.get("fkiAttachmentID"),
-            "fkiInvoiceID": obj.get("fkiInvoiceID"),
-            "fkiSalarypreparationID": obj.get("fkiSalarypreparationID")
-        })
-        return _obj
 
 

@@ -104,29 +104,7 @@ class EzmaxinvoicingResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzmaxinvoicingID": obj.get("pkiEzmaxinvoicingID"),
-            "fkiEzmaxinvoicingcontractID": obj.get("fkiEzmaxinvoicingcontractID"),
-            "fkiEzmaxpricingID": obj.get("fkiEzmaxpricingID"),
-            "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
-            "sSystemconfigurationtypeDescriptionX": obj.get("sSystemconfigurationtypeDescriptionX"),
-            "yyyymmEzmaxinvoicing": obj.get("yyyymmEzmaxinvoicing"),
-            "iEzmaxinvoicingDays": obj.get("iEzmaxinvoicingDays"),
-            "eEzmaxinvoicingPaymenttype": obj.get("eEzmaxinvoicingPaymenttype"),
-            "dEzmaxinvoicingRebatepaymenttype": obj.get("dEzmaxinvoicingRebatepaymenttype"),
-            "iEzmaxinvoicingContractlength": obj.get("iEzmaxinvoicingContractlength"),
-            "dEzmaxinvoicingRebatecontractlength": obj.get("dEzmaxinvoicingRebatecontractlength"),
-            "bEzmaxinvoicingRebateEzsignallagents": obj.get("bEzmaxinvoicingRebateEzsignallagents"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
-        })
-        return _obj
 
 

@@ -6,16 +6,6 @@ Request for POST /1/object/communication
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_communication_id** | **int** | The unique ID of the Communication. | [optional] 
-**e_communication_importance** | [**FieldECommunicationImportance**](FieldECommunicationImportance.md) |  | [optional] 
-**e_communication_type** | [**FieldECommunicationType**](FieldECommunicationType.md) |  | 
-**obj_communicationsender** | [**CustomCommunicationsenderRequest**](CustomCommunicationsenderRequest.md) |  | [optional] 
-**s_communication_subject** | **str** | The subject of the Communication | [optional] 
-**t_communication_body** | **str** | The Body of the Communication | 
-**b_communication_private** | **bool** | Whether the Communication is private or not | 
-**e_communication_attachmenttype** | **str** | How the attachment should be included in the email.   Only used if eCommunicationType is **Email** | [optional] 
-**i_communication_attachmentlinkexpiration** | **int** | The number of days before the attachment link expired.   Only used if eCommunicationType is **Email** and eCommunicationattachmentType is **Link** | [optional] 
-**b_communication_readreceipt** | **bool** | Whether we ask for a read receipt or not. | [optional] 
 **a_obj_communicationattachment** | [**List[CustomCommunicationattachmentRequest]**](CustomCommunicationattachmentRequest.md) |  | 
 **a_obj_communicationrecipient** | [**List[CommunicationrecipientRequestCompound]**](CommunicationrecipientRequestCompound.md) |  | 
 **a_obj_communicationreference** | [**List[CommunicationreferenceRequestCompound]**](CommunicationreferenceRequest.md) |  | 

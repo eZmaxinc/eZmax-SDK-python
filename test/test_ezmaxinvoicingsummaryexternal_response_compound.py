@@ -36,20 +36,12 @@ class TestEzmaxinvoicingsummaryexternalResponseCompound(unittest.TestCase):
         model = EzmaxinvoicingsummaryexternalResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryexternalResponseCompound(
-                pki_ezmaxinvoicingsummaryexternal_id = 177,
-                fki_ezmaxinvoicing_id = 28,
-                fki_billingentityexternal_id = 83,
-                s_billingentityexternal_description = 'ACME Inc',
-                s_ezmaxinvoicingsummaryexternal_description = 'Company Demo',
                 a_obj_ezmaxinvoicingsummaryexternaldetail = [
                     eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response_compound.ezmaxinvoicingsummaryexternaldetail-ResponseCompound()
                     ]
             )
         else:
             return EzmaxinvoicingsummaryexternalResponseCompound(
-                fki_billingentityexternal_id = 83,
-                s_billingentityexternal_description = 'ACME Inc',
-                s_ezmaxinvoicingsummaryexternal_description = 'Company Demo',
                 a_obj_ezmaxinvoicingsummaryexternaldetail = [
                     eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response_compound.ezmaxinvoicingsummaryexternaldetail-ResponseCompound()
                     ],

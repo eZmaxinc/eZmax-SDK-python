@@ -6,9 +6,6 @@ Generic Error Message
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**s_error_message** | **str** | The message giving details about the error | 
-**e_error_code** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
-**a_s_error_messagedetail** | **List[str]** | More error message detail | [optional] 
 **s_temporary_file_url** | **str** | The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again. | [optional] 
 
 ## Example

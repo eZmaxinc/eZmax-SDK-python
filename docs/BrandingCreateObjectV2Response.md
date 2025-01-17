@@ -6,8 +6,6 @@ Response for POST /2/object/branding
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**BrandingCreateObjectV2ResponseMPayload**](BrandingCreateObjectV2ResponseMPayload.md) |  | 
 
 ## Example

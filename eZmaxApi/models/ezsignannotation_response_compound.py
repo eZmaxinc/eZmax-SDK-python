@@ -18,31 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
 from eZmaxApi.models.enum_verticalalignment import EnumVerticalalignment
+from eZmaxApi.models.ezsignannotation_response import EzsignannotationResponse
 from eZmaxApi.models.field_e_ezsignannotation_type import FieldEEzsignannotationType
 from eZmaxApi.models.textstylestatic_response_compound import TextstylestaticResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignannotationResponseCompound(BaseModel):
+class EzsignannotationResponseCompound(EzsignannotationResponse):
     """
     A Ezsignannotation Object
     """ # noqa: E501
-    pki_ezsignannotation_id: StrictInt = Field(description="The unique ID of the Ezsignannotation", alias="pkiEzsignannotationID")
-    fki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
-    e_ezsignannotation_horizontalalignment: Optional[EnumHorizontalalignment] = Field(default=None, alias="eEzsignannotationHorizontalalignment")
-    e_ezsignannotation_verticalalignment: Optional[EnumVerticalalignment] = Field(default=None, alias="eEzsignannotationVerticalalignment")
-    e_ezsignannotation_type: FieldEEzsignannotationType = Field(alias="eEzsignannotationType")
-    i_ezsignannotation_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignannotationX")
-    i_ezsignannotation_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsignannotation on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignannotation 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsignannotationY")
-    i_ezsignannotation_width: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Width of the Ezsignannotation.  Width is calculated at 100dpi (dot per inch). So for example, if you want to have the width of the Ezsignannotation to be 3 inches, you would use \"300\" for the Width.", alias="iEzsignannotationWidth")
-    i_ezsignannotation_height: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The Height of the Ezsignannotation.  Height is calculated at 100dpi (dot per inch). So for example, if you want to have the height of the Ezsignannotation to be 2 inches, you would use \"200\" for the Height.  This can only be set if eEzsignannotationType is **StrikethroughBlock** or **Text**", alias="iEzsignannotationHeight")
-    s_ezsignannotation_text: Optional[StrictStr] = Field(default=None, description="The Text of the Ezsignannotation", alias="sEzsignannotationText")
-    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     obj_textstylestatic: Optional[TextstylestaticResponseCompound] = Field(default=None, alias="objTextstylestatic")
     __properties: ClassVar[List[str]] = ["pkiEzsignannotationID", "fkiEzsigndocumentID", "eEzsignannotationHorizontalalignment", "eEzsignannotationVerticalalignment", "eEzsignannotationType", "iEzsignannotationX", "iEzsignannotationY", "iEzsignannotationWidth", "iEzsignannotationHeight", "sEzsignannotationText", "iEzsignpagePagenumber", "objTextstylestatic"]
 

@@ -36,8 +36,6 @@ class TestActivesessionGetListV1ResponseMPayload(unittest.TestCase):
         model = ActivesessionGetListV1ResponseMPayload()
         if include_optional:
             return ActivesessionGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_activesession = [
                     eZmaxApi.models.activesession_list_element.activesession-ListElement(
                         pki_activesession_id = 16, 
@@ -56,8 +54,6 @@ class TestActivesessionGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return ActivesessionGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_activesession = [
                     eZmaxApi.models.activesession_list_element.activesession-ListElement(
                         pki_activesession_id = 16, 

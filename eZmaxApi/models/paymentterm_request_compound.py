@@ -18,32 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.field_e_paymentterm_type import FieldEPaymenttermType
 from eZmaxApi.models.multilingual_paymentterm_description import MultilingualPaymenttermDescription
+from eZmaxApi.models.paymentterm_request import PaymenttermRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PaymenttermRequestCompound(BaseModel):
+class PaymenttermRequestCompound(PaymenttermRequest):
     """
     A Paymentterm Object and children
     """ # noqa: E501
-    pki_paymentterm_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Paymentterm", alias="pkiPaymenttermID")
-    s_paymentterm_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Paymentterm", alias="sPaymenttermCode")
-    e_paymentterm_type: FieldEPaymenttermType = Field(alias="ePaymenttermType")
-    i_paymentterm_day: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The day of the Paymentterm", alias="iPaymenttermDay")
-    obj_paymentterm_description: MultilingualPaymenttermDescription = Field(alias="objPaymenttermDescription")
-    b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive")
     __properties: ClassVar[List[str]] = ["pkiPaymenttermID", "sPaymenttermCode", "ePaymenttermType", "iPaymenttermDay", "objPaymenttermDescription", "bPaymenttermIsactive"]
-
-    @field_validator('s_paymentterm_code')
-    def s_paymentterm_code_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[A-Z0-9]{1,4}$", value):
-            raise ValueError(r"must validate the regular expression /^[A-Z0-9]{1,4}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

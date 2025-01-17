@@ -88,25 +88,7 @@ class TextstylestaticResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of TextstylestaticResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiTextstylestaticID": obj.get("pkiTextstylestaticID"),
-            "fkiFontID": obj.get("fkiFontID"),
-            "sFontName": obj.get("sFontName"),
-            "bTextstylestaticBold": obj.get("bTextstylestaticBold"),
-            "bTextstylestaticUnderline": obj.get("bTextstylestaticUnderline"),
-            "bTextstylestaticItalic": obj.get("bTextstylestaticItalic"),
-            "bTextstylestaticStrikethrough": obj.get("bTextstylestaticStrikethrough"),
-            "iTextstylestaticFontcolor": obj.get("iTextstylestaticFontcolor"),
-            "iTextstylestaticSize": obj.get("iTextstylestaticSize")
-        })
-        return _obj
 
 

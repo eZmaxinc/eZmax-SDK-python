@@ -36,33 +36,12 @@ class TestBrandingResponseCompoundV3(unittest.TestCase):
         model = BrandingResponseCompoundV3()
         if include_optional:
             return BrandingResponseCompoundV3(
-                pki_branding_id = 78,
-                fki_email_id = 22,
-                obj_branding_description = eZmaxApi.models.multilingual_branding_description.Multilingual-BrandingDescription(
-                    s_branding_description1 = 'Compagnie X', 
-                    s_branding_description2 = 'Company X', ),
-                s_branding_description_x = 'Company X',
-                s_branding_name = 'eZmax (Corp)',
-                s_email_address = 'email@example.com',
-                e_branding_logo = 'Default',
-                e_branding_alignlogo = 'Center',
-                i_branding_color = 15658734,
-                b_branding_isactive = True,
                 s_branding_logourl = 'http://www.example.com/logo.jpg',
                 s_branding_logoemailurl = 'http://www.example.com/logo.jpg',
                 s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg'
             )
         else:
             return BrandingResponseCompoundV3(
-                pki_branding_id = 78,
-                obj_branding_description = eZmaxApi.models.multilingual_branding_description.Multilingual-BrandingDescription(
-                    s_branding_description1 = 'Compagnie X', 
-                    s_branding_description2 = 'Company X', ),
-                s_branding_description_x = 'Company X',
-                e_branding_logo = 'Default',
-                e_branding_alignlogo = 'Center',
-                i_branding_color = 15658734,
-                b_branding_isactive = True,
         )
         """
 

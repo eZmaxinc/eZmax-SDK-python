@@ -36,15 +36,9 @@ class TestCorsResponseCompound(unittest.TestCase):
         model = CorsResponseCompound()
         if include_optional:
             return CorsResponseCompound(
-                pki_cors_id = 228,
-                fki_apikey_id = 99,
-                s_cors_entryurl = 'Https://www.example.com'
             )
         else:
             return CorsResponseCompound(
-                pki_cors_id = 228,
-                fki_apikey_id = 99,
-                s_cors_entryurl = 'Https://www.example.com',
         )
         """
 

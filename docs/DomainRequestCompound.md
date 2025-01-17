@@ -6,8 +6,6 @@ A Domain Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_domain_id** | **int** | The unique ID of the Domain | [optional] 
-**s_domain_name** | **str** | The name of the Domain | 
 
 ## Example
 

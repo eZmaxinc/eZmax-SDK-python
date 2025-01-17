@@ -36,8 +36,6 @@ class TestEzsigntemplatepublicGetListV1ResponseMPayload(unittest.TestCase):
         model = EzsigntemplatepublicGetListV1ResponseMPayload()
         if include_optional:
             return EzsigntemplatepublicGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsigntemplatepublic = [
                     eZmaxApi.models.ezsigntemplatepublic_list_element.ezsigntemplatepublic-ListElement(
                         pki_ezsigntemplatepublic_id = 96, 
@@ -60,8 +58,6 @@ class TestEzsigntemplatepublicGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzsigntemplatepublicGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_ezsigntemplatepublic = [
                     eZmaxApi.models.ezsigntemplatepublic_list_element.ezsigntemplatepublic-ListElement(
                         pki_ezsigntemplatepublic_id = 96, 

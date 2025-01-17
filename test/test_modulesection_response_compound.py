@@ -36,20 +36,12 @@ class TestModulesectionResponseCompound(unittest.TestCase):
         model = ModulesectionResponseCompound()
         if include_optional:
             return ModulesectionResponseCompound(
-                pki_modulesection_id = 53,
-                fki_module_id = 40,
-                s_modulesection_internalname = 'Access',
-                s_modulesection_name_x = 'Access',
                 a_obj_permission = [
                     eZmaxApi.models.permission_response_compound.permission-ResponseCompound()
                     ]
             )
         else:
             return ModulesectionResponseCompound(
-                pki_modulesection_id = 53,
-                fki_module_id = 40,
-                s_modulesection_internalname = 'Access',
-                s_modulesection_name_x = 'Access',
         )
         """
 

@@ -6,18 +6,6 @@ A Webhook Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_webhook_id** | **int** | The unique ID of the Webhook | [optional] 
-**fki_authenticationexternal_id** | **int** | The unique ID of the Authenticationexternal | [optional] 
-**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
-**s_webhook_description** | **str** | The description of the Webhook | 
-**e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
-**e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
-**e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
-**s_webhook_url** | **str** | The URL of the Webhook callback | 
-**s_webhook_emailfailed** | **str** | The email that will receive the Webhook in case all attempts fail | 
-**b_webhook_isactive** | **bool** | Whether the Webhook is active or not | 
-**b_webhook_issigned** | **bool** | Whether the requests will be signed or not | [optional] 
-**b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **a_obj_webhookheader** | [**List[WebhookheaderRequestCompound]**](WebhookheaderRequestCompound.md) |  | [optional] 
 
 ## Example

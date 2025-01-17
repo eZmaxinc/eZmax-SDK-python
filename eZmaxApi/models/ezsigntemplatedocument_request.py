@@ -111,28 +111,7 @@ class EzsigntemplatedocumentRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplatedocumentRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplatedocumentID": obj.get("pkiEzsigntemplatedocumentID"),
-            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
-            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
-            "fkiEzsigntemplatesignerID": obj.get("fkiEzsigntemplatesignerID"),
-            "sEzsigntemplatedocumentName": obj.get("sEzsigntemplatedocumentName"),
-            "eEzsigntemplatedocumentSource": obj.get("eEzsigntemplatedocumentSource"),
-            "eEzsigntemplatedocumentFormat": obj.get("eEzsigntemplatedocumentFormat"),
-            "sEzsigntemplatedocumentBase64": obj.get("sEzsigntemplatedocumentBase64"),
-            "sEzsigntemplatedocumentUrl": obj.get("sEzsigntemplatedocumentUrl"),
-            "bEzsigntemplatedocumentForcerepair": obj.get("bEzsigntemplatedocumentForcerepair"),
-            "eEzsigntemplatedocumentForm": obj.get("eEzsigntemplatedocumentForm"),
-            "sEzsigntemplatedocumentPassword": obj.get("sEzsigntemplatedocumentPassword") if obj.get("sEzsigntemplatedocumentPassword") is not None else ''
-        })
-        return _obj
 
 

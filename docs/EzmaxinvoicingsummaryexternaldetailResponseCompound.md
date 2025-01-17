@@ -6,16 +6,6 @@ A Ezmaxinvoicingsummaryexternaldetail Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezmaxinvoicingsummaryexternaldetail_id** | **int** | The unique ID of the Ezmaxinvoicingsummaryexternaldetail | [optional] 
-**fki_ezmaxinvoicingsummaryexternal_id** | **int** | The unique ID of the Ezmaxinvoicingsummaryexternal | [optional] 
-**fki_ezmaxproduct_id** | **int** | The unique ID of the Ezmaxproduct | 
-**s_ezmaxproduct_description_x** | **str** | The description of the Ezmaxproduct in the language of the requester | 
-**d_ezmaxinvoicingsummaryexternaldetail_countreal** | **str** | The count item invoiced for the product | 
-**d_ezmaxinvoicingsummaryexternaldetail_subtotal** | **str** | The subtotal invoiced for the product | 
-**d_ezmaxinvoicingsummaryexternaldetail_rebate** | **str** | The rebate for the product | 
-**d_ezmaxinvoicingsummaryexternaldetail_total** | **str** | The total invoiced for the product | 
-**b_ezmaxinvoicingsummaryexternaldetail_adjustment** | **bool** | Whether it&#39;s an adjustment | 
-**t_ezmaxproduct_help_x** | **str** | The help message of the Ezmaxproduct in the language of the requester | 
 
 ## Example
 

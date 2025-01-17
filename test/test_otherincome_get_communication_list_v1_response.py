@@ -36,8 +36,6 @@ class TestOtherincomeGetCommunicationListV1Response(unittest.TestCase):
         model = OtherincomeGetCommunicationListV1Response()
         if include_optional:
             return OtherincomeGetCommunicationListV1Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),
-                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.otherincome_get_communication_list_v1_response_m_payload.otherincome-getCommunicationList-v1-Response-mPayload(
                     a_obj_communication = [
                         eZmaxApi.models.custom_communication_list_element_response.Custom-CommunicationListElement-Response(
@@ -54,7 +52,6 @@ class TestOtherincomeGetCommunicationListV1Response(unittest.TestCase):
             )
         else:
             return OtherincomeGetCommunicationListV1Response(
-                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload_get_list.Common-Response-objDebugPayload_getList(),
                 m_payload = eZmaxApi.models.otherincome_get_communication_list_v1_response_m_payload.otherincome-getCommunicationList-v1-Response-mPayload(
                     a_obj_communication = [
                         eZmaxApi.models.custom_communication_list_element_response.Custom-CommunicationListElement-Response(

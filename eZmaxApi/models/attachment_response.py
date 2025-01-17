@@ -165,77 +165,7 @@ class AttachmentResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of AttachmentResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiAttachmentID": obj.get("pkiAttachmentID"),
-            "fkiComputerID": obj.get("fkiComputerID"),
-            "fkiAdjustmentID": obj.get("fkiAdjustmentID"),
-            "fkiAgentID": obj.get("fkiAgentID"),
-            "fkiBankaccountID": obj.get("fkiBankaccountID"),
-            "fkiBrokerID": obj.get("fkiBrokerID"),
-            "fkiCommissionadvanceID": obj.get("fkiCommissionadvanceID"),
-            "fkiCommunicationID": obj.get("fkiCommunicationID"),
-            "fkiCustomerID": obj.get("fkiCustomerID"),
-            "fkiCustomertemplateID": obj.get("fkiCustomertemplateID"),
-            "fkiDepositID": obj.get("fkiDepositID"),
-            "fkiDeposittransitchequeID": obj.get("fkiDeposittransitchequeID"),
-            "fkiElectronicfundstransferID": obj.get("fkiElectronicfundstransferID"),
-            "fkiEmployeeID": obj.get("fkiEmployeeID"),
-            "fkiExternalbrokerID": obj.get("fkiExternalbrokerID"),
-            "fkiEzcomadvanceserverID": obj.get("fkiEzcomadvanceserverID"),
-            "fkiEzcomcompanyID": obj.get("fkiEzcomcompanyID"),
-            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
-            "fkiGhacqcontractID": obj.get("fkiGhacqcontractID"),
-            "fkiInscriptionID": obj.get("fkiInscriptionID"),
-            "fkiInscriptiontempID": obj.get("fkiInscriptiontempID"),
-            "fkiInscriptionnotauthenticatedID": obj.get("fkiInscriptionnotauthenticatedID"),
-            "fkiInvoiceID": obj.get("fkiInvoiceID"),
-            "fkiBuyercontractID": obj.get("fkiBuyercontractID"),
-            "fkiFranchisebrokerID": obj.get("fkiFranchisebrokerID"),
-            "fkiFranchiseagenceID": obj.get("fkiFranchiseagenceID"),
-            "fkiFranchiseofficeID": obj.get("fkiFranchiseofficeID"),
-            "fkiFranchisefranchiseID": obj.get("fkiFranchisefranchiseID"),
-            "fkiFranchisecomplaintID": obj.get("fkiFranchisecomplaintID"),
-            "fkiLeadID": obj.get("fkiLeadID"),
-            "fkiMarketingprogramID": obj.get("fkiMarketingprogramID"),
-            "fkiMarketingfollowID": obj.get("fkiMarketingfollowID"),
-            "fkiNotaryID": obj.get("fkiNotaryID"),
-            "fkiOfficetaxreportID": obj.get("fkiOfficetaxreportID"),
-            "fkiOtherincomeID": obj.get("fkiOtherincomeID"),
-            "fkiPaymentpreparationID": obj.get("fkiPaymentpreparationID"),
-            "fkiPurchaseID": obj.get("fkiPurchaseID"),
-            "fkiSalaryID": obj.get("fkiSalaryID"),
-            "fkiSupplierID": obj.get("fkiSupplierID"),
-            "fkiTranqcontractID": obj.get("fkiTranqcontractID"),
-            "fkiTemplateID": obj.get("fkiTemplateID"),
-            "fkiInscriptionchecklistID": obj.get("fkiInscriptionchecklistID"),
-            "fkiFolderID": obj.get("fkiFolderID"),
-            "fkiRejectedoffertopurchaseID": obj.get("fkiRejectedoffertopurchaseID"),
-            "fkiDisclosureID": obj.get("fkiDisclosureID"),
-            "fkiReconciliationID": obj.get("fkiReconciliationID"),
-            "fkiEzsigndocumentIDReference": obj.get("fkiEzsigndocumentIDReference"),
-            "eAttachmentDocumenttype": obj.get("eAttachmentDocumenttype"),
-            "sAttachmentName": obj.get("sAttachmentName"),
-            "eAttachmentPrivacy": obj.get("eAttachmentPrivacy"),
-            "fkiUserIDSpecific": obj.get("fkiUserIDSpecific"),
-            "eAttachmentType": obj.get("eAttachmentType"),
-            "iAttachmentSize": obj.get("iAttachmentSize"),
-            "iAttachmentEDMmoduleflag": obj.get("iAttachmentEDMmoduleflag"),
-            "sAttachmentMD5": obj.get("sAttachmentMD5"),
-            "bAttachmentDeleted": obj.get("bAttachmentDeleted"),
-            "bAttachmentValid": obj.get("bAttachmentValid"),
-            "eAttachmentVerified": obj.get("eAttachmentVerified"),
-            "tAttachmentRejectioncomment": obj.get("tAttachmentRejectioncomment"),
-            "fkiUserIDOwner": obj.get("fkiUserIDOwner"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
-        })
-        return _obj
 
 

@@ -36,18 +36,6 @@ class TestDiscussionResponseCompound(unittest.TestCase):
         model = DiscussionResponseCompound()
         if include_optional:
             return DiscussionResponseCompound(
-                pki_discussion_id = 125,
-                s_discussion_description = 'John Doe',
-                b_discussion_closed = True,
-                dt_discussion_lastread = '2020-12-31 23:59:59',
-                i_discussionmessage_count = 4,
-                i_discussionmessage_countunread = 4,
-                obj_discussionconfiguration = eZmaxApi.models.custom_discussionconfiguration_response.Custom-Discussionconfiguration-Response(
-                    b_discussionconfiguration_completehistorywhenadded = True, 
-                    b_discussionconfiguration_createallowed = True, 
-                    b_discussionconfiguration_deleteallowed = True, 
-                    b_discussionconfiguration_deletediscussionmessageallowed = True, 
-                    b_discussionconfiguration_editdiscussionmessageallowed = True, ),
                 a_obj_discussionmembership = [
                     eZmaxApi.models.discussionmembership_response_compound.discussionmembership-ResponseCompound()
                     ],
@@ -57,11 +45,6 @@ class TestDiscussionResponseCompound(unittest.TestCase):
             )
         else:
             return DiscussionResponseCompound(
-                pki_discussion_id = 125,
-                s_discussion_description = 'John Doe',
-                b_discussion_closed = True,
-                i_discussionmessage_count = 4,
-                i_discussionmessage_countunread = 4,
                 a_obj_discussionmembership = [
                     eZmaxApi.models.discussionmembership_response_compound.discussionmembership-ResponseCompound()
                     ],

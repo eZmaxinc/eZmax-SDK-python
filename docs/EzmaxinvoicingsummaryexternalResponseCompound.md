@@ -6,11 +6,6 @@ A Ezmaxinvoicingsummaryexternal Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezmaxinvoicingsummaryexternal_id** | **int** | The unique ID of the Ezmaxinvoicingsummaryexternal | [optional] 
-**fki_ezmaxinvoicing_id** | **int** | The unique ID of the Ezmaxinvoicing | [optional] 
-**fki_billingentityexternal_id** | **int** | The unique ID of the Billingentityexternal | 
-**s_billingentityexternal_description** | **str** | The description of the Billingentityexternal | 
-**s_ezmaxinvoicingsummaryexternal_description** | **str** | The description of the Ezmaxinvoicingsummaryexternal | 
 **a_obj_ezmaxinvoicingsummaryexternaldetail** | [**List[EzmaxinvoicingsummaryexternaldetailResponseCompound]**](EzmaxinvoicingsummaryexternaldetailResponseCompound.md) |  | 
 
 ## Example

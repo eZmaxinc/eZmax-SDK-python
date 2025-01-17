@@ -36,10 +36,6 @@ class TestWebhookUserUserCreated(unittest.TestCase):
         model = WebhookUserUserCreated()
         if include_optional:
             return WebhookUserUserCreated(
-                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
-                a_obj_attempt = [
-                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
-                    ],
                 obj_user = eZmaxApi.models.user_response.user-Response(
                     pki_user_id = 70, 
                     fki_agent_id = 1, 
@@ -98,10 +94,6 @@ class TestWebhookUserUserCreated(unittest.TestCase):
             )
         else:
             return WebhookUserUserCreated(
-                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
-                a_obj_attempt = [
-                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
-                    ],
                 obj_user = eZmaxApi.models.user_response.user-Response(
                     pki_user_id = 70, 
                     fki_agent_id = 1, 

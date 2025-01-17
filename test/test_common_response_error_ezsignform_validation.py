@@ -36,19 +36,12 @@ class TestCommonResponseErrorEzsignformValidation(unittest.TestCase):
         model = CommonResponseErrorEzsignformValidation()
         if include_optional:
             return CommonResponseErrorEzsignformValidation(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
-                a_s_error_messagedetail = [
-                    ''
-                    ],
                 a_obj_ezsignformfielderror = [
                     eZmaxApi.models.custom_ezsignformfielderror_response.Custom-Ezsignformfielderror-Response()
                     ]
             )
         else:
             return CommonResponseErrorEzsignformValidation(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
                 a_obj_ezsignformfielderror = [
                     eZmaxApi.models.custom_ezsignformfielderror_response.Custom-Ezsignformfielderror-Response()
                     ],

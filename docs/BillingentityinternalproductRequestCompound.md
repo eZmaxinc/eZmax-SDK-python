@@ -6,9 +6,6 @@ A Billingentityinternalproduct Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_billingentityinternalproduct_id** | **int** | The unique ID of the Billingentityinternalproduct | [optional] 
-**fki_ezmaxproduct_id** | **int** | The unique ID of the Ezmaxproduct | 
-**fki_billingentityexternal_id** | **int** | The unique ID of the Billingentityexternal | 
 
 ## Example
 

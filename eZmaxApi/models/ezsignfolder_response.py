@@ -126,42 +126,7 @@ class EzsignfolderResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignfolderResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "objEzsignfoldertype": CustomEzsignfoldertypeResponse.from_dict(obj["objEzsignfoldertype"]) if obj.get("objEzsignfoldertype") is not None else None,
-            "fkiTimezoneID": obj.get("fkiTimezoneID"),
-            "eEzsignfolderCompletion": obj.get("eEzsignfolderCompletion"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
-            "fkiEzsigntsarequirementID": obj.get("fkiEzsigntsarequirementID"),
-            "sEzsigntsarequirementDescriptionX": obj.get("sEzsigntsarequirementDescriptionX"),
-            "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
-            "tEzsignfolderNote": obj.get("tEzsignfolderNote"),
-            "bEzsignfolderIsdisposable": obj.get("bEzsignfolderIsdisposable"),
-            "eEzsignfolderSendreminderfrequency": obj.get("eEzsignfolderSendreminderfrequency"),
-            "iEzsignfolderSendreminderfirstdays": obj.get("iEzsignfolderSendreminderfirstdays"),
-            "iEzsignfolderSendreminderotherdays": obj.get("iEzsignfolderSendreminderotherdays"),
-            "dtEzsignfolderDelayedsenddate": obj.get("dtEzsignfolderDelayedsenddate"),
-            "dtEzsignfolderDuedate": obj.get("dtEzsignfolderDuedate"),
-            "dtEzsignfolderSentdate": obj.get("dtEzsignfolderSentdate"),
-            "dtEzsignfolderScheduledarchive": obj.get("dtEzsignfolderScheduledarchive"),
-            "dtEzsignfolderScheduleddispose": obj.get("dtEzsignfolderScheduleddispose"),
-            "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
-            "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
-            "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
-            "sEzsignfolderExternalid": obj.get("sEzsignfolderExternalid")
-        })
-        return _obj
 
 

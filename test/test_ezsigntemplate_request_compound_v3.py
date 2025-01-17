@@ -36,24 +36,9 @@ class TestEzsigntemplateRequestCompoundV3(unittest.TestCase):
         model = EzsigntemplateRequestCompoundV3()
         if include_optional:
             return EzsigntemplateRequestCompoundV3(
-                pki_ezsigntemplate_id = 36,
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                fki_ezdoctemplatedocument_id = 95,
-                s_ezsigntemplate_description = 'Standard Contract',
-                s_ezsigntemplate_externaldescription = 'Test eZsign Folder',
-                t_ezsigntemplate_comment = '',
-                e_ezsigntemplate_recognition = 'No',
-                s_ezsigntemplate_filenameregexp = 'Contract',
-                b_ezsigntemplate_adminonly = True,
-                e_ezsigntemplate_type = 'Ezsignfoldertype'
             )
         else:
             return EzsigntemplateRequestCompoundV3(
-                fki_language_id = 2,
-                s_ezsigntemplate_description = 'Standard Contract',
-                b_ezsigntemplate_adminonly = True,
-                e_ezsigntemplate_type = 'Ezsignfoldertype',
         )
         """
 

@@ -6,8 +6,6 @@ Response for GET /1/object/usergroupexternal/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupexternalGetListV1ResponseMPayload**](UsergroupexternalGetListV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,8 +36,6 @@ class TestClonehistoryGetListV1ResponseMPayload(unittest.TestCase):
         model = ClonehistoryGetListV1ResponseMPayload()
         if include_optional:
             return ClonehistoryGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_clonehistory = [
                     eZmaxApi.models.clonehistory_list_element.clonehistory-ListElement(
                         pki_clonehistory_id = 12, 
@@ -55,8 +53,6 @@ class TestClonehistoryGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return ClonehistoryGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_clonehistory = [
                     eZmaxApi.models.clonehistory_list_element.clonehistory-ListElement(
                         pki_clonehistory_id = 12, 

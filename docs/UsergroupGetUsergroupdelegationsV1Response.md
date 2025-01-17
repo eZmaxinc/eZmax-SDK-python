@@ -6,8 +6,6 @@ Response for GET /1/object/usergroup/{pkiUsergroupID}/getUsergroupdelegations
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupGetUsergroupdelegationsV1ResponseMPayload**](UsergroupGetUsergroupdelegationsV1ResponseMPayload.md) |  | 
 
 ## Example

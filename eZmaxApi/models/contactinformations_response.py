@@ -110,27 +110,7 @@ class ContactinformationsResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of ContactinformationsResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiContactinformationsID": obj.get("pkiContactinformationsID"),
-            "fkiAddressIDDefault": obj.get("fkiAddressIDDefault"),
-            "fkiPhoneIDDefault": obj.get("fkiPhoneIDDefault"),
-            "fkiEmailIDDefault": obj.get("fkiEmailIDDefault"),
-            "fkiWebsiteIDDefault": obj.get("fkiWebsiteIDDefault"),
-            "eContactinformationsType": obj.get("eContactinformationsType"),
-            "sContactinformationsUrl": obj.get("sContactinformationsUrl"),
-            "objAddressDefault": AddressResponse.from_dict(obj["objAddressDefault"]) if obj.get("objAddressDefault") is not None else None,
-            "objPhoneDefault": PhoneResponseCompound.from_dict(obj["objPhoneDefault"]) if obj.get("objPhoneDefault") is not None else None,
-            "objEmailDefault": EmailResponse.from_dict(obj["objEmailDefault"]) if obj.get("objEmailDefault") is not None else None,
-            "objWebsiteDefault": WebsiteResponse.from_dict(obj["objWebsiteDefault"]) if obj.get("objWebsiteDefault") is not None else None
-        })
-        return _obj
 
 

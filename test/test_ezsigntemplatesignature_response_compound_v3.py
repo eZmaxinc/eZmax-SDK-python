@@ -36,38 +36,6 @@ class TestEzsigntemplatesignatureResponseCompoundV3(unittest.TestCase):
         model = EzsigntemplatesignatureResponseCompoundV3()
         if include_optional:
             return EzsigntemplatesignatureResponseCompoundV3(
-                pki_ezsigntemplatesignature_id = 99,
-                fki_ezsigntemplatedocument_id = 133,
-                fki_ezsigntemplatesigner_id = 9,
-                fki_ezsigntemplatesigner_id_validation = 9,
-                b_ezsigntemplatesignature_handwritten = True,
-                b_ezsigntemplatesignature_reason = True,
-                e_ezsigntemplatesignature_positioning = 'PerCoordinates',
-                i_ezsigntemplatedocumentpage_pagenumber = 1,
-                i_ezsigntemplatesignature_x = 200,
-                i_ezsigntemplatesignature_y = 300,
-                i_ezsigntemplatesignature_width = 200,
-                i_ezsigntemplatesignature_height = 200,
-                i_ezsigntemplatesignature_step = 1,
-                e_ezsigntemplatesignature_type = 'Signature',
-                e_ezsigntemplatesignature_consultationtrigger = 'Manual',
-                t_ezsigntemplatesignature_tooltip = 'Please sign here if you agree to the terms',
-                e_ezsigntemplatesignature_tooltipposition = 'TopLeft',
-                e_ezsigntemplatesignature_font = 'Normal',
-                i_ezsigntemplatesignature_validationstep = 1,
-                s_ezsigntemplatesignature_attachmentdescription = 'Attachment',
-                e_ezsigntemplatesignature_attachmentnamesource = 'Description',
-                b_ezsigntemplatesignature_required = True,
-                i_ezsigntemplatesignature_maxlength = 75,
-                s_ezsigntemplatesignature_defaultvalue = 'Foo',
-                s_ezsigntemplatesignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
-                e_ezsigntemplatesignature_textvalidation = 'None',
-                s_ezsigntemplatesignature_textvalidationcustommessage = 'Phone number',
-                e_ezsigntemplatesignature_dependencyrequirement = 'AllOf',
-                s_ezsigntemplatesignature_positioningpattern = 'Signature',
-                i_ezsigntemplatesignature_positioningoffsetx = 200,
-                i_ezsigntemplatesignature_positioningoffsety = 200,
-                e_ezsigntemplatesignature_positioningoccurence = 'All',
                 b_ezsigntemplatesignature_customdate = True,
                 a_obj_ezsigntemplatesignaturecustomdate = [
                     eZmaxApi.models.ezsigntemplatesignaturecustomdate_response_compound_v2.ezsigntemplatesignaturecustomdate-ResponseCompoundV2()
@@ -78,12 +46,6 @@ class TestEzsigntemplatesignatureResponseCompoundV3(unittest.TestCase):
             )
         else:
             return EzsigntemplatesignatureResponseCompoundV3(
-                pki_ezsigntemplatesignature_id = 99,
-                fki_ezsigntemplatedocument_id = 133,
-                fki_ezsigntemplatesigner_id = 9,
-                i_ezsigntemplatedocumentpage_pagenumber = 1,
-                i_ezsigntemplatesignature_step = 1,
-                e_ezsigntemplatesignature_type = 'Signature',
         )
         """
 

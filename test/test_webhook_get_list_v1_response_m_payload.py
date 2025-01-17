@@ -36,8 +36,6 @@ class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
         model = WebhookGetListV1ResponseMPayload()
         if include_optional:
             return WebhookGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_webhook = [
                     eZmaxApi.models.webhook_list_element.webhook-ListElement(
                         pki_webhook_id = 77, 
@@ -54,8 +52,6 @@ class TestWebhookGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return WebhookGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_webhook = [
                     eZmaxApi.models.webhook_list_element.webhook-ListElement(
                         pki_webhook_id = 77, 

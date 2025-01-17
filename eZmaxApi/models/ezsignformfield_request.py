@@ -92,30 +92,7 @@ class EzsignformfieldRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignformfieldRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignformfieldID": obj.get("pkiEzsignformfieldID"),
-            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
-            "sEzsignformfieldLabel": obj.get("sEzsignformfieldLabel"),
-            "sEzsignformfieldValue": obj.get("sEzsignformfieldValue"),
-            "iEzsignformfieldX": obj.get("iEzsignformfieldX"),
-            "iEzsignformfieldY": obj.get("iEzsignformfieldY"),
-            "iEzsignformfieldWidth": obj.get("iEzsignformfieldWidth"),
-            "iEzsignformfieldHeight": obj.get("iEzsignformfieldHeight"),
-            "bEzsignformfieldAutocomplete": obj.get("bEzsignformfieldAutocomplete"),
-            "bEzsignformfieldSelected": obj.get("bEzsignformfieldSelected"),
-            "sEzsignformfieldEnteredvalue": obj.get("sEzsignformfieldEnteredvalue"),
-            "eEzsignformfieldDependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement"),
-            "eEzsignformfieldHorizontalalignment": obj.get("eEzsignformfieldHorizontalalignment"),
-            "objTextstylestatic": TextstylestaticRequestCompound.from_dict(obj["objTextstylestatic"]) if obj.get("objTextstylestatic") is not None else None
-        })
-        return _obj
 
 

@@ -36,23 +36,9 @@ class TestEzsigndiscussionResponseCompound(unittest.TestCase):
         model = EzsigndiscussionResponseCompound()
         if include_optional:
             return EzsigndiscussionResponseCompound(
-                pki_ezsigndiscussion_id = 194,
-                fki_ezsignpage_id = 64,
-                fki_discussion_id = 125,
-                i_ezsigndiscussion_x = 57208,
-                i_ezsigndiscussion_y = 57652,
-                i_ezsigndiscussion_pagenumber = 4,
-                obj_discussion = eZmaxApi.models.discussion_response_compound.discussion-ResponseCompound()
             )
         else:
             return EzsigndiscussionResponseCompound(
-                pki_ezsigndiscussion_id = 194,
-                fki_ezsignpage_id = 64,
-                fki_discussion_id = 125,
-                i_ezsigndiscussion_x = 57208,
-                i_ezsigndiscussion_y = 57652,
-                i_ezsigndiscussion_pagenumber = 4,
-                obj_discussion = eZmaxApi.models.discussion_response_compound.discussion-ResponseCompound(),
         )
         """
 

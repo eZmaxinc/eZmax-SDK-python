@@ -6,8 +6,6 @@ Response for GET /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload**](RejectedoffertopurchaseGetCommunicationListV1ResponseMPayload.md) |  | 
 
 ## Example

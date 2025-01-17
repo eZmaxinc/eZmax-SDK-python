@@ -36,30 +36,12 @@ class TestWebhookRequestCompound(unittest.TestCase):
         model = WebhookRequestCompound()
         if include_optional:
             return WebhookRequestCompound(
-                pki_webhook_id = 77,
-                fki_authenticationexternal_id = 56,
-                fki_ezsignfoldertype_id = 5,
-                s_webhook_description = 'Import into our system',
-                e_webhook_module = 'Ezsign',
-                e_webhook_ezsignevent = 'FolderCompleted',
-                e_webhook_managementevent = 'UserCreated',
-                s_webhook_url = 'https://www.example.com',
-                s_webhook_emailfailed = 'email@example.com',
-                b_webhook_isactive = True,
-                b_webhook_issigned = True,
-                b_webhook_skipsslvalidation = False,
                 a_obj_webhookheader = [
                     eZmaxApi.models.webhookheader_request_compound.webhookheader-RequestCompound()
                     ]
             )
         else:
             return WebhookRequestCompound(
-                s_webhook_description = 'Import into our system',
-                e_webhook_module = 'Ezsign',
-                s_webhook_url = 'https://www.example.com',
-                s_webhook_emailfailed = 'email@example.com',
-                b_webhook_isactive = True,
-                b_webhook_skipsslvalidation = False,
         )
         """
 

@@ -36,10 +36,6 @@ class TestContactinformationsRequestCompound(unittest.TestCase):
         model = ContactinformationsRequestCompound()
         if include_optional:
             return ContactinformationsRequestCompound(
-                i_address_default = 56,
-                i_phone_default = 56,
-                i_email_default = 56,
-                i_website_default = 56,
                 a_obj_address = [
                     eZmaxApi.models.address_request_compound.address-RequestCompound()
                     ],
@@ -55,10 +51,6 @@ class TestContactinformationsRequestCompound(unittest.TestCase):
             )
         else:
             return ContactinformationsRequestCompound(
-                i_address_default = 56,
-                i_phone_default = 56,
-                i_email_default = 56,
-                i_website_default = 56,
                 a_obj_address = [
                     eZmaxApi.models.address_request_compound.address-RequestCompound()
                     ],

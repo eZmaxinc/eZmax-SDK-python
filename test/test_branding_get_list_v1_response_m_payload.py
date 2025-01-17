@@ -36,8 +36,6 @@ class TestBrandingGetListV1ResponseMPayload(unittest.TestCase):
         model = BrandingGetListV1ResponseMPayload()
         if include_optional:
             return BrandingGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_branding = [
                     eZmaxApi.models.branding_list_element.branding-ListElement(
                         pki_branding_id = 78, 
@@ -53,8 +51,6 @@ class TestBrandingGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return BrandingGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_branding = [
                     eZmaxApi.models.branding_list_element.branding-ListElement(
                         pki_branding_id = 78, 

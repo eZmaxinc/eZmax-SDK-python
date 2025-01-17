@@ -18,22 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from pydantic import ConfigDict
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
 from eZmaxApi.models.field_e_signature_preference import FieldESignaturePreference
+from eZmaxApi.models.signature_response_v3 import SignatureResponseV3
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SignatureResponseCompoundV3(BaseModel):
+class SignatureResponseCompoundV3(SignatureResponseV3):
     """
     A Signature Object
     """ # noqa: E501
-    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID")
-    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
-    e_signature_preference: FieldESignaturePreference = Field(alias="eSignaturePreference")
-    b_signature_svg: StrictBool = Field(description="Whether the signature has a SVG or not", alias="bSignatureSvg")
-    b_signature_svginitials: StrictBool = Field(description="Whether the initials has a SVG or not", alias="bSignatureSvginitials")
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "eSignaturePreference", "bSignatureSvg", "bSignatureSvginitials"]
 
     model_config = ConfigDict(

@@ -36,33 +36,6 @@ class TestEzsignbulksendResponseCompound(unittest.TestCase):
         model = EzsignbulksendResponseCompound()
         if include_optional:
             return EzsignbulksendResponseCompound(
-                pki_ezsignbulksend_id = 8,
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                s_language_name_x = 'English',
-                e_ezsignfoldertype_privacylevel = 'User',
-                s_ezsignfoldertype_name_x = 'Default',
-                s_ezsignbulksend_description = 'Test eZsign Bulk Send',
-                t_ezsignbulksend_note = 'This is a note',
-                b_ezsignbulksend_needvalidation = True,
-                b_ezsignbulksend_isactive = True,
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 a_obj_ezsignbulksenddocumentmapping = [
                     eZmaxApi.models.ezsignbulksenddocumentmapping_response_compound.ezsignbulksenddocumentmapping-ResponseCompound()
                     ],
@@ -76,33 +49,6 @@ class TestEzsignbulksendResponseCompound(unittest.TestCase):
             )
         else:
             return EzsignbulksendResponseCompound(
-                pki_ezsignbulksend_id = 8,
-                fki_ezsignfoldertype_id = 5,
-                fki_language_id = 2,
-                s_language_name_x = 'English',
-                e_ezsignfoldertype_privacylevel = 'User',
-                s_ezsignfoldertype_name_x = 'Default',
-                s_ezsignbulksend_description = 'Test eZsign Bulk Send',
-                t_ezsignbulksend_note = 'This is a note',
-                b_ezsignbulksend_needvalidation = True,
-                b_ezsignbulksend_isactive = True,
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 a_obj_ezsignbulksenddocumentmapping = [
                     eZmaxApi.models.ezsignbulksenddocumentmapping_response_compound.ezsignbulksenddocumentmapping-ResponseCompound()
                     ],

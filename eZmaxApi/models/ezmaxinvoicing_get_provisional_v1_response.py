@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.ezmaxinvoicing_response_compound import EzmaxinvoicingResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingGetProvisionalV1Response(BaseModel):
+class EzmaxinvoicingGetProvisionalV1Response(CommonResponse):
     """
     Response for GET /1/object/ezmaxinvoicing/getProvisional
     """ # noqa: E501
-    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
-    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: EzmaxinvoicingResponseCompound = Field(description="Payload for GET /1/object/ezmaxinvoicing/getProvisional", alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

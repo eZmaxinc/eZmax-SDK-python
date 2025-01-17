@@ -18,23 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.discussion_request import DiscussionRequest
+from eZmaxApi.models.ezsigndiscussion_request import EzsigndiscussionRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigndiscussionRequestCompound(BaseModel):
+class EzsigndiscussionRequestCompound(EzsigndiscussionRequest):
     """
     A Ezsigndiscussion Object and children
     """ # noqa: E501
-    pki_ezsigndiscussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndiscussion", alias="pkiEzsigndiscussionID")
-    fki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
-    i_ezsigndiscussion_pagenumber: StrictInt = Field(description="The page number in the Ezsigndocument for the Ezsigndiscussion", alias="iEzsigndiscussionPagenumber")
-    i_ezsigndiscussion_x: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The x of the Ezsigndiscussion", alias="iEzsigndiscussionX")
-    i_ezsigndiscussion_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigndiscussion", alias="iEzsigndiscussionY")
-    obj_discussion: DiscussionRequest = Field(alias="objDiscussion")
     __properties: ClassVar[List[str]] = ["pkiEzsigndiscussionID", "fkiEzsigndocumentID", "iEzsigndiscussionPagenumber", "iEzsigndiscussionX", "iEzsigndiscussionY", "objDiscussion"]
 
     model_config = ConfigDict(

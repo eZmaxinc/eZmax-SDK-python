@@ -98,35 +98,7 @@ class ActivesessionResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of ActivesessionResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "eActivesessionUsertype": obj.get("eActivesessionUsertype"),
-            "eActivesessionOrigin": obj.get("eActivesessionOrigin"),
-            "eActivesessionWeekdaystart": obj.get("eActivesessionWeekdaystart"),
-            "fkiLanguageID": obj.get("fkiLanguageID"),
-            "sCompanyNameX": obj.get("sCompanyNameX"),
-            "sDepartmentNameX": obj.get("sDepartmentNameX"),
-            "bActivesessionDebug": obj.get("bActivesessionDebug"),
-            "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),
-            "bActivesessionAttachment": obj.get("bActivesessionAttachment"),
-            "bActivesessionCanafe": obj.get("bActivesessionCanafe"),
-            "bActivesessionFinancial": obj.get("bActivesessionFinancial"),
-            "bActivesessionRealestatecompleted": obj.get("bActivesessionRealestatecompleted"),
-            "eActivesessionEzsign": obj.get("eActivesessionEzsign"),
-            "eActivesessionEzsignaccess": obj.get("eActivesessionEzsignaccess"),
-            "eActivesessionEzsignprepaid": obj.get("eActivesessionEzsignprepaid"),
-            "eActivesessionRealestateinprogress": obj.get("eActivesessionRealestateinprogress"),
-            "pksCustomerCode": obj.get("pksCustomerCode"),
-            "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
-            "fkiSignatureID": obj.get("fkiSignatureID")
-        })
-        return _obj
 
 

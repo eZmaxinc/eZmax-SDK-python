@@ -18,55 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.ezmaxinvoicingsummaryexternaldetail_response import EzmaxinvoicingsummaryexternaldetailResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingsummaryexternaldetailResponseCompound(BaseModel):
+class EzmaxinvoicingsummaryexternaldetailResponseCompound(EzmaxinvoicingsummaryexternaldetailResponse):
     """
     A Ezmaxinvoicingsummaryexternaldetail Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryexternaldetail_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternaldetail", alias="pkiEzmaxinvoicingsummaryexternaldetailID")
-    fki_ezmaxinvoicingsummaryexternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternal", alias="fkiEzmaxinvoicingsummaryexternalID")
-    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
-    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
-    d_ezmaxinvoicingsummaryexternaldetail_countreal: Annotated[str, Field(strict=True)] = Field(description="The count item invoiced for the product", alias="dEzmaxinvoicingsummaryexternaldetailCountreal")
-    d_ezmaxinvoicingsummaryexternaldetail_subtotal: Annotated[str, Field(strict=True)] = Field(description="The subtotal invoiced for the product", alias="dEzmaxinvoicingsummaryexternaldetailSubtotal")
-    d_ezmaxinvoicingsummaryexternaldetail_rebate: Annotated[str, Field(strict=True)] = Field(description="The rebate for the product", alias="dEzmaxinvoicingsummaryexternaldetailRebate")
-    d_ezmaxinvoicingsummaryexternaldetail_total: Annotated[str, Field(strict=True)] = Field(description="The total invoiced for the product", alias="dEzmaxinvoicingsummaryexternaldetailTotal")
-    b_ezmaxinvoicingsummaryexternaldetail_adjustment: StrictBool = Field(description="Whether it's an adjustment", alias="bEzmaxinvoicingsummaryexternaldetailAdjustment")
-    t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryexternaldetailID", "fkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "dEzmaxinvoicingsummaryexternaldetailCountreal", "dEzmaxinvoicingsummaryexternaldetailSubtotal", "dEzmaxinvoicingsummaryexternaldetailRebate", "dEzmaxinvoicingsummaryexternaldetailTotal", "bEzmaxinvoicingsummaryexternaldetailAdjustment", "tEzmaxproductHelpX"]
-
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_countreal')
-    def d_ezmaxinvoicingsummaryexternaldetail_countreal_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_subtotal')
-    def d_ezmaxinvoicingsummaryexternaldetail_subtotal_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_rebate')
-    def d_ezmaxinvoicingsummaryexternaldetail_rebate_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_total')
-    def d_ezmaxinvoicingsummaryexternaldetail_total_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

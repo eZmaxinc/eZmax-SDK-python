@@ -157,53 +157,7 @@ class EzsignsignatureResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignsignatureResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignsignatureID": obj.get("pkiEzsignsignatureID"),
-            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
-            "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
-            "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
-            "fkiFontID": obj.get("fkiFontID"),
-            "sEzsignsigningreasonDescriptionX": obj.get("sEzsignsigningreasonDescriptionX"),
-            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
-            "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
-            "iEzsignsignatureY": obj.get("iEzsignsignatureY"),
-            "iEzsignsignatureHeight": obj.get("iEzsignsignatureHeight"),
-            "iEzsignsignatureWidth": obj.get("iEzsignsignatureWidth"),
-            "iEzsignsignatureStep": obj.get("iEzsignsignatureStep"),
-            "iEzsignsignatureStepadjusted": obj.get("iEzsignsignatureStepadjusted"),
-            "eEzsignsignatureType": obj.get("eEzsignsignatureType"),
-            "tEzsignsignatureTooltip": obj.get("tEzsignsignatureTooltip"),
-            "eEzsignsignatureTooltipposition": obj.get("eEzsignsignatureTooltipposition"),
-            "eEzsignsignatureFont": obj.get("eEzsignsignatureFont"),
-            "iEzsignsignatureValidationstep": obj.get("iEzsignsignatureValidationstep"),
-            "sEzsignsignatureAttachmentdescription": obj.get("sEzsignsignatureAttachmentdescription"),
-            "eEzsignsignatureAttachmentnamesource": obj.get("eEzsignsignatureAttachmentnamesource"),
-            "eEzsignsignatureConsultationtrigger": obj.get("eEzsignsignatureConsultationtrigger"),
-            "bEzsignsignatureHandwritten": obj.get("bEzsignsignatureHandwritten"),
-            "bEzsignsignatureReason": obj.get("bEzsignsignatureReason"),
-            "bEzsignsignatureRequired": obj.get("bEzsignsignatureRequired"),
-            "fkiEzsignfoldersignerassociationIDValidation": obj.get("fkiEzsignfoldersignerassociationIDValidation"),
-            "dtEzsignsignatureDate": obj.get("dtEzsignsignatureDate"),
-            "iEzsignsignatureattachmentCount": obj.get("iEzsignsignatureattachmentCount"),
-            "sEzsignsignatureDescription": obj.get("sEzsignsignatureDescription"),
-            "iEzsignsignatureMaxlength": obj.get("iEzsignsignatureMaxlength"),
-            "eEzsignsignatureTextvalidation": obj.get("eEzsignsignatureTextvalidation"),
-            "sEzsignsignatureTextvalidationcustommessage": obj.get("sEzsignsignatureTextvalidationcustommessage"),
-            "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
-            "sEzsignsignatureDefaultvalue": obj.get("sEzsignsignatureDefaultvalue"),
-            "sEzsignsignatureRegexp": obj.get("sEzsignsignatureRegexp"),
-            "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None,
-            "objContactNameDelegation": CustomContactNameResponse.from_dict(obj["objContactNameDelegation"]) if obj.get("objContactNameDelegation") is not None else None,
-            "objSignature": SignatureResponseCompound.from_dict(obj["objSignature"]) if obj.get("objSignature") is not None else None
-        })
-        return _obj
 
 

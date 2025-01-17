@@ -6,8 +6,6 @@ Response for GET /1/object/user/{pkiUserID}/getPermissions
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UserGetPermissionsV1ResponseMPayload**](UserGetPermissionsV1ResponseMPayload.md) |  | 
 
 ## Example

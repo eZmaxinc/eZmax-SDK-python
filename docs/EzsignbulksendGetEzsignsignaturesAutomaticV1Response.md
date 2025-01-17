@@ -6,8 +6,6 @@ Response for GET /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignatu
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload**](EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -6,8 +6,6 @@ Response for POST /1/object/user
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UserCreateObjectV1ResponseMPayload**](UserCreateObjectV1ResponseMPayload.md) |  | 
 
 ## Example

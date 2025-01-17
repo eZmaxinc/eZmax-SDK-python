@@ -36,49 +36,6 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
         model = EzsignsignatureResponseCompound()
         if include_optional:
             return EzsignsignatureResponseCompound(
-                pki_ezsignsignature_id = 49,
-                fki_ezsigndocument_id = 97,
-                fki_ezsignfoldersignerassociation_id = 20,
-                fki_ezsignsigningreason_id = 194,
-                fki_font_id = 1,
-                s_ezsignsigningreason_description_x = 'I approve this document',
-                i_ezsignpage_pagenumber = 1,
-                i_ezsignsignature_x = 200,
-                i_ezsignsignature_y = 300,
-                i_ezsignsignature_height = 200,
-                i_ezsignsignature_width = 200,
-                i_ezsignsignature_step = 1,
-                i_ezsignsignature_stepadjusted = 1,
-                e_ezsignsignature_type = 'Name',
-                t_ezsignsignature_tooltip = 'Please sign here if you agree to the terms',
-                e_ezsignsignature_tooltipposition = 'TopLeft',
-                e_ezsignsignature_font = 'Normal',
-                i_ezsignsignature_validationstep = 1,
-                s_ezsignsignature_attachmentdescription = 'Attachment',
-                e_ezsignsignature_attachmentnamesource = 'Description',
-                e_ezsignsignature_consultationtrigger = 'Manual',
-                b_ezsignsignature_handwritten = True,
-                b_ezsignsignature_reason = True,
-                b_ezsignsignature_required = True,
-                fki_ezsignfoldersignerassociation_id_validation = 20,
-                dt_ezsignsignature_date = '2020-12-31 23:59:59',
-                i_ezsignsignatureattachment_count = 7,
-                s_ezsignsignature_description = 'Montreal',
-                i_ezsignsignature_maxlength = 75,
-                e_ezsignsignature_textvalidation = 'None',
-                s_ezsignsignature_textvalidationcustommessage = 'Phone number',
-                e_ezsignsignature_dependencyrequirement = 'AllOf',
-                s_ezsignsignature_defaultvalue = 'Foo',
-                s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
-                obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
-                    s_contact_firstname = 'John', 
-                    s_contact_lastname = 'Doe', 
-                    s_contact_company = 'eZmax Solutions Inc.', ),
-                obj_contact_name_delegation = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
-                    s_contact_firstname = 'John', 
-                    s_contact_lastname = 'Doe', 
-                    s_contact_company = 'eZmax Solutions Inc.', ),
-                obj_signature = eZmaxApi.models.signature_response_compound.signature-ResponseCompound(),
                 dt_ezsignsignature_date_in_folder_timezone = '2020-12-31 23:59:59',
                 b_ezsignsignature_customdate = True,
                 a_obj_ezsignsignaturecustomdate = [
@@ -98,18 +55,6 @@ class TestEzsignsignatureResponseCompound(unittest.TestCase):
             )
         else:
             return EzsignsignatureResponseCompound(
-                pki_ezsignsignature_id = 49,
-                fki_ezsigndocument_id = 97,
-                fki_ezsignfoldersignerassociation_id = 20,
-                i_ezsignpage_pagenumber = 1,
-                i_ezsignsignature_x = 200,
-                i_ezsignsignature_y = 300,
-                i_ezsignsignature_step = 1,
-                e_ezsignsignature_type = 'Name',
-                obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
-                    s_contact_firstname = 'John', 
-                    s_contact_lastname = 'Doe', 
-                    s_contact_company = 'eZmax Solutions Inc.', ),
         )
         """
 

@@ -177,65 +177,7 @@ class EzsignfoldertypeResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignfoldertypeResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignfoldertypeID": obj.get("pkiEzsignfoldertypeID"),
-            "objEzsignfoldertypeName": MultilingualEzsignfoldertypeName.from_dict(obj["objEzsignfoldertypeName"]) if obj.get("objEzsignfoldertypeName") is not None else None,
-            "fkiBrandingID": obj.get("fkiBrandingID"),
-            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "fkiUsergroupID": obj.get("fkiUsergroupID"),
-            "fkiUsergroupIDRestricted": obj.get("fkiUsergroupIDRestricted"),
-            "fkiEzsigntsarequirementID": obj.get("fkiEzsigntsarequirementID"),
-            "sBrandingDescriptionX": obj.get("sBrandingDescriptionX"),
-            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
-            "sEzsigntsarequirementDescriptionX": obj.get("sEzsigntsarequirementDescriptionX"),
-            "sEmailAddressSigned": obj.get("sEmailAddressSigned"),
-            "sEmailAddressSummary": obj.get("sEmailAddressSummary"),
-            "sUsergroupNameX": obj.get("sUsergroupNameX"),
-            "sUsergroupNameXRestricted": obj.get("sUsergroupNameXRestricted"),
-            "eEzsignfoldertypePrivacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
-            "eEzsignfoldertypeSendreminderfrequency": obj.get("eEzsignfoldertypeSendreminderfrequency"),
-            "iEzsignfoldertypeArchivaldays": obj.get("iEzsignfoldertypeArchivaldays"),
-            "eEzsignfoldertypeDisposal": obj.get("eEzsignfoldertypeDisposal"),
-            "eEzsignfoldertypeCompletion": obj.get("eEzsignfoldertypeCompletion"),
-            "iEzsignfoldertypeDisposaldays": obj.get("iEzsignfoldertypeDisposaldays"),
-            "iEzsignfoldertypeDeadlinedays": obj.get("iEzsignfoldertypeDeadlinedays"),
-            "bEzsignfoldertypeAutomaticsignature": obj.get("bEzsignfoldertypeAutomaticsignature"),
-            "bEzsignfoldertypeDelegate": obj.get("bEzsignfoldertypeDelegate"),
-            "bEzsignfoldertypeDiscussion": obj.get("bEzsignfoldertypeDiscussion"),
-            "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
-            "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser"),
-            "bEzsignfoldertypeReassigngroup": obj.get("bEzsignfoldertypeReassigngroup"),
-            "bEzsignfoldertypeSendsignedtoezsignsigner": obj.get("bEzsignfoldertypeSendsignedtoezsignsigner"),
-            "bEzsignfoldertypeSendsignedtouser": obj.get("bEzsignfoldertypeSendsignedtouser"),
-            "bEzsignfoldertypeSendattachmentezsignsigner": obj.get("bEzsignfoldertypeSendattachmentezsignsigner"),
-            "bEzsignfoldertypeSendproofezsignsigner": obj.get("bEzsignfoldertypeSendproofezsignsigner"),
-            "bEzsignfoldertypeSendattachmentuser": obj.get("bEzsignfoldertypeSendattachmentuser"),
-            "bEzsignfoldertypeSendproofuser": obj.get("bEzsignfoldertypeSendproofuser"),
-            "bEzsignfoldertypeSendproofemail": obj.get("bEzsignfoldertypeSendproofemail"),
-            "bEzsignfoldertypeAllowdownloadattachmentezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadattachmentezsignsigner"),
-            "bEzsignfoldertypeAllowdownloadproofezsignsigner": obj.get("bEzsignfoldertypeAllowdownloadproofezsignsigner"),
-            "bEzsignfoldertypeSendproofreceivealldocument": obj.get("bEzsignfoldertypeSendproofreceivealldocument"),
-            "bEzsignfoldertypeSendsignedtodocumentowner": obj.get("bEzsignfoldertypeSendsignedtodocumentowner"),
-            "bEzsignfoldertypeSendsignedtofolderowner": obj.get("bEzsignfoldertypeSendsignedtofolderowner"),
-            "bEzsignfoldertypeSendsignedtofullgroup": obj.get("bEzsignfoldertypeSendsignedtofullgroup"),
-            "bEzsignfoldertypeSendsignedtolimitedgroup": obj.get("bEzsignfoldertypeSendsignedtolimitedgroup"),
-            "bEzsignfoldertypeSendsignedtocolleague": obj.get("bEzsignfoldertypeSendsignedtocolleague"),
-            "bEzsignfoldertypeSendsummarytodocumentowner": obj.get("bEzsignfoldertypeSendsummarytodocumentowner"),
-            "bEzsignfoldertypeSendsummarytofolderowner": obj.get("bEzsignfoldertypeSendsummarytofolderowner"),
-            "bEzsignfoldertypeSendsummarytofullgroup": obj.get("bEzsignfoldertypeSendsummarytofullgroup"),
-            "bEzsignfoldertypeSendsummarytolimitedgroup": obj.get("bEzsignfoldertypeSendsummarytolimitedgroup"),
-            "bEzsignfoldertypeSendsummarytocolleague": obj.get("bEzsignfoldertypeSendsummarytocolleague"),
-            "bEzsignfoldertypeIsactive": obj.get("bEzsignfoldertypeIsactive"),
-            "a_objUserlogintype": [UserlogintypeResponse.from_dict(_item) for _item in obj["a_objUserlogintype"]] if obj.get("a_objUserlogintype") is not None else None
-        })
-        return _obj
 
 

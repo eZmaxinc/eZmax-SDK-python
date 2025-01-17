@@ -36,18 +36,9 @@ class TestEzsignsigningreasonRequestCompound(unittest.TestCase):
         model = EzsignsigningreasonRequestCompound()
         if include_optional:
             return EzsignsigningreasonRequestCompound(
-                pki_ezsignsigningreason_id = 194,
-                obj_ezsignsigningreason_description = eZmaxApi.models.multilingual_ezsignsigningreason_description.Multilingual-EzsignsigningreasonDescription(
-                    s_ezsignsigningreason_description1 = 'J'approuve ce document', 
-                    s_ezsignsigningreason_description2 = 'I approve this document', ),
-                b_ezsignsigningreason_isactive = True
             )
         else:
             return EzsignsigningreasonRequestCompound(
-                obj_ezsignsigningreason_description = eZmaxApi.models.multilingual_ezsignsigningreason_description.Multilingual-EzsignsigningreasonDescription(
-                    s_ezsignsigningreason_description1 = 'J'approuve ce document', 
-                    s_ezsignsigningreason_description2 = 'I approve this document', ),
-                b_ezsignsigningreason_isactive = True,
         )
         """
 

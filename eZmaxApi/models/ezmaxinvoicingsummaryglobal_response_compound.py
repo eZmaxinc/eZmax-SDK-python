@@ -18,117 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from eZmaxApi.models.ezmaxinvoicingcommission_response_compound import EzmaxinvoicingcommissionResponseCompound
+from eZmaxApi.models.ezmaxinvoicingsummaryglobal_response import EzmaxinvoicingsummaryglobalResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
+class EzmaxinvoicingsummaryglobalResponseCompound(EzmaxinvoicingsummaryglobalResponse):
     """
     A Ezmaxinvoicingsummaryglobal Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryglobal", alias="pkiEzmaxinvoicingsummaryglobalID")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
-    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
-    dt_ezmaxinvoicingsummaryglobal_start: StrictStr = Field(description="The start date for the Ezmaxinvoicingsummaryglobal", alias="dtEzmaxinvoicingsummaryglobalStart")
-    dt_ezmaxinvoicingsummaryglobal_end: StrictStr = Field(description="The end date for the Ezmaxinvoicingsummaryglobal", alias="dtEzmaxinvoicingsummaryglobalEnd")
-    i_ezmaxinvoicingsummaryglobal_days: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of days for the Ezmaxinvoicingsummaryglobal", alias="iEzmaxinvoicingsummaryglobalDays")
-    d_ezmaxinvoicingsummaryglobal_countreal: Annotated[str, Field(strict=True)] = Field(description="The count item calculated", alias="dEzmaxinvoicingsummaryglobalCountreal")
-    d_ezmaxinvoicingsummaryglobal_countbilled: Annotated[str, Field(strict=True)] = Field(description="The count item billed", alias="dEzmaxinvoicingsummaryglobalCountbilled")
-    d_ezmaxinvoicingsummaryglobal_subtotal: Annotated[str, Field(strict=True)] = Field(description="The Ezmaxinvoicingsummaryglobal subtotal", alias="dEzmaxinvoicingsummaryglobalSubtotal")
-    d_ezmaxinvoicingsummaryglobal_rebateamount: Annotated[str, Field(strict=True)] = Field(description="The rebate amount for the Ezmaxinvoicingsummaryglobal", alias="dEzmaxinvoicingsummaryglobalRebateamount")
-    d_ezmaxinvoicingsummaryglobal_rebatepercent: Annotated[str, Field(strict=True)] = Field(description="The rebate percentage of the Ezmaxinvoicingsummaryglobal", alias="dEzmaxinvoicingsummaryglobalRebatepercent")
-    d_ezmaxinvoicingsummaryglobal_rebatetotal: Annotated[str, Field(strict=True)] = Field(description="The rebate amount total for the Ezmaxinvoicingsummaryglobal", alias="dEzmaxinvoicingsummaryglobalRebatetotal")
-    d_ezmaxinvoicingsummaryglobal_total: Annotated[str, Field(strict=True)] = Field(description="The Ezmaxinvoicingsummaryglobal total", alias="dEzmaxinvoicingsummaryglobalTotal")
-    d_ezmaxinvoicingsummaryglobal_representative: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The amount of commission for the representative", alias="dEzmaxinvoicingsummaryglobalRepresentative")
-    d_ezmaxinvoicingsummaryglobal_partner: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The amount of commission for the partner", alias="dEzmaxinvoicingsummaryglobalPartner")
-    d_ezmaxinvoicingsummaryglobal_net: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The net amount of the Ezmaxinvoicingsummaryglobal", alias="dEzmaxinvoicingsummaryglobalNet")
-    b_ezmaxinvoicingsummaryglobal_adjustment: StrictBool = Field(description="Whether it is adjustment for the Ezmaxinvoicingsummaryglobal", alias="bEzmaxinvoicingsummaryglobalAdjustment")
-    t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX")
     a_obj_ezmaxinvoicingcommission: Optional[List[EzmaxinvoicingcommissionResponseCompound]] = Field(default=None, alias="a_objEzmaxinvoicingcommission")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxinvoicingID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "dtEzmaxinvoicingsummaryglobalStart", "dtEzmaxinvoicingsummaryglobalEnd", "iEzmaxinvoicingsummaryglobalDays", "dEzmaxinvoicingsummaryglobalCountreal", "dEzmaxinvoicingsummaryglobalCountbilled", "dEzmaxinvoicingsummaryglobalSubtotal", "dEzmaxinvoicingsummaryglobalRebateamount", "dEzmaxinvoicingsummaryglobalRebatepercent", "dEzmaxinvoicingsummaryglobalRebatetotal", "dEzmaxinvoicingsummaryglobalTotal", "dEzmaxinvoicingsummaryglobalRepresentative", "dEzmaxinvoicingsummaryglobalPartner", "dEzmaxinvoicingsummaryglobalNet", "bEzmaxinvoicingsummaryglobalAdjustment", "tEzmaxproductHelpX", "a_objEzmaxinvoicingcommission"]
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_countreal')
-    def d_ezmaxinvoicingsummaryglobal_countreal_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_countbilled')
-    def d_ezmaxinvoicingsummaryglobal_countbilled_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_subtotal')
-    def d_ezmaxinvoicingsummaryglobal_subtotal_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_rebateamount')
-    def d_ezmaxinvoicingsummaryglobal_rebateamount_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_rebatepercent')
-    def d_ezmaxinvoicingsummaryglobal_rebatepercent_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_rebatetotal')
-    def d_ezmaxinvoicingsummaryglobal_rebatetotal_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_total')
-    def d_ezmaxinvoicingsummaryglobal_total_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_representative')
-    def d_ezmaxinvoicingsummaryglobal_representative_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_partner')
-    def d_ezmaxinvoicingsummaryglobal_partner_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
-
-    @field_validator('d_ezmaxinvoicingsummaryglobal_net')
-    def d_ezmaxinvoicingsummaryglobal_net_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

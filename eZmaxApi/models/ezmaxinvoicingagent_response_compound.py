@@ -18,39 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
+from eZmaxApi.models.ezmaxinvoicingagent_response import EzmaxinvoicingagentResponse
 from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezmax import FieldEEzmaxinvoicingagentVariationezmax
 from eZmaxApi.models.field_e_ezmaxinvoicingagent_variationezsign import FieldEEzmaxinvoicingagentVariationezsign
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingagentResponseCompound(BaseModel):
+class EzmaxinvoicingagentResponseCompound(EzmaxinvoicingagentResponse):
     """
     A Ezmaxinvoicingagent Object
     """ # noqa: E501
-    pki_ezmaxinvoicingagent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingagent", alias="pkiEzmaxinvoicingagentID")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
-    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
-    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
-    i_ezmaxinvoicingagent_session: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of sessions", alias="iEzmaxinvoicingagentSession")
-    i_ezmaxinvoicingagent_cloned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of times this user was cloned", alias="iEzmaxinvoicingagentCloned")
-    i_ezmaxinvoicingagent_invoice: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of invoices", alias="iEzmaxinvoicingagentInvoice")
-    i_ezmaxinvoicingagent_inscription: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of inscriptions", alias="iEzmaxinvoicingagentInscription")
-    i_ezmaxinvoicingagent_inscriptionactive: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of active inscriptions", alias="iEzmaxinvoicingagentInscriptionactive")
-    i_ezmaxinvoicingagent_sale: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of sales", alias="iEzmaxinvoicingagentSale")
-    i_ezmaxinvoicingagent_otherincome: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of otherincomes", alias="iEzmaxinvoicingagentOtherincome")
-    i_ezmaxinvoicingagent_commissioncalculation: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of commission calculations", alias="iEzmaxinvoicingagentCommissioncalculation")
-    i_ezmaxinvoicingagent_ezsigndocument: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of ezsign documents", alias="iEzmaxinvoicingagentEzsigndocument")
-    b_ezmaxinvoicingagent_ezsignaccount: StrictBool = Field(description="Whether the agent has an eZsign account", alias="bEzmaxinvoicingagentEzsignaccount")
-    b_ezmaxinvoicingagent_billableezmax: StrictBool = Field(description="Whether it is billable for eZmax", alias="bEzmaxinvoicingagentBillableezmax")
-    e_ezmaxinvoicingagent_variationezmax: FieldEEzmaxinvoicingagentVariationezmax = Field(alias="eEzmaxinvoicingagentVariationezmax")
-    b_ezmaxinvoicingagent_billableezsign: StrictBool = Field(description="Whether it is billable for eZsign", alias="bEzmaxinvoicingagentBillableezsign")
-    e_ezmaxinvoicingagent_variationezsign: FieldEEzmaxinvoicingagentVariationezsign = Field(alias="eEzmaxinvoicingagentVariationezsign")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingagentID", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiAgentID", "fkiBrokerID", "iEzmaxinvoicingagentSession", "iEzmaxinvoicingagentCloned", "iEzmaxinvoicingagentInvoice", "iEzmaxinvoicingagentInscription", "iEzmaxinvoicingagentInscriptionactive", "iEzmaxinvoicingagentSale", "iEzmaxinvoicingagentOtherincome", "iEzmaxinvoicingagentCommissioncalculation", "iEzmaxinvoicingagentEzsigndocument", "bEzmaxinvoicingagentEzsignaccount", "bEzmaxinvoicingagentBillableezmax", "eEzmaxinvoicingagentVariationezmax", "bEzmaxinvoicingagentBillableezsign", "eEzmaxinvoicingagentVariationezsign", "objContactName"]
 

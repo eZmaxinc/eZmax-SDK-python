@@ -6,9 +6,6 @@ A Authenticationexternal Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_authenticationexternal_id** | **int** | The unique ID of the Authenticationexternal | [optional] 
-**s_authenticationexternal_description** | **str** | The description of the Authenticationexternal | 
-**e_authenticationexternal_type** | [**FieldEAuthenticationexternalType**](FieldEAuthenticationexternalType.md) |  | 
 
 ## Example
 

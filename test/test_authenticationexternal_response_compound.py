@@ -36,51 +36,9 @@ class TestAuthenticationexternalResponseCompound(unittest.TestCase):
         model = AuthenticationexternalResponseCompound()
         if include_optional:
             return AuthenticationexternalResponseCompound(
-                pki_authenticationexternal_id = 56,
-                s_authenticationexternal_description = 'Authentification',
-                e_authenticationexternal_type = 'Salesforce',
-                b_authenticationexternal_connected = True,
-                s_authenticationexternal_authorizationurl = 'http://www.website.com/authorize.php',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return AuthenticationexternalResponseCompound(
-                pki_authenticationexternal_id = 56,
-                s_authenticationexternal_description = 'Authentification',
-                e_authenticationexternal_type = 'Salesforce',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

@@ -36,59 +36,9 @@ class TestPaymenttermResponseCompound(unittest.TestCase):
         model = PaymenttermResponseCompound()
         if include_optional:
             return PaymenttermResponseCompound(
-                pki_paymentterm_id = 46,
-                s_paymentterm_code = '0030',
-                e_paymentterm_type = 'Days',
-                i_paymentterm_day = 30,
-                obj_paymentterm_description = eZmaxApi.models.multilingual_paymentterm_description.Multilingual-PaymenttermDescription(
-                    s_paymentterm_description1 = 'Net 30 jours', 
-                    s_paymentterm_description2 = 'Net 30 days', ),
-                b_paymentterm_isactive = True,
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return PaymenttermResponseCompound(
-                pki_paymentterm_id = 46,
-                s_paymentterm_code = '0030',
-                e_paymentterm_type = 'Days',
-                i_paymentterm_day = 30,
-                obj_paymentterm_description = eZmaxApi.models.multilingual_paymentterm_description.Multilingual-PaymenttermDescription(
-                    s_paymentterm_description1 = 'Net 30 jours', 
-                    s_paymentterm_description2 = 'Net 30 days', ),
-                b_paymentterm_isactive = True,
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

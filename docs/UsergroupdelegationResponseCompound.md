@@ -6,14 +6,6 @@ A Usergroupdelegation Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_usergroupdelegation_id** | **int** | The unique ID of the Usergroupdelegation | 
-**fki_usergroup_id** | **int** | The unique ID of the Usergroup | 
-**fki_user_id** | **int** | The unique ID of the User | 
-**s_user_firstname** | **str** | The first name of the user | 
-**s_user_lastname** | **str** | The last name of the user | 
-**s_user_loginname** | **str** | The login name of the User. | 
-**s_email_address** | **str** | The email address. | [optional] 
-**s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 
 
 ## Example
 

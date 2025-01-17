@@ -36,8 +36,6 @@ class TestSupplyGetListV1ResponseMPayload(unittest.TestCase):
         model = SupplyGetListV1ResponseMPayload()
         if include_optional:
             return SupplyGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_supply = [
                     eZmaxApi.models.supply_list_element.supply-ListElement(
                         pki_supply_id = 85, 
@@ -56,8 +54,6 @@ class TestSupplyGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return SupplyGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_supply = [
                     eZmaxApi.models.supply_list_element.supply-ListElement(
                         pki_supply_id = 85, 

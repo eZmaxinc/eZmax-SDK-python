@@ -36,22 +36,9 @@ class TestUsergroupResponseCompound(unittest.TestCase):
         model = UsergroupResponseCompound()
         if include_optional:
             return UsergroupResponseCompound(
-                pki_usergroup_id = 2,
-                obj_usergroup_name = eZmaxApi.models.multilingual_usergroup_name.Multilingual-UsergroupName(
-                    s_usergroup_name1 = 'Direction', 
-                    s_usergroup_name2 = 'Management', ),
-                s_usergroup_name_x = 'Administration',
-                obj_email = eZmaxApi.models.email_request.email-Request(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', )
             )
         else:
             return UsergroupResponseCompound(
-                pki_usergroup_id = 2,
-                obj_usergroup_name = eZmaxApi.models.multilingual_usergroup_name.Multilingual-UsergroupName(
-                    s_usergroup_name1 = 'Direction', 
-                    s_usergroup_name2 = 'Management', ),
         )
         """
 

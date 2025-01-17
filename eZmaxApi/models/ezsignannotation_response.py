@@ -86,27 +86,7 @@ class EzsignannotationResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignannotationResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsignannotationID": obj.get("pkiEzsignannotationID"),
-            "fkiEzsigndocumentID": obj.get("fkiEzsigndocumentID"),
-            "eEzsignannotationHorizontalalignment": obj.get("eEzsignannotationHorizontalalignment"),
-            "eEzsignannotationVerticalalignment": obj.get("eEzsignannotationVerticalalignment"),
-            "eEzsignannotationType": obj.get("eEzsignannotationType"),
-            "iEzsignannotationX": obj.get("iEzsignannotationX"),
-            "iEzsignannotationY": obj.get("iEzsignannotationY"),
-            "iEzsignannotationWidth": obj.get("iEzsignannotationWidth"),
-            "iEzsignannotationHeight": obj.get("iEzsignannotationHeight"),
-            "sEzsignannotationText": obj.get("sEzsignannotationText"),
-            "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber")
-        })
-        return _obj
 
 

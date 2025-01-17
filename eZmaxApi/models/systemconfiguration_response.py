@@ -118,33 +118,7 @@ class SystemconfigurationResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of SystemconfigurationResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiSystemconfigurationID": obj.get("pkiSystemconfigurationID"),
-            "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
-            "fkiBrandingID": obj.get("fkiBrandingID"),
-            "sSystemconfigurationtypeDescriptionX": obj.get("sSystemconfigurationtypeDescriptionX"),
-            "eSystemconfigurationNewexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
-            "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
-            "eSystemconfigurationLanguage2": obj.get("eSystemconfigurationLanguage2"),
-            "eSystemconfigurationEzsign": obj.get("eSystemconfigurationEzsign"),
-            "eSystemconfigurationEzsignofficeplan": obj.get("eSystemconfigurationEzsignofficeplan"),
-            "bSystemconfigurationEzsignpaidbyoffice": obj.get("bSystemconfigurationEzsignpaidbyoffice"),
-            "bSystemconfigurationEzsignpersonnal": obj.get("bSystemconfigurationEzsignpersonnal"),
-            "bSystemconfigurationHascreditcardmerchant": obj.get("bSystemconfigurationHascreditcardmerchant"),
-            "bSystemconfigurationIsdisposalactive": obj.get("bSystemconfigurationIsdisposalactive"),
-            "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
-            "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
-            "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend"),
-            "objBranding": CustomBrandingResponse.from_dict(obj["objBranding"]) if obj.get("objBranding") is not None else None
-        })
-        return _obj
 
 

@@ -36,40 +36,6 @@ class TestEzsigntemplatepublicResponseCompound(unittest.TestCase):
         model = EzsigntemplatepublicResponseCompound()
         if include_optional:
             return EzsigntemplatepublicResponseCompound(
-                pki_ezsigntemplatepublic_id = 96,
-                fki_ezsignfoldertype_id = 5,
-                s_ezsignfoldertype_name_x = 'Default',
-                fki_userlogintype_id = 2,
-                s_userlogintype_description_x = 'Email and phone or SMS',
-                fki_ezsigntemplate_id = 36,
-                fki_ezsigntemplatepackage_id = 99,
-                s_ezsigntemplatepublic_description = 'Inscription form',
-                s_ezsigntemplatepublic_referenceid = '6B29FC40-CA47-1067-B31D-00DD010662DA',
-                b_ezsigntemplatepublic_isactive = True,
-                t_ezsigntemplatepublic_note = 'This is a note',
-                e_ezsigntemplatepublic_limittype = 'Hour',
-                i_ezsigntemplatepublic_limit = 10,
-                i_ezsigntemplatepublic_limitexceeded = 5,
-                dt_ezsigntemplatepublic_limitexceededsince = '2024-05-16 15:12:45',
-                s_ezsigntemplatepublic_url = 'https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}',
-                s_ezsigntemplatepublic_ezsigntemplatedescription = 'jUR,rZ#UM/?R,Fp^l6$AR',
-                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
-                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
-                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
-                        fki_user_id = 70, 
-                        fki_apikey_id = 99, 
-                        s_user_loginname = 'JohnDoe', 
-                        s_user_lastname = 'Doe', 
-                        s_user_firstname = 'John', 
-                        s_apikey_description_x = 'Project X', 
-                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 a_obj_ezsignfolderezsigntemplatepublic = [
                     eZmaxApi.models.custom_ezsignfolderezsigntemplatepublic_response.Custom-Ezsignfolderezsigntemplatepublic-Response(
                         pki_ezsignfolder_id = 33, 
@@ -90,21 +56,6 @@ class TestEzsigntemplatepublicResponseCompound(unittest.TestCase):
             )
         else:
             return EzsigntemplatepublicResponseCompound(
-                pki_ezsigntemplatepublic_id = 96,
-                fki_ezsignfoldertype_id = 5,
-                s_ezsignfoldertype_name_x = 'Default',
-                fki_userlogintype_id = 2,
-                s_userlogintype_description_x = 'Email and phone or SMS',
-                s_ezsigntemplatepublic_description = 'Inscription form',
-                s_ezsigntemplatepublic_referenceid = '6B29FC40-CA47-1067-B31D-00DD010662DA',
-                b_ezsigntemplatepublic_isactive = True,
-                t_ezsigntemplatepublic_note = 'This is a note',
-                e_ezsigntemplatepublic_limittype = 'Hour',
-                i_ezsigntemplatepublic_limit = 10,
-                i_ezsigntemplatepublic_limitexceeded = 5,
-                dt_ezsigntemplatepublic_limitexceededsince = '2024-05-16 15:12:45',
-                s_ezsigntemplatepublic_url = 'https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}',
-                s_ezsigntemplatepublic_ezsigntemplatedescription = 'jUR,rZ#UM/?R,Fp^l6$AR',
                 a_obj_ezsignfolderezsigntemplatepublic = [
                     eZmaxApi.models.custom_ezsignfolderezsigntemplatepublic_response.Custom-Ezsignfolderezsigntemplatepublic-Response(
                         pki_ezsignfolder_id = 33, 

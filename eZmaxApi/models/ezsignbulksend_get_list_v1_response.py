@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.common_response_get_list import CommonResponseGetList
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload_get_list import CommonResponseObjDebugPayloadGetList
 from eZmaxApi.models.ezsignbulksend_get_list_v1_response_m_payload import EzsignbulksendGetListV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksendGetListV1Response(BaseModel):
+class EzsignbulksendGetListV1Response(CommonResponseGetList):
     """
     Response for GET /1/object/ezsignbulksend/getList
     """ # noqa: E501
-    obj_debug_payload: CommonResponseObjDebugPayloadGetList = Field(alias="objDebugPayload")
-    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: EzsignbulksendGetListV1ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

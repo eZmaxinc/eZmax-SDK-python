@@ -36,15 +36,9 @@ class TestEzsignsignergroupmembershipRequestCompound(unittest.TestCase):
         model = EzsignsignergroupmembershipRequestCompound()
         if include_optional:
             return EzsignsignergroupmembershipRequestCompound(
-                pki_ezsignsignergroupmembership_id = 153,
-                fki_ezsignsignergroup_id = 27,
-                fki_ezsignsigner_id = 89,
-                fki_user_id = 70,
-                fki_usergroup_id = 2
             )
         else:
             return EzsignsignergroupmembershipRequestCompound(
-                fki_ezsignsignergroup_id = 27,
         )
         """
 

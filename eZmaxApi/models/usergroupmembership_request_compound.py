@@ -18,20 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.usergroupmembership_request import UsergroupmembershipRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupmembershipRequestCompound(BaseModel):
+class UsergroupmembershipRequestCompound(UsergroupmembershipRequest):
     """
     A Usergroupmembership Object and children
     """ # noqa: E501
-    pki_usergroupmembership_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupmembership", alias="pkiUsergroupmembershipID")
-    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID")
     __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID"]
 
     model_config = ConfigDict(

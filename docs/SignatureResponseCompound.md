@@ -6,10 +6,6 @@ A Signature Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_signature_id** | **int** | The unique ID of the Signature | 
-**fki_font_id** | **int** | The unique ID of the Font | [optional] 
-**s_signature_url** | **str** | The URL of the SVG file for the Signature | [optional] 
-**s_signature_urlinitials** | **str** | The URL of the SVG file for the Initials | [optional] 
 
 ## Example
 

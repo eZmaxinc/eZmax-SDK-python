@@ -6,8 +6,6 @@ Response for GET /2/object/usergroupexternal/{pkiUsergroupexternalID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupexternalGetObjectV2ResponseMPayload**](UsergroupexternalGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

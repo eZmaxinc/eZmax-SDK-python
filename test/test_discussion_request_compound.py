@@ -36,13 +36,9 @@ class TestDiscussionRequestCompound(unittest.TestCase):
         model = DiscussionRequestCompound()
         if include_optional:
             return DiscussionRequestCompound(
-                pki_discussion_id = 125,
-                s_discussion_description = 'John Doe',
-                b_discussion_closed = True
             )
         else:
             return DiscussionRequestCompound(
-                s_discussion_description = 'John Doe',
         )
         """
 

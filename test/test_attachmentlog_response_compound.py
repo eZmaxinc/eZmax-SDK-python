@@ -36,18 +36,9 @@ class TestAttachmentlogResponseCompound(unittest.TestCase):
         model = AttachmentlogResponseCompound()
         if include_optional:
             return AttachmentlogResponseCompound(
-                fki_attachment_id = 1,
-                fki_user_id = 70,
-                dt_attachmentlog_datetime = '2020-12-31 23:59:59',
-                e_attachmentlog_type = 'AutoValidation',
-                s_attachmentlog_detail = 'System'
             )
         else:
             return AttachmentlogResponseCompound(
-                fki_attachment_id = 1,
-                fki_user_id = 70,
-                dt_attachmentlog_datetime = '2020-12-31 23:59:59',
-                e_attachmentlog_type = 'AutoValidation',
         )
         """
 

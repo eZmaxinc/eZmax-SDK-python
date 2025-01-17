@@ -94,36 +94,7 @@ class EzmaxinvoicingagentResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingagentResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzmaxinvoicingagentID": obj.get("pkiEzmaxinvoicingagentID"),
-            "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
-            "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
-            "fkiAgentID": obj.get("fkiAgentID"),
-            "fkiBrokerID": obj.get("fkiBrokerID"),
-            "iEzmaxinvoicingagentSession": obj.get("iEzmaxinvoicingagentSession"),
-            "iEzmaxinvoicingagentCloned": obj.get("iEzmaxinvoicingagentCloned"),
-            "iEzmaxinvoicingagentInvoice": obj.get("iEzmaxinvoicingagentInvoice"),
-            "iEzmaxinvoicingagentInscription": obj.get("iEzmaxinvoicingagentInscription"),
-            "iEzmaxinvoicingagentInscriptionactive": obj.get("iEzmaxinvoicingagentInscriptionactive"),
-            "iEzmaxinvoicingagentSale": obj.get("iEzmaxinvoicingagentSale"),
-            "iEzmaxinvoicingagentOtherincome": obj.get("iEzmaxinvoicingagentOtherincome"),
-            "iEzmaxinvoicingagentCommissioncalculation": obj.get("iEzmaxinvoicingagentCommissioncalculation"),
-            "iEzmaxinvoicingagentEzsigndocument": obj.get("iEzmaxinvoicingagentEzsigndocument"),
-            "bEzmaxinvoicingagentEzsignaccount": obj.get("bEzmaxinvoicingagentEzsignaccount"),
-            "bEzmaxinvoicingagentBillableezmax": obj.get("bEzmaxinvoicingagentBillableezmax"),
-            "eEzmaxinvoicingagentVariationezmax": obj.get("eEzmaxinvoicingagentVariationezmax"),
-            "bEzmaxinvoicingagentBillableezsign": obj.get("bEzmaxinvoicingagentBillableezsign"),
-            "eEzmaxinvoicingagentVariationezsign": obj.get("eEzmaxinvoicingagentVariationezsign")
-        })
-        return _obj
 
 

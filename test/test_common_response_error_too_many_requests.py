@@ -36,16 +36,9 @@ class TestCommonResponseErrorTooManyRequests(unittest.TestCase):
         model = CommonResponseErrorTooManyRequests()
         if include_optional:
             return CommonResponseErrorTooManyRequests(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
-                a_s_error_messagedetail = [
-                    ''
-                    ]
             )
         else:
             return CommonResponseErrorTooManyRequests(
-                s_error_message = 'Invalid Signature Headers',
-                e_error_code = 'BADREQUEST',
         )
         """
 

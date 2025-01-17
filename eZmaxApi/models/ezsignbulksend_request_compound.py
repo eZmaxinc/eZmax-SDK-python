@@ -18,23 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.ezsignbulksend_request import EzsignbulksendRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksendRequestCompound(BaseModel):
+class EzsignbulksendRequestCompound(EzsignbulksendRequest):
     """
     A Ezsignbulksend Object and children
     """ # noqa: E501
-    pki_ezsignbulksend_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
-    t_ezsignbulksend_note: StrictStr = Field(description="Note about the Ezsignbulksend", alias="tEzsignbulksendNote")
-    b_ezsignbulksend_needvalidation: StrictBool = Field(description="Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation", alias="bEzsignbulksendNeedvalidation")
-    b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsignbulksendDescription", "tEzsignbulksendNote", "bEzsignbulksendNeedvalidation", "bEzsignbulksendIsactive"]
 
     model_config = ConfigDict(

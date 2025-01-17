@@ -36,25 +36,11 @@ class TestCustomNotificationtestgetnotificationtestsResponse(unittest.TestCase):
         model = CustomNotificationtestgetnotificationtestsResponse()
         if include_optional:
             return CustomNotificationtestgetnotificationtestsResponse(
-                pki_notificationtest_id = 14,
-                obj_notificationtest_name = eZmaxApi.models.multilingual_notificationtest_name.Multilingual-NotificationtestName(
-                    s_notificationtest_name1 = 'Default', 
-                    s_notificationtest_name2 = 'Default', ),
-                fki_notificationsubsection_id = 3,
-                s_notificationtest_function = 'Default',
-                s_notificationtest_name_x = 'Default',
                 e_notificationpreference_status = 'Show',
                 i_notificationtest = 27
             )
         else:
             return CustomNotificationtestgetnotificationtestsResponse(
-                pki_notificationtest_id = 14,
-                obj_notificationtest_name = eZmaxApi.models.multilingual_notificationtest_name.Multilingual-NotificationtestName(
-                    s_notificationtest_name1 = 'Default', 
-                    s_notificationtest_name2 = 'Default', ),
-                fki_notificationsubsection_id = 3,
-                s_notificationtest_function = 'Default',
-                s_notificationtest_name_x = 'Default',
                 e_notificationpreference_status = 'Show',
                 i_notificationtest = 27,
         )

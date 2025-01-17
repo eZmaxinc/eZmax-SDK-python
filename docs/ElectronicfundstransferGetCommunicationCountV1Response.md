@@ -6,8 +6,6 @@ Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**ElectronicfundstransferGetCommunicationCountV1ResponseMPayload**](ElectronicfundstransferGetCommunicationCountV1ResponseMPayload.md) |  | 
 
 ## Example

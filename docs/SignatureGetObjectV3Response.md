@@ -6,8 +6,6 @@ Response for GET /3/object/signature/{pkiSignatureID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**SignatureGetObjectV3ResponseMPayload**](SignatureGetObjectV3ResponseMPayload.md) |  | 
 
 ## Example

@@ -18,20 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.ezsignsignature_get_object_v3_response_m_payload import EzsignsignatureGetObjectV3ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignsignatureGetObjectV3Response(BaseModel):
+class EzsignsignatureGetObjectV3Response(CommonResponse):
     """
     Response for GET /3/object/ezsignsignature/{pkiEzsignsignatureID}
     """ # noqa: E501
-    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
-    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: EzsignsignatureGetObjectV3ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

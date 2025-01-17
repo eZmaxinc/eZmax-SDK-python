@@ -6,9 +6,6 @@ A Ezsigntemplateglobalsigner Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsigntemplateglobalsigner_id** | **int** | The unique ID of the Ezsigntemplateglobalsigner | 
-**fki_ezsigntemplateglobal_id** | **int** | The unique ID of the Ezsigntemplateglobal | 
-**s_ezsigntemplateglobalsigner_description** | **str** | The description of the Ezsigntemplateglobalsigner | 
 
 ## Example
 

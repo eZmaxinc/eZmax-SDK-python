@@ -6,11 +6,6 @@ A Variableexpense Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_variableexpense_id** | **int** | The unique ID of the Variableexpense | [optional] 
-**s_variableexpense_code** | **str** | The code of the Variableexpense | 
-**obj_variableexpense_description** | [**MultilingualVariableexpenseDescription**](MultilingualVariableexpenseDescription.md) |  | 
-**e_variableexpense_taxable** | [**FieldEVariableexpenseTaxable**](FieldEVariableexpenseTaxable.md) |  | 
-**b_variableexpense_isactive** | **bool** | Whether the variableexpense is active or not | 
 
 ## Example
 

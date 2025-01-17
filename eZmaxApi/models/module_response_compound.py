@@ -18,23 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from eZmaxApi.models.module_response import ModuleResponse
 from eZmaxApi.models.modulesection_response_compound import ModulesectionResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ModuleResponseCompound(BaseModel):
+class ModuleResponseCompound(ModuleResponse):
     """
     A Module Object
     """ # noqa: E501
-    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID")
-    fki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="fkiModulegroupID")
-    e_module_internalname: StrictStr = Field(description="The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.", alias="eModuleInternalname")
-    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX")
-    b_module_registered: StrictBool = Field(description="Whether the Module is registered or not", alias="bModuleRegistered")
-    b_module_registeredapi: StrictBool = Field(description="Whether the Module is registered or not for api use", alias="bModuleRegisteredapi")
     a_obj_modulesection: Optional[List[ModulesectionResponseCompound]] = Field(default=None, alias="a_objModulesection")
     __properties: ClassVar[List[str]] = ["pkiModuleID", "fkiModulegroupID", "eModuleInternalname", "sModuleNameX", "bModuleRegistered", "bModuleRegisteredapi", "a_objModulesection"]
 

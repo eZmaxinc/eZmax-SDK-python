@@ -6,9 +6,6 @@ A Ezsignsigningreason Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_ezsignsigningreason_id** | **int** | The unique ID of the Ezsignsigningreason | [optional] 
-**obj_ezsignsigningreason_description** | [**MultilingualEzsignsigningreasonDescription**](MultilingualEzsignsigningreasonDescription.md) |  | 
-**b_ezsignsigningreason_isactive** | **bool** | Whether the ezsignsigningreason is active or not | 
 
 ## Example
 

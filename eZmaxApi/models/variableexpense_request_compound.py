@@ -18,31 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.field_e_variableexpense_taxable import FieldEVariableexpenseTaxable
 from eZmaxApi.models.multilingual_variableexpense_description import MultilingualVariableexpenseDescription
+from eZmaxApi.models.variableexpense_request import VariableexpenseRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VariableexpenseRequestCompound(BaseModel):
+class VariableexpenseRequestCompound(VariableexpenseRequest):
     """
     A Variableexpense Object and children
     """ # noqa: E501
-    pki_variableexpense_id: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID")
-    s_variableexpense_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Variableexpense", alias="sVariableexpenseCode")
-    obj_variableexpense_description: MultilingualVariableexpenseDescription = Field(alias="objVariableexpenseDescription")
-    e_variableexpense_taxable: FieldEVariableexpenseTaxable = Field(alias="eVariableexpenseTaxable")
-    b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive")
     __properties: ClassVar[List[str]] = ["pkiVariableexpenseID", "sVariableexpenseCode", "objVariableexpenseDescription", "eVariableexpenseTaxable", "bVariableexpenseIsactive"]
-
-    @field_validator('s_variableexpense_code')
-    def s_variableexpense_code_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,5}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,5}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

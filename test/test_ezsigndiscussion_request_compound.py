@@ -36,26 +36,9 @@ class TestEzsigndiscussionRequestCompound(unittest.TestCase):
         model = EzsigndiscussionRequestCompound()
         if include_optional:
             return EzsigndiscussionRequestCompound(
-                pki_ezsigndiscussion_id = 194,
-                fki_ezsigndocument_id = 97,
-                i_ezsigndiscussion_pagenumber = 4,
-                i_ezsigndiscussion_x = 57208,
-                i_ezsigndiscussion_y = 57652,
-                obj_discussion = eZmaxApi.models.discussion_request.discussion-Request(
-                    pki_discussion_id = 125, 
-                    s_discussion_description = 'John Doe', 
-                    b_discussion_closed = True, )
             )
         else:
             return EzsigndiscussionRequestCompound(
-                fki_ezsigndocument_id = 97,
-                i_ezsigndiscussion_pagenumber = 4,
-                i_ezsigndiscussion_x = 57208,
-                i_ezsigndiscussion_y = 57652,
-                obj_discussion = eZmaxApi.models.discussion_request.discussion-Request(
-                    pki_discussion_id = 125, 
-                    s_discussion_description = 'John Doe', 
-                    b_discussion_closed = True, ),
         )
         """
 

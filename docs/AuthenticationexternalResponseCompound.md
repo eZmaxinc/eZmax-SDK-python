@@ -6,12 +6,6 @@ A Authenticationexternal Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_authenticationexternal_id** | **int** | The unique ID of the Authenticationexternal | 
-**s_authenticationexternal_description** | **str** | The description of the Authenticationexternal | 
-**e_authenticationexternal_type** | [**FieldEAuthenticationexternalType**](FieldEAuthenticationexternalType.md) |  | 
-**b_authenticationexternal_connected** | **bool** | Whether the Authenticationexternal has been connected or not | [optional] 
-**s_authenticationexternal_authorizationurl** | **str** | The url to authorize the Authenticationexternal | [optional] 
-**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Example
 

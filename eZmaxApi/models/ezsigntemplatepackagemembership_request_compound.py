@@ -18,19 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.ezsigntemplatepackagemembership_request import EzsigntemplatepackagemembershipRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepackagemembershipRequestCompound(BaseModel):
+class EzsigntemplatepackagemembershipRequestCompound(EzsigntemplatepackagemembershipRequest):
     """
     A Ezsigntemplatepackagemembership Object and children
     """ # noqa: E501
-    pki_ezsigntemplatepackagemembership_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID")
-    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID"]
 
     model_config = ConfigDict(

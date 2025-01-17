@@ -36,26 +36,9 @@ class TestSystemconfigurationRequestCompound(unittest.TestCase):
         model = SystemconfigurationRequestCompound()
         if include_optional:
             return SystemconfigurationRequestCompound(
-                pki_systemconfiguration_id = 1,
-                fki_branding_id = 78,
-                e_systemconfiguration_newexternaluseraction = 'Stage',
-                e_systemconfiguration_language1 = 'fr_QC',
-                e_systemconfiguration_language2 = 'en_CA',
-                e_systemconfiguration_ezsign = 'Yes',
-                e_systemconfiguration_ezsignofficeplan = 'Standard',
-                b_systemconfiguration_ezsignpaidbyoffice = True,
-                b_systemconfiguration_ezsignpersonnal = True,
-                b_systemconfiguration_sspr = True,
-                dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',
-                dt_systemconfiguration_readonlyexpirationend = '2021-12-31'
             )
         else:
             return SystemconfigurationRequestCompound(
-                e_systemconfiguration_newexternaluseraction = 'Stage',
-                e_systemconfiguration_language1 = 'fr_QC',
-                e_systemconfiguration_language2 = 'en_CA',
-                b_systemconfiguration_ezsignpersonnal = True,
-                b_systemconfiguration_sspr = True,
         )
         """
 

@@ -36,15 +36,9 @@ class TestEzsigntemplateglobalsignerResponseCompound(unittest.TestCase):
         model = EzsigntemplateglobalsignerResponseCompound()
         if include_optional:
             return EzsigntemplateglobalsignerResponseCompound(
-                pki_ezsigntemplateglobalsigner_id = 9,
-                fki_ezsigntemplateglobal_id = 36,
-                s_ezsigntemplateglobalsigner_description = 'Customer'
             )
         else:
             return EzsigntemplateglobalsignerResponseCompound(
-                pki_ezsigntemplateglobalsigner_id = 9,
-                fki_ezsigntemplateglobal_id = 36,
-                s_ezsigntemplateglobalsigner_description = 'Customer',
         )
         """
 

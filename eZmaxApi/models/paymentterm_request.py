@@ -90,22 +90,7 @@ class PaymenttermRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of PaymenttermRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiPaymenttermID": obj.get("pkiPaymenttermID"),
-            "sPaymenttermCode": obj.get("sPaymenttermCode"),
-            "ePaymenttermType": obj.get("ePaymenttermType"),
-            "iPaymenttermDay": obj.get("iPaymenttermDay"),
-            "objPaymenttermDescription": MultilingualPaymenttermDescription.from_dict(obj["objPaymenttermDescription"]) if obj.get("objPaymenttermDescription") is not None else None,
-            "bPaymenttermIsactive": obj.get("bPaymenttermIsactive")
-        })
-        return _obj
 
 

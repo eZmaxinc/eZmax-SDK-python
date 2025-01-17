@@ -18,58 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
+from eZmaxApi.models.webhook_response import WebhookResponse
 from eZmaxApi.models.webhookheader_response_compound import WebhookheaderResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookResponseCompound(BaseModel):
+class WebhookResponseCompound(WebhookResponse):
     """
     A Webhook Object
     """ # noqa: E501
-    pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
-    fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID")
-    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
-    e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
-    e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
-    e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
-    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
-    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
-    s_webhook_apikey: Optional[StrictStr] = Field(default=None, description="The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sWebhookApikey")
-    s_webhook_secret: Optional[StrictStr] = Field(default=None, description="The Secret for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sWebhookSecret")
-    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
-    b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
-    b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
-    s_authenticationexternal_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription")
-    obj_audit: CommonAudit = Field(alias="objAudit")
     s_webhook_event: Optional[StrictStr] = Field(default=None, description="The concatenated string to describe the Webhook event", alias="sWebhookEvent")
     a_obj_webhookheader: Optional[List[WebhookheaderResponseCompound]] = Field(default=None, alias="a_objWebhookheader")
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "sAuthenticationexternalDescription", "objAudit", "sWebhookEvent", "a_objWebhookheader"]
-
-    @field_validator('s_webhook_url')
-    def s_webhook_url_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
-            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
-        return value
-
-    @field_validator('s_authenticationexternal_description')
-    def s_authenticationexternal_description_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,50}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -123,35 +89,7 @@ class WebhookResponseCompound(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of WebhookResponseCompound from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiWebhookID": obj.get("pkiWebhookID"),
-            "fkiAuthenticationexternalID": obj.get("fkiAuthenticationexternalID"),
-            "sWebhookDescription": obj.get("sWebhookDescription"),
-            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
-            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
-            "eWebhookModule": obj.get("eWebhookModule"),
-            "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
-            "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
-            "sWebhookUrl": obj.get("sWebhookUrl"),
-            "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
-            "sWebhookApikey": obj.get("sWebhookApikey"),
-            "sWebhookSecret": obj.get("sWebhookSecret"),
-            "bWebhookIsactive": obj.get("bWebhookIsactive"),
-            "bWebhookIssigned": obj.get("bWebhookIssigned"),
-            "bWebhookSkipsslvalidation": obj.get("bWebhookSkipsslvalidation"),
-            "sAuthenticationexternalDescription": obj.get("sAuthenticationexternalDescription"),
-            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
-            "sWebhookEvent": obj.get("sWebhookEvent"),
-            "a_objWebhookheader": [WebhookheaderResponseCompound.from_dict(_item) for _item in obj["a_objWebhookheader"]] if obj.get("a_objWebhookheader") is not None else None
-        })
-        return _obj
 
 

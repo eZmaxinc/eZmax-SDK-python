@@ -6,8 +6,6 @@ Response for POST /1/object/usergroupmembership
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupmembershipCreateObjectV1ResponseMPayload**](UsergroupmembershipCreateObjectV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,23 +36,9 @@ class TestTextstylestaticRequestCompound(unittest.TestCase):
         model = TextstylestaticRequestCompound()
         if include_optional:
             return TextstylestaticRequestCompound(
-                fki_font_id = 1,
-                b_textstylestatic_bold = True,
-                b_textstylestatic_underline = True,
-                b_textstylestatic_italic = True,
-                b_textstylestatic_strikethrough = True,
-                i_textstylestatic_fontcolor = 3752795,
-                i_textstylestatic_size = 12
             )
         else:
             return TextstylestaticRequestCompound(
-                fki_font_id = 1,
-                b_textstylestatic_bold = True,
-                b_textstylestatic_underline = True,
-                b_textstylestatic_italic = True,
-                b_textstylestatic_strikethrough = True,
-                i_textstylestatic_fontcolor = 3752795,
-                i_textstylestatic_size = 12,
         )
         """
 

@@ -18,23 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.multilingual_subnet_description import MultilingualSubnetDescription
+from eZmaxApi.models.subnet_request import SubnetRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class SubnetRequestCompound(BaseModel):
+class SubnetRequestCompound(SubnetRequest):
     """
     A Subnet Object and children
     """ # noqa: E501
-    pki_subnet_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Subnet", alias="pkiSubnetID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID")
-    obj_subnet_description: MultilingualSubnetDescription = Field(alias="objSubnetDescription")
-    i_subnet_network: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The network of the Subnet in integer form. For example 8.8.8.0 would be 134744064", alias="iSubnetNetwork")
-    i_subnet_mask: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The mask of the Subnet  in integer form. For example 255.255.255.0 would be 4294967040", alias="iSubnetMask")
     __properties: ClassVar[List[str]] = ["pkiSubnetID", "fkiUserID", "fkiApikeyID", "objSubnetDescription", "iSubnetNetwork", "iSubnetMask"]
 
     model_config = ConfigDict(

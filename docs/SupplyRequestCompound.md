@@ -6,15 +6,6 @@ A Supply Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_supply_id** | **int** | The unique ID of the Supply | [optional] 
-**fki_glaccount_id** | **int** | The unique ID of the Glaccount | [optional] 
-**fki_glaccountcontainer_id** | **int** | The unique ID of the Glaccountcontainer | [optional] 
-**fki_variableexpense_id** | **int** | The unique ID of the Variableexpense | 
-**s_supply_code** | **str** | The code of the Supply | 
-**obj_supply_description** | [**MultilingualSupplyDescription**](MultilingualSupplyDescription.md) |  | 
-**d_supply_unitprice** | **str** | The unit price of the Supply | 
-**b_supply_isactive** | **bool** | Whether the supply is active or not | 
-**b_supply_variableprice** | **bool** | Whether if the price is variable | 
 
 ## Example
 

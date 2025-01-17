@@ -87,21 +87,7 @@ class EzsignsignerRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsignsignerRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "fkiUserlogintypeID": obj.get("fkiUserlogintypeID"),
-            "fkiTaxassignmentID": obj.get("fkiTaxassignmentID"),
-            "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
-            "eEzsignsignerLogintype": obj.get("eEzsignsignerLogintype"),
-            "sEzsignsignerSecretanswer": obj.get("sEzsignsignerSecretanswer")
-        })
-        return _obj
 
 

@@ -18,32 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response_error import CommonResponseError
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommonResponseErrorWrongFranchiseoffice(BaseModel):
+class CommonResponseErrorWrongFranchiseoffice(CommonResponseError):
     """
     Error Message when a Franchisebroker is not in this Franchiseoffice.
     """ # noqa: E501
-    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
-    e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
-    a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
     fki_franchiseagence_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Franchiseagence", alias="fkiFranchiseagenceID")
     s_franchiseagence_name: StrictStr = Field(description="The name of the Franchiseagence", alias="sFranchiseagenceName")
     fki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID")
     i_franchiseoffice_code: StrictStr = Field(description="The code of the Franchiseoffice", alias="iFranchiseofficeCode")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "fkiFranchiseagenceID", "sFranchiseagenceName", "fkiFranchiseofficeID", "iFranchiseofficeCode"]
-
-    @field_validator('s_error_message')
-    def s_error_message_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,500}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,500}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

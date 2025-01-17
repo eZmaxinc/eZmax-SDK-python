@@ -100,26 +100,7 @@ class EzsigntemplatesignerResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of EzsigntemplatesignerResponse from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiEzsigntemplatesignerID": obj.get("pkiEzsigntemplatesignerID"),
-            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
-            "fkiUserID": obj.get("fkiUserID"),
-            "fkiUsergroupID": obj.get("fkiUsergroupID"),
-            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
-            "bEzsigntemplatesignerReceivecopy": obj.get("bEzsigntemplatesignerReceivecopy"),
-            "eEzsigntemplatesignerMapping": obj.get("eEzsigntemplatesignerMapping"),
-            "sEzsigntemplatesignerDescription": obj.get("sEzsigntemplatesignerDescription"),
-            "sUserName": obj.get("sUserName"),
-            "sUsergroupNameX": obj.get("sUsergroupNameX")
-        })
-        return _obj
 
 

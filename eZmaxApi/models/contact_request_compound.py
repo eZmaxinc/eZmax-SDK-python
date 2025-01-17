@@ -18,23 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.contact_request import ContactRequest
 from eZmaxApi.models.contactinformations_request_compound import ContactinformationsRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ContactRequestCompound(BaseModel):
+class ContactRequestCompound(ContactRequest):
     """
     A Contact Object and children to create a complete structure
     """ # noqa: E501
-    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
-    s_contact_company: StrictStr = Field(description="The Company name of the contact", alias="sContactCompany")
-    dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate")
     obj_contactinformations: ContactinformationsRequestCompound = Field(alias="objContactinformations")
     __properties: ClassVar[List[str]] = ["fkiContacttitleID", "fkiLanguageID", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "objContactinformations"]
 

@@ -36,8 +36,6 @@ class TestVariableexpenseGetListV1ResponseMPayload(unittest.TestCase):
         model = VariableexpenseGetListV1ResponseMPayload()
         if include_optional:
             return VariableexpenseGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_variableexpense = [
                     eZmaxApi.models.variableexpense_list_element.variableexpense-ListElement(
                         pki_variableexpense_id = 2, 
@@ -49,8 +47,6 @@ class TestVariableexpenseGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return VariableexpenseGetListV1ResponseMPayload(
-                i_row_returned = 100,
-                i_row_filtered = 533,
                 a_obj_variableexpense = [
                     eZmaxApi.models.variableexpense_list_element.variableexpense-ListElement(
                         pki_variableexpense_id = 2, 

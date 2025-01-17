@@ -82,19 +82,7 @@ class DiscussionRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
         """Create an instance of DiscussionRequest from a dict"""
-        if obj is None:
-            return None
-
-        if not isinstance(obj, dict):
-            return cls.model_validate(obj)
-
-        _obj = cls.model_validate({
-            "pkiDiscussionID": obj.get("pkiDiscussionID"),
-            "sDiscussionDescription": obj.get("sDiscussionDescription"),
-            "bDiscussionClosed": obj.get("bDiscussionClosed")
-        })
-        return _obj
 
 

@@ -18,55 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from pydantic import ConfigDict
+from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.ezdoctemplatedocument_response import EzdoctemplatedocumentResponse
 from eZmaxApi.models.field_e_ezdoctemplatedocument_privacylevel import FieldEEzdoctemplatedocumentPrivacylevel
 from eZmaxApi.models.multilingual_ezdoctemplatedocument_name import MultilingualEzdoctemplatedocumentName
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzdoctemplatedocumentResponseCompound(BaseModel):
+class EzdoctemplatedocumentResponseCompound(EzdoctemplatedocumentResponse):
     """
     A Ezdoctemplatedocument Object
     """ # noqa: E501
-    pki_ezdoctemplatedocument_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatedocument", alias="pkiEzdoctemplatedocumentID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID")
-    fki_ezdoctemplatefieldtypecategory_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="fkiEzdoctemplatefieldtypecategoryID")
-    e_ezdoctemplatedocument_privacylevel: Optional[FieldEEzdoctemplatedocumentPrivacylevel] = Field(default=None, alias="eEzdoctemplatedocumentPrivacylevel")
-    b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive")
-    obj_ezdoctemplatedocument_name: MultilingualEzdoctemplatedocumentName = Field(alias="objEzdoctemplatedocumentName")
-    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
-    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
-    s_ezdoctemplatefieldtypecategory_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatefieldtypecategory in the language of the requester", alias="sEzdoctemplatefieldtypecategoryDescriptionX")
-    s_ezdoctemplatetype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatetype in the language of the requester", alias="sEzdoctemplatetypeDescriptionX")
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "fkiLanguageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatetypeID", "fkiEzdoctemplatefieldtypecategoryID", "eEzdoctemplatedocumentPrivacylevel", "bEzdoctemplatedocumentIsactive", "objEzdoctemplatedocumentName", "sEzdoctemplatedocumentNameX", "sEzsignfoldertypeNameX", "sEzdoctemplatefieldtypecategoryDescriptionX", "sEzdoctemplatetypeDescriptionX"]
-
-    @field_validator('s_ezdoctemplatedocument_name_x')
-    def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^.{0,50}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
-        return value
-
-    @field_validator('s_ezdoctemplatefieldtypecategory_description_x')
-    def s_ezdoctemplatefieldtypecategory_description_x_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,55}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,55}$/")
-        return value
-
-    @field_validator('s_ezdoctemplatetype_description_x')
-    def s_ezdoctemplatetype_description_x_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^.{0,50}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

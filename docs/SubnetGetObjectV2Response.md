@@ -6,8 +6,6 @@ Response for GET /2/object/subnet/{pkiSubnetID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
-**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**SubnetGetObjectV2ResponseMPayload**](SubnetGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example
