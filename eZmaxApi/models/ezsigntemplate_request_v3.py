@@ -112,7 +112,27 @@ class EzsigntemplateRequestV3(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateRequestV3 from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateID": obj.get("pkiEzsigntemplateID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
+            "sEzsigntemplateDescription": obj.get("sEzsigntemplateDescription"),
+            "sEzsigntemplateExternaldescription": obj.get("sEzsigntemplateExternaldescription"),
+            "tEzsigntemplateComment": obj.get("tEzsigntemplateComment"),
+            "eEzsigntemplateRecognition": obj.get("eEzsigntemplateRecognition") if obj.get("eEzsigntemplateRecognition") is not None else FieldEEzsigntemplateRecognition.NO,
+            "sEzsigntemplateFilenameregexp": obj.get("sEzsigntemplateFilenameregexp"),
+            "bEzsigntemplateAdminonly": obj.get("bEzsigntemplateAdminonly"),
+            "eEzsigntemplateType": obj.get("eEzsigntemplateType")
+        })
+        return _obj
 
 

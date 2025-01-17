@@ -36,9 +36,14 @@ class TestEzsignbulksenddocumentmappingRequestCompound(unittest.TestCase):
         model = EzsignbulksenddocumentmappingRequestCompound()
         if include_optional:
             return EzsignbulksenddocumentmappingRequestCompound(
+                pki_ezsignbulksenddocumentmapping_id = 48,
+                fki_ezsignbulksend_id = 8,
+                fki_ezsigntemplatepackage_id = 99,
+                fki_ezsigntemplate_id = 36
             )
         else:
             return EzsignbulksenddocumentmappingRequestCompound(
+                fki_ezsignbulksend_id = 8,
         )
         """
 

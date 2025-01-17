@@ -36,9 +36,22 @@ class TestVariableexpenseRequestCompound(unittest.TestCase):
         model = VariableexpenseRequestCompound()
         if include_optional:
             return VariableexpenseRequestCompound(
+                pki_variableexpense_id = 2,
+                s_variableexpense_code = 'EQBUR',
+                obj_variableexpense_description = eZmaxApi.models.multilingual_variableexpense_description.Multilingual-VariableexpenseDescription(
+                    s_variableexpense_description1 = 'Équipements de bureau', 
+                    s_variableexpense_description2 = 'Office equipment', ),
+                e_variableexpense_taxable = 'Yes',
+                b_variableexpense_isactive = True
             )
         else:
             return VariableexpenseRequestCompound(
+                s_variableexpense_code = 'EQBUR',
+                obj_variableexpense_description = eZmaxApi.models.multilingual_variableexpense_description.Multilingual-VariableexpenseDescription(
+                    s_variableexpense_description1 = 'Équipements de bureau', 
+                    s_variableexpense_description2 = 'Office equipment', ),
+                e_variableexpense_taxable = 'Yes',
+                b_variableexpense_isactive = True,
         )
         """
 

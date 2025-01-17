@@ -36,6 +36,35 @@ class TestEzmaxinvoicingResponseCompound(unittest.TestCase):
         model = EzmaxinvoicingResponseCompound()
         if include_optional:
             return EzmaxinvoicingResponseCompound(
+                pki_ezmaxinvoicing_id = 28,
+                fki_ezmaxinvoicingcontract_id = 28,
+                fki_ezmaxpricing_id = 28,
+                fki_systemconfigurationtype_id = 28,
+                s_systemconfigurationtype_description_x = 'eZsign (Pro)',
+                yyyymm_ezmaxinvoicing = '2022-01',
+                i_ezmaxinvoicing_days = 28,
+                e_ezmaxinvoicing_paymenttype = 'Cheque',
+                d_ezmaxinvoicing_rebatepaymenttype = '1.00',
+                i_ezmaxinvoicing_contractlength = 1,
+                d_ezmaxinvoicing_rebatecontractlength = '1.00',
+                b_ezmaxinvoicing_rebate_ezsignallagents = True,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
                 obj_ezmaxinvoicingcontract = eZmaxApi.models.ezmaxinvoicingcontract_response_compound.ezmaxinvoicingcontract-ResponseCompound(),
                 obj_ezmaxpricing = eZmaxApi.models.custom_ezmaxpricing_response.Custom-Ezmaxpricing-Response(
                     pki_ezmaxpricing_id = 28, 
@@ -66,6 +95,17 @@ class TestEzmaxinvoicingResponseCompound(unittest.TestCase):
             )
         else:
             return EzmaxinvoicingResponseCompound(
+                fki_ezmaxinvoicingcontract_id = 28,
+                fki_ezmaxpricing_id = 28,
+                fki_systemconfigurationtype_id = 28,
+                s_systemconfigurationtype_description_x = 'eZsign (Pro)',
+                yyyymm_ezmaxinvoicing = '2022-01',
+                i_ezmaxinvoicing_days = 28,
+                e_ezmaxinvoicing_paymenttype = 'Cheque',
+                d_ezmaxinvoicing_rebatepaymenttype = '1.00',
+                i_ezmaxinvoicing_contractlength = 1,
+                d_ezmaxinvoicing_rebatecontractlength = '1.00',
+                b_ezmaxinvoicing_rebate_ezsignallagents = True,
                 obj_ezmaxinvoicingcontract = eZmaxApi.models.ezmaxinvoicingcontract_response_compound.ezmaxinvoicingcontract-ResponseCompound(),
                 obj_ezmaxpricing = eZmaxApi.models.custom_ezmaxpricing_response.Custom-Ezmaxpricing-Response(
                     pki_ezmaxpricing_id = 28, 

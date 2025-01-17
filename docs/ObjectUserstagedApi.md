@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **userstaged_delete_object_v1**
-> CommonResponse userstaged_delete_object_v1(pki_userstaged_id)
+> UserstagedDeleteObjectV1Response userstaged_delete_object_v1(pki_userstaged_id)
 
 Delete an existing Userstaged
 
@@ -106,7 +106,7 @@ Delete an existing Userstaged
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserstagedDeleteObjectV1Response**](UserstagedDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **userstaged_map_v1**
-> CommonResponse userstaged_map_v1(pki_userstaged_id, userstaged_map_v1_request)
+> UserstagedMapV1Response userstaged_map_v1(pki_userstaged_id, userstaged_map_v1_request)
 
 Map the Userstaged to an existing user
 
@@ -355,8 +355,8 @@ Map the Userstaged to an existing user
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request
+from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UserstagedMapV1Response**](UserstagedMapV1Response.md)
 
 ### Authorization
 

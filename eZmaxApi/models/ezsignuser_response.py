@@ -84,7 +84,20 @@ class EzsignuserResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignuserResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsignuserID": obj.get("pkiEzsignuserID"),
+            "fkiContactID": obj.get("fkiContactID"),
+            "objContact": ContactResponseCompound.from_dict(obj["objContact"]) if obj.get("objContact") is not None else None,
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
+        })
+        return _obj
 
 

@@ -6,6 +6,9 @@ Error Message when a Franchisebroker is not in this Franchiseoffice.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**s_error_message** | **str** | The message giving details about the error | 
+**e_error_code** | [**FieldEErrorCode**](FieldEErrorCode.md) |  | 
+**a_s_error_messagedetail** | **List[str]** | More error message detail | [optional] 
 **fki_franchiseagence_id** | **int** | The unique ID of the Franchiseagence | 
 **s_franchiseagence_name** | **str** | The name of the Franchiseagence | 
 **fki_franchiseoffice_id** | **int** | The unique ID of the Franchisereoffice | 

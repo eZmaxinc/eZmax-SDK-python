@@ -6,6 +6,9 @@ A Ezsigntemplatepackagemembership Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_ezsigntemplatepackagemembership_id** | **int** | The unique ID of the Ezsigntemplatepackagemembership | [optional] 
+**fki_ezsigntemplatepackage_id** | **int** | The unique ID of the Ezsigntemplatepackage | 
+**fki_ezsigntemplate_id** | **int** | The unique ID of the Ezsigntemplate | 
 
 ## Example
 

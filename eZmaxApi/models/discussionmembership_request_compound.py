@@ -18,17 +18,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.discussionmembership_request import DiscussionmembershipRequest
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DiscussionmembershipRequestCompound(DiscussionmembershipRequest):
+class DiscussionmembershipRequestCompound(BaseModel):
     """
     A Discussionmembership Object and children
     """ # noqa: E501
+    pki_discussionmembership_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="pkiDiscussionmembershipID")
+    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
+    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID")
+    dt_discussionmembership_joined: Annotated[str, Field(strict=True)] = Field(description="The joined date of the Discussionmembership", alias="dtDiscussionmembershipJoined")
     __properties: ClassVar[List[str]] = ["pkiDiscussionmembershipID", "fkiDiscussionID", "fkiUserID", "fkiUsergroupID", "fkiModulesectionID", "dtDiscussionmembershipJoined"]
+
+    @field_validator('dt_discussionmembership_joined')
+    def dt_discussionmembership_joined_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

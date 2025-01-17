@@ -6,6 +6,8 @@ Response for GET /1/object/usergroup/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupGetListV1ResponseMPayload**](UsergroupGetListV1ResponseMPayload.md) |  | 
 
 ## Example

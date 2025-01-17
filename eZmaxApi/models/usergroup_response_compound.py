@@ -18,19 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.email_request import EmailRequest
 from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
-from eZmaxApi.models.usergroup_response import UsergroupResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupResponseCompound(UsergroupResponse):
+class UsergroupResponseCompound(BaseModel):
     """
     A Usergroup Object
     """ # noqa: E501
+    pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID")
+    obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
+    s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
+    obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
     __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName", "sUsergroupNameX", "objEmail"]
+
+    @field_validator('s_usergroup_name_x')
+    def s_usergroup_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

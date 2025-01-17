@@ -36,9 +36,24 @@ class TestUsergroupdelegationResponseCompound(unittest.TestCase):
         model = UsergroupdelegationResponseCompound()
         if include_optional:
             return UsergroupdelegationResponseCompound(
+                pki_usergroupdelegation_id = 141,
+                fki_usergroup_id = 2,
+                fki_user_id = 70,
+                s_user_firstname = 'John',
+                s_user_lastname = 'Doe',
+                s_user_loginname = 'JohnDoe',
+                s_email_address = 'email@example.com',
+                s_usergroup_name_x = 'Administration'
             )
         else:
             return UsergroupdelegationResponseCompound(
+                pki_usergroupdelegation_id = 141,
+                fki_usergroup_id = 2,
+                fki_user_id = 70,
+                s_user_firstname = 'John',
+                s_user_lastname = 'Doe',
+                s_user_loginname = 'JohnDoe',
+                s_usergroup_name_x = 'Administration',
         )
         """
 

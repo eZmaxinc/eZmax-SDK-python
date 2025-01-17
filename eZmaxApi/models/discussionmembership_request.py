@@ -85,7 +85,22 @@ class DiscussionmembershipRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DiscussionmembershipRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiDiscussionmembershipID": obj.get("pkiDiscussionmembershipID"),
+            "fkiDiscussionID": obj.get("fkiDiscussionID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiUsergroupID": obj.get("fkiUsergroupID"),
+            "fkiModulesectionID": obj.get("fkiModulesectionID"),
+            "dtDiscussionmembershipJoined": obj.get("dtDiscussionmembershipJoined")
+        })
+        return _obj
 
 

@@ -6,6 +6,8 @@ Response for GET /1/object/ezsignbulksend/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignbulksendGetListV1ResponseMPayload**](EzsignbulksendGetListV1ResponseMPayload.md) |  | 
 
 ## Example

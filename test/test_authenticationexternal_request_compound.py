@@ -36,9 +36,14 @@ class TestAuthenticationexternalRequestCompound(unittest.TestCase):
         model = AuthenticationexternalRequestCompound()
         if include_optional:
             return AuthenticationexternalRequestCompound(
+                pki_authenticationexternal_id = 56,
+                s_authenticationexternal_description = 'Authentification',
+                e_authenticationexternal_type = 'Salesforce'
             )
         else:
             return AuthenticationexternalRequestCompound(
+                s_authenticationexternal_description = 'Authentification',
+                e_authenticationexternal_type = 'Salesforce',
         )
         """
 

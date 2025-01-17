@@ -18,18 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplate_response_compound import EzsigntemplateResponseCompound
-from eZmaxApi.models.ezsigntemplatepackagemembership_response import EzsigntemplatepackagemembershipResponse
 from eZmaxApi.models.ezsigntemplatepackagesignermembership_response_compound import EzsigntemplatepackagesignermembershipResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepackagemembershipResponseCompound(EzsigntemplatepackagemembershipResponse):
+class EzsigntemplatepackagemembershipResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackagemembership Object
     """ # noqa: E501
+    pki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID")
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    i_ezsigntemplatepackagemembership_order: Annotated[int, Field(strict=True, ge=1)] = Field(description="The order in which the Ezsigntemplate will be imported when using an Ezsigntemplatepackage.", alias="iEzsigntemplatepackagemembershipOrder")
     obj_ezsigntemplate: EzsigntemplateResponseCompound = Field(alias="objEzsigntemplate")
     a_obj_ezsigntemplatepackagesignermembership: List[EzsigntemplatepackagesignermembershipResponseCompound] = Field(alias="a_objEzsigntemplatepackagesignermembership")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID", "iEzsigntemplatepackagemembershipOrder", "objEzsigntemplate", "a_objEzsigntemplatepackagesignermembership"]

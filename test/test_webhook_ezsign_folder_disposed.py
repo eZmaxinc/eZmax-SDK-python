@@ -36,6 +36,10 @@ class TestWebhookEzsignFolderDisposed(unittest.TestCase):
         model = WebhookEzsignFolderDisposed()
         if include_optional:
             return WebhookEzsignFolderDisposed(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsignfolder = eZmaxApi.models.ezsignfolder_response.ezsignfolder-Response(
                     pki_ezsignfolder_id = 33, 
                     fki_ezsignfoldertype_id = 5, 
@@ -107,6 +111,10 @@ Mary',
             )
         else:
             return WebhookEzsignFolderDisposed(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsignfolder = eZmaxApi.models.ezsignfolder_response.ezsignfolder-Response(
                     pki_ezsignfolder_id = 33, 
                     fki_ezsignfoldertype_id = 5, 

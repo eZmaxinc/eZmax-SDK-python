@@ -36,9 +36,23 @@ class TestEzsigntemplatedocumentpagerecognitionRequestCompound(unittest.TestCase
         model = EzsigntemplatedocumentpagerecognitionRequestCompound()
         if include_optional:
             return EzsigntemplatedocumentpagerecognitionRequestCompound(
+                pki_ezsigntemplatedocumentpagerecognition_id = 126,
+                fki_ezsigntemplatedocumentpage_id = 85,
+                e_ezsigntemplatedocumentpagerecognition_operator = 'eq',
+                e_ezsigntemplatedocumentpagerecognition_section = 'FirstLine',
+                i_ezsigntemplatedocumentpagerecognition_similarpercentage = 50,
+                i_ezsigntemplatedocumentpagerecognition_x = 36325,
+                i_ezsigntemplatedocumentpagerecognition_y = 407,
+                i_ezsigntemplatedocumentpagerecognition_width = 29232,
+                i_ezsigntemplatedocumentpagerecognition_height = 42651,
+                t_ezsigntemplatedocumentpagerecognition_text = 'Contract'
             )
         else:
             return EzsigntemplatedocumentpagerecognitionRequestCompound(
+                fki_ezsigntemplatedocumentpage_id = 85,
+                e_ezsigntemplatedocumentpagerecognition_operator = 'eq',
+                e_ezsigntemplatedocumentpagerecognition_section = 'FirstLine',
+                t_ezsigntemplatedocumentpagerecognition_text = 'Contract',
         )
         """
 

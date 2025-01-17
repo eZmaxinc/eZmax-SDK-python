@@ -36,6 +36,11 @@ class TestEzsignsignerRequestCompound(unittest.TestCase):
         model = EzsignsignerRequestCompound()
         if include_optional:
             return EzsignsignerRequestCompound(
+                fki_userlogintype_id = 2,
+                fki_taxassignment_id = 1,
+                fki_secretquestion_id = 7,
+                e_ezsignsigner_logintype = 'Password',
+                s_ezsignsigner_secretanswer = '',
                 obj_contact = eZmaxApi.models.ezsignsigner_request_compound_contact.ezsignsigner-RequestCompound-Contact(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
@@ -49,6 +54,7 @@ class TestEzsignsignerRequestCompound(unittest.TestCase):
             )
         else:
             return EzsignsignerRequestCompound(
+                fki_taxassignment_id = 1,
                 obj_contact = eZmaxApi.models.ezsignsigner_request_compound_contact.ezsignsigner-RequestCompound-Contact(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 

@@ -18,17 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_get_list_v1_response_m_payload import CommonGetListV1ResponseMPayload
 from eZmaxApi.models.domain_list_element import DomainListElement
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainGetListV1ResponseMPayload(CommonGetListV1ResponseMPayload):
+class DomainGetListV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/domain/getList
     """ # noqa: E501
+    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
+    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
     a_obj_domain: List[DomainListElement] = Field(alias="a_objDomain")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objDomain"]
 

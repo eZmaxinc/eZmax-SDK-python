@@ -6,6 +6,15 @@ A Textstylestatic Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_textstylestatic_id** | **int** | The unique ID of the Textstylestatic | [optional] 
+**fki_font_id** | **int** | The unique ID of the Font | 
+**s_font_name** | **str** | The name of the Font | 
+**b_textstylestatic_bold** | **bool** | Whether the Textstylestatic is Bold or not | 
+**b_textstylestatic_underline** | **bool** | Whether the Textstylestatic is Underline or not | 
+**b_textstylestatic_italic** | **bool** | Whether the Textstylestatic is Italic or not | 
+**b_textstylestatic_strikethrough** | **bool** | Whether the Textstylestatic is Strikethrough or not | 
+**i_textstylestatic_fontcolor** | **int** | The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795 | 
+**i_textstylestatic_size** | **int** | The Size for the Font of the Textstylestatic | 
 
 ## Example
 

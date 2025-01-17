@@ -6,6 +6,9 @@ A Cors Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_cors_id** | **int** | The unique ID of the Cors | 
+**fki_apikey_id** | **int** | The unique ID of the Apikey | 
+**s_cors_entryurl** | **str** | The entryurl of the Cors | 
 
 ## Example
 

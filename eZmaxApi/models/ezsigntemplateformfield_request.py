@@ -108,7 +108,34 @@ class EzsigntemplateformfieldRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateformfieldRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateformfieldID": obj.get("pkiEzsigntemplateformfieldID"),
+            "eEzsigntemplateformfieldPositioning": obj.get("eEzsigntemplateformfieldPositioning") if obj.get("eEzsigntemplateformfieldPositioning") is not None else FieldEEzsigntemplateformfieldPositioning.PERCOORDINATES,
+            "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
+            "sEzsigntemplateformfieldLabel": obj.get("sEzsigntemplateformfieldLabel"),
+            "sEzsigntemplateformfieldValue": obj.get("sEzsigntemplateformfieldValue"),
+            "iEzsigntemplateformfieldX": obj.get("iEzsigntemplateformfieldX"),
+            "iEzsigntemplateformfieldY": obj.get("iEzsigntemplateformfieldY"),
+            "iEzsigntemplateformfieldWidth": obj.get("iEzsigntemplateformfieldWidth"),
+            "iEzsigntemplateformfieldHeight": obj.get("iEzsigntemplateformfieldHeight"),
+            "bEzsigntemplateformfieldAutocomplete": obj.get("bEzsigntemplateformfieldAutocomplete"),
+            "bEzsigntemplateformfieldSelected": obj.get("bEzsigntemplateformfieldSelected"),
+            "eEzsigntemplateformfieldDependencyrequirement": obj.get("eEzsigntemplateformfieldDependencyrequirement"),
+            "sEzsigntemplateformfieldPositioningpattern": obj.get("sEzsigntemplateformfieldPositioningpattern"),
+            "iEzsigntemplateformfieldPositioningoffsetx": obj.get("iEzsigntemplateformfieldPositioningoffsetx"),
+            "iEzsigntemplateformfieldPositioningoffsety": obj.get("iEzsigntemplateformfieldPositioningoffsety"),
+            "eEzsigntemplateformfieldPositioningoccurence": obj.get("eEzsigntemplateformfieldPositioningoccurence"),
+            "eEzsigntemplateformfieldHorizontalalignment": obj.get("eEzsigntemplateformfieldHorizontalalignment"),
+            "objTextstylestatic": TextstylestaticRequestCompound.from_dict(obj["objTextstylestatic"]) if obj.get("objTextstylestatic") is not None else None
+        })
+        return _obj
 
 

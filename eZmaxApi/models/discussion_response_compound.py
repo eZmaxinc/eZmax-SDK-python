@@ -18,22 +18,36 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_discussionconfiguration_response import CustomDiscussionconfigurationResponse
-from eZmaxApi.models.discussion_response import DiscussionResponse
 from eZmaxApi.models.discussionmembership_response_compound import DiscussionmembershipResponseCompound
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DiscussionResponseCompound(DiscussionResponse):
+class DiscussionResponseCompound(BaseModel):
     """
     A Discussion Object
     """ # noqa: E501
+    pki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="pkiDiscussionID")
+    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription")
+    b_discussion_closed: StrictBool = Field(description="Whether if it's an closed", alias="bDiscussionClosed")
+    dt_discussion_lastread: Optional[StrictStr] = Field(default=None, description="The date the Discussion was last read", alias="dtDiscussionLastread")
+    i_discussionmessage_count: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCount")
+    i_discussionmessage_countunread: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCountunread")
+    obj_discussionconfiguration: Optional[CustomDiscussionconfigurationResponse] = Field(default=None, alias="objDiscussionconfiguration")
     a_obj_discussionmembership: List[DiscussionmembershipResponseCompound] = Field(alias="a_objDiscussionmembership")
     a_obj_discussionmessage: List[DiscussionmessageResponseCompound] = Field(alias="a_objDiscussionmessage")
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed", "dtDiscussionLastread", "iDiscussionmessageCount", "iDiscussionmessageCountunread", "objDiscussionconfiguration", "a_objDiscussionmembership", "a_objDiscussionmessage"]
+
+    @field_validator('s_discussion_description')
+    def s_discussion_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

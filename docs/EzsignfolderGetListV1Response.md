@@ -6,6 +6,8 @@ Response for GET /1/object/ezsignfolder/getList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignfolderGetListV1ResponseMPayload**](EzsignfolderGetListV1ResponseMPayload.md) |  | 
 
 ## Example

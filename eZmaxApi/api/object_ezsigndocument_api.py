@@ -20,8 +20,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Any, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_request import EzsigndocumentApplyEzsigntemplateV1Request
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v2_request import EzsigndocumentApplyEzsigntemplateV2Request
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v2_response import EzsigndocumentApplyEzsigntemplateV2Response
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplateglobal_v1_request import EzsigndocumentApplyEzsigntemplateglobalV1Request
@@ -35,6 +35,8 @@ from eZmaxApi.models.ezsigndocument_create_object_v2_response import Ezsigndocum
 from eZmaxApi.models.ezsigndocument_create_object_v3_request import EzsigndocumentCreateObjectV3Request
 from eZmaxApi.models.ezsigndocument_create_object_v3_response import EzsigndocumentCreateObjectV3Response
 from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_request import EzsigndocumentDeclineToSignV1Request
+from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_response import EzsigndocumentDeclineToSignV1Response
+from eZmaxApi.models.ezsigndocument_delete_object_v1_response import EzsigndocumentDeleteObjectV1Response
 from eZmaxApi.models.ezsigndocument_edit_ezsignannotations_v1_request import EzsigndocumentEditEzsignannotationsV1Request
 from eZmaxApi.models.ezsigndocument_edit_ezsignannotations_v1_response import EzsigndocumentEditEzsignannotationsV1Response
 from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v1_request import EzsigndocumentEditEzsignformfieldgroupsV1Request
@@ -43,8 +45,10 @@ from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_request import Ezsi
 from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_response import EzsigndocumentEditEzsignsignaturesV1Response
 from eZmaxApi.models.ezsigndocument_edit_object_v1_request import EzsigndocumentEditObjectV1Request
 from eZmaxApi.models.ezsigndocument_edit_object_v1_response import EzsigndocumentEditObjectV1Response
+from eZmaxApi.models.ezsigndocument_end_prematurely_v1_response import EzsigndocumentEndPrematurelyV1Response
 from eZmaxApi.models.ezsigndocument_extract_text_v1_request import EzsigndocumentExtractTextV1Request
 from eZmaxApi.models.ezsigndocument_extract_text_v1_response import EzsigndocumentExtractTextV1Response
+from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v1_response import EzsigndocumentGetActionableElementsV1Response
 from eZmaxApi.models.ezsigndocument_get_attachments_v1_response import EzsigndocumentGetAttachmentsV1Response
 from eZmaxApi.models.ezsigndocument_get_completed_elements_v1_response import EzsigndocumentGetCompletedElementsV1Response
@@ -62,7 +66,10 @@ from eZmaxApi.models.ezsigndocument_get_temporary_proof_v1_response import Ezsig
 from eZmaxApi.models.ezsigndocument_get_words_positions_v1_request import EzsigndocumentGetWordsPositionsV1Request
 from eZmaxApi.models.ezsigndocument_get_words_positions_v1_response import EzsigndocumentGetWordsPositionsV1Response
 from eZmaxApi.models.ezsigndocument_patch_object_v1_request import EzsigndocumentPatchObjectV1Request
+from eZmaxApi.models.ezsigndocument_patch_object_v1_response import EzsigndocumentPatchObjectV1Response
 from eZmaxApi.models.ezsigndocument_submit_ezsignform_v1_request import EzsigndocumentSubmitEzsignformV1Request
+from eZmaxApi.models.ezsigndocument_submit_ezsignform_v1_response import EzsigndocumentSubmitEzsignformV1Response
+from eZmaxApi.models.ezsigndocument_unsend_v1_response import EzsigndocumentUnsendV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -99,7 +106,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentApplyEzsigntemplateV1Response:
         """(Deprecated) Apply an Ezsigntemplate to the Ezsigndocument.
 
         This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
@@ -173,7 +180,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentApplyEzsigntemplateV1Response]:
         """(Deprecated) Apply an Ezsigntemplate to the Ezsigndocument.
 
         This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
@@ -2123,7 +2130,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentDeclineToSignV1Response:
         """Decline to sign
 
         Decline to sign
@@ -2196,7 +2203,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentDeclineToSignV1Response]:
         """Decline to sign
 
         Decline to sign
@@ -2417,7 +2424,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentDeleteObjectV1Response:
         """Delete an existing Ezsigndocument
 
         
@@ -2486,7 +2493,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentDeleteObjectV1Response]:
         """Delete an existing Ezsigndocument
 
         
@@ -3865,7 +3872,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentEndPrematurelyV1Response:
         """End prematurely
 
         End prematurely an Ezsigndocument when some signatures are still required
@@ -3938,7 +3945,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentEndPrematurelyV1Response]:
         """End prematurely
 
         End prematurely an Ezsigndocument when some signatures are still required
@@ -4455,7 +4462,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentFlattenV1Response:
         """Flatten
 
         Flatten an Ezsigndocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
@@ -4528,7 +4535,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentFlattenV1Response]:
         """Flatten
 
         Flatten an Ezsigndocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
@@ -8791,7 +8798,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentPatchObjectV1Response:
         """Patch an existing Ezsigndocument
 
         
@@ -8864,7 +8871,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentPatchObjectV1Response]:
         """Patch an existing Ezsigndocument
 
         
@@ -9086,7 +9093,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentSubmitEzsignformV1Response:
         """Submit the Ezsignform
 
         
@@ -9159,7 +9166,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentSubmitEzsignformV1Response]:
         """Submit the Ezsignform
 
         
@@ -9381,7 +9388,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndocumentUnsendV1Response:
         """Unsend the Ezsigndocument
 
         Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
@@ -9454,7 +9461,7 @@ class ObjectEzsigndocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndocumentUnsendV1Response]:
         """Unsend the Ezsigndocument
 
         Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.

@@ -18,18 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezmaxinvoicingsummaryinternal_response import EzmaxinvoicingsummaryinternalResponse
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.ezmaxinvoicingsummaryinternaldetail_response_compound import EzmaxinvoicingsummaryinternaldetailResponseCompound
 from eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description import MultilingualEzmaxinvoicingsummaryinternalDescription
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingsummaryinternalResponseCompound(EzmaxinvoicingsummaryinternalResponse):
+class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
     """
     A Ezmaxinvoicingsummaryinternal Object
     """ # noqa: E501
+    pki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="pkiEzmaxinvoicingsummaryinternalID")
+    obj_ezmaxinvoicingsummaryinternal_description: MultilingualEzmaxinvoicingsummaryinternalDescription = Field(alias="objEzmaxinvoicingsummaryinternalDescription")
+    s_ezmaxinvoicingsummaryinternal_description_x: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The Ezmaxinvoicingsummaryinternal description in the language of the requester", alias="sEzmaxinvoicingsummaryinternalDescriptionX")
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
     a_obj_ezmaxinvoicingsummaryinternaldetail: List[EzmaxinvoicingsummaryinternaldetailResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryinternaldetail")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryinternalID", "objEzmaxinvoicingsummaryinternalDescription", "sEzmaxinvoicingsummaryinternalDescriptionX", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "a_objEzmaxinvoicingsummaryinternaldetail"]
 

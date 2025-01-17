@@ -6,6 +6,12 @@ A Discussionmembership Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_discussionmembership_id** | **int** | The unique ID of the Discussionmembership | [optional] 
+**fki_discussion_id** | **int** | The unique ID of the Discussion | 
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
+**fki_usergroup_id** | **int** | The unique ID of the Usergroup | [optional] 
+**fki_modulesection_id** | **int** | The unique ID of the Modulesection | [optional] 
+**dt_discussionmembership_joined** | **str** | The joined date of the Discussionmembership | 
 
 ## Example
 

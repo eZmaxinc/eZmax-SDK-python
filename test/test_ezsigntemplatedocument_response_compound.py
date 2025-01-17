@@ -36,9 +36,23 @@ class TestEzsigntemplatedocumentResponseCompound(unittest.TestCase):
         model = EzsigntemplatedocumentResponseCompound()
         if include_optional:
             return EzsigntemplatedocumentResponseCompound(
+                pki_ezsigntemplatedocument_id = 133,
+                fki_ezsigntemplate_id = 36,
+                s_ezsigntemplatedocument_name = 'Standard Contract',
+                i_ezsigntemplatedocument_pagetotal = 5,
+                i_ezsigntemplatedocument_signaturetotal = 8,
+                i_ezsigntemplatedocument_formfieldtotal = 8,
+                b_ezsigntemplatedocument_hassignedsignatures = True
             )
         else:
             return EzsigntemplatedocumentResponseCompound(
+                pki_ezsigntemplatedocument_id = 133,
+                fki_ezsigntemplate_id = 36,
+                s_ezsigntemplatedocument_name = 'Standard Contract',
+                i_ezsigntemplatedocument_pagetotal = 5,
+                i_ezsigntemplatedocument_signaturetotal = 8,
+                i_ezsigntemplatedocument_formfieldtotal = 8,
+                b_ezsigntemplatedocument_hassignedsignatures = True,
         )
         """
 

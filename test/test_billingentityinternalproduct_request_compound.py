@@ -36,9 +36,14 @@ class TestBillingentityinternalproductRequestCompound(unittest.TestCase):
         model = BillingentityinternalproductRequestCompound()
         if include_optional:
             return BillingentityinternalproductRequestCompound(
+                pki_billingentityinternalproduct_id = 254,
+                fki_ezmaxproduct_id = 172,
+                fki_billingentityexternal_id = 83
             )
         else:
             return BillingentityinternalproductRequestCompound(
+                fki_ezmaxproduct_id = 172,
+                fki_billingentityexternal_id = 83,
         )
         """
 

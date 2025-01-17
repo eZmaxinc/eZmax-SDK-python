@@ -6,6 +6,8 @@ Response for POST /2/object/ezsigntemplatesignature
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigntemplatesignatureCreateObjectV2ResponseMPayload**](EzsigntemplatesignatureCreateObjectV2ResponseMPayload.md) |  | 
 
 ## Example

@@ -18,17 +18,33 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.textstylestatic_response import TextstylestaticResponse
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TextstylestaticResponseCompound(TextstylestaticResponse):
+class TextstylestaticResponseCompound(BaseModel):
     """
     A Textstylestatic Object
     """ # noqa: E501
+    pki_textstylestatic_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Textstylestatic", alias="pkiTextstylestaticID")
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
+    s_font_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Font", alias="sFontName")
+    b_textstylestatic_bold: StrictBool = Field(description="Whether the Textstylestatic is Bold or not", alias="bTextstylestaticBold")
+    b_textstylestatic_underline: StrictBool = Field(description="Whether the Textstylestatic is Underline or not", alias="bTextstylestaticUnderline")
+    b_textstylestatic_italic: StrictBool = Field(description="Whether the Textstylestatic is Italic or not", alias="bTextstylestaticItalic")
+    b_textstylestatic_strikethrough: StrictBool = Field(description="Whether the Textstylestatic is Strikethrough or not", alias="bTextstylestaticStrikethrough")
+    i_textstylestatic_fontcolor: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795", alias="iTextstylestaticFontcolor")
+    i_textstylestatic_size: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The Size for the Font of the Textstylestatic", alias="iTextstylestaticSize")
     __properties: ClassVar[List[str]] = ["pkiTextstylestaticID", "fkiFontID", "sFontName", "bTextstylestaticBold", "bTextstylestaticUnderline", "bTextstylestaticItalic", "bTextstylestaticStrikethrough", "iTextstylestaticFontcolor", "iTextstylestaticSize"]
+
+    @field_validator('s_font_name')
+    def s_font_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -36,9 +36,59 @@ class TestEzmaxinvoicingcontractResponseCompound(unittest.TestCase):
         model = EzmaxinvoicingcontractResponseCompound()
         if include_optional:
             return EzmaxinvoicingcontractResponseCompound(
+                pki_ezmaxinvoicingcontract_id = 28,
+                e_ezmaxinvoicingcontract_paymenttype = 'Cheque',
+                i_ezmaxinvoicingcontract_length = 3,
+                dt_ezmaxinvoicingcontract_start = '2020-12-31',
+                dt_ezmaxinvoicingcontract_end = '2020-12-31',
+                d_ezmaxinvoicingcontract_license = '335.42',
+                d_ezmaxinvoicingcontract121qa = '295.48',
+                b_ezmaxinvoicingcontract_ezsignallagents = True,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return EzmaxinvoicingcontractResponseCompound(
+                pki_ezmaxinvoicingcontract_id = 28,
+                e_ezmaxinvoicingcontract_paymenttype = 'Cheque',
+                i_ezmaxinvoicingcontract_length = 3,
+                dt_ezmaxinvoicingcontract_start = '2020-12-31',
+                dt_ezmaxinvoicingcontract_end = '2020-12-31',
+                d_ezmaxinvoicingcontract_license = '335.42',
+                d_ezmaxinvoicingcontract121qa = '295.48',
+                b_ezmaxinvoicingcontract_ezsignallagents = True,
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

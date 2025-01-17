@@ -76,7 +76,20 @@ class EzsigntemplatepackagemembershipResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatepackagemembershipResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplatepackagemembershipID": obj.get("pkiEzsigntemplatepackagemembershipID"),
+            "fkiEzsigntemplatepackageID": obj.get("fkiEzsigntemplatepackageID"),
+            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
+            "iEzsigntemplatepackagemembershipOrder": obj.get("iEzsigntemplatepackagemembershipOrder")
+        })
+        return _obj
 
 

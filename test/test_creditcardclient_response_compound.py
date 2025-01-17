@@ -36,9 +36,23 @@ class TestCreditcardclientResponseCompound(unittest.TestCase):
         model = CreditcardclientResponseCompound()
         if include_optional:
             return CreditcardclientResponseCompound(
+                pki_creditcardclient_id = 114,
+                fki_creditcarddetail_id = 53,
+                b_creditcardclientrelation_isdefault = True,
+                s_creditcardclient_description = 'Visa',
+                b_creditcardclient_allowedcompanypayment = True,
+                b_creditcardclient_allowedtranquillit = True,
+                obj_creditcarddetail = eZmaxApi.models.creditcarddetail_response_compound.creditcarddetail-ResponseCompound()
             )
         else:
             return CreditcardclientResponseCompound(
+                pki_creditcardclient_id = 114,
+                fki_creditcarddetail_id = 53,
+                b_creditcardclientrelation_isdefault = True,
+                s_creditcardclient_description = 'Visa',
+                b_creditcardclient_allowedcompanypayment = True,
+                b_creditcardclient_allowedtranquillit = True,
+                obj_creditcarddetail = eZmaxApi.models.creditcarddetail_response_compound.creditcarddetail-ResponseCompound(),
         )
         """
 

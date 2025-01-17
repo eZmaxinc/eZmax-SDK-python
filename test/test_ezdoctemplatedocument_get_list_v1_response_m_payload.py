@@ -36,6 +36,8 @@ class TestEzdoctemplatedocumentGetListV1ResponseMPayload(unittest.TestCase):
         model = EzdoctemplatedocumentGetListV1ResponseMPayload()
         if include_optional:
             return EzdoctemplatedocumentGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezdoctemplatedocument = [
                     eZmaxApi.models.ezdoctemplatedocument_list_element.ezdoctemplatedocument-ListElement(
                         pki_ezdoctemplatedocument_id = 95, 
@@ -53,6 +55,8 @@ class TestEzdoctemplatedocumentGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzdoctemplatedocumentGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezdoctemplatedocument = [
                     eZmaxApi.models.ezdoctemplatedocument_list_element.ezdoctemplatedocument-ListElement(
                         pki_ezdoctemplatedocument_id = 95, 

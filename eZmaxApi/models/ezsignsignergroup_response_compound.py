@@ -18,17 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignsignergroup_response import EzsignsignergroupResponse
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.multilingual_ezsignsignergroup_description import MultilingualEzsignsignergroupDescription
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignsignergroupResponseCompound(EzsignsignergroupResponse):
+class EzsignsignergroupResponseCompound(BaseModel):
     """
     An Ezsignsignergroup Object
     """ # noqa: E501
+    pki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="pkiEzsignsignergroupID")
+    obj_ezsignsignergroup_description: MultilingualEzsignsignergroupDescription = Field(alias="objEzsignsignergroupDescription")
+    s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupID", "objEzsignsignergroupDescription", "sEzsignsignergroupDescriptionX"]
 
     model_config = ConfigDict(

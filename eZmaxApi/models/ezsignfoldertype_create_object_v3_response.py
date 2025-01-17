@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_response import CommonResponse
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.ezsignfoldertype_create_object_v3_response_m_payload import EzsignfoldertypeCreateObjectV3ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignfoldertypeCreateObjectV3Response(CommonResponse):
+class EzsignfoldertypeCreateObjectV3Response(BaseModel):
     """
     Response for POST /3/object/ezsignfoldertype
     """ # noqa: E501
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: EzsignfoldertypeCreateObjectV3ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

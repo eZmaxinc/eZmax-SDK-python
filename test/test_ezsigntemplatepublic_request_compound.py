@@ -36,9 +36,26 @@ class TestEzsigntemplatepublicRequestCompound(unittest.TestCase):
         model = EzsigntemplatepublicRequestCompound()
         if include_optional:
             return EzsigntemplatepublicRequestCompound(
+                pki_ezsigntemplatepublic_id = 96,
+                fki_ezsignfoldertype_id = 5,
+                fki_userlogintype_id = 2,
+                fki_ezsigntemplate_id = 36,
+                fki_ezsigntemplatepackage_id = 99,
+                s_ezsigntemplatepublic_description = 'Inscription form',
+                b_ezsigntemplatepublic_isactive = True,
+                t_ezsigntemplatepublic_note = 'This is a note',
+                e_ezsigntemplatepublic_limittype = 'Hour',
+                i_ezsigntemplatepublic_limit = 10
             )
         else:
             return EzsigntemplatepublicRequestCompound(
+                fki_ezsignfoldertype_id = 5,
+                fki_userlogintype_id = 2,
+                s_ezsigntemplatepublic_description = 'Inscription form',
+                b_ezsigntemplatepublic_isactive = True,
+                t_ezsigntemplatepublic_note = 'This is a note',
+                e_ezsigntemplatepublic_limittype = 'Hour',
+                i_ezsigntemplatepublic_limit = 10,
         )
         """
 

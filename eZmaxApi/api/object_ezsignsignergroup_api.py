@@ -19,12 +19,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsignergroup_create_object_v1_request import EzsignsignergroupCreateObjectV1Request
 from eZmaxApi.models.ezsignsignergroup_create_object_v1_response import EzsignsignergroupCreateObjectV1Response
+from eZmaxApi.models.ezsignsignergroup_delete_object_v1_response import EzsignsignergroupDeleteObjectV1Response
 from eZmaxApi.models.ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_request import EzsignsignergroupEditEzsignsignergroupmembershipsV1Request
 from eZmaxApi.models.ezsignsignergroup_edit_ezsignsignergroupmemberships_v1_response import EzsignsignergroupEditEzsignsignergroupmembershipsV1Response
 from eZmaxApi.models.ezsignsignergroup_edit_object_v1_request import EzsignsignergroupEditObjectV1Request
+from eZmaxApi.models.ezsignsignergroup_edit_object_v1_response import EzsignsignergroupEditObjectV1Response
 from eZmaxApi.models.ezsignsignergroup_get_ezsignsignergroupmemberships_v1_response import EzsignsignergroupGetEzsignsignergroupmembershipsV1Response
 from eZmaxApi.models.ezsignsignergroup_get_object_v2_response import EzsignsignergroupGetObjectV2Response
 
@@ -336,7 +337,7 @@ class ObjectEzsignsignergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignsignergroupDeleteObjectV1Response:
         """Delete an existing Ezsignsignergroup
 
         
@@ -404,7 +405,7 @@ class ObjectEzsignsignergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignsignergroupDeleteObjectV1Response]:
         """Delete an existing Ezsignsignergroup
 
         
@@ -896,7 +897,7 @@ class ObjectEzsignsignergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignsignergroupEditObjectV1Response:
         """Edit an existing Ezsignsignergroup
 
         
@@ -968,7 +969,7 @@ class ObjectEzsignsignergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignsignergroupEditObjectV1Response]:
         """Edit an existing Ezsignsignergroup
 
         

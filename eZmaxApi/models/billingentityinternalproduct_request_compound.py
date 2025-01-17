@@ -18,16 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.billingentityinternalproduct_request import BillingentityinternalproductRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BillingentityinternalproductRequestCompound(BillingentityinternalproductRequest):
+class BillingentityinternalproductRequestCompound(BaseModel):
     """
     A Billingentityinternalproduct Object and children
     """ # noqa: E501
+    pki_billingentityinternalproduct_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternalproduct", alias="pkiBillingentityinternalproductID")
+    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalproductID", "fkiEzmaxproductID", "fkiBillingentityexternalID"]
 
     model_config = ConfigDict(

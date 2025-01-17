@@ -36,6 +36,10 @@ class TestEzsigntemplatepackagemembershipResponseCompound(unittest.TestCase):
         model = EzsigntemplatepackagemembershipResponseCompound()
         if include_optional:
             return EzsigntemplatepackagemembershipResponseCompound(
+                pki_ezsigntemplatepackagemembership_id = 194,
+                fki_ezsigntemplatepackage_id = 99,
+                fki_ezsigntemplate_id = 36,
+                i_ezsigntemplatepackagemembership_order = 1,
                 obj_ezsigntemplate = eZmaxApi.models.ezsigntemplate_response_compound.ezsigntemplate-ResponseCompound(),
                 a_obj_ezsigntemplatepackagesignermembership = [
                     eZmaxApi.models.ezsigntemplatepackagesignermembership_response_compound.ezsigntemplatepackagesignermembership-ResponseCompound()
@@ -43,6 +47,10 @@ class TestEzsigntemplatepackagemembershipResponseCompound(unittest.TestCase):
             )
         else:
             return EzsigntemplatepackagemembershipResponseCompound(
+                pki_ezsigntemplatepackagemembership_id = 194,
+                fki_ezsigntemplatepackage_id = 99,
+                fki_ezsigntemplate_id = 36,
+                i_ezsigntemplatepackagemembership_order = 1,
                 obj_ezsigntemplate = eZmaxApi.models.ezsigntemplate_response_compound.ezsigntemplate-ResponseCompound(),
                 a_obj_ezsigntemplatepackagesignermembership = [
                     eZmaxApi.models.ezsigntemplatepackagesignermembership_response_compound.ezsigntemplatepackagesignermembership-ResponseCompound()

@@ -36,12 +36,24 @@ class TestModuleResponseCompound(unittest.TestCase):
         model = ModuleResponseCompound()
         if include_optional:
             return ModuleResponseCompound(
+                pki_module_id = 40,
+                fki_modulegroup_id = 46,
+                e_module_internalname = 'Purchases',
+                s_module_name_x = 'Purchase',
+                b_module_registered = True,
+                b_module_registeredapi = True,
                 a_obj_modulesection = [
                     eZmaxApi.models.modulesection_response_compound.modulesection-ResponseCompound()
                     ]
             )
         else:
             return ModuleResponseCompound(
+                pki_module_id = 40,
+                fki_modulegroup_id = 46,
+                e_module_internalname = 'Purchases',
+                s_module_name_x = 'Purchase',
+                b_module_registered = True,
+                b_module_registeredapi = True,
         )
         """
 

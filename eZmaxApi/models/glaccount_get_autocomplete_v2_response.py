@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_response import CommonResponse
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.glaccount_get_autocomplete_v2_response_m_payload import GlaccountGetAutocompleteV2ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GlaccountGetAutocompleteV2Response(CommonResponse):
+class GlaccountGetAutocompleteV2Response(BaseModel):
     """
     Response for GET /2/object/glaccount/getAutocomplete
     """ # noqa: E501
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: GlaccountGetAutocompleteV2ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

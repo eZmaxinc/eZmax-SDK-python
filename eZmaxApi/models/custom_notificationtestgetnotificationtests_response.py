@@ -18,18 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_notificationpreference_status import FieldENotificationpreferenceStatus
 from eZmaxApi.models.multilingual_notificationtest_name import MultilingualNotificationtestName
-from eZmaxApi.models.notificationtest_response import NotificationtestResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CustomNotificationtestgetnotificationtestsResponse(NotificationtestResponse):
+class CustomNotificationtestgetnotificationtestsResponse(BaseModel):
     """
     A Notificationtest Object in the context of getNotificationtests
     """ # noqa: E501
+    pki_notificationtest_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationtest", alias="pkiNotificationtestID")
+    obj_notificationtest_name: MultilingualNotificationtestName = Field(alias="objNotificationtestName")
+    fki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="fkiNotificationsubsectionID")
+    s_notificationtest_function: StrictStr = Field(description="The function name of the Notificationtest", alias="sNotificationtestFunction")
+    s_notificationtest_name_x: StrictStr = Field(description="The name of the Notificationtest in the language of the requester", alias="sNotificationtestNameX")
     e_notificationpreference_status: FieldENotificationpreferenceStatus = Field(alias="eNotificationpreferenceStatus")
     i_notificationtest: StrictInt = Field(description="The number of elements returned by the Notificationtest", alias="iNotificationtest")
     __properties: ClassVar[List[str]] = ["pkiNotificationtestID", "objNotificationtestName", "fkiNotificationsubsectionID", "sNotificationtestFunction", "sNotificationtestNameX", "eNotificationpreferenceStatus", "iNotificationtest"]

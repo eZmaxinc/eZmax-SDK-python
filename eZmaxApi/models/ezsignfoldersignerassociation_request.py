@@ -78,7 +78,22 @@ class EzsignfoldersignerassociationRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignfoldersignerassociationRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsignfoldersignerassociationID": obj.get("pkiEzsignfoldersignerassociationID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiEzsignsignergroupID": obj.get("fkiEzsignsignergroupID"),
+            "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "bEzsignfoldersignerassociationReceivecopy": obj.get("bEzsignfoldersignerassociationReceivecopy"),
+            "tEzsignfoldersignerassociationMessage": obj.get("tEzsignfoldersignerassociationMessage")
+        })
+        return _obj
 
 

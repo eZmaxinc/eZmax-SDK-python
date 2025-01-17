@@ -89,7 +89,22 @@ class DomainResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DomainResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiDomainID": obj.get("pkiDomainID"),
+            "sDomainName": obj.get("sDomainName"),
+            "bDomainValiddkim": obj.get("bDomainValiddkim"),
+            "bDomainValidmailfrom": obj.get("bDomainValidmailfrom"),
+            "bDomainValidcustomer": obj.get("bDomainValidcustomer"),
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
+        })
+        return _obj
 
 

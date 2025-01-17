@@ -6,6 +6,8 @@ Response for PUT /2/object/user/{pkiUserID}/editColleagues
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UserEditColleaguesV2ResponseMPayload**](UserEditColleaguesV2ResponseMPayload.md) |  | 
 
 ## Example

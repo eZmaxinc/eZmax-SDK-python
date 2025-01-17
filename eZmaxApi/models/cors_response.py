@@ -82,7 +82,19 @@ class CorsResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CorsResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiCorsID": obj.get("pkiCorsID"),
+            "fkiApikeyID": obj.get("fkiApikeyID"),
+            "sCorsEntryurl": obj.get("sCorsEntryurl")
+        })
+        return _obj
 
 

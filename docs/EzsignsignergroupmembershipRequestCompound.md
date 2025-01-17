@@ -6,6 +6,11 @@ A Ezsignsignergroupmembership Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_ezsignsignergroupmembership_id** | **int** | The unique ID of the Ezsignsignergroupmembership | [optional] 
+**fki_ezsignsignergroup_id** | **int** | The unique ID of the Ezsignsignergroup | 
+**fki_ezsignsigner_id** | **int** | The unique ID of the Ezsignsigner | [optional] 
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
+**fki_usergroup_id** | **int** | The unique ID of the Usergroup | [optional] 
 
 ## Example
 

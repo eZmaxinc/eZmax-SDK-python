@@ -89,7 +89,27 @@ class VersionhistoryResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of VersionhistoryResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiVersionhistoryID": obj.get("pkiVersionhistoryID"),
+            "fkiModuleID": obj.get("fkiModuleID"),
+            "fkiModulesectionID": obj.get("fkiModulesectionID"),
+            "sModuleNameX": obj.get("sModuleNameX"),
+            "sModulesectionNameX": obj.get("sModulesectionNameX"),
+            "eVersionhistoryUsertype": obj.get("eVersionhistoryUsertype"),
+            "objVersionhistoryDetail": MultilingualVersionhistoryDetail.from_dict(obj["objVersionhistoryDetail"]) if obj.get("objVersionhistoryDetail") is not None else None,
+            "dtVersionhistoryDate": obj.get("dtVersionhistoryDate"),
+            "dtVersionhistoryDateend": obj.get("dtVersionhistoryDateend"),
+            "eVersionhistoryType": obj.get("eVersionhistoryType"),
+            "bVersionhistoryDraft": obj.get("bVersionhistoryDraft")
+        })
+        return _obj
 
 

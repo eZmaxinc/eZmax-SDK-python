@@ -6,6 +6,8 @@ Response for POST /3/object/ezsignfoldertype
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignfoldertypeCreateObjectV3ResponseMPayload**](EzsignfoldertypeCreateObjectV3ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,6 +36,8 @@ class TestSessionhistoryGetListV1ResponseMPayload(unittest.TestCase):
         model = SessionhistoryGetListV1ResponseMPayload()
         if include_optional:
             return SessionhistoryGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_sessionhistory = [
                     eZmaxApi.models.sessionhistory_list_element.sessionhistory-ListElement(
                         pki_sessionhistory_id = 259, 
@@ -52,6 +54,8 @@ class TestSessionhistoryGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return SessionhistoryGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_sessionhistory = [
                     eZmaxApi.models.sessionhistory_list_element.sessionhistory-ListElement(
                         pki_sessionhistory_id = 259, 

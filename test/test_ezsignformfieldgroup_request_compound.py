@@ -36,6 +36,23 @@ class TestEzsignformfieldgroupRequestCompound(unittest.TestCase):
         model = EzsignformfieldgroupRequestCompound()
         if include_optional:
             return EzsignformfieldgroupRequestCompound(
+                pki_ezsignformfieldgroup_id = 26,
+                fki_ezsigndocument_id = 97,
+                e_ezsignformfieldgroup_type = 'Text',
+                e_ezsignformfieldgroup_signerrequirement = 'One',
+                s_ezsignformfieldgroup_label = 'Allergies',
+                i_ezsignformfieldgroup_step = 1,
+                s_ezsignformfieldgroup_defaultvalue = 'Foo',
+                i_ezsignformfieldgroup_filledmin = 1,
+                i_ezsignformfieldgroup_filledmax = 2,
+                b_ezsignformfieldgroup_readonly = True,
+                i_ezsignformfieldgroup_maxlength = 75,
+                b_ezsignformfieldgroup_encrypted = True,
+                s_ezsignformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsignformfieldgroup_textvalidationcustommessage = 'Phone number',
+                t_ezsignformfieldgroup_tooltip = 'Please enter a valid email address',
+                e_ezsignformfieldgroup_tooltipposition = 'TopLeft',
+                e_ezsignformfieldgroup_textvalidation = 'None',
                 a_obj_ezsignformfieldgroupsigner = [
                     eZmaxApi.models.ezsignformfieldgroupsigner_request_compound.ezsignformfieldgroupsigner-RequestCompound()
                     ],
@@ -48,6 +65,13 @@ class TestEzsignformfieldgroupRequestCompound(unittest.TestCase):
             )
         else:
             return EzsignformfieldgroupRequestCompound(
+                fki_ezsigndocument_id = 97,
+                e_ezsignformfieldgroup_type = 'Text',
+                s_ezsignformfieldgroup_label = 'Allergies',
+                i_ezsignformfieldgroup_step = 1,
+                i_ezsignformfieldgroup_filledmin = 1,
+                i_ezsignformfieldgroup_filledmax = 2,
+                b_ezsignformfieldgroup_readonly = True,
                 a_obj_ezsignformfieldgroupsigner = [
                     eZmaxApi.models.ezsignformfieldgroupsigner_request_compound.ezsignformfieldgroupsigner-RequestCompound()
                     ],

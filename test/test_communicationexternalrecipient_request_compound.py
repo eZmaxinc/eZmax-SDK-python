@@ -36,6 +36,11 @@ class TestCommunicationexternalrecipientRequestCompound(unittest.TestCase):
         model = CommunicationexternalrecipientRequestCompound()
         if include_optional:
             return CommunicationexternalrecipientRequestCompound(
+                pki_communicationexternalrecipient_id = 9,
+                s_email_address = 'email@example.com',
+                s_phone_e164 = '+15149901516',
+                e_communicationexternalrecipient_type = 'To',
+                s_communicationexternalrecipient_name = 'John Doe'
             )
         else:
             return CommunicationexternalrecipientRequestCompound(

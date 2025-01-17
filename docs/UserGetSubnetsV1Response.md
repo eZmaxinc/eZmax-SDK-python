@@ -6,6 +6,8 @@ Response for GET /1/object/user/{pkiUserID}/getSubnets
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UserGetSubnetsV1ResponseMPayload**](UserGetSubnetsV1ResponseMPayload.md) |  | 
 
 ## Example

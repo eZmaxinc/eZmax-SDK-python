@@ -81,7 +81,21 @@ class NotificationtestResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of NotificationtestResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiNotificationtestID": obj.get("pkiNotificationtestID"),
+            "objNotificationtestName": MultilingualNotificationtestName.from_dict(obj["objNotificationtestName"]) if obj.get("objNotificationtestName") is not None else None,
+            "fkiNotificationsubsectionID": obj.get("fkiNotificationsubsectionID"),
+            "sNotificationtestFunction": obj.get("sNotificationtestFunction"),
+            "sNotificationtestNameX": obj.get("sNotificationtestNameX")
+        })
+        return _obj
 
 

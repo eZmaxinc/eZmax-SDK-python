@@ -18,19 +18,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_response_error import CommonResponseError
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from eZmaxApi.models.custom_ezsignformfielderror_response import CustomEzsignformfielderrorResponse
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommonResponseErrorEzsignformValidation(CommonResponseError):
+class CommonResponseErrorEzsignformValidation(BaseModel):
     """
     Generic Error Message
     """ # noqa: E501
-    a_obj_ezsignformfielderror: List[object] = Field(alias="a_objEzsignformfielderror")
+    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
+    e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
+    a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
+    a_obj_ezsignformfielderror: List[CustomEzsignformfielderrorResponse] = Field(alias="a_objEzsignformfielderror")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "a_objEzsignformfielderror"]
+
+    @field_validator('s_error_message')
+    def s_error_message_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,500}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,500}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +82,13 @@ class CommonResponseErrorEzsignformValidation(CommonResponseError):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfielderror (list)
+        _items = []
+        if self.a_obj_ezsignformfielderror:
+            for _item_a_obj_ezsignformfielderror in self.a_obj_ezsignformfielderror:
+                if _item_a_obj_ezsignformfielderror:
+                    _items.append(_item_a_obj_ezsignformfielderror.to_dict())
+            _dict['a_objEzsignformfielderror'] = _items
         return _dict
 
     @classmethod
@@ -86,7 +104,7 @@ class CommonResponseErrorEzsignformValidation(CommonResponseError):
             "sErrorMessage": obj.get("sErrorMessage"),
             "eErrorCode": obj.get("eErrorCode"),
             "a_sErrorMessagedetail": obj.get("a_sErrorMessagedetail"),
-            "a_objEzsignformfielderror": obj.get("a_objEzsignformfielderror")
+            "a_objEzsignformfielderror": [CustomEzsignformfielderrorResponse.from_dict(_item) for _item in obj["a_objEzsignformfielderror"]] if obj.get("a_objEzsignformfielderror") is not None else None
         })
         return _obj
 

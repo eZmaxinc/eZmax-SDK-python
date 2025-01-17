@@ -97,7 +97,26 @@ class EzsigntemplatepublicRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatepublicRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplatepublicID": obj.get("pkiEzsigntemplatepublicID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiUserlogintypeID": obj.get("fkiUserlogintypeID"),
+            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
+            "fkiEzsigntemplatepackageID": obj.get("fkiEzsigntemplatepackageID"),
+            "sEzsigntemplatepublicDescription": obj.get("sEzsigntemplatepublicDescription"),
+            "bEzsigntemplatepublicIsactive": obj.get("bEzsigntemplatepublicIsactive"),
+            "tEzsigntemplatepublicNote": obj.get("tEzsigntemplatepublicNote"),
+            "eEzsigntemplatepublicLimittype": obj.get("eEzsigntemplatepublicLimittype"),
+            "iEzsigntemplatepublicLimit": obj.get("iEzsigntemplatepublicLimit")
+        })
+        return _obj
 
 

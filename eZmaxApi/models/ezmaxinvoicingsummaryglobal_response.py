@@ -170,7 +170,35 @@ class EzmaxinvoicingsummaryglobalResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingsummaryglobalResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingsummaryglobalID": obj.get("pkiEzmaxinvoicingsummaryglobalID"),
+            "fkiEzmaxinvoicingID": obj.get("fkiEzmaxinvoicingID"),
+            "fkiEzmaxproductID": obj.get("fkiEzmaxproductID"),
+            "sEzmaxproductDescriptionX": obj.get("sEzmaxproductDescriptionX"),
+            "dtEzmaxinvoicingsummaryglobalStart": obj.get("dtEzmaxinvoicingsummaryglobalStart"),
+            "dtEzmaxinvoicingsummaryglobalEnd": obj.get("dtEzmaxinvoicingsummaryglobalEnd"),
+            "iEzmaxinvoicingsummaryglobalDays": obj.get("iEzmaxinvoicingsummaryglobalDays"),
+            "dEzmaxinvoicingsummaryglobalCountreal": obj.get("dEzmaxinvoicingsummaryglobalCountreal"),
+            "dEzmaxinvoicingsummaryglobalCountbilled": obj.get("dEzmaxinvoicingsummaryglobalCountbilled"),
+            "dEzmaxinvoicingsummaryglobalSubtotal": obj.get("dEzmaxinvoicingsummaryglobalSubtotal"),
+            "dEzmaxinvoicingsummaryglobalRebateamount": obj.get("dEzmaxinvoicingsummaryglobalRebateamount"),
+            "dEzmaxinvoicingsummaryglobalRebatepercent": obj.get("dEzmaxinvoicingsummaryglobalRebatepercent"),
+            "dEzmaxinvoicingsummaryglobalRebatetotal": obj.get("dEzmaxinvoicingsummaryglobalRebatetotal"),
+            "dEzmaxinvoicingsummaryglobalTotal": obj.get("dEzmaxinvoicingsummaryglobalTotal"),
+            "dEzmaxinvoicingsummaryglobalRepresentative": obj.get("dEzmaxinvoicingsummaryglobalRepresentative"),
+            "dEzmaxinvoicingsummaryglobalPartner": obj.get("dEzmaxinvoicingsummaryglobalPartner"),
+            "dEzmaxinvoicingsummaryglobalNet": obj.get("dEzmaxinvoicingsummaryglobalNet"),
+            "bEzmaxinvoicingsummaryglobalAdjustment": obj.get("bEzmaxinvoicingsummaryglobalAdjustment"),
+            "tEzmaxproductHelpX": obj.get("tEzmaxproductHelpX")
+        })
+        return _obj
 
 

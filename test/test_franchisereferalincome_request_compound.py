@@ -36,6 +36,18 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
         model = FranchisereferalincomeRequestCompound()
         if include_optional:
             return FranchisereferalincomeRequestCompound(
+                pki_franchisereferalincome_id = 35,
+                fki_franchisebroker_id = 61,
+                fki_franchisereferalincomeprogram_id = 51,
+                fki_period_id = 21,
+                d_franchisereferalincome_loan = '500275.62',
+                d_franchisereferalincome_franchiseamount = '275.00',
+                d_franchisereferalincome_franchisoramount = '385.00',
+                d_franchisereferalincome_agentamount = '800.00',
+                dt_franchisereferalincome_disbursed = '2020-12-31',
+                t_franchisereferalincome_comment = 'This is a comment',
+                fki_franchiseoffice_id = 50,
+                s_franchisereferalincome_remoteid = '',
                 obj_address = eZmaxApi.models.address_request.address-Request(
                     pki_address_id = 142, 
                     fki_addresstype_id = 1, 
@@ -54,6 +66,17 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
             )
         else:
             return FranchisereferalincomeRequestCompound(
+                fki_franchisebroker_id = 61,
+                fki_franchisereferalincomeprogram_id = 51,
+                fki_period_id = 21,
+                d_franchisereferalincome_loan = '500275.62',
+                d_franchisereferalincome_franchiseamount = '275.00',
+                d_franchisereferalincome_franchisoramount = '385.00',
+                d_franchisereferalincome_agentamount = '800.00',
+                dt_franchisereferalincome_disbursed = '2020-12-31',
+                t_franchisereferalincome_comment = 'This is a comment',
+                fki_franchiseoffice_id = 50,
+                s_franchisereferalincome_remoteid = '',
                 a_obj_contact = [
                     eZmaxApi.models.contact_request_compound.contact-RequestCompound()
                     ],

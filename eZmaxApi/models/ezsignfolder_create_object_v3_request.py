@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsignfolder_request_v3 import EzsignfolderRequestV3
+from eZmaxApi.models.ezsignfolder_request_compound_v3 import EzsignfolderRequestCompoundV3
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class EzsignfolderCreateObjectV3Request(BaseModel):
     """
     Request for POST /3/object/ezsignfolder
     """ # noqa: E501
-    a_obj_ezsignfolder: Annotated[List[EzsignfolderRequestV3], Field(min_length=1)] = Field(alias="a_objEzsignfolder")
+    a_obj_ezsignfolder: Annotated[List[EzsignfolderRequestCompoundV3], Field(min_length=1)] = Field(alias="a_objEzsignfolder")
     __properties: ClassVar[List[str]] = ["a_objEzsignfolder"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class EzsignfolderCreateObjectV3Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsignfolder": [EzsignfolderRequestV3.from_dict(_item) for _item in obj["a_objEzsignfolder"]] if obj.get("a_objEzsignfolder") is not None else None
+            "a_objEzsignfolder": [EzsignfolderRequestCompoundV3.from_dict(_item) for _item in obj["a_objEzsignfolder"]] if obj.get("a_objEzsignfolder") is not None else None
         })
         return _obj
 

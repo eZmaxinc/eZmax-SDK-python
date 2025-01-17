@@ -18,16 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignsignergroupmembership_request import EzsignsignergroupmembershipRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignsignergroupmembershipRequestCompound(EzsignsignergroupmembershipRequest):
+class EzsignsignergroupmembershipRequestCompound(BaseModel):
     """
     A Ezsignsignergroupmembership Object and children
     """ # noqa: E501
+    pki_ezsignsignergroupmembership_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroupmembership", alias="pkiEzsignsignergroupmembershipID")
+    fki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupmembershipID", "fkiEzsignsignergroupID", "fkiEzsignsignerID", "fkiUserID", "fkiUsergroupID"]
 
     model_config = ConfigDict(

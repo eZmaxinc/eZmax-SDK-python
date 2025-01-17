@@ -18,17 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.discussion_request import DiscussionRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DiscussionRequestCompound(DiscussionRequest):
+class DiscussionRequestCompound(BaseModel):
     """
     A Discussion Object and children
     """ # noqa: E501
+    pki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="pkiDiscussionID")
+    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription")
+    b_discussion_closed: Optional[StrictBool] = Field(default=None, description="Whether if it's an closed", alias="bDiscussionClosed")
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed"]
+
+    @field_validator('s_discussion_description')
+    def s_discussion_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

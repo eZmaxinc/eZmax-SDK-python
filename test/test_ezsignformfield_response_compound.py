@@ -36,12 +36,33 @@ class TestEzsignformfieldResponseCompound(unittest.TestCase):
         model = EzsignformfieldResponseCompound()
         if include_optional:
             return EzsignformfieldResponseCompound(
+                pki_ezsignformfield_id = 32,
+                i_ezsignpage_pagenumber = 1,
+                s_ezsignformfield_label = 'Peanuts',
+                s_ezsignformfield_value = 'Yes',
+                i_ezsignformfield_x = 200,
+                i_ezsignformfield_y = 300,
+                i_ezsignformfield_width = 102,
+                i_ezsignformfield_height = 22,
+                b_ezsignformfield_autocomplete = True,
+                b_ezsignformfield_selected = True,
+                s_ezsignformfield_enteredvalue = 'Montreal',
+                e_ezsignformfield_dependencyrequirement = 'AllOf',
+                e_ezsignformfield_horizontalalignment = 'Center',
+                obj_textstylestatic = eZmaxApi.models.textstylestatic_response_compound.textstylestatic-ResponseCompound(),
                 a_obj_ezsignelementdependency = [
                     eZmaxApi.models.ezsignelementdependency_response_compound.ezsignelementdependency-ResponseCompound()
                     ]
             )
         else:
             return EzsignformfieldResponseCompound(
+                pki_ezsignformfield_id = 32,
+                i_ezsignpage_pagenumber = 1,
+                s_ezsignformfield_label = 'Peanuts',
+                i_ezsignformfield_x = 200,
+                i_ezsignformfield_y = 300,
+                i_ezsignformfield_width = 102,
+                i_ezsignformfield_height = 22,
         )
         """
 

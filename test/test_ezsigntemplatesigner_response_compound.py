@@ -36,9 +36,22 @@ class TestEzsigntemplatesignerResponseCompound(unittest.TestCase):
         model = EzsigntemplatesignerResponseCompound()
         if include_optional:
             return EzsigntemplatesignerResponseCompound(
+                pki_ezsigntemplatesigner_id = 9,
+                fki_ezsigntemplate_id = 36,
+                fki_user_id = 70,
+                fki_usergroup_id = 2,
+                fki_ezdoctemplatedocument_id = 95,
+                b_ezsigntemplatesigner_receivecopy = True,
+                e_ezsigntemplatesigner_mapping = 'Manual',
+                s_ezsigntemplatesigner_description = 'Customer',
+                s_user_name = 'Default',
+                s_usergroup_name_x = 'Administration'
             )
         else:
             return EzsigntemplatesignerResponseCompound(
+                pki_ezsigntemplatesigner_id = 9,
+                fki_ezsigntemplate_id = 36,
+                s_ezsigntemplatesigner_description = 'Customer',
         )
         """
 

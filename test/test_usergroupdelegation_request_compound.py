@@ -36,9 +36,14 @@ class TestUsergroupdelegationRequestCompound(unittest.TestCase):
         model = UsergroupdelegationRequestCompound()
         if include_optional:
             return UsergroupdelegationRequestCompound(
+                pki_usergroupdelegation_id = 141,
+                fki_usergroup_id = 2,
+                fki_user_id = 70
             )
         else:
             return UsergroupdelegationRequestCompound(
+                fki_usergroup_id = 2,
+                fki_user_id = 70,
         )
         """
 

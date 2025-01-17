@@ -36,6 +36,15 @@ class TestEzsignbulksenddocumentmappingCreateObjectV1Response(unittest.TestCase)
         model = EzsignbulksenddocumentmappingCreateObjectV1Response()
         if include_optional:
             return EzsignbulksenddocumentmappingCreateObjectV1Response(
+                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
+                    i_version_min = 1, 
+                    i_version_max = 2, 
+                    a_required_permission = [
+                        117
+                        ], 
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
+                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.ezsignbulksenddocumentmapping_create_object_v1_response_m_payload.ezsignbulksenddocumentmapping-createObject-v1-Response-mPayload(
                     a_pki_ezsignbulksenddocumentmapping_id = [
                         48
@@ -43,6 +52,14 @@ class TestEzsignbulksenddocumentmappingCreateObjectV1Response(unittest.TestCase)
             )
         else:
             return EzsignbulksenddocumentmappingCreateObjectV1Response(
+                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
+                    i_version_min = 1, 
+                    i_version_max = 2, 
+                    a_required_permission = [
+                        117
+                        ], 
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.ezsignbulksenddocumentmapping_create_object_v1_response_m_payload.ezsignbulksenddocumentmapping-createObject-v1-Response-mPayload(
                     a_pki_ezsignbulksenddocumentmapping_id = [
                         48

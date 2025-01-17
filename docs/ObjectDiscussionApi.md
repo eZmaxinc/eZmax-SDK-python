@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussion_delete_object_v1**
-> CommonResponse discussion_delete_object_v1(pki_discussion_id)
+> DiscussionDeleteObjectV1Response discussion_delete_object_v1(pki_discussion_id)
 
 Delete an existing Discussion
 
@@ -104,7 +104,7 @@ Delete an existing Discussion
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.discussion_delete_object_v1_response import DiscussionDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionDeleteObjectV1Response**](DiscussionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussion_patch_object_v1**
-> CommonResponse discussion_patch_object_v1(pki_discussion_id, discussion_patch_object_v1_request)
+> DiscussionPatchObjectV1Response discussion_patch_object_v1(pki_discussion_id, discussion_patch_object_v1_request)
 
 Patch an existing Discussion
 
@@ -264,8 +264,8 @@ Patch an existing Discussion
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussion_patch_object_v1_request import DiscussionPatchObjectV1Request
+from eZmaxApi.models.discussion_patch_object_v1_response import DiscussionPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionPatchObjectV1Response**](DiscussionPatchObjectV1Response.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussion_update_discussionreadstatus_v1**
-> CommonResponse discussion_update_discussionreadstatus_v1(pki_discussion_id, discussion_update_discussionreadstatus_v1_request)
+> DiscussionUpdateDiscussionreadstatusV1Response discussion_update_discussionreadstatus_v1(pki_discussion_id, discussion_update_discussionreadstatus_v1_request)
 
 Update the read status of the discussion
 
@@ -346,8 +346,8 @@ Update the read status of the discussion
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussion_update_discussionreadstatus_v1_request import DiscussionUpdateDiscussionreadstatusV1Request
+from eZmaxApi.models.discussion_update_discussionreadstatus_v1_response import DiscussionUpdateDiscussionreadstatusV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionUpdateDiscussionreadstatusV1Response**](DiscussionUpdateDiscussionreadstatusV1Response.md)
 
 ### Authorization
 

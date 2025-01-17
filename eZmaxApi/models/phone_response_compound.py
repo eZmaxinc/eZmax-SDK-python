@@ -18,19 +18,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_phone_type import FieldEPhoneType
-from eZmaxApi.models.phone_response import PhoneResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PhoneResponseCompound(PhoneResponse):
+class PhoneResponseCompound(BaseModel):
     """
     A Phone Object and children to create a complete structure
     """ # noqa: E501
+    pki_phone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phone.", alias="pkiPhoneID")
+    fki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="fkiPhonetypeID")
+    e_phone_type: Optional[FieldEPhoneType] = Field(default=None, alias="ePhoneType")
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
+    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
     b_phone_international: Optional[StrictBool] = Field(default=None, description="Indicate the phone number is an international phone number.", alias="bPhoneInternational")
     __properties: ClassVar[List[str]] = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneE164", "sPhoneExtension", "bPhoneInternational"]
+
+    @field_validator('s_phone_e164')
+    def s_phone_e164_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+            raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

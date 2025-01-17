@@ -36,25 +36,11 @@ class TestPermissionGetObjectV2ResponseMPayload(unittest.TestCase):
         model = PermissionGetObjectV2ResponseMPayload()
         if include_optional:
             return PermissionGetObjectV2ResponseMPayload(
-                obj_permission = eZmaxApi.models.permission_response.permission-Response(
-                    pki_permission_id = 31, 
-                    fki_user_id = 70, 
-                    fki_apikey_id = 99, 
-                    fki_usergroup_id = 2, 
-                    fki_company_id = 1, 
-                    fki_modulesection_id = 53, 
-                    s_company_name_x = 'Acme inc.', )
+                obj_permission = eZmaxApi.models.permission_response_compound.permission-ResponseCompound()
             )
         else:
             return PermissionGetObjectV2ResponseMPayload(
-                obj_permission = eZmaxApi.models.permission_response.permission-Response(
-                    pki_permission_id = 31, 
-                    fki_user_id = 70, 
-                    fki_apikey_id = 99, 
-                    fki_usergroup_id = 2, 
-                    fki_company_id = 1, 
-                    fki_modulesection_id = 53, 
-                    s_company_name_x = 'Acme inc.', ),
+                obj_permission = eZmaxApi.models.permission_response_compound.permission-ResponseCompound(),
         )
         """
 

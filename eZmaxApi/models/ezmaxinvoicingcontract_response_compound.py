@@ -18,19 +18,42 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-from eZmaxApi.models.ezmaxinvoicingcontract_response import EzmaxinvoicingcontractResponse
 from eZmaxApi.models.field_e_ezmaxinvoicingcontract_paymenttype import FieldEEzmaxinvoicingcontractPaymenttype
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingcontractResponseCompound(EzmaxinvoicingcontractResponse):
+class EzmaxinvoicingcontractResponseCompound(BaseModel):
     """
     A Ezmaxinvoicingcontract Object
     """ # noqa: E501
+    pki_ezmaxinvoicingcontract_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxinvoicingcontract", alias="pkiEzmaxinvoicingcontractID")
+    e_ezmaxinvoicingcontract_paymenttype: FieldEEzmaxinvoicingcontractPaymenttype = Field(alias="eEzmaxinvoicingcontractPaymenttype")
+    i_ezmaxinvoicingcontract_length: Annotated[int, Field(strict=True, ge=1)] = Field(description="The length in years of the Ezmaxinvoicingcontract", alias="iEzmaxinvoicingcontractLength")
+    dt_ezmaxinvoicingcontract_start: StrictStr = Field(description="The start date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractStart")
+    dt_ezmaxinvoicingcontract_end: StrictStr = Field(description="The end date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractEnd")
+    d_ezmaxinvoicingcontract_license: Annotated[str, Field(strict=True)] = Field(description="The price of the license", alias="dEzmaxinvoicingcontractLicense")
+    d_ezmaxinvoicingcontract121qa: Annotated[str, Field(strict=True)] = Field(description="The price for 121QA", alias="dEzmaxinvoicingcontract121qa")
+    b_ezmaxinvoicingcontract_ezsignallagents: StrictBool = Field(description="Whether eZsign is for all agents", alias="bEzmaxinvoicingcontractEzsignallagents")
+    obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcontractID", "eEzmaxinvoicingcontractPaymenttype", "iEzmaxinvoicingcontractLength", "dtEzmaxinvoicingcontractStart", "dtEzmaxinvoicingcontractEnd", "dEzmaxinvoicingcontractLicense", "dEzmaxinvoicingcontract121qa", "bEzmaxinvoicingcontractEzsignallagents", "objAudit"]
+
+    @field_validator('d_ezmaxinvoicingcontract_license')
+    def d_ezmaxinvoicingcontract_license_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
+        return value
+
+    @field_validator('d_ezmaxinvoicingcontract121qa')
+    def d_ezmaxinvoicingcontract121qa_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -36,13 +36,28 @@ class TestCommunicationRequestCompound(unittest.TestCase):
         model = CommunicationRequestCompound()
         if include_optional:
             return CommunicationRequestCompound(
+                pki_communication_id = 1,
+                e_communication_importance = 'Normal',
+                e_communication_type = 'Email',
+                obj_communicationsender = eZmaxApi.models.custom_communicationsender_request.Custom-Communicationsender-Request(
+                    fki_agent_id = 1, 
+                    fki_broker_id = 26, 
+                    fki_mailboxshared_id = 47, 
+                    fki_phonelineshared_id = 47, 
+                    fki_user_id = 70, ),
+                s_communication_subject = 'This is an example of subject',
+                t_communication_body = '',
+                b_communication_private = False,
+                e_communication_attachmenttype = 'Attachment',
+                i_communication_attachmentlinkexpiration = 1,
+                b_communication_readreceipt = True,
                 a_obj_communicationattachment = [
                     eZmaxApi.models.custom_communicationattachment_request.Custom-Communicationattachment-Request(
                         obj_communicationattachment = eZmaxApi.models.communicationattachment_request_compound.communicationattachment-RequestCompound(), 
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@754777cd', 
+                            s_file_base64 = '[B@7807ac2c', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [
@@ -57,13 +72,16 @@ class TestCommunicationRequestCompound(unittest.TestCase):
             )
         else:
             return CommunicationRequestCompound(
+                e_communication_type = 'Email',
+                t_communication_body = '',
+                b_communication_private = False,
                 a_obj_communicationattachment = [
                     eZmaxApi.models.custom_communicationattachment_request.Custom-Communicationattachment-Request(
                         obj_communicationattachment = eZmaxApi.models.communicationattachment_request_compound.communicationattachment-RequestCompound(), 
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@754777cd', 
+                            s_file_base64 = '[B@7807ac2c', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [

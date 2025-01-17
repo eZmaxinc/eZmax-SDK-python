@@ -36,9 +36,33 @@ class TestEzdoctemplatedocumentResponseCompound(unittest.TestCase):
         model = EzdoctemplatedocumentResponseCompound()
         if include_optional:
             return EzdoctemplatedocumentResponseCompound(
+                pki_ezdoctemplatedocument_id = 95,
+                fki_language_id = 2,
+                fki_ezsignfoldertype_id = 5,
+                fki_ezdoctemplatetype_id = 7,
+                fki_ezdoctemplatefieldtypecategory_id = 4,
+                e_ezdoctemplatedocument_privacylevel = 'Company',
+                b_ezdoctemplatedocument_isactive = True,
+                obj_ezdoctemplatedocument_name = eZmaxApi.models.multilingual_ezdoctemplatedocument_name.Multilingual-EzdoctemplatedocumentName(
+                    s_ezdoctemplatedocument_name1 = 'Contrat type', 
+                    s_ezdoctemplatedocument_name2 = 'Standard Contract', ),
+                s_ezdoctemplatedocument_name_x = 'Standard Contract',
+                s_ezsignfoldertype_name_x = 'Default',
+                s_ezdoctemplatefieldtypecategory_description_x = 'Sale',
+                s_ezdoctemplatetype_description_x = 'Real Estate'
             )
         else:
             return EzdoctemplatedocumentResponseCompound(
+                pki_ezdoctemplatedocument_id = 95,
+                fki_language_id = 2,
+                fki_ezdoctemplatetype_id = 7,
+                fki_ezdoctemplatefieldtypecategory_id = 4,
+                b_ezdoctemplatedocument_isactive = True,
+                obj_ezdoctemplatedocument_name = eZmaxApi.models.multilingual_ezdoctemplatedocument_name.Multilingual-EzdoctemplatedocumentName(
+                    s_ezdoctemplatedocument_name1 = 'Contrat type', 
+                    s_ezdoctemplatedocument_name2 = 'Standard Contract', ),
+                s_ezdoctemplatefieldtypecategory_description_x = 'Sale',
+                s_ezdoctemplatetype_description_x = 'Real Estate',
         )
         """
 

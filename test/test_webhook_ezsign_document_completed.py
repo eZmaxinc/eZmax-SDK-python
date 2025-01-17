@@ -36,6 +36,10 @@ class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
         model = WebhookEzsignDocumentCompleted()
         if include_optional:
             return WebhookEzsignDocumentCompleted(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsigndocument = eZmaxApi.models.ezsigndocument_response.ezsigndocument-Response(
                     pki_ezsigndocument_id = 97, 
                     fki_ezsignfolder_id = 33, 
@@ -80,6 +84,10 @@ class TestWebhookEzsignDocumentCompleted(unittest.TestCase):
             )
         else:
             return WebhookEzsignDocumentCompleted(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsigndocument = eZmaxApi.models.ezsigndocument_response.ezsigndocument-Response(
                     pki_ezsigndocument_id = 97, 
                     fki_ezsignfolder_id = 33, 

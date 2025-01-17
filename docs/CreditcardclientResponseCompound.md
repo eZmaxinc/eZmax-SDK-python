@@ -6,6 +6,13 @@ A Creditcardclient Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_creditcardclient_id** | **int** | The unique ID of the Creditcardclient | 
+**fki_creditcarddetail_id** | **int** | The unique ID of the Creditcarddetail | 
+**b_creditcardclientrelation_isdefault** | **bool** | Whether if it&#39;s the creditcardclient is the default one | 
+**s_creditcardclient_description** | **str** | The description of the Creditcardclient | 
+**b_creditcardclient_allowedcompanypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
+**b_creditcardclient_allowedtranquillit** | **bool** | Whether if it&#39;s an allowedtranquillit | 
+**obj_creditcarddetail** | [**CreditcarddetailResponseCompound**](CreditcarddetailResponseCompound.md) |  | 
 
 ## Example
 

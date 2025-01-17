@@ -6,6 +6,9 @@ An Ezsignsignergroup Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_ezsignsignergroup_id** | **int** | The unique ID of the Ezsignsignergroup | 
+**obj_ezsignsignergroup_description** | [**MultilingualEzsignsignergroupDescription**](MultilingualEzsignsignergroupDescription.md) |  | 
+**s_ezsignsignergroup_description_x** | **str** | The Description of the Ezsignsignergroup in the language of the requester | [optional] 
 
 ## Example
 

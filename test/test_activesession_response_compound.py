@@ -36,6 +36,25 @@ class TestActivesessionResponseCompound(unittest.TestCase):
         model = ActivesessionResponseCompound()
         if include_optional:
             return ActivesessionResponseCompound(
+                e_activesession_usertype = 'Normal',
+                e_activesession_origin = 'BuiltIn',
+                e_activesession_weekdaystart = 'Sunday',
+                fki_language_id = 2,
+                s_company_name_x = 'Acme inc.',
+                s_department_name_x = 'Head Office',
+                b_activesession_debug = False,
+                b_activesession_issuperadmin = False,
+                b_activesession_attachment = False,
+                b_activesession_canafe = False,
+                b_activesession_financial = False,
+                b_activesession_realestatecompleted = False,
+                e_activesession_ezsign = 'Full',
+                e_activesession_ezsignaccess = 'Prepaid',
+                e_activesession_ezsignprepaid = 'Basic',
+                e_activesession_realestateinprogress = 'Create',
+                pks_customer_code = 'demo',
+                fki_systemconfigurationtype_id = 28,
+                fki_signature_id = 12,
                 fki_ezsignuser_id = 94,
                 b_systemconfiguration_ezsignpaidbyoffice = True,
                 e_systemconfiguration_ezsignofficeplan = 'Standard',
@@ -77,6 +96,17 @@ class TestActivesessionResponseCompound(unittest.TestCase):
             )
         else:
             return ActivesessionResponseCompound(
+                e_activesession_usertype = 'Normal',
+                e_activesession_origin = 'BuiltIn',
+                e_activesession_weekdaystart = 'Sunday',
+                fki_language_id = 2,
+                s_company_name_x = 'Acme inc.',
+                s_department_name_x = 'Head Office',
+                b_activesession_debug = False,
+                b_activesession_issuperadmin = False,
+                e_activesession_ezsignaccess = 'Prepaid',
+                pks_customer_code = 'demo',
+                fki_systemconfigurationtype_id = 28,
                 e_user_ezsignaccess = 'PaidByOffice',
                 a_pki_permission_id = [
                     53

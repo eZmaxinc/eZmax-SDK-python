@@ -6,6 +6,8 @@ Response for POST /1/object/usergroupexternal
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**UsergroupexternalCreateObjectV1ResponseMPayload**](UsergroupexternalCreateObjectV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -83,7 +83,19 @@ class CommonResponseError(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CommonResponseError from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "sErrorMessage": obj.get("sErrorMessage"),
+            "eErrorCode": obj.get("eErrorCode"),
+            "a_sErrorMessagedetail": obj.get("a_sErrorMessagedetail")
+        })
+        return _obj
 
 

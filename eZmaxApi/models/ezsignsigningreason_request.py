@@ -79,7 +79,19 @@ class EzsignsigningreasonRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsignsigningreasonRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsignsigningreasonID": obj.get("pkiEzsignsigningreasonID"),
+            "objEzsignsigningreasonDescription": MultilingualEzsignsigningreasonDescription.from_dict(obj["objEzsignsigningreasonDescription"]) if obj.get("objEzsignsigningreasonDescription") is not None else None,
+            "bEzsignsigningreasonIsactive": obj.get("bEzsignsigningreasonIsactive")
+        })
+        return _obj
 
 

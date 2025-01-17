@@ -36,12 +36,26 @@ class TestEzmaxinvoicingsummaryinternalResponseCompound(unittest.TestCase):
         model = EzmaxinvoicingsummaryinternalResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryinternalResponseCompound(
+                pki_ezmaxinvoicingsummaryinternal_id = 57,
+                obj_ezmaxinvoicingsummaryinternal_description = eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description.Multilingual-EzmaxinvoicingsummaryinternalDescription(
+                    s_ezmaxinvoicingsummaryinternal_description1 = 'Défaut', 
+                    s_ezmaxinvoicingsummaryinternal_description2 = 'Défault', ),
+                s_ezmaxinvoicingsummaryinternal_description_x = 'Défaut',
+                fki_ezmaxinvoicing_id = 28,
+                fki_billingentityinternal_id = 1,
+                s_billingentityinternal_description_x = 'Default',
                 a_obj_ezmaxinvoicingsummaryinternaldetail = [
                     eZmaxApi.models.ezmaxinvoicingsummaryinternaldetail_response_compound.ezmaxinvoicingsummaryinternaldetail-ResponseCompound()
                     ]
             )
         else:
             return EzmaxinvoicingsummaryinternalResponseCompound(
+                obj_ezmaxinvoicingsummaryinternal_description = eZmaxApi.models.multilingual_ezmaxinvoicingsummaryinternal_description.Multilingual-EzmaxinvoicingsummaryinternalDescription(
+                    s_ezmaxinvoicingsummaryinternal_description1 = 'Défaut', 
+                    s_ezmaxinvoicingsummaryinternal_description2 = 'Défault', ),
+                s_ezmaxinvoicingsummaryinternal_description_x = 'Défaut',
+                fki_billingentityinternal_id = 1,
+                s_billingentityinternal_description_x = 'Default',
                 a_obj_ezmaxinvoicingsummaryinternaldetail = [
                     eZmaxApi.models.ezmaxinvoicingsummaryinternaldetail_response_compound.ezmaxinvoicingsummaryinternaldetail-ResponseCompound()
                     ],

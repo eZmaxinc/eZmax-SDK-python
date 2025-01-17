@@ -103,7 +103,33 @@ class EzsigntemplateformfieldgroupResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateformfieldgroupResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateformfieldgroupID": obj.get("pkiEzsigntemplateformfieldgroupID"),
+            "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
+            "eEzsigntemplateformfieldgroupType": obj.get("eEzsigntemplateformfieldgroupType"),
+            "eEzsigntemplateformfieldgroupSignerrequirement": obj.get("eEzsigntemplateformfieldgroupSignerrequirement"),
+            "sEzsigntemplateformfieldgroupLabel": obj.get("sEzsigntemplateformfieldgroupLabel"),
+            "iEzsigntemplateformfieldgroupStep": obj.get("iEzsigntemplateformfieldgroupStep"),
+            "sEzsigntemplateformfieldgroupDefaultvalue": obj.get("sEzsigntemplateformfieldgroupDefaultvalue"),
+            "iEzsigntemplateformfieldgroupFilledmin": obj.get("iEzsigntemplateformfieldgroupFilledmin"),
+            "iEzsigntemplateformfieldgroupFilledmax": obj.get("iEzsigntemplateformfieldgroupFilledmax"),
+            "bEzsigntemplateformfieldgroupReadonly": obj.get("bEzsigntemplateformfieldgroupReadonly"),
+            "iEzsigntemplateformfieldgroupMaxlength": obj.get("iEzsigntemplateformfieldgroupMaxlength"),
+            "bEzsigntemplateformfieldgroupEncrypted": obj.get("bEzsigntemplateformfieldgroupEncrypted"),
+            "sEzsigntemplateformfieldgroupRegexp": obj.get("sEzsigntemplateformfieldgroupRegexp"),
+            "sEzsigntemplateformfieldgroupTextvalidationcustommessage": obj.get("sEzsigntemplateformfieldgroupTextvalidationcustommessage"),
+            "eEzsigntemplateformfieldgroupTextvalidation": obj.get("eEzsigntemplateformfieldgroupTextvalidation"),
+            "tEzsigntemplateformfieldgroupTooltip": obj.get("tEzsigntemplateformfieldgroupTooltip"),
+            "eEzsigntemplateformfieldgroupTooltipposition": obj.get("eEzsigntemplateformfieldgroupTooltipposition")
+        })
+        return _obj
 
 

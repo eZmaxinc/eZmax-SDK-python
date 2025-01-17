@@ -18,17 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignsigningreason_request import EzsignsigningreasonRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.multilingual_ezsignsigningreason_description import MultilingualEzsignsigningreasonDescription
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignsigningreasonRequestCompound(EzsignsigningreasonRequest):
+class EzsignsigningreasonRequestCompound(BaseModel):
     """
     A Ezsignsigningreason Object and children
     """ # noqa: E501
+    pki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="pkiEzsignsigningreasonID")
+    obj_ezsignsigningreason_description: MultilingualEzsignsigningreasonDescription = Field(alias="objEzsignsigningreasonDescription")
+    b_ezsignsigningreason_isactive: StrictBool = Field(description="Whether the ezsignsigningreason is active or not", alias="bEzsignsigningreasonIsactive")
     __properties: ClassVar[List[str]] = ["pkiEzsignsigningreasonID", "objEzsignsigningreasonDescription", "bEzsignsigningreasonIsactive"]
 
     model_config = ConfigDict(

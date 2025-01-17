@@ -36,9 +36,15 @@ class TestUsergroupexternalResponseCompound(unittest.TestCase):
         model = UsergroupexternalResponseCompound()
         if include_optional:
             return UsergroupexternalResponseCompound(
+                pki_usergroupexternal_id = 16,
+                s_usergroupexternal_name = 'Administrators',
+                s_usergroupexternal_id = '5140-1542'
             )
         else:
             return UsergroupexternalResponseCompound(
+                pki_usergroupexternal_id = 16,
+                s_usergroupexternal_name = 'Administrators',
+                s_usergroupexternal_id = '5140-1542',
         )
         """
 

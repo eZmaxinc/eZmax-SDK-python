@@ -91,7 +91,26 @@ class EzsigntemplateglobalResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplateglobalResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplateglobalID": obj.get("pkiEzsigntemplateglobalID"),
+            "fkiEzsigntemplateglobaldocumentID": obj.get("fkiEzsigntemplateglobaldocumentID"),
+            "fkiModuleID": obj.get("fkiModuleID"),
+            "sModuleNameX": obj.get("sModuleNameX"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sLanguageNameX": obj.get("sLanguageNameX"),
+            "eEzsigntemplateglobalModule": obj.get("eEzsigntemplateglobalModule"),
+            "eEzsigntemplateglobalSupplier": obj.get("eEzsigntemplateglobalSupplier"),
+            "sEzsigntemplateglobalCode": obj.get("sEzsigntemplateglobalCode"),
+            "sEzsigntemplateglobalDescription": obj.get("sEzsigntemplateglobalDescription")
+        })
+        return _obj
 
 

@@ -36,49 +36,11 @@ class TestEzsignfolderEditObjectV3Request(unittest.TestCase):
         model = EzsignfolderEditObjectV3Request()
         if include_optional:
             return EzsignfolderEditObjectV3Request(
-                obj_ezsignfolder = eZmaxApi.models.ezsignfolder_request_v3.ezsignfolder-RequestV3(
-                    pki_ezsignfolder_id = 33, 
-                    fki_ezsignfoldertype_id = 5, 
-                    fki_timezone_id = 247, 
-                    fki_ezsigntsarequirement_id = 1, 
-                    e_ezsignfolder_documentdependency = 'All', 
-                    s_ezsignfolder_description = 'Test eZsign Folder', 
-                    t_ezsignfolder_note = 'This is a note', 
-                    t_ezsignfolder_message = 'Hi everyone,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary', 
-                    i_ezsignfolder_sendreminderfirstdays = 30, 
-                    i_ezsignfolder_sendreminderotherdays = 30, 
-                    s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', )
+                obj_ezsignfolder = eZmaxApi.models.ezsignfolder_request_compound_v3.ezsignfolder-RequestCompoundV3()
             )
         else:
             return EzsignfolderEditObjectV3Request(
-                obj_ezsignfolder = eZmaxApi.models.ezsignfolder_request_v3.ezsignfolder-RequestV3(
-                    pki_ezsignfolder_id = 33, 
-                    fki_ezsignfoldertype_id = 5, 
-                    fki_timezone_id = 247, 
-                    fki_ezsigntsarequirement_id = 1, 
-                    e_ezsignfolder_documentdependency = 'All', 
-                    s_ezsignfolder_description = 'Test eZsign Folder', 
-                    t_ezsignfolder_note = 'This is a note', 
-                    t_ezsignfolder_message = 'Hi everyone,
-
-This is the document I need you to review.
-
-Could you sign it before Monday please.
-
-Best Regards.
-
-Mary', 
-                    i_ezsignfolder_sendreminderfirstdays = 30, 
-                    i_ezsignfolder_sendreminderotherdays = 30, 
-                    s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', ),
+                obj_ezsignfolder = eZmaxApi.models.ezsignfolder_request_compound_v3.ezsignfolder-RequestCompoundV3(),
         )
         """
 

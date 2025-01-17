@@ -36,12 +36,34 @@ class TestEzsigntemplateformfieldRequestCompound(unittest.TestCase):
         model = EzsigntemplateformfieldRequestCompound()
         if include_optional:
             return EzsigntemplateformfieldRequestCompound(
+                pki_ezsigntemplateformfield_id = 71,
+                e_ezsigntemplateformfield_positioning = 'PerCoordinates',
+                i_ezsigntemplatedocumentpage_pagenumber = 1,
+                s_ezsigntemplateformfield_label = 'Peanuts',
+                s_ezsigntemplateformfield_value = 'Yes',
+                i_ezsigntemplateformfield_x = 200,
+                i_ezsigntemplateformfield_y = 300,
+                i_ezsigntemplateformfield_width = 102,
+                i_ezsigntemplateformfield_height = 22,
+                b_ezsigntemplateformfield_autocomplete = True,
+                b_ezsigntemplateformfield_selected = True,
+                e_ezsigntemplateformfield_dependencyrequirement = 'AllOf',
+                s_ezsigntemplateformfield_positioningpattern = 'Signature',
+                i_ezsigntemplateformfield_positioningoffsetx = 200,
+                i_ezsigntemplateformfield_positioningoffsety = 200,
+                e_ezsigntemplateformfield_positioningoccurence = 'All',
+                e_ezsigntemplateformfield_horizontalalignment = 'Center',
+                obj_textstylestatic = eZmaxApi.models.textstylestatic_request_compound.textstylestatic-RequestCompound(),
                 a_obj_ezsigntemplateelementdependency = [
                     eZmaxApi.models.ezsigntemplateelementdependency_request_compound.ezsigntemplateelementdependency-RequestCompound()
                     ]
             )
         else:
             return EzsigntemplateformfieldRequestCompound(
+                i_ezsigntemplatedocumentpage_pagenumber = 1,
+                s_ezsigntemplateformfield_label = 'Peanuts',
+                i_ezsigntemplateformfield_width = 102,
+                i_ezsigntemplateformfield_height = 22,
         )
         """
 

@@ -36,6 +36,32 @@ class TestCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(
         model = CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest()
         if include_optional:
             return CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(
+                pki_ezsignformfieldgroup_id = 26,
+                fki_ezsigndocument_id = 97,
+                e_ezsignformfieldgroup_type = 'Text',
+                e_ezsignformfieldgroup_signerrequirement = 'One',
+                s_ezsignformfieldgroup_label = 'Allergies',
+                i_ezsignformfieldgroup_step = 1,
+                s_ezsignformfieldgroup_defaultvalue = 'Foo',
+                i_ezsignformfieldgroup_filledmin = 1,
+                i_ezsignformfieldgroup_filledmax = 2,
+                b_ezsignformfieldgroup_readonly = True,
+                i_ezsignformfieldgroup_maxlength = 75,
+                b_ezsignformfieldgroup_encrypted = True,
+                s_ezsignformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsignformfieldgroup_textvalidationcustommessage = 'Phone number',
+                t_ezsignformfieldgroup_tooltip = 'Please enter a valid email address',
+                e_ezsignformfieldgroup_tooltipposition = 'TopLeft',
+                e_ezsignformfieldgroup_textvalidation = 'None',
+                a_obj_ezsignformfieldgroupsigner = [
+                    eZmaxApi.models.ezsignformfieldgroupsigner_request_compound.ezsignformfieldgroupsigner-RequestCompound()
+                    ],
+                a_obj_dropdown_element = [
+                    eZmaxApi.models.custom_dropdown_element_request_compound.Custom-DropdownElement-RequestCompound()
+                    ],
+                a_obj_ezsignformfield = [
+                    eZmaxApi.models.ezsignformfield_request_compound.ezsignformfield-RequestCompound()
+                    ],
                 obj_createezsignelementspositionedbyword = eZmaxApi.models.custom_create_ezsignelements_positioned_by_word_request.Custom-CreateEzsignelementsPositionedByWord-Request(
                     s_createezsignelementspositionedbyword_pattern = 'jUR,rZ#UM/?R,Fp^l6$AR', 
                     i_createezsignelementspositionedbyword_offsetx = 56, 
@@ -44,6 +70,19 @@ class TestCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(
             )
         else:
             return CustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(
+                fki_ezsigndocument_id = 97,
+                e_ezsignformfieldgroup_type = 'Text',
+                s_ezsignformfieldgroup_label = 'Allergies',
+                i_ezsignformfieldgroup_step = 1,
+                i_ezsignformfieldgroup_filledmin = 1,
+                i_ezsignformfieldgroup_filledmax = 2,
+                b_ezsignformfieldgroup_readonly = True,
+                a_obj_ezsignformfieldgroupsigner = [
+                    eZmaxApi.models.ezsignformfieldgroupsigner_request_compound.ezsignformfieldgroupsigner-RequestCompound()
+                    ],
+                a_obj_ezsignformfield = [
+                    eZmaxApi.models.ezsignformfield_request_compound.ezsignformfield-RequestCompound()
+                    ],
                 obj_createezsignelementspositionedbyword = eZmaxApi.models.custom_create_ezsignelements_positioned_by_word_request.Custom-CreateEzsignelementsPositionedByWord-Request(
                     s_createezsignelementspositionedbyword_pattern = 'jUR,rZ#UM/?R,Fp^l6$AR', 
                     i_createezsignelementspositionedbyword_offsetx = 56, 

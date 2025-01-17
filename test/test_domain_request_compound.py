@@ -36,9 +36,12 @@ class TestDomainRequestCompound(unittest.TestCase):
         model = DomainRequestCompound()
         if include_optional:
             return DomainRequestCompound(
+                pki_domain_id = 96,
+                s_domain_name = 'ezsign.ca'
             )
         else:
             return DomainRequestCompound(
+                s_domain_name = 'ezsign.ca',
         )
         """
 

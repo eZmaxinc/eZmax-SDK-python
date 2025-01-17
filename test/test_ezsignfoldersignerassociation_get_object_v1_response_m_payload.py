@@ -36,9 +36,45 @@ class TestEzsignfoldersignerassociationGetObjectV1ResponseMPayload(unittest.Test
         model = EzsignfoldersignerassociationGetObjectV1ResponseMPayload()
         if include_optional:
             return EzsignfoldersignerassociationGetObjectV1ResponseMPayload(
+                pki_ezsignfoldersignerassociation_id = 20,
+                fki_ezsignfolder_id = 33,
+                b_ezsignfoldersignerassociation_delayedsend = True,
+                b_ezsignfoldersignerassociation_receivecopy = True,
+                t_ezsignfoldersignerassociation_message = 'Hi John,
+
+This is the document I need you to review.
+
+Could you sign it before Monday please.
+
+Best Regards.
+
+Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True,
+                obj_ezsignsignergroup = eZmaxApi.models.ezsignsignergroup_response_compound.ezsignsignergroup-ResponseCompound(),
+                obj_user = eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user.ezsignfoldersignerassociation-ResponseCompound-User(
+                    pki_user_id = 70, 
+                    fki_language_id = 2, 
+                    s_user_firstname = 'John', 
+                    s_user_lastname = 'Doe', 
+                    s_email_address = 'email@example.com', ),
+                obj_ezsignsigner = eZmaxApi.models.ezsignsigner_response_compound.ezsignsigner-ResponseCompound()
             )
         else:
             return EzsignfoldersignerassociationGetObjectV1ResponseMPayload(
+                pki_ezsignfoldersignerassociation_id = 20,
+                fki_ezsignfolder_id = 33,
+                b_ezsignfoldersignerassociation_delayedsend = True,
+                b_ezsignfoldersignerassociation_receivecopy = True,
+                t_ezsignfoldersignerassociation_message = 'Hi John,
+
+This is the document I need you to review.
+
+Could you sign it before Monday please.
+
+Best Regards.
+
+Mary',
+                b_ezsignfoldersignerassociation_allowsigninginperson = True,
         )
         """
 

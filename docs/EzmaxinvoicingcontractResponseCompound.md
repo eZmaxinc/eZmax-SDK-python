@@ -6,6 +6,15 @@ A Ezmaxinvoicingcontract Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_ezmaxinvoicingcontract_id** | **int** | The unique ID of the Ezmaxinvoicingcontract | 
+**e_ezmaxinvoicingcontract_paymenttype** | [**FieldEEzmaxinvoicingcontractPaymenttype**](FieldEEzmaxinvoicingcontractPaymenttype.md) |  | 
+**i_ezmaxinvoicingcontract_length** | **int** | The length in years of the Ezmaxinvoicingcontract | 
+**dt_ezmaxinvoicingcontract_start** | **str** | The start date of the Ezmaxinvoicingcontract | 
+**dt_ezmaxinvoicingcontract_end** | **str** | The end date of the Ezmaxinvoicingcontract | 
+**d_ezmaxinvoicingcontract_license** | **str** | The price of the license | 
+**d_ezmaxinvoicingcontract121qa** | **str** | The price for 121QA | 
+**b_ezmaxinvoicingcontract_ezsignallagents** | **bool** | Whether eZsign is for all agents | 
+**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Example
 

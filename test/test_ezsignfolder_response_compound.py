@@ -36,12 +36,82 @@ class TestEzsignfolderResponseCompound(unittest.TestCase):
         model = EzsignfolderResponseCompound()
         if include_optional:
             return EzsignfolderResponseCompound(
+                pki_ezsignfolder_id = 33,
+                fki_ezsignfoldertype_id = 5,
+                obj_ezsignfoldertype = eZmaxApi.models.custom_ezsignfoldertype_response.Custom-Ezsignfoldertype-Response(
+                    pki_ezsignfoldertype_id = 5, 
+                    fki_font_id_annotation = 1, 
+                    fki_font_id_formfield = 1, 
+                    fki_font_id_signature = 1, 
+                    s_ezsignfoldertype_name_x = 'Default', 
+                    b_ezsignfoldertype_sendproofezsignsigner = False, 
+                    b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False, 
+                    b_ezsignfoldertype_allowdownloadproofezsignsigner = False, 
+                    b_ezsignfoldertype_automaticsignature = False, 
+                    b_ezsignfoldertype_delegate = True, 
+                    b_ezsignfoldertype_discussion = True, 
+                    b_ezsignfoldertype_reassignezsignsigner = True, 
+                    b_ezsignfoldertype_reassignuser = True, 
+                    b_ezsignfoldertype_reassigngroup = True, 
+                    i_ezsignfoldertype_deadlinedays = 5, 
+                    i_ezsignfoldertype_fontsizeannotation = 10, 
+                    i_ezsignfoldertype_fontsizeformfield = 12, ),
+                fki_timezone_id = 247,
+                e_ezsignfolder_completion = 'PerEzsigndocument',
+                s_ezsignfoldertype_name_x = '',
+                fki_billingentityinternal_id = 1,
+                s_billingentityinternal_description_x = 'Default',
+                fki_ezsigntsarequirement_id = 1,
+                s_ezsigntsarequirement_description_x = 'No',
+                s_ezsignfolder_description = 'Test eZsign Folder',
+                t_ezsignfolder_note = 'This is a note',
+                b_ezsignfolder_isdisposable = False,
+                e_ezsignfolder_sendreminderfrequency = 'None',
+                i_ezsignfolder_sendreminderfirstdays = 30,
+                i_ezsignfolder_sendreminderotherdays = 30,
+                dt_ezsignfolder_delayedsenddate = '2020-12-31T23:59:59.000Z',
+                dt_ezsignfolder_duedate = '2020-12-31 23:59:59',
+                dt_ezsignfolder_sentdate = '2020-12-31T23:59:59.000Z',
+                dt_ezsignfolder_scheduledarchive = '2020-12-31 23:59:59',
+                dt_ezsignfolder_scheduleddispose = '2020-12-31',
+                e_ezsignfolder_step = 'Completed',
+                dt_ezsignfolder_close = '2020-12-31 23:59:59',
+                t_ezsignfolder_message = 'Hi everyone,
+
+This is the document I need you to review.
+
+Could you sign it before Monday please.
+
+Best Regards.
+
+Mary',
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
+                s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}',
                 obj_timezone = eZmaxApi.models.custom_timezone_with_code_response.Custom-TimezoneWithCode-Response(
                     s_timezone_name = '', 
                     s_code = 'EST', )
             )
         else:
             return EzsignfolderResponseCompound(
+                pki_ezsignfolder_id = 33,
+                e_ezsignfolder_completion = 'PerEzsigndocument',
+                s_ezsignfolder_description = 'Test eZsign Folder',
         )
         """
 

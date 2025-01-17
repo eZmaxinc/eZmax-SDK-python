@@ -6,6 +6,11 @@ A Attachmentlog Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**fki_attachment_id** | **int** | The unique ID of the Attachment. | 
+**fki_user_id** | **int** | The unique ID of the User | 
+**dt_attachmentlog_datetime** | **str** | The created date | 
+**e_attachmentlog_type** | [**FieldEAttachmentlogType**](FieldEAttachmentlogType.md) |  | 
+**s_attachmentlog_detail** | **str** | The additionnal detail | [optional] 
 
 ## Example
 

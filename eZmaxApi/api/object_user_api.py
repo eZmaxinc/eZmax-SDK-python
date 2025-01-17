@@ -20,7 +20,6 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.user_create_object_v1_request import UserCreateObjectV1Request
 from eZmaxApi.models.user_create_object_v1_response import UserCreateObjectV1Response
@@ -29,6 +28,7 @@ from eZmaxApi.models.user_create_object_v2_response import UserCreateObjectV2Res
 from eZmaxApi.models.user_edit_colleagues_v2_request import UserEditColleaguesV2Request
 from eZmaxApi.models.user_edit_colleagues_v2_response import UserEditColleaguesV2Response
 from eZmaxApi.models.user_edit_object_v1_request import UserEditObjectV1Request
+from eZmaxApi.models.user_edit_object_v1_response import UserEditObjectV1Response
 from eZmaxApi.models.user_edit_permissions_v1_request import UserEditPermissionsV1Request
 from eZmaxApi.models.user_edit_permissions_v1_response import UserEditPermissionsV1Response
 from eZmaxApi.models.user_get_apikeys_v1_response import UserGetApikeysV1Response
@@ -41,6 +41,7 @@ from eZmaxApi.models.user_get_permissions_v1_response import UserGetPermissionsV
 from eZmaxApi.models.user_get_subnets_v1_response import UserGetSubnetsV1Response
 from eZmaxApi.models.user_get_usergroupexternals_v1_response import UserGetUsergroupexternalsV1Response
 from eZmaxApi.models.user_get_usergroups_v1_response import UserGetUsergroupsV1Response
+from eZmaxApi.models.user_send_password_reset_v1_response import UserSendPasswordResetV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -920,7 +921,7 @@ class ObjectUserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> UserEditObjectV1Response:
         """Edit an existing User
 
         
@@ -993,7 +994,7 @@ class ObjectUserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[UserEditObjectV1Response]:
         """Edit an existing User
 
         
@@ -4247,7 +4248,7 @@ class ObjectUserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> UserSendPasswordResetV1Response:
         """Send password reset
 
         Send the password reset email
@@ -4320,7 +4321,7 @@ class ObjectUserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[UserSendPasswordResetV1Response]:
         """Send password reset
 
         Send the password reset email

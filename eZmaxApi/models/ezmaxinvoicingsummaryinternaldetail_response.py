@@ -112,7 +112,28 @@ class EzmaxinvoicingsummaryinternaldetailResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingsummaryinternaldetailResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingsummaryinternaldetailID": obj.get("pkiEzmaxinvoicingsummaryinternaldetailID"),
+            "fkiEzmaxinvoicingsummaryinternalID": obj.get("fkiEzmaxinvoicingsummaryinternalID"),
+            "fkiEzmaxproductID": obj.get("fkiEzmaxproductID"),
+            "sEzmaxproductDescriptionX": obj.get("sEzmaxproductDescriptionX"),
+            "fkiBillingentityexternalID": obj.get("fkiBillingentityexternalID"),
+            "sBillingentityexternalDescription": obj.get("sBillingentityexternalDescription"),
+            "dEzmaxinvoicingsummaryinternaldetailCountreal": obj.get("dEzmaxinvoicingsummaryinternaldetailCountreal"),
+            "dEzmaxinvoicingsummaryinternaldetailSubtotal": obj.get("dEzmaxinvoicingsummaryinternaldetailSubtotal"),
+            "dEzmaxinvoicingsummaryinternaldetailRebate": obj.get("dEzmaxinvoicingsummaryinternaldetailRebate"),
+            "dEzmaxinvoicingsummaryinternaldetailTotal": obj.get("dEzmaxinvoicingsummaryinternaldetailTotal"),
+            "bEzmaxinvoicingsummaryinternaldetailAdjustment": obj.get("bEzmaxinvoicingsummaryinternaldetailAdjustment"),
+            "tEzmaxproductHelpX": obj.get("tEzmaxproductHelpX")
+        })
+        return _obj
 
 

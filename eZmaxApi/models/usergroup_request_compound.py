@@ -18,18 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.email_request import EmailRequest
 from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupName
-from eZmaxApi.models.usergroup_request import UsergroupRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupRequestCompound(UsergroupRequest):
+class UsergroupRequestCompound(BaseModel):
     """
     A Usergroup Object and children
     """ # noqa: E501
+    pki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="pkiUsergroupID")
+    obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
+    obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
     __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objEmail", "objUsergroupName"]
 
     model_config = ConfigDict(

@@ -6,6 +6,8 @@ Response for GET /1/object/invoice/{pkiInvoiceID}/getCommunicationList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**InvoiceGetCommunicationListV1ResponseMPayload**](InvoiceGetCommunicationListV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,9 +36,27 @@ class TestEzmaxinvoicingsummaryexternaldetailResponseCompound(unittest.TestCase)
         model = EzmaxinvoicingsummaryexternaldetailResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryexternaldetailResponseCompound(
+                pki_ezmaxinvoicingsummaryexternaldetail_id = 163,
+                fki_ezmaxinvoicingsummaryexternal_id = 177,
+                fki_ezmaxproduct_id = 172,
+                s_ezmaxproduct_description_x = 'eZmax (License)',
+                d_ezmaxinvoicingsummaryexternaldetail_countreal = '815.61',
+                d_ezmaxinvoicingsummaryexternaldetail_subtotal = '382.88',
+                d_ezmaxinvoicingsummaryexternaldetail_rebate = '608.18',
+                d_ezmaxinvoicingsummaryexternaldetail_total = '869.71',
+                b_ezmaxinvoicingsummaryexternaldetail_adjustment = True,
+                t_ezmaxproduct_help_x = 'This is an exemple of help message'
             )
         else:
             return EzmaxinvoicingsummaryexternaldetailResponseCompound(
+                fki_ezmaxproduct_id = 172,
+                s_ezmaxproduct_description_x = 'eZmax (License)',
+                d_ezmaxinvoicingsummaryexternaldetail_countreal = '815.61',
+                d_ezmaxinvoicingsummaryexternaldetail_subtotal = '382.88',
+                d_ezmaxinvoicingsummaryexternaldetail_rebate = '608.18',
+                d_ezmaxinvoicingsummaryexternaldetail_total = '869.71',
+                b_ezmaxinvoicingsummaryexternaldetail_adjustment = True,
+                t_ezmaxproduct_help_x = 'This is an exemple of help message',
         )
         """
 

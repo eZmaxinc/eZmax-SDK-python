@@ -18,18 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.billingentityinternal_request import BillingentityinternalRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.billingentityinternalproduct_request_compound import BillingentityinternalproductRequestCompound
 from eZmaxApi.models.multilingual_billingentityinternal_description import MultilingualBillingentityinternalDescription
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BillingentityinternalRequestCompound(BillingentityinternalRequest):
+class BillingentityinternalRequestCompound(BaseModel):
     """
     A Billingentityinternal Object and children
     """ # noqa: E501
+    pki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID")
+    obj_billingentityinternal_description: MultilingualBillingentityinternalDescription = Field(alias="objBillingentityinternalDescription")
     a_obj_billingentityinternalproduct: List[BillingentityinternalproductRequestCompound] = Field(alias="a_objBillingentityinternalproduct")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "objBillingentityinternalDescription", "a_objBillingentityinternalproduct"]
 

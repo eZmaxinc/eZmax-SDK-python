@@ -6,6 +6,8 @@ Response for GET /3/object/ezsignsignature/{pkiEzsignsignatureID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignsignatureGetObjectV3ResponseMPayload**](EzsignsignatureGetObjectV3ResponseMPayload.md) |  | 
 
 ## Example

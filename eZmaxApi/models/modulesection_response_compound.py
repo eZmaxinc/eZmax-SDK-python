@@ -18,18 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.modulesection_response import ModulesectionResponse
-from eZmaxApi.models.permission_response import PermissionResponse
+from typing_extensions import Annotated
+from eZmaxApi.models.permission_response_compound import PermissionResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ModulesectionResponseCompound(ModulesectionResponse):
+class ModulesectionResponseCompound(BaseModel):
     """
     A Modulesection Object
     """ # noqa: E501
-    a_obj_permission: Optional[List[PermissionResponse]] = Field(default=None, alias="a_objPermission")
+    pki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="pkiModulesectionID")
+    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID")
+    s_modulesection_internalname: StrictStr = Field(description="The Internal name of the Module section.", alias="sModulesectionInternalname")
+    s_modulesection_name_x: StrictStr = Field(description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
+    a_obj_permission: Optional[List[PermissionResponseCompound]] = Field(default=None, alias="a_objPermission")
     __properties: ClassVar[List[str]] = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX", "a_objPermission"]
 
     model_config = ConfigDict(
@@ -94,7 +98,7 @@ class ModulesectionResponseCompound(ModulesectionResponse):
             "fkiModuleID": obj.get("fkiModuleID"),
             "sModulesectionInternalname": obj.get("sModulesectionInternalname"),
             "sModulesectionNameX": obj.get("sModulesectionNameX"),
-            "a_objPermission": [PermissionResponse.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
+            "a_objPermission": [PermissionResponseCompound.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
         })
         return _obj
 

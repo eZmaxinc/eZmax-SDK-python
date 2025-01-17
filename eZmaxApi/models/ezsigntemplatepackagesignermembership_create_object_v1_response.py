@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_response import CommonResponse
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.ezsigntemplatepackagesignermembership_create_object_v1_response_m_payload import EzsigntemplatepackagesignermembershipCreateObjectV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepackagesignermembershipCreateObjectV1Response(CommonResponse):
+class EzsigntemplatepackagesignermembershipCreateObjectV1Response(BaseModel):
     """
     Response for POST /1/object/ezsigntemplatepackagesignermembership
     """ # noqa: E501
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     m_payload: EzsigntemplatepackagesignermembershipCreateObjectV1ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 

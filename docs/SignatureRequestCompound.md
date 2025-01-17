@@ -6,6 +6,11 @@ A Signature Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_signature_id** | **int** | The unique ID of the Signature | [optional] 
+**fki_font_id** | **int** | The unique ID of the Font | 
+**e_signature_preference** | [**FieldESignaturePreference**](FieldESignaturePreference.md) |  | 
+**t_signature_svg** | **str** | The svg of the Signature | [optional] 
+**t_signature_svginitials** | **str** | The svg of the Initials | [optional] 
 
 ## Example
 

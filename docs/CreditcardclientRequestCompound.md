@@ -6,6 +6,15 @@ A Creditcardclient Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_creditcardclient_id** | **int** | The unique ID of the Creditcardclient | [optional] 
+**fks_creditcardtoken_id** | **str** | The creditcard token identifier | [optional] 
+**b_creditcardclientrelation_isdefault** | **bool** | Whether if it&#39;s the creditcardclient is the default one | 
+**s_creditcardclient_description** | **str** | The description of the Creditcardclient | 
+**b_creditcardclient_allowedcompanypayment** | **bool** | Whether if it&#39;s an allowedagencypayment | 
+**b_creditcardclient_allowedezsign** | **bool** | Whether if it&#39;s an allowedroyallepageprotection | 
+**b_creditcardclient_allowedtranquillit** | **bool** | Whether if it&#39;s an allowedtranquillit | 
+**obj_creditcarddetail** | [**CreditcarddetailRequest**](CreditcarddetailRequest.md) |  | 
+**s_creditcardclient_cvv** | **str** | The creditcard card CVV | 
 
 ## Example
 

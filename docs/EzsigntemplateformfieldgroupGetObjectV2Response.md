@@ -6,6 +6,8 @@ Response for GET /2/object/ezsigntemplateformfieldgroup/{pkiEzsigntemplateformfi
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload**](EzsigntemplateformfieldgroupGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

@@ -6,6 +6,8 @@ Response for GET /1/object/invoice/{pkiInvoiceID}/getAttachments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**InvoiceGetAttachmentsV1ResponseMPayload**](InvoiceGetAttachmentsV1ResponseMPayload.md) |  | 
 
 ## Example

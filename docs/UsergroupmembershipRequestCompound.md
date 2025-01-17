@@ -6,6 +6,10 @@ A Usergroupmembership Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_usergroupmembership_id** | **int** | The unique ID of the Usergroupmembership | [optional] 
+**fki_usergroup_id** | **int** | The unique ID of the Usergroup | 
+**fki_user_id** | **int** | The unique ID of the User | [optional] 
+**fki_usergroupexternal_id** | **int** | The unique ID of the Usergroupexternal | [optional] 
 
 ## Example
 

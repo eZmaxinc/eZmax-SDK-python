@@ -45,15 +45,7 @@ class TestEzsignfolderCreateObjectV1Request(unittest.TestCase):
                     t_ezsignfolder_note = 'This is a note', 
                     e_ezsignfolder_sendreminderfrequency = 'None', 
                     s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', ),
-                obj_ezsignfolder_compound = eZmaxApi.models.ezsignfolder_request.ezsignfolder-Request(
-                    pki_ezsignfolder_id = 33, 
-                    fki_ezsignfoldertype_id = 5, 
-                    fki_timezone_id = 247, 
-                    fki_ezsigntsarequirement_id = 1, 
-                    s_ezsignfolder_description = 'Test eZsign Folder', 
-                    t_ezsignfolder_note = 'This is a note', 
-                    e_ezsignfolder_sendreminderfrequency = 'None', 
-                    s_ezsignfolder_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', )
+                obj_ezsignfolder_compound = eZmaxApi.models.ezsignfolder_request_compound.ezsignfolder-RequestCompound()
             )
         else:
             return EzsignfolderCreateObjectV1Request(

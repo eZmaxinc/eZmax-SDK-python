@@ -108,7 +108,26 @@ class CommunicationRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CommunicationRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiCommunicationID": obj.get("pkiCommunicationID"),
+            "eCommunicationImportance": obj.get("eCommunicationImportance"),
+            "eCommunicationType": obj.get("eCommunicationType"),
+            "objCommunicationsender": CustomCommunicationsenderRequest.from_dict(obj["objCommunicationsender"]) if obj.get("objCommunicationsender") is not None else None,
+            "sCommunicationSubject": obj.get("sCommunicationSubject"),
+            "tCommunicationBody": obj.get("tCommunicationBody"),
+            "bCommunicationPrivate": obj.get("bCommunicationPrivate"),
+            "eCommunicationAttachmenttype": obj.get("eCommunicationAttachmenttype"),
+            "iCommunicationAttachmentlinkexpiration": obj.get("iCommunicationAttachmentlinkexpiration"),
+            "bCommunicationReadreceipt": obj.get("bCommunicationReadreceipt")
+        })
+        return _obj
 
 

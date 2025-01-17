@@ -36,23 +36,11 @@ class TestUserstagedGetObjectV2ResponseMPayload(unittest.TestCase):
         model = UserstagedGetObjectV2ResponseMPayload()
         if include_optional:
             return UserstagedGetObjectV2ResponseMPayload(
-                obj_userstaged = eZmaxApi.models.userstaged_response.userstaged-Response(
-                    pki_userstaged_id = 90, 
-                    fki_email_id = 22, 
-                    s_email_address = 'email@example.com', 
-                    s_userstaged_firstname = 'Jane', 
-                    s_userstaged_lastname = 'Doe', 
-                    s_userstaged_externalid = 'azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e', )
+                obj_userstaged = eZmaxApi.models.userstaged_response_compound.userstaged-ResponseCompound()
             )
         else:
             return UserstagedGetObjectV2ResponseMPayload(
-                obj_userstaged = eZmaxApi.models.userstaged_response.userstaged-Response(
-                    pki_userstaged_id = 90, 
-                    fki_email_id = 22, 
-                    s_email_address = 'email@example.com', 
-                    s_userstaged_firstname = 'Jane', 
-                    s_userstaged_lastname = 'Doe', 
-                    s_userstaged_externalid = 'azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e', ),
+                obj_userstaged = eZmaxApi.models.userstaged_response_compound.userstaged-ResponseCompound(),
         )
         """
 

@@ -36,6 +36,8 @@ class TestDomainGetListV1ResponseMPayload(unittest.TestCase):
         model = DomainGetListV1ResponseMPayload()
         if include_optional:
             return DomainGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_domain = [
                     eZmaxApi.models.domain_list_element.domain-ListElement(
                         pki_domain_id = 96, 
@@ -44,6 +46,8 @@ class TestDomainGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return DomainGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_domain = [
                     eZmaxApi.models.domain_list_element.domain-ListElement(
                         pki_domain_id = 96, 

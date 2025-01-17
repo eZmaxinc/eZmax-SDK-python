@@ -36,12 +36,22 @@ class TestCustomNotificationsubsectiongetnotificationtestsResponse(unittest.Test
         model = CustomNotificationsubsectiongetnotificationtestsResponse()
         if include_optional:
             return CustomNotificationsubsectiongetnotificationtestsResponse(
+                pki_notificationsubsection_id = 3,
+                fki_notificationsection_id = 1,
+                obj_notificationsubsection_name = eZmaxApi.models.multilingual_notificationsubsection_name.Multilingual-NotificationsubsectionName(
+                    s_notificationsubsection_name1 = 'Signature électronique', 
+                    s_notificationsubsection_name2 = 'Electronic signature', ),
+                s_notificationsection_name_x = 'Homepage',
+                s_notificationsubsection_name_x = 'Default',
                 a_obj_notificationtest = [
                     eZmaxApi.models.custom_notificationtestgetnotificationtests_response.Custom-Notificationtestgetnotificationtests-Response()
                     ]
             )
         else:
             return CustomNotificationsubsectiongetnotificationtestsResponse(
+                pki_notificationsubsection_id = 3,
+                fki_notificationsection_id = 1,
+                s_notificationsubsection_name_x = 'Default',
                 a_obj_notificationtest = [
                     eZmaxApi.models.custom_notificationtestgetnotificationtests_response.Custom-Notificationtestgetnotificationtests-Response()
                     ],

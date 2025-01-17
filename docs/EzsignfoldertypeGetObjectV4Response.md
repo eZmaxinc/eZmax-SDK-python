@@ -6,6 +6,8 @@ Response for GET /4/object/ezsignfoldertype/{pkiEzsignfoldertypeID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignfoldertypeGetObjectV4ResponseMPayload**](EzsignfoldertypeGetObjectV4ResponseMPayload.md) |  | 
 
 ## Example

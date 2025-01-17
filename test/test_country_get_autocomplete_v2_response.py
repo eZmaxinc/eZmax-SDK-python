@@ -36,6 +36,15 @@ class TestCountryGetAutocompleteV2Response(unittest.TestCase):
         model = CountryGetAutocompleteV2Response()
         if include_optional:
             return CountryGetAutocompleteV2Response(
+                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
+                    i_version_min = 1, 
+                    i_version_max = 2, 
+                    a_required_permission = [
+                        117
+                        ], 
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
+                obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.country_get_autocomplete_v2_response_m_payload.country-getAutocomplete-v2-Response-mPayload(
                     a_obj_country = [
                         eZmaxApi.models.country_autocomplete_element_response.country-AutocompleteElement-Response(
@@ -47,6 +56,14 @@ class TestCountryGetAutocompleteV2Response(unittest.TestCase):
             )
         else:
             return CountryGetAutocompleteV2Response(
+                obj_debug_payload = eZmaxApi.models.common_response_obj_debug_payload.Common-Response-objDebugPayload(
+                    i_version_min = 1, 
+                    i_version_max = 2, 
+                    a_required_permission = [
+                        117
+                        ], 
+                    b_version_deprecated = False, 
+                    dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.country_get_autocomplete_v2_response_m_payload.country-getAutocomplete-v2-Response-mPayload(
                     a_obj_country = [
                         eZmaxApi.models.country_autocomplete_element_response.country-AutocompleteElement-Response(

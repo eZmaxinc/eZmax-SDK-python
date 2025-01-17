@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.apikey_response import ApikeyResponse
+from eZmaxApi.models.apikey_response_compound import ApikeyResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class ApikeyGetObjectV2ResponseMPayload(BaseModel):
     """
     Payload for GET /2/object/apikey/{pkiApikeyID}
     """ # noqa: E501
-    obj_apikey: ApikeyResponse = Field(description="An Apikey Object and children to create a complete structure", alias="objApikey")
+    obj_apikey: ApikeyResponseCompound = Field(alias="objApikey")
     __properties: ClassVar[List[str]] = ["objApikey"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class ApikeyGetObjectV2ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objApikey": ApikeyResponse.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None
+            "objApikey": ApikeyResponseCompound.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None
         })
         return _obj
 

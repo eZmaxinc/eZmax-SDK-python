@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **branding_edit_object_v2**
-> CommonResponse branding_edit_object_v2(pki_branding_id, branding_edit_object_v2_request)
+> BrandingEditObjectV2Response branding_edit_object_v2(pki_branding_id, branding_edit_object_v2_request)
 
 Edit an existing Branding
 
@@ -105,7 +105,7 @@ Edit an existing Branding
 ```python
 import eZmaxApi
 from eZmaxApi.models.branding_edit_object_v2_request import BrandingEditObjectV2Request
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.branding_edit_object_v2_response import BrandingEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**BrandingEditObjectV2Response**](BrandingEditObjectV2Response.md)
 
 ### Authorization
 

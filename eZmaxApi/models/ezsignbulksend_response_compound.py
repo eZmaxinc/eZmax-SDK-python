@@ -18,20 +18,31 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-from eZmaxApi.models.ezsignbulksend_response import EzsignbulksendResponse
 from eZmaxApi.models.ezsignbulksenddocumentmapping_response_compound import EzsignbulksenddocumentmappingResponseCompound
 from eZmaxApi.models.ezsignbulksendsignermapping_response import EzsignbulksendsignermappingResponse
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksendResponseCompound(EzsignbulksendResponse):
+class EzsignbulksendResponseCompound(BaseModel):
     """
     An Ezsignbulksend Object and children to create a complete structure
     """ # noqa: E501
+    pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
+    e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
+    t_ezsignbulksend_note: StrictStr = Field(description="Note about the Ezsignbulksend", alias="tEzsignbulksendNote")
+    b_ezsignbulksend_needvalidation: StrictBool = Field(description="Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation", alias="bEzsignbulksendNeedvalidation")
+    b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive")
+    obj_audit: CommonAudit = Field(alias="objAudit")
     a_obj_ezsignbulksenddocumentmapping: List[EzsignbulksenddocumentmappingResponseCompound] = Field(alias="a_objEzsignbulksenddocumentmapping")
     a_obj_ezsignbulksendsignermapping: List[EzsignbulksendsignermappingResponse] = Field(alias="a_objEzsignbulksendsignermapping")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sLanguageNameX", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignbulksendDescription", "tEzsignbulksendNote", "bEzsignbulksendNeedvalidation", "bEzsignbulksendIsactive", "objAudit", "a_objEzsignbulksenddocumentmapping", "a_objEzsignbulksendsignermapping"]

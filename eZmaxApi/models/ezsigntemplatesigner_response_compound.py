@@ -18,18 +18,45 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplatesigner_response import EzsigntemplatesignerResponse
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplatesigner_mapping import FieldEEzsigntemplatesignerMapping
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatesignerResponseCompound(EzsigntemplatesignerResponse):
+class EzsigntemplatesignerResponseCompound(BaseModel):
     """
     A Ezsigntemplatesigner Object
     """ # noqa: E501
+    pki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="pkiEzsigntemplatesignerID")
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
+    b_ezsigntemplatesigner_receivecopy: Optional[StrictBool] = Field(default=None, description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsigntemplatesignerReceivecopy")
+    e_ezsigntemplatesigner_mapping: Optional[FieldEEzsigntemplatesignerMapping] = Field(default=None, alias="eEzsigntemplatesignerMapping")
+    s_ezsigntemplatesigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatesigner", alias="sEzsigntemplatesignerDescription")
+    s_user_name: Optional[StrictStr] = Field(default=None, description="The description of the User in the language of the requester", alias="sUserName")
+    s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignerID", "fkiEzsigntemplateID", "fkiUserID", "fkiUsergroupID", "fkiEzdoctemplatedocumentID", "bEzsigntemplatesignerReceivecopy", "eEzsigntemplatesignerMapping", "sEzsigntemplatesignerDescription", "sUserName", "sUsergroupNameX"]
+
+    @field_validator('s_ezsigntemplatesigner_description')
+    def s_ezsigntemplatesigner_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,50}$/")
+        return value
+
+    @field_validator('s_usergroup_name_x')
+    def s_usergroup_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

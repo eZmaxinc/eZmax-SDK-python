@@ -36,9 +36,28 @@ class TestSupplyRequestCompound(unittest.TestCase):
         model = SupplyRequestCompound()
         if include_optional:
             return SupplyRequestCompound(
+                pki_supply_id = 85,
+                fki_glaccount_id = 35,
+                fki_glaccountcontainer_id = 66,
+                fki_variableexpense_id = 2,
+                s_supply_code = 'PPLET',
+                obj_supply_description = eZmaxApi.models.multilingual_supply_description.Multilingual-SupplyDescription(
+                    s_supply_description1 = 'Papier lettre paquet', 
+                    s_supply_description2 = 'Letter paper package', ),
+                d_supply_unitprice = '8',
+                b_supply_isactive = True,
+                b_supply_variableprice = True
             )
         else:
             return SupplyRequestCompound(
+                fki_variableexpense_id = 2,
+                s_supply_code = 'PPLET',
+                obj_supply_description = eZmaxApi.models.multilingual_supply_description.Multilingual-SupplyDescription(
+                    s_supply_description1 = 'Papier lettre paquet', 
+                    s_supply_description2 = 'Letter paper package', ),
+                d_supply_unitprice = '8',
+                b_supply_isactive = True,
+                b_supply_variableprice = True,
         )
         """
 

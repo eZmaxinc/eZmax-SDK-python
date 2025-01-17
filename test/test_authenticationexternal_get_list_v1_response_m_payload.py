@@ -36,6 +36,8 @@ class TestAuthenticationexternalGetListV1ResponseMPayload(unittest.TestCase):
         model = AuthenticationexternalGetListV1ResponseMPayload()
         if include_optional:
             return AuthenticationexternalGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_authenticationexternal = [
                     eZmaxApi.models.authenticationexternal_list_element.authenticationexternal-ListElement(
                         pki_authenticationexternal_id = 56, 
@@ -46,6 +48,8 @@ class TestAuthenticationexternalGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return AuthenticationexternalGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_authenticationexternal = [
                     eZmaxApi.models.authenticationexternal_list_element.authenticationexternal-ListElement(
                         pki_authenticationexternal_id = 56, 

@@ -36,6 +36,10 @@ class TestCommunicationattachmentRequestCompound(unittest.TestCase):
         model = CommunicationattachmentRequestCompound()
         if include_optional:
             return CommunicationattachmentRequestCompound(
+                pki_communicationattachment_id = 203,
+                fki_attachment_id = 1,
+                fki_invoice_id = 1,
+                fki_salarypreparation_id = 1
             )
         else:
             return CommunicationattachmentRequestCompound(

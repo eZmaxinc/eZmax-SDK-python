@@ -6,6 +6,9 @@ A Webhookheader Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_webhookheader_id** | **int** | The unique ID of the Webhookheader | [optional] 
+**s_webhookheader_name** | **str** | The Name of the Webhookheader | 
+**s_webhookheader_value** | **str** | The Value of the Webhookheader | 
 
 ## Example
 

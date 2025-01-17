@@ -36,6 +36,8 @@ class TestUsergroupexternalGetListV1ResponseMPayload(unittest.TestCase):
         model = UsergroupexternalGetListV1ResponseMPayload()
         if include_optional:
             return UsergroupexternalGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_usergroupexternal = [
                     eZmaxApi.models.usergroupexternal_list_element.usergroupexternal-ListElement(
                         pki_usergroupexternal_id = 16, 
@@ -45,6 +47,8 @@ class TestUsergroupexternalGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return UsergroupexternalGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_usergroupexternal = [
                     eZmaxApi.models.usergroupexternal_list_element.usergroupexternal-ListElement(
                         pki_usergroupexternal_id = 16, 

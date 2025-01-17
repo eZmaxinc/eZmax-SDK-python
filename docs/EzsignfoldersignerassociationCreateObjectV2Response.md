@@ -6,6 +6,8 @@ Response for POST /2/object/ezsignfoldersignerassociation
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignfoldersignerassociationCreateObjectV2ResponseMPayload**](EzsignfoldersignerassociationCreateObjectV2ResponseMPayload.md) |  | 
 
 ## Example

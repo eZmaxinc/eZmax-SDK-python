@@ -18,16 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignbulksendsignermapping_request import EzsignbulksendsignermappingRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksendsignermappingRequestCompound(EzsignbulksendsignermappingRequest):
+class EzsignbulksendsignermappingRequestCompound(BaseModel):
     """
     A Ezsignbulksendsignermapping Object and children
     """ # noqa: E501
+    pki_ezsignbulksendsignermapping_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksendsignermapping", alias="pkiEzsignbulksendsignermappingID")
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    s_ezsignbulksendsignermapping_description: StrictStr = Field(description="The description of the Ezsignbulksendsignermapping", alias="sEzsignbulksendsignermappingDescription")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendsignermappingID", "fkiEzsignbulksendID", "fkiUserID", "sEzsignbulksendsignermappingDescription"]
 
     model_config = ConfigDict(

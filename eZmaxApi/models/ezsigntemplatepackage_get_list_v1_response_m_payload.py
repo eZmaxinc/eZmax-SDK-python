@@ -18,17 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_get_list_v1_response_m_payload import CommonGetListV1ResponseMPayload
 from eZmaxApi.models.ezsigntemplatepackage_list_element import EzsigntemplatepackageListElement
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepackageGetListV1ResponseMPayload(CommonGetListV1ResponseMPayload):
+class EzsigntemplatepackageGetListV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/ezsigntemplatepackage/getList
     """ # noqa: E501
+    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
+    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
     a_obj_ezsigntemplatepackage: List[EzsigntemplatepackageListElement] = Field(alias="a_objEzsigntemplatepackage")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objEzsigntemplatepackage"]
 

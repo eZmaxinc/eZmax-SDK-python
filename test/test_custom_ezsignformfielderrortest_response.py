@@ -37,12 +37,12 @@ class TestCustomEzsignformfielderrortestResponse(unittest.TestCase):
         if include_optional:
             return CustomEzsignformfielderrortestResponse(
                 s_ezsignformfielderrortest_name = 'jUR,rZ#UM/?',
-                s_ezsignformfielderrortest_detail = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z\"mfqecVU{SmA{QA<Y8XX0<}J;Krm9W\'g~?)DvDDLE7-\'(u+-7Tfp&\\`F+7-?{%@=iEPLVY*a@A[b_6cfy~~0Gc'
+                s_ezsignformfielderrortest_detail = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z\"mfqecVU{SmA{QA<Y8XX0<}J;Krm9W'g~?)DvDDLE7-'(u+-7Tfp&\\`F+7-?{%@=iEPLVY*a@A[b_6cfy~~0Gc'
             )
         else:
             return CustomEzsignformfielderrortestResponse(
                 s_ezsignformfielderrortest_name = 'jUR,rZ#UM/?',
-                s_ezsignformfielderrortest_detail = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z\"mfqecVU{SmA{QA<Y8XX0<}J;Krm9W\'g~?)DvDDLE7-\'(u+-7Tfp&\\`F+7-?{%@=iEPLVY*a@A[b_6cfy~~0Gc',
+                s_ezsignformfielderrortest_detail = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z\"mfqecVU{SmA{QA<Y8XX0<}J;Krm9W'g~?)DvDDLE7-'(u+-7Tfp&\\`F+7-?{%@=iEPLVY*a@A[b_6cfy~~0Gc',
         )
         """
 

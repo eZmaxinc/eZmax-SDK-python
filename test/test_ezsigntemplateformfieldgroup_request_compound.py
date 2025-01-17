@@ -36,6 +36,23 @@ class TestEzsigntemplateformfieldgroupRequestCompound(unittest.TestCase):
         model = EzsigntemplateformfieldgroupRequestCompound()
         if include_optional:
             return EzsigntemplateformfieldgroupRequestCompound(
+                pki_ezsigntemplateformfieldgroup_id = 64,
+                fki_ezsigntemplatedocument_id = 133,
+                e_ezsigntemplateformfieldgroup_type = 'Text',
+                e_ezsigntemplateformfieldgroup_signerrequirement = 'One',
+                s_ezsigntemplateformfieldgroup_label = 'Allergies',
+                i_ezsigntemplateformfieldgroup_step = 1,
+                s_ezsigntemplateformfieldgroup_defaultvalue = 'Foo',
+                i_ezsigntemplateformfieldgroup_filledmin = 1,
+                i_ezsigntemplateformfieldgroup_filledmax = 2,
+                b_ezsigntemplateformfieldgroup_readonly = True,
+                i_ezsigntemplateformfieldgroup_maxlength = 75,
+                b_ezsigntemplateformfieldgroup_encrypted = True,
+                s_ezsigntemplateformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsigntemplateformfieldgroup_textvalidationcustommessage = 'Phone number',
+                e_ezsigntemplateformfieldgroup_textvalidation = 'None',
+                t_ezsigntemplateformfieldgroup_tooltip = 'Please enter a valid email address',
+                e_ezsigntemplateformfieldgroup_tooltipposition = 'TopLeft',
                 a_obj_ezsigntemplateformfieldgroupsigner = [
                     eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request_compound.ezsigntemplateformfieldgroupsigner-RequestCompound()
                     ],
@@ -48,6 +65,14 @@ class TestEzsigntemplateformfieldgroupRequestCompound(unittest.TestCase):
             )
         else:
             return EzsigntemplateformfieldgroupRequestCompound(
+                fki_ezsigntemplatedocument_id = 133,
+                e_ezsigntemplateformfieldgroup_type = 'Text',
+                s_ezsigntemplateformfieldgroup_label = 'Allergies',
+                i_ezsigntemplateformfieldgroup_step = 1,
+                s_ezsigntemplateformfieldgroup_defaultvalue = 'Foo',
+                i_ezsigntemplateformfieldgroup_filledmin = 1,
+                i_ezsigntemplateformfieldgroup_filledmax = 2,
+                b_ezsigntemplateformfieldgroup_readonly = True,
                 a_obj_ezsigntemplateformfieldgroupsigner = [
                     eZmaxApi.models.ezsigntemplateformfieldgroupsigner_request_compound.ezsigntemplateformfieldgroupsigner-RequestCompound()
                     ],

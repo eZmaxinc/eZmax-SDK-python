@@ -18,19 +18,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
-from eZmaxApi.models.ezmaxinvoicingcommission_response import EzmaxinvoicingcommissionResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzmaxinvoicingcommissionResponseCompound(EzmaxinvoicingcommissionResponse):
+class EzmaxinvoicingcommissionResponseCompound(BaseModel):
     """
     A Ezmaxinvoicingcommission Object
     """ # noqa: E501
+    pki_ezmaxinvoicingcommission_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Ezmaxinvoicingcommission", alias="pkiEzmaxinvoicingcommissionID")
+    fki_ezmaxinvoicingsummaryglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryglobal", alias="fkiEzmaxinvoicingsummaryglobalID")
+    fki_ezmaxpartner_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxpartner", alias="fkiEzmaxpartnerID")
+    fki_ezmaxrepresentative_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxrepresentative", alias="fkiEzmaxrepresentativeID")
+    dt_ezmaxinvoicingcommission_start: StrictStr = Field(description="The start date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionStart")
+    dt_ezmaxinvoicingcommission_end: StrictStr = Field(description="The end date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionEnd")
+    i_ezmaxinvoicingcommission_days: Annotated[int, Field(strict=True, ge=0)] = Field(description="This is the number of days during the month on which the Ezmaxinvoigcommission applies", alias="iEzmaxinvoicingcommissionDays")
+    d_ezmaxinvoicingcommission_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of Ezmaxinvoicingcommission", alias="dEzmaxinvoicingcommissionAmount")
     obj_contact_name: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactName")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount", "objContactName"]
+
+    @field_validator('d_ezmaxinvoicingcommission_amount')
+    def d_ezmaxinvoicingcommission_amount_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

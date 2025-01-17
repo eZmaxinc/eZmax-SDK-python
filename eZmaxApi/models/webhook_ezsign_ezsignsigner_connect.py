@@ -18,20 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.attempt_response import AttemptResponse
-from eZmaxApi.models.common_webhook import CommonWebhook
+from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 from eZmaxApi.models.ezsignfolder_response import EzsignfolderResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookEzsignEzsignsignerConnect(CommonWebhook):
+class WebhookEzsignEzsignsignerConnect(BaseModel):
     """
     This is the base Webhook object
     """ # noqa: E501
+    obj_webhook: CustomWebhookResponse = Field(alias="objWebhook")
+    a_obj_attempt: List[AttemptResponseCompound] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
     obj_ezsignfolder: Optional[EzsignfolderResponse] = Field(default=None, alias="objEzsignfolder")
     obj_ezsignfoldersignerassociation: EzsignfoldersignerassociationResponseCompound = Field(alias="objEzsignfoldersignerassociation")
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objEzsignfolder", "objEzsignfoldersignerassociation"]
@@ -104,7 +105,7 @@ class WebhookEzsignEzsignsignerConnect(CommonWebhook):
 
         _obj = cls.model_validate({
             "objWebhook": CustomWebhookResponse.from_dict(obj["objWebhook"]) if obj.get("objWebhook") is not None else None,
-            "a_objAttempt": [AttemptResponse.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
+            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
             "objEzsignfolder": EzsignfolderResponse.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None,
             "objEzsignfoldersignerassociation": EzsignfoldersignerassociationResponseCompound.from_dict(obj["objEzsignfoldersignerassociation"]) if obj.get("objEzsignfoldersignerassociation") is not None else None
         })

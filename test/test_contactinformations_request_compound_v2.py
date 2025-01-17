@@ -36,6 +36,11 @@ class TestContactinformationsRequestCompoundV2(unittest.TestCase):
         model = ContactinformationsRequestCompoundV2()
         if include_optional:
             return ContactinformationsRequestCompoundV2(
+                e_contactinformations_type = 'BankAccount',
+                i_address_default = 56,
+                i_phone_default = 56,
+                i_email_default = 56,
+                i_website_default = 56,
                 a_obj_address = [
                     eZmaxApi.models.address_request_compound.address-RequestCompound()
                     ],
@@ -51,6 +56,11 @@ class TestContactinformationsRequestCompoundV2(unittest.TestCase):
             )
         else:
             return ContactinformationsRequestCompoundV2(
+                e_contactinformations_type = 'BankAccount',
+                i_address_default = 56,
+                i_phone_default = 56,
+                i_email_default = 56,
+                i_website_default = 56,
                 a_obj_address = [
                     eZmaxApi.models.address_request_compound.address-RequestCompound()
                     ],

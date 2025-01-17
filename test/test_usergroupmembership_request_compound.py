@@ -36,9 +36,14 @@ class TestUsergroupmembershipRequestCompound(unittest.TestCase):
         model = UsergroupmembershipRequestCompound()
         if include_optional:
             return UsergroupmembershipRequestCompound(
+                pki_usergroupmembership_id = 21,
+                fki_usergroup_id = 2,
+                fki_user_id = 70,
+                fki_usergroupexternal_id = 16
             )
         else:
             return UsergroupmembershipRequestCompound(
+                fki_usergroup_id = 2,
         )
         """
 

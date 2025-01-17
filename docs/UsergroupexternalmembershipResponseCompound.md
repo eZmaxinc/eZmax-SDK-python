@@ -6,6 +6,14 @@ A Usergroupexternalmembership Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_usergroupexternalmembership_id** | **int** | The unique ID of the Usergroupexternalmembership | 
+**fki_usergroupexternal_id** | **int** | The unique ID of the Usergroupexternal | 
+**fki_user_id** | **int** | The unique ID of the User | 
+**s_user_firstname** | **str** | The first name of the user | 
+**s_user_lastname** | **str** | The last name of the user | 
+**s_user_loginname** | **str** | The login name of the User. | 
+**s_email_address** | **str** | The email address. | 
+**s_usergroupexternal_name** | **str** | The name of the Usergroupexternal | 
 
 ## Example
 

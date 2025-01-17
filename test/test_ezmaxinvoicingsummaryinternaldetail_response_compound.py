@@ -36,9 +36,31 @@ class TestEzmaxinvoicingsummaryinternaldetailResponseCompound(unittest.TestCase)
         model = EzmaxinvoicingsummaryinternaldetailResponseCompound()
         if include_optional:
             return EzmaxinvoicingsummaryinternaldetailResponseCompound(
+                pki_ezmaxinvoicingsummaryinternaldetail_id = 73,
+                fki_ezmaxinvoicingsummaryinternal_id = 57,
+                fki_ezmaxproduct_id = 172,
+                s_ezmaxproduct_description_x = 'eZmax (License)',
+                fki_billingentityexternal_id = 83,
+                s_billingentityexternal_description = 'ACME Inc',
+                d_ezmaxinvoicingsummaryinternaldetail_countreal = '350.32',
+                d_ezmaxinvoicingsummaryinternaldetail_subtotal = '625.41',
+                d_ezmaxinvoicingsummaryinternaldetail_rebate = '560.81',
+                d_ezmaxinvoicingsummaryinternaldetail_total = '510.77',
+                b_ezmaxinvoicingsummaryinternaldetail_adjustment = True,
+                t_ezmaxproduct_help_x = 'This is an exemple of help message'
             )
         else:
             return EzmaxinvoicingsummaryinternaldetailResponseCompound(
+                fki_ezmaxproduct_id = 172,
+                s_ezmaxproduct_description_x = 'eZmax (License)',
+                fki_billingentityexternal_id = 83,
+                s_billingentityexternal_description = 'ACME Inc',
+                d_ezmaxinvoicingsummaryinternaldetail_countreal = '350.32',
+                d_ezmaxinvoicingsummaryinternaldetail_subtotal = '625.41',
+                d_ezmaxinvoicingsummaryinternaldetail_rebate = '560.81',
+                d_ezmaxinvoicingsummaryinternaldetail_total = '510.77',
+                b_ezmaxinvoicingsummaryinternaldetail_adjustment = True,
+                t_ezmaxproduct_help_x = 'This is an exemple of help message',
         )
         """
 

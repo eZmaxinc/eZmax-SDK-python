@@ -137,7 +137,34 @@ class EzsigntemplatepublicResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigntemplatepublicResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigntemplatepublicID": obj.get("pkiEzsigntemplatepublicID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "fkiUserlogintypeID": obj.get("fkiUserlogintypeID"),
+            "sUserlogintypeDescriptionX": obj.get("sUserlogintypeDescriptionX"),
+            "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
+            "fkiEzsigntemplatepackageID": obj.get("fkiEzsigntemplatepackageID"),
+            "sEzsigntemplatepublicDescription": obj.get("sEzsigntemplatepublicDescription"),
+            "sEzsigntemplatepublicReferenceid": obj.get("sEzsigntemplatepublicReferenceid"),
+            "bEzsigntemplatepublicIsactive": obj.get("bEzsigntemplatepublicIsactive"),
+            "tEzsigntemplatepublicNote": obj.get("tEzsigntemplatepublicNote"),
+            "eEzsigntemplatepublicLimittype": obj.get("eEzsigntemplatepublicLimittype"),
+            "iEzsigntemplatepublicLimit": obj.get("iEzsigntemplatepublicLimit"),
+            "iEzsigntemplatepublicLimitexceeded": obj.get("iEzsigntemplatepublicLimitexceeded"),
+            "dtEzsigntemplatepublicLimitexceededsince": obj.get("dtEzsigntemplatepublicLimitexceededsince"),
+            "sEzsigntemplatepublicUrl": obj.get("sEzsigntemplatepublicUrl"),
+            "sEzsigntemplatepublicEzsigntemplatedescription": obj.get("sEzsigntemplatepublicEzsigntemplatedescription"),
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
+        })
+        return _obj
 
 

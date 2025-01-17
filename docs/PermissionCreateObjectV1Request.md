@@ -6,7 +6,7 @@ Request for POST /1/object/permission
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_permission** | [**List[PermissionRequestCompound]**](PermissionRequest.md) |  | 
+**a_obj_permission** | [**List[PermissionRequestCompound]**](PermissionRequestCompound.md) |  | 
 
 ## Example
 

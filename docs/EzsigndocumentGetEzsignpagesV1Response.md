@@ -6,6 +6,8 @@ Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigndocumentGetEzsignpagesV1ResponseMPayload**](EzsigndocumentGetEzsignpagesV1ResponseMPayload.md) |  | 
 
 ## Example

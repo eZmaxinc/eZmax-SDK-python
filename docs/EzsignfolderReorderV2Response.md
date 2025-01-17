@@ -6,6 +6,8 @@ Response for POST /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 
 ## Example
 

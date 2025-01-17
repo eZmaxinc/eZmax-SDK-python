@@ -76,7 +76,21 @@ class CommonResponseObjDebugPayload(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CommonResponseObjDebugPayload from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "iVersionMin": obj.get("iVersionMin"),
+            "iVersionMax": obj.get("iVersionMax"),
+            "a_RequiredPermission": obj.get("a_RequiredPermission"),
+            "bVersionDeprecated": obj.get("bVersionDeprecated"),
+            "dtResponseDate": obj.get("dtResponseDate")
+        })
+        return _obj
 
 

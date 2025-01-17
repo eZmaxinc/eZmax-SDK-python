@@ -36,9 +36,19 @@ class TestSignatureResponseCompoundV3(unittest.TestCase):
         model = SignatureResponseCompoundV3()
         if include_optional:
             return SignatureResponseCompoundV3(
+                pki_signature_id = 12,
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
+                b_signature_svg = False,
+                b_signature_svginitials = False
             )
         else:
             return SignatureResponseCompoundV3(
+                pki_signature_id = 12,
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
+                b_signature_svg = False,
+                b_signature_svginitials = False,
         )
         """
 

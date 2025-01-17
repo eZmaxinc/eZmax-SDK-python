@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.permission_request import PermissionRequest
+from eZmaxApi.models.permission_request_compound import PermissionRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class ApikeyEditPermissionsV1Request(BaseModel):
     """
     Request for PUT /1/object/apikey/{pkiApikeyID}/editPermissions
     """ # noqa: E501
-    a_obj_permission: List[PermissionRequest] = Field(alias="a_objPermission")
+    a_obj_permission: List[PermissionRequestCompound] = Field(alias="a_objPermission")
     __properties: ClassVar[List[str]] = ["a_objPermission"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class ApikeyEditPermissionsV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objPermission": [PermissionRequest.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
+            "a_objPermission": [PermissionRequestCompound.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
         })
         return _obj
 

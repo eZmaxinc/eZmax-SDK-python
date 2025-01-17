@@ -18,18 +18,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.contact_response_compound import ContactResponseCompound
-from eZmaxApi.models.ezsignuser_response import EzsignuserResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignuserResponseCompound(EzsignuserResponse):
+class EzsignuserResponseCompound(BaseModel):
     """
     A Ezsignuser Object
     """ # noqa: E501
+    pki_ezsignuser_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID")
+    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID")
+    obj_contact: ContactResponseCompound = Field(alias="objContact")
+    obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzsignuserID", "fkiContactID", "objContact", "objAudit"]
 
     model_config = ConfigDict(

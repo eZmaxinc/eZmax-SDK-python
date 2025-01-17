@@ -36,9 +36,36 @@ class TestSystemconfigurationResponseCompound(unittest.TestCase):
         model = SystemconfigurationResponseCompound()
         if include_optional:
             return SystemconfigurationResponseCompound(
+                pki_systemconfiguration_id = 1,
+                fki_systemconfigurationtype_id = 28,
+                fki_branding_id = 78,
+                s_systemconfigurationtype_description_x = 'eZsign (Pro)',
+                e_systemconfiguration_newexternaluseraction = 'Stage',
+                e_systemconfiguration_language1 = 'fr_QC',
+                e_systemconfiguration_language2 = 'en_CA',
+                e_systemconfiguration_ezsign = 'Yes',
+                e_systemconfiguration_ezsignofficeplan = 'Standard',
+                b_systemconfiguration_ezsignpaidbyoffice = True,
+                b_systemconfiguration_ezsignpersonnal = True,
+                b_systemconfiguration_hascreditcardmerchant = True,
+                b_systemconfiguration_isdisposalactive = True,
+                b_systemconfiguration_sspr = True,
+                dt_systemconfiguration_readonlyexpirationstart = '2020-12-31',
+                dt_systemconfiguration_readonlyexpirationend = '2021-12-31',
+                obj_branding = eZmaxApi.models.custom_branding_response.Custom-Branding-Response(
+                    i_branding_color = 15658734, 
+                    s_branding_logointerfaceurl = 'http://www.example.com/logo.jpg', )
             )
         else:
             return SystemconfigurationResponseCompound(
+                pki_systemconfiguration_id = 1,
+                fki_systemconfigurationtype_id = 28,
+                s_systemconfigurationtype_description_x = 'eZsign (Pro)',
+                e_systemconfiguration_newexternaluseraction = 'Stage',
+                e_systemconfiguration_language1 = 'fr_QC',
+                e_systemconfiguration_language2 = 'en_CA',
+                b_systemconfiguration_ezsignpersonnal = True,
+                b_systemconfiguration_sspr = True,
         )
         """
 

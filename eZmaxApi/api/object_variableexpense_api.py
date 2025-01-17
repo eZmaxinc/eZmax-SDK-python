@@ -20,11 +20,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.variableexpense_create_object_v1_request import VariableexpenseCreateObjectV1Request
 from eZmaxApi.models.variableexpense_create_object_v1_response import VariableexpenseCreateObjectV1Response
 from eZmaxApi.models.variableexpense_edit_object_v1_request import VariableexpenseEditObjectV1Request
+from eZmaxApi.models.variableexpense_edit_object_v1_response import VariableexpenseEditObjectV1Response
 from eZmaxApi.models.variableexpense_get_autocomplete_v2_response import VariableexpenseGetAutocompleteV2Response
 from eZmaxApi.models.variableexpense_get_list_v1_response import VariableexpenseGetListV1Response
 from eZmaxApi.models.variableexpense_get_object_v2_response import VariableexpenseGetObjectV2Response
@@ -338,7 +338,7 @@ class ObjectVariableexpenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> VariableexpenseEditObjectV1Response:
         """Edit an existing Variableexpense
 
         
@@ -411,7 +411,7 @@ class ObjectVariableexpenseApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[VariableexpenseEditObjectV1Response]:
         """Edit an existing Variableexpense
 
         

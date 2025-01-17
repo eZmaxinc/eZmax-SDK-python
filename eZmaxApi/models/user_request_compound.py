@@ -18,22 +18,67 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.email_request import EmailRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from eZmaxApi.models.email_request_compound import EmailRequestCompound
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 from eZmaxApi.models.field_e_user_type import FieldEUserType
-from eZmaxApi.models.phone_request import PhoneRequest
-from eZmaxApi.models.user_request import UserRequest
+from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UserRequestCompound(UserRequest):
+class UserRequestCompound(BaseModel):
     """
     A User Object and children
     """ # noqa: E501
+    pki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="pkiUserID")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    fki_assistant_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Assistant.", alias="fkiAssistantID")
+    fki_employee_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Employee.", alias="fkiEmployeeID")
+    fki_company_id_default: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyIDDefault")
+    fki_department_id_default: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentIDDefault")
+    fki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneID")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    obj_email: EmailRequestCompound = Field(alias="objEmail")
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
+    obj_phone_home: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneHome")
+    obj_phone_sms: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneSMS")
+    fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|", alias="fkiSecretquestionID")
+    s_user_secretresponse: Optional[StrictStr] = Field(default=None, description="The answer to the Secretquestion", alias="sUserSecretresponse")
+    fki_module_id_form: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleIDForm")
+    e_user_type: FieldEUserType = Field(alias="eUserType")
+    e_user_logintype: FieldEUserLogintype = Field(alias="eUserLogintype")
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
+    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
+    e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
+    b_user_validatebyadministration: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by administrative personnel or not", alias="bUserValidatebyadministration")
+    b_user_validatebydirector: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by a director or not", alias="bUserValidatebydirector")
+    b_user_attachmentautoverified: Optional[StrictBool] = Field(default=None, description="Whether if Attachments uploaded by the User must be validated or not", alias="bUserAttachmentautoverified")
+    b_user_changepassword: Optional[StrictBool] = Field(default=None, description="Whether if the User is forced to change its password", alias="bUserChangepassword")
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword"]
+
+    @field_validator('s_user_loginname')
+    def s_user_loginname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
+            raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
+        return value
+
+    @field_validator('s_user_jobtitle')
+    def s_user_jobtitle_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,10 +149,10 @@ class UserRequestCompound(UserRequest):
             "fkiDepartmentIDDefault": obj.get("fkiDepartmentIDDefault"),
             "fkiTimezoneID": obj.get("fkiTimezoneID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
-            "objEmail": EmailRequest.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailRequestCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
-            "objPhoneHome": PhoneRequest.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
-            "objPhoneSMS": PhoneRequest.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
+            "objPhoneHome": PhoneRequestCompound.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,
+            "objPhoneSMS": PhoneRequestCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None,
             "fkiSecretquestionID": obj.get("fkiSecretquestionID"),
             "sUserSecretresponse": obj.get("sUserSecretresponse"),
             "fkiModuleIDForm": obj.get("fkiModuleIDForm"),

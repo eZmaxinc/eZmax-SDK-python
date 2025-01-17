@@ -6,6 +6,9 @@ A Discussion Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_discussion_id** | **int** | The unique ID of the Discussion | [optional] 
+**s_discussion_description** | **str** | The description of the Discussion | 
+**b_discussion_closed** | **bool** | Whether if it&#39;s an closed | [optional] 
 
 ## Example
 

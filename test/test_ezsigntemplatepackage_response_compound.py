@@ -36,6 +36,18 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
         model = EzsigntemplatepackageResponseCompound()
         if include_optional:
             return EzsigntemplatepackageResponseCompound(
+                pki_ezsigntemplatepackage_id = 99,
+                fki_ezsignfoldertype_id = 5,
+                fki_ezdoctemplatedocument_id = 95,
+                fki_language_id = 2,
+                s_ezdoctemplatedocument_name_x = 'Standard Contract',
+                s_language_name_x = 'English',
+                s_ezsigntemplatepackage_description = 'Package for new clients',
+                b_ezsigntemplatepackage_adminonly = True,
+                b_ezsigntemplatepackage_needvalidation = True,
+                b_ezsigntemplatepackage_isactive = True,
+                s_ezsignfoldertype_name_x = 'Default',
+                b_ezsigntemplatepackage_editallowed = True,
                 a_obj_ezsigntemplatepackagesigner = [
                     eZmaxApi.models.ezsigntemplatepackagesigner_response_compound.ezsigntemplatepackagesigner-ResponseCompound()
                     ],
@@ -45,6 +57,16 @@ class TestEzsigntemplatepackageResponseCompound(unittest.TestCase):
             )
         else:
             return EzsigntemplatepackageResponseCompound(
+                pki_ezsigntemplatepackage_id = 99,
+                fki_ezsignfoldertype_id = 5,
+                fki_language_id = 2,
+                s_language_name_x = 'English',
+                s_ezsigntemplatepackage_description = 'Package for new clients',
+                b_ezsigntemplatepackage_adminonly = True,
+                b_ezsigntemplatepackage_needvalidation = True,
+                b_ezsigntemplatepackage_isactive = True,
+                s_ezsignfoldertype_name_x = 'Default',
+                b_ezsigntemplatepackage_editallowed = True,
                 a_obj_ezsigntemplatepackagesigner = [
                     eZmaxApi.models.ezsigntemplatepackagesigner_response_compound.ezsigntemplatepackagesigner-ResponseCompound()
                     ],

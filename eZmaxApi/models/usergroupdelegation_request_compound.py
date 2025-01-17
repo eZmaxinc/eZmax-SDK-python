@@ -18,16 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.usergroupdelegation_request import UsergroupdelegationRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupdelegationRequestCompound(UsergroupdelegationRequest):
+class UsergroupdelegationRequestCompound(BaseModel):
     """
     A Usergroupdelegation Object and children
     """ # noqa: E501
+    pki_usergroupdelegation_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupdelegation", alias="pkiUsergroupdelegationID")
+    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
     __properties: ClassVar[List[str]] = ["pkiUsergroupdelegationID", "fkiUsergroupID", "fkiUserID"]
 
     model_config = ConfigDict(

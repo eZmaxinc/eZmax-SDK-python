@@ -6,6 +6,8 @@ A Billingentityinternal Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | 
+**obj_billingentityinternal_description** | [**MultilingualBillingentityinternalDescription**](MultilingualBillingentityinternalDescription.md) |  | 
 **a_obj_billingentityinternalproduct** | [**List[BillingentityinternalproductResponseCompound]**](BillingentityinternalproductResponseCompound.md) |  | 
 
 ## Example

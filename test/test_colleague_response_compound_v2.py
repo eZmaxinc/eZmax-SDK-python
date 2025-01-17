@@ -36,9 +36,75 @@ class TestColleagueResponseCompoundV2(unittest.TestCase):
         model = ColleagueResponseCompoundV2()
         if include_optional:
             return ColleagueResponseCompoundV2(
+                pki_colleague_id = 60,
+                fki_user_id = 70,
+                fki_user_id_colleague = 70,
+                b_colleague_ezsignemail = False,
+                b_colleague_financial = True,
+                b_colleague_usecloneemail = True,
+                b_colleague_attachment = True,
+                b_colleague_canafe = True,
+                b_colleague_permission = True,
+                b_colleague_realestatecompleted = True,
+                dt_colleague_from = '2020-12-31',
+                dt_colleague_to = '2020-12-31',
+                e_colleague_ezsign = 'Full',
+                e_colleague_realestateinprogress = 'Create',
+                obj_user_name = eZmaxApi.models.custom_user_name_response.Custom-UserName-Response(
+                    s_user_lastname = 'Doe', 
+                    s_user_firstname = 'John', ),
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), )
             )
         else:
             return ColleagueResponseCompoundV2(
+                pki_colleague_id = 60,
+                fki_user_id = 70,
+                fki_user_id_colleague = 70,
+                b_colleague_ezsignemail = False,
+                b_colleague_financial = True,
+                b_colleague_usecloneemail = True,
+                b_colleague_attachment = True,
+                b_colleague_canafe = True,
+                b_colleague_permission = True,
+                b_colleague_realestatecompleted = True,
+                e_colleague_ezsign = 'Full',
+                e_colleague_realestateinprogress = 'Create',
+                obj_user_name = eZmaxApi.models.custom_user_name_response.Custom-UserName-Response(
+                    s_user_lastname = 'Doe', 
+                    s_user_firstname = 'John', ),
+                obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                    obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                    obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                        fki_user_id = 70, 
+                        fki_apikey_id = 99, 
+                        s_user_loginname = 'JohnDoe', 
+                        s_user_lastname = 'Doe', 
+                        s_user_firstname = 'John', 
+                        s_apikey_description_x = 'Project X', 
+                        dt_auditdetail_date = '2020-12-31 23:59:59', ), ),
         )
         """
 

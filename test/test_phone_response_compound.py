@@ -36,10 +36,17 @@ class TestPhoneResponseCompound(unittest.TestCase):
         model = PhoneResponseCompound()
         if include_optional:
             return PhoneResponseCompound(
+                pki_phone_id = 1,
+                fki_phonetype_id = 1,
+                e_phone_type = 'Local',
+                s_phone_e164 = '+15149901516',
+                s_phone_extension = '123',
                 b_phone_international = True
             )
         else:
             return PhoneResponseCompound(
+                pki_phone_id = 1,
+                fki_phonetype_id = 1,
         )
         """
 

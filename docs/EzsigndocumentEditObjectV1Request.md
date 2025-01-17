@@ -6,7 +6,7 @@ Request for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_ezsigndocument** | [**EzsigndocumentRequest**](EzsigndocumentRequest.md) | An Ezsigndocument Object and children to create a complete structure | 
+**obj_ezsigndocument** | [**EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | 
 
 ## Example
 

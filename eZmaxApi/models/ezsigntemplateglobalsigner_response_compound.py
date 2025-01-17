@@ -18,17 +18,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplateglobalsigner_response import EzsigntemplateglobalsignerResponse
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplateglobalsignerResponseCompound(EzsigntemplateglobalsignerResponse):
+class EzsigntemplateglobalsignerResponseCompound(BaseModel):
     """
     A Ezsigntemplateglobalsigner Object
     """ # noqa: E501
+    pki_ezsigntemplateglobalsigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalsigner", alias="pkiEzsigntemplateglobalsignerID")
+    fki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="fkiEzsigntemplateglobalID")
+    s_ezsigntemplateglobalsigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalsigner", alias="sEzsigntemplateglobalsignerDescription")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalsignerID", "fkiEzsigntemplateglobalID", "sEzsigntemplateglobalsignerDescription"]
+
+    @field_validator('s_ezsigntemplateglobalsigner_description')
+    def s_ezsigntemplateglobalsigner_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,50}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,50}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

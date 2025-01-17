@@ -18,16 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.communicationattachment_request import CommunicationattachmentRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommunicationattachmentRequestCompound(CommunicationattachmentRequest):
+class CommunicationattachmentRequestCompound(BaseModel):
     """
     A Communicationattachment Object and children
     """ # noqa: E501
+    pki_communicationattachment_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationattachment", alias="pkiCommunicationattachmentID")
+    fki_attachment_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="fkiAttachmentID")
+    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID")
+    fki_salarypreparation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Salarypreparation.", alias="fkiSalarypreparationID")
     __properties: ClassVar[List[str]] = ["pkiCommunicationattachmentID", "fkiAttachmentID", "fkiInvoiceID", "fkiSalarypreparationID"]
 
     model_config = ConfigDict(

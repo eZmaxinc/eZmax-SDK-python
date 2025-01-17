@@ -18,24 +18,53 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.branding_response_v3 import BrandingResponseV3
 from eZmaxApi.models.field_e_branding_alignlogo import FieldEBrandingAlignlogo
 from eZmaxApi.models.field_e_branding_logo import FieldEBrandingLogo
 from eZmaxApi.models.multilingual_branding_description import MultilingualBrandingDescription
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BrandingResponseCompoundV3(BrandingResponseV3):
+class BrandingResponseCompoundV3(BaseModel):
     """
     A Branding Object
     """ # noqa: E501
+    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID")
+    fki_email_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailID")
+    obj_branding_description: MultilingualBrandingDescription = Field(alias="objBrandingDescription")
+    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
+    s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    e_branding_logo: FieldEBrandingLogo = Field(alias="eBrandingLogo")
+    e_branding_alignlogo: FieldEBrandingAlignlogo = Field(alias="eBrandingAlignlogo")
+    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor")
+    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
     s_branding_logourl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogourl")
     s_branding_logoemailurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used in email as logo in the Branding", alias="sBrandingLogoemailurl")
     s_branding_logointerfaceurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl")
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "fkiEmailID", "objBrandingDescription", "sBrandingDescriptionX", "sBrandingName", "sEmailAddress", "eBrandingLogo", "eBrandingAlignlogo", "iBrandingColor", "bBrandingIsactive", "sBrandingLogourl", "sBrandingLogoemailurl", "sBrandingLogointerfaceurl"]
+
+    @field_validator('s_branding_name')
+    def s_branding_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,55}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,55}$/")
+        return value
+
+    @field_validator('s_email_address')
+    def s_email_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+            raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
+        return value
 
     @field_validator('s_branding_logourl')
     def s_branding_logourl_validate_regular_expression(cls, value):

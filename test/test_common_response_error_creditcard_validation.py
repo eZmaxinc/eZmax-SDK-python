@@ -36,6 +36,11 @@ class TestCommonResponseErrorCreditcardValidation(unittest.TestCase):
         model = CommonResponseErrorCreditcardValidation()
         if include_optional:
             return CommonResponseErrorCreditcardValidation(
+                s_error_message = 'Invalid Signature Headers',
+                e_error_code = 'BADREQUEST',
+                a_s_error_messagedetail = [
+                    ''
+                    ],
                 obj_creditcardtransactionresponse = eZmaxApi.models.custom_creditcardtransactionresponse_response.Custom-Creditcardtransactionresponse-Response(
                     s_creditcardtransaction_is_ocode = '01', 
                     s_creditcardtransaction_responsecode = '027', 
@@ -45,6 +50,8 @@ class TestCommonResponseErrorCreditcardValidation(unittest.TestCase):
             )
         else:
             return CommonResponseErrorCreditcardValidation(
+                s_error_message = 'Invalid Signature Headers',
+                e_error_code = 'BADREQUEST',
         )
         """
 

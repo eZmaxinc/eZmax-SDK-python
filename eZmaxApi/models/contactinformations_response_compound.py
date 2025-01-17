@@ -18,26 +18,47 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.address_response import AddressResponse
-from eZmaxApi.models.contactinformations_response import ContactinformationsResponse
-from eZmaxApi.models.email_response import EmailResponse
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from eZmaxApi.models.address_response_compound import AddressResponseCompound
+from eZmaxApi.models.email_response_compound import EmailResponseCompound
 from eZmaxApi.models.field_e_contactinformations_type import FieldEContactinformationsType
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
-from eZmaxApi.models.website_response import WebsiteResponse
+from eZmaxApi.models.website_response_compound import WebsiteResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ContactinformationsResponseCompound(ContactinformationsResponse):
+class ContactinformationsResponseCompound(BaseModel):
     """
     A Contactinformations Object
     """ # noqa: E501
-    a_obj_address: List[AddressResponse] = Field(alias="a_objAddress")
+    pki_contactinformations_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Contactinformations", alias="pkiContactinformationsID")
+    fki_address_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Address", alias="fkiAddressIDDefault")
+    fki_phone_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phone.", alias="fkiPhoneIDDefault")
+    fki_email_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailIDDefault")
+    fki_website_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Website Default", alias="fkiWebsiteIDDefault")
+    e_contactinformations_type: FieldEContactinformationsType = Field(alias="eContactinformationsType")
+    s_contactinformations_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Contactinformations", alias="sContactinformationsUrl")
+    obj_address_default: Optional[AddressResponseCompound] = Field(default=None, alias="objAddressDefault")
+    obj_phone_default: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneDefault")
+    obj_email_default: Optional[EmailResponseCompound] = Field(default=None, alias="objEmailDefault")
+    obj_website_default: Optional[WebsiteResponseCompound] = Field(default=None, alias="objWebsiteDefault")
+    a_obj_address: List[AddressResponseCompound] = Field(alias="a_objAddress")
     a_obj_phone: List[PhoneResponseCompound] = Field(alias="a_objPhone")
-    a_obj_email: List[EmailResponse] = Field(alias="a_objEmail")
-    a_obj_website: List[WebsiteResponse] = Field(alias="a_objWebsite")
+    a_obj_email: List[EmailResponseCompound] = Field(alias="a_objEmail")
+    a_obj_website: List[WebsiteResponseCompound] = Field(alias="a_objWebsite")
     __properties: ClassVar[List[str]] = ["pkiContactinformationsID", "fkiAddressIDDefault", "fkiPhoneIDDefault", "fkiEmailIDDefault", "fkiWebsiteIDDefault", "eContactinformationsType", "sContactinformationsUrl", "objAddressDefault", "objPhoneDefault", "objEmailDefault", "objWebsiteDefault", "a_objAddress", "a_objPhone", "a_objEmail", "a_objWebsite"]
+
+    @field_validator('s_contactinformations_url')
+    def s_contactinformations_url_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,255}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,255}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -137,14 +158,14 @@ class ContactinformationsResponseCompound(ContactinformationsResponse):
             "fkiWebsiteIDDefault": obj.get("fkiWebsiteIDDefault"),
             "eContactinformationsType": obj.get("eContactinformationsType"),
             "sContactinformationsUrl": obj.get("sContactinformationsUrl"),
-            "objAddressDefault": AddressResponse.from_dict(obj["objAddressDefault"]) if obj.get("objAddressDefault") is not None else None,
+            "objAddressDefault": AddressResponseCompound.from_dict(obj["objAddressDefault"]) if obj.get("objAddressDefault") is not None else None,
             "objPhoneDefault": PhoneResponseCompound.from_dict(obj["objPhoneDefault"]) if obj.get("objPhoneDefault") is not None else None,
-            "objEmailDefault": EmailResponse.from_dict(obj["objEmailDefault"]) if obj.get("objEmailDefault") is not None else None,
-            "objWebsiteDefault": WebsiteResponse.from_dict(obj["objWebsiteDefault"]) if obj.get("objWebsiteDefault") is not None else None,
-            "a_objAddress": [AddressResponse.from_dict(_item) for _item in obj["a_objAddress"]] if obj.get("a_objAddress") is not None else None,
+            "objEmailDefault": EmailResponseCompound.from_dict(obj["objEmailDefault"]) if obj.get("objEmailDefault") is not None else None,
+            "objWebsiteDefault": WebsiteResponseCompound.from_dict(obj["objWebsiteDefault"]) if obj.get("objWebsiteDefault") is not None else None,
+            "a_objAddress": [AddressResponseCompound.from_dict(_item) for _item in obj["a_objAddress"]] if obj.get("a_objAddress") is not None else None,
             "a_objPhone": [PhoneResponseCompound.from_dict(_item) for _item in obj["a_objPhone"]] if obj.get("a_objPhone") is not None else None,
-            "a_objEmail": [EmailResponse.from_dict(_item) for _item in obj["a_objEmail"]] if obj.get("a_objEmail") is not None else None,
-            "a_objWebsite": [WebsiteResponse.from_dict(_item) for _item in obj["a_objWebsite"]] if obj.get("a_objWebsite") is not None else None
+            "a_objEmail": [EmailResponseCompound.from_dict(_item) for _item in obj["a_objEmail"]] if obj.get("a_objEmail") is not None else None,
+            "a_objWebsite": [WebsiteResponseCompound.from_dict(_item) for _item in obj["a_objWebsite"]] if obj.get("a_objWebsite") is not None else None
         })
         return _obj
 

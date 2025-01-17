@@ -109,7 +109,25 @@ class CreditcardclientRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of CreditcardclientRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiCreditcardclientID": obj.get("pkiCreditcardclientID"),
+            "fksCreditcardtokenID": obj.get("fksCreditcardtokenID"),
+            "bCreditcardclientrelationIsdefault": obj.get("bCreditcardclientrelationIsdefault"),
+            "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
+            "bCreditcardclientAllowedcompanypayment": obj.get("bCreditcardclientAllowedcompanypayment"),
+            "bCreditcardclientAllowedezsign": obj.get("bCreditcardclientAllowedezsign"),
+            "bCreditcardclientAllowedtranquillit": obj.get("bCreditcardclientAllowedtranquillit"),
+            "objCreditcarddetail": CreditcarddetailRequest.from_dict(obj["objCreditcarddetail"]) if obj.get("objCreditcarddetail") is not None else None,
+            "sCreditcardclientCVV": obj.get("sCreditcardclientCVV")
+        })
+        return _obj
 
 

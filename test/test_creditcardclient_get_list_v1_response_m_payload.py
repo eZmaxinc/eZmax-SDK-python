@@ -36,6 +36,8 @@ class TestCreditcardclientGetListV1ResponseMPayload(unittest.TestCase):
         model = CreditcardclientGetListV1ResponseMPayload()
         if include_optional:
             return CreditcardclientGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_creditcardclient = [
                     eZmaxApi.models.creditcardclient_list_element.creditcardclient-ListElement(
                         pki_creditcardclient_id = 114, 
@@ -52,6 +54,8 @@ class TestCreditcardclientGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return CreditcardclientGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_creditcardclient = [
                     eZmaxApi.models.creditcardclient_list_element.creditcardclient-ListElement(
                         pki_creditcardclient_id = 114, 

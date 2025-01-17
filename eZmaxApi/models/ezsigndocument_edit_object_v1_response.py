@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from eZmaxApi.models.common_response_warning import CommonResponseWarning
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigndocumentEditObjectV1Response(CommonResponse):
+class EzsigndocumentEditObjectV1Response(BaseModel):
     """
     Response for PUT /1/object/ezsigndocument/{pkiEzsigndocumentID}
     """ # noqa: E501
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
     a_obj_warning: Optional[List[CommonResponseWarning]] = Field(default=None, alias="a_objWarning")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "a_objWarning"]
 

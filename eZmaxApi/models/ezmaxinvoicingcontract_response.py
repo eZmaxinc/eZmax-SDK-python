@@ -100,7 +100,25 @@ class EzmaxinvoicingcontractResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzmaxinvoicingcontractResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzmaxinvoicingcontractID": obj.get("pkiEzmaxinvoicingcontractID"),
+            "eEzmaxinvoicingcontractPaymenttype": obj.get("eEzmaxinvoicingcontractPaymenttype"),
+            "iEzmaxinvoicingcontractLength": obj.get("iEzmaxinvoicingcontractLength"),
+            "dtEzmaxinvoicingcontractStart": obj.get("dtEzmaxinvoicingcontractStart"),
+            "dtEzmaxinvoicingcontractEnd": obj.get("dtEzmaxinvoicingcontractEnd"),
+            "dEzmaxinvoicingcontractLicense": obj.get("dEzmaxinvoicingcontractLicense"),
+            "dEzmaxinvoicingcontract121qa": obj.get("dEzmaxinvoicingcontract121qa"),
+            "bEzmaxinvoicingcontractEzsignallagents": obj.get("bEzmaxinvoicingcontractEzsignallagents"),
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
+        })
+        return _obj
 
 

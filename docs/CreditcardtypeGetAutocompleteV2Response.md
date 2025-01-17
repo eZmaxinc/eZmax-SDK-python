@@ -6,6 +6,8 @@ Response for GET /2/object/creditcardtype/getAutocomplete
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**CreditcardtypeGetAutocompleteV2ResponseMPayload**](CreditcardtypeGetAutocompleteV2ResponseMPayload.md) |  | 
 
 ## Example

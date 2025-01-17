@@ -6,6 +6,10 @@ A Ezsignuser Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_ezsignuser_id** | **int** | The unique ID of the Ezsignuser | 
+**fki_contact_id** | **int** | The unique ID of the Contact | 
+**obj_contact** | [**ContactResponseCompound**](ContactResponseCompound.md) |  | 
+**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
 
 ## Example
 

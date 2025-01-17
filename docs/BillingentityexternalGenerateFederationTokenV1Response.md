@@ -6,6 +6,8 @@ Response for POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/g
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**BillingentityexternalGenerateFederationTokenV1ResponseMPayload**](BillingentityexternalGenerateFederationTokenV1ResponseMPayload.md) |  | 
 
 ## Example

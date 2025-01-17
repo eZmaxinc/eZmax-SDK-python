@@ -36,9 +36,14 @@ class TestSignatureResponseCompound(unittest.TestCase):
         model = SignatureResponseCompound()
         if include_optional:
             return SignatureResponseCompound(
+                pki_signature_id = 12,
+                fki_font_id = 1,
+                s_signature_url = 'https://www.example.com/signature.svg',
+                s_signature_urlinitials = 'https://www.example.com/signature.svg'
             )
         else:
             return SignatureResponseCompound(
+                pki_signature_id = 12,
         )
         """
 

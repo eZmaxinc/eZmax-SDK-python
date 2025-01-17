@@ -18,17 +18,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.usergroupexternal_response import UsergroupexternalResponse
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UsergroupexternalResponseCompound(UsergroupexternalResponse):
+class UsergroupexternalResponseCompound(BaseModel):
     """
     A Usergroupexternal Object
     """ # noqa: E501
+    pki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="pkiUsergroupexternalID")
+    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
+    s_usergroupexternal_id: Annotated[str, Field(strict=True)] = Field(description="The id of the Usergroupexternal", alias="sUsergroupexternalID")
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalID", "sUsergroupexternalName", "sUsergroupexternalID"]
+
+    @field_validator('s_usergroupexternal_name')
+    def s_usergroupexternal_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,64}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,64}$/")
+        return value
+
+    @field_validator('s_usergroupexternal_id')
+    def s_usergroupexternal_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,64}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,64}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

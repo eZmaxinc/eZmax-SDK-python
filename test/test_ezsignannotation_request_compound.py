@@ -36,10 +36,26 @@ class TestEzsignannotationRequestCompound(unittest.TestCase):
         model = EzsignannotationRequestCompound()
         if include_optional:
             return EzsignannotationRequestCompound(
+                pki_ezsignannotation_id = 113,
+                fki_ezsigndocument_id = 97,
+                e_ezsignannotation_horizontalalignment = 'Center',
+                e_ezsignannotation_verticalalignment = 'Bottom',
+                e_ezsignannotation_type = 'Text',
+                i_ezsignannotation_x = 50,
+                i_ezsignannotation_y = 50,
+                i_ezsignannotation_width = 75,
+                i_ezsignannotation_height = 25,
+                s_ezsignannotation_text = 'Sample',
+                i_ezsignpage_pagenumber = 1,
                 obj_textstylestatic = eZmaxApi.models.textstylestatic_request_compound.textstylestatic-RequestCompound()
             )
         else:
             return EzsignannotationRequestCompound(
+                fki_ezsigndocument_id = 97,
+                e_ezsignannotation_type = 'Text',
+                i_ezsignannotation_x = 50,
+                i_ezsignannotation_y = 50,
+                i_ezsignpage_pagenumber = 1,
         )
         """
 

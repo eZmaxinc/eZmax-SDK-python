@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsignature_delete_object_v1**
-> CommonResponse ezsignsignature_delete_object_v1(pki_ezsignsignature_id)
+> EzsignsignatureDeleteObjectV1Response ezsignsignature_delete_object_v1(pki_ezsignsignature_id)
 
 Delete an existing Ezsignsignature
 
@@ -268,7 +268,7 @@ Delete an existing Ezsignsignature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignatureDeleteObjectV1Response**](EzsignsignatureDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsignature_edit_object_v2**
-> CommonResponse ezsignsignature_edit_object_v2(pki_ezsignsignature_id, ezsignsignature_edit_object_v2_request)
+> EzsignsignatureEditObjectV2Response ezsignsignature_edit_object_v2(pki_ezsignsignature_id, ezsignsignature_edit_object_v2_request)
 
 Edit an existing Ezsignsignature
 
@@ -349,8 +349,8 @@ Edit an existing Ezsignsignature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsignature_edit_object_v2_request import EzsignsignatureEditObjectV2Request
+from eZmaxApi.models.ezsignsignature_edit_object_v2_response import EzsignsignatureEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignatureEditObjectV2Response**](EzsignsignatureEditObjectV2Response.md)
 
 ### Authorization
 

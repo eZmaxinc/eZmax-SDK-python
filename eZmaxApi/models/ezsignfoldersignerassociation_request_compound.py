@@ -18,17 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.ezsignfoldersignerassociation_request import EzsignfoldersignerassociationRequest
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsignsigner_request_compound import EzsignsignerRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignfoldersignerassociationRequestCompound(EzsignfoldersignerassociationRequest):
+class EzsignfoldersignerassociationRequestCompound(BaseModel):
     """
     An Ezsignfoldersignerassociation Object and children to create a complete structure
     """ # noqa: E501
+    pki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    b_ezsignfoldersignerassociation_receivecopy: Optional[StrictBool] = Field(default=None, description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
+    t_ezsignfoldersignerassociation_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
     obj_ezsignsigner: Optional[EzsignsignerRequestCompound] = Field(default=None, alias="objEzsignsigner")
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiUserID", "fkiEzsignsignergroupID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "objEzsignsigner"]
 

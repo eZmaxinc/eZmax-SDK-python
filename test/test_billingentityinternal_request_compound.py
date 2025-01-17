@@ -36,12 +36,19 @@ class TestBillingentityinternalRequestCompound(unittest.TestCase):
         model = BillingentityinternalRequestCompound()
         if include_optional:
             return BillingentityinternalRequestCompound(
+                pki_billingentityinternal_id = 1,
+                obj_billingentityinternal_description = eZmaxApi.models.multilingual_billingentityinternal_description.Multilingual-BillingentityinternalDescription(
+                    s_billingentityinternal_description1 = 'Défaut', 
+                    s_billingentityinternal_description2 = 'Default', ),
                 a_obj_billingentityinternalproduct = [
                     eZmaxApi.models.billingentityinternalproduct_request_compound.billingentityinternalproduct-RequestCompound()
                     ]
             )
         else:
             return BillingentityinternalRequestCompound(
+                obj_billingentityinternal_description = eZmaxApi.models.multilingual_billingentityinternal_description.Multilingual-BillingentityinternalDescription(
+                    s_billingentityinternal_description1 = 'Défaut', 
+                    s_billingentityinternal_description2 = 'Default', ),
                 a_obj_billingentityinternalproduct = [
                     eZmaxApi.models.billingentityinternalproduct_request_compound.billingentityinternalproduct-RequestCompound()
                     ],

@@ -36,9 +36,15 @@ class TestDiscussionmessageRequestCompound(unittest.TestCase):
         model = DiscussionmessageRequestCompound()
         if include_optional:
             return DiscussionmessageRequestCompound(
+                pki_discussionmessage_id = 123,
+                fki_discussion_id = 125,
+                fki_discussionmembership_id_actionrequired = 165,
+                t_discussionmessage_content = 'Hello, this is an example of content in a message'
             )
         else:
             return DiscussionmessageRequestCompound(
+                fki_discussion_id = 125,
+                t_discussionmessage_content = 'Hello, this is an example of content in a message',
         )
         """
 

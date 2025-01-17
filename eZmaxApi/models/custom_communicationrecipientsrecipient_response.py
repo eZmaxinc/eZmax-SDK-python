@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
-from eZmaxApi.models.email_response import EmailResponse
+from eZmaxApi.models.email_response_compound import EmailResponseCompound
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
@@ -48,7 +48,7 @@ class CustomCommunicationrecipientsrecipientResponse(BaseModel):
     fki_supplier_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supplier.", alias="fkiSupplierID")
     e_communicationrecipientsrecipient_objecttype: StrictStr = Field(alias="eCommunicationrecipientsrecipientObjecttype")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
-    obj_email: Optional[EmailResponse] = Field(default=None, description="An Email Object and children to create a complete structure", alias="objEmail")
+    obj_email: Optional[EmailResponseCompound] = Field(default=None, alias="objEmail")
     obj_phone_fax: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneFax")
     obj_phone_sms: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneSMS")
     __properties: ClassVar[List[str]] = ["fkiAgentID", "fkiBrokerID", "fkiContactID", "fkiCustomerID", "fkiEmployeeID", "fkiEzsignsignerID", "fkiFranchiseofficeID", "fkiUserID", "fkiAgentincorporationID", "fkiAssistantID", "fkiExternalbrokerID", "fkiEzcomagentID", "fkiNotaryID", "fkiRewardmemberID", "fkiSupplierID", "eCommunicationrecipientsrecipientObjecttype", "objContactName", "objEmail", "objPhoneFax", "objPhoneSMS"]
@@ -140,7 +140,7 @@ class CustomCommunicationrecipientsrecipientResponse(BaseModel):
             "fkiSupplierID": obj.get("fkiSupplierID"),
             "eCommunicationrecipientsrecipientObjecttype": obj.get("eCommunicationrecipientsrecipientObjecttype"),
             "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None,
-            "objEmail": EmailResponse.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailResponseCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "objPhoneFax": PhoneResponseCompound.from_dict(obj["objPhoneFax"]) if obj.get("objPhoneFax") is not None else None,
             "objPhoneSMS": PhoneResponseCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None
         })

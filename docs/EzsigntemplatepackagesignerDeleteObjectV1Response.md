@@ -6,6 +6,8 @@ Response for DELETE /1/object/ezsigntemplatepackagesigner/{pkiEzsigntemplatepack
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload**](EzsigntemplatepackagesignerDeleteObjectV1ResponseMPayload.md) |  | 
 
 ## Example

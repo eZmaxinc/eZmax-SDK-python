@@ -18,20 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.attempt_response import AttemptResponse
-from eZmaxApi.models.common_webhook import CommonWebhook
+from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
-from eZmaxApi.models.user_response import UserResponse
+from eZmaxApi.models.user_response_compound import UserResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookUserUserCreated(CommonWebhook):
+class WebhookUserUserCreated(BaseModel):
     """
     This is the base Webhook object
     """ # noqa: E501
-    obj_user: UserResponse = Field(description="A User Object and children to create a complete structure", alias="objUser")
+    obj_webhook: CustomWebhookResponse = Field(alias="objWebhook")
+    a_obj_attempt: List[AttemptResponseCompound] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
+    obj_user: UserResponseCompound = Field(alias="objUser")
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objUser"]
 
     model_config = ConfigDict(
@@ -99,8 +100,8 @@ class WebhookUserUserCreated(CommonWebhook):
 
         _obj = cls.model_validate({
             "objWebhook": CustomWebhookResponse.from_dict(obj["objWebhook"]) if obj.get("objWebhook") is not None else None,
-            "a_objAttempt": [AttemptResponse.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
-            "objUser": UserResponse.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None
+            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
+            "objUser": UserResponseCompound.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None
         })
         return _obj
 

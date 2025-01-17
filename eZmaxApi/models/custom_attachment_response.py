@@ -18,9 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.attachment_response import AttachmentResponse
+from typing_extensions import Annotated
 from eZmaxApi.models.attachment_response_compound import AttachmentResponseCompound
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.field_e_attachment_documenttype import FieldEAttachmentDocumenttype
@@ -30,15 +30,100 @@ from eZmaxApi.models.field_e_attachment_verified import FieldEAttachmentVerified
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CustomAttachmentResponse(AttachmentResponse):
+class CustomAttachmentResponse(BaseModel):
     """
     A Custom Attachment Object
     """ # noqa: E501
+    pki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="pkiAttachmentID")
+    fki_computer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Computer", alias="fkiComputerID")
+    fki_adjustment_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Adjustment", alias="fkiAdjustmentID")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_bankaccount_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Bankaccount", alias="fkiBankaccountID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    fki_commissionadvance_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Commissionadvance", alias="fkiCommissionadvanceID")
+    fki_communication_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communication.", alias="fkiCommunicationID")
+    fki_customer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Customer.", alias="fkiCustomerID")
+    fki_customertemplate_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Customertemplate", alias="fkiCustomertemplateID")
+    fki_deposit_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Deposit", alias="fkiDepositID")
+    fki_deposittransitcheque_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Deposittransitcheque", alias="fkiDeposittransitchequeID")
+    fki_electronicfundstransfer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Electronicfundstransfer", alias="fkiElectronicfundstransferID")
+    fki_employee_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Employee.", alias="fkiEmployeeID")
+    fki_externalbroker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Externalbroker.", alias="fkiExternalbrokerID")
+    fki_ezcomadvanceserver_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezcomadvanceserver", alias="fkiEzcomadvanceserverID")
+    fki_ezcomcompany_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezcomcompany", alias="fkiEzcomcompanyID")
+    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
+    fki_ghacqcontract_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ghacqcontract", alias="fkiGhacqcontractID")
+    fki_inscription_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscription.", alias="fkiInscriptionID")
+    fki_inscriptiontemp_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Inscriptiontemp", alias="fkiInscriptiontempID")
+    fki_inscriptionnotauthenticated_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionnotauthenticated.", alias="fkiInscriptionnotauthenticatedID")
+    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID")
+    fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID")
+    fki_franchisebroker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisebroker", alias="fkiFranchisebrokerID")
+    fki_franchiseagence_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchiseagence", alias="fkiFranchiseagenceID")
+    fki_franchiseoffice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID")
+    fki_franchisefranchise_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisefranchise", alias="fkiFranchisefranchiseID")
+    fki_franchisecomplaint_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisecomplaint", alias="fkiFranchisecomplaintID")
+    fki_lead_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Lead", alias="fkiLeadID")
+    fki_marketingprogram_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Marketingprogram", alias="fkiMarketingprogramID")
+    fki_marketingfollow_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Marketingfollow", alias="fkiMarketingfollowID")
+    fki_notary_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Notary.", alias="fkiNotaryID")
+    fki_officetaxreport_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Officetaxreport", alias="fkiOfficetaxreportID")
+    fki_otherincome_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Otherincome", alias="fkiOtherincomeID")
+    fki_paymentpreparation_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentpreparation", alias="fkiPaymentpreparationID")
+    fki_purchase_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Purchase", alias="fkiPurchaseID")
+    fki_salary_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Salary", alias="fkiSalaryID")
+    fki_supplier_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supplier.", alias="fkiSupplierID")
+    fki_tranqcontract_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Tranqcontract", alias="fkiTranqcontractID")
+    fki_template_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Template", alias="fkiTemplateID")
+    fki_inscriptionchecklist_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionchecklist", alias="fkiInscriptionchecklistID")
+    fki_folder_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Folder", alias="fkiFolderID")
+    fki_rejectedoffertopurchase_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Rejectedoffertopurchase", alias="fkiRejectedoffertopurchaseID")
+    fki_disclosure_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Disclosure", alias="fkiDisclosureID")
+    fki_reconciliation_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Reconciliation", alias="fkiReconciliationID")
+    fki_ezsigndocument_id_reference: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentIDReference")
+    e_attachment_documenttype: FieldEAttachmentDocumenttype = Field(alias="eAttachmentDocumenttype")
+    s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName")
+    e_attachment_privacy: FieldEAttachmentPrivacy = Field(alias="eAttachmentPrivacy")
+    fki_user_id_specific: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDSpecific")
+    e_attachment_type: FieldEAttachmentType = Field(alias="eAttachmentType")
+    i_attachment_size: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The size of the Attachment", alias="iAttachmentSize")
+    i_attachment_ed_mmoduleflag: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The edmmoduleflag of the Attachment", alias="iAttachmentEDMmoduleflag")
+    s_attachment_md5: Annotated[str, Field(strict=True)] = Field(description="The md5 of the Attachment", alias="sAttachmentMD5")
+    b_attachment_deleted: StrictBool = Field(description="Whether if it's deleted", alias="bAttachmentDeleted")
+    b_attachment_valid: StrictBool = Field(description="Whether if it's valid", alias="bAttachmentValid")
+    e_attachment_verified: FieldEAttachmentVerified = Field(alias="eAttachmentVerified")
+    t_attachment_rejectioncomment: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The rejectioncomment of the Attachment", alias="tAttachmentRejectioncomment")
+    fki_user_id_owner: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDOwner")
+    obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     obj_attachment_proof: Optional[AttachmentResponseCompound] = Field(default=None, alias="objAttachmentProof")
     obj_attachment_proofdocument: Optional[AttachmentResponseCompound] = Field(default=None, alias="objAttachmentProofdocument")
     a_obj_attachment_attachment: Optional[List[AttachmentResponseCompound]] = Field(default=None, alias="a_objAttachmentAttachment")
     a_obj_attachment_version: Optional[List[AttachmentResponseCompound]] = Field(default=None, alias="a_objAttachmentVersion")
     __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiInscriptionchecklistID", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit", "objAttachmentProof", "objAttachmentProofdocument", "a_objAttachmentAttachment", "a_objAttachmentVersion"]
+
+    @field_validator('s_attachment_name')
+    def s_attachment_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        return value
+
+    @field_validator('s_attachment_md5')
+    def s_attachment_md5_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,32}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,32}$/")
+        return value
+
+    @field_validator('t_attachment_rejectioncomment')
+    def t_attachment_rejectioncomment_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -111,7 +111,40 @@ class EzsigndocumentResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzsigndocumentResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzsigndocumentID": obj.get("pkiEzsigndocumentID"),
+            "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
+            "fkiEzsignfoldersignerassociationIDDeclinedtosign": obj.get("fkiEzsignfoldersignerassociationIDDeclinedtosign"),
+            "dtEzsigndocumentDuedate": obj.get("dtEzsigndocumentDuedate"),
+            "dtEzsignformCompleted": obj.get("dtEzsignformCompleted"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "sEzsigndocumentName": obj.get("sEzsigndocumentName"),
+            "eEzsigndocumentStep": obj.get("eEzsigndocumentStep"),
+            "dtEzsigndocumentFirstsend": obj.get("dtEzsigndocumentFirstsend"),
+            "dtEzsigndocumentLastsend": obj.get("dtEzsigndocumentLastsend"),
+            "iEzsigndocumentOrder": obj.get("iEzsigndocumentOrder"),
+            "iEzsigndocumentPagetotal": obj.get("iEzsigndocumentPagetotal"),
+            "iEzsigndocumentSignaturesigned": obj.get("iEzsigndocumentSignaturesigned"),
+            "iEzsigndocumentSignaturetotal": obj.get("iEzsigndocumentSignaturetotal"),
+            "iEzsigndocumentFormfieldtotal": obj.get("iEzsigndocumentFormfieldtotal"),
+            "sEzsigndocumentMD5initial": obj.get("sEzsigndocumentMD5initial"),
+            "tEzsigndocumentDeclinedtosignreason": obj.get("tEzsigndocumentDeclinedtosignreason"),
+            "sEzsigndocumentMD5signed": obj.get("sEzsigndocumentMD5signed"),
+            "bEzsigndocumentEzsignform": obj.get("bEzsigndocumentEzsignform"),
+            "bEzsigndocumentHassignedsignatures": obj.get("bEzsigndocumentHassignedsignatures"),
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
+            "sEzsigndocumentExternalid": obj.get("sEzsigndocumentExternalid"),
+            "iEzsigndocumentEzsignsignatureattachmenttotal": obj.get("iEzsigndocumentEzsignsignatureattachmenttotal"),
+            "iEzsigndocumentEzsigndiscussiontotal": obj.get("iEzsigndocumentEzsigndiscussiontotal")
+        })
+        return _obj
 
 

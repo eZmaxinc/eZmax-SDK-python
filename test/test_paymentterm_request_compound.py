@@ -36,9 +36,24 @@ class TestPaymenttermRequestCompound(unittest.TestCase):
         model = PaymenttermRequestCompound()
         if include_optional:
             return PaymenttermRequestCompound(
+                pki_paymentterm_id = 46,
+                s_paymentterm_code = '0030',
+                e_paymentterm_type = 'Days',
+                i_paymentterm_day = 30,
+                obj_paymentterm_description = eZmaxApi.models.multilingual_paymentterm_description.Multilingual-PaymenttermDescription(
+                    s_paymentterm_description1 = 'Net 30 jours', 
+                    s_paymentterm_description2 = 'Net 30 days', ),
+                b_paymentterm_isactive = True
             )
         else:
             return PaymenttermRequestCompound(
+                s_paymentterm_code = '0030',
+                e_paymentterm_type = 'Days',
+                i_paymentterm_day = 30,
+                obj_paymentterm_description = eZmaxApi.models.multilingual_paymentterm_description.Multilingual-PaymenttermDescription(
+                    s_paymentterm_description1 = 'Net 30 jours', 
+                    s_paymentterm_description2 = 'Net 30 days', ),
+                b_paymentterm_isactive = True,
         )
         """
 

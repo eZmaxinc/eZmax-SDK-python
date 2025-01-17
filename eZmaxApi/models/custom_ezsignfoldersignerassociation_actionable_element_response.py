@@ -18,19 +18,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignfoldersignerassociation_response_compound import EzsignfoldersignerassociationResponseCompound
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsignfoldersignerassociation_response_compound_user import EzsignfoldersignerassociationResponseCompoundUser
 from eZmaxApi.models.ezsignsigner_response_compound import EzsignsignerResponseCompound
 from eZmaxApi.models.ezsignsignergroup_response_compound import EzsignsignergroupResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CustomEzsignfoldersignerassociationActionableElementResponse(EzsignfoldersignerassociationResponseCompound):
+class CustomEzsignfoldersignerassociationActionableElementResponse(BaseModel):
     """
     A Ezsignfoldersignerassociation Object with actionable elements
     """ # noqa: E501
+    pki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID")
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    b_ezsignfoldersignerassociation_delayedsend: StrictBool = Field(description="If this flag is true the signatory is part of a delayed send.", alias="bEzsignfoldersignerassociationDelayedsend")
+    b_ezsignfoldersignerassociation_receivecopy: StrictBool = Field(description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
+    t_ezsignfoldersignerassociation_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
+    b_ezsignfoldersignerassociation_allowsigninginperson: StrictBool = Field(description="If the Ezsignfoldersignerassociation is allowed to sign in person or not", alias="bEzsignfoldersignerassociationAllowsigninginperson")
+    obj_ezsignsignergroup: Optional[EzsignsignergroupResponseCompound] = Field(default=None, alias="objEzsignsignergroup")
+    obj_user: Optional[EzsignfoldersignerassociationResponseCompoundUser] = Field(default=None, alias="objUser")
+    obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(default=None, alias="objEzsignsigner")
     b_ezsignfoldersignerassociation_hasactionableelements_current: StrictBool = Field(description="Indicates if the Ezsignfoldersignerassociation has actionable elements in the current step", alias="bEzsignfoldersignerassociationHasactionableelementsCurrent")
     b_ezsignfoldersignerassociation_hasactionableelements_future: StrictBool = Field(description="Indicates if the Ezsignfoldersignerassociation has actionable elements in a future step", alias="bEzsignfoldersignerassociationHasactionableelementsFuture")
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationDelayedsend", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage", "bEzsignfoldersignerassociationAllowsigninginperson", "objEzsignsignergroup", "objUser", "objEzsignsigner", "bEzsignfoldersignerassociationHasactionableelementsCurrent", "bEzsignfoldersignerassociationHasactionableelementsFuture"]

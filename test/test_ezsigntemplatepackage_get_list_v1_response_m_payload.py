@@ -36,6 +36,8 @@ class TestEzsigntemplatepackageGetListV1ResponseMPayload(unittest.TestCase):
         model = EzsigntemplatepackageGetListV1ResponseMPayload()
         if include_optional:
             return EzsigntemplatepackageGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezsigntemplatepackage = [
                     eZmaxApi.models.ezsigntemplatepackage_list_element.ezsigntemplatepackage-ListElement(
                         pki_ezsigntemplatepackage_id = 99, 
@@ -50,6 +52,8 @@ class TestEzsigntemplatepackageGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzsigntemplatepackageGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezsigntemplatepackage = [
                     eZmaxApi.models.ezsigntemplatepackage_list_element.ezsigntemplatepackage-ListElement(
                         pki_ezsigntemplatepackage_id = 99, 

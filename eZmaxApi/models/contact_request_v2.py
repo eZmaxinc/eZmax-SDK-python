@@ -108,7 +108,27 @@ class ContactRequestV2(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ContactRequestV2 from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "fkiContacttitleID": obj.get("fkiContacttitleID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "eContactType": obj.get("eContactType"),
+            "sContactFirstname": obj.get("sContactFirstname"),
+            "sContactLastname": obj.get("sContactLastname"),
+            "sContactCompany": obj.get("sContactCompany"),
+            "dtContactBirthdate": obj.get("dtContactBirthdate"),
+            "sContactOccupation": obj.get("sContactOccupation"),
+            "tContactNote": obj.get("tContactNote"),
+            "bContactIsactive": obj.get("bContactIsactive"),
+            "objContactinformations": ContactinformationsRequestCompound.from_dict(obj["objContactinformations"]) if obj.get("objContactinformations") is not None else None
+        })
+        return _obj
 
 

@@ -36,6 +36,8 @@ class TestUsergroupGetListV1ResponseMPayload(unittest.TestCase):
         model = UsergroupGetListV1ResponseMPayload()
         if include_optional:
             return UsergroupGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_usergroup = [
                     eZmaxApi.models.usergroup_list_element.usergroup-ListElement(
                         pki_usergroup_id = 2, 
@@ -45,6 +47,8 @@ class TestUsergroupGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return UsergroupGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_usergroup = [
                     eZmaxApi.models.usergroup_list_element.usergroup-ListElement(
                         pki_usergroup_id = 2, 

@@ -6,6 +6,8 @@ Response for GET /1/object/tranqcontract/{pkiTranqcontractID}/getCommunicationre
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**TranqcontractGetCommunicationsendersV1ResponseMPayload**](TranqcontractGetCommunicationsendersV1ResponseMPayload.md) |  | 
 
 ## Example

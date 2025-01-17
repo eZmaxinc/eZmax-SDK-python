@@ -36,9 +36,16 @@ class TestSignatureRequestCompound(unittest.TestCase):
         model = SignatureRequestCompound()
         if include_optional:
             return SignatureRequestCompound(
+                pki_signature_id = 12,
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
+                t_signature_svg = '{"$ref":"#/components/examples/Svg/value"}',
+                t_signature_svginitials = '{"$ref":"#/components/examples/Svg/value"}'
             )
         else:
             return SignatureRequestCompound(
+                fki_font_id = 1,
+                e_signature_preference = 'Text',
         )
         """
 

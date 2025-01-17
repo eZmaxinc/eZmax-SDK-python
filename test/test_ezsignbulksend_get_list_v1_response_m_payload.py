@@ -36,6 +36,8 @@ class TestEzsignbulksendGetListV1ResponseMPayload(unittest.TestCase):
         model = EzsignbulksendGetListV1ResponseMPayload()
         if include_optional:
             return EzsignbulksendGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezsignbulksend = [
                     eZmaxApi.models.ezsignbulksend_list_element.ezsignbulksend-ListElement(
                         pki_ezsignbulksend_id = 8, 
@@ -53,6 +55,8 @@ class TestEzsignbulksendGetListV1ResponseMPayload(unittest.TestCase):
             )
         else:
             return EzsignbulksendGetListV1ResponseMPayload(
+                i_row_returned = 100,
+                i_row_filtered = 533,
                 a_obj_ezsignbulksend = [
                     eZmaxApi.models.ezsignbulksend_list_element.ezsignbulksend-ListElement(
                         pki_ezsignbulksend_id = 8, 

@@ -18,20 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.common_response import CommonResponse
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
-from eZmaxApi.models.ezsignfolder_response_compound import EzsignfolderResponseCompound
+from eZmaxApi.models.ezsignfolder_get_object_v1_response_m_payload import EzsignfolderGetObjectV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignfolderGetObjectV1Response(CommonResponse):
+class EzsignfolderGetObjectV1Response(BaseModel):
     """
     Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}
     """ # noqa: E501
-    m_payload: EzsignfolderResponseCompound = Field(description="Payload for GET /1/object/ezsignfolder/{pkiEzsignfolderID}", alias="mPayload")
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
+    m_payload: EzsignfolderGetObjectV1ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 
     model_config = ConfigDict(
@@ -96,7 +97,7 @@ class EzsignfolderGetObjectV1Response(CommonResponse):
         _obj = cls.model_validate({
             "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj["objDebugPayload"]) if obj.get("objDebugPayload") is not None else None,
             "objDebug": CommonResponseObjDebug.from_dict(obj["objDebug"]) if obj.get("objDebug") is not None else None,
-            "mPayload": EzsignfolderResponseCompound.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
+            "mPayload": EzsignfolderGetObjectV1ResponseMPayload.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
         })
         return _obj
 

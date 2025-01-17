@@ -36,6 +36,15 @@ class TestEzmaxinvoicinguserResponseCompound(unittest.TestCase):
         model = EzmaxinvoicinguserResponseCompound()
         if include_optional:
             return EzmaxinvoicinguserResponseCompound(
+                pki_ezmaxinvoicinguser_id = 202,
+                fki_ezmaxinvoicing_id = 28,
+                fki_billingentityinternal_id = 1,
+                s_billingentityinternal_description_x = 'Default',
+                fki_user_id = 70,
+                i_ezmaxinvoicinguser_ezsigndocument = 243,
+                b_ezmaxinvoicinguser_ezsignaccount = True,
+                b_ezmaxinvoicinguser_billableezsign = True,
+                e_ezmaxinvoicinguser_variationezsign = 'Charge',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
@@ -43,6 +52,13 @@ class TestEzmaxinvoicinguserResponseCompound(unittest.TestCase):
             )
         else:
             return EzmaxinvoicinguserResponseCompound(
+                fki_billingentityinternal_id = 1,
+                s_billingentityinternal_description_x = 'Default',
+                fki_user_id = 70,
+                i_ezmaxinvoicinguser_ezsigndocument = 243,
+                b_ezmaxinvoicinguser_ezsignaccount = True,
+                b_ezmaxinvoicinguser_billableezsign = True,
+                e_ezmaxinvoicinguser_variationezsign = 'Charge',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 

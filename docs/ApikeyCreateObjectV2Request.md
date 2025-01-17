@@ -6,7 +6,7 @@ Request for POST /2/object/apikey
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_apikey** | [**List[ApikeyRequestCompound]**](ApikeyRequest.md) |  | 
+**a_obj_apikey** | [**List[ApikeyRequestCompound]**](ApikeyRequestCompound.md) |  | 
 
 ## Example
 

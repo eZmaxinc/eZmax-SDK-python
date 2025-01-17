@@ -6,7 +6,7 @@ Request for PUT /1/object/permission/{pkiPermissionID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_permission** | [**PermissionRequest**](PermissionRequest.md) | A Permission Object and children to create a complete structure | 
+**obj_permission** | [**PermissionRequestCompound**](PermissionRequestCompound.md) |  | 
 
 ## Example
 

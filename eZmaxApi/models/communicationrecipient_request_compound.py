@@ -18,17 +18,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.communicationrecipient_request import CommunicationrecipientRequest
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_communicationrecipient_type import FieldECommunicationrecipientType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CommunicationrecipientRequestCompound(CommunicationrecipientRequest):
+class CommunicationrecipientRequestCompound(BaseModel):
     """
     A Communicationrecipient Object and children
     """ # noqa: E501
+    pki_communicationrecipient_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communicationrecipient.", alias="pkiCommunicationrecipientID")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
+    fki_contact_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Contact", alias="fkiContactID")
+    fki_customer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Customer.", alias="fkiCustomerID")
+    fki_employee_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Employee.", alias="fkiEmployeeID")
+    fki_assistant_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Assistant.", alias="fkiAssistantID")
+    fki_externalbroker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Externalbroker.", alias="fkiExternalbrokerID")
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
+    fki_notary_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Notary.", alias="fkiNotaryID")
+    fki_supplier_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supplier.", alias="fkiSupplierID")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID")
+    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
+    e_communicationrecipient_type: Optional[FieldECommunicationrecipientType] = Field(default=None, alias="eCommunicationrecipientType")
     __properties: ClassVar[List[str]] = ["pkiCommunicationrecipientID", "fkiAgentID", "fkiBrokerID", "fkiContactID", "fkiCustomerID", "fkiEmployeeID", "fkiAssistantID", "fkiExternalbrokerID", "fkiEzsignsignerID", "fkiNotaryID", "fkiSupplierID", "fkiUserID", "fkiMailboxsharedID", "fkiPhonelinesharedID", "eCommunicationrecipientType"]
 
     model_config = ConfigDict(

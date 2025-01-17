@@ -18,17 +18,26 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.domain_request import DomainRequest
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DomainRequestCompound(DomainRequest):
+class DomainRequestCompound(BaseModel):
     """
     A Domain Object and children
     """ # noqa: E501
+    pki_domain_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Domain", alias="pkiDomainID")
+    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName")
     __properties: ClassVar[List[str]] = ["pkiDomainID", "sDomainName"]
+
+    @field_validator('s_domain_name')
+    def s_domain_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
+            raise ValueError(r"must validate the regular expression /^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

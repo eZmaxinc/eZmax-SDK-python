@@ -113,7 +113,28 @@ class EzdoctemplatedocumentResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EzdoctemplatedocumentResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiEzdoctemplatedocumentID": obj.get("pkiEzdoctemplatedocumentID"),
+            "fkiLanguageID": obj.get("fkiLanguageID"),
+            "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiEzdoctemplatetypeID": obj.get("fkiEzdoctemplatetypeID"),
+            "fkiEzdoctemplatefieldtypecategoryID": obj.get("fkiEzdoctemplatefieldtypecategoryID"),
+            "eEzdoctemplatedocumentPrivacylevel": obj.get("eEzdoctemplatedocumentPrivacylevel"),
+            "bEzdoctemplatedocumentIsactive": obj.get("bEzdoctemplatedocumentIsactive"),
+            "objEzdoctemplatedocumentName": MultilingualEzdoctemplatedocumentName.from_dict(obj["objEzdoctemplatedocumentName"]) if obj.get("objEzdoctemplatedocumentName") is not None else None,
+            "sEzdoctemplatedocumentNameX": obj.get("sEzdoctemplatedocumentNameX"),
+            "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
+            "sEzdoctemplatefieldtypecategoryDescriptionX": obj.get("sEzdoctemplatefieldtypecategoryDescriptionX"),
+            "sEzdoctemplatetypeDescriptionX": obj.get("sEzdoctemplatetypeDescriptionX")
+        })
+        return _obj
 
 

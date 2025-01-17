@@ -36,9 +36,14 @@ class TestEzsigntemplatepackagemembershipRequestCompound(unittest.TestCase):
         model = EzsigntemplatepackagemembershipRequestCompound()
         if include_optional:
             return EzsigntemplatepackagemembershipRequestCompound(
+                pki_ezsigntemplatepackagemembership_id = 194,
+                fki_ezsigntemplatepackage_id = 99,
+                fki_ezsigntemplate_id = 36
             )
         else:
             return EzsigntemplatepackagemembershipRequestCompound(
+                fki_ezsigntemplatepackage_id = 99,
+                fki_ezsigntemplate_id = 36,
         )
         """
 

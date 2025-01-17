@@ -18,18 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
 from eZmaxApi.models.custom_ezsignfoldertransmission_response import CustomEzsignfoldertransmissionResponse
-from eZmaxApi.models.ezsignbulksendtransmission_response import EzsignbulksendtransmissionResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksendtransmissionResponseCompound(EzsignbulksendtransmissionResponse):
+class EzsignbulksendtransmissionResponseCompound(BaseModel):
     """
     An Ezsignbulksendtransmission Object and children to create a complete structure
     """ # noqa: E501
+    pki_ezsignbulksendtransmission_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksendtransmission", alias="pkiEzsignbulksendtransmissionID")
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
+    s_ezsignbulksendtransmission_description: StrictStr = Field(description="The description of the Ezsignbulksendtransmission", alias="sEzsignbulksendtransmissionDescription")
+    i_ezsignbulksendtransmission_errors: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of errors during the Ezsignbulksendtransmission", alias="iEzsignbulksendtransmissionErrors")
+    obj_audit: CommonAudit = Field(alias="objAudit")
     a_obj_ezsignfoldertransmission: List[CustomEzsignfoldertransmissionResponse] = Field(alias="a_objEzsignfoldertransmission")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendtransmissionID", "fkiEzsignbulksendID", "sEzsignbulksendtransmissionDescription", "iEzsignbulksendtransmissionErrors", "objAudit", "a_objEzsignfoldertransmission"]
 

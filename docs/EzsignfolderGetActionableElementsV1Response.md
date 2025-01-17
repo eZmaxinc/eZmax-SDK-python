@@ -6,6 +6,8 @@ Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElement
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsignfolderGetActionableElementsV1ResponseMPayload**](EzsignfolderGetActionableElementsV1ResponseMPayload.md) |  | 
 
 ## Example

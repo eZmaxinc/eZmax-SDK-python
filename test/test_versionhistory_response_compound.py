@@ -36,9 +36,29 @@ class TestVersionhistoryResponseCompound(unittest.TestCase):
         model = VersionhistoryResponseCompound()
         if include_optional:
             return VersionhistoryResponseCompound(
+                pki_versionhistory_id = 42,
+                fki_module_id = 40,
+                fki_modulesection_id = 53,
+                s_module_name_x = 'Purchase',
+                s_modulesection_name_x = 'Access',
+                e_versionhistory_usertype = 'Normal',
+                obj_versionhistory_detail = eZmaxApi.models.multilingual_versionhistory_detail.Multilingual-VersionhistoryDetail(
+                    t_versionhistory_detail1 = 'Message important', 
+                    t_versionhistory_detail2 = 'Important message', ),
+                dt_versionhistory_date = '2020-12-31',
+                dt_versionhistory_dateend = '2020-12-31',
+                e_versionhistory_type = 'NewFeature',
+                b_versionhistory_draft = True
             )
         else:
             return VersionhistoryResponseCompound(
+                pki_versionhistory_id = 42,
+                obj_versionhistory_detail = eZmaxApi.models.multilingual_versionhistory_detail.Multilingual-VersionhistoryDetail(
+                    t_versionhistory_detail1 = 'Message important', 
+                    t_versionhistory_detail2 = 'Important message', ),
+                dt_versionhistory_date = '2020-12-31',
+                e_versionhistory_type = 'NewFeature',
+                b_versionhistory_draft = True,
         )
         """
 

@@ -6,6 +6,8 @@ Response for GET /1/object/apikey/{pkiApikeyID}/getCors
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**ApikeyGetCorsV1ResponseMPayload**](ApikeyGetCorsV1ResponseMPayload.md) |  | 
 
 ## Example

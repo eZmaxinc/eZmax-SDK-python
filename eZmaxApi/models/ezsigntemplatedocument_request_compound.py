@@ -18,17 +18,56 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplatedocument_request import EzsigntemplatedocumentRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatedocumentRequestCompound(EzsigntemplatedocumentRequest):
+class EzsigntemplatedocumentRequestCompound(BaseModel):
     """
     A Ezsigntemplatedocument Object and children
     """ # noqa: E501
+    pki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID")
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
+    fki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
+    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
+    e_ezsigntemplatedocument_source: StrictStr = Field(description="Indicates where to look for the document binary content.", alias="eEzsigntemplatedocumentSource")
+    e_ezsigntemplatedocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the template.", alias="eEzsigntemplatedocumentFormat")
+    s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64")
+    s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl")
+    b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(default=None, description="Try to repair the document or flatten it if it cannot be used for electronic signature.", alias="bEzsigntemplatedocumentForcerepair")
+    e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document.", alias="eEzsigntemplatedocumentForm")
+    s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
+
+    @field_validator('e_ezsigntemplatedocument_source')
+    def e_ezsigntemplatedocument_source_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['Base64', 'Url', 'Ezsigndocument']):
+            raise ValueError("must be one of enum values ('Base64', 'Url', 'Ezsigndocument')")
+        return value
+
+    @field_validator('e_ezsigntemplatedocument_format')
+    def e_ezsigntemplatedocument_format_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx']):
+            raise ValueError("must be one of enum values ('Pdf', 'Doc', 'Docx', 'Xls', 'Xlsx', 'Ppt', 'Pptx')")
+        return value
+
+    @field_validator('e_ezsigntemplatedocument_form')
+    def e_ezsigntemplatedocument_form_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['Keep', 'Convert', 'Discard', 'Flatten']):
+            raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard', 'Flatten')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

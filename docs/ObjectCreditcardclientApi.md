@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **creditcardclient_delete_object_v1**
-> CommonResponse creditcardclient_delete_object_v1(pki_creditcardclient_id)
+> CreditcardclientDeleteObjectV1Response creditcardclient_delete_object_v1(pki_creditcardclient_id)
 
 Delete an existing Creditcardclient
 
@@ -107,7 +107,7 @@ Delete an existing Creditcardclient
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.creditcardclient_delete_object_v1_response import CreditcardclientDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientDeleteObjectV1Response**](CreditcardclientDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **creditcardclient_edit_object_v1**
-> CommonResponse creditcardclient_edit_object_v1(pki_creditcardclient_id, creditcardclient_edit_object_v1_request)
+> CreditcardclientEditObjectV1Response creditcardclient_edit_object_v1(pki_creditcardclient_id, creditcardclient_edit_object_v1_request)
 
 Edit an existing Creditcardclient
 
@@ -187,8 +187,8 @@ Edit an existing Creditcardclient
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.creditcardclient_edit_object_v1_request import CreditcardclientEditObjectV1Request
+from eZmaxApi.models.creditcardclient_edit_object_v1_response import CreditcardclientEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientEditObjectV1Response**](CreditcardclientEditObjectV1Response.md)
 
 ### Authorization
 
@@ -514,7 +514,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **creditcardclient_patch_object_v1**
-> CommonResponse creditcardclient_patch_object_v1(pki_creditcardclient_id, creditcardclient_patch_object_v1_request)
+> CreditcardclientPatchObjectV1Response creditcardclient_patch_object_v1(pki_creditcardclient_id, creditcardclient_patch_object_v1_request)
 
 Patch an existing Creditcardclient
 
@@ -526,8 +526,8 @@ Patch an existing Creditcardclient
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.creditcardclient_patch_object_v1_request import CreditcardclientPatchObjectV1Request
+from eZmaxApi.models.creditcardclient_patch_object_v1_response import CreditcardclientPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**CreditcardclientPatchObjectV1Response**](CreditcardclientPatchObjectV1Response.md)
 
 ### Authorization
 

@@ -18,19 +18,53 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.colleague_request_v2 import ColleagueRequestV2
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_colleague_ezsign import FieldEColleagueEzsign
 from eZmaxApi.models.field_e_colleague_realestateinprogess import FieldEColleagueRealestateinprogess
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ColleagueRequestCompoundV2(ColleagueRequestV2):
+class ColleagueRequestCompoundV2(BaseModel):
     """
     A Colleague Object and children
     """ # noqa: E501
+    pki_colleague_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Colleague", alias="pkiColleagueID")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    fki_user_id_colleague: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDColleague")
+    b_colleague_ezsignemail: StrictBool = Field(description="Whether the email can be used by the cloning user in Ezsign", alias="bColleagueEzsignemail")
+    b_colleague_financial: StrictBool = Field(description="Whether the cloning user has access to the financial", alias="bColleagueFinancial")
+    b_colleague_usecloneemail: StrictBool = Field(description="Whether the cloning user has access to the cloned user email to send communications", alias="bColleagueUsecloneemail")
+    b_colleague_attachment: StrictBool = Field(description="Whether the cloning user has access to the attachment", alias="bColleagueAttachment")
+    b_colleague_canafe: StrictBool = Field(description="Whether the cloning user has access to canafe", alias="bColleagueCanafe")
+    b_colleague_permission: StrictBool = Field(description="Whether the cloning user copies the permission of the cloned user", alias="bColleaguePermission")
+    b_colleague_realestatecompleted: StrictBool = Field(description="Whether if the cloning user has access to the completed folders in real estate", alias="bColleagueRealestatecompleted")
+    dt_colleague_from: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The from of the Colleague", alias="dtColleagueFrom")
+    dt_colleague_to: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The to of the Colleague", alias="dtColleagueTo")
+    e_colleague_ezsign: FieldEColleagueEzsign = Field(alias="eColleagueEzsign")
+    e_colleague_realestateinprogress: FieldEColleagueRealestateinprogess = Field(alias="eColleagueRealestateinprogress")
     __properties: ClassVar[List[str]] = ["pkiColleagueID", "fkiUserID", "fkiUserIDColleague", "bColleagueEzsignemail", "bColleagueFinancial", "bColleagueUsecloneemail", "bColleagueAttachment", "bColleagueCanafe", "bColleaguePermission", "bColleagueRealestatecompleted", "dtColleagueFrom", "dtColleagueTo", "eColleagueEzsign", "eColleagueRealestateinprogress"]
+
+    @field_validator('dt_colleague_from')
+    def dt_colleague_from_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+        return value
+
+    @field_validator('dt_colleague_to')
+    def dt_colleague_to_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

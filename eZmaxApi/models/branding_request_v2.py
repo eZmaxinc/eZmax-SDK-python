@@ -107,7 +107,25 @@ class BrandingRequestV2(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BrandingRequestV2 from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiBrandingID": obj.get("pkiBrandingID"),
+            "objBrandingDescription": MultilingualBrandingDescription.from_dict(obj["objBrandingDescription"]) if obj.get("objBrandingDescription") is not None else None,
+            "eBrandingLogo": obj.get("eBrandingLogo"),
+            "eBrandingAlignlogo": obj.get("eBrandingAlignlogo"),
+            "sBrandingBase64": obj.get("sBrandingBase64"),
+            "iBrandingColor": obj.get("iBrandingColor"),
+            "sBrandingName": obj.get("sBrandingName"),
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "bBrandingIsactive": obj.get("bBrandingIsactive")
+        })
+        return _obj
 
 

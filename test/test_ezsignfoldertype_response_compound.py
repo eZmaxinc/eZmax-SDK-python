@@ -36,6 +36,64 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
         model = EzsignfoldertypeResponseCompound()
         if include_optional:
             return EzsignfoldertypeResponseCompound(
+                pki_ezsignfoldertype_id = 5,
+                obj_ezsignfoldertype_name = eZmaxApi.models.multilingual_ezsignfoldertype_name.Multilingual-EzsignfoldertypeName(
+                    s_ezsignfoldertype_name1 = 'Embauche', 
+                    s_ezsignfoldertype_name2 = 'Recruitment', ),
+                fki_branding_id = 78,
+                fki_billingentityinternal_id = 1,
+                fki_usergroup_id = 2,
+                fki_usergroup_id_restricted = 2,
+                fki_ezsigntsarequirement_id = 1,
+                s_branding_description_x = 'Company X',
+                s_billingentityinternal_description_x = 'Default',
+                s_ezsigntsarequirement_description_x = 'No',
+                s_email_address_signed = 'email@example.com',
+                s_email_address_summary = 'email@example.com',
+                s_usergroup_name_x = 'Administration',
+                s_usergroup_name_x_restricted = 'Administration',
+                e_ezsignfoldertype_privacylevel = 'User',
+                e_ezsignfoldertype_sendreminderfrequency = 'None',
+                i_ezsignfoldertype_archivaldays = 30,
+                e_ezsignfoldertype_disposal = 'Manual',
+                e_ezsignfoldertype_completion = 'PerEzsigndocument',
+                i_ezsignfoldertype_disposaldays = 365,
+                i_ezsignfoldertype_deadlinedays = 5,
+                b_ezsignfoldertype_automaticsignature = False,
+                b_ezsignfoldertype_delegate = True,
+                b_ezsignfoldertype_discussion = True,
+                b_ezsignfoldertype_reassignezsignsigner = True,
+                b_ezsignfoldertype_reassignuser = True,
+                b_ezsignfoldertype_reassigngroup = True,
+                b_ezsignfoldertype_sendsignedtoezsignsigner = False,
+                b_ezsignfoldertype_sendsignedtouser = False,
+                b_ezsignfoldertype_sendattachmentezsignsigner = False,
+                b_ezsignfoldertype_sendproofezsignsigner = False,
+                b_ezsignfoldertype_sendattachmentuser = False,
+                b_ezsignfoldertype_sendproofuser = False,
+                b_ezsignfoldertype_sendproofemail = False,
+                b_ezsignfoldertype_allowdownloadattachmentezsignsigner = False,
+                b_ezsignfoldertype_allowdownloadproofezsignsigner = False,
+                b_ezsignfoldertype_sendproofreceivealldocument = False,
+                b_ezsignfoldertype_sendsignedtodocumentowner = False,
+                b_ezsignfoldertype_sendsignedtofolderowner = False,
+                b_ezsignfoldertype_sendsignedtofullgroup = False,
+                b_ezsignfoldertype_sendsignedtolimitedgroup = False,
+                b_ezsignfoldertype_sendsignedtocolleague = False,
+                b_ezsignfoldertype_sendsummarytodocumentowner = False,
+                b_ezsignfoldertype_sendsummarytofolderowner = False,
+                b_ezsignfoldertype_sendsummarytofullgroup = False,
+                b_ezsignfoldertype_sendsummarytolimitedgroup = False,
+                b_ezsignfoldertype_sendsummarytocolleague = False,
+                b_ezsignfoldertype_isactive = True,
+                a_obj_userlogintype = [
+                    eZmaxApi.models.userlogintype_response.userlogintype-Response(
+                        pki_userlogintype_id = 2, 
+                        obj_userlogintype_description = eZmaxApi.models.multilingual_userlogintype_description.Multilingual-UserlogintypeDescription(
+                            s_userlogintype_description1 = 'Courriel et téléphone ou SMS', 
+                            s_userlogintype_description2 = 'Email and phone or SMS', ), 
+                        s_userlogintype_description_x = 'Email and phone or SMS', )
+                    ],
                 a_fki_user_id_signed = [
                     70
                     ],
@@ -45,6 +103,32 @@ class TestEzsignfoldertypeResponseCompound(unittest.TestCase):
             )
         else:
             return EzsignfoldertypeResponseCompound(
+                pki_ezsignfoldertype_id = 5,
+                obj_ezsignfoldertype_name = eZmaxApi.models.multilingual_ezsignfoldertype_name.Multilingual-EzsignfoldertypeName(
+                    s_ezsignfoldertype_name1 = 'Embauche', 
+                    s_ezsignfoldertype_name2 = 'Recruitment', ),
+                fki_branding_id = 78,
+                s_branding_description_x = 'Company X',
+                e_ezsignfoldertype_privacylevel = 'User',
+                i_ezsignfoldertype_archivaldays = 30,
+                e_ezsignfoldertype_disposal = 'Manual',
+                e_ezsignfoldertype_completion = 'PerEzsigndocument',
+                i_ezsignfoldertype_deadlinedays = 5,
+                b_ezsignfoldertype_sendsignedtodocumentowner = False,
+                b_ezsignfoldertype_sendsignedtofolderowner = False,
+                b_ezsignfoldertype_sendsignedtocolleague = False,
+                b_ezsignfoldertype_sendsummarytodocumentowner = False,
+                b_ezsignfoldertype_sendsummarytofolderowner = False,
+                b_ezsignfoldertype_sendsummarytocolleague = False,
+                b_ezsignfoldertype_isactive = True,
+                a_obj_userlogintype = [
+                    eZmaxApi.models.userlogintype_response.userlogintype-Response(
+                        pki_userlogintype_id = 2, 
+                        obj_userlogintype_description = eZmaxApi.models.multilingual_userlogintype_description.Multilingual-UserlogintypeDescription(
+                            s_userlogintype_description1 = 'Courriel et téléphone ou SMS', 
+                            s_userlogintype_description2 = 'Email and phone or SMS', ), 
+                        s_userlogintype_description_x = 'Email and phone or SMS', )
+                    ],
         )
         """
 

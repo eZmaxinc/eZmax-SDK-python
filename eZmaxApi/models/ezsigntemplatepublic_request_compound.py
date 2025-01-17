@@ -18,18 +18,42 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplatepublic_request import EzsigntemplatepublicRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplatepublic_limittype import FieldEEzsigntemplatepublicLimittype
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepublicRequestCompound(EzsigntemplatepublicRequest):
+class EzsigntemplatepublicRequestCompound(BaseModel):
     """
     A Ezsigntemplatepublic Object and children
     """ # noqa: E501
+    pki_ezsigntemplatepublic_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepublic", alias="pkiEzsigntemplatepublicID")
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_userlogintype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Userlogintype  Valid values:  |Value|Description|Detail| |-|-|-| |1|**Email Only**|The Ezsignsigner will receive a secure link by email| |2|**Email and phone or SMS**|The Ezsignsigner will receive a secure link by email and will need to authenticate using SMS or Phone call. **Additional fee applies**| |3|**Email and secret question**|The Ezsignsigner will receive a secure link by email and will need to authenticate using a predefined question and answer| |4|**In person only**|The Ezsignsigner will only be able to sign \"In-Person\" and there won't be any authentication. No email will be sent for invitation to sign. Make sure you evaluate the risk of signature denial and at minimum, we recommend you use a handwritten signature type| |5|**In person with phone or SMS**|The Ezsignsigner will only be able to sign \"In-Person\" and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**| |6|**Embedded**|The Ezsignsigner will only be able to sign in the embedded solution. No email will be sent for invitation to sign. **Additional fee applies**|   |7|**Embedded with phone or SMS**|The Ezsignsigner will only be able to sign in the embedded solution and will need to authenticate using SMS or Phone call. No email will be sent for invitation to sign. **Additional fee applies**|   |8|**No validation**|The Ezsignsigner will not receive an email and won't have to validate his connection using 2 factor. **Additional fee applies**|      |9|**Sms only**|The Ezsignsigner will not receive an email but will will need to authenticate using SMS. **Additional fee applies**|     ", alias="fkiUserlogintypeID")
+    fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_ezsigntemplatepackage_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
+    s_ezsigntemplatepublic_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepublic", alias="sEzsigntemplatepublicDescription")
+    b_ezsigntemplatepublic_isactive: StrictBool = Field(description="Whether the ezsigntemplatepublic is active or not", alias="bEzsigntemplatepublicIsactive")
+    t_ezsigntemplatepublic_note: Annotated[str, Field(strict=True)] = Field(description="The note of the Ezsigntemplatepublic", alias="tEzsigntemplatepublicNote")
+    e_ezsigntemplatepublic_limittype: FieldEEzsigntemplatepublicLimittype = Field(alias="eEzsigntemplatepublicLimittype")
+    i_ezsigntemplatepublic_limit: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The limit of the Ezsigntemplatepublic", alias="iEzsigntemplatepublicLimit")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepublicID", "fkiEzsignfoldertypeID", "fkiUserlogintypeID", "fkiEzsigntemplateID", "fkiEzsigntemplatepackageID", "sEzsigntemplatepublicDescription", "bEzsigntemplatepublicIsactive", "tEzsigntemplatepublicNote", "eEzsigntemplatepublicLimittype", "iEzsigntemplatepublicLimit"]
+
+    @field_validator('s_ezsigntemplatepublic_description')
+    def s_ezsigntemplatepublic_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
+
+    @field_validator('t_ezsigntemplatepublic_note')
+    def t_ezsigntemplatepublic_note_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

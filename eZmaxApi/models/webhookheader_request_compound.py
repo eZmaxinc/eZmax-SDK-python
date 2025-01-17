@@ -18,17 +18,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.webhookheader_request import WebhookheaderRequest
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookheaderRequestCompound(WebhookheaderRequest):
+class WebhookheaderRequestCompound(BaseModel):
     """
     A Webhookheader Object
     """ # noqa: E501
+    pki_webhookheader_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhookheader", alias="pkiWebhookheaderID")
+    s_webhookheader_name: Annotated[str, Field(strict=True)] = Field(description="The Name of the Webhookheader", alias="sWebhookheaderName")
+    s_webhookheader_value: Annotated[str, Field(strict=True)] = Field(description="The Value of the Webhookheader", alias="sWebhookheaderValue")
     __properties: ClassVar[List[str]] = ["pkiWebhookheaderID", "sWebhookheaderName", "sWebhookheaderValue"]
+
+    @field_validator('s_webhookheader_name')
+    def s_webhookheader_name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\s)[^\s].*$", value):
+            raise ValueError(r"must validate the regular expression /^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\s)[^\s].*$/")
+        return value
+
+    @field_validator('s_webhookheader_value')
+    def s_webhookheader_value_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,255}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,255}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

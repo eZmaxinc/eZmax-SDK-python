@@ -36,9 +36,21 @@ class TestEzsigntemplatepackageRequestCompound(unittest.TestCase):
         model = EzsigntemplatepackageRequestCompound()
         if include_optional:
             return EzsigntemplatepackageRequestCompound(
+                pki_ezsigntemplatepackage_id = 99,
+                fki_ezsignfoldertype_id = 5,
+                fki_ezdoctemplatedocument_id = 95,
+                fki_language_id = 2,
+                s_ezsigntemplatepackage_description = 'Package for new clients',
+                b_ezsigntemplatepackage_adminonly = True,
+                b_ezsigntemplatepackage_isactive = True
             )
         else:
             return EzsigntemplatepackageRequestCompound(
+                fki_ezsignfoldertype_id = 5,
+                fki_language_id = 2,
+                s_ezsigntemplatepackage_description = 'Package for new clients',
+                b_ezsigntemplatepackage_adminonly = True,
+                b_ezsigntemplatepackage_isactive = True,
         )
         """
 

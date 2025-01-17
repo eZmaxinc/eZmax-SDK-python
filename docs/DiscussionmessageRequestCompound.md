@@ -6,6 +6,10 @@ A Discussionmessage Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_discussionmessage_id** | **int** | The unique ID of the Discussionmessage | [optional] 
+**fki_discussion_id** | **int** | The unique ID of the Discussion | 
+**fki_discussionmembership_id_actionrequired** | **int** | The unique ID of the Discussionmembership | [optional] 
+**t_discussionmessage_content** | **str** | The content of the Discussionmessage | 
 
 ## Example
 

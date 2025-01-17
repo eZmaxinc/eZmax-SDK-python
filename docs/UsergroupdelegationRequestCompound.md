@@ -6,6 +6,9 @@ A Usergroupdelegation Object and children
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**pki_usergroupdelegation_id** | **int** | The unique ID of the Usergroupdelegation | [optional] 
+**fki_usergroup_id** | **int** | The unique ID of the Usergroup | 
+**fki_user_id** | **int** | The unique ID of the User | 
 
 ## Example
 

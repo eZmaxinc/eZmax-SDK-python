@@ -118,7 +118,32 @@ class ColleagueResponseV2(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ColleagueResponseV2 from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiColleagueID": obj.get("pkiColleagueID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "fkiUserIDColleague": obj.get("fkiUserIDColleague"),
+            "bColleagueEzsignemail": obj.get("bColleagueEzsignemail"),
+            "bColleagueFinancial": obj.get("bColleagueFinancial"),
+            "bColleagueUsecloneemail": obj.get("bColleagueUsecloneemail"),
+            "bColleagueAttachment": obj.get("bColleagueAttachment"),
+            "bColleagueCanafe": obj.get("bColleagueCanafe"),
+            "bColleaguePermission": obj.get("bColleaguePermission"),
+            "bColleagueRealestatecompleted": obj.get("bColleagueRealestatecompleted"),
+            "dtColleagueFrom": obj.get("dtColleagueFrom"),
+            "dtColleagueTo": obj.get("dtColleagueTo"),
+            "eColleagueEzsign": obj.get("eColleagueEzsign"),
+            "eColleagueRealestateinprogress": obj.get("eColleagueRealestateinprogress"),
+            "objUserName": CustomUserNameResponse.from_dict(obj["objUserName"]) if obj.get("objUserName") is not None else None,
+            "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
+        })
+        return _obj
 
 

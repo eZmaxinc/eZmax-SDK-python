@@ -36,6 +36,21 @@ class TestCommunicationrecipientRequestCompound(unittest.TestCase):
         model = CommunicationrecipientRequestCompound()
         if include_optional:
             return CommunicationrecipientRequestCompound(
+                pki_communicationrecipient_id = 1,
+                fki_agent_id = 1,
+                fki_broker_id = 26,
+                fki_contact_id = 21,
+                fki_customer_id = 18,
+                fki_employee_id = 31,
+                fki_assistant_id = 1,
+                fki_externalbroker_id = 1,
+                fki_ezsignsigner_id = 89,
+                fki_notary_id = 1,
+                fki_supplier_id = 1,
+                fki_user_id = 70,
+                fki_mailboxshared_id = 47,
+                fki_phonelineshared_id = 47,
+                e_communicationrecipient_type = 'To'
             )
         else:
             return CommunicationrecipientRequestCompound(

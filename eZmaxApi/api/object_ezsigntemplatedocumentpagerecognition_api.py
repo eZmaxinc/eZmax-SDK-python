@@ -19,10 +19,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_create_object_v1_request import EzsigntemplatedocumentpagerecognitionCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_create_object_v1_response import EzsigntemplatedocumentpagerecognitionCreateObjectV1Response
+from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_delete_object_v1_response import EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
 from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_edit_object_v1_request import EzsigntemplatedocumentpagerecognitionEditObjectV1Request
+from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_edit_object_v1_response import EzsigntemplatedocumentpagerecognitionEditObjectV1Response
 from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_get_object_v2_response import EzsigntemplatedocumentpagerecognitionGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -333,7 +334,7 @@ class ObjectEzsigntemplatedocumentpagerecognitionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response:
         """Delete an existing Ezsigntemplatedocumentpagerecognition
 
         
@@ -401,7 +402,7 @@ class ObjectEzsigntemplatedocumentpagerecognitionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response]:
         """Delete an existing Ezsigntemplatedocumentpagerecognition
 
         
@@ -598,7 +599,7 @@ class ObjectEzsigntemplatedocumentpagerecognitionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatedocumentpagerecognitionEditObjectV1Response:
         """Edit an existing Ezsigntemplatedocumentpagerecognition
 
         
@@ -671,7 +672,7 @@ class ObjectEzsigntemplatedocumentpagerecognitionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatedocumentpagerecognitionEditObjectV1Response]:
         """Edit an existing Ezsigntemplatedocumentpagerecognition
 
         

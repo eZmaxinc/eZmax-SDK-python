@@ -19,10 +19,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignformfieldgroup_create_object_v1_request import EzsignformfieldgroupCreateObjectV1Request
 from eZmaxApi.models.ezsignformfieldgroup_create_object_v1_response import EzsignformfieldgroupCreateObjectV1Response
+from eZmaxApi.models.ezsignformfieldgroup_delete_object_v1_response import EzsignformfieldgroupDeleteObjectV1Response
 from eZmaxApi.models.ezsignformfieldgroup_edit_object_v1_request import EzsignformfieldgroupEditObjectV1Request
+from eZmaxApi.models.ezsignformfieldgroup_edit_object_v1_response import EzsignformfieldgroupEditObjectV1Response
 from eZmaxApi.models.ezsignformfieldgroup_get_object_v2_response import EzsignformfieldgroupGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -333,7 +334,7 @@ class ObjectEzsignformfieldgroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignformfieldgroupDeleteObjectV1Response:
         """Delete an existing Ezsignformfieldgroup
 
         
@@ -402,7 +403,7 @@ class ObjectEzsignformfieldgroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignformfieldgroupDeleteObjectV1Response]:
         """Delete an existing Ezsignformfieldgroup
 
         
@@ -601,7 +602,7 @@ class ObjectEzsignformfieldgroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignformfieldgroupEditObjectV1Response:
         """Edit an existing Ezsignformfieldgroup
 
         
@@ -674,7 +675,7 @@ class ObjectEzsignformfieldgroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignformfieldgroupEditObjectV1Response]:
         """Edit an existing Ezsignformfieldgroup
 
         

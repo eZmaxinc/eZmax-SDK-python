@@ -18,18 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.ezsignbulksenddocumentmapping_response import EzsignbulksenddocumentmappingResponse
+from typing_extensions import Annotated
 from eZmaxApi.models.ezsigntemplate_response_compound import EzsigntemplateResponseCompound
 from eZmaxApi.models.ezsigntemplatepackage_response_compound import EzsigntemplatepackageResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsignbulksenddocumentmappingResponseCompound(EzsignbulksenddocumentmappingResponse):
+class EzsignbulksenddocumentmappingResponseCompound(BaseModel):
     """
     A Ezsignbulksenddocumentmapping Object
     """ # noqa: E501
+    pki_ezsignbulksenddocumentmapping_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksenddocumentmapping.", alias="pkiEzsignbulksenddocumentmappingID")
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
+    fki_ezsigntemplatepackage_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
+    fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    i_ezsignbulksenddocumentmapping_order: Annotated[int, Field(strict=True, ge=0)] = Field(description="The order in which the Ezsigntemplate or Ezsigntemplatepackage will be presented to the signatory in the Ezsignfolder.", alias="iEzsignbulksenddocumentmappingOrder")
     obj_ezsigntemplate: Optional[EzsigntemplateResponseCompound] = Field(default=None, alias="objEzsigntemplate")
     obj_ezsigntemplatepackage: Optional[EzsigntemplatepackageResponseCompound] = Field(default=None, alias="objEzsigntemplatepackage")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksenddocumentmappingID", "fkiEzsignbulksendID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID", "iEzsignbulksenddocumentmappingOrder", "objEzsigntemplate", "objEzsigntemplatepackage"]

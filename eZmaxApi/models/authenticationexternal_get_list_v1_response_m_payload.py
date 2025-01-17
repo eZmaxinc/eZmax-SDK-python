@@ -18,17 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.authenticationexternal_list_element import AuthenticationexternalListElement
-from eZmaxApi.models.common_get_list_v1_response_m_payload import CommonGetListV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AuthenticationexternalGetListV1ResponseMPayload(CommonGetListV1ResponseMPayload):
+class AuthenticationexternalGetListV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/authenticationexternal/getList
     """ # noqa: E501
+    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
+    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
     a_obj_authenticationexternal: List[AuthenticationexternalListElement] = Field(alias="a_objAuthenticationexternal")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objAuthenticationexternal"]
 

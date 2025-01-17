@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussionmembership_delete_object_v1**
-> CommonResponse discussionmembership_delete_object_v1(pki_discussionmembership_id)
+> DiscussionmembershipDeleteObjectV1Response discussionmembership_delete_object_v1(pki_discussionmembership_id)
 
 Delete an existing Discussionmembership
 
@@ -101,7 +101,7 @@ Delete an existing Discussionmembership
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.discussionmembership_delete_object_v1_response import DiscussionmembershipDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**DiscussionmembershipDeleteObjectV1Response**](DiscussionmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

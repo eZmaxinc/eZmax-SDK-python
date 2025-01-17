@@ -36,9 +36,20 @@ class TestDiscussionmembershipResponseCompound(unittest.TestCase):
         model = DiscussionmembershipResponseCompound()
         if include_optional:
             return DiscussionmembershipResponseCompound(
+                pki_discussionmembership_id = 165,
+                fki_discussion_id = 125,
+                fki_user_id = 70,
+                fki_usergroup_id = 2,
+                fki_modulesection_id = 53,
+                s_discussionmembership_description = 'John Doe',
+                dt_discussionmembership_joined = '2020-12-31 23:59:59'
             )
         else:
             return DiscussionmembershipResponseCompound(
+                pki_discussionmembership_id = 165,
+                fki_discussion_id = 125,
+                s_discussionmembership_description = 'John Doe',
+                dt_discussionmembership_joined = '2020-12-31 23:59:59',
         )
         """
 

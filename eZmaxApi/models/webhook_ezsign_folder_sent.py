@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.attempt_response import AttemptResponse
-from eZmaxApi.models.common_webhook import CommonWebhook
+from eZmaxApi.models.attempt_response_compound import AttemptResponseCompound
 from eZmaxApi.models.custom_webhook_response import CustomWebhookResponse
 from eZmaxApi.models.ezsignfolder_response import EzsignfolderResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WebhookEzsignFolderSent(CommonWebhook):
+class WebhookEzsignFolderSent(BaseModel):
     """
     This is the base Webhook object
     """ # noqa: E501
+    obj_webhook: CustomWebhookResponse = Field(alias="objWebhook")
+    a_obj_attempt: List[AttemptResponseCompound] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
     obj_ezsignfolder: EzsignfolderResponse = Field(alias="objEzsignfolder")
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objEzsignfolder"]
 
@@ -99,7 +100,7 @@ class WebhookEzsignFolderSent(CommonWebhook):
 
         _obj = cls.model_validate({
             "objWebhook": CustomWebhookResponse.from_dict(obj["objWebhook"]) if obj.get("objWebhook") is not None else None,
-            "a_objAttempt": [AttemptResponse.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
+            "a_objAttempt": [AttemptResponseCompound.from_dict(_item) for _item in obj["a_objAttempt"]] if obj.get("a_objAttempt") is not None else None,
             "objEzsignfolder": EzsignfolderResponse.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None
         })
         return _obj

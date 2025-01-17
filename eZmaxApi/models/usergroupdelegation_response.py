@@ -104,7 +104,24 @@ class UsergroupdelegationResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of UsergroupdelegationResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiUsergroupdelegationID": obj.get("pkiUsergroupdelegationID"),
+            "fkiUsergroupID": obj.get("fkiUsergroupID"),
+            "fkiUserID": obj.get("fkiUserID"),
+            "sUserFirstname": obj.get("sUserFirstname"),
+            "sUserLastname": obj.get("sUserLastname"),
+            "sUserLoginname": obj.get("sUserLoginname"),
+            "sEmailAddress": obj.get("sEmailAddress"),
+            "sUsergroupNameX": obj.get("sUsergroupNameX")
+        })
+        return _obj
 
 

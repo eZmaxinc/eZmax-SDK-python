@@ -6,6 +6,8 @@ Response for GET /1/object/otherincome/{pkiOtherincomeID}/getCommunicationList
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayloadGetList**](CommonResponseObjDebugPayloadGetList.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**OtherincomeGetCommunicationListV1ResponseMPayload**](OtherincomeGetCommunicationListV1ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,6 +36,10 @@ class TestWebhookEzsignSignatureSigned(unittest.TestCase):
         model = WebhookEzsignSignatureSigned()
         if include_optional:
             return WebhookEzsignSignatureSigned(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsignsignature = eZmaxApi.models.ezsignsignature_response.ezsignsignature-Response(
                     pki_ezsignsignature_id = 49, 
                     fki_ezsigndocument_id = 97, 
@@ -83,6 +87,10 @@ class TestWebhookEzsignSignatureSigned(unittest.TestCase):
             )
         else:
             return WebhookEzsignSignatureSigned(
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
                 obj_ezsignsignature = eZmaxApi.models.ezsignsignature_response.ezsignsignature-Response(
                     pki_ezsignsignature_id = 49, 
                     fki_ezsigndocument_id = 97, 

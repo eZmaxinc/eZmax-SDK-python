@@ -6,6 +6,8 @@ Response for GET /2/object/ezsigntemplatepackage/{pkiEzsigntemplatepackageID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**obj_debug_payload** | [**CommonResponseObjDebugPayload**](CommonResponseObjDebugPayload.md) |  | 
+**obj_debug** | [**CommonResponseObjDebug**](CommonResponseObjDebug.md) |  | [optional] 
 **m_payload** | [**EzsigntemplatepackageGetObjectV2ResponseMPayload**](EzsigntemplatepackageGetObjectV2ResponseMPayload.md) |  | 
 
 ## Example

@@ -36,23 +36,19 @@ class TestWebhookUserstagedUserstagedCreated(unittest.TestCase):
         model = WebhookUserstagedUserstagedCreated()
         if include_optional:
             return WebhookUserstagedUserstagedCreated(
-                obj_userstaged = eZmaxApi.models.userstaged_response.userstaged-Response(
-                    pki_userstaged_id = 90, 
-                    fki_email_id = 22, 
-                    s_email_address = 'email@example.com', 
-                    s_userstaged_firstname = 'Jane', 
-                    s_userstaged_lastname = 'Doe', 
-                    s_userstaged_externalid = 'azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e', )
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
+                obj_userstaged = eZmaxApi.models.userstaged_response_compound.userstaged-ResponseCompound()
             )
         else:
             return WebhookUserstagedUserstagedCreated(
-                obj_userstaged = eZmaxApi.models.userstaged_response.userstaged-Response(
-                    pki_userstaged_id = 90, 
-                    fki_email_id = 22, 
-                    s_email_address = 'email@example.com', 
-                    s_userstaged_firstname = 'Jane', 
-                    s_userstaged_lastname = 'Doe', 
-                    s_userstaged_externalid = 'azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e', ),
+                obj_webhook = eZmaxApi.models.custom_webhook_response.Custom-Webhook-Response(),
+                a_obj_attempt = [
+                    eZmaxApi.models.attempt_response_compound.attempt-ResponseCompound()
+                    ],
+                obj_userstaged = eZmaxApi.models.userstaged_response_compound.userstaged-ResponseCompound(),
         )
         """
 

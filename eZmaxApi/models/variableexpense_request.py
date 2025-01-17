@@ -89,7 +89,21 @@ class VariableexpenseRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of VariableexpenseRequest from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "pkiVariableexpenseID": obj.get("pkiVariableexpenseID"),
+            "sVariableexpenseCode": obj.get("sVariableexpenseCode"),
+            "objVariableexpenseDescription": MultilingualVariableexpenseDescription.from_dict(obj["objVariableexpenseDescription"]) if obj.get("objVariableexpenseDescription") is not None else None,
+            "eVariableexpenseTaxable": obj.get("eVariableexpenseTaxable"),
+            "bVariableexpenseIsactive": obj.get("bVariableexpenseIsactive")
+        })
+        return _obj
 
 

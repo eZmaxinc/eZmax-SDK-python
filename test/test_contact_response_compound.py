@@ -36,9 +36,31 @@ class TestContactResponseCompound(unittest.TestCase):
         model = ContactResponseCompound()
         if include_optional:
             return ContactResponseCompound(
+                pki_contact_id = 21,
+                fki_language_id = 2,
+                fki_contacttitle_id = 2,
+                fki_contactinformations_id = 55,
+                dt_contact_birthdate = '1980-01-01',
+                e_contact_type = 'Agent',
+                s_contact_firstname = 'John',
+                s_contact_lastname = 'Doe',
+                s_contact_company = 'eZmax Solutions Inc.',
+                s_contact_occupation = 'Programmer',
+                t_contact_note = 'This is a note',
+                b_contact_isactive = True,
+                obj_contactinformations = eZmaxApi.models.contactinformations_response_compound.contactinformations-ResponseCompound()
             )
         else:
             return ContactResponseCompound(
+                pki_contact_id = 21,
+                fki_language_id = 2,
+                fki_contacttitle_id = 2,
+                fki_contactinformations_id = 55,
+                e_contact_type = 'Agent',
+                s_contact_firstname = 'John',
+                s_contact_lastname = 'Doe',
+                b_contact_isactive = True,
+                obj_contactinformations = eZmaxApi.models.contactinformations_response_compound.contactinformations-ResponseCompound(),
         )
         """
 

@@ -20,12 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatepublic_create_ezsignfolder_v1_request import EzsigntemplatepublicCreateEzsignfolderV1Request
 from eZmaxApi.models.ezsigntemplatepublic_create_ezsignfolder_v1_response import EzsigntemplatepublicCreateEzsignfolderV1Response
 from eZmaxApi.models.ezsigntemplatepublic_create_object_v1_request import EzsigntemplatepublicCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatepublic_create_object_v1_response import EzsigntemplatepublicCreateObjectV1Response
 from eZmaxApi.models.ezsigntemplatepublic_edit_object_v1_request import EzsigntemplatepublicEditObjectV1Request
+from eZmaxApi.models.ezsigntemplatepublic_edit_object_v1_response import EzsigntemplatepublicEditObjectV1Response
 from eZmaxApi.models.ezsigntemplatepublic_get_ezsigntemplatepublic_details_v1_request import EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request
 from eZmaxApi.models.ezsigntemplatepublic_get_ezsigntemplatepublic_details_v1_response import EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Response
 from eZmaxApi.models.ezsigntemplatepublic_get_forms_data_v1_response import EzsigntemplatepublicGetFormsDataV1Response
@@ -621,7 +621,7 @@ class ObjectEzsigntemplatepublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatepublicEditObjectV1Response:
         """Edit an existing Ezsigntemplatepublic
 
         
@@ -694,7 +694,7 @@ class ObjectEzsigntemplatepublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatepublicEditObjectV1Response]:
         """Edit an existing Ezsigntemplatepublic
 
         

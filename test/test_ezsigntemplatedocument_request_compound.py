@@ -36,9 +36,24 @@ class TestEzsigntemplatedocumentRequestCompound(unittest.TestCase):
         model = EzsigntemplatedocumentRequestCompound()
         if include_optional:
             return EzsigntemplatedocumentRequestCompound(
+                pki_ezsigntemplatedocument_id = 133,
+                fki_ezsigntemplate_id = 36,
+                fki_ezsigndocument_id = 97,
+                fki_ezsigntemplatesigner_id = 9,
+                s_ezsigntemplatedocument_name = 'Standard Contract',
+                e_ezsigntemplatedocument_source = 'Base64',
+                e_ezsigntemplatedocument_format = 'Pdf',
+                s_ezsigntemplatedocument_base64 = 'eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0=',
+                s_ezsigntemplatedocument_url = 'http://www.example.com/template.pdf',
+                b_ezsigntemplatedocument_forcerepair = True,
+                e_ezsigntemplatedocument_form = 'Keep',
+                s_ezsigntemplatedocument_password = ''
             )
         else:
             return EzsigntemplatedocumentRequestCompound(
+                fki_ezsigntemplate_id = 36,
+                s_ezsigntemplatedocument_name = 'Standard Contract',
+                e_ezsigntemplatedocument_source = 'Base64',
         )
         """
 

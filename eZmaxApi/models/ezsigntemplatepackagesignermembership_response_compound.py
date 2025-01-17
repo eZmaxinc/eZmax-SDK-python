@@ -18,16 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict
-from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplatepackagesignermembership_response import EzsigntemplatepackagesignermembershipResponse
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class EzsigntemplatepackagesignermembershipResponseCompound(EzsigntemplatepackagesignermembershipResponse):
+class EzsigntemplatepackagesignermembershipResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackagesignermembership Object
     """ # noqa: E501
+    pki_ezsigntemplatepackagesignermembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesignermembership", alias="pkiEzsigntemplatepackagesignermembershipID")
+    fki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="fkiEzsigntemplatepackagemembershipID")
+    fki_ezsigntemplatepackagesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesigner", alias="fkiEzsigntemplatepackagesignerID")
+    fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
+    i_ezsigntemplatepackagesignermembership_copy: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The Copy number in case of multiple copies.", alias="iEzsigntemplatepackagesignermembershipCopy")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagesignermembershipID", "fkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackagesignerID", "fkiEzsigntemplatesignerID", "iEzsigntemplatepackagesignermembershipCopy"]
 
     model_config = ConfigDict(
