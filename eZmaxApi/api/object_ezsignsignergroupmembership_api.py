@@ -19,9 +19,9 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsignergroupmembership_create_object_v1_request import EzsignsignergroupmembershipCreateObjectV1Request
 from eZmaxApi.models.ezsignsignergroupmembership_create_object_v1_response import EzsignsignergroupmembershipCreateObjectV1Response
-from eZmaxApi.models.ezsignsignergroupmembership_delete_object_v1_response import EzsignsignergroupmembershipDeleteObjectV1Response
 from eZmaxApi.models.ezsignsignergroupmembership_get_object_v2_response import EzsignsignergroupmembershipGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -332,7 +332,7 @@ class ObjectEzsignsignergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignsignergroupmembershipDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Ezsignsignergroupmembership
 
         
@@ -400,7 +400,7 @@ class ObjectEzsignsignergroupmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignsignergroupmembershipDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Ezsignsignergroupmembership
 
         

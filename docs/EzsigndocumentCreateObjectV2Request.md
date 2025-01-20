@@ -6,7 +6,7 @@ Request for POST /2/object/ezsigndocument
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezsigndocument** | [**List[EzsigndocumentRequestCompound]**](EzsigndocumentRequestCompound.md) |  | 
+**a_obj_ezsigndocument** | [**List[EzsigndocumentRequestCompound]**](EzsigndocumentRequest.md) |  | 
 
 ## Example
 

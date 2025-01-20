@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignannotation_delete_object_v1**
-> EzsignannotationDeleteObjectV1Response ezsignannotation_delete_object_v1(pki_ezsignannotation_id)
+> CommonResponse ezsignannotation_delete_object_v1(pki_ezsignannotation_id)
 
 Delete an existing Ezsignannotation
 
@@ -103,7 +103,7 @@ Delete an existing Ezsignannotation
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignannotation_delete_object_v1_response import EzsignannotationDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignannotationDeleteObjectV1Response**](EzsignannotationDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignannotation_edit_object_v1**
-> EzsignannotationEditObjectV1Response ezsignannotation_edit_object_v1(pki_ezsignannotation_id, ezsignannotation_edit_object_v1_request)
+> CommonResponse ezsignannotation_edit_object_v1(pki_ezsignannotation_id, ezsignannotation_edit_object_v1_request)
 
 Edit an existing Ezsignannotation
 
@@ -183,8 +183,8 @@ Edit an existing Ezsignannotation
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignannotation_edit_object_v1_request import EzsignannotationEditObjectV1Request
-from eZmaxApi.models.ezsignannotation_edit_object_v1_response import EzsignannotationEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignannotationEditObjectV1Response**](EzsignannotationEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

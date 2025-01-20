@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **permission_delete_object_v1**
-> PermissionDeleteObjectV1Response permission_delete_object_v1(pki_permission_id)
+> CommonResponse permission_delete_object_v1(pki_permission_id)
 
 Delete an existing Permission
 
@@ -104,7 +104,7 @@ Delete an existing Permission
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.permission_delete_object_v1_response import PermissionDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionDeleteObjectV1Response**](PermissionDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **permission_edit_object_v1**
-> PermissionEditObjectV1Response permission_edit_object_v1(pki_permission_id, permission_edit_object_v1_request)
+> CommonResponse permission_edit_object_v1(pki_permission_id, permission_edit_object_v1_request)
 
 Edit an existing Permission
 
@@ -184,8 +184,8 @@ Edit an existing Permission
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.permission_edit_object_v1_request import PermissionEditObjectV1Request
-from eZmaxApi.models.permission_edit_object_v1_response import PermissionEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PermissionEditObjectV1Response**](PermissionEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@ Request for POST /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsigndocument_id** | **int** | The unique ID of the Ezsigndocument | 
-**a_obj_ezsigndocumentdependency** | [**List[EzsigndocumentdependencyRequestCompound]**](EzsigndocumentdependencyRequestCompound.md) |  | 
+**a_obj_ezsigndocumentdependency** | [**List[EzsigndocumentdependencyRequestCompound]**](EzsigndocumentdependencyRequest.md) |  | 
 
 ## Example
 

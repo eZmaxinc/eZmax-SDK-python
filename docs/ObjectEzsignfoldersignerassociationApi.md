@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldersignerassociation_delete_object_v1**
-> EzsignfoldersignerassociationDeleteObjectV1Response ezsignfoldersignerassociation_delete_object_v1(pki_ezsignfoldersignerassociation_id)
+> CommonResponse ezsignfoldersignerassociation_delete_object_v1(pki_ezsignfoldersignerassociation_id)
 
 Delete an existing Ezsignfoldersignerassociation
 
@@ -274,7 +274,7 @@ Delete an existing Ezsignfoldersignerassociation
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignfoldersignerassociation_delete_object_v1_response import EzsignfoldersignerassociationDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationDeleteObjectV1Response**](EzsignfoldersignerassociationDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldersignerassociation_edit_object_v1**
-> EzsignfoldersignerassociationEditObjectV1Response ezsignfoldersignerassociation_edit_object_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_edit_object_v1_request)
+> CommonResponse ezsignfoldersignerassociation_edit_object_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_edit_object_v1_request)
 
 Edit an existing Ezsignfoldersignerassociation
 
@@ -355,8 +355,8 @@ Edit an existing Ezsignfoldersignerassociation
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_edit_object_v1_request import EzsignfoldersignerassociationEditObjectV1Request
-from eZmaxApi.models.ezsignfoldersignerassociation_edit_object_v1_response import EzsignfoldersignerassociationEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationEditObjectV1Response**](EzsignfoldersignerassociationEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldersignerassociation_force_disconnect_v1**
-> EzsignfoldersignerassociationForceDisconnectV1Response ezsignfoldersignerassociation_force_disconnect_v1(pki_ezsignfoldersignerassociation_id, body)
+> CommonResponse ezsignfoldersignerassociation_force_disconnect_v1(pki_ezsignfoldersignerassociation_id, body)
 
 Disconnects the Ezsignfoldersignerassociation
 
@@ -439,7 +439,7 @@ Disconnects the Ezsignfoldersignerassociation
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsignfoldersignerassociation_force_disconnect_v1_response import EzsignfoldersignerassociationForceDisconnectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationForceDisconnectV1Response**](EzsignfoldersignerassociationForceDisconnectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -751,7 +751,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldersignerassociation_patch_object_v1**
-> EzsignfoldersignerassociationPatchObjectV1Response ezsignfoldersignerassociation_patch_object_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_patch_object_v1_request)
+> CommonResponse ezsignfoldersignerassociation_patch_object_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_patch_object_v1_request)
 
 Patch an existing Ezsignfoldersignerassociation
 
@@ -761,8 +761,8 @@ Patch an existing Ezsignfoldersignerassociation
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_patch_object_v1_request import EzsignfoldersignerassociationPatchObjectV1Request
-from eZmaxApi.models.ezsignfoldersignerassociation_patch_object_v1_response import EzsignfoldersignerassociationPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationPatchObjectV1Response**](EzsignfoldersignerassociationPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldersignerassociation_reassign_v1**
-> EzsignfoldersignerassociationReassignV1Response ezsignfoldersignerassociation_reassign_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_reassign_v1_request)
+> CommonResponse ezsignfoldersignerassociation_reassign_v1(pki_ezsignfoldersignerassociation_id, ezsignfoldersignerassociation_reassign_v1_request)
 
 Reassign remaining unsigned signatures and forms
 
@@ -845,8 +845,8 @@ Reassign remaining unsigned signatures and forms
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_reassign_v1_request import EzsignfoldersignerassociationReassignV1Request
-from eZmaxApi.models.ezsignfoldersignerassociation_reassign_v1_response import EzsignfoldersignerassociationReassignV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -895,7 +895,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsignfoldersignerassociationReassignV1Response**](EzsignfoldersignerassociationReassignV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -19,11 +19,10 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.subnet_create_object_v1_request import SubnetCreateObjectV1Request
 from eZmaxApi.models.subnet_create_object_v1_response import SubnetCreateObjectV1Response
-from eZmaxApi.models.subnet_delete_object_v1_response import SubnetDeleteObjectV1Response
 from eZmaxApi.models.subnet_edit_object_v1_request import SubnetEditObjectV1Request
-from eZmaxApi.models.subnet_edit_object_v1_response import SubnetEditObjectV1Response
 from eZmaxApi.models.subnet_get_object_v2_response import SubnetGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -337,7 +336,7 @@ class ObjectSubnetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SubnetDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Subnet
 
         
@@ -406,7 +405,7 @@ class ObjectSubnetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SubnetDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Subnet
 
         
@@ -605,7 +604,7 @@ class ObjectSubnetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SubnetEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Subnet
 
         
@@ -678,7 +677,7 @@ class ObjectSubnetApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SubnetEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Subnet
 
         

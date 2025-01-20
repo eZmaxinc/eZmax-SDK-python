@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
-from eZmaxApi.models.email_response_compound import EmailResponseCompound
+from eZmaxApi.models.email_response import EmailResponse
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,7 +38,7 @@ class CustomCommunicationsenderResponse(BaseModel):
     fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
     e_communicationsender_objecttype: StrictStr = Field(alias="eCommunicationsenderObjecttype")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
-    obj_email: Optional[EmailResponseCompound] = Field(default=None, alias="objEmail")
+    obj_email: Optional[EmailResponse] = Field(default=None, description="An Email Object and children to create a complete structure", alias="objEmail")
     obj_phone_fax: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneFax")
     obj_phone_sms: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneSMS")
     __properties: ClassVar[List[str]] = ["fkiAgentID", "fkiBrokerID", "fkiUserID", "fkiMailboxsharedID", "fkiPhonelinesharedID", "eCommunicationsenderObjecttype", "objContactName", "objEmail", "objPhoneFax", "objPhoneSMS"]
@@ -120,7 +120,7 @@ class CustomCommunicationsenderResponse(BaseModel):
             "fkiPhonelinesharedID": obj.get("fkiPhonelinesharedID"),
             "eCommunicationsenderObjecttype": obj.get("eCommunicationsenderObjecttype"),
             "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None,
-            "objEmail": EmailResponseCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailResponse.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "objPhoneFax": PhoneResponseCompound.from_dict(obj["objPhoneFax"]) if obj.get("objPhoneFax") is not None else None,
             "objPhoneSMS": PhoneResponseCompound.from_dict(obj["objPhoneSMS"]) if obj.get("objPhoneSMS") is not None else None
         })

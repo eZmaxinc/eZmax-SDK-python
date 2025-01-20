@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **e_ezsignformfield_dependencyrequirement** | [**FieldEEzsignformfieldDependencyrequirement**](FieldEEzsignformfieldDependencyrequirement.md) |  | [optional] 
 **e_ezsignformfield_horizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
 **obj_textstylestatic** | [**TextstylestaticResponseCompound**](TextstylestaticResponseCompound.md) |  | [optional] 
-**a_obj_ezsignelementdependency** | [**List[EzsignelementdependencyResponseCompound]**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
+**a_obj_ezsignelementdependency** | [**List[EzsignelementdependencyResponseCompound]**](EzsignelementdependencyResponse.md) |  | [optional] 
 
 ## Example
 

@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **apikey_edit_object_v1**
-> ApikeyEditObjectV1Response apikey_edit_object_v1(pki_apikey_id, apikey_edit_object_v1_request)
+> CommonResponse apikey_edit_object_v1(pki_apikey_id, apikey_edit_object_v1_request)
 
 Edit an existing Apikey
 
@@ -110,7 +110,7 @@ Edit an existing Apikey
 ```python
 import eZmaxApi
 from eZmaxApi.models.apikey_edit_object_v1_request import ApikeyEditObjectV1Request
-from eZmaxApi.models.apikey_edit_object_v1_response import ApikeyEditObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApikeyEditObjectV1Response**](ApikeyEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

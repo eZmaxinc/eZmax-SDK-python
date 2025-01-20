@@ -37,14 +37,14 @@ class TestActivesessionGenerateFederationTokenV1ResponseMPayload(unittest.TestCa
         if include_optional:
             return ActivesessionGenerateFederationTokenV1ResponseMPayload(
                 obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
-                    s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
+                    s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
                     s_apikeyfederation_secret = 'f514d7a0008a9f6dee03e60734624d04', ),
                 s_ezmaxcustomercode_url = 'http://www.website.com/avatar.jpg'
             )
         else:
             return ActivesessionGenerateFederationTokenV1ResponseMPayload(
                 obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
-                    s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
+                    s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
                     s_apikeyfederation_secret = 'f514d7a0008a9f6dee03e60734624d04', ),
                 s_ezmaxcustomercode_url = 'http://www.website.com/avatar.jpg',
         )

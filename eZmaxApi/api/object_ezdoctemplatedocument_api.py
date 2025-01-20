@@ -20,15 +20,14 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezdoctemplatedocument_create_object_v1_request import EzdoctemplatedocumentCreateObjectV1Request
 from eZmaxApi.models.ezdoctemplatedocument_create_object_v1_response import EzdoctemplatedocumentCreateObjectV1Response
 from eZmaxApi.models.ezdoctemplatedocument_edit_object_v1_request import EzdoctemplatedocumentEditObjectV1Request
-from eZmaxApi.models.ezdoctemplatedocument_edit_object_v1_response import EzdoctemplatedocumentEditObjectV1Response
 from eZmaxApi.models.ezdoctemplatedocument_get_autocomplete_v2_response import EzdoctemplatedocumentGetAutocompleteV2Response
 from eZmaxApi.models.ezdoctemplatedocument_get_list_v1_response import EzdoctemplatedocumentGetListV1Response
 from eZmaxApi.models.ezdoctemplatedocument_get_object_v2_response import EzdoctemplatedocumentGetObjectV2Response
 from eZmaxApi.models.ezdoctemplatedocument_patch_object_v1_request import EzdoctemplatedocumentPatchObjectV1Request
-from eZmaxApi.models.ezdoctemplatedocument_patch_object_v1_response import EzdoctemplatedocumentPatchObjectV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -605,7 +604,7 @@ class ObjectEzdoctemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzdoctemplatedocumentEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Ezdoctemplatedocument
 
         
@@ -678,7 +677,7 @@ class ObjectEzdoctemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzdoctemplatedocumentEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Ezdoctemplatedocument
 
         
@@ -1841,7 +1840,7 @@ class ObjectEzdoctemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzdoctemplatedocumentPatchObjectV1Response:
+    ) -> CommonResponse:
         """Patch an existing Ezdoctemplatedocument
 
         
@@ -1913,7 +1912,7 @@ class ObjectEzdoctemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzdoctemplatedocumentPatchObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Patch an existing Ezdoctemplatedocument
 
         

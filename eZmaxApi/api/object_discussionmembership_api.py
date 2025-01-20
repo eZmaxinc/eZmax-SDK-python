@@ -19,9 +19,9 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussionmembership_create_object_v1_request import DiscussionmembershipCreateObjectV1Request
 from eZmaxApi.models.discussionmembership_create_object_v1_response import DiscussionmembershipCreateObjectV1Response
-from eZmaxApi.models.discussionmembership_delete_object_v1_response import DiscussionmembershipDeleteObjectV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -331,7 +331,7 @@ class ObjectDiscussionmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionmembershipDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Discussionmembership
 
         
@@ -399,7 +399,7 @@ class ObjectDiscussionmembershipApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionmembershipDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Discussionmembership
 
         

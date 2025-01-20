@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **t_ezsignformfieldgroup_tooltip** | **str** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **e_ezsignformfieldgroup_tooltipposition** | [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
 **e_ezsignformfieldgroup_textvalidation** | [**EnumTextvalidation**](EnumTextvalidation.md) |  | [optional] 
-**a_obj_ezsignformfieldgroupsigner** | [**List[EzsignformfieldgroupsignerRequestCompound]**](EzsignformfieldgroupsignerRequestCompound.md) |  | 
-**a_obj_dropdown_element** | [**List[CustomDropdownElementRequestCompound]**](CustomDropdownElementRequestCompound.md) |  | [optional] 
+**a_obj_ezsignformfieldgroupsigner** | [**List[EzsignformfieldgroupsignerRequestCompound]**](EzsignformfieldgroupsignerRequest.md) |  | 
+**a_obj_dropdown_element** | [**List[CustomDropdownElementRequestCompound]**](CustomDropdownElementRequest.md) |  | [optional] 
 **a_obj_ezsignformfield** | [**List[EzsignformfieldRequestCompound]**](EzsignformfieldRequestCompound.md) |  | 
 **obj_createezsignelementspositionedbyword** | [**CustomCreateEzsignelementsPositionedByWordRequest**](CustomCreateEzsignelementsPositionedByWordRequest.md) |  | 
 

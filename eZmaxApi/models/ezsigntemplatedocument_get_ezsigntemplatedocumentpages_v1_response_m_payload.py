@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigntemplatedocumentpage_response_compound import EzsigntemplatedocumentpageResponseCompound
+from eZmaxApi.models.ezsigntemplatedocumentpage_response import EzsigntemplatedocumentpageResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload(Bas
     """
     Payload for GET /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages
     """ # noqa: E501
-    a_obj_ezsigntemplatedocumentpage: List[EzsigntemplatedocumentpageResponseCompound] = Field(alias="a_objEzsigntemplatedocumentpage")
+    a_obj_ezsigntemplatedocumentpage: List[EzsigntemplatedocumentpageResponse] = Field(alias="a_objEzsigntemplatedocumentpage")
     __properties: ClassVar[List[str]] = ["a_objEzsigntemplatedocumentpage"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload(Bas
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsigntemplatedocumentpage": [EzsigntemplatedocumentpageResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatedocumentpage"]] if obj.get("a_objEzsigntemplatedocumentpage") is not None else None
+            "a_objEzsigntemplatedocumentpage": [EzsigntemplatedocumentpageResponse.from_dict(_item) for _item in obj["a_objEzsigntemplatedocumentpage"]] if obj.get("a_objEzsigntemplatedocumentpage") is not None else None
         })
         return _obj
 

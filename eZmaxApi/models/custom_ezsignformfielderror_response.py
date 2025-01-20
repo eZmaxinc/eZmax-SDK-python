@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.custom_ezsignformfielderrortest_response import CustomEzsignformfielderrortestResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +28,7 @@ class CustomEzsignformfielderrorResponse(BaseModel):
     A Custom Ezsignformfield Object to contain an error list
     """ # noqa: E501
     s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
-    a_obj_ezsignformfielderrortest: List[CustomEzsignformfielderrortestResponse] = Field(alias="a_objEzsignformfielderrortest")
+    a_obj_ezsignformfielderrortest: List[object] = Field(alias="a_objEzsignformfielderrortest")
     __properties: ClassVar[List[str]] = ["sEzsignformfieldLabel", "a_objEzsignformfielderrortest"]
 
     model_config = ConfigDict(
@@ -71,13 +70,6 @@ class CustomEzsignformfielderrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfielderrortest (list)
-        _items = []
-        if self.a_obj_ezsignformfielderrortest:
-            for _item_a_obj_ezsignformfielderrortest in self.a_obj_ezsignformfielderrortest:
-                if _item_a_obj_ezsignformfielderrortest:
-                    _items.append(_item_a_obj_ezsignformfielderrortest.to_dict())
-            _dict['a_objEzsignformfielderrortest'] = _items
         return _dict
 
     @classmethod
@@ -91,7 +83,7 @@ class CustomEzsignformfielderrorResponse(BaseModel):
 
         _obj = cls.model_validate({
             "sEzsignformfieldLabel": obj.get("sEzsignformfieldLabel"),
-            "a_objEzsignformfielderrortest": [CustomEzsignformfielderrortestResponse.from_dict(_item) for _item in obj["a_objEzsignformfielderrortest"]] if obj.get("a_objEzsignformfielderrortest") is not None else None
+            "a_objEzsignformfielderrortest": obj.get("a_objEzsignformfielderrortest")
         })
         return _obj
 

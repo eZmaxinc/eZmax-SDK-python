@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatesignature_delete_object_v1**
-> EzsigntemplatesignatureDeleteObjectV1Response ezsigntemplatesignature_delete_object_v1(pki_ezsigntemplatesignature_id)
+> CommonResponse ezsigntemplatesignature_delete_object_v1(pki_ezsigntemplatesignature_id)
 
 Delete an existing Ezsigntemplatesignature
 
@@ -103,7 +103,7 @@ Delete an existing Ezsigntemplatesignature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatesignature_delete_object_v1_response import EzsigntemplatesignatureDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatesignatureDeleteObjectV1Response**](EzsigntemplatesignatureDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatesignature_edit_object_v2**
-> EzsigntemplatesignatureEditObjectV2Response ezsigntemplatesignature_edit_object_v2(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v2_request)
+> CommonResponse ezsigntemplatesignature_edit_object_v2(pki_ezsigntemplatesignature_id, ezsigntemplatesignature_edit_object_v2_request)
 
 Edit an existing Ezsigntemplatesignature
 
@@ -183,8 +183,8 @@ Edit an existing Ezsigntemplatesignature
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_request import EzsigntemplatesignatureEditObjectV2Request
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_response import EzsigntemplatesignatureEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatesignatureEditObjectV2Response**](EzsigntemplatesignatureEditObjectV2Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **subnet_delete_object_v1**
-> SubnetDeleteObjectV1Response subnet_delete_object_v1(pki_subnet_id)
+> CommonResponse subnet_delete_object_v1(pki_subnet_id)
 
 Delete an existing Subnet
 
@@ -104,7 +104,7 @@ Delete an existing Subnet
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.subnet_delete_object_v1_response import SubnetDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetDeleteObjectV1Response**](SubnetDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **subnet_edit_object_v1**
-> SubnetEditObjectV1Response subnet_edit_object_v1(pki_subnet_id, subnet_edit_object_v1_request)
+> CommonResponse subnet_edit_object_v1(pki_subnet_id, subnet_edit_object_v1_request)
 
 Edit an existing Subnet
 
@@ -185,8 +185,8 @@ Edit an existing Subnet
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.subnet_edit_object_v1_request import SubnetEditObjectV1Request
-from eZmaxApi.models.subnet_edit_object_v1_response import SubnetEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubnetEditObjectV1Response**](SubnetEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

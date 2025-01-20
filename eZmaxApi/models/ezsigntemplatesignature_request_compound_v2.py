@@ -22,8 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
-from eZmaxApi.models.ezsigntemplateelementdependency_request_compound import EzsigntemplateelementdependencyRequestCompound
-from eZmaxApi.models.ezsigntemplatesignaturecustomdate_request_compound_v2 import EzsigntemplatesignaturecustomdateRequestCompoundV2
+from eZmaxApi.models.ezsigntemplateelementdependency_request import EzsigntemplateelementdependencyRequest
+from eZmaxApi.models.ezsigntemplatesignaturecustomdate_request_v2 import EzsigntemplatesignaturecustomdateRequestV2
 from eZmaxApi.models.field_e_ezsigntemplatesignature_attachmentnamesource import FieldEEzsigntemplatesignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsigntemplatesignature_consultationtrigger import FieldEEzsigntemplatesignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsigntemplatesignature_dependencyrequirement import FieldEEzsigntemplatesignatureDependencyrequirement
@@ -72,8 +72,8 @@ class EzsigntemplatesignatureRequestCompoundV2(BaseModel):
     i_ezsigntemplatesignature_positioningoffsety: Optional[StrictInt] = Field(default=None, description="The offset Y  This will be required if **eEzsigntemplatesignaturePositioning** is set to **PerCoordinates**", alias="iEzsigntemplatesignaturePositioningoffsety")
     e_ezsigntemplatesignature_positioningoccurence: Optional[FieldEEzsigntemplatesignaturePositioningoccurence] = Field(default=None, alias="eEzsigntemplatesignaturePositioningoccurence")
     b_ezsigntemplatesignature_customdate: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplatesignature has a custom date format or not. (Only possible when eEzsigntemplatesignatureType is **Name** or **Handwritten**)", alias="bEzsigntemplatesignatureCustomdate")
-    a_obj_ezsigntemplatesignaturecustomdate: Optional[List[EzsigntemplatesignaturecustomdateRequestCompoundV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsigntemplatesignaturecustomdate")
-    a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyRequestCompound]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
+    a_obj_ezsigntemplatesignaturecustomdate: Optional[List[EzsigntemplatesignaturecustomdateRequestV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsigntemplatesignaturecustomdate")
+    a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyRequest]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "bEzsigntemplatesignatureHandwritten", "bEzsigntemplatesignatureReason", "eEzsigntemplatesignaturePositioning", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "eEzsigntemplatesignatureConsultationtrigger", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "bEzsigntemplatesignatureRequired", "eEzsigntemplatesignatureAttachmentnamesource", "sEzsigntemplatesignatureAttachmentdescription", "iEzsigntemplatesignatureValidationstep", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureDefaultvalue", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "sEzsigntemplatesignatureTextvalidationcustommessage", "eEzsigntemplatesignatureDependencyrequirement", "sEzsigntemplatesignaturePositioningpattern", "iEzsigntemplatesignaturePositioningoffsetx", "iEzsigntemplatesignaturePositioningoffsety", "eEzsigntemplatesignaturePositioningoccurence", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency"]
 
     @field_validator('s_ezsigntemplatesignature_regexp')
@@ -194,8 +194,8 @@ class EzsigntemplatesignatureRequestCompoundV2(BaseModel):
             "iEzsigntemplatesignaturePositioningoffsety": obj.get("iEzsigntemplatesignaturePositioningoffsety"),
             "eEzsigntemplatesignaturePositioningoccurence": obj.get("eEzsigntemplatesignaturePositioningoccurence"),
             "bEzsigntemplatesignatureCustomdate": obj.get("bEzsigntemplatesignatureCustomdate"),
-            "a_objEzsigntemplatesignaturecustomdate": [EzsigntemplatesignaturecustomdateRequestCompoundV2.from_dict(_item) for _item in obj["a_objEzsigntemplatesignaturecustomdate"]] if obj.get("a_objEzsigntemplatesignaturecustomdate") is not None else None,
-            "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateelementdependency"]] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
+            "a_objEzsigntemplatesignaturecustomdate": [EzsigntemplatesignaturecustomdateRequestV2.from_dict(_item) for _item in obj["a_objEzsigntemplatesignaturecustomdate"]] if obj.get("a_objEzsigntemplatesignaturecustomdate") is not None else None,
+            "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyRequest.from_dict(_item) for _item in obj["a_objEzsigntemplateelementdependency"]] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
         })
         return _obj
 

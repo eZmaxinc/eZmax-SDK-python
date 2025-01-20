@@ -19,11 +19,10 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.permission_create_object_v1_request import PermissionCreateObjectV1Request
 from eZmaxApi.models.permission_create_object_v1_response import PermissionCreateObjectV1Response
-from eZmaxApi.models.permission_delete_object_v1_response import PermissionDeleteObjectV1Response
 from eZmaxApi.models.permission_edit_object_v1_request import PermissionEditObjectV1Request
-from eZmaxApi.models.permission_edit_object_v1_response import PermissionEditObjectV1Response
 from eZmaxApi.models.permission_get_object_v2_response import PermissionGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -337,7 +336,7 @@ class ObjectPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Permission
 
         
@@ -405,7 +404,7 @@ class ObjectPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Permission
 
         
@@ -602,7 +601,7 @@ class ObjectPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PermissionEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Permission
 
         
@@ -675,7 +674,7 @@ class ObjectPermissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PermissionEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Permission
 
         

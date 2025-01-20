@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatedocument_flatten_v1**
-> EzsigntemplatedocumentFlattenV1Response ezsigntemplatedocument_flatten_v1(pki_ezsigntemplatedocument_id, body)
+> CommonResponse ezsigntemplatedocument_flatten_v1(pki_ezsigntemplatedocument_id, body)
 
 Flatten
 
@@ -535,7 +535,7 @@ Flatten an Ezsigntemplatedocument signatures, forms and annotations. This proces
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatedocument_flatten_v1_response import EzsigntemplatedocumentFlattenV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatedocumentFlattenV1Response**](EzsigntemplatedocumentFlattenV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatedocument_patch_object_v1**
-> EzsigntemplatedocumentPatchObjectV1Response ezsigntemplatedocument_patch_object_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_patch_object_v1_request)
+> CommonResponse ezsigntemplatedocument_patch_object_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_patch_object_v1_request)
 
 Patch an existing Ezsigntemplatedocument
 
@@ -1104,8 +1104,8 @@ Patch an existing Ezsigntemplatedocument
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_request import EzsigntemplatedocumentPatchObjectV1Request
-from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_response import EzsigntemplatedocumentPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -1154,7 +1154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatedocumentPatchObjectV1Response**](EzsigntemplatedocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.permission_response_compound import PermissionResponseCompound
+from eZmaxApi.models.permission_response import PermissionResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class PermissionGetObjectV2ResponseMPayload(BaseModel):
     """
     Payload for GET /2/object/permission/{pkiPermissionID}
     """ # noqa: E501
-    obj_permission: PermissionResponseCompound = Field(alias="objPermission")
+    obj_permission: PermissionResponse = Field(description="A Permission Object and children to create a complete structure", alias="objPermission")
     __properties: ClassVar[List[str]] = ["objPermission"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class PermissionGetObjectV2ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objPermission": PermissionResponseCompound.from_dict(obj["objPermission"]) if obj.get("objPermission") is not None else None
+            "objPermission": PermissionResponse.from_dict(obj["objPermission"]) if obj.get("objPermission") is not None else None
         })
         return _obj
 

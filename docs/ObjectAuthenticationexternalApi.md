@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticationexternal_delete_object_v1**
-> AuthenticationexternalDeleteObjectV1Response authenticationexternal_delete_object_v1(pki_authenticationexternal_id)
+> CommonResponse authenticationexternal_delete_object_v1(pki_authenticationexternal_id)
 
 Delete an existing Authenticationexternal
 
@@ -106,7 +106,7 @@ Delete an existing Authenticationexternal
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.authenticationexternal_delete_object_v1_response import AuthenticationexternalDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthenticationexternalDeleteObjectV1Response**](AuthenticationexternalDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticationexternal_edit_object_v1**
-> AuthenticationexternalEditObjectV1Response authenticationexternal_edit_object_v1(pki_authenticationexternal_id, authenticationexternal_edit_object_v1_request)
+> CommonResponse authenticationexternal_edit_object_v1(pki_authenticationexternal_id, authenticationexternal_edit_object_v1_request)
 
 Edit an existing Authenticationexternal
 
@@ -187,7 +187,7 @@ Edit an existing Authenticationexternal
 ```python
 import eZmaxApi
 from eZmaxApi.models.authenticationexternal_edit_object_v1_request import AuthenticationexternalEditObjectV1Request
-from eZmaxApi.models.authenticationexternal_edit_object_v1_response import AuthenticationexternalEditObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthenticationexternalEditObjectV1Response**](AuthenticationexternalEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticationexternal_reset_authorization_v1**
-> AuthenticationexternalResetAuthorizationV1Response authenticationexternal_reset_authorization_v1(pki_authenticationexternal_id, body)
+> CommonResponse authenticationexternal_reset_authorization_v1(pki_authenticationexternal_id, body)
 
 Reset the Authenticationexternal authorization
 
@@ -525,7 +525,7 @@ Reset the Authenticationexternal authorization
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.authenticationexternal_reset_authorization_v1_response import AuthenticationexternalResetAuthorizationV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthenticationexternalResetAuthorizationV1Response**](AuthenticationexternalResetAuthorizationV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

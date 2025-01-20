@@ -26,8 +26,8 @@ Name | Type | Description | Notes
 **a_obj_ezmaxinvoicingsummaryinternal** | [**List[EzmaxinvoicingsummaryinternalResponseCompound]**](EzmaxinvoicingsummaryinternalResponseCompound.md) |  | 
 **a_obj_ezmaxinvoicingagent** | [**List[EzmaxinvoicingagentResponseCompound]**](EzmaxinvoicingagentResponseCompound.md) |  | 
 **a_obj_ezmaxinvoicinguser** | [**List[EzmaxinvoicinguserResponseCompound]**](EzmaxinvoicinguserResponseCompound.md) |  | 
-**a_obj_ezmaxinvoicingezsignfolder** | [**List[CustomEzmaxinvoicingEzsignfolderResponse]**](CustomEzmaxinvoicingEzsignfolderResponse.md) |  | 
-**a_obj_ezmaxinvoicingezsigndocument** | [**List[CustomEzmaxinvoicingEzsigndocumentResponse]**](CustomEzmaxinvoicingEzsigndocumentResponse.md) |  | 
+**a_obj_ezmaxinvoicingezsignfolder** | **List[CustomEzmaxinvoicingEzsignfolderResponse]** |  | 
+**a_obj_ezmaxinvoicingezsigndocument** | **List[CustomEzmaxinvoicingEzsigndocumentResponse]** |  | 
 
 ## Example
 

@@ -45,7 +45,7 @@ class TestEzmaxinvoicingGetProvisionalV1Response(unittest.TestCase):
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
-                m_payload = eZmaxApi.models.ezmaxinvoicing_get_provisional_v1_response_m_payload.ezmaxinvoicing-getProvisional-v1-Response-mPayload()
+                m_payload = eZmaxApi.models.ezmaxinvoicing_response_compound.ezmaxinvoicing-ResponseCompound()
             )
         else:
             return EzmaxinvoicingGetProvisionalV1Response(
@@ -57,7 +57,7 @@ class TestEzmaxinvoicingGetProvisionalV1Response(unittest.TestCase):
                         ], 
                     b_version_deprecated = False, 
                     dt_response_date = '2020-12-31 23:59:59', ),
-                m_payload = eZmaxApi.models.ezmaxinvoicing_get_provisional_v1_response_m_payload.ezmaxinvoicing-getProvisional-v1-Response-mPayload(),
+                m_payload = eZmaxApi.models.ezmaxinvoicing_response_compound.ezmaxinvoicing-ResponseCompound(),
         )
         """
 

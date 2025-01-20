@@ -22,13 +22,11 @@ from typing import Any, Dict, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.authenticationexternal_create_object_v1_request import AuthenticationexternalCreateObjectV1Request
 from eZmaxApi.models.authenticationexternal_create_object_v1_response import AuthenticationexternalCreateObjectV1Response
-from eZmaxApi.models.authenticationexternal_delete_object_v1_response import AuthenticationexternalDeleteObjectV1Response
 from eZmaxApi.models.authenticationexternal_edit_object_v1_request import AuthenticationexternalEditObjectV1Request
-from eZmaxApi.models.authenticationexternal_edit_object_v1_response import AuthenticationexternalEditObjectV1Response
 from eZmaxApi.models.authenticationexternal_get_autocomplete_v2_response import AuthenticationexternalGetAutocompleteV2Response
 from eZmaxApi.models.authenticationexternal_get_list_v1_response import AuthenticationexternalGetListV1Response
 from eZmaxApi.models.authenticationexternal_get_object_v2_response import AuthenticationexternalGetObjectV2Response
-from eZmaxApi.models.authenticationexternal_reset_authorization_v1_response import AuthenticationexternalResetAuthorizationV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -339,7 +337,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthenticationexternalDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Authenticationexternal
 
         
@@ -407,7 +405,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthenticationexternalDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Authenticationexternal
 
         
@@ -604,7 +602,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthenticationexternalEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Authenticationexternal
 
         
@@ -677,7 +675,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthenticationexternalEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Authenticationexternal
 
         
@@ -1806,7 +1804,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AuthenticationexternalResetAuthorizationV1Response:
+    ) -> CommonResponse:
         """Reset the Authenticationexternal authorization
 
         
@@ -1878,7 +1876,7 @@ class ObjectAuthenticationexternalApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AuthenticationexternalResetAuthorizationV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Reset the Authenticationexternal authorization
 
         

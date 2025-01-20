@@ -20,13 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.userstaged_create_user_v1_response import UserstagedCreateUserV1Response
-from eZmaxApi.models.userstaged_delete_object_v1_response import UserstagedDeleteObjectV1Response
 from eZmaxApi.models.userstaged_get_list_v1_response import UserstagedGetListV1Response
 from eZmaxApi.models.userstaged_get_object_v2_response import UserstagedGetObjectV2Response
 from eZmaxApi.models.userstaged_map_v1_request import UserstagedMapV1Request
-from eZmaxApi.models.userstaged_map_v1_response import UserstagedMapV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -354,7 +353,7 @@ class ObjectUserstagedApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserstagedDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Userstaged
 
         
@@ -422,7 +421,7 @@ class ObjectUserstagedApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserstagedDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Userstaged
 
         
@@ -1216,7 +1215,7 @@ class ObjectUserstagedApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserstagedMapV1Response:
+    ) -> CommonResponse:
         """Map the Userstaged to an existing user
 
         
@@ -1289,7 +1288,7 @@ class ObjectUserstagedApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserstagedMapV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Map the Userstaged to an existing user
 
         

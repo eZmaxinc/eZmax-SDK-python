@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.ezsignfolder_request import EzsignfolderRequest
-from eZmaxApi.models.ezsignfolder_request_compound import EzsignfolderRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +29,7 @@ class EzsignfolderCreateObjectV1Request(BaseModel):
     Request for POST /1/object/ezsignfolder
     """ # noqa: E501
     obj_ezsignfolder: Optional[EzsignfolderRequest] = Field(default=None, alias="objEzsignfolder")
-    obj_ezsignfolder_compound: Optional[EzsignfolderRequestCompound] = Field(default=None, alias="objEzsignfolderCompound")
+    obj_ezsignfolder_compound: Optional[EzsignfolderRequest] = Field(default=None, description="An Ezsignfolder Object and children to create a complete structure", alias="objEzsignfolderCompound")
     __properties: ClassVar[List[str]] = ["objEzsignfolder", "objEzsignfolderCompound"]
 
     model_config = ConfigDict(
@@ -91,7 +90,7 @@ class EzsignfolderCreateObjectV1Request(BaseModel):
 
         _obj = cls.model_validate({
             "objEzsignfolder": EzsignfolderRequest.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None,
-            "objEzsignfolderCompound": EzsignfolderRequestCompound.from_dict(obj["objEzsignfolderCompound"]) if obj.get("objEzsignfolderCompound") is not None else None
+            "objEzsignfolderCompound": EzsignfolderRequest.from_dict(obj["objEzsignfolderCompound"]) if obj.get("objEzsignfolderCompound") is not None else None
         })
         return _obj
 

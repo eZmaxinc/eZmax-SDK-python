@@ -19,14 +19,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussion_create_object_v1_request import DiscussionCreateObjectV1Request
 from eZmaxApi.models.discussion_create_object_v1_response import DiscussionCreateObjectV1Response
-from eZmaxApi.models.discussion_delete_object_v1_response import DiscussionDeleteObjectV1Response
 from eZmaxApi.models.discussion_get_object_v2_response import DiscussionGetObjectV2Response
 from eZmaxApi.models.discussion_patch_object_v1_request import DiscussionPatchObjectV1Request
-from eZmaxApi.models.discussion_patch_object_v1_response import DiscussionPatchObjectV1Response
 from eZmaxApi.models.discussion_update_discussionreadstatus_v1_request import DiscussionUpdateDiscussionreadstatusV1Request
-from eZmaxApi.models.discussion_update_discussionreadstatus_v1_response import DiscussionUpdateDiscussionreadstatusV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -336,7 +334,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Discussion
 
         
@@ -404,7 +402,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Discussion
 
         
@@ -865,7 +863,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionPatchObjectV1Response:
+    ) -> CommonResponse:
         """Patch an existing Discussion
 
         
@@ -938,7 +936,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionPatchObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Patch an existing Discussion
 
         
@@ -1160,7 +1158,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DiscussionUpdateDiscussionreadstatusV1Response:
+    ) -> CommonResponse:
         """Update the read status of the discussion
 
 
@@ -1232,7 +1230,7 @@ class ObjectDiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DiscussionUpdateDiscussionreadstatusV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Update the read status of the discussion
 
 

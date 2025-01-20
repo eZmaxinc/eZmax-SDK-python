@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsignformfieldgroup_id** | **int** | The unique ID of the Ezsignformfieldgroup | [optional] 
 **s_ezsignformfieldgroup_label** | **str** | The Label for the Ezsignformfieldgroup | [optional] 
-**a_obj_ezsignformfield** | [**List[CustomEzsignformfieldRequest]**](CustomEzsignformfieldRequest.md) | An array containing all the values to fill the Ezsignform. | 
+**a_obj_ezsignformfield** | **List[CustomEzsignformfieldRequest]** | An array containing all the values to fill the Ezsignform. | 
 
 ## Example
 
