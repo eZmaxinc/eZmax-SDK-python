@@ -20,14 +20,15 @@ from typing_extensions import Annotated
 from pydantic import Field
 from typing import List
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsignature_create_object_v1_request import EzsignsignatureCreateObjectV1Request
 from eZmaxApi.models.ezsignsignature_create_object_v1_response import EzsignsignatureCreateObjectV1Response
 from eZmaxApi.models.ezsignsignature_create_object_v2_request import EzsignsignatureCreateObjectV2Request
 from eZmaxApi.models.ezsignsignature_create_object_v2_response import EzsignsignatureCreateObjectV2Response
 from eZmaxApi.models.ezsignsignature_create_object_v3_request import EzsignsignatureCreateObjectV3Request
 from eZmaxApi.models.ezsignsignature_create_object_v3_response import EzsignsignatureCreateObjectV3Response
+from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response
 from eZmaxApi.models.ezsignsignature_edit_object_v2_request import EzsignsignatureEditObjectV2Request
+from eZmaxApi.models.ezsignsignature_edit_object_v2_response import EzsignsignatureEditObjectV2Response
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatureattachment_v1_response import EzsignsignatureGetEzsignsignatureattachmentV1Response
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatures_automatic_v1_response import EzsignsignatureGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.models.ezsignsignature_get_object_v3_response import EzsignsignatureGetObjectV3Response
@@ -897,7 +898,7 @@ class ObjectEzsignsignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignsignatureDeleteObjectV1Response:
         """Delete an existing Ezsignsignature
 
         
@@ -966,7 +967,7 @@ class ObjectEzsignsignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignsignatureDeleteObjectV1Response]:
         """Delete an existing Ezsignsignature
 
         
@@ -1165,7 +1166,7 @@ class ObjectEzsignsignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignsignatureEditObjectV2Response:
         """Edit an existing Ezsignsignature
 
         
@@ -1238,7 +1239,7 @@ class ObjectEzsignsignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignsignatureEditObjectV2Response]:
         """Edit an existing Ezsignsignature
 
         

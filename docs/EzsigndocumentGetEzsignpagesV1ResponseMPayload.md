@@ -6,7 +6,7 @@ Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezsignpage** | [**List[EzsignpageResponseCompound]**](EzsignpageResponse.md) |  | 
+**a_obj_ezsignpage** | [**List[EzsignpageResponseCompound]**](EzsignpageResponseCompound.md) |  | 
 
 ## Example
 

@@ -39,7 +39,7 @@ Method | HTTP request | Description
 
 
 # **ezsignfolder_archive_v1**
-> CommonResponse ezsignfolder_archive_v1(pki_ezsignfolder_id, body)
+> EzsignfolderArchiveV1Response ezsignfolder_archive_v1(pki_ezsignfolder_id, body)
 
 Archive the Ezsignfolder
 
@@ -51,7 +51,7 @@ Archive the Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignfolder_archive_v1_response import EzsignfolderArchiveV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderArchiveV1Response**](EzsignfolderArchiveV1Response.md)
 
 ### Authorization
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_delete_object_v1**
-> CommonResponse ezsignfolder_delete_object_v1(pki_ezsignfolder_id)
+> EzsignfolderDeleteObjectV1Response ezsignfolder_delete_object_v1(pki_ezsignfolder_id)
 
 Delete an existing Ezsignfolder
 
@@ -454,7 +454,7 @@ Delete an existing Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignfolder_delete_object_v1_response import EzsignfolderDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDeleteObjectV1Response**](EzsignfolderDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_dispose_ezsignfolders_v1**
-> CommonResponse ezsignfolder_dispose_ezsignfolders_v1(ezsignfolder_dispose_ezsignfolders_v1_request)
+> EzsignfolderDisposeEzsignfoldersV1Response ezsignfolder_dispose_ezsignfolders_v1(ezsignfolder_dispose_ezsignfolders_v1_request)
 
 Dispose Ezsignfolders
 
@@ -535,8 +535,8 @@ Dispose Ezsignfolders
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request
+from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_response import EzsignfolderDisposeEzsignfoldersV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeEzsignfoldersV1Response**](EzsignfolderDisposeEzsignfoldersV1Response.md)
 
 ### Authorization
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_dispose_v1**
-> CommonResponse ezsignfolder_dispose_v1(pki_ezsignfolder_id, body)
+> EzsignfolderDisposeV1Response ezsignfolder_dispose_v1(pki_ezsignfolder_id, body)
 
 Dispose the Ezsignfolder
 
@@ -617,7 +617,7 @@ Dispose the Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignfolder_dispose_v1_response import EzsignfolderDisposeV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderDisposeV1Response**](EzsignfolderDisposeV1Response.md)
 
 ### Authorization
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_edit_object_v3**
-> CommonResponse ezsignfolder_edit_object_v3(pki_ezsignfolder_id, ezsignfolder_edit_object_v3_request)
+> EzsignfolderEditObjectV3Response ezsignfolder_edit_object_v3(pki_ezsignfolder_id, ezsignfolder_edit_object_v3_request)
 
 Edit an existing Ezsignfolder
 
@@ -700,8 +700,8 @@ Edit an existing Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_edit_object_v3_request import EzsignfolderEditObjectV3Request
+from eZmaxApi.models.ezsignfolder_edit_object_v3_response import EzsignfolderEditObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEditObjectV3Response**](EzsignfolderEditObjectV3Response.md)
 
 ### Authorization
 
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_end_prematurely_v1**
-> CommonResponse ezsignfolder_end_prematurely_v1(pki_ezsignfolder_id, body)
+> EzsignfolderEndPrematurelyV1Response ezsignfolder_end_prematurely_v1(pki_ezsignfolder_id, body)
 
 End prematurely
 
@@ -784,7 +784,7 @@ End prematurely all Ezsigndocument of Ezsignfolder when some signatures are stil
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignfolder_end_prematurely_v1_response import EzsignfolderEndPrematurelyV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -833,7 +833,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderEndPrematurelyV1Response**](EzsignfolderEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -2234,7 +2234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_reorder_v1**
-> CommonResponse ezsignfolder_reorder_v1(pki_ezsignfolder_id, ezsignfolder_reorder_v1_request)
+> EzsignfolderReorderV1Response ezsignfolder_reorder_v1(pki_ezsignfolder_id, ezsignfolder_reorder_v1_request)
 
 Reorder Ezsigndocuments in the Ezsignfolder
 
@@ -2244,8 +2244,8 @@ Reorder Ezsigndocuments in the Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request
+from eZmaxApi.models.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2294,7 +2294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV1Response**](EzsignfolderReorderV1Response.md)
 
 ### Authorization
 
@@ -2316,7 +2316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_reorder_v2**
-> CommonResponse ezsignfolder_reorder_v2(pki_ezsignfolder_id, ezsignfolder_reorder_v2_request)
+> EzsignfolderReorderV2Response ezsignfolder_reorder_v2(pki_ezsignfolder_id, ezsignfolder_reorder_v2_request)
 
 Reorder Ezsigndocuments in the Ezsignfolder
 
@@ -2326,8 +2326,8 @@ Reorder Ezsigndocuments in the Ezsignfolder
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_reorder_v2_request import EzsignfolderReorderV2Request
+from eZmaxApi.models.ezsignfolder_reorder_v2_response import EzsignfolderReorderV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2376,7 +2376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderReorderV2Response**](EzsignfolderReorderV2Response.md)
 
 ### Authorization
 
@@ -2398,7 +2398,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_send_v1**
-> CommonResponse ezsignfolder_send_v1(pki_ezsignfolder_id, ezsignfolder_send_v1_request)
+> EzsignfolderSendV1Response ezsignfolder_send_v1(pki_ezsignfolder_id, ezsignfolder_send_v1_request)
 
 Send the Ezsignfolder to the signatories for signature
 
@@ -2410,8 +2410,8 @@ Send the Ezsignfolder to the signatories for signature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
+from eZmaxApi.models.ezsignfolder_send_v1_response import EzsignfolderSendV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2460,7 +2460,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV1Response**](EzsignfolderSendV1Response.md)
 
 ### Authorization
 
@@ -2482,7 +2482,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_send_v3**
-> CommonResponse ezsignfolder_send_v3(pki_ezsignfolder_id, ezsignfolder_send_v3_request)
+> EzsignfolderSendV3Response ezsignfolder_send_v3(pki_ezsignfolder_id, ezsignfolder_send_v3_request)
 
 Send the Ezsignfolder to the signatories for signature
 
@@ -2494,8 +2494,8 @@ Send the Ezsignfolder to the signatories for signature
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfolder_send_v3_request import EzsignfolderSendV3Request
+from eZmaxApi.models.ezsignfolder_send_v3_response import EzsignfolderSendV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2544,7 +2544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderSendV3Response**](EzsignfolderSendV3Response.md)
 
 ### Authorization
 
@@ -2566,7 +2566,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_unsend_v1**
-> CommonResponse ezsignfolder_unsend_v1(pki_ezsignfolder_id, body)
+> EzsignfolderUnsendV1Response ezsignfolder_unsend_v1(pki_ezsignfolder_id, body)
 
 Unsend the Ezsignfolder
 
@@ -2578,7 +2578,7 @@ Once an Ezsignfolder has been sent to signatories, it cannot be modified.  Using
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignfolder_unsend_v1_response import EzsignfolderUnsendV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2627,7 +2627,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfolderUnsendV1Response**](EzsignfolderUnsendV1Response.md)
 
 ### Authorization
 

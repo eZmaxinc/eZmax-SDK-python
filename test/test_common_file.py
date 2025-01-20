@@ -38,7 +38,7 @@ class TestCommonFile(unittest.TestCase):
             return CommonFile(
                 s_file_name = 'example.pdf',
                 s_file_url = '',
-                s_file_base64 = '[B@754777cd',
+                s_file_base64 = '[B@7807ac2c',
                 e_file_source = 'Base64'
             )
         else:

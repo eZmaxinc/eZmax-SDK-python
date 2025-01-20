@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.permission_request import PermissionRequest
+from eZmaxApi.models.permission_request_compound import PermissionRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class PermissionCreateObjectV1Request(BaseModel):
     """
     Request for POST /1/object/permission
     """ # noqa: E501
-    a_obj_permission: Annotated[List[PermissionRequest], Field(min_length=1)] = Field(alias="a_objPermission")
+    a_obj_permission: Annotated[List[PermissionRequestCompound], Field(min_length=1)] = Field(alias="a_objPermission")
     __properties: ClassVar[List[str]] = ["a_objPermission"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class PermissionCreateObjectV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objPermission": [PermissionRequest.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
+            "a_objPermission": [PermissionRequestCompound.from_dict(_item) for _item in obj["a_objPermission"]] if obj.get("a_objPermission") is not None else None
         })
         return _obj
 

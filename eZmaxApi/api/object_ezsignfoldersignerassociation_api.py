@@ -20,19 +20,23 @@ from typing_extensions import Annotated
 from pydantic import Field
 from typing import Any, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v1_request import EzsignfoldersignerassociationCreateEmbeddedUrlV1Request
 from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v1_response import EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_create_object_v1_request import EzsignfoldersignerassociationCreateObjectV1Request
 from eZmaxApi.models.ezsignfoldersignerassociation_create_object_v1_response import EzsignfoldersignerassociationCreateObjectV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_create_object_v2_request import EzsignfoldersignerassociationCreateObjectV2Request
 from eZmaxApi.models.ezsignfoldersignerassociation_create_object_v2_response import EzsignfoldersignerassociationCreateObjectV2Response
+from eZmaxApi.models.ezsignfoldersignerassociation_delete_object_v1_response import EzsignfoldersignerassociationDeleteObjectV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_edit_object_v1_request import EzsignfoldersignerassociationEditObjectV1Request
+from eZmaxApi.models.ezsignfoldersignerassociation_edit_object_v1_response import EzsignfoldersignerassociationEditObjectV1Response
+from eZmaxApi.models.ezsignfoldersignerassociation_force_disconnect_v1_response import EzsignfoldersignerassociationForceDisconnectV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_get_in_person_login_url_v1_response import EzsignfoldersignerassociationGetInPersonLoginUrlV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_get_object_v1_response import EzsignfoldersignerassociationGetObjectV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_get_object_v2_response import EzsignfoldersignerassociationGetObjectV2Response
 from eZmaxApi.models.ezsignfoldersignerassociation_patch_object_v1_request import EzsignfoldersignerassociationPatchObjectV1Request
+from eZmaxApi.models.ezsignfoldersignerassociation_patch_object_v1_response import EzsignfoldersignerassociationPatchObjectV1Response
 from eZmaxApi.models.ezsignfoldersignerassociation_reassign_v1_request import EzsignfoldersignerassociationReassignV1Request
+from eZmaxApi.models.ezsignfoldersignerassociation_reassign_v1_response import EzsignfoldersignerassociationReassignV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -915,7 +919,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldersignerassociationDeleteObjectV1Response:
         """Delete an existing Ezsignfoldersignerassociation
 
         
@@ -984,7 +988,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldersignerassociationDeleteObjectV1Response]:
         """Delete an existing Ezsignfoldersignerassociation
 
         
@@ -1183,7 +1187,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldersignerassociationEditObjectV1Response:
         """Edit an existing Ezsignfoldersignerassociation
 
         
@@ -1256,7 +1260,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldersignerassociationEditObjectV1Response]:
         """Edit an existing Ezsignfoldersignerassociation
 
         
@@ -1478,7 +1482,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldersignerassociationForceDisconnectV1Response:
         """Disconnects the Ezsignfoldersignerassociation
 
         
@@ -1551,7 +1555,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldersignerassociationForceDisconnectV1Response]:
         """Disconnects the Ezsignfoldersignerassociation
 
         
@@ -2571,7 +2575,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldersignerassociationPatchObjectV1Response:
         """Patch an existing Ezsignfoldersignerassociation
 
 
@@ -2643,7 +2647,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldersignerassociationPatchObjectV1Response]:
         """Patch an existing Ezsignfoldersignerassociation
 
 
@@ -2863,7 +2867,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldersignerassociationReassignV1Response:
         """Reassign remaining unsigned signatures and forms
 
         Reassign remaining unsigned signatures and forms
@@ -2936,7 +2940,7 @@ class ObjectEzsignfoldersignerassociationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldersignerassociationReassignV1Response]:
         """Reassign remaining unsigned signatures and forms
 
         Reassign remaining unsigned signatures and forms

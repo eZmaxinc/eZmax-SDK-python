@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsigningreason_edit_object_v1**
-> CommonResponse ezsignsigningreason_edit_object_v1(pki_ezsignsigningreason_id, ezsignsigningreason_edit_object_v1_request)
+> EzsignsigningreasonEditObjectV1Response ezsignsigningreason_edit_object_v1(pki_ezsignsigningreason_id, ezsignsigningreason_edit_object_v1_request)
 
 Edit an existing Ezsignsigningreason
 
@@ -104,8 +104,8 @@ Edit an existing Ezsignsigningreason
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsigningreason_edit_object_v1_request import EzsignsigningreasonEditObjectV1Request
+from eZmaxApi.models.ezsignsigningreason_edit_object_v1_response import EzsignsigningreasonEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsigningreasonEditObjectV1Response**](EzsignsigningreasonEditObjectV1Response.md)
 
 ### Authorization
 

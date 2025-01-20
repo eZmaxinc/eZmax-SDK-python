@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsigndocument_request import EzsigndocumentRequest
+from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class EzsigndocumentCreateObjectV3Request(BaseModel):
     """
     Request for POST /3/object/ezsigndocument
     """ # noqa: E501
-    a_obj_ezsigndocument: Annotated[List[EzsigndocumentRequest], Field(min_length=1)] = Field(alias="a_objEzsigndocument")
+    a_obj_ezsigndocument: Annotated[List[EzsigndocumentRequestCompound], Field(min_length=1)] = Field(alias="a_objEzsigndocument")
     __properties: ClassVar[List[str]] = ["a_objEzsigndocument"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class EzsigndocumentCreateObjectV3Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsigndocument": [EzsigndocumentRequest.from_dict(_item) for _item in obj["a_objEzsigndocument"]] if obj.get("a_objEzsigndocument") is not None else None
+            "a_objEzsigndocument": [EzsigndocumentRequestCompound.from_dict(_item) for _item in obj["a_objEzsigndocument"]] if obj.get("a_objEzsigndocument") is not None else None
         })
         return _obj
 

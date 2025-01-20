@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignfolder_request_v3 import EzsignfolderRequestV3
+from eZmaxApi.models.ezsignfolder_request_compound_v3 import EzsignfolderRequestCompoundV3
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EzsignfolderEditObjectV3Request(BaseModel):
     """
     Request for PUT /3/object/ezsignfolder/{pkiEzsignfolderID}
     """ # noqa: E501
-    obj_ezsignfolder: EzsignfolderRequestV3 = Field(description="An Ezsignfolder Object and children to create a complete structure", alias="objEzsignfolder")
+    obj_ezsignfolder: EzsignfolderRequestCompoundV3 = Field(alias="objEzsignfolder")
     __properties: ClassVar[List[str]] = ["objEzsignfolder"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class EzsignfolderEditObjectV3Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objEzsignfolder": EzsignfolderRequestV3.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None
+            "objEzsignfolder": EzsignfolderRequestCompoundV3.from_dict(obj["objEzsignfolder"]) if obj.get("objEzsignfolder") is not None else None
         })
         return _obj
 

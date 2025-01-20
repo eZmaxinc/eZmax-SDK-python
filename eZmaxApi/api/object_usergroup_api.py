@@ -20,11 +20,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.usergroup_create_object_v1_request import UsergroupCreateObjectV1Request
 from eZmaxApi.models.usergroup_create_object_v1_response import UsergroupCreateObjectV1Response
 from eZmaxApi.models.usergroup_edit_object_v1_request import UsergroupEditObjectV1Request
+from eZmaxApi.models.usergroup_edit_object_v1_response import UsergroupEditObjectV1Response
 from eZmaxApi.models.usergroup_edit_permissions_v1_request import UsergroupEditPermissionsV1Request
 from eZmaxApi.models.usergroup_edit_permissions_v1_response import UsergroupEditPermissionsV1Response
 from eZmaxApi.models.usergroup_edit_usergroupdelegations_v1_request import UsergroupEditUsergroupdelegationsV1Request
@@ -347,7 +347,7 @@ class ObjectUsergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> UsergroupEditObjectV1Response:
         """Edit an existing Usergroup
 
         
@@ -420,7 +420,7 @@ class ObjectUsergroupApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[UsergroupEditObjectV1Response]:
         """Edit an existing Usergroup
 
         

@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **supply_delete_object_v1**
-> CommonResponse supply_delete_object_v1(pki_supply_id)
+> SupplyDeleteObjectV1Response supply_delete_object_v1(pki_supply_id)
 
 Delete an existing Supply
 
@@ -105,7 +105,7 @@ Delete an existing Supply
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.supply_delete_object_v1_response import SupplyDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyDeleteObjectV1Response**](SupplyDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **supply_edit_object_v1**
-> CommonResponse supply_edit_object_v1(pki_supply_id, supply_edit_object_v1_request)
+> SupplyEditObjectV1Response supply_edit_object_v1(pki_supply_id, supply_edit_object_v1_request)
 
 Edit an existing Supply
 
@@ -185,8 +185,8 @@ Edit an existing Supply
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.supply_edit_object_v1_request import SupplyEditObjectV1Request
+from eZmaxApi.models.supply_edit_object_v1_response import SupplyEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SupplyEditObjectV1Response**](SupplyEditObjectV1Response.md)
 
 ### Authorization
 

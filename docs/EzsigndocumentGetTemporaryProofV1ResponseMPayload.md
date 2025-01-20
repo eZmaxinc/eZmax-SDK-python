@@ -6,7 +6,7 @@ Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_ezsigndocumentlog** | [**List[EzsigndocumentlogResponseCompound]**](EzsigndocumentlogResponse.md) |  | 
+**a_obj_ezsigndocumentlog** | [**List[EzsigndocumentlogResponseCompound]**](EzsigndocumentlogResponseCompound.md) |  | 
 
 ## Example
 

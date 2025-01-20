@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from eZmaxApi.models.custom_ezsignformfieldgroup_request import CustomEzsignformfieldgroupRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class EzsigndocumentSubmitEzsignformV1Request(BaseModel):
     Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/submitEzsignform
     """ # noqa: E501
     b_ezsignform_isdraft: StrictBool = Field(description="Whether the Ezsignform submitted is a draft or not.", alias="bEzsignformIsdraft")
-    a_obj_ezsignformfieldgroup: Annotated[List[object], Field(min_length=1)] = Field(alias="a_objEzsignformfieldgroup")
+    a_obj_ezsignformfieldgroup: Annotated[List[CustomEzsignformfieldgroupRequest], Field(min_length=1)] = Field(alias="a_objEzsignformfieldgroup")
     __properties: ClassVar[List[str]] = ["bEzsignformIsdraft", "a_objEzsignformfieldgroup"]
 
     model_config = ConfigDict(
@@ -71,6 +72,13 @@ class EzsigndocumentSubmitEzsignformV1Request(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfieldgroup (list)
+        _items = []
+        if self.a_obj_ezsignformfieldgroup:
+            for _item_a_obj_ezsignformfieldgroup in self.a_obj_ezsignformfieldgroup:
+                if _item_a_obj_ezsignformfieldgroup:
+                    _items.append(_item_a_obj_ezsignformfieldgroup.to_dict())
+            _dict['a_objEzsignformfieldgroup'] = _items
         return _dict
 
     @classmethod
@@ -84,7 +92,7 @@ class EzsigndocumentSubmitEzsignformV1Request(BaseModel):
 
         _obj = cls.model_validate({
             "bEzsignformIsdraft": obj.get("bEzsignformIsdraft"),
-            "a_objEzsignformfieldgroup": obj.get("a_objEzsignformfieldgroup")
+            "a_objEzsignformfieldgroup": [CustomEzsignformfieldgroupRequest.from_dict(_item) for _item in obj["a_objEzsignformfieldgroup"]] if obj.get("a_objEzsignformfieldgroup") is not None else None
         })
         return _obj
 

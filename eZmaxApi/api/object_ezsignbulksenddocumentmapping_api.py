@@ -19,9 +19,9 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignbulksenddocumentmapping_create_object_v1_request import EzsignbulksenddocumentmappingCreateObjectV1Request
 from eZmaxApi.models.ezsignbulksenddocumentmapping_create_object_v1_response import EzsignbulksenddocumentmappingCreateObjectV1Response
+from eZmaxApi.models.ezsignbulksenddocumentmapping_delete_object_v1_response import EzsignbulksenddocumentmappingDeleteObjectV1Response
 from eZmaxApi.models.ezsignbulksenddocumentmapping_get_object_v2_response import EzsignbulksenddocumentmappingGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -335,7 +335,7 @@ class ObjectEzsignbulksenddocumentmappingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignbulksenddocumentmappingDeleteObjectV1Response:
         """Delete an existing Ezsignbulksenddocumentmapping
 
         
@@ -403,7 +403,7 @@ class ObjectEzsignbulksenddocumentmappingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignbulksenddocumentmappingDeleteObjectV1Response]:
         """Delete an existing Ezsignbulksenddocumentmapping
 
         

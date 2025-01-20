@@ -6,7 +6,7 @@ Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_webhooklog** | **List[CustomWebhooklogResponse]** |  | 
+**a_obj_webhooklog** | [**List[CustomWebhooklogResponse]**](CustomWebhooklogResponse.md) |  | 
 
 ## Example
 

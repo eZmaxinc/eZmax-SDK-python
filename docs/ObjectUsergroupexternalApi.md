@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **usergroupexternal_delete_object_v1**
-> CommonResponse usergroupexternal_delete_object_v1(pki_usergroupexternal_id)
+> UsergroupexternalDeleteObjectV1Response usergroupexternal_delete_object_v1(pki_usergroupexternal_id)
 
 Delete an existing Usergroupexternal
 
@@ -107,7 +107,7 @@ Delete an existing Usergroupexternal
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.usergroupexternal_delete_object_v1_response import UsergroupexternalDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalDeleteObjectV1Response**](UsergroupexternalDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **usergroupexternal_edit_object_v1**
-> CommonResponse usergroupexternal_edit_object_v1(pki_usergroupexternal_id, usergroupexternal_edit_object_v1_request)
+> UsergroupexternalEditObjectV1Response usergroupexternal_edit_object_v1(pki_usergroupexternal_id, usergroupexternal_edit_object_v1_request)
 
 Edit an existing Usergroupexternal
 
@@ -188,8 +188,8 @@ Edit an existing Usergroupexternal
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.usergroupexternal_edit_object_v1_request import UsergroupexternalEditObjectV1Request
+from eZmaxApi.models.usergroupexternal_edit_object_v1_response import UsergroupexternalEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupexternalEditObjectV1Response**](UsergroupexternalEditObjectV1Response.md)
 
 ### Authorization
 

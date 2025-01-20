@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
-from eZmaxApi.models.ezsigntemplateelementdependency_response import EzsigntemplateelementdependencyResponse
+from eZmaxApi.models.ezsigntemplateelementdependency_response_compound import EzsigntemplateelementdependencyResponseCompound
 from eZmaxApi.models.field_e_ezsigntemplateformfield_dependencyrequirement import FieldEEzsigntemplateformfieldDependencyrequirement
 from eZmaxApi.models.field_e_ezsigntemplateformfield_positioning import FieldEEzsigntemplateformfieldPositioning
 from eZmaxApi.models.field_e_ezsigntemplateformfield_positioningoccurence import FieldEEzsigntemplateformfieldPositioningoccurence
@@ -52,7 +52,7 @@ class EzsigntemplateformfieldResponseCompound(BaseModel):
     e_ezsigntemplateformfield_positioningoccurence: Optional[FieldEEzsigntemplateformfieldPositioningoccurence] = Field(default=None, alias="eEzsigntemplateformfieldPositioningoccurence")
     e_ezsigntemplateformfield_horizontalalignment: Optional[EnumHorizontalalignment] = Field(default=None, alias="eEzsigntemplateformfieldHorizontalalignment")
     obj_textstylestatic: Optional[TextstylestaticResponseCompound] = Field(default=None, alias="objTextstylestatic")
-    a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyResponse]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
+    a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldID", "eEzsigntemplateformfieldPositioning", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "sEzsigntemplateformfieldPositioningpattern", "iEzsigntemplateformfieldPositioningoffsetx", "iEzsigntemplateformfieldPositioningoffsety", "eEzsigntemplateformfieldPositioningoccurence", "eEzsigntemplateformfieldHorizontalalignment", "objTextstylestatic", "a_objEzsigntemplateelementdependency"]
 
     @field_validator('s_ezsigntemplateformfield_positioningpattern')
@@ -144,7 +144,7 @@ class EzsigntemplateformfieldResponseCompound(BaseModel):
             "eEzsigntemplateformfieldPositioningoccurence": obj.get("eEzsigntemplateformfieldPositioningoccurence"),
             "eEzsigntemplateformfieldHorizontalalignment": obj.get("eEzsigntemplateformfieldHorizontalalignment"),
             "objTextstylestatic": TextstylestaticResponseCompound.from_dict(obj["objTextstylestatic"]) if obj.get("objTextstylestatic") is not None else None,
-            "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyResponse.from_dict(_item) for _item in obj["a_objEzsigntemplateelementdependency"]] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
+            "a_objEzsigntemplateelementdependency": [EzsigntemplateelementdependencyResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateelementdependency"]] if obj.get("a_objEzsigntemplateelementdependency") is not None else None
         })
         return _obj
 

@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsignpage_response import EzsignpageResponse
+from eZmaxApi.models.ezsignpage_response_compound import EzsignpageResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignpages
     """ # noqa: E501
-    a_obj_ezsignpage: List[EzsignpageResponse] = Field(alias="a_objEzsignpage")
+    a_obj_ezsignpage: List[EzsignpageResponseCompound] = Field(alias="a_objEzsignpage")
     __properties: ClassVar[List[str]] = ["a_objEzsignpage"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsignpage": [EzsignpageResponse.from_dict(_item) for _item in obj["a_objEzsignpage"]] if obj.get("a_objEzsignpage") is not None else None
+            "a_objEzsignpage": [EzsignpageResponseCompound.from_dict(_item) for _item in obj["a_objEzsignpage"]] if obj.get("a_objEzsignpage") is not None else None
         })
         return _obj
 

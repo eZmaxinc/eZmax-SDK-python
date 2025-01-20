@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.ezsigndocument_request import EzsigndocumentRequest
+from eZmaxApi.models.ezsigndocument_request_compound import EzsigndocumentRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class EzsigndocumentCreateObjectV1Request(BaseModel):
     Request for POST /1/object/ezsigndocument
     """ # noqa: E501
     obj_ezsigndocument: Optional[EzsigndocumentRequest] = Field(default=None, alias="objEzsigndocument")
-    obj_ezsigndocument_compound: Optional[EzsigndocumentRequest] = Field(default=None, description="An Ezsigndocument Object and children to create a complete structure", alias="objEzsigndocumentCompound")
+    obj_ezsigndocument_compound: Optional[EzsigndocumentRequestCompound] = Field(default=None, alias="objEzsigndocumentCompound")
     __properties: ClassVar[List[str]] = ["objEzsigndocument", "objEzsigndocumentCompound"]
 
     model_config = ConfigDict(
@@ -90,7 +91,7 @@ class EzsigndocumentCreateObjectV1Request(BaseModel):
 
         _obj = cls.model_validate({
             "objEzsigndocument": EzsigndocumentRequest.from_dict(obj["objEzsigndocument"]) if obj.get("objEzsigndocument") is not None else None,
-            "objEzsigndocumentCompound": EzsigndocumentRequest.from_dict(obj["objEzsigndocumentCompound"]) if obj.get("objEzsigndocumentCompound") is not None else None
+            "objEzsigndocumentCompound": EzsigndocumentRequestCompound.from_dict(obj["objEzsigndocumentCompound"]) if obj.get("objEzsigndocumentCompound") is not None else None
         })
         return _obj
 

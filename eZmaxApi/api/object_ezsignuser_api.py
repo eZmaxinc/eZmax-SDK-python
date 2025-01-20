@@ -19,8 +19,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignuser_edit_object_v1_request import EzsignuserEditObjectV1Request
+from eZmaxApi.models.ezsignuser_edit_object_v1_response import EzsignuserEditObjectV1Response
 from eZmaxApi.models.ezsignuser_get_object_v2_response import EzsignuserGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -58,7 +58,7 @@ class ObjectEzsignuserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignuserEditObjectV1Response:
         """Edit an existing Ezsignuser
 
         
@@ -131,7 +131,7 @@ class ObjectEzsignuserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignuserEditObjectV1Response]:
         """Edit an existing Ezsignuser
 
         

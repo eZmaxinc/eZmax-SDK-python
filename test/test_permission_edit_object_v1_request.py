@@ -36,23 +36,11 @@ class TestPermissionEditObjectV1Request(unittest.TestCase):
         model = PermissionEditObjectV1Request()
         if include_optional:
             return PermissionEditObjectV1Request(
-                obj_permission = eZmaxApi.models.permission_request.permission-Request(
-                    pki_permission_id = 31, 
-                    fki_user_id = 70, 
-                    fki_apikey_id = 99, 
-                    fki_usergroup_id = 2, 
-                    fki_company_id = 1, 
-                    fki_modulesection_id = 53, )
+                obj_permission = eZmaxApi.models.permission_request_compound.permission-RequestCompound()
             )
         else:
             return PermissionEditObjectV1Request(
-                obj_permission = eZmaxApi.models.permission_request.permission-Request(
-                    pki_permission_id = 31, 
-                    fki_user_id = 70, 
-                    fki_apikey_id = 99, 
-                    fki_usergroup_id = 2, 
-                    fki_company_id = 1, 
-                    fki_modulesection_id = 53, ),
+                obj_permission = eZmaxApi.models.permission_request_compound.permission-RequestCompound(),
         )
         """
 

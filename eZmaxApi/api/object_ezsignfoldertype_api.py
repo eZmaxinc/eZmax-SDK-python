@@ -20,10 +20,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldertype_create_object_v3_request import EzsignfoldertypeCreateObjectV3Request
 from eZmaxApi.models.ezsignfoldertype_create_object_v3_response import EzsignfoldertypeCreateObjectV3Response
 from eZmaxApi.models.ezsignfoldertype_edit_object_v3_request import EzsignfoldertypeEditObjectV3Request
+from eZmaxApi.models.ezsignfoldertype_edit_object_v3_response import EzsignfoldertypeEditObjectV3Response
 from eZmaxApi.models.ezsignfoldertype_get_autocomplete_v2_response import EzsignfoldertypeGetAutocompleteV2Response
 from eZmaxApi.models.ezsignfoldertype_get_list_v1_response import EzsignfoldertypeGetListV1Response
 from eZmaxApi.models.ezsignfoldertype_get_object_v2_response import EzsignfoldertypeGetObjectV2Response
@@ -339,7 +339,7 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsignfoldertypeEditObjectV3Response:
         """Edit an existing Ezsignfoldertype
 
         
@@ -412,7 +412,7 @@ class ObjectEzsignfoldertypeApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsignfoldertypeEditObjectV3Response]:
         """Edit an existing Ezsignfoldertype
 
         

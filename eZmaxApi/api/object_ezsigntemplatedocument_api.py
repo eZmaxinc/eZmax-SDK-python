@@ -20,7 +20,6 @@ from typing_extensions import Annotated
 from pydantic import Field
 from typing import Any, Dict
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_request import EzsigntemplatedocumentCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatedocument_create_object_v1_response import EzsigntemplatedocumentCreateObjectV1Response
 from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1_request import EzsigntemplatedocumentEditEzsigntemplatedocumentpagerecognitionsV1Request
@@ -33,6 +32,7 @@ from eZmaxApi.models.ezsigntemplatedocument_edit_object_v1_request import Ezsign
 from eZmaxApi.models.ezsigntemplatedocument_edit_object_v1_response import EzsigntemplatedocumentEditObjectV1Response
 from eZmaxApi.models.ezsigntemplatedocument_extract_text_v1_request import EzsigntemplatedocumentExtractTextV1Request
 from eZmaxApi.models.ezsigntemplatedocument_extract_text_v1_response import EzsigntemplatedocumentExtractTextV1Response
+from eZmaxApi.models.ezsigntemplatedocument_flatten_v1_response import EzsigntemplatedocumentFlattenV1Response
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatedocumentpagerecognitions_v1_response import EzsigntemplatedocumentGetEzsigntemplatedocumentpagerecognitionsV1Response
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_response import EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1Response
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_response import EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response
@@ -41,6 +41,7 @@ from eZmaxApi.models.ezsigntemplatedocument_get_object_v2_response import Ezsign
 from eZmaxApi.models.ezsigntemplatedocument_get_words_positions_v1_request import EzsigntemplatedocumentGetWordsPositionsV1Request
 from eZmaxApi.models.ezsigntemplatedocument_get_words_positions_v1_response import EzsigntemplatedocumentGetWordsPositionsV1Response
 from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_request import EzsigntemplatedocumentPatchObjectV1Request
+from eZmaxApi.models.ezsigntemplatedocument_patch_object_v1_response import EzsigntemplatedocumentPatchObjectV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -1832,7 +1833,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatedocumentFlattenV1Response:
         """Flatten
 
         Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
@@ -1905,7 +1906,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatedocumentFlattenV1Response]:
         """Flatten
 
         Flatten an Ezsigntemplatedocument signatures, forms and annotations. This process finalizes the PDF so that the forms and annotations become part of the document content and cannot be edited.
@@ -3748,7 +3749,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatedocumentPatchObjectV1Response:
         """Patch an existing Ezsigntemplatedocument
 
         
@@ -3820,7 +3821,7 @@ class ObjectEzsigntemplatedocumentApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatedocumentPatchObjectV1Response]:
         """Patch an existing Ezsigntemplatedocument
 
         

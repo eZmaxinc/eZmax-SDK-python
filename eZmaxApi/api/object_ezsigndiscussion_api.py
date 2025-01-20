@@ -19,9 +19,9 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndiscussion_create_object_v1_request import EzsigndiscussionCreateObjectV1Request
 from eZmaxApi.models.ezsigndiscussion_create_object_v1_response import EzsigndiscussionCreateObjectV1Response
+from eZmaxApi.models.ezsigndiscussion_delete_object_v1_response import EzsigndiscussionDeleteObjectV1Response
 from eZmaxApi.models.ezsigndiscussion_get_object_v2_response import EzsigndiscussionGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -332,7 +332,7 @@ class ObjectEzsigndiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigndiscussionDeleteObjectV1Response:
         """Delete an existing Ezsigndiscussion
 
         
@@ -400,7 +400,7 @@ class ObjectEzsigndiscussionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigndiscussionDeleteObjectV1Response]:
         """Delete an existing Ezsigndiscussion
 
         

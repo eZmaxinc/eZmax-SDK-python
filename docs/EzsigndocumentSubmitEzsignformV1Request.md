@@ -7,7 +7,7 @@ Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/submitEzsignform
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **b_ezsignform_isdraft** | **bool** | Whether the Ezsignform submitted is a draft or not. | 
-**a_obj_ezsignformfieldgroup** | **List[CustomEzsignformfieldgroupRequest]** |  | 
+**a_obj_ezsignformfieldgroup** | [**List[CustomEzsignformfieldgroupRequest]**](CustomEzsignformfieldgroupRequest.md) |  | 
 
 ## Example
 
