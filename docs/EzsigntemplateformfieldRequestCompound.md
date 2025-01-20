@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **e_ezsigntemplateformfield_positioningoccurence** | [**FieldEEzsigntemplateformfieldPositioningoccurence**](FieldEEzsigntemplateformfieldPositioningoccurence.md) |  | [optional] 
 **e_ezsigntemplateformfield_horizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | [optional] 
 **obj_textstylestatic** | [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
-**a_obj_ezsigntemplateelementdependency** | [**List[EzsigntemplateelementdependencyRequestCompound]**](EzsigntemplateelementdependencyRequestCompound.md) |  | [optional] 
+**a_obj_ezsigntemplateelementdependency** | [**List[EzsigntemplateelementdependencyRequestCompound]**](EzsigntemplateelementdependencyRequest.md) |  | [optional] 
 
 ## Example
 

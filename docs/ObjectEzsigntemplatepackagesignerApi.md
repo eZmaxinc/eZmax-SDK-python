@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatepackagesigner_edit_object_v1**
-> EzsigntemplatepackagesignerEditObjectV1Response ezsigntemplatepackagesigner_edit_object_v1(pki_ezsigntemplatepackagesigner_id, ezsigntemplatepackagesigner_edit_object_v1_request)
+> CommonResponse ezsigntemplatepackagesigner_edit_object_v1(pki_ezsigntemplatepackagesigner_id, ezsigntemplatepackagesigner_edit_object_v1_request)
 
 Edit an existing Ezsigntemplatepackagesigner
 
@@ -183,8 +183,8 @@ Edit an existing Ezsigntemplatepackagesigner
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_request import EzsigntemplatepackagesignerEditObjectV1Request
-from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_response import EzsigntemplatepackagesignerEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatepackagesignerEditObjectV1Response**](EzsigntemplatepackagesignerEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

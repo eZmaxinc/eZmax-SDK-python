@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsigndocumentdependency_request_compound import EzsigndocumentdependencyRequestCompound
+from eZmaxApi.models.ezsigndocumentdependency_request import EzsigndocumentdependencyRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class CustomEzsigndocumentRequest(BaseModel):
     Request for POST /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder
     """ # noqa: E501
     pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
-    a_obj_ezsigndocumentdependency: List[EzsigndocumentdependencyRequestCompound] = Field(alias="a_objEzsigndocumentdependency")
+    a_obj_ezsigndocumentdependency: List[EzsigndocumentdependencyRequest] = Field(alias="a_objEzsigndocumentdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "a_objEzsigndocumentdependency"]
 
     model_config = ConfigDict(
@@ -92,7 +92,7 @@ class CustomEzsigndocumentRequest(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzsigndocumentID": obj.get("pkiEzsigndocumentID"),
-            "a_objEzsigndocumentdependency": [EzsigndocumentdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsigndocumentdependency"]] if obj.get("a_objEzsigndocumentdependency") is not None else None
+            "a_objEzsigndocumentdependency": [EzsigndocumentdependencyRequest.from_dict(_item) for _item in obj["a_objEzsigndocumentdependency"]] if obj.get("a_objEzsigndocumentdependency") is not None else None
         })
         return _obj
 

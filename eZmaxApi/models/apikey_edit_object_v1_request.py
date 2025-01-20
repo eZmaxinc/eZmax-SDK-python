@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.apikey_request_compound import ApikeyRequestCompound
+from eZmaxApi.models.apikey_request import ApikeyRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class ApikeyEditObjectV1Request(BaseModel):
     """
     Request for PUT /1/object/apikey/{pkiApikeyID}
     """ # noqa: E501
-    obj_apikey: ApikeyRequestCompound = Field(alias="objApikey")
+    obj_apikey: ApikeyRequest = Field(description="An Apikey Object and children to create a complete structure", alias="objApikey")
     __properties: ClassVar[List[str]] = ["objApikey"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class ApikeyEditObjectV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objApikey": ApikeyRequestCompound.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None
+            "objApikey": ApikeyRequest.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None
         })
         return _obj
 

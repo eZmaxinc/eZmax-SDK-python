@@ -20,7 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field
 from typing import Any, Dict
 from typing_extensions import Annotated
-from eZmaxApi.models.ezsignpage_consult_v1_response import EzsignpageConsultV1Response
+from eZmaxApi.models.common_response import CommonResponse
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -57,7 +57,7 @@ class ObjectEzsignpageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignpageConsultV1Response:
+    ) -> CommonResponse:
         """Consult an Ezsignpage
 
 
@@ -129,7 +129,7 @@ class ObjectEzsignpageApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignpageConsultV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Consult an Ezsignpage
 
 

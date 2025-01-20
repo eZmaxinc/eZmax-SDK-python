@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.permission_request_compound import PermissionRequestCompound
+from eZmaxApi.models.permission_request import PermissionRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class PermissionEditObjectV1Request(BaseModel):
     """
     Request for PUT /1/object/permission/{pkiPermissionID}
     """ # noqa: E501
-    obj_permission: PermissionRequestCompound = Field(alias="objPermission")
+    obj_permission: PermissionRequest = Field(description="A Permission Object and children to create a complete structure", alias="objPermission")
     __properties: ClassVar[List[str]] = ["objPermission"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class PermissionEditObjectV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objPermission": PermissionRequestCompound.from_dict(obj["objPermission"]) if obj.get("objPermission") is not None else None
+            "objPermission": PermissionRequest.from_dict(obj["objPermission"]) if obj.get("objPermission") is not None else None
         })
         return _obj
 

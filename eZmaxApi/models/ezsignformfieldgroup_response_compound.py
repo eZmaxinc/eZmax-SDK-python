@@ -21,10 +21,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.custom_dropdown_element_response_compound import CustomDropdownElementResponseCompound
+from eZmaxApi.models.custom_dropdown_element_response import CustomDropdownElementResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.ezsignformfield_response_compound import EzsignformfieldResponseCompound
-from eZmaxApi.models.ezsignformfieldgroupsigner_response_compound import EzsignformfieldgroupsignerResponseCompound
+from eZmaxApi.models.ezsignformfieldgroupsigner_response import EzsignformfieldgroupsignerResponse
 from eZmaxApi.models.field_e_ezsignformfieldgroup_signerrequirement import FieldEEzsignformfieldgroupSignerrequirement
 from eZmaxApi.models.field_e_ezsignformfieldgroup_tooltipposition import FieldEEzsignformfieldgroupTooltipposition
 from eZmaxApi.models.field_e_ezsignformfieldgroup_type import FieldEEzsignformfieldgroupType
@@ -53,8 +53,8 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
     t_ezsignformfieldgroup_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup", alias="tEzsignformfieldgroupTooltip")
     e_ezsignformfieldgroup_tooltipposition: Optional[FieldEEzsignformfieldgroupTooltipposition] = Field(default=None, alias="eEzsignformfieldgroupTooltipposition")
     a_obj_ezsignformfield: List[EzsignformfieldResponseCompound] = Field(alias="a_objEzsignformfield")
-    a_obj_dropdown_element: Optional[List[CustomDropdownElementResponseCompound]] = Field(default=None, alias="a_objDropdownElement")
-    a_obj_ezsignformfieldgroupsigner: List[EzsignformfieldgroupsignerResponseCompound] = Field(alias="a_objEzsignformfieldgroupsigner")
+    a_obj_dropdown_element: Optional[List[CustomDropdownElementResponse]] = Field(default=None, alias="a_objDropdownElement")
+    a_obj_ezsignformfieldgroupsigner: List[EzsignformfieldgroupsignerResponse] = Field(alias="a_objEzsignformfieldgroupsigner")
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupID", "fkiEzsigndocumentID", "eEzsignformfieldgroupType", "eEzsignformfieldgroupSignerrequirement", "sEzsignformfieldgroupLabel", "iEzsignformfieldgroupStep", "sEzsignformfieldgroupDefaultvalue", "iEzsignformfieldgroupFilledmin", "iEzsignformfieldgroupFilledmax", "bEzsignformfieldgroupReadonly", "iEzsignformfieldgroupMaxlength", "bEzsignformfieldgroupEncrypted", "eEzsignformfieldgroupTextvalidation", "sEzsignformfieldgroupRegexp", "sEzsignformfieldgroupTextvalidationcustommessage", "tEzsignformfieldgroupTooltip", "eEzsignformfieldgroupTooltipposition", "a_objEzsignformfield", "a_objDropdownElement", "a_objEzsignformfieldgroupsigner"]
 
     @field_validator('s_ezsignformfieldgroup_regexp')
@@ -157,8 +157,8 @@ class EzsignformfieldgroupResponseCompound(BaseModel):
             "tEzsignformfieldgroupTooltip": obj.get("tEzsignformfieldgroupTooltip"),
             "eEzsignformfieldgroupTooltipposition": obj.get("eEzsignformfieldgroupTooltipposition"),
             "a_objEzsignformfield": [EzsignformfieldResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfield"]] if obj.get("a_objEzsignformfield") is not None else None,
-            "a_objDropdownElement": [CustomDropdownElementResponseCompound.from_dict(_item) for _item in obj["a_objDropdownElement"]] if obj.get("a_objDropdownElement") is not None else None,
-            "a_objEzsignformfieldgroupsigner": [EzsignformfieldgroupsignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfieldgroupsigner"]] if obj.get("a_objEzsignformfieldgroupsigner") is not None else None
+            "a_objDropdownElement": [CustomDropdownElementResponse.from_dict(_item) for _item in obj["a_objDropdownElement"]] if obj.get("a_objDropdownElement") is not None else None,
+            "a_objEzsignformfieldgroupsigner": [EzsignformfieldgroupsignerResponse.from_dict(_item) for _item in obj["a_objEzsignformfieldgroupsigner"]] if obj.get("a_objEzsignformfieldgroupsigner") is not None else None
         })
         return _obj
 

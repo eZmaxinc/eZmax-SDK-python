@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-from eZmaxApi.models.custom_dnsrecord_response import CustomDnsrecordResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,7 +35,7 @@ class DomainResponseCompound(BaseModel):
     b_domain_validmailfrom: StrictBool = Field(description="Whether the mail from is valid or not", alias="bDomainValidmailfrom")
     b_domain_validcustomer: StrictBool = Field(description="Whether the customer has access to it or not", alias="bDomainValidcustomer")
     obj_audit: CommonAudit = Field(alias="objAudit")
-    a_obj_dnsrecord: List[CustomDnsrecordResponse] = Field(alias="a_objDnsrecord")
+    a_obj_dnsrecord: List[object] = Field(alias="a_objDnsrecord")
     __properties: ClassVar[List[str]] = ["pkiDomainID", "sDomainName", "bDomainValiddkim", "bDomainValidmailfrom", "bDomainValidcustomer", "objAudit", "a_objDnsrecord"]
 
     @field_validator('s_domain_name')
@@ -88,13 +87,6 @@ class DomainResponseCompound(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_dnsrecord (list)
-        _items = []
-        if self.a_obj_dnsrecord:
-            for _item_a_obj_dnsrecord in self.a_obj_dnsrecord:
-                if _item_a_obj_dnsrecord:
-                    _items.append(_item_a_obj_dnsrecord.to_dict())
-            _dict['a_objDnsrecord'] = _items
         return _dict
 
     @classmethod
@@ -113,7 +105,7 @@ class DomainResponseCompound(BaseModel):
             "bDomainValidmailfrom": obj.get("bDomainValidmailfrom"),
             "bDomainValidcustomer": obj.get("bDomainValidcustomer"),
             "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
-            "a_objDnsrecord": [CustomDnsrecordResponse.from_dict(_item) for _item in obj["a_objDnsrecord"]] if obj.get("a_objDnsrecord") is not None else None
+            "a_objDnsrecord": obj.get("a_objDnsrecord")
         })
         return _obj
 

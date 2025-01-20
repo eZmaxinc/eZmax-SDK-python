@@ -20,9 +20,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response
-from eZmaxApi.models.domain_delete_object_v1_response import DomainDeleteObjectV1Response
 from eZmaxApi.models.domain_get_list_v1_response import DomainGetListV1Response
 from eZmaxApi.models.domain_get_object_v2_response import DomainGetObjectV2Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
@@ -335,7 +335,7 @@ class ObjectDomainApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DomainDeleteObjectV1Response:
+    ) -> CommonResponse:
         """Delete an existing Domain
 
         
@@ -403,7 +403,7 @@ class ObjectDomainApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DomainDeleteObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Delete an existing Domain
 
         

@@ -7,7 +7,7 @@ Request for POST /1/object/ezsigndocument
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_ezsigndocument** | [**EzsigndocumentRequest**](EzsigndocumentRequest.md) |  | [optional] 
-**obj_ezsigndocument_compound** | [**EzsigndocumentRequestCompound**](EzsigndocumentRequestCompound.md) |  | [optional] 
+**obj_ezsigndocument_compound** | [**EzsigndocumentRequest**](EzsigndocumentRequest.md) | An Ezsigndocument Object and children to create a complete structure | [optional] 
 
 ## Example
 

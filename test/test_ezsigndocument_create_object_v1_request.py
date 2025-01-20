@@ -44,7 +44,7 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
                     fki_language_id = 2, 
                     e_ezsigndocument_source = 'Base64', 
                     e_ezsigndocument_format = 'Pdf', 
-                    s_ezsigndocument_base64 = '[B@a77614d', 
+                    s_ezsigndocument_base64 = '[B@46c670a6', 
                     s_ezsigndocument_url = 'http://www.example.com/document.pdf', 
                     b_ezsigndocument_forcerepair = True, 
                     s_ezsigndocument_password = 'SecretPassword123', 
@@ -52,7 +52,22 @@ class TestEzsigndocumentCreateObjectV1Request(unittest.TestCase):
                     dt_ezsigndocument_duedate = '2020-12-31 23:59:59', 
                     s_ezsigndocument_name = 'Contract #123', 
                     s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', ),
-                obj_ezsigndocument_compound = eZmaxApi.models.ezsigndocument_request_compound.ezsigndocument-RequestCompound()
+                obj_ezsigndocument_compound = eZmaxApi.models.ezsigndocument_request.ezsigndocument-Request(
+                    pki_ezsigndocument_id = 97, 
+                    fki_ezsignfolder_id = 33, 
+                    fki_ezsigntemplate_id = 36, 
+                    fki_ezsignfoldersignerassociation_id = 20, 
+                    fki_language_id = 2, 
+                    e_ezsigndocument_source = 'Base64', 
+                    e_ezsigndocument_format = 'Pdf', 
+                    s_ezsigndocument_base64 = '[B@46c670a6', 
+                    s_ezsigndocument_url = 'http://www.example.com/document.pdf', 
+                    b_ezsigndocument_forcerepair = True, 
+                    s_ezsigndocument_password = 'SecretPassword123', 
+                    e_ezsigndocument_form = 'Keep', 
+                    dt_ezsigndocument_duedate = '2020-12-31 23:59:59', 
+                    s_ezsigndocument_name = 'Contract #123', 
+                    s_ezsigndocument_externalid = '{"ID": 1234, "TAGS": ["tag1", "tag2", "tag3"]}', )
             )
         else:
             return EzsigndocumentCreateObjectV1Request(

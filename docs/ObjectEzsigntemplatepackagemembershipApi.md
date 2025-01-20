@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatepackagemembership_delete_object_v1**
-> EzsigntemplatepackagemembershipDeleteObjectV1Response ezsigntemplatepackagemembership_delete_object_v1(pki_ezsigntemplatepackagemembership_id)
+> CommonResponse ezsigntemplatepackagemembership_delete_object_v1(pki_ezsigntemplatepackagemembership_id)
 
 Delete an existing Ezsigntemplatepackagemembership
 
@@ -103,7 +103,7 @@ Delete an existing Ezsigntemplatepackagemembership
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.ezsigntemplatepackagemembership_delete_object_v1_response import EzsigntemplatepackagemembershipDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzsigntemplatepackagemembershipDeleteObjectV1Response**](EzsigntemplatepackagemembershipDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

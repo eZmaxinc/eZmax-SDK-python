@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.user_response_compound import UserResponseCompound
+from eZmaxApi.models.user_response import UserResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class UserGetObjectV2ResponseMPayload(BaseModel):
     """
     Payload for GET /2/object/user/{pkiUserID}
     """ # noqa: E501
-    obj_user: UserResponseCompound = Field(alias="objUser")
+    obj_user: UserResponse = Field(description="A User Object and children to create a complete structure", alias="objUser")
     __properties: ClassVar[List[str]] = ["objUser"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class UserGetObjectV2ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objUser": UserResponseCompound.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None
+            "objUser": UserResponse.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None
         })
         return _obj
 

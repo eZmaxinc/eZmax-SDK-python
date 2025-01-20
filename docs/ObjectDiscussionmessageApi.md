@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussionmessage_delete_object_v1**
-> DiscussionmessageDeleteObjectV1Response discussionmessage_delete_object_v1(pki_discussionmessage_id)
+> CommonResponse discussionmessage_delete_object_v1(pki_discussionmessage_id)
 
 Delete an existing Discussionmessage
 
@@ -102,7 +102,7 @@ Delete an existing Discussionmessage
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.discussionmessage_delete_object_v1_response import DiscussionmessageDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DiscussionmessageDeleteObjectV1Response**](DiscussionmessageDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussionmessage_patch_object_v1**
-> DiscussionmessagePatchObjectV1Response discussionmessage_patch_object_v1(pki_discussionmessage_id, discussionmessage_patch_object_v1_request)
+> CommonResponse discussionmessage_patch_object_v1(pki_discussionmessage_id, discussionmessage_patch_object_v1_request)
 
 Patch an existing Discussionmessage
 
@@ -183,8 +183,8 @@ Patch an existing Discussionmessage
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.discussionmessage_patch_object_v1_request import DiscussionmessagePatchObjectV1Request
-from eZmaxApi.models.discussionmessage_patch_object_v1_response import DiscussionmessagePatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DiscussionmessagePatchObjectV1Response**](DiscussionmessagePatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

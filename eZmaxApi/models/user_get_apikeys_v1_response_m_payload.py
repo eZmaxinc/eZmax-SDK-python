@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.apikey_response_compound import ApikeyResponseCompound
+from eZmaxApi.models.apikey_response import ApikeyResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class UserGetApikeysV1ResponseMPayload(BaseModel):
     """
     Response for GET /1/object/user/{pkiUserID}/getApikeys
     """ # noqa: E501
-    a_obj_apikey: Annotated[List[ApikeyResponseCompound], Field(min_length=0)] = Field(alias="a_objApikey")
+    a_obj_apikey: Annotated[List[ApikeyResponse], Field(min_length=0)] = Field(alias="a_objApikey")
     __properties: ClassVar[List[str]] = ["a_objApikey"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class UserGetApikeysV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objApikey": [ApikeyResponseCompound.from_dict(_item) for _item in obj["a_objApikey"]] if obj.get("a_objApikey") is not None else None
+            "a_objApikey": [ApikeyResponse.from_dict(_item) for _item in obj["a_objApikey"]] if obj.get("a_objApikey") is not None else None
         })
         return _obj
 

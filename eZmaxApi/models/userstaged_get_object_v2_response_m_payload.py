@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.userstaged_response_compound import UserstagedResponseCompound
+from eZmaxApi.models.userstaged_response import UserstagedResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class UserstagedGetObjectV2ResponseMPayload(BaseModel):
     """
     Payload for GET /2/object/userstaged/{pkiUserstagedID}
     """ # noqa: E501
-    obj_userstaged: UserstagedResponseCompound = Field(alias="objUserstaged")
+    obj_userstaged: UserstagedResponse = Field(description="A Userstaged Object", alias="objUserstaged")
     __properties: ClassVar[List[str]] = ["objUserstaged"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class UserstagedGetObjectV2ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objUserstaged": UserstagedResponseCompound.from_dict(obj["objUserstaged"]) if obj.get("objUserstaged") is not None else None
+            "objUserstaged": UserstagedResponse.from_dict(obj["objUserstaged"]) if obj.get("objUserstaged") is not None else None
         })
         return _obj
 

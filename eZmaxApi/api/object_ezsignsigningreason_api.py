@@ -20,10 +20,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_request import EzsignsigningreasonCreateObjectV1Request
 from eZmaxApi.models.ezsignsigningreason_create_object_v1_response import EzsignsigningreasonCreateObjectV1Response
 from eZmaxApi.models.ezsignsigningreason_edit_object_v1_request import EzsignsigningreasonEditObjectV1Request
-from eZmaxApi.models.ezsignsigningreason_edit_object_v1_response import EzsignsigningreasonEditObjectV1Response
 from eZmaxApi.models.ezsignsigningreason_get_autocomplete_v2_response import EzsignsigningreasonGetAutocompleteV2Response
 from eZmaxApi.models.ezsignsigningreason_get_list_v1_response import EzsignsigningreasonGetListV1Response
 from eZmaxApi.models.ezsignsigningreason_get_object_v2_response import EzsignsigningreasonGetObjectV2Response
@@ -338,7 +338,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EzsignsigningreasonEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Ezsignsigningreason
 
         
@@ -411,7 +411,7 @@ class ObjectEzsignsigningreasonApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EzsignsigningreasonEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Ezsignsigningreason
 
         

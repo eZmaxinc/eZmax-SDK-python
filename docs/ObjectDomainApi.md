@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **domain_delete_object_v1**
-> DomainDeleteObjectV1Response domain_delete_object_v1(pki_domain_id)
+> CommonResponse domain_delete_object_v1(pki_domain_id)
 
 Delete an existing Domain
 
@@ -103,7 +103,7 @@ Delete an existing Domain
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.domain_delete_object_v1_response import DomainDeleteObjectV1Response
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DomainDeleteObjectV1Response**](DomainDeleteObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 

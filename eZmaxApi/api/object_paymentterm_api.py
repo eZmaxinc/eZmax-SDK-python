@@ -20,11 +20,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.paymentterm_create_object_v1_request import PaymenttermCreateObjectV1Request
 from eZmaxApi.models.paymentterm_create_object_v1_response import PaymenttermCreateObjectV1Response
 from eZmaxApi.models.paymentterm_edit_object_v1_request import PaymenttermEditObjectV1Request
-from eZmaxApi.models.paymentterm_edit_object_v1_response import PaymenttermEditObjectV1Response
 from eZmaxApi.models.paymentterm_get_autocomplete_v2_response import PaymenttermGetAutocompleteV2Response
 from eZmaxApi.models.paymentterm_get_list_v1_response import PaymenttermGetListV1Response
 from eZmaxApi.models.paymentterm_get_object_v2_response import PaymenttermGetObjectV2Response
@@ -341,7 +341,7 @@ class ObjectPaymenttermApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PaymenttermEditObjectV1Response:
+    ) -> CommonResponse:
         """Edit an existing Paymentterm
 
         
@@ -414,7 +414,7 @@ class ObjectPaymenttermApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PaymenttermEditObjectV1Response]:
+    ) -> ApiResponse[CommonResponse]:
         """Edit an existing Paymentterm
 
         

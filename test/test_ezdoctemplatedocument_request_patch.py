@@ -38,7 +38,7 @@ class TestEzdoctemplatedocumentRequestPatch(unittest.TestCase):
             return EzdoctemplatedocumentRequestPatch(
                 e_ezdoctemplatedocument_format = 'Docx',
                 s_ezdoctemplatedocument_fields = 'jUR,rZ#UM/?R,Fp^l6$ARj',
-                s_ezdoctemplatedocument_base64 = '[B@4b6166aa'
+                s_ezdoctemplatedocument_base64 = '[B@782a4fff'
             )
         else:
             return EzdoctemplatedocumentRequestPatch(

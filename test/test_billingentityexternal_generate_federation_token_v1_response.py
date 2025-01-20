@@ -47,7 +47,7 @@ class TestBillingentityexternalGenerateFederationTokenV1Response(unittest.TestCa
                 obj_debug = {"sMemoryUsage":"11,923MB","sRunTime":"0.6084s","iSQLSelects":3,"iSQLQueries":6,"a_objSQLQuery":[{"sQuery":"SELECT * FROM table","fDuration":1.0E-4},{"sQuery":"SELECT * FROM table","fDuration":1.0E-4}]},
                 m_payload = eZmaxApi.models.billingentityexternal_generate_federation_token_v1_response_m_payload.billingentityexternal-generateFederationToken-v1-Response-mPayload(
                     obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
-                        s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
+                        s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
                         s_apikeyfederation_secret = 'f514d7a0008a9f6dee03e60734624d04', ), 
                     s_ezmaxcustomercode_url = 'http://www.website.com/avatar.jpg', )
             )
@@ -63,7 +63,7 @@ class TestBillingentityexternalGenerateFederationTokenV1Response(unittest.TestCa
                     dt_response_date = '2020-12-31 23:59:59', ),
                 m_payload = eZmaxApi.models.billingentityexternal_generate_federation_token_v1_response_m_payload.billingentityexternal-generateFederationToken-v1-Response-mPayload(
                     obj_apikeyfederation = eZmaxApi.models.custom_apikeyfederation.Custom-Apikeyfederation(
-                        s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H'qT\\{<?'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
+                        s_apikeyfederation_key = 'jUR,rZ#UM/?R,Fp^l6$ARjbhJk C>i H\'qT\\{<?\'es#)#iK.YM{Rag2/!KB!k@5oXh.:Ts\";mGL,i&z5[P@M\"lzfB+Y,Twzfu~N^z', 
                         s_apikeyfederation_secret = 'f514d7a0008a9f6dee03e60734624d04', ), 
                     s_ezmaxcustomercode_url = 'http://www.website.com/avatar.jpg', ),
         )

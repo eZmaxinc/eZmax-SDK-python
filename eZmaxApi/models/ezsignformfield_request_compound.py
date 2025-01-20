@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
-from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
+from eZmaxApi.models.ezsignelementdependency_request import EzsignelementdependencyRequest
 from eZmaxApi.models.field_e_ezsignformfield_dependencyrequirement import FieldEEzsignformfieldDependencyrequirement
 from eZmaxApi.models.textstylestatic_request_compound import TextstylestaticRequestCompound
 from typing import Optional, Set
@@ -46,7 +46,7 @@ class EzsignformfieldRequestCompound(BaseModel):
     e_ezsignformfield_dependencyrequirement: Optional[FieldEEzsignformfieldDependencyrequirement] = Field(default=None, alias="eEzsignformfieldDependencyrequirement")
     e_ezsignformfield_horizontalalignment: Optional[EnumHorizontalalignment] = Field(default=None, alias="eEzsignformfieldHorizontalalignment")
     obj_textstylestatic: Optional[TextstylestaticRequestCompound] = Field(default=None, alias="objTextstylestatic")
-    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequestCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
+    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequest]] = Field(default=None, alias="a_objEzsignelementdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldID", "iEzsignpagePagenumber", "sEzsignformfieldLabel", "sEzsignformfieldValue", "iEzsignformfieldX", "iEzsignformfieldY", "iEzsignformfieldWidth", "iEzsignformfieldHeight", "bEzsignformfieldAutocomplete", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue", "eEzsignformfieldDependencyrequirement", "eEzsignformfieldHorizontalalignment", "objTextstylestatic", "a_objEzsignelementdependency"]
 
     model_config = ConfigDict(
@@ -124,7 +124,7 @@ class EzsignformfieldRequestCompound(BaseModel):
             "eEzsignformfieldDependencyrequirement": obj.get("eEzsignformfieldDependencyrequirement"),
             "eEzsignformfieldHorizontalalignment": obj.get("eEzsignformfieldHorizontalalignment"),
             "objTextstylestatic": TextstylestaticRequestCompound.from_dict(obj["objTextstylestatic"]) if obj.get("objTextstylestatic") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
+            "a_objEzsignelementdependency": [EzsignelementdependencyRequest.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

@@ -36,11 +36,71 @@ class TestApikeyRegenerateV1ResponseMPayload(unittest.TestCase):
         model = ApikeyRegenerateV1ResponseMPayload()
         if include_optional:
             return ApikeyRegenerateV1ResponseMPayload(
-                obj_apikey = eZmaxApi.models.apikey_response_compound.apikey-ResponseCompound()
+                obj_apikey = eZmaxApi.models.apikey_response.apikey-Response(
+                    pki_apikey_id = 99, 
+                    fki_user_id = 70, 
+                    obj_apikey_description = eZmaxApi.models.multilingual_apikey_description.Multilingual-ApikeyDescription(
+                        s_apikey_description1 = 'Projet X', 
+                        s_apikey_description2 = 'Project X', ), 
+                    obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
+                        s_contact_firstname = 'John', 
+                        s_contact_lastname = 'Doe', 
+                        s_contact_company = 'eZmax Solutions Inc.', ), 
+                    s_apikey_apikey = '', 
+                    s_apikey_secret = '', 
+                    b_apikey_isactive = True, 
+                    b_apikey_issigned = True, 
+                    obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                        obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                            fki_user_id = 70, 
+                            fki_apikey_id = 99, 
+                            s_user_loginname = 'JohnDoe', 
+                            s_user_lastname = 'Doe', 
+                            s_user_firstname = 'John', 
+                            s_apikey_description_x = 'Project X', 
+                            dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                        obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                            fki_user_id = 70, 
+                            fki_apikey_id = 99, 
+                            s_user_loginname = 'JohnDoe', 
+                            s_user_lastname = 'Doe', 
+                            s_user_firstname = 'John', 
+                            s_apikey_description_x = 'Project X', 
+                            dt_auditdetail_date = '2020-12-31 23:59:59', ), ), )
             )
         else:
             return ApikeyRegenerateV1ResponseMPayload(
-                obj_apikey = eZmaxApi.models.apikey_response_compound.apikey-ResponseCompound(),
+                obj_apikey = eZmaxApi.models.apikey_response.apikey-Response(
+                    pki_apikey_id = 99, 
+                    fki_user_id = 70, 
+                    obj_apikey_description = eZmaxApi.models.multilingual_apikey_description.Multilingual-ApikeyDescription(
+                        s_apikey_description1 = 'Projet X', 
+                        s_apikey_description2 = 'Project X', ), 
+                    obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
+                        s_contact_firstname = 'John', 
+                        s_contact_lastname = 'Doe', 
+                        s_contact_company = 'eZmax Solutions Inc.', ), 
+                    s_apikey_apikey = '', 
+                    s_apikey_secret = '', 
+                    b_apikey_isactive = True, 
+                    b_apikey_issigned = True, 
+                    obj_audit = eZmaxApi.models.common_audit.Common-Audit(
+                        obj_auditdetail_created = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                            fki_user_id = 70, 
+                            fki_apikey_id = 99, 
+                            s_user_loginname = 'JohnDoe', 
+                            s_user_lastname = 'Doe', 
+                            s_user_firstname = 'John', 
+                            s_apikey_description_x = 'Project X', 
+                            dt_auditdetail_date = '2020-12-31 23:59:59', ), 
+                        obj_auditdetail_modified = eZmaxApi.models.common_auditdetail.Common-Auditdetail(
+                            fki_user_id = 70, 
+                            fki_apikey_id = 99, 
+                            s_user_loginname = 'JohnDoe', 
+                            s_user_lastname = 'Doe', 
+                            s_user_firstname = 'John', 
+                            s_apikey_description_x = 'Project X', 
+                            dt_auditdetail_date = '2020-12-31 23:59:59', ), ), ),
         )
         """
 

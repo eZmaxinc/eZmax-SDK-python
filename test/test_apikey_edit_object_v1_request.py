@@ -36,11 +36,25 @@ class TestApikeyEditObjectV1Request(unittest.TestCase):
         model = ApikeyEditObjectV1Request()
         if include_optional:
             return ApikeyEditObjectV1Request(
-                obj_apikey = eZmaxApi.models.apikey_request_compound.apikey-RequestCompound()
+                obj_apikey = eZmaxApi.models.apikey_request.apikey-Request(
+                    pki_apikey_id = 99, 
+                    fki_user_id = 70, 
+                    obj_apikey_description = eZmaxApi.models.multilingual_apikey_description.Multilingual-ApikeyDescription(
+                        s_apikey_description1 = 'Projet X', 
+                        s_apikey_description2 = 'Project X', ), 
+                    b_apikey_isactive = True, 
+                    b_apikey_issigned = True, )
             )
         else:
             return ApikeyEditObjectV1Request(
-                obj_apikey = eZmaxApi.models.apikey_request_compound.apikey-RequestCompound(),
+                obj_apikey = eZmaxApi.models.apikey_request.apikey-Request(
+                    pki_apikey_id = 99, 
+                    fki_user_id = 70, 
+                    obj_apikey_description = eZmaxApi.models.multilingual_apikey_description.Multilingual-ApikeyDescription(
+                        s_apikey_description1 = 'Projet X', 
+                        s_apikey_description2 = 'Project X', ), 
+                    b_apikey_isactive = True, 
+                    b_apikey_issigned = True, ),
         )
         """
 

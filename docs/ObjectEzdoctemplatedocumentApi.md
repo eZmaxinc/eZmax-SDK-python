@@ -178,7 +178,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezdoctemplatedocument_edit_object_v1**
-> EzdoctemplatedocumentEditObjectV1Response ezdoctemplatedocument_edit_object_v1(pki_ezdoctemplatedocument_id, ezdoctemplatedocument_edit_object_v1_request)
+> CommonResponse ezdoctemplatedocument_edit_object_v1(pki_ezdoctemplatedocument_id, ezdoctemplatedocument_edit_object_v1_request)
 
 Edit an existing Ezdoctemplatedocument
 
@@ -190,8 +190,8 @@ Edit an existing Ezdoctemplatedocument
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezdoctemplatedocument_edit_object_v1_request import EzdoctemplatedocumentEditObjectV1Request
-from eZmaxApi.models.ezdoctemplatedocument_edit_object_v1_response import EzdoctemplatedocumentEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentEditObjectV1Response**](EzdoctemplatedocumentEditObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezdoctemplatedocument_patch_object_v1**
-> EzdoctemplatedocumentPatchObjectV1Response ezdoctemplatedocument_patch_object_v1(pki_ezdoctemplatedocument_id, ezdoctemplatedocument_patch_object_v1_request)
+> CommonResponse ezdoctemplatedocument_patch_object_v1(pki_ezdoctemplatedocument_id, ezdoctemplatedocument_patch_object_v1_request)
 
 Patch an existing Ezdoctemplatedocument
 
@@ -533,8 +533,8 @@ Patch an existing Ezdoctemplatedocument
 
 ```python
 import eZmaxApi
+from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezdoctemplatedocument_patch_object_v1_request import EzdoctemplatedocumentPatchObjectV1Request
-from eZmaxApi.models.ezdoctemplatedocument_patch_object_v1_response import EzdoctemplatedocumentPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EzdoctemplatedocumentPatchObjectV1Response**](EzdoctemplatedocumentPatchObjectV1Response.md)
+[**CommonResponse**](CommonResponse.md)
 
 ### Authorization
 
