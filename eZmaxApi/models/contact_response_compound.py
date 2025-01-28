@@ -36,14 +36,28 @@ class ContactResponseCompound(BaseModel):
     fki_contactinformations_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Contactinformations", alias="fkiContactinformationsID")
     dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate")
     e_contact_type: FieldEContactType = Field(alias="eContactType")
-    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
     s_contact_company: Optional[StrictStr] = Field(default=None, description="The Company name of the contact", alias="sContactCompany")
     s_contact_occupation: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The occupation of the Contact", alias="sContactOccupation")
     t_contact_note: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The note of the Contact", alias="tContactNote")
     b_contact_isactive: StrictBool = Field(description="Whether the contact is active or not", alias="bContactIsactive")
     obj_contactinformations: ContactinformationsResponseCompound = Field(alias="objContactinformations")
     __properties: ClassVar[List[str]] = ["pkiContactID", "fkiLanguageID", "fkiContacttitleID", "fkiContactinformationsID", "dtContactBirthdate", "eContactType", "sContactFirstname", "sContactLastname", "sContactCompany", "sContactOccupation", "tContactNote", "bContactIsactive", "objContactinformations"]
+
+    @field_validator('s_contact_firstname')
+    def s_contact_firstname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
+
+    @field_validator('s_contact_lastname')
+    def s_contact_lastname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,25}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,25}$/")
+        return value
 
     @field_validator('s_contact_occupation')
     def s_contact_occupation_validate_regular_expression(cls, value):

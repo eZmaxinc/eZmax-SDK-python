@@ -10,6 +10,7 @@ from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_attachment_api import ObjectAttachmentApi
 from eZmaxApi.api.object_authenticationexternal_api import ObjectAuthenticationexternalApi
+from eZmaxApi.api.object_bankaccount_api import ObjectBankaccountApi
 from eZmaxApi.api.object_billingentityexternal_api import ObjectBillingentityexternalApi
 from eZmaxApi.api.object_billingentityinternal_api import ObjectBillingentityinternalApi
 from eZmaxApi.api.object_branding_api import ObjectBrandingApi
@@ -21,6 +22,7 @@ from eZmaxApi.api.object_contacttitle_api import ObjectContacttitleApi
 from eZmaxApi.api.object_cors_api import ObjectCorsApi
 from eZmaxApi.api.object_country_api import ObjectCountryApi
 from eZmaxApi.api.object_creditcardclient_api import ObjectCreditcardclientApi
+from eZmaxApi.api.object_creditcardmerchant_api import ObjectCreditcardmerchantApi
 from eZmaxApi.api.object_creditcardtype_api import ObjectCreditcardtypeApi
 from eZmaxApi.api.object_customer_api import ObjectCustomerApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi

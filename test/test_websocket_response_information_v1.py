@@ -37,14 +37,14 @@ class TestWebsocketResponseInformationV1(unittest.TestCase):
         if include_optional:
             return WebsocketResponseInformationV1(
                 e_websocket_messagetype = 'Response-Information-V1',
-                s_websocket_channel = 'Ch@nnel_1.0',
+                s_websocket_channel = 'Ch@nnel_1.0_124547_3453_4563_567',
                 m_payload = eZmaxApi.models.websocket_response_information_v1_m_payload.Websocket-Response-Information-V1-mPayload(
                     s_information_message = 'Rasterizing pages', )
             )
         else:
             return WebsocketResponseInformationV1(
                 e_websocket_messagetype = 'Response-Information-V1',
-                s_websocket_channel = 'Ch@nnel_1.0',
+                s_websocket_channel = 'Ch@nnel_1.0_124547_3453_4563_567',
                 m_payload = eZmaxApi.models.websocket_response_information_v1_m_payload.Websocket-Response-Information-V1-mPayload(
                     s_information_message = 'Rasterizing pages', ),
         )

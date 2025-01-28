@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_form_data_ezsignformfieldgroup_response import CustomFormDataEzsignformfieldgroupResponse
@@ -31,10 +31,24 @@ class CustomFormDataSignerResponse(BaseModel):
     """ # noqa: E501
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
     fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
     a_obj_ezsignformfieldgroup: List[CustomFormDataEzsignformfieldgroupResponse] = Field(alias="a_objEzsignformfieldgroup")
     __properties: ClassVar[List[str]] = ["fkiEzsignfoldersignerassociationID", "fkiUserID", "sContactFirstname", "sContactLastname", "a_objEzsignformfieldgroup"]
+
+    @field_validator('s_contact_firstname')
+    def s_contact_firstname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
+
+    @field_validator('s_contact_lastname')
+    def s_contact_lastname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,25}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,25}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

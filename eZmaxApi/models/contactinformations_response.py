@@ -21,11 +21,11 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.address_response import AddressResponse
-from eZmaxApi.models.email_response import EmailResponse
+from eZmaxApi.models.address_response_compound import AddressResponseCompound
+from eZmaxApi.models.email_response_compound import EmailResponseCompound
 from eZmaxApi.models.field_e_contactinformations_type import FieldEContactinformationsType
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
-from eZmaxApi.models.website_response import WebsiteResponse
+from eZmaxApi.models.website_response_compound import WebsiteResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -40,10 +40,10 @@ class ContactinformationsResponse(BaseModel):
     fki_website_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Website Default", alias="fkiWebsiteIDDefault")
     e_contactinformations_type: FieldEContactinformationsType = Field(alias="eContactinformationsType")
     s_contactinformations_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Contactinformations", alias="sContactinformationsUrl")
-    obj_address_default: Optional[AddressResponse] = Field(default=None, description="An Address Object and children to create a complete structure", alias="objAddressDefault")
+    obj_address_default: Optional[AddressResponseCompound] = Field(default=None, alias="objAddressDefault")
     obj_phone_default: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneDefault")
-    obj_email_default: Optional[EmailResponse] = Field(default=None, description="An Email Object and children to create a complete structure", alias="objEmailDefault")
-    obj_website_default: Optional[WebsiteResponse] = Field(default=None, description="A Website Object and children to create a complete structure", alias="objWebsiteDefault")
+    obj_email_default: Optional[EmailResponseCompound] = Field(default=None, alias="objEmailDefault")
+    obj_website_default: Optional[WebsiteResponseCompound] = Field(default=None, alias="objWebsiteDefault")
     __properties: ClassVar[List[str]] = ["pkiContactinformationsID", "fkiAddressIDDefault", "fkiPhoneIDDefault", "fkiEmailIDDefault", "fkiWebsiteIDDefault", "eContactinformationsType", "sContactinformationsUrl", "objAddressDefault", "objPhoneDefault", "objEmailDefault", "objWebsiteDefault"]
 
     @field_validator('s_contactinformations_url')
@@ -126,10 +126,10 @@ class ContactinformationsResponse(BaseModel):
             "fkiWebsiteIDDefault": obj.get("fkiWebsiteIDDefault"),
             "eContactinformationsType": obj.get("eContactinformationsType"),
             "sContactinformationsUrl": obj.get("sContactinformationsUrl"),
-            "objAddressDefault": AddressResponse.from_dict(obj["objAddressDefault"]) if obj.get("objAddressDefault") is not None else None,
+            "objAddressDefault": AddressResponseCompound.from_dict(obj["objAddressDefault"]) if obj.get("objAddressDefault") is not None else None,
             "objPhoneDefault": PhoneResponseCompound.from_dict(obj["objPhoneDefault"]) if obj.get("objPhoneDefault") is not None else None,
-            "objEmailDefault": EmailResponse.from_dict(obj["objEmailDefault"]) if obj.get("objEmailDefault") is not None else None,
-            "objWebsiteDefault": WebsiteResponse.from_dict(obj["objWebsiteDefault"]) if obj.get("objWebsiteDefault") is not None else None
+            "objEmailDefault": EmailResponseCompound.from_dict(obj["objEmailDefault"]) if obj.get("objEmailDefault") is not None else None,
+            "objWebsiteDefault": WebsiteResponseCompound.from_dict(obj["objWebsiteDefault"]) if obj.get("objWebsiteDefault") is not None else None
         })
         return _obj
 

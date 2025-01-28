@@ -20,10 +20,10 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.address_request import AddressRequest
-from eZmaxApi.models.email_request import EmailRequest
-from eZmaxApi.models.phone_request import PhoneRequest
-from eZmaxApi.models.website_request import WebsiteRequest
+from eZmaxApi.models.address_request_compound import AddressRequestCompound
+from eZmaxApi.models.email_request_compound import EmailRequestCompound
+from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
+from eZmaxApi.models.website_request_compound import WebsiteRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,10 +35,10 @@ class ContactinformationsRequestCompound(BaseModel):
     i_phone_default: StrictInt = Field(description="The index in the a_objPhone array (zero based index) representing the Phone object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iPhoneDefault")
     i_email_default: StrictInt = Field(description="The index in the a_objEmail array (zero based index) representing the Email object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iEmailDefault")
     i_website_default: StrictInt = Field(description="The index in the a_objWebsite array (zero based index) representing the Website object that should become the default one.  You can leave the value to 0 if the array is empty.", alias="iWebsiteDefault")
-    a_obj_address: List[AddressRequest] = Field(alias="a_objAddress")
-    a_obj_phone: List[PhoneRequest] = Field(alias="a_objPhone")
-    a_obj_email: List[EmailRequest] = Field(alias="a_objEmail")
-    a_obj_website: List[WebsiteRequest] = Field(alias="a_objWebsite")
+    a_obj_address: List[AddressRequestCompound] = Field(alias="a_objAddress")
+    a_obj_phone: List[PhoneRequestCompound] = Field(alias="a_objPhone")
+    a_obj_email: List[EmailRequestCompound] = Field(alias="a_objEmail")
+    a_obj_website: List[WebsiteRequestCompound] = Field(alias="a_objWebsite")
     __properties: ClassVar[List[str]] = ["iAddressDefault", "iPhoneDefault", "iEmailDefault", "iWebsiteDefault", "a_objAddress", "a_objPhone", "a_objEmail", "a_objWebsite"]
 
     model_config = ConfigDict(
@@ -124,10 +124,10 @@ class ContactinformationsRequestCompound(BaseModel):
             "iPhoneDefault": obj.get("iPhoneDefault"),
             "iEmailDefault": obj.get("iEmailDefault"),
             "iWebsiteDefault": obj.get("iWebsiteDefault"),
-            "a_objAddress": [AddressRequest.from_dict(_item) for _item in obj["a_objAddress"]] if obj.get("a_objAddress") is not None else None,
-            "a_objPhone": [PhoneRequest.from_dict(_item) for _item in obj["a_objPhone"]] if obj.get("a_objPhone") is not None else None,
-            "a_objEmail": [EmailRequest.from_dict(_item) for _item in obj["a_objEmail"]] if obj.get("a_objEmail") is not None else None,
-            "a_objWebsite": [WebsiteRequest.from_dict(_item) for _item in obj["a_objWebsite"]] if obj.get("a_objWebsite") is not None else None
+            "a_objAddress": [AddressRequestCompound.from_dict(_item) for _item in obj["a_objAddress"]] if obj.get("a_objAddress") is not None else None,
+            "a_objPhone": [PhoneRequestCompound.from_dict(_item) for _item in obj["a_objPhone"]] if obj.get("a_objPhone") is not None else None,
+            "a_objEmail": [EmailRequestCompound.from_dict(_item) for _item in obj["a_objEmail"]] if obj.get("a_objEmail") is not None else None,
+            "a_objWebsite": [WebsiteRequestCompound.from_dict(_item) for _item in obj["a_objWebsite"]] if obj.get("a_objWebsite") is not None else None
         })
         return _obj
 

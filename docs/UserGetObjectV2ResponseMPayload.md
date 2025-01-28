@@ -6,7 +6,7 @@ Payload for GET /2/object/user/{pkiUserID}
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**obj_user** | [**UserResponse**](UserResponse.md) | A User Object and children to create a complete structure | 
+**obj_user** | [**UserResponseCompound**](UserResponseCompound.md) |  | 
 
 ## Example
 

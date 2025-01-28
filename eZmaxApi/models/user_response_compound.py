@@ -22,7 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
-from eZmaxApi.models.email_response import EmailResponse
+from eZmaxApi.models.email_response_compound import EmailResponseCompound
 from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_logintype import FieldEUserLogintype
 from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin
@@ -48,7 +48,7 @@ class UserResponseCompound(BaseModel):
     s_timezone_name: StrictStr = Field(description="The description of the Timezone", alias="sTimezoneName")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
-    obj_email: EmailResponse = Field(description="An Email Object and children to create a complete structure", alias="objEmail")
+    obj_email: EmailResponseCompound = Field(alias="objEmail")
     fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
     obj_phone_home: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneHome")
@@ -198,7 +198,7 @@ class UserResponseCompound(BaseModel):
             "sTimezoneName": obj.get("sTimezoneName"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "sLanguageNameX": obj.get("sLanguageNameX"),
-            "objEmail": EmailResponse.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
+            "objEmail": EmailResponseCompound.from_dict(obj["objEmail"]) if obj.get("objEmail") is not None else None,
             "fkiBillingentityinternalID": obj.get("fkiBillingentityinternalID"),
             "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
             "objPhoneHome": PhoneResponseCompound.from_dict(obj["objPhoneHome"]) if obj.get("objPhoneHome") is not None else None,

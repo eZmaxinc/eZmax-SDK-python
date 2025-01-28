@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.communicationexternalrecipient_request_compound import CommunicationexternalrecipientRequestCompound
 from eZmaxApi.models.communicationrecipient_request_compound import CommunicationrecipientRequestCompound
-from eZmaxApi.models.communicationreference_request import CommunicationreferenceRequest
+from eZmaxApi.models.communicationreference_request_compound import CommunicationreferenceRequestCompound
 from eZmaxApi.models.custom_communicationattachment_request import CustomCommunicationattachmentRequest
 from eZmaxApi.models.custom_communicationsender_request import CustomCommunicationsenderRequest
 from eZmaxApi.models.field_e_communication_importance import FieldECommunicationImportance
@@ -47,7 +47,7 @@ class CommunicationRequestCompound(BaseModel):
     b_communication_readreceipt: Optional[StrictBool] = Field(default=None, description="Whether we ask for a read receipt or not.", alias="bCommunicationReadreceipt")
     a_obj_communicationattachment: Annotated[List[CustomCommunicationattachmentRequest], Field(min_length=0)] = Field(alias="a_objCommunicationattachment")
     a_obj_communicationrecipient: Annotated[List[CommunicationrecipientRequestCompound], Field(min_length=0)] = Field(alias="a_objCommunicationrecipient")
-    a_obj_communicationreference: Annotated[List[CommunicationreferenceRequest], Field(min_length=0)] = Field(alias="a_objCommunicationreference")
+    a_obj_communicationreference: Annotated[List[CommunicationreferenceRequestCompound], Field(min_length=0)] = Field(alias="a_objCommunicationreference")
     a_obj_communicationexternalrecipient: Annotated[List[CommunicationexternalrecipientRequestCompound], Field(min_length=0)] = Field(alias="a_objCommunicationexternalrecipient")
     __properties: ClassVar[List[str]] = ["pkiCommunicationID", "eCommunicationImportance", "eCommunicationType", "objCommunicationsender", "sCommunicationSubject", "tCommunicationBody", "bCommunicationPrivate", "eCommunicationAttachmenttype", "iCommunicationAttachmentlinkexpiration", "bCommunicationReadreceipt", "a_objCommunicationattachment", "a_objCommunicationrecipient", "a_objCommunicationreference", "a_objCommunicationexternalrecipient"]
 
@@ -165,7 +165,7 @@ class CommunicationRequestCompound(BaseModel):
             "bCommunicationReadreceipt": obj.get("bCommunicationReadreceipt"),
             "a_objCommunicationattachment": [CustomCommunicationattachmentRequest.from_dict(_item) for _item in obj["a_objCommunicationattachment"]] if obj.get("a_objCommunicationattachment") is not None else None,
             "a_objCommunicationrecipient": [CommunicationrecipientRequestCompound.from_dict(_item) for _item in obj["a_objCommunicationrecipient"]] if obj.get("a_objCommunicationrecipient") is not None else None,
-            "a_objCommunicationreference": [CommunicationreferenceRequest.from_dict(_item) for _item in obj["a_objCommunicationreference"]] if obj.get("a_objCommunicationreference") is not None else None,
+            "a_objCommunicationreference": [CommunicationreferenceRequestCompound.from_dict(_item) for _item in obj["a_objCommunicationreference"]] if obj.get("a_objCommunicationreference") is not None else None,
             "a_objCommunicationexternalrecipient": [CommunicationexternalrecipientRequestCompound.from_dict(_item) for _item in obj["a_objCommunicationexternalrecipient"]] if obj.get("a_objCommunicationexternalrecipient") is not None else None
         })
         return _obj

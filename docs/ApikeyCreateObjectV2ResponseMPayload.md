@@ -6,7 +6,7 @@ Payload for POST /2/object/apikey
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_obj_apikey** | [**List[ApikeyResponseCompound]**](ApikeyResponse.md) |  | 
+**a_obj_apikey** | [**List[ApikeyResponseCompound]**](ApikeyResponseCompound.md) |  | 
 
 ## Example
 

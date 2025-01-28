@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **usergroup_edit_object_v1**
-> CommonResponse usergroup_edit_object_v1(pki_usergroup_id, usergroup_edit_object_v1_request)
+> UsergroupEditObjectV1Response usergroup_edit_object_v1(pki_usergroup_id, usergroup_edit_object_v1_request)
 
 Edit an existing Usergroup
 
@@ -110,8 +110,8 @@ Edit an existing Usergroup
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.usergroup_edit_object_v1_request import UsergroupEditObjectV1Request
+from eZmaxApi.models.usergroup_edit_object_v1_response import UsergroupEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupEditObjectV1Response**](UsergroupEditObjectV1Response.md)
 
 ### Authorization
 

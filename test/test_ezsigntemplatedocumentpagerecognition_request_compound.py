@@ -40,7 +40,7 @@ class TestEzsigntemplatedocumentpagerecognitionRequestCompound(unittest.TestCase
                 fki_ezsigntemplatedocumentpage_id = 85,
                 e_ezsigntemplatedocumentpagerecognition_operator = 'eq',
                 e_ezsigntemplatedocumentpagerecognition_section = 'FirstLine',
-                i_ezsigntemplatedocumentpagerecognition_similarpercentage = 50,
+                i_ezsigntemplatedocumentpagerecognition_similarpercentage = 75,
                 i_ezsigntemplatedocumentpagerecognition_x = 36325,
                 i_ezsigntemplatedocumentpagerecognition_y = 407,
                 i_ezsigntemplatedocumentpagerecognition_width = 29232,

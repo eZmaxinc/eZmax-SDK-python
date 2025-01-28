@@ -29,14 +29,28 @@ class EzsignsignerResponseCompoundContact(BaseModel):
     A Ezsignsigner->Contact Object and children to create a complete structure
     """ # noqa: E501
     pki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="pkiContactID")
-    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
     s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
     s_phone_e164_cell: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164Cell")
     __properties: ClassVar[List[str]] = ["pkiContactID", "sContactFirstname", "sContactLastname", "fkiLanguageID", "sEmailAddress", "sPhoneE164", "sPhoneExtension", "sPhoneE164Cell"]
+
+    @field_validator('s_contact_firstname')
+    def s_contact_firstname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
+
+    @field_validator('s_contact_lastname')
+    def s_contact_lastname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,25}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,25}$/")
+        return value
 
     @field_validator('s_email_address')
     def s_email_address_validate_regular_expression(cls, value):

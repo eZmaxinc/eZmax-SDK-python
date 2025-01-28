@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **ezsignuser_edit_object_v1**
-> CommonResponse ezsignuser_edit_object_v1(pki_ezsignuser_id, ezsignuser_edit_object_v1_request)
+> EzsignuserEditObjectV1Response ezsignuser_edit_object_v1(pki_ezsignuser_id, ezsignuser_edit_object_v1_request)
 
 Edit an existing Ezsignuser
 
@@ -21,8 +21,8 @@ Edit an existing Ezsignuser
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignuser_edit_object_v1_request import EzsignuserEditObjectV1Request
+from eZmaxApi.models.ezsignuser_edit_object_v1_response import EzsignuserEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignuserEditObjectV1Response**](EzsignuserEditObjectV1Response.md)
 
 ### Authorization
 

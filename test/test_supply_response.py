@@ -44,7 +44,7 @@ class TestSupplyResponse(unittest.TestCase):
                 obj_supply_description = eZmaxApi.models.multilingual_supply_description.Multilingual-SupplyDescription(
                     s_supply_description1 = 'Papier lettre paquet', 
                     s_supply_description2 = 'Letter paper package', ),
-                d_supply_unitprice = '8',
+                d_supply_unitprice = '8.00',
                 b_supply_isactive = True,
                 b_supply_variableprice = True,
                 s_glaccount_description_x = 'Supplies income',
@@ -59,7 +59,7 @@ class TestSupplyResponse(unittest.TestCase):
                 obj_supply_description = eZmaxApi.models.multilingual_supply_description.Multilingual-SupplyDescription(
                     s_supply_description1 = 'Papier lettre paquet', 
                     s_supply_description2 = 'Letter paper package', ),
-                d_supply_unitprice = '8',
+                d_supply_unitprice = '8.00',
                 b_supply_isactive = True,
                 b_supply_variableprice = True,
         )

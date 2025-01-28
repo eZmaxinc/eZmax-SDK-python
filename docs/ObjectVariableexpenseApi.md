@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **variableexpense_edit_object_v1**
-> CommonResponse variableexpense_edit_object_v1(pki_variableexpense_id, variableexpense_edit_object_v1_request)
+> VariableexpenseEditObjectV1Response variableexpense_edit_object_v1(pki_variableexpense_id, variableexpense_edit_object_v1_request)
 
 Edit an existing Variableexpense
 
@@ -104,8 +104,8 @@ Edit an existing Variableexpense
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.variableexpense_edit_object_v1_request import VariableexpenseEditObjectV1Request
+from eZmaxApi.models.variableexpense_edit_object_v1_response import VariableexpenseEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**VariableexpenseEditObjectV1Response**](VariableexpenseEditObjectV1Response.md)
 
 ### Authorization
 

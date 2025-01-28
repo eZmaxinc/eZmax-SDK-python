@@ -38,13 +38,13 @@ class TestCreditcardtypeAutocompleteElementResponse(unittest.TestCase):
             return CreditcardtypeAutocompleteElementResponse(
                 s_creditcardtype_name = 'Visa',
                 pki_creditcardtype_id = 2,
-                e_creditcardtype_codename = 'visa'
+                e_creditcardtype_codename = 'Visa'
             )
         else:
             return CreditcardtypeAutocompleteElementResponse(
                 s_creditcardtype_name = 'Visa',
                 pki_creditcardtype_id = 2,
-                e_creditcardtype_codename = 'visa',
+                e_creditcardtype_codename = 'Visa',
         )
         """
 

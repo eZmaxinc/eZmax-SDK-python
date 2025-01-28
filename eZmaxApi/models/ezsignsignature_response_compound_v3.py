@@ -24,8 +24,8 @@ from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
 from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
-from eZmaxApi.models.ezsignelementdependency_response import EzsignelementdependencyResponse
-from eZmaxApi.models.ezsignsignaturecustomdate_response_v2 import EzsignsignaturecustomdateResponseV2
+from eZmaxApi.models.ezsignelementdependency_response_compound import EzsignelementdependencyResponseCompound
+from eZmaxApi.models.ezsignsignaturecustomdate_response_compound_v2 import EzsignsignaturecustomdateResponseCompoundV2
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
@@ -78,9 +78,9 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(default=None, alias="objSignature")
     b_ezsignsignature_customdate: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)", alias="bEzsignsignatureCustomdate")
-    a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateResponseV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
+    a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateResponseCompoundV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
     obj_creditcardtransaction: Optional[CustomCreditcardtransactionResponse] = Field(default=None, alias="objCreditcardtransaction")
-    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyResponse]] = Field(default=None, alias="a_objEzsignelementdependency")
+    a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency"]
 
     @field_validator('s_ezsignsigningreason_description_x')
@@ -228,9 +228,9 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
             "objContactNameDelegation": CustomContactNameResponse.from_dict(obj["objContactNameDelegation"]) if obj.get("objContactNameDelegation") is not None else None,
             "objSignature": SignatureResponseCompound.from_dict(obj["objSignature"]) if obj.get("objSignature") is not None else None,
             "bEzsignsignatureCustomdate": obj.get("bEzsignsignatureCustomdate"),
-            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateResponseV2.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
+            "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateResponseCompoundV2.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
             "objCreditcardtransaction": CustomCreditcardtransactionResponse.from_dict(obj["objCreditcardtransaction"]) if obj.get("objCreditcardtransaction") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyResponse.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
+            "a_objEzsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
         })
         return _obj
 

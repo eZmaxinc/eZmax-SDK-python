@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignformfieldgroup_delete_object_v1**
-> CommonResponse ezsignformfieldgroup_delete_object_v1(pki_ezsignformfieldgroup_id)
+> EzsignformfieldgroupDeleteObjectV1Response ezsignformfieldgroup_delete_object_v1(pki_ezsignformfieldgroup_id)
 
 Delete an existing Ezsignformfieldgroup
 
@@ -103,7 +103,7 @@ Delete an existing Ezsignformfieldgroup
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignformfieldgroup_delete_object_v1_response import EzsignformfieldgroupDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignformfieldgroupDeleteObjectV1Response**](EzsignformfieldgroupDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignformfieldgroup_edit_object_v1**
-> CommonResponse ezsignformfieldgroup_edit_object_v1(pki_ezsignformfieldgroup_id, ezsignformfieldgroup_edit_object_v1_request)
+> EzsignformfieldgroupEditObjectV1Response ezsignformfieldgroup_edit_object_v1(pki_ezsignformfieldgroup_id, ezsignformfieldgroup_edit_object_v1_request)
 
 Edit an existing Ezsignformfieldgroup
 
@@ -184,8 +184,8 @@ Edit an existing Ezsignformfieldgroup
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignformfieldgroup_edit_object_v1_request import EzsignformfieldgroupEditObjectV1Request
+from eZmaxApi.models.ezsignformfieldgroup_edit_object_v1_response import EzsignformfieldgroupEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignformfieldgroupEditObjectV1Response**](EzsignformfieldgroupEditObjectV1Response.md)
 
 ### Authorization
 

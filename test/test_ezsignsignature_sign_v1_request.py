@@ -46,7 +46,7 @@ class TestEzsignsignatureSignV1Request(unittest.TestCase):
                     eZmaxApi.models.common_file.Common-File(
                         s_file_name = 'example.pdf', 
                         s_file_url = '', 
-                        s_file_base64 = '[B@754777cd', 
+                        s_file_base64 = '[B@2f08c4b', 
                         e_file_source = 'Base64', )
                     ],
                 b_is_automatic = True

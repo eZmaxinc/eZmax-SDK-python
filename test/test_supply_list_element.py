@@ -42,7 +42,7 @@ class TestSupplyListElement(unittest.TestCase):
                 fki_variableexpense_id = 2,
                 s_supply_code = 'PPLET',
                 s_supply_description_x = 'Letter paper package',
-                d_supply_unitprice = '8',
+                d_supply_unitprice = '8.00',
                 b_supply_isactive = True,
                 b_supply_variableprice = True,
                 s_glaccount_description_x = 'Supplies income',
@@ -55,7 +55,7 @@ class TestSupplyListElement(unittest.TestCase):
                 fki_variableexpense_id = 2,
                 s_supply_code = 'PPLET',
                 s_supply_description_x = 'Letter paper package',
-                d_supply_unitprice = '8',
+                d_supply_unitprice = '8.00',
                 b_supply_isactive = True,
                 b_supply_variableprice = True,
         )

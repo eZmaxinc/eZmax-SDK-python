@@ -58,8 +58,8 @@ class TestFranchisereferalincomeRequestCompound(unittest.TestCase):
                     fki_province_id = 11, 
                     fki_country_id = 1, 
                     s_address_zip = 'H7T2S3', 
-                    f_address_longitude = 'doej', 
-                    f_address_latitude = 'doej', ),
+                    f_address_longitude = '73.5674', 
+                    f_address_latitude = '45.5019', ),
                 a_obj_contact = [
                     eZmaxApi.models.contact_request_compound.contact-RequestCompound()
                     ]

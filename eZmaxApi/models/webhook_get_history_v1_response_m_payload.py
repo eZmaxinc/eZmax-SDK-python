@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from eZmaxApi.models.custom_webhooklog_response import CustomWebhooklogResponse
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +28,7 @@ class WebhookGetHistoryV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/webhook/{pkiWebhookID}/getHistory
     """ # noqa: E501
-    a_obj_webhooklog: List[object] = Field(alias="a_objWebhooklog")
+    a_obj_webhooklog: List[CustomWebhooklogResponse] = Field(alias="a_objWebhooklog")
     __properties: ClassVar[List[str]] = ["a_objWebhooklog"]
 
     model_config = ConfigDict(
@@ -69,6 +70,13 @@ class WebhookGetHistoryV1ResponseMPayload(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_webhooklog (list)
+        _items = []
+        if self.a_obj_webhooklog:
+            for _item_a_obj_webhooklog in self.a_obj_webhooklog:
+                if _item_a_obj_webhooklog:
+                    _items.append(_item_a_obj_webhooklog.to_dict())
+            _dict['a_objWebhooklog'] = _items
         return _dict
 
     @classmethod
@@ -81,7 +89,7 @@ class WebhookGetHistoryV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objWebhooklog": obj.get("a_objWebhooklog")
+            "a_objWebhooklog": [CustomWebhooklogResponse.from_dict(_item) for _item in obj["a_objWebhooklog"]] if obj.get("a_objWebhooklog") is not None else None
         })
         return _obj
 

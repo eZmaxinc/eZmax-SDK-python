@@ -37,7 +37,7 @@ class TestWebsocketResponseErrorV1(unittest.TestCase):
         if include_optional:
             return WebsocketResponseErrorV1(
                 e_websocket_messagetype = 'Response-Error-V1',
-                s_websocket_channel = 'Ch@nnel_1.0',
+                s_websocket_channel = 'Ch@nnel_1.0_124547_3453_4563_567',
                 m_payload = eZmaxApi.models.websocket_response_error_v1_m_payload.Websocket-Response-Error-V1-mPayload(
                     s_error_message = 'Invalid Signature Headers', 
                     e_error_code = 'BADREQUEST', )
@@ -45,7 +45,7 @@ class TestWebsocketResponseErrorV1(unittest.TestCase):
         else:
             return WebsocketResponseErrorV1(
                 e_websocket_messagetype = 'Response-Error-V1',
-                s_websocket_channel = 'Ch@nnel_1.0',
+                s_websocket_channel = 'Ch@nnel_1.0_124547_3453_4563_567',
                 m_payload = eZmaxApi.models.websocket_response_error_v1_m_payload.Websocket-Response-Error-V1-mPayload(
                     s_error_message = 'Invalid Signature Headers', 
                     e_error_code = 'BADREQUEST', ),

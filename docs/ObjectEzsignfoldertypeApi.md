@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfoldertype_edit_object_v3**
-> CommonResponse ezsignfoldertype_edit_object_v3(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v3_request)
+> EzsignfoldertypeEditObjectV3Response ezsignfoldertype_edit_object_v3(pki_ezsignfoldertype_id, ezsignfoldertype_edit_object_v3_request)
 
 Edit an existing Ezsignfoldertype
 
@@ -105,8 +105,8 @@ Edit an existing Ezsignfoldertype
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsignfoldertype_edit_object_v3_request import EzsignfoldertypeEditObjectV3Request
+from eZmaxApi.models.ezsignfoldertype_edit_object_v3_response import EzsignfoldertypeEditObjectV3Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignfoldertypeEditObjectV3Response**](EzsignfoldertypeEditObjectV3Response.md)
 
 ### Authorization
 

@@ -19,11 +19,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatepackagesigner_create_object_v1_request import EzsigntemplatepackagesignerCreateObjectV1Request
 from eZmaxApi.models.ezsigntemplatepackagesigner_create_object_v1_response import EzsigntemplatepackagesignerCreateObjectV1Response
 from eZmaxApi.models.ezsigntemplatepackagesigner_delete_object_v1_response import EzsigntemplatepackagesignerDeleteObjectV1Response
 from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_request import EzsigntemplatepackagesignerEditObjectV1Request
+from eZmaxApi.models.ezsigntemplatepackagesigner_edit_object_v1_response import EzsigntemplatepackagesignerEditObjectV1Response
 from eZmaxApi.models.ezsigntemplatepackagesigner_get_object_v2_response import EzsigntemplatepackagesignerGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -599,7 +599,7 @@ class ObjectEzsigntemplatepackagesignerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> EzsigntemplatepackagesignerEditObjectV1Response:
         """Edit an existing Ezsigntemplatepackagesigner
 
         
@@ -672,7 +672,7 @@ class ObjectEzsigntemplatepackagesignerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[EzsigntemplatepackagesignerEditObjectV1Response]:
         """Edit an existing Ezsigntemplatepackagesigner
 
         

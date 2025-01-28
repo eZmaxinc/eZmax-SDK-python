@@ -19,10 +19,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.signature_create_object_v1_request import SignatureCreateObjectV1Request
 from eZmaxApi.models.signature_create_object_v1_response import SignatureCreateObjectV1Response
+from eZmaxApi.models.signature_delete_object_v1_response import SignatureDeleteObjectV1Response
 from eZmaxApi.models.signature_edit_object_v1_request import SignatureEditObjectV1Request
+from eZmaxApi.models.signature_edit_object_v1_response import SignatureEditObjectV1Response
 from eZmaxApi.models.signature_get_object_v2_response import SignatureGetObjectV2Response
 from eZmaxApi.models.signature_get_object_v3_response import SignatureGetObjectV3Response
 
@@ -334,7 +335,7 @@ class ObjectSignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> SignatureDeleteObjectV1Response:
         """Delete an existing Signature
 
         
@@ -402,7 +403,7 @@ class ObjectSignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[SignatureDeleteObjectV1Response]:
         """Delete an existing Signature
 
         
@@ -599,7 +600,7 @@ class ObjectSignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> SignatureEditObjectV1Response:
         """Edit an existing Signature
 
         
@@ -672,7 +673,7 @@ class ObjectSignatureApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[SignatureEditObjectV1Response]:
         """Edit an existing Signature
 
         

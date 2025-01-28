@@ -57,7 +57,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@754777cd', 
+                            s_file_base64 = '[B@2f08c4b', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [
@@ -81,7 +81,7 @@ class TestCommunicationRequestCompound(unittest.TestCase):
                         obj_communicationexternalattachment = eZmaxApi.models.common_file.Common-File(
                             s_file_name = 'example.pdf', 
                             s_file_url = '', 
-                            s_file_base64 = '[B@754777cd', 
+                            s_file_base64 = '[B@2f08c4b', 
                             e_file_source = 'Base64', ), )
                     ],
                 a_obj_communicationrecipient = [

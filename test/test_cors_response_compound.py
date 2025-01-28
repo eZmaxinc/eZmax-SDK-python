@@ -38,13 +38,13 @@ class TestCorsResponseCompound(unittest.TestCase):
             return CorsResponseCompound(
                 pki_cors_id = 228,
                 fki_apikey_id = 99,
-                s_cors_entryurl = 'Https://www.example.com'
+                s_cors_entryurl = 'https://www.example.com'
             )
         else:
             return CorsResponseCompound(
                 pki_cors_id = 228,
                 fki_apikey_id = 99,
-                s_cors_entryurl = 'Https://www.example.com',
+                s_cors_entryurl = 'https://www.example.com',
         )
         """
 

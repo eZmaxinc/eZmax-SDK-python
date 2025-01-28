@@ -36,14 +36,14 @@ class TestCustomCreditcardtransactionResponse(unittest.TestCase):
         model = CustomCreditcardtransactionResponse()
         if include_optional:
             return CustomCreditcardtransactionResponse(
-                e_creditcardtype_codename = 'visa',
+                e_creditcardtype_codename = 'Visa',
                 d_creditcardtransaction_amount = '167.58',
                 s_creditcardtransaction_partiallydecryptednumber = 'XXXX XXXX XXXX 1234',
                 s_creditcardtransaction_referencenumber = '651447854715478415'
             )
         else:
             return CustomCreditcardtransactionResponse(
-                e_creditcardtype_codename = 'visa',
+                e_creditcardtype_codename = 'Visa',
                 d_creditcardtransaction_amount = '167.58',
                 s_creditcardtransaction_partiallydecryptednumber = 'XXXX XXXX XXXX 1234',
                 s_creditcardtransaction_referencenumber = '651447854715478415',

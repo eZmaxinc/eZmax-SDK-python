@@ -47,7 +47,7 @@ class TestCreditcardclientRequest(unittest.TestCase):
                     i_creditcarddetail_expirationmonth = 10, 
                     i_creditcarddetail_expirationyear = 2024, 
                     s_creditcarddetail_civic = '2500', 
-                    s_creditcarddetail_street = 'Daniel-Johnson Blvd.', 
+                    s_creditcarddetail_street = 'Daniel-Johnson Blvd', 
                     s_creditcarddetail_zip = 'H7T 2P6', ),
                 s_creditcardclient_cvv = '4807'
             )
@@ -62,7 +62,7 @@ class TestCreditcardclientRequest(unittest.TestCase):
                     i_creditcarddetail_expirationmonth = 10, 
                     i_creditcarddetail_expirationyear = 2024, 
                     s_creditcarddetail_civic = '2500', 
-                    s_creditcarddetail_street = 'Daniel-Johnson Blvd.', 
+                    s_creditcarddetail_street = 'Daniel-Johnson Blvd', 
                     s_creditcarddetail_zip = 'H7T 2P6', ),
                 s_creditcardclient_cvv = '4807',
         )

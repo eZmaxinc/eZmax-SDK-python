@@ -46,10 +46,7 @@ class TestCustomCommunicationsenderResponse(unittest.TestCase):
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
                     s_contact_company = 'eZmax Solutions Inc.', ),
-                obj_email = eZmaxApi.models.email_response.email-Response(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
+                obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(),
                 obj_phone_fax = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(),
                 obj_phone_sms = eZmaxApi.models.phone_response_compound.phone-ResponseCompound()
             )

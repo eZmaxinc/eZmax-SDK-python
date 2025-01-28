@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **s_timezone_name** | **str** | The description of the Timezone | 
 **fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **s_language_name_x** | **str** | The Name of the Language in the language of the requester | 
-**obj_email** | [**EmailResponse**](EmailResponse.md) | An Email Object and children to create a complete structure | 
+**obj_email** | [**EmailResponseCompound**](EmailResponseCompound.md) |  | 
 **fki_billingentityinternal_id** | **int** | The unique ID of the Billingentityinternal. | 
 **s_billingentityinternal_description_x** | **str** | The description of the Billingentityinternal in the language of the requester | 
 **obj_phone_home** | [**PhoneResponseCompound**](PhoneResponseCompound.md) |  | [optional] 

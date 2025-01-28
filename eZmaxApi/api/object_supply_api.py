@@ -20,11 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage
 from eZmaxApi.models.supply_create_object_v1_request import SupplyCreateObjectV1Request
 from eZmaxApi.models.supply_create_object_v1_response import SupplyCreateObjectV1Response
+from eZmaxApi.models.supply_delete_object_v1_response import SupplyDeleteObjectV1Response
 from eZmaxApi.models.supply_edit_object_v1_request import SupplyEditObjectV1Request
+from eZmaxApi.models.supply_edit_object_v1_response import SupplyEditObjectV1Response
 from eZmaxApi.models.supply_get_autocomplete_v2_response import SupplyGetAutocompleteV2Response
 from eZmaxApi.models.supply_get_list_v1_response import SupplyGetListV1Response
 from eZmaxApi.models.supply_get_object_v2_response import SupplyGetObjectV2Response
@@ -337,7 +338,7 @@ class ObjectSupplyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> SupplyDeleteObjectV1Response:
         """Delete an existing Supply
 
         
@@ -405,7 +406,7 @@ class ObjectSupplyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[SupplyDeleteObjectV1Response]:
         """Delete an existing Supply
 
         
@@ -602,7 +603,7 @@ class ObjectSupplyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> SupplyEditObjectV1Response:
         """Edit an existing Supply
 
         
@@ -675,7 +676,7 @@ class ObjectSupplyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[SupplyEditObjectV1Response]:
         """Edit an existing Supply
 
         

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.contactinformations_request_compound import ContactinformationsRequestCompound
@@ -31,12 +31,26 @@ class ContactRequestCompound(BaseModel):
     """ # noqa: E501
     fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_contact_firstname: StrictStr = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: StrictStr = Field(description="The Last name of the contact", alias="sContactLastname")
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
     s_contact_company: StrictStr = Field(description="The Company name of the contact", alias="sContactCompany")
     dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate")
     obj_contactinformations: ContactinformationsRequestCompound = Field(alias="objContactinformations")
     __properties: ClassVar[List[str]] = ["fkiContacttitleID", "fkiLanguageID", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "objContactinformations"]
+
+    @field_validator('s_contact_firstname')
+    def s_contact_firstname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
+
+    @field_validator('s_contact_lastname')
+    def s_contact_lastname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{1,25}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,25}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

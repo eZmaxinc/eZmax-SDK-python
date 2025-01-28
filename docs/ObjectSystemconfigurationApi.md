@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **systemconfiguration_edit_object_v1**
-> CommonResponse systemconfiguration_edit_object_v1(pki_systemconfiguration_id, systemconfiguration_edit_object_v1_request)
+> SystemconfigurationEditObjectV1Response systemconfiguration_edit_object_v1(pki_systemconfiguration_id, systemconfiguration_edit_object_v1_request)
 
 Edit an existing Systemconfiguration
 
@@ -21,8 +21,8 @@ Edit an existing Systemconfiguration
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
+from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
 
 ### Authorization
 

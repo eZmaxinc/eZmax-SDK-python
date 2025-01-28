@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **usergroupmembership_delete_object_v1**
-> CommonResponse usergroupmembership_delete_object_v1(pki_usergroupmembership_id)
+> UsergroupmembershipDeleteObjectV1Response usergroupmembership_delete_object_v1(pki_usergroupmembership_id)
 
 Delete an existing Usergroupmembership
 
@@ -103,7 +103,7 @@ Delete an existing Usergroupmembership
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.usergroupmembership_delete_object_v1_response import UsergroupmembershipDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipDeleteObjectV1Response**](UsergroupmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **usergroupmembership_edit_object_v1**
-> CommonResponse usergroupmembership_edit_object_v1(pki_usergroupmembership_id, usergroupmembership_edit_object_v1_request)
+> UsergroupmembershipEditObjectV1Response usergroupmembership_edit_object_v1(pki_usergroupmembership_id, usergroupmembership_edit_object_v1_request)
 
 Edit an existing Usergroupmembership
 
@@ -183,8 +183,8 @@ Edit an existing Usergroupmembership
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.usergroupmembership_edit_object_v1_request import UsergroupmembershipEditObjectV1Request
+from eZmaxApi.models.usergroupmembership_edit_object_v1_response import UsergroupmembershipEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**UsergroupmembershipEditObjectV1Response**](UsergroupmembershipEditObjectV1Response.md)
 
 ### Authorization
 

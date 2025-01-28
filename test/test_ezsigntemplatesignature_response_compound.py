@@ -60,7 +60,7 @@ class TestEzsigntemplatesignatureResponseCompound(unittest.TestCase):
                 b_ezsigntemplatesignature_required = True,
                 i_ezsigntemplatesignature_maxlength = 75,
                 s_ezsigntemplatesignature_defaultvalue = 'Foo',
-                s_ezsigntemplatesignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsigntemplatesignature_regexp = '^.{0,30}$',
                 e_ezsigntemplatesignature_textvalidation = 'None',
                 s_ezsigntemplatesignature_textvalidationcustommessage = 'Phone number',
                 e_ezsigntemplatesignature_dependencyrequirement = 'AllOf',

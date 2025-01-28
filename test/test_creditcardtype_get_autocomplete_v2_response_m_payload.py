@@ -40,7 +40,7 @@ class TestCreditcardtypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
                     eZmaxApi.models.creditcardtype_autocomplete_element_response.creditcardtype-AutocompleteElement-Response(
                         s_creditcardtype_name = 'Visa', 
                         pki_creditcardtype_id = 2, 
-                        e_creditcardtype_codename = 'visa', )
+                        e_creditcardtype_codename = 'Visa', )
                     ]
             )
         else:
@@ -49,7 +49,7 @@ class TestCreditcardtypeGetAutocompleteV2ResponseMPayload(unittest.TestCase):
                     eZmaxApi.models.creditcardtype_autocomplete_element_response.creditcardtype-AutocompleteElement-Response(
                         s_creditcardtype_name = 'Visa', 
                         pki_creditcardtype_id = 2, 
-                        e_creditcardtype_codename = 'visa', )
+                        e_creditcardtype_codename = 'Visa', )
                     ],
         )
         """

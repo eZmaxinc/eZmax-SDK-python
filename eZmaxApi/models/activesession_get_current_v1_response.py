@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from eZmaxApi.models.activesession_response_compound import ActivesessionResponseCompound
+from eZmaxApi.models.activesession_get_current_v1_response_m_payload import ActivesessionGetCurrentV1ResponseMPayload
 from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
 from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
 from typing import Optional, Set
@@ -32,7 +32,7 @@ class ActivesessionGetCurrentV1Response(BaseModel):
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
-    m_payload: ActivesessionResponseCompound = Field(description="Payload for GET /1/object/activesession/getCurrent", alias="mPayload")
+    m_payload: ActivesessionGetCurrentV1ResponseMPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 
     model_config = ConfigDict(
@@ -97,7 +97,7 @@ class ActivesessionGetCurrentV1Response(BaseModel):
         _obj = cls.model_validate({
             "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj["objDebugPayload"]) if obj.get("objDebugPayload") is not None else None,
             "objDebug": CommonResponseObjDebug.from_dict(obj["objDebug"]) if obj.get("objDebug") is not None else None,
-            "mPayload": ActivesessionResponseCompound.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
+            "mPayload": ActivesessionGetCurrentV1ResponseMPayload.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
         })
         return _obj
 

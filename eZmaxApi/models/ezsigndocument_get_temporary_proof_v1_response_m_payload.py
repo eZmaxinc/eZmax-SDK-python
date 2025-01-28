@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from eZmaxApi.models.ezsigndocumentlog_response import EzsigndocumentlogResponse
+from eZmaxApi.models.ezsigndocumentlog_response_compound import EzsigndocumentlogResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EzsigndocumentGetTemporaryProofV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof
     """ # noqa: E501
-    a_obj_ezsigndocumentlog: List[EzsigndocumentlogResponse] = Field(alias="a_objEzsigndocumentlog")
+    a_obj_ezsigndocumentlog: List[EzsigndocumentlogResponseCompound] = Field(alias="a_objEzsigndocumentlog")
     __properties: ClassVar[List[str]] = ["a_objEzsigndocumentlog"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class EzsigndocumentGetTemporaryProofV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objEzsigndocumentlog": [EzsigndocumentlogResponse.from_dict(_item) for _item in obj["a_objEzsigndocumentlog"]] if obj.get("a_objEzsigndocumentlog") is not None else None
+            "a_objEzsigndocumentlog": [EzsigndocumentlogResponseCompound.from_dict(_item) for _item in obj["a_objEzsigndocumentlog"]] if obj.get("a_objEzsigndocumentlog") is not None else None
         })
         return _obj
 

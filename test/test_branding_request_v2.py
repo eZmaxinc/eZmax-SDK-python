@@ -42,7 +42,7 @@ class TestBrandingRequestV2(unittest.TestCase):
                     s_branding_description2 = 'Company X', ),
                 e_branding_logo = 'Default',
                 e_branding_alignlogo = 'Center',
-                s_branding_base64 = '[B@30ed9c6c',
+                s_branding_base64 = '[B@5ae81e1',
                 i_branding_color = 15658734,
                 s_branding_name = 'eZmax (Corp)',
                 s_email_address = 'email@example.com',

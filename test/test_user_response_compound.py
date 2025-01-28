@@ -49,10 +49,7 @@ class TestUserResponseCompound(unittest.TestCase):
                 s_timezone_name = 'Default',
                 fki_language_id = 2,
                 s_language_name_x = 'English',
-                obj_email = eZmaxApi.models.email_response.email-Response(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
+                obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(),
                 fki_billingentityinternal_id = 1,
                 s_billingentityinternal_description_x = 'Default',
                 obj_phone_home = eZmaxApi.models.phone_response_compound.phone-ResponseCompound(),
@@ -105,10 +102,7 @@ class TestUserResponseCompound(unittest.TestCase):
                 s_timezone_name = 'Default',
                 fki_language_id = 2,
                 s_language_name_x = 'English',
-                obj_email = eZmaxApi.models.email_response.email-Response(
-                    pki_email_id = 22, 
-                    fki_emailtype_id = 1, 
-                    s_email_address = 'email@example.com', ),
+                obj_email = eZmaxApi.models.email_response_compound.email-ResponseCompound(),
                 fki_billingentityinternal_id = 1,
                 s_billingentityinternal_description_x = 'Default',
                 e_user_origin = 'BuiltIn',

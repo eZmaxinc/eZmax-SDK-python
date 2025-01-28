@@ -19,10 +19,11 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.usergroupdelegation_create_object_v1_request import UsergroupdelegationCreateObjectV1Request
 from eZmaxApi.models.usergroupdelegation_create_object_v1_response import UsergroupdelegationCreateObjectV1Response
+from eZmaxApi.models.usergroupdelegation_delete_object_v1_response import UsergroupdelegationDeleteObjectV1Response
 from eZmaxApi.models.usergroupdelegation_edit_object_v1_request import UsergroupdelegationEditObjectV1Request
+from eZmaxApi.models.usergroupdelegation_edit_object_v1_response import UsergroupdelegationEditObjectV1Response
 from eZmaxApi.models.usergroupdelegation_get_object_v2_response import UsergroupdelegationGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -333,7 +334,7 @@ class ObjectUsergroupdelegationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> UsergroupdelegationDeleteObjectV1Response:
         """Delete an existing Usergroupdelegation
 
         
@@ -401,7 +402,7 @@ class ObjectUsergroupdelegationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[UsergroupdelegationDeleteObjectV1Response]:
         """Delete an existing Usergroupdelegation
 
         
@@ -598,7 +599,7 @@ class ObjectUsergroupdelegationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CommonResponse:
+    ) -> UsergroupdelegationEditObjectV1Response:
         """Edit an existing Usergroupdelegation
 
         
@@ -671,7 +672,7 @@ class ObjectUsergroupdelegationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CommonResponse]:
+    ) -> ApiResponse[UsergroupdelegationEditObjectV1Response]:
         """Edit an existing Usergroupdelegation
 
         

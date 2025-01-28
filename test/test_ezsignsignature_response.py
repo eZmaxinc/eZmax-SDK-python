@@ -69,7 +69,7 @@ class TestEzsignsignatureResponse(unittest.TestCase):
                 s_ezsignsignature_textvalidationcustommessage = 'Phone number',
                 e_ezsignsignature_dependencyrequirement = 'AllOf',
                 s_ezsignsignature_defaultvalue = 'Foo',
-                s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsignsignature_regexp = '^[0-9]{9}$',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 

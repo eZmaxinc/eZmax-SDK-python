@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatedocumentpagerecognition_delete_object_v1**
-> CommonResponse ezsigntemplatedocumentpagerecognition_delete_object_v1(pki_ezsigntemplatedocumentpagerecognition_id)
+> EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response ezsigntemplatedocumentpagerecognition_delete_object_v1(pki_ezsigntemplatedocumentpagerecognition_id)
 
 Delete an existing Ezsigntemplatedocumentpagerecognition
 
@@ -103,7 +103,7 @@ Delete an existing Ezsigntemplatedocumentpagerecognition
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_delete_object_v1_response import EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response**](EzsigntemplatedocumentpagerecognitionDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigntemplatedocumentpagerecognition_edit_object_v1**
-> CommonResponse ezsigntemplatedocumentpagerecognition_edit_object_v1(pki_ezsigntemplatedocumentpagerecognition_id, ezsigntemplatedocumentpagerecognition_edit_object_v1_request)
+> EzsigntemplatedocumentpagerecognitionEditObjectV1Response ezsigntemplatedocumentpagerecognition_edit_object_v1(pki_ezsigntemplatedocumentpagerecognition_id, ezsigntemplatedocumentpagerecognition_edit_object_v1_request)
 
 Edit an existing Ezsigntemplatedocumentpagerecognition
 
@@ -183,8 +183,8 @@ Edit an existing Ezsigntemplatedocumentpagerecognition
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_edit_object_v1_request import EzsigntemplatedocumentpagerecognitionEditObjectV1Request
+from eZmaxApi.models.ezsigntemplatedocumentpagerecognition_edit_object_v1_response import EzsigntemplatedocumentpagerecognitionEditObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigntemplatedocumentpagerecognitionEditObjectV1Response**](EzsigntemplatedocumentpagerecognitionEditObjectV1Response.md)
 
 ### Authorization
 

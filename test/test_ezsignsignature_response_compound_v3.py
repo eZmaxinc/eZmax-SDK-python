@@ -69,7 +69,7 @@ class TestEzsignsignatureResponseCompoundV3(unittest.TestCase):
                 s_ezsignsignature_textvalidationcustommessage = 'Phone number',
                 e_ezsignsignature_dependencyrequirement = 'AllOf',
                 s_ezsignsignature_defaultvalue = 'Foo',
-                s_ezsignsignature_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsignsignature_regexp = '^[0-9]{9}$',
                 obj_contact_name = eZmaxApi.models.custom_contact_name_response.Custom-ContactName-Response(
                     s_contact_firstname = 'John', 
                     s_contact_lastname = 'Doe', 
@@ -84,7 +84,7 @@ class TestEzsignsignatureResponseCompoundV3(unittest.TestCase):
                     eZmaxApi.models.ezsignsignaturecustomdate_response_compound_v2.ezsignsignaturecustomdate-ResponseCompoundV2()
                     ],
                 obj_creditcardtransaction = eZmaxApi.models.custom_creditcardtransaction_response.Custom-Creditcardtransaction-Response(
-                    e_creditcardtype_codename = 'visa', 
+                    e_creditcardtype_codename = 'Visa', 
                     d_creditcardtransaction_amount = '167.58', 
                     s_creditcardtransaction_partiallydecryptednumber = 'XXXX XXXX XXXX 1234', 
                     s_creditcardtransaction_referencenumber = '651447854715478415', ),

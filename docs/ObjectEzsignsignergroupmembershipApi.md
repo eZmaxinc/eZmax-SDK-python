@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignsignergroupmembership_delete_object_v1**
-> CommonResponse ezsignsignergroupmembership_delete_object_v1(pki_ezsignsignergroupmembership_id)
+> EzsignsignergroupmembershipDeleteObjectV1Response ezsignsignergroupmembership_delete_object_v1(pki_ezsignsignergroupmembership_id)
 
 Delete an existing Ezsignsignergroupmembership
 
@@ -102,7 +102,7 @@ Delete an existing Ezsignsignergroupmembership
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsignsignergroupmembership_delete_object_v1_response import EzsignsignergroupmembershipDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsignsignergroupmembershipDeleteObjectV1Response**](EzsignsignergroupmembershipDeleteObjectV1Response.md)
 
 ### Authorization
 

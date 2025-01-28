@@ -22,6 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.custom_ezmaxinvoicing_ezsigndocument_response import CustomEzmaxinvoicingEzsigndocumentResponse
+from eZmaxApi.models.custom_ezmaxinvoicing_ezsignfolder_response import CustomEzmaxinvoicingEzsignfolderResponse
 from eZmaxApi.models.custom_ezmaxpricing_response import CustomEzmaxpricingResponse
 from eZmaxApi.models.ezmaxinvoicingagent_response_compound import EzmaxinvoicingagentResponseCompound
 from eZmaxApi.models.ezmaxinvoicingcontract_response_compound import EzmaxinvoicingcontractResponseCompound
@@ -57,8 +59,8 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
     a_obj_ezmaxinvoicingsummaryinternal: List[EzmaxinvoicingsummaryinternalResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryinternal")
     a_obj_ezmaxinvoicingagent: List[EzmaxinvoicingagentResponseCompound] = Field(alias="a_objEzmaxinvoicingagent")
     a_obj_ezmaxinvoicinguser: List[EzmaxinvoicinguserResponseCompound] = Field(alias="a_objEzmaxinvoicinguser")
-    a_obj_ezmaxinvoicingezsignfolder: List[object] = Field(alias="a_objEzmaxinvoicingezsignfolder")
-    a_obj_ezmaxinvoicingezsigndocument: List[object] = Field(alias="a_objEzmaxinvoicingezsigndocument")
+    a_obj_ezmaxinvoicingezsignfolder: List[CustomEzmaxinvoicingEzsignfolderResponse] = Field(alias="a_objEzmaxinvoicingezsignfolder")
+    a_obj_ezmaxinvoicingezsigndocument: List[CustomEzmaxinvoicingEzsigndocumentResponse] = Field(alias="a_objEzmaxinvoicingezsigndocument")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingID", "fkiEzmaxinvoicingcontractID", "fkiEzmaxpricingID", "fkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescriptionX", "yyyymmEzmaxinvoicing", "iEzmaxinvoicingDays", "eEzmaxinvoicingPaymenttype", "dEzmaxinvoicingRebatepaymenttype", "iEzmaxinvoicingContractlength", "dEzmaxinvoicingRebatecontractlength", "bEzmaxinvoicingRebateEzsignallagents", "objAudit", "objEzmaxinvoicingcontract", "objEzmaxpricing", "a_objEzmaxinvoicingsummaryglobal", "a_objEzmaxinvoicingsummaryexternal", "a_objEzmaxinvoicingsummaryinternal", "a_objEzmaxinvoicingagent", "a_objEzmaxinvoicinguser", "a_objEzmaxinvoicingezsignfolder", "a_objEzmaxinvoicingezsigndocument"]
 
     @field_validator('d_ezmaxinvoicing_rebatepaymenttype')
@@ -158,6 +160,20 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
                 if _item_a_obj_ezmaxinvoicinguser:
                     _items.append(_item_a_obj_ezmaxinvoicinguser.to_dict())
             _dict['a_objEzmaxinvoicinguser'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingezsignfolder (list)
+        _items = []
+        if self.a_obj_ezmaxinvoicingezsignfolder:
+            for _item_a_obj_ezmaxinvoicingezsignfolder in self.a_obj_ezmaxinvoicingezsignfolder:
+                if _item_a_obj_ezmaxinvoicingezsignfolder:
+                    _items.append(_item_a_obj_ezmaxinvoicingezsignfolder.to_dict())
+            _dict['a_objEzmaxinvoicingezsignfolder'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezmaxinvoicingezsigndocument (list)
+        _items = []
+        if self.a_obj_ezmaxinvoicingezsigndocument:
+            for _item_a_obj_ezmaxinvoicingezsigndocument in self.a_obj_ezmaxinvoicingezsigndocument:
+                if _item_a_obj_ezmaxinvoicingezsigndocument:
+                    _items.append(_item_a_obj_ezmaxinvoicingezsigndocument.to_dict())
+            _dict['a_objEzmaxinvoicingezsigndocument'] = _items
         return _dict
 
     @classmethod
@@ -190,8 +206,8 @@ class EzmaxinvoicingGetProvisionalV1ResponseMPayload(BaseModel):
             "a_objEzmaxinvoicingsummaryinternal": [EzmaxinvoicingsummaryinternalResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingsummaryinternal"]] if obj.get("a_objEzmaxinvoicingsummaryinternal") is not None else None,
             "a_objEzmaxinvoicingagent": [EzmaxinvoicingagentResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicingagent"]] if obj.get("a_objEzmaxinvoicingagent") is not None else None,
             "a_objEzmaxinvoicinguser": [EzmaxinvoicinguserResponseCompound.from_dict(_item) for _item in obj["a_objEzmaxinvoicinguser"]] if obj.get("a_objEzmaxinvoicinguser") is not None else None,
-            "a_objEzmaxinvoicingezsignfolder": obj.get("a_objEzmaxinvoicingezsignfolder"),
-            "a_objEzmaxinvoicingezsigndocument": obj.get("a_objEzmaxinvoicingezsigndocument")
+            "a_objEzmaxinvoicingezsignfolder": [CustomEzmaxinvoicingEzsignfolderResponse.from_dict(_item) for _item in obj["a_objEzmaxinvoicingezsignfolder"]] if obj.get("a_objEzmaxinvoicingezsignfolder") is not None else None,
+            "a_objEzmaxinvoicingezsigndocument": [CustomEzmaxinvoicingEzsigndocumentResponse.from_dict(_item) for _item in obj["a_objEzmaxinvoicingezsigndocument"]] if obj.get("a_objEzmaxinvoicingezsigndocument") is not None else None
         })
         return _obj
 

@@ -48,7 +48,7 @@ class TestCustomEzsignformfieldgroupCreateEzsignelementsPositionedByWordRequest(
                 b_ezsignformfieldgroup_readonly = True,
                 i_ezsignformfieldgroup_maxlength = 75,
                 b_ezsignformfieldgroup_encrypted = True,
-                s_ezsignformfieldgroup_regexp = '/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/',
+                s_ezsignformfieldgroup_regexp = '^[0-9]{9}$',
                 s_ezsignformfieldgroup_textvalidationcustommessage = 'Phone number',
                 t_ezsignformfieldgroup_tooltip = 'Please enter a valid email address',
                 e_ezsignformfieldgroup_tooltipposition = 'TopLeft',

@@ -41,7 +41,7 @@ Method | HTTP request | Description
 
 
 # **ezsigndocument_apply_ezsigntemplate_v1**
-> CommonResponse ezsigndocument_apply_ezsigntemplate_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v1_request)
+> EzsigndocumentApplyEzsigntemplateV1Response ezsigndocument_apply_ezsigntemplate_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v1_request)
 
 Apply an Ezsigntemplate to the Ezsigndocument.
 
@@ -53,8 +53,8 @@ This function is deprecated. Please use *applyEzsigntemplate* instead which is d
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_request import EzsigndocumentApplyEzsigntemplateV1Request
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v1_response import EzsigndocumentApplyEzsigntemplateV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentApplyEzsigntemplateV1Response**](EzsigndocumentApplyEzsigntemplateV1Response.md)
 
 ### Authorization
 
@@ -621,7 +621,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_decline_to_sign_v1**
-> CommonResponse ezsigndocument_decline_to_sign_v1(pki_ezsigndocument_id, ezsigndocument_decline_to_sign_v1_request)
+> EzsigndocumentDeclineToSignV1Response ezsigndocument_decline_to_sign_v1(pki_ezsigndocument_id, ezsigndocument_decline_to_sign_v1_request)
 
 Decline to sign
 
@@ -633,8 +633,8 @@ Decline to sign
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_request import EzsigndocumentDeclineToSignV1Request
+from eZmaxApi.models.ezsigndocument_decline_to_sign_v1_response import EzsigndocumentDeclineToSignV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -683,7 +683,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentDeclineToSignV1Response**](EzsigndocumentDeclineToSignV1Response.md)
 
 ### Authorization
 
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_delete_object_v1**
-> CommonResponse ezsigndocument_delete_object_v1(pki_ezsigndocument_id)
+> EzsigndocumentDeleteObjectV1Response ezsigndocument_delete_object_v1(pki_ezsigndocument_id)
 
 Delete an existing Ezsigndocument
 
@@ -717,7 +717,7 @@ Delete an existing Ezsigndocument
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsigndocument_delete_object_v1_response import EzsigndocumentDeleteObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentDeleteObjectV1Response**](EzsigndocumentDeleteObjectV1Response.md)
 
 ### Authorization
 
@@ -1122,7 +1122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_end_prematurely_v1**
-> CommonResponse ezsigndocument_end_prematurely_v1(pki_ezsigndocument_id, body)
+> EzsigndocumentEndPrematurelyV1Response ezsigndocument_end_prematurely_v1(pki_ezsigndocument_id, body)
 
 End prematurely
 
@@ -1134,7 +1134,7 @@ End prematurely an Ezsigndocument when some signatures are still required
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsigndocument_end_prematurely_v1_response import EzsigndocumentEndPrematurelyV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentEndPrematurelyV1Response**](EzsigndocumentEndPrematurelyV1Response.md)
 
 ### Authorization
 
@@ -1289,7 +1289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_flatten_v1**
-> CommonResponse ezsigndocument_flatten_v1(pki_ezsigndocument_id, body)
+> EzsigndocumentFlattenV1Response ezsigndocument_flatten_v1(pki_ezsigndocument_id, body)
 
 Flatten
 
@@ -1301,7 +1301,7 @@ Flatten an Ezsigndocument signatures, forms and annotations. This process finali
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -1350,7 +1350,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentFlattenV1Response**](EzsigndocumentFlattenV1Response.md)
 
 ### Authorization
 
@@ -2587,7 +2587,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_patch_object_v1**
-> CommonResponse ezsigndocument_patch_object_v1(pki_ezsigndocument_id, ezsigndocument_patch_object_v1_request)
+> EzsigndocumentPatchObjectV1Response ezsigndocument_patch_object_v1(pki_ezsigndocument_id, ezsigndocument_patch_object_v1_request)
 
 Patch an existing Ezsigndocument
 
@@ -2599,8 +2599,8 @@ Patch an existing Ezsigndocument
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndocument_patch_object_v1_request import EzsigndocumentPatchObjectV1Request
+from eZmaxApi.models.ezsigndocument_patch_object_v1_response import EzsigndocumentPatchObjectV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2649,7 +2649,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentPatchObjectV1Response**](EzsigndocumentPatchObjectV1Response.md)
 
 ### Authorization
 
@@ -2671,7 +2671,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_submit_ezsignform_v1**
-> CommonResponse ezsigndocument_submit_ezsignform_v1(pki_ezsigndocument_id, ezsigndocument_submit_ezsignform_v1_request)
+> EzsigndocumentSubmitEzsignformV1Response ezsigndocument_submit_ezsignform_v1(pki_ezsigndocument_id, ezsigndocument_submit_ezsignform_v1_request)
 
 Submit the Ezsignform
 
@@ -2683,8 +2683,8 @@ Submit the Ezsignform
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
 from eZmaxApi.models.ezsigndocument_submit_ezsignform_v1_request import EzsigndocumentSubmitEzsignformV1Request
+from eZmaxApi.models.ezsigndocument_submit_ezsignform_v1_response import EzsigndocumentSubmitEzsignformV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2733,7 +2733,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentSubmitEzsignformV1Response**](EzsigndocumentSubmitEzsignformV1Response.md)
 
 ### Authorization
 
@@ -2755,7 +2755,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsigndocument_unsend_v1**
-> CommonResponse ezsigndocument_unsend_v1(pki_ezsigndocument_id, body)
+> EzsigndocumentUnsendV1Response ezsigndocument_unsend_v1(pki_ezsigndocument_id, body)
 
 Unsend the Ezsigndocument
 
@@ -2767,7 +2767,7 @@ Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Usi
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.common_response import CommonResponse
+from eZmaxApi.models.ezsigndocument_unsend_v1_response import EzsigndocumentUnsendV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -2816,7 +2816,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommonResponse**](CommonResponse.md)
+[**EzsigndocumentUnsendV1Response**](EzsigndocumentUnsendV1Response.md)
 
 ### Authorization
 
