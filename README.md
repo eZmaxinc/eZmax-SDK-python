@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
 *ObjectCreditcardmerchantApi* | [**creditcardmerchant_get_list_v1**](docs/ObjectCreditcardmerchantApi.md#creditcardmerchant_get_list_v1) | **GET** /1/object/creditcardmerchant/getList | Retrieve Creditcardmerchant list
 *ObjectCreditcardmerchantApi* | [**creditcardmerchant_get_object_v2**](docs/ObjectCreditcardmerchantApi.md#creditcardmerchant_get_object_v2) | **GET** /2/object/creditcardmerchant/{pkiCreditcardmerchantID} | Retrieve an existing Creditcardmerchant
 *ObjectCreditcardtypeApi* | [**creditcardtype_get_autocomplete_v2**](docs/ObjectCreditcardtypeApi.md#creditcardtype_get_autocomplete_v2) | **GET** /2/object/creditcardtype/getAutocomplete/{sSelector} | Retrieve Creditcardtypes and IDs
+*ObjectCurrencyApi* | [**currency_get_autocomplete_v2**](docs/ObjectCurrencyApi.md#currency_get_autocomplete_v2) | **GET** /2/object/currency/getAutocomplete/{sSelector} | Retrieve Currencies and IDs
 *ObjectCustomerApi* | [**customer_create_object_v1**](docs/ObjectCustomerApi.md#customer_create_object_v1) | **POST** /1/object/customer | Create a new Customer
 *ObjectCustomerApi* | [**customer_get_object_v2**](docs/ObjectCustomerApi.md#customer_get_object_v2) | **GET** /2/object/customer/{pkiCustomerID} | Retrieve an existing Customer
 *ObjectDepartmentApi* | [**department_get_autocomplete_v2**](docs/ObjectDepartmentApi.md#department_get_autocomplete_v2) | **GET** /2/object/department/getAutocomplete/{sSelector} | Retrieve Departments and IDs
@@ -816,6 +817,9 @@ Class | Method | HTTP request | Description
  - [CreditcardtypeAutocompleteElementResponse](docs/CreditcardtypeAutocompleteElementResponse.md)
  - [CreditcardtypeGetAutocompleteV2Response](docs/CreditcardtypeGetAutocompleteV2Response.md)
  - [CreditcardtypeGetAutocompleteV2ResponseMPayload](docs/CreditcardtypeGetAutocompleteV2ResponseMPayload.md)
+ - [CurrencyAutocompleteElementResponse](docs/CurrencyAutocompleteElementResponse.md)
+ - [CurrencyGetAutocompleteV2Response](docs/CurrencyGetAutocompleteV2Response.md)
+ - [CurrencyGetAutocompleteV2ResponseMPayload](docs/CurrencyGetAutocompleteV2ResponseMPayload.md)
  - [CustomApikey](docs/CustomApikey.md)
  - [CustomApikeyfederation](docs/CustomApikeyfederation.md)
  - [CustomAttachmentResponse](docs/CustomAttachmentResponse.md)

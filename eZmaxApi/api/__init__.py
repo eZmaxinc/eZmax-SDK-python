@@ -24,6 +24,7 @@ from eZmaxApi.api.object_country_api import ObjectCountryApi
 from eZmaxApi.api.object_creditcardclient_api import ObjectCreditcardclientApi
 from eZmaxApi.api.object_creditcardmerchant_api import ObjectCreditcardmerchantApi
 from eZmaxApi.api.object_creditcardtype_api import ObjectCreditcardtypeApi
+from eZmaxApi.api.object_currency_api import ObjectCurrencyApi
 from eZmaxApi.api.object_customer_api import ObjectCustomerApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi

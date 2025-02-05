@@ -265,6 +265,9 @@ docs/CreditcardmerchantResponseCompound.md
 docs/CreditcardtypeAutocompleteElementResponse.md
 docs/CreditcardtypeGetAutocompleteV2Response.md
 docs/CreditcardtypeGetAutocompleteV2ResponseMPayload.md
+docs/CurrencyAutocompleteElementResponse.md
+docs/CurrencyGetAutocompleteV2Response.md
+docs/CurrencyGetAutocompleteV2ResponseMPayload.md
 docs/CustomApikey.md
 docs/CustomApikeyfederation.md
 docs/CustomAttachmentResponse.md
@@ -1319,6 +1322,7 @@ docs/ObjectCountryApi.md
 docs/ObjectCreditcardclientApi.md
 docs/ObjectCreditcardmerchantApi.md
 docs/ObjectCreditcardtypeApi.md
+docs/ObjectCurrencyApi.md
 docs/ObjectCustomerApi.md
 docs/ObjectDepartmentApi.md
 docs/ObjectDiscussionApi.md
@@ -1799,6 +1803,7 @@ eZmaxApi/api/object_country_api.py
 eZmaxApi/api/object_creditcardclient_api.py
 eZmaxApi/api/object_creditcardmerchant_api.py
 eZmaxApi/api/object_creditcardtype_api.py
+eZmaxApi/api/object_currency_api.py
 eZmaxApi/api/object_customer_api.py
 eZmaxApi/api/object_department_api.py
 eZmaxApi/api/object_discussion_api.py
@@ -2153,6 +2158,9 @@ eZmaxApi/models/creditcardmerchant_response_compound.py
 eZmaxApi/models/creditcardtype_autocomplete_element_response.py
 eZmaxApi/models/creditcardtype_get_autocomplete_v2_response.py
 eZmaxApi/models/creditcardtype_get_autocomplete_v2_response_m_payload.py
+eZmaxApi/models/currency_autocomplete_element_response.py
+eZmaxApi/models/currency_get_autocomplete_v2_response.py
+eZmaxApi/models/currency_get_autocomplete_v2_response_m_payload.py
 eZmaxApi/models/custom_apikey.py
 eZmaxApi/models/custom_apikeyfederation.py
 eZmaxApi/models/custom_attachment_response.py
