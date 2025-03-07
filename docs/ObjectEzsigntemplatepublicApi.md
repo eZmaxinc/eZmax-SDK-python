@@ -510,7 +510,11 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsigntemplatepublic list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplatepublicLimittype | Hour<br>Day<br>Month<br>Total |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eEzsigntemplatepublicLimittype | Hour<br>Day<br>Month<br>Total |
 
 ### Example
 

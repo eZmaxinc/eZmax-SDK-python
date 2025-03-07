@@ -42,6 +42,7 @@ class EzsignsignatureResponse(BaseModel):
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
     fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
     fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
+    s_currency_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Currency in the language of the requester", alias="sCurrencyDescriptionX")
     s_ezsignsigningreason_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
@@ -74,7 +75,17 @@ class EzsignsignatureResponse(BaseModel):
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(default=None, alias="objSignature")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sCurrencyDescriptionX", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+
+    @field_validator('s_currency_description_x')
+    def s_currency_description_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
 
     @field_validator('s_ezsignsigningreason_description_x')
     def s_ezsignsigningreason_description_x_validate_regular_expression(cls, value):
@@ -171,6 +182,7 @@ class EzsignsignatureResponse(BaseModel):
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
             "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
             "fkiFontID": obj.get("fkiFontID"),
+            "sCurrencyDescriptionX": obj.get("sCurrencyDescriptionX"),
             "sEzsignsigningreasonDescriptionX": obj.get("sEzsignsigningreasonDescriptionX"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),

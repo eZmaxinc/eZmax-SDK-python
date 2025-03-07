@@ -761,7 +761,13 @@ Name | Type | Description  | Notes
 
 Retrieve User list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eUserType | AgentBroker<br>Assistant<br>Employee<br>EzsignUser<br>Normal | | eUserOrigin | BuiltIn<br>External | | eUserEzsignaccess | No<br>PaidByOffice<br>PerDocument<br>Prepaid |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eUserType | AgentBroker<br>Assistant<br>Employee<br>EzsignUser<br>Normal |
+| eUserOrigin | BuiltIn<br>External |
+| eUserEzsignaccess | No<br>PaidByOffice<br>PerDocument<br>Prepaid |
 
 ### Example
 

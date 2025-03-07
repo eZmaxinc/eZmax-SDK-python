@@ -433,7 +433,12 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsigntemplate list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsigntemplateType | Company<br>Team<br>User<br>Usergroup | 
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eEzsigntemplateType | Company<br>Team<br>User<br>Usergroup |
+
 
 ### Example
 

@@ -32,6 +32,7 @@ class EzsigndocumentRequest(BaseModel):
     fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
     fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
     fki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    fki_ezsignimportdocument_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignimportdocument", alias="fkiEzsignimportdocumentID")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     e_ezsigndocument_source: StrictStr = Field(description="Indicates where to look for the document binary content.", alias="eEzsigndocumentSource")
     e_ezsigndocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the document.", alias="eEzsigndocumentFormat")
@@ -43,13 +44,13 @@ class EzsigndocumentRequest(BaseModel):
     dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
     s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
     s_ezsigndocument_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsigndocumentExternalid")
-    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsigntemplateID", "fkiEzsignfoldersignerassociationID", "fkiLanguageID", "eEzsigndocumentSource", "eEzsigndocumentFormat", "sEzsigndocumentBase64", "sEzsigndocumentUrl", "bEzsigndocumentForcerepair", "sEzsigndocumentPassword", "eEzsigndocumentForm", "dtEzsigndocumentDuedate", "sEzsigndocumentName", "sEzsigndocumentExternalid"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsigntemplateID", "fkiEzsignfoldersignerassociationID", "fkiEzsignimportdocumentID", "fkiLanguageID", "eEzsigndocumentSource", "eEzsigndocumentFormat", "sEzsigndocumentBase64", "sEzsigndocumentUrl", "bEzsigndocumentForcerepair", "sEzsigndocumentPassword", "eEzsigndocumentForm", "dtEzsigndocumentDuedate", "sEzsigndocumentName", "sEzsigndocumentExternalid"]
 
     @field_validator('e_ezsigndocument_source')
     def e_ezsigndocument_source_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Base64', 'Ezsigntemplate', 'Url']):
-            raise ValueError("must be one of enum values ('Base64', 'Ezsigntemplate', 'Url')")
+        if value not in set(['Base64', 'Ezsignimportdocument', 'Ezsigntemplate', 'Url']):
+            raise ValueError("must be one of enum values ('Base64', 'Ezsignimportdocument', 'Ezsigntemplate', 'Url')")
         return value
 
     @field_validator('e_ezsigndocument_format')
@@ -137,6 +138,7 @@ class EzsigndocumentRequest(BaseModel):
             "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
             "fkiEzsigntemplateID": obj.get("fkiEzsigntemplateID"),
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
+            "fkiEzsignimportdocumentID": obj.get("fkiEzsignimportdocumentID"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "eEzsigndocumentSource": obj.get("eEzsigndocumentSource"),
             "eEzsigndocumentFormat": obj.get("eEzsigndocumentFormat"),

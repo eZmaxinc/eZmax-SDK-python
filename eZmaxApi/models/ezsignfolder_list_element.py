@@ -50,8 +50,11 @@ class EzsignfolderListElement(BaseModel):
     d_ezsignfolder_completedpercentage: Annotated[str, Field(strict=True)] = Field(description="Percentage of Ezsignform/Ezsignsignatures has completed", alias="dEzsignfolderCompletedpercentage")
     d_ezsignfolder_formcompletedpercentage: Annotated[str, Field(strict=True)] = Field(description="Percentage of Ezsignform has completed", alias="dEzsignfolderFormcompletedpercentage")
     d_ezsignfolder_signaturecompletedpercentage: Annotated[str, Field(strict=True)] = Field(description="Percentage of Ezsignsignatures has signed", alias="dEzsignfolderSignaturecompletedpercentage")
+    dt_ezsignfolder_close: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.", alias="dtEzsignfolderClose")
+    dt_ezsignfolder_archive: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was archived.", alias="dtEzsignfolderArchive")
+    dt_ezsignfolder_dispose: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was disposed.", alias="dtEzsignfolderDispose")
     b_ezsignfolder_signer: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user", alias="bEzsignfolderSigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage", "dEzsignfolderFormcompletedpercentage", "dEzsignfolderSignaturecompletedpercentage", "bEzsignfolderSigner"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage", "dEzsignfolderFormcompletedpercentage", "dEzsignfolderSignaturecompletedpercentage", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "bEzsignfolderSigner"]
 
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
@@ -152,6 +155,9 @@ class EzsignfolderListElement(BaseModel):
             "dEzsignfolderCompletedpercentage": obj.get("dEzsignfolderCompletedpercentage"),
             "dEzsignfolderFormcompletedpercentage": obj.get("dEzsignfolderFormcompletedpercentage"),
             "dEzsignfolderSignaturecompletedpercentage": obj.get("dEzsignfolderSignaturecompletedpercentage"),
+            "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
+            "dtEzsignfolderArchive": obj.get("dtEzsignfolderArchive"),
+            "dtEzsignfolderDispose": obj.get("dtEzsignfolderDispose"),
             "bEzsignfolderSigner": obj.get("bEzsignfolderSigner")
         })
         return _obj

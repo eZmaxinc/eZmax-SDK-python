@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_file import CommonFile
+from eZmaxApi.models.custom_creditcard_request import CustomCreditcardRequest
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,8 +37,9 @@ class EzsignsignatureSignV1Request(BaseModel):
     s_attachments_refusal_reason: Optional[StrictStr] = Field(default=None, description="The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="sAttachmentsRefusalReason")
     s_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The SVG of the signature.  This can only be set if eEzsignsignatureType is **Signature**/**Initials** and **bIsAutomatic** is false", alias="sSvg")
     a_obj_file: Optional[List[CommonFile]] = Field(default=None, alias="a_objFile")
+    obj_creditcard: Optional[CustomCreditcardRequest] = Field(default=None, alias="objCreditcard")
     b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. ", alias="bIsAutomatic")
-    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "bIsAutomatic"]
+    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "objCreditcard", "bIsAutomatic"]
 
     @field_validator('e_attachments_confirmation_decision')
     def e_attachments_confirmation_decision_validate_enum(cls, value):
@@ -105,6 +107,9 @@ class EzsignsignatureSignV1Request(BaseModel):
                 if _item_a_obj_file:
                     _items.append(_item_a_obj_file.to_dict())
             _dict['a_objFile'] = _items
+        # override the default output from pydantic by calling `to_dict()` of obj_creditcard
+        if self.obj_creditcard:
+            _dict['objCreditcard'] = self.obj_creditcard.to_dict()
         return _dict
 
     @classmethod
@@ -124,6 +129,7 @@ class EzsignsignatureSignV1Request(BaseModel):
             "sAttachmentsRefusalReason": obj.get("sAttachmentsRefusalReason"),
             "sSvg": obj.get("sSvg"),
             "a_objFile": [CommonFile.from_dict(_item) for _item in obj["a_objFile"]] if obj.get("a_objFile") is not None else None,
+            "objCreditcard": CustomCreditcardRequest.from_dict(obj["objCreditcard"]) if obj.get("objCreditcard") is not None else None,
             "bIsAutomatic": obj.get("bIsAutomatic")
         })
         return _obj

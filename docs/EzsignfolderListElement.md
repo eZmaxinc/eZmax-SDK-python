@@ -26,6 +26,9 @@ Name | Type | Description | Notes
 **d_ezsignfolder_completedpercentage** | **str** | Percentage of Ezsignform/Ezsignsignatures has completed | 
 **d_ezsignfolder_formcompletedpercentage** | **str** | Percentage of Ezsignform has completed | 
 **d_ezsignfolder_signaturecompletedpercentage** | **str** | Percentage of Ezsignsignatures has signed | 
+**dt_ezsignfolder_close** | **str** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
+**dt_ezsignfolder_archive** | **str** | The date and time at which the Ezsignfolder was archived. | [optional] 
+**dt_ezsignfolder_dispose** | **str** | The date and time at which the Ezsignfolder was disposed. | [optional] 
 **b_ezsignfolder_signer** | **bool** | Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user | [optional] 
 
 ## Example

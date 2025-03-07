@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_reportsubsectionpart import CommonReportsubsectionpart
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,8 @@ class CommonReportsubsection(BaseModel):
     obj_reportsubsectionpart_header: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartHeader")
     obj_reportsubsectionpart_body: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartBody")
     obj_reportsubsectionpart_footer: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartFooter")
-    __properties: ClassVar[List[str]] = ["objReportsubsectionpartHeader", "objReportsubsectionpartBody", "objReportsubsectionpartFooter"]
+    s_reportsubsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsubsection", alias="sReportsubsectionTitle")
+    __properties: ClassVar[List[str]] = ["objReportsubsectionpartHeader", "objReportsubsectionpartBody", "objReportsubsectionpartFooter", "sReportsubsectionTitle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,7 +96,8 @@ class CommonReportsubsection(BaseModel):
         _obj = cls.model_validate({
             "objReportsubsectionpartHeader": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartHeader"]) if obj.get("objReportsubsectionpartHeader") is not None else None,
             "objReportsubsectionpartBody": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartBody"]) if obj.get("objReportsubsectionpartBody") is not None else None,
-            "objReportsubsectionpartFooter": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartFooter"]) if obj.get("objReportsubsectionpartFooter") is not None else None
+            "objReportsubsectionpartFooter": CommonReportsubsectionpart.from_dict(obj["objReportsubsectionpartFooter"]) if obj.get("objReportsubsectionpartFooter") is not None else None,
+            "sReportsubsectionTitle": obj.get("sReportsubsectionTitle")
         })
         return _obj
 

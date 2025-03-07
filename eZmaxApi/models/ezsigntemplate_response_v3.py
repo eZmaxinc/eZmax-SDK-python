@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.custom_ezsignfoldertype_template_response import CustomEzsignfoldertypeTemplateResponse
 from eZmaxApi.models.field_e_ezsigntemplate_recognition import FieldEEzsigntemplateRecognition
 from eZmaxApi.models.field_e_ezsigntemplate_type import FieldEEzsigntemplateType
 from typing import Optional, Set
@@ -34,6 +35,7 @@ class EzsigntemplateResponseV3(BaseModel):
     pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
     fki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="fkiEzsigntemplatedocumentID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    obj_ezsignfoldertype: Optional[CustomEzsignfoldertypeTemplateResponse] = Field(default=None, alias="objEzsignfoldertype")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
     s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
@@ -48,7 +50,7 @@ class EzsigntemplateResponseV3(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     b_ezsigntemplate_editallowed: StrictBool = Field(description="Whether the Ezsigntemplate if allowed to edit or not", alias="bEzsigntemplateEditallowed")
     e_ezsigntemplate_type: Optional[FieldEEzsigntemplateType] = Field(default=None, alias="eEzsigntemplateType")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sEzdoctemplatedocumentNameX", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "eEzsigntemplateRecognition", "sEzsigntemplateFilenameregexp", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sEzdoctemplatedocumentNameX", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "eEzsigntemplateRecognition", "sEzsigntemplateFilenameregexp", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType"]
 
     @field_validator('s_ezdoctemplatedocument_name_x')
     def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
@@ -126,6 +128,9 @@ class EzsigntemplateResponseV3(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_ezsignfoldertype
+        if self.obj_ezsignfoldertype:
+            _dict['objEzsignfoldertype'] = self.obj_ezsignfoldertype.to_dict()
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
@@ -144,6 +149,7 @@ class EzsigntemplateResponseV3(BaseModel):
             "pkiEzsigntemplateID": obj.get("pkiEzsigntemplateID"),
             "fkiEzsigntemplatedocumentID": obj.get("fkiEzsigntemplatedocumentID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "objEzsignfoldertype": CustomEzsignfoldertypeTemplateResponse.from_dict(obj["objEzsignfoldertype"]) if obj.get("objEzsignfoldertype") is not None else None,
             "fkiLanguageID": obj.get("fkiLanguageID"),
             "fkiEzdoctemplatedocumentID": obj.get("fkiEzdoctemplatedocumentID"),
             "sEzdoctemplatedocumentNameX": obj.get("sEzdoctemplatedocumentNameX"),

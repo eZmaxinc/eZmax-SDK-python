@@ -7,6 +7,8 @@ A Report containing Reportsections
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_reportsection** | [**List[CommonReportsection]**](CommonReportsection.md) |  | 
+**b_report_paginate** | **bool** | Whether we display pagination in the report | [optional] 
+**s_report_title** | **str** | The title of this Report | [optional] 
 
 ## Example
 

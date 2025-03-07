@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.ezsignelementdependency_request_compound import EzsignelementdependencyRequestCompound
 from eZmaxApi.models.ezsignsignaturecustomdate_request_compound_v2 import EzsignsignaturecustomdateRequestCompoundV2
+from eZmaxApi.models.ezsignsignaturepaymentdetail_request_compound import EzsignsignaturepaymentdetailRequestCompound
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
@@ -39,6 +40,7 @@ class EzsignsignatureRequestCompoundV2(BaseModel):
     """ # noqa: E501
     pki_ezsignsignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignature", alias="pkiEzsignsignatureID")
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    fki_paymentgateway_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentgateway", alias="fkiPaymentgatewayID")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
     i_ezsignsignature_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsignsignatureY")
@@ -67,7 +69,8 @@ class EzsignsignatureRequestCompoundV2(BaseModel):
     b_ezsignsignature_customdate: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**)", alias="bEzsignsignatureCustomdate")
     a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateRequestCompoundV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
     a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyRequestCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "a_objEzsignelementdependency"]
+    a_obj_ezsignsignaturepaymentdetail: Optional[List[EzsignsignaturepaymentdetailRequestCompound]] = Field(default=None, alias="a_objEzsignsignaturepaymentdetail")
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "fkiPaymentgatewayID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "a_objEzsignelementdependency", "a_objEzsignsignaturepaymentdetail"]
 
     @field_validator('s_ezsignsignature_regexp')
     def s_ezsignsignature_regexp_validate_regular_expression(cls, value):
@@ -132,6 +135,13 @@ class EzsignsignatureRequestCompoundV2(BaseModel):
                 if _item_a_obj_ezsignelementdependency:
                     _items.append(_item_a_obj_ezsignelementdependency.to_dict())
             _dict['a_objEzsignelementdependency'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignaturepaymentdetail (list)
+        _items = []
+        if self.a_obj_ezsignsignaturepaymentdetail:
+            for _item_a_obj_ezsignsignaturepaymentdetail in self.a_obj_ezsignsignaturepaymentdetail:
+                if _item_a_obj_ezsignsignaturepaymentdetail:
+                    _items.append(_item_a_obj_ezsignsignaturepaymentdetail.to_dict())
+            _dict['a_objEzsignsignaturepaymentdetail'] = _items
         return _dict
 
     @classmethod
@@ -146,6 +156,7 @@ class EzsignsignatureRequestCompoundV2(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignsignatureID": obj.get("pkiEzsignsignatureID"),
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
+            "fkiPaymentgatewayID": obj.get("fkiPaymentgatewayID"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
             "iEzsignsignatureY": obj.get("iEzsignsignatureY"),
@@ -173,7 +184,8 @@ class EzsignsignatureRequestCompoundV2(BaseModel):
             "eEzsignsignatureDependencyrequirement": obj.get("eEzsignsignatureDependencyrequirement"),
             "bEzsignsignatureCustomdate": obj.get("bEzsignsignatureCustomdate"),
             "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateRequestCompoundV2.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
+            "a_objEzsignelementdependency": [EzsignelementdependencyRequestCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None,
+            "a_objEzsignsignaturepaymentdetail": [EzsignsignaturepaymentdetailRequestCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturepaymentdetail"]] if obj.get("a_objEzsignsignaturepaymentdetail") is not None else None
         })
         return _obj
 

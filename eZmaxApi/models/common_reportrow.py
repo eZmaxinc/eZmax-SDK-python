@@ -29,8 +29,9 @@ class CommonReportrow(BaseModel):
     A row in a Reportsubsectionpart 
     """ # noqa: E501
     a_obj_reportcell: List[CommonReportcell] = Field(alias="a_objReportcell")
+    obj_variableobject: Dict[str, Any] = Field(description="A Variable object without predefined property names", alias="objVariableobject")
     i_reportrow_height: StrictInt = Field(description="The reportrow height in pixels", alias="iReportrowHeight")
-    __properties: ClassVar[List[str]] = ["a_objReportcell", "iReportrowHeight"]
+    __properties: ClassVar[List[str]] = ["a_objReportcell", "objVariableobject", "iReportrowHeight"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,6 +92,7 @@ class CommonReportrow(BaseModel):
 
         _obj = cls.model_validate({
             "a_objReportcell": [CommonReportcell.from_dict(_item) for _item in obj["a_objReportcell"]] if obj.get("a_objReportcell") is not None else None,
+            "objVariableobject": obj.get("objVariableobject"),
             "iReportrowHeight": obj.get("iReportrowHeight")
         })
         return _obj

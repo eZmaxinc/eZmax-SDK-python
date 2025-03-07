@@ -36,6 +36,7 @@ from eZmaxApi.api.object_emailtype_api import ObjectEmailtypeApi
 from eZmaxApi.api.object_ezdoctemplatedocument_api import ObjectEzdoctemplatedocumentApi
 from eZmaxApi.api.object_ezdoctemplatefieldtypecategory_api import ObjectEzdoctemplatefieldtypecategoryApi
 from eZmaxApi.api.object_ezdoctemplatetype_api import ObjectEzdoctemplatetypeApi
+from eZmaxApi.api.object_ezmaxcase_api import ObjectEzmaxcaseApi
 from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
 from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi
 from eZmaxApi.api.object_ezsignannotation_api import ObjectEzsignannotationApi
@@ -49,6 +50,8 @@ from eZmaxApi.api.object_ezsignfolder_api import ObjectEzsignfolderApi
 from eZmaxApi.api.object_ezsignfoldersignerassociation_api import ObjectEzsignfoldersignerassociationApi
 from eZmaxApi.api.object_ezsignfoldertype_api import ObjectEzsignfoldertypeApi
 from eZmaxApi.api.object_ezsignformfieldgroup_api import ObjectEzsignformfieldgroupApi
+from eZmaxApi.api.object_ezsignimportdocument_api import ObjectEzsignimportdocumentApi
+from eZmaxApi.api.object_ezsignimportfolder_api import ObjectEzsignimportfolderApi
 from eZmaxApi.api.object_ezsignpage_api import ObjectEzsignpageApi
 from eZmaxApi.api.object_ezsignsignature_api import ObjectEzsignsignatureApi
 from eZmaxApi.api.object_ezsignsignergroup_api import ObjectEzsignsignergroupApi
@@ -84,6 +87,7 @@ from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi
 from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi
 from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi
 from eZmaxApi.api.object_otherincome_api import ObjectOtherincomeApi
+from eZmaxApi.api.object_paymentgateway_api import ObjectPaymentgatewayApi
 from eZmaxApi.api.object_paymentterm_api import ObjectPaymenttermApi
 from eZmaxApi.api.object_pdfalevel_api import ObjectPdfalevelApi
 from eZmaxApi.api.object_period_api import ObjectPeriodApi

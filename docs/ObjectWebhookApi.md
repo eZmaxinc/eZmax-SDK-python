@@ -346,7 +346,13 @@ Name | Type | Description  | Notes
 
 Retrieve Webhook list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eWebhookModule | Ezsign<br>Management | | eWebhookEzsignevent | DocumentCompleted<br>FolderCompleted | | eWebhookManagementevent | UserCreated |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eWebhookModule | Ezsign<br>Management |
+| eWebhookEzsignevent | DocumentCompleted<br>FolderCompleted |
+| eWebhookManagementevent | UserCreated |
 
 ### Example
 

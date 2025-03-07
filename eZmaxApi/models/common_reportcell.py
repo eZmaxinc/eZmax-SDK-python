@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,9 @@ class CommonReportcell(BaseModel):
     """ # noqa: E501
     i_reportcell_columnspan: StrictInt = Field(description="The number of Reportcolumns the Reportcell spans", alias="iReportcellColumnspan")
     i_reportcell_rowspan: StrictInt = Field(description="The number of Reportrows the Reportcell spans", alias="iReportcellRowspan")
-    __properties: ClassVar[List[str]] = ["iReportcellColumnspan", "iReportcellRowspan"]
+    s_reportcell_content: StrictStr = Field(description="The content of this Reportcell", alias="sReportcellContent")
+    i_reportcell_column: StrictInt = Field(description="Position of the column where it is placed", alias="iReportcellColumn")
+    __properties: ClassVar[List[str]] = ["iReportcellColumnspan", "iReportcellRowspan", "sReportcellContent", "iReportcellColumn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,7 +85,9 @@ class CommonReportcell(BaseModel):
 
         _obj = cls.model_validate({
             "iReportcellColumnspan": obj.get("iReportcellColumnspan"),
-            "iReportcellRowspan": obj.get("iReportcellRowspan")
+            "iReportcellRowspan": obj.get("iReportcellRowspan"),
+            "sReportcellContent": obj.get("sReportcellContent"),
+            "iReportcellColumn": obj.get("iReportcellColumn")
         })
         return _obj
 

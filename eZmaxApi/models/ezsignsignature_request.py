@@ -37,6 +37,7 @@ class EzsignsignatureRequest(BaseModel):
     """ # noqa: E501
     pki_ezsignsignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignature", alias="pkiEzsignsignatureID")
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    fki_paymentgateway_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentgateway", alias="fkiPaymentgatewayID")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
     i_ezsignsignature_y: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Y coordinate (Vertical) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 3 inches from the top border of the page, you would use \"300\" for the Y coordinate.", alias="iEzsignsignatureY")
@@ -62,7 +63,7 @@ class EzsignsignatureRequest(BaseModel):
     s_ezsignsignature_textvalidationcustommessage: Optional[Annotated[str, Field(min_length=0, strict=True, max_length=50)]] = Field(default=None, description="Description of validation rule. Show by signatory.", alias="sEzsignsignatureTextvalidationcustommessage")
     s_ezsignsignature_regexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom**", alias="sEzsignsignatureRegexp")
     e_ezsignsignature_dependencyrequirement: Optional[FieldEEzsignsignatureDependencyrequirement] = Field(default=None, alias="eEzsignsignatureDependencyrequirement")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "fkiPaymentgatewayID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement"]
 
     @field_validator('s_ezsignsignature_regexp')
     def s_ezsignsignature_regexp_validate_regular_expression(cls, value):
@@ -127,6 +128,7 @@ class EzsignsignatureRequest(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignsignatureID": obj.get("pkiEzsignsignatureID"),
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
+            "fkiPaymentgatewayID": obj.get("fkiPaymentgatewayID"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
             "iEzsignsignatureY": obj.get("iEzsignsignatureY"),

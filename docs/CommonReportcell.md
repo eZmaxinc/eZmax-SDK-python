@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **i_reportcell_columnspan** | **int** | The number of Reportcolumns the Reportcell spans | 
 **i_reportcell_rowspan** | **int** | The number of Reportrows the Reportcell spans | 
+**s_reportcell_content** | **str** | The content of this Reportcell | 
+**i_reportcell_column** | **int** | Position of the column where it is placed | 
 
 ## Example
 

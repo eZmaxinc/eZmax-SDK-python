@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_report** | [**List[CommonReport]**](CommonReport.md) |  | 
 **a_obj_reportcellstyle_custom** | [**List[CommonReportcellstyle]**](CommonReportcellstyle.md) |  | 
+**a_obj_reportgroup_parameter** | [**List[CommonReportgroupParameter]**](CommonReportgroupParameter.md) |  | 
+**s_reportgroup_filename** | **str** | The name of the file | 
 
 ## Example
 

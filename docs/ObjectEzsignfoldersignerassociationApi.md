@@ -22,7 +22,9 @@ Method | HTTP request | Description
 
 Creates an Url to allow embedded signing
 
-This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.  The signer Login type must be configured as Embedded.
+This endpoint creates an Url that can be used in a browser or embedded in an I-Frame to allow signing.
+
+The signer Login type must be configured as Embedded.
 
 ### Example
 
@@ -106,7 +108,11 @@ Name | Type | Description  | Notes
 
 Create a new Ezsignfoldersignerassociation
 
-The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
+The endpoint allows to create one or many elements at once.
+
+The array can contain simple (Just the object) or compound (The object and its child) objects.
+
+Creating compound elements allows to reduce the multiple requests to create all child objects.
 
 ### Example
 
@@ -514,7 +520,9 @@ Name | Type | Description  | Notes
 
 Retrieve a Login Url to allow In-Person signing
 
-This endpoint returns a Login Url that can be used in a browser or embedded in an I-Frame to allow in person signing.  The signer Login type must be configured as In-Person.
+This endpoint returns a Login Url that can be used in a browser or embedded in an I-Frame to allow in person signing.
+
+The signer Login type must be configured as In-Person.
 
 ### Example
 

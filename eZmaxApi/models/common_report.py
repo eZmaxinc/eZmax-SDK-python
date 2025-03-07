@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_reportsection import CommonReportsection
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,9 @@ class CommonReport(BaseModel):
     A Report containing Reportsections 
     """ # noqa: E501
     a_obj_reportsection: List[CommonReportsection] = Field(alias="a_objReportsection")
-    __properties: ClassVar[List[str]] = ["a_objReportsection"]
+    b_report_paginate: Optional[StrictBool] = Field(default=None, description="Whether we display pagination in the report", alias="bReportPaginate")
+    s_report_title: Optional[StrictStr] = Field(default=None, description="The title of this Report", alias="sReportTitle")
+    __properties: ClassVar[List[str]] = ["a_objReportsection", "bReportPaginate", "sReportTitle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +91,9 @@ class CommonReport(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_objReportsection": [CommonReportsection.from_dict(_item) for _item in obj["a_objReportsection"]] if obj.get("a_objReportsection") is not None else None
+            "a_objReportsection": [CommonReportsection.from_dict(_item) for _item in obj["a_objReportsection"]] if obj.get("a_objReportsection") is not None else None,
+            "bReportPaginate": obj.get("bReportPaginate"),
+            "sReportTitle": obj.get("sReportTitle")
         })
         return _obj
 

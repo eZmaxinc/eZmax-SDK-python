@@ -428,7 +428,10 @@ Name | Type | Description  | Notes
 
 Retrieve Apikey list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---|
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
 
 ### Example
 

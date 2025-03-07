@@ -18,10 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.common_report import CommonReport
 from eZmaxApi.models.common_reportcellstyle import CommonReportcellstyle
+from eZmaxApi.models.common_reportgroup_parameter import CommonReportgroupParameter
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +32,9 @@ class CommonReportgroup(BaseModel):
     """ # noqa: E501
     a_obj_report: List[CommonReport] = Field(alias="a_objReport")
     a_obj_reportcellstyle_custom: List[CommonReportcellstyle] = Field(alias="a_objReportcellstyleCustom")
-    __properties: ClassVar[List[str]] = ["a_objReport", "a_objReportcellstyleCustom"]
+    a_obj_reportgroup_parameter: List[CommonReportgroupParameter] = Field(alias="a_objReportgroupParameter")
+    s_reportgroup_filename: StrictStr = Field(description="The name of the file", alias="sReportgroupFilename")
+    __properties: ClassVar[List[str]] = ["a_objReport", "a_objReportcellstyleCustom", "a_objReportgroupParameter", "sReportgroupFilename"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +89,13 @@ class CommonReportgroup(BaseModel):
                 if _item_a_obj_reportcellstyle_custom:
                     _items.append(_item_a_obj_reportcellstyle_custom.to_dict())
             _dict['a_objReportcellstyleCustom'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportgroup_parameter (list)
+        _items = []
+        if self.a_obj_reportgroup_parameter:
+            for _item_a_obj_reportgroup_parameter in self.a_obj_reportgroup_parameter:
+                if _item_a_obj_reportgroup_parameter:
+                    _items.append(_item_a_obj_reportgroup_parameter.to_dict())
+            _dict['a_objReportgroupParameter'] = _items
         return _dict
 
     @classmethod
@@ -99,7 +109,9 @@ class CommonReportgroup(BaseModel):
 
         _obj = cls.model_validate({
             "a_objReport": [CommonReport.from_dict(_item) for _item in obj["a_objReport"]] if obj.get("a_objReport") is not None else None,
-            "a_objReportcellstyleCustom": [CommonReportcellstyle.from_dict(_item) for _item in obj["a_objReportcellstyleCustom"]] if obj.get("a_objReportcellstyleCustom") is not None else None
+            "a_objReportcellstyleCustom": [CommonReportcellstyle.from_dict(_item) for _item in obj["a_objReportcellstyleCustom"]] if obj.get("a_objReportcellstyleCustom") is not None else None,
+            "a_objReportgroupParameter": [CommonReportgroupParameter.from_dict(_item) for _item in obj["a_objReportgroupParameter"]] if obj.get("a_objReportgroupParameter") is not None else None,
+            "sReportgroupFilename": obj.get("sReportgroupFilename")
         })
         return _obj
 

@@ -30,7 +30,8 @@ class CommonReportsubsectionpart(BaseModel):
     """ # noqa: E501
     e_reportsubsectionpart_type: StrictStr = Field(description="The type of the Reportsubsectionpart", alias="eReportsubsectionpartType")
     a_obj_reportrow: List[CommonReportrow] = Field(alias="a_objReportrow")
-    __properties: ClassVar[List[str]] = ["eReportsubsectionpartType", "a_objReportrow"]
+    a_s_variableobject_property: List[StrictStr] = Field(alias="a_sVariableobjectProperty")
+    __properties: ClassVar[List[str]] = ["eReportsubsectionpartType", "a_objReportrow", "a_sVariableobjectProperty"]
 
     @field_validator('e_reportsubsectionpart_type')
     def e_reportsubsectionpart_type_validate_enum(cls, value):
@@ -98,7 +99,8 @@ class CommonReportsubsectionpart(BaseModel):
 
         _obj = cls.model_validate({
             "eReportsubsectionpartType": obj.get("eReportsubsectionpartType"),
-            "a_objReportrow": [CommonReportrow.from_dict(_item) for _item in obj["a_objReportrow"]] if obj.get("a_objReportrow") is not None else None
+            "a_objReportrow": [CommonReportrow.from_dict(_item) for _item in obj["a_objReportrow"]] if obj.get("a_objReportrow") is not None else None,
+            "a_sVariableobjectProperty": obj.get("a_sVariableobjectProperty")
         })
         return _obj
 

@@ -266,7 +266,11 @@ Name | Type | Description  | Notes
 
 Retrieve Variableexpense list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eVariableexpenseTaxable | Yes<br>No<br>Included |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eVariableexpenseTaxable | Yes<br>No<br>Included |
 
 ### Example
 

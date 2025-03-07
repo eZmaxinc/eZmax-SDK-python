@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.common_reportcellstyle import CommonReportcellstyle
+from eZmaxApi.models.enum_reportdata_type import EnumReportdataType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class CommonReportcolumn(BaseModel):
     """ # noqa: E501
     obj_reportcellstyle_default: CommonReportcellstyle = Field(alias="objReportcellstyleDefault")
     i_reportcolumn_width: StrictInt = Field(description="The Reportcolumn width in pixels", alias="iReportcolumnWidth")
-    __properties: ClassVar[List[str]] = ["objReportcellstyleDefault", "iReportcolumnWidth"]
+    e_reportcolumn_type: EnumReportdataType = Field(alias="eReportcolumnType")
+    __properties: ClassVar[List[str]] = ["objReportcellstyleDefault", "iReportcolumnWidth", "eReportcolumnType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +89,8 @@ class CommonReportcolumn(BaseModel):
 
         _obj = cls.model_validate({
             "objReportcellstyleDefault": CommonReportcellstyle.from_dict(obj["objReportcellstyleDefault"]) if obj.get("objReportcellstyleDefault") is not None else None,
-            "iReportcolumnWidth": obj.get("iReportcolumnWidth")
+            "iReportcolumnWidth": obj.get("iReportcolumnWidth"),
+            "eReportcolumnType": obj.get("eReportcolumnType")
         })
         return _obj
 

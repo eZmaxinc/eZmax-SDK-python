@@ -267,7 +267,11 @@ Name | Type | Description  | Notes
 
 Retrieve Ezsignfoldertype list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eEzsignfoldertypePrivacylevel | User<br>Usergroup |
 
 ### Example
 

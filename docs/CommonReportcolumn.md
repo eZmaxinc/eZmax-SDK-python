@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **obj_reportcellstyle_default** | [**CommonReportcellstyle**](CommonReportcellstyle.md) |  | 
 **i_reportcolumn_width** | **int** | The Reportcolumn width in pixels | 
+**e_reportcolumn_type** | [**EnumReportdataType**](EnumReportdataType.md) |  | 
 
 ## Example
 

@@ -26,6 +26,7 @@ from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditca
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
 from eZmaxApi.models.ezsignelementdependency_response_compound import EzsignelementdependencyResponseCompound
 from eZmaxApi.models.ezsignsignaturecustomdate_response_compound_v2 import EzsignsignaturecustomdateResponseCompoundV2
+from eZmaxApi.models.ezsignsignaturepaymentdetail_response_compound import EzsignsignaturepaymentdetailResponseCompound
 from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEEzsignsignatureAttachmentnamesource
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
@@ -45,6 +46,7 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
     fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
     fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
     fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
+    s_currency_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Currency in the language of the requester", alias="sCurrencyDescriptionX")
     s_ezsignsigningreason_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
@@ -82,7 +84,18 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
     a_obj_ezsignsignaturecustomdate: Optional[List[EzsignsignaturecustomdateResponseCompoundV2]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsignsignaturecustomdate")
     obj_creditcardtransaction: Optional[CustomCreditcardtransactionResponse] = Field(default=None, alias="objCreditcardtransaction")
     a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "sEzsignsignergroupDescriptionX", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency"]
+    a_obj_ezsignsignaturepaymentdetail: Optional[List[EzsignsignaturepaymentdetailResponseCompound]] = Field(default=None, alias="a_objEzsignsignaturepaymentdetail")
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "sCurrencyDescriptionX", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "sEzsignsignergroupDescriptionX", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency", "a_objEzsignsignaturepaymentdetail"]
+
+    @field_validator('s_currency_description_x')
+    def s_currency_description_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^.{1,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{1,20}$/")
+        return value
 
     @field_validator('s_ezsignsigningreason_description_x')
     def s_ezsignsigningreason_description_x_validate_regular_expression(cls, value):
@@ -179,6 +192,13 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
                 if _item_a_obj_ezsignelementdependency:
                     _items.append(_item_a_obj_ezsignelementdependency.to_dict())
             _dict['a_objEzsignelementdependency'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignaturepaymentdetail (list)
+        _items = []
+        if self.a_obj_ezsignsignaturepaymentdetail:
+            for _item_a_obj_ezsignsignaturepaymentdetail in self.a_obj_ezsignsignaturepaymentdetail:
+                if _item_a_obj_ezsignsignaturepaymentdetail:
+                    _items.append(_item_a_obj_ezsignsignaturepaymentdetail.to_dict())
+            _dict['a_objEzsignsignaturepaymentdetail'] = _items
         return _dict
 
     @classmethod
@@ -196,6 +216,7 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
             "fkiEzsignfoldersignerassociationID": obj.get("fkiEzsignfoldersignerassociationID"),
             "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
             "fkiFontID": obj.get("fkiFontID"),
+            "sCurrencyDescriptionX": obj.get("sCurrencyDescriptionX"),
             "sEzsignsigningreasonDescriptionX": obj.get("sEzsignsigningreasonDescriptionX"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
@@ -232,7 +253,8 @@ class EzsignsignatureResponseCompoundV3(BaseModel):
             "bEzsignsignatureCustomdate": obj.get("bEzsignsignatureCustomdate"),
             "a_objEzsignsignaturecustomdate": [EzsignsignaturecustomdateResponseCompoundV2.from_dict(_item) for _item in obj["a_objEzsignsignaturecustomdate"]] if obj.get("a_objEzsignsignaturecustomdate") is not None else None,
             "objCreditcardtransaction": CustomCreditcardtransactionResponse.from_dict(obj["objCreditcardtransaction"]) if obj.get("objCreditcardtransaction") is not None else None,
-            "a_objEzsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None
+            "a_objEzsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None,
+            "a_objEzsignsignaturepaymentdetail": [EzsignsignaturepaymentdetailResponseCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturepaymentdetail"]] if obj.get("a_objEzsignsignaturepaymentdetail") is not None else None
         })
         return _obj
 

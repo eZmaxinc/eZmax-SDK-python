@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from eZmaxApi.models.common_reportcolumn import CommonReportcolumn
 from eZmaxApi.models.common_reportsubsection import CommonReportsubsection
 from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment
@@ -35,7 +35,8 @@ class CommonReportsection(BaseModel):
     e_reportsection_horizontalalignment: EnumHorizontalalignment = Field(alias="eReportsectionHorizontalalignment")
     i_reportsection_columncount: StrictInt = Field(description="The number of Reportcolumns in the Reportsection", alias="iReportsectionColumncount")
     i_reportsection_width: StrictInt = Field(description="The combined width of all the Reportcolumns in the Reportsection", alias="iReportsectionWidth")
-    __properties: ClassVar[List[str]] = ["a_objReportsubsection", "a_objReportcolumn", "eReportsectionHorizontalalignment", "iReportsectionColumncount", "iReportsectionWidth"]
+    s_reportsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsection", alias="sReportsectionTitle")
+    __properties: ClassVar[List[str]] = ["a_objReportsubsection", "a_objReportcolumn", "eReportsectionHorizontalalignment", "iReportsectionColumncount", "iReportsectionWidth", "sReportsectionTitle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,7 +107,8 @@ class CommonReportsection(BaseModel):
             "a_objReportcolumn": [CommonReportcolumn.from_dict(_item) for _item in obj["a_objReportcolumn"]] if obj.get("a_objReportcolumn") is not None else None,
             "eReportsectionHorizontalalignment": obj.get("eReportsectionHorizontalalignment"),
             "iReportsectionColumncount": obj.get("iReportsectionColumncount"),
-            "iReportsectionWidth": obj.get("iReportsectionWidth")
+            "iReportsectionWidth": obj.get("iReportsectionWidth"),
+            "sReportsectionTitle": obj.get("sReportsectionTitle")
         })
         return _obj
 

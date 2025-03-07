@@ -348,7 +348,11 @@ Name | Type | Description  | Notes
 
 Retrieve Authenticationexternal list
 
-Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eAuthenticationexternalType | Salesforce<br>SalesforceSandbox |
+Enum values that can be filtered in query parameter *sFilter*:
+
+| Variable | Valid values |
+|---|---|
+| eAuthenticationexternalType | Salesforce<br>SalesforceSandbox |
 
 ### Example
 

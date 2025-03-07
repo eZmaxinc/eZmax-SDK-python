@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_reportsubsectionpart_type** | **str** | The type of the Reportsubsectionpart | 
 **a_obj_reportrow** | [**List[CommonReportrow]**](CommonReportrow.md) |  | 
+**a_s_variableobject_property** | **List[str]** |  | 
 
 ## Example
 

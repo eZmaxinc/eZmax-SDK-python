@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**ezsigndocument_get_temporary_proof_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_temporary_proof_v1) | **GET** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getTemporaryProof | Retrieve the temporary proof
 [**ezsigndocument_get_words_positions_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_get_words_positions_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/getWordsPositions | Retrieve positions X,Y of given words from a Ezsigndocument
 [**ezsigndocument_patch_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_patch_object_v1) | **PATCH** /1/object/ezsigndocument/{pkiEzsigndocumentID} | Patch an existing Ezsigndocument
+[**ezsigndocument_prefill_ezsignform_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_prefill_ezsignform_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/prefillEzsignform | Prefill an Ezsignform
 [**ezsigndocument_submit_ezsignform_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_submit_ezsignform_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/submitEzsignform | Submit the Ezsignform
 [**ezsigndocument_unsend_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_unsend_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/unsend | Unsend the Ezsigndocument
 
@@ -45,7 +46,12 @@ Method | HTTP request | Description
 
 Apply an Ezsigntemplate to the Ezsigndocument.
 
-This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital \"E\" to normalize the nomenclature.  This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+This function is deprecated. Please use *applyEzsigntemplate* instead which is doing the same thing but with a capital "E" to normalize the nomenclature.
+
+This endpoint applies a predefined template to the ezsign document.
+This allows to automatically apply all the form and signature fields on a document in a single step.
+
+The document must not already have fields otherwise an error will be returned.
 
 ### Example
 
@@ -129,7 +135,10 @@ Name | Type | Description  | Notes
 
 Apply an Ezsigntemplate to the Ezsigndocument.
 
-This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+This endpoint applies a predefined template to the ezsign document.
+This allows to automatically apply all the form and signature fields on a document in a single step.
+
+The document must not already have fields otherwise an error will be returned.
 
 ### Example
 
@@ -213,7 +222,10 @@ Name | Type | Description  | Notes
 
 Apply an Ezsigntemplateglobal to the Ezsigndocument.
 
-This endpoint applies a predefined template to the ezsign document. This allows to automatically apply all the form and signature fields on a document in a single step.  The document must not already have fields otherwise an error will be returned.
+This endpoint applies a predefined template to the ezsign document.
+This allows to automatically apply all the form and signature fields on a document in a single step.
+
+The document must not already have fields otherwise an error will be returned.
 
 ### Example
 
@@ -381,7 +393,11 @@ Name | Type | Description  | Notes
 
 Create a new Ezsigndocument
 
-The endpoint allows to create one or many elements at once.  The array can contain simple (Just the object) or compound (The object and its child) objects.  Creating compound elements allows to reduce the multiple requests to create all child objects.
+The endpoint allows to create one or many elements at once.
+
+The array can contain simple (Just the object) or compound (The object and its child) objects.
+
+Creating compound elements allows to reduce the multiple requests to create all child objects.
 
 ### Example
 
@@ -1618,7 +1634,9 @@ Name | Type | Description  | Notes
 
 Retrieve a URL to download documents.
 
-This endpoint returns URLs to different files that can be downloaded during the signing process.  These links will expire after 5 minutes so the download of the file should be made soon after retrieving the link.
+This endpoint returns URLs to different files that can be downloaded during the signing process.
+
+These links will expire after 5 minutes so the download of the file should be made soon after retrieving the link.
 
 ### Example
 
@@ -2670,6 +2688,90 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocument_prefill_ezsignform_v1**
+> EzsigndocumentPrefillEzsignformV1Response ezsigndocument_prefill_ezsignform_v1(pki_ezsigndocument_id, ezsigndocument_prefill_ezsignform_v1_request)
+
+Prefill an Ezsignform
+
+Using this endpoint, you can prefill an Ezsignform.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsigndocument_prefill_ezsignform_v1_request import EzsigndocumentPrefillEzsignformV1Request
+from eZmaxApi.models.ezsigndocument_prefill_ezsignform_v1_response import EzsigndocumentPrefillEzsignformV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 56 # int | 
+    ezsigndocument_prefill_ezsignform_v1_request = eZmaxApi.EzsigndocumentPrefillEzsignformV1Request() # EzsigndocumentPrefillEzsignformV1Request | 
+
+    try:
+        # Prefill an Ezsignform
+        api_response = api_instance.ezsigndocument_prefill_ezsignform_v1(pki_ezsigndocument_id, ezsigndocument_prefill_ezsignform_v1_request)
+        print("The response of ObjectEzsigndocumentApi->ezsigndocument_prefill_ezsignform_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_prefill_ezsignform_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  | 
+ **ezsigndocument_prefill_ezsignform_v1_request** | [**EzsigndocumentPrefillEzsignformV1Request**](EzsigndocumentPrefillEzsignformV1Request.md)|  | 
+
+### Return type
+
+[**EzsigndocumentPrefillEzsignformV1Response**](EzsigndocumentPrefillEzsignformV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocument_submit_ezsignform_v1**
 > EzsigndocumentSubmitEzsignformV1Response ezsigndocument_submit_ezsignform_v1(pki_ezsigndocument_id, ezsigndocument_submit_ezsignform_v1_request)
 
@@ -2759,7 +2861,13 @@ Name | Type | Description  | Notes
 
 Unsend the Ezsigndocument
 
-Once an Ezsigndocument has been sent to signatories, it cannot be modified.  Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.  Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.  ⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
+Once an Ezsigndocument has been sent to signatories, it cannot be modified.
+
+Using this endpoint, you can unsend the Ezsigndocument and make it modifiable again.
+
+Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.
+
+⚠️ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
 
 ### Example
 
