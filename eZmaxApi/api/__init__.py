@@ -36,7 +36,6 @@ from eZmaxApi.api.object_emailtype_api import ObjectEmailtypeApi
 from eZmaxApi.api.object_ezdoctemplatedocument_api import ObjectEzdoctemplatedocumentApi
 from eZmaxApi.api.object_ezdoctemplatefieldtypecategory_api import ObjectEzdoctemplatefieldtypecategoryApi
 from eZmaxApi.api.object_ezdoctemplatetype_api import ObjectEzdoctemplatetypeApi
-from eZmaxApi.api.object_ezmaxcase_api import ObjectEzmaxcaseApi
 from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
 from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi
 from eZmaxApi.api.object_ezsignannotation_api import ObjectEzsignannotationApi

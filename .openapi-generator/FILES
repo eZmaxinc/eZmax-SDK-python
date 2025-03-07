@@ -434,9 +434,6 @@ docs/EzdoctemplatefieldtypecategoryGetAutocompleteV2ResponseMPayload.md
 docs/EzdoctemplatetypeAutocompleteElementResponse.md
 docs/EzdoctemplatetypeGetAutocompleteV2Response.md
 docs/EzdoctemplatetypeGetAutocompleteV2ResponseMPayload.md
-docs/EzmaxcasePatchObjectV1Request.md
-docs/EzmaxcasePatchObjectV1Response.md
-docs/EzmaxcaseRequestPatch.md
 docs/EzmaxinvoicingAutocompleteElementResponse.md
 docs/EzmaxinvoicingGetAutocompleteV2Response.md
 docs/EzmaxinvoicingGetAutocompleteV2ResponseMPayload.md
@@ -1359,7 +1356,6 @@ docs/ObjectEmailtypeApi.md
 docs/ObjectEzdoctemplatedocumentApi.md
 docs/ObjectEzdoctemplatefieldtypecategoryApi.md
 docs/ObjectEzdoctemplatetypeApi.md
-docs/ObjectEzmaxcaseApi.md
 docs/ObjectEzmaxinvoicingApi.md
 docs/ObjectEzmaxproductApi.md
 docs/ObjectEzsignannotationApi.md
@@ -1861,7 +1857,6 @@ eZmaxApi/api/object_emailtype_api.py
 eZmaxApi/api/object_ezdoctemplatedocument_api.py
 eZmaxApi/api/object_ezdoctemplatefieldtypecategory_api.py
 eZmaxApi/api/object_ezdoctemplatetype_api.py
-eZmaxApi/api/object_ezmaxcase_api.py
 eZmaxApi/api/object_ezmaxinvoicing_api.py
 eZmaxApi/api/object_ezmaxproduct_api.py
 eZmaxApi/api/object_ezsignannotation_api.py
@@ -2377,9 +2372,6 @@ eZmaxApi/models/ezdoctemplatefieldtypecategory_get_autocomplete_v2_response_m_pa
 eZmaxApi/models/ezdoctemplatetype_autocomplete_element_response.py
 eZmaxApi/models/ezdoctemplatetype_get_autocomplete_v2_response.py
 eZmaxApi/models/ezdoctemplatetype_get_autocomplete_v2_response_m_payload.py
-eZmaxApi/models/ezmaxcase_patch_object_v1_request.py
-eZmaxApi/models/ezmaxcase_patch_object_v1_response.py
-eZmaxApi/models/ezmaxcase_request_patch.py
 eZmaxApi/models/ezmaxinvoicing_autocomplete_element_response.py
 eZmaxApi/models/ezmaxinvoicing_get_autocomplete_v2_response.py
 eZmaxApi/models/ezmaxinvoicing_get_autocomplete_v2_response_m_payload.py
