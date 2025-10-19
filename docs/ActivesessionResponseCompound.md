@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **e_user_ezsignprepaid** | [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **b_user_ezsigntrial** | **bool** | Whether the User&#39;s eZsign subscription is a trial | [optional] 
 **dt_user_ezsignprepaidexpiration** | **str** | The eZsign prepaid expiration date | [optional] 
+**dt_user_npsrequest** | **str** | The date at which the NPS questionnaire will be show | [optional] 
 **a_pki_permission_id** | **List[int]** | An array of permissions granted to the user or api key | 
 **obj_user_real** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | 
 **obj_user_cloned** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 

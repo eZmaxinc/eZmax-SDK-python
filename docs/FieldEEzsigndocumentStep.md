@@ -12,6 +12,8 @@ The signature step of the Ezsigndocument.
 
 * `DECLINEDTOSIGN` (value: `'DeclinedToSign'`)
 
+* `PENDINGPREMATURELYENDED` (value: `'PendingPrematurelyEnded'`)
+
 * `PREMATURELYENDED` (value: `'PrematurelyEnded'`)
 
 * `PENDINGCOMPLETION` (value: `'PendingCompletion'`)

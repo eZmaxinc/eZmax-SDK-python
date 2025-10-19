@@ -4,12 +4,93 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**discussion_chat_v1**](ObjectDiscussionApi.md#discussion_chat_v1) | **POST** /1/object/discussion/chat | Have a Discussion with the AI Chatbot
 [**discussion_create_object_v1**](ObjectDiscussionApi.md#discussion_create_object_v1) | **POST** /1/object/discussion | Create a new Discussion
 [**discussion_delete_object_v1**](ObjectDiscussionApi.md#discussion_delete_object_v1) | **DELETE** /1/object/discussion/{pkiDiscussionID} | Delete an existing Discussion
 [**discussion_get_object_v2**](ObjectDiscussionApi.md#discussion_get_object_v2) | **GET** /2/object/discussion/{pkiDiscussionID} | Retrieve an existing Discussion
 [**discussion_patch_object_v1**](ObjectDiscussionApi.md#discussion_patch_object_v1) | **PATCH** /1/object/discussion/{pkiDiscussionID} | Patch an existing Discussion
 [**discussion_update_discussionreadstatus_v1**](ObjectDiscussionApi.md#discussion_update_discussionreadstatus_v1) | **POST** /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus | Update the read status of the discussion
 
+
+# **discussion_chat_v1**
+> DiscussionChatV1200Response discussion_chat_v1(discussion_chat_v1_request)
+
+Have a Discussion with the AI Chatbot
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.discussion_chat_v1200_response import DiscussionChatV1200Response
+from eZmaxApi.models.discussion_chat_v1_request import DiscussionChatV1Request
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectDiscussionApi(api_client)
+    discussion_chat_v1_request = eZmaxApi.DiscussionChatV1Request() # DiscussionChatV1Request | 
+
+    try:
+        # Have a Discussion with the AI Chatbot
+        api_response = api_instance.discussion_chat_v1(discussion_chat_v1_request)
+        print("The response of ObjectDiscussionApi->discussion_chat_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectDiscussionApi->discussion_chat_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **discussion_chat_v1_request** | [**DiscussionChatV1Request**](DiscussionChatV1Request.md)|  | 
+
+### Return type
+
+[**DiscussionChatV1200Response**](DiscussionChatV1200Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/event-stream
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discussion_create_object_v1**
 > DiscussionCreateObjectV1Response discussion_create_object_v1(discussion_create_object_v1_request)

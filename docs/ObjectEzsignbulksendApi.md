@@ -6,14 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsignbulksend_create_ezsignbulksendtransmission_v2**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_ezsignbulksendtransmission_v2) | **POST** /2/object/ezsignbulksend/{pkiEzsignbulksendID}/createEzsignbulksendtransmission | Create a new Ezsignbulksendtransmission in the Ezsignbulksend
 [**ezsignbulksend_create_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_object_v1) | **POST** /1/object/ezsignbulksend | Create a new Ezsignbulksend
+[**ezsignbulksend_create_object_v2**](ObjectEzsignbulksendApi.md#ezsignbulksend_create_object_v2) | **POST** /2/object/ezsignbulksend | Create a new Ezsignbulksend
 [**ezsignbulksend_delete_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_delete_object_v1) | **DELETE** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Delete an existing Ezsignbulksend
 [**ezsignbulksend_edit_object_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_edit_object_v1) | **PUT** /1/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
+[**ezsignbulksend_edit_object_v2**](ObjectEzsignbulksendApi.md#ezsignbulksend_edit_object_v2) | **PUT** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Edit an existing Ezsignbulksend
+[**ezsignbulksend_get_batch_file_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_batch_file_v1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getBatchFile | Retrieve file to download documents in batch
 [**ezsignbulksend_get_csv_template_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_csv_template_v1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getCsvTemplate | Retrieve an existing Ezsignbulksend&#39;s empty Csv template
 [**ezsignbulksend_get_ezsignbulksendtransmissions_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_ezsignbulksendtransmissions_v1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignbulksendtransmissions | Retrieve an existing Ezsignbulksend&#39;s Ezsignbulksendtransmissions
 [**ezsignbulksend_get_ezsignsignatures_automatic_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_ezsignsignatures_automatic_v1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignbulksend&#39;s automatic Ezsignsignatures
 [**ezsignbulksend_get_forms_data_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_forms_data_v1) | **GET** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/getFormsData | Retrieve an existing Ezsignbulksend&#39;s forms data
 [**ezsignbulksend_get_list_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_list_v1) | **GET** /1/object/ezsignbulksend/getList | Retrieve Ezsignbulksend list
 [**ezsignbulksend_get_object_v2**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_object_v2) | **GET** /2/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
+[**ezsignbulksend_get_object_v3**](ObjectEzsignbulksendApi.md#ezsignbulksend_get_object_v3) | **GET** /3/object/ezsignbulksend/{pkiEzsignbulksendID} | Retrieve an existing Ezsignbulksend
 [**ezsignbulksend_reorder_v1**](ObjectEzsignbulksendApi.md#ezsignbulksend_reorder_v1) | **POST** /1/object/ezsignbulksend/{pkiEzsignbulksendID}/reorder | Reorder Ezsignbulksenddocumentmappings in the Ezsignbulksend
 
 
@@ -161,6 +165,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendCreateObjectV1Response**](EzsignbulksendCreateObjectV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignbulksend_create_object_v2**
+> EzsignbulksendCreateObjectV2Response ezsignbulksend_create_object_v2(ezsignbulksend_create_object_v2_request)
+
+Create a new Ezsignbulksend
+
+The endpoint allows to create one or many elements at once.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsignbulksend_create_object_v2_request import EzsignbulksendCreateObjectV2Request
+from eZmaxApi.models.ezsignbulksend_create_object_v2_response import EzsignbulksendCreateObjectV2Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsignbulksendApi(api_client)
+    ezsignbulksend_create_object_v2_request = eZmaxApi.EzsignbulksendCreateObjectV2Request() # EzsignbulksendCreateObjectV2Request | 
+
+    try:
+        # Create a new Ezsignbulksend
+        api_response = api_instance.ezsignbulksend_create_object_v2(ezsignbulksend_create_object_v2_request)
+        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_create_object_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_create_object_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ezsignbulksend_create_object_v2_request** | [**EzsignbulksendCreateObjectV2Request**](EzsignbulksendCreateObjectV2Request.md)|  | 
+
+### Return type
+
+[**EzsignbulksendCreateObjectV2Response**](EzsignbulksendCreateObjectV2Response.md)
 
 ### Authorization
 
@@ -340,6 +424,177 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignbulksend_edit_object_v2**
+> EzsignbulksendEditObjectV2Response ezsignbulksend_edit_object_v2(pki_ezsignbulksend_id, ezsignbulksend_edit_object_v2_request)
+
+Edit an existing Ezsignbulksend
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsignbulksend_edit_object_v2_request import EzsignbulksendEditObjectV2Request
+from eZmaxApi.models.ezsignbulksend_edit_object_v2_response import EzsignbulksendEditObjectV2Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsignbulksendApi(api_client)
+    pki_ezsignbulksend_id = 56 # int | 
+    ezsignbulksend_edit_object_v2_request = eZmaxApi.EzsignbulksendEditObjectV2Request() # EzsignbulksendEditObjectV2Request | 
+
+    try:
+        # Edit an existing Ezsignbulksend
+        api_response = api_instance.ezsignbulksend_edit_object_v2(pki_ezsignbulksend_id, ezsignbulksend_edit_object_v2_request)
+        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_edit_object_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_edit_object_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsignbulksend_id** | **int**|  | 
+ **ezsignbulksend_edit_object_v2_request** | [**EzsignbulksendEditObjectV2Request**](EzsignbulksendEditObjectV2Request.md)|  | 
+
+### Return type
+
+[**EzsignbulksendEditObjectV2Response**](EzsignbulksendEditObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignbulksend_get_batch_file_v1**
+> bytearray ezsignbulksend_get_batch_file_v1(pki_ezsignbulksend_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+
+Retrieve file to download documents in batch
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsignbulksendApi(api_client)
+    pki_ezsignbulksend_id = 56 # int | 
+    b_include_signed = True # bool | Include final document once all signatures were applied (optional)
+    b_include_attachment = True # bool | Include attached files in signatures (optional)
+    b_include_proofdocument = True # bool | Include the evidence report (optional)
+    b_include_proof = True # bool | include the complete evidence archive including all of the above and more (optional)
+
+    try:
+        # Retrieve file to download documents in batch
+        api_response = api_instance.ezsignbulksend_get_batch_file_v1(pki_ezsignbulksend_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_get_batch_file_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_get_batch_file_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsignbulksend_id** | **int**|  | 
+ **b_include_signed** | **bool**| Include final document once all signatures were applied | [optional] 
+ **b_include_attachment** | **bool**| Include attached files in signatures | [optional] 
+ **b_include_proofdocument** | **bool**| Include the evidence report | [optional] 
+ **b_include_proof** | **bool**| include the complete evidence archive including all of the above and more | [optional] 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/xml, application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**406** | The URL is valid, but one of the Accept header is not defined or invalid. For example, you set the header \&quot;Accept: application/json\&quot; but the function can only return \&quot;Content-type: image/png\&quot; |  -  |
 **422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -823,6 +1078,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsignbulksendGetObjectV2Response**](EzsignbulksendGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsignbulksend_get_object_v3**
+> EzsignbulksendGetObjectV3Response ezsignbulksend_get_object_v3(pki_ezsignbulksend_id)
+
+Retrieve an existing Ezsignbulksend
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsignbulksend_get_object_v3_response import EzsignbulksendGetObjectV3Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsignbulksendApi(api_client)
+    pki_ezsignbulksend_id = 56 # int | 
+
+    try:
+        # Retrieve an existing Ezsignbulksend
+        api_response = api_instance.ezsignbulksend_get_object_v3(pki_ezsignbulksend_id)
+        print("The response of ObjectEzsignbulksendApi->ezsignbulksend_get_object_v3:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsignbulksendApi->ezsignbulksend_get_object_v3: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsignbulksend_id** | **int**|  | 
+
+### Return type
+
+[**EzsignbulksendGetObjectV3Response**](EzsignbulksendGetObjectV3Response.md)
 
 ### Authorization
 

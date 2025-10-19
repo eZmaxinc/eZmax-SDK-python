@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **s_user_firstname** | **str** | The first name of the user | 
 **s_user_lastname** | **str** | The last name of the user | 
 **s_email_address** | **str** | The email address. | 
+**e_user_type** | [**FieldEUserType**](FieldEUserType.md) |  | 
 
 ## Example
 

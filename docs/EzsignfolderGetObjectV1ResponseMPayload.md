@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **dt_ezsignfolder_scheduledarchive** | **str** | The scheduled date and time at which the Ezsignfolder should be archived. | [optional] 
 **dt_ezsignfolder_scheduleddispose** | **str** | The scheduled date at which the Ezsignfolder should be Disposed. | [optional] 
 **e_ezsignfolder_step** | [**FieldEEzsignfolderStep**](FieldEEzsignfolderStep.md) |  | [optional] 
+**e_ezsignfolder_messageorder** | [**FieldEEzsignfolderMessageorder**](FieldEEzsignfolderMessageorder.md) |  | [optional] [default to FieldEEzsignfolderMessageorder.GLOBALFIRST]
 **dt_ezsignfolder_close** | **str** | The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely. | [optional] 
 **t_ezsignfolder_message** | **str** | A custom text message that will be added to the email sent. | [optional] 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 

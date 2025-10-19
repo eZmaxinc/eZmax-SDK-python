@@ -4,8 +4,6 @@ The occurence of the pattern to add the Ezsigntemplateformfield  This will be re
 
 ## Enum
 
-* `ALL` (value: `'All'`)
-
 * `FIRST` (value: `'First'`)
 
 * `LAST` (value: `'Last'`)

@@ -6,8 +6,10 @@ A User name Object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**s_contacttitle_name_x** | **str** | The name of the Contacttitle in the language of the requester | [optional] 
 **s_user_lastname** | **str** | The last name of the user | 
 **s_user_firstname** | **str** | The first name of the user | 
+**s_user_jobtitle** | **str** | The job title of the user | [optional] 
 
 ## Example
 

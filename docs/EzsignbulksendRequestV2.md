@@ -1,0 +1,37 @@
+# EzsignbulksendRequestV2
+
+A Ezsignbulksend Object
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pki_ezsignbulksend_id** | **int** | The unique ID of the Ezsignbulksend | [optional] 
+**fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | 
+**fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
+**e_ezsignbulksend_ezsignformfieldorder** | [**FieldEEzsignbulksendEzsignformfieldorder**](FieldEEzsignbulksendEzsignformfieldorder.md) |  | 
+**s_ezsignbulksend_description** | **str** | The description of the Ezsignbulksend | 
+**t_ezsignbulksend_note** | **str** | Note about the Ezsignbulksend | 
+**b_ezsignbulksend_needvalidation** | **bool** | Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation | 
+**b_ezsignbulksend_isactive** | **bool** | Whether the Ezsignbulksend is active or not | 
+
+## Example
+
+```python
+from eZmaxApi.models.ezsignbulksend_request_v2 import EzsignbulksendRequestV2
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of EzsignbulksendRequestV2 from a JSON string
+ezsignbulksend_request_v2_instance = EzsignbulksendRequestV2.from_json(json)
+# print the JSON string representation of the object
+print(EzsignbulksendRequestV2.to_json())
+
+# convert the object into a dict
+ezsignbulksend_request_v2_dict = ezsignbulksend_request_v2_instance.to_dict()
+# create an instance of EzsignbulksendRequestV2 from a dict
+ezsignbulksend_request_v2_from_dict = EzsignbulksendRequestV2.from_dict(ezsignbulksend_request_v2_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

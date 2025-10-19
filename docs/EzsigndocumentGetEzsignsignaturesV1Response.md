@@ -1,6 +1,6 @@
 # EzsigndocumentGetEzsignsignaturesV1Response
 
-Response for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getEzsignsignatures
+Response for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignsignatures
 
 ## Properties
 

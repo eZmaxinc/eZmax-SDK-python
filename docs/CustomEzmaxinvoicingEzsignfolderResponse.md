@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **s_ezsignfolder_description** | **str** | The description of the Ezsignfolder | 
 **b_ezsigntsarequirement_billable** | **bool** | Whether the TSA requirement is billable or not | 
 **b_ezsignfolder_mfaused** | **bool** | Whether the MFA was used or not for the Ezsignfolder | 
-**b_ezsignfolder_paymentused** | **bool** | Whether there was a signature is of type payment | 
 **b_ezsignfolder_allowed** | **bool** | Whether you have access to the Ezsignfolder or not | 
 
 ## Example

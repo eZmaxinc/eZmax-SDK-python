@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **a_obj_reportcell** | [**List[CommonReportcell]**](CommonReportcell.md) |  | 
 **obj_variableobject** | **Dict[str, object]** | A Variable object without predefined property names | 
 **i_reportrow_height** | **int** | The reportrow height in pixels | 
+**obj_reportcellstyle_custom** | [**CommonReportcellstylecustom**](CommonReportcellstylecustom.md) |  | [optional] 
 
 ## Example
 

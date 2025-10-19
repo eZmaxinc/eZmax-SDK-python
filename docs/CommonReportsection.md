@@ -7,10 +7,7 @@ A section in a Report. Each Reportsection shares Reportcolumns disposition with 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a_obj_reportsubsection** | [**List[CommonReportsubsection]**](CommonReportsubsection.md) |  | 
-**a_obj_reportcolumn** | [**List[CommonReportcolumn]**](CommonReportcolumn.md) |  | 
 **e_reportsection_horizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | 
-**i_reportsection_columncount** | **int** | The number of Reportcolumns in the Reportsection | 
-**i_reportsection_width** | **int** | The combined width of all the Reportcolumns in the Reportsection | 
 **s_reportsection_title** | **str** | The title of this Reportsection | [optional] 
 
 ## Example

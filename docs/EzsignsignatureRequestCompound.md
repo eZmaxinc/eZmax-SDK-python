@@ -34,9 +34,12 @@ Name | Type | Description | Notes
 **s_ezsignsignature_textvalidationcustommessage** | **str** | Description of validation rule. Show by signatory. | [optional] 
 **s_ezsignsignature_regexp** | **str** | A regular expression to indicate what values are acceptable for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **FieldText** or **FieldTextarea** and eEzsignsignatureTextvalidation is **Custom** | [optional] 
 **e_ezsignsignature_dependencyrequirement** | [**FieldEEzsignsignatureDependencyrequirement**](FieldEEzsignsignatureDependencyrequirement.md) |  | [optional] 
+**s_ezsignsignature_creditcardamountdescription** | **str** | The description of the Creditcard signature | [optional] 
+**d_ezsignsignature_creditcardamount** | **str** | The amount of the Creditcard signature | [optional] 
 **b_ezsignsignature_customdate** | **bool** | Whether the Ezsignsignature has a custom date format or not. (Only possible when eEzsignsignatureType is **Name** or **Handwritten**) | [optional] 
 **a_obj_ezsignsignaturecustomdate** | [**List[EzsignsignaturecustomdateRequestCompound]**](EzsignsignaturecustomdateRequestCompound.md) | An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsignsignatureCustomdate is true.  Use an empty array if you don&#39;t want to have a date at all. | [optional] 
 **a_obj_ezsignelementdependency** | [**List[EzsignelementdependencyRequestCompound]**](EzsignelementdependencyRequestCompound.md) |  | [optional] 
+**a_obj_ezsignsignaturepaymentdetail** | [**List[EzsignsignaturepaymentdetailRequestCompound]**](EzsignsignaturepaymentdetailRequestCompound.md) |  | [optional] 
 
 ## Example
 

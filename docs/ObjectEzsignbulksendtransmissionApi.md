@@ -4,11 +4,99 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ezsignbulksendtransmission_get_batch_file_v1**](ObjectEzsignbulksendtransmissionApi.md#ezsignbulksendtransmission_get_batch_file_v1) | **GET** /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getBatchFile | Retrieve file to download documents in batch
 [**ezsignbulksendtransmission_get_csv_errors_v1**](ObjectEzsignbulksendtransmissionApi.md#ezsignbulksendtransmission_get_csv_errors_v1) | **GET** /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getCsvErrors | Retrieve an existing Ezsignbulksendtransmission&#39;s Csv containing errors
 [**ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1**](ObjectEzsignbulksendtransmissionApi.md#ezsignbulksendtransmission_get_ezsignsignatures_automatic_v1) | **GET** /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getEzsignsignaturesAutomatic | Retrieve an existing Ezsignbulksendtransmission&#39;s automatic Ezsignsignatures
 [**ezsignbulksendtransmission_get_forms_data_v1**](ObjectEzsignbulksendtransmissionApi.md#ezsignbulksendtransmission_get_forms_data_v1) | **GET** /1/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID}/getFormsData | Retrieve an existing Ezsignbulksendtransmission&#39;s forms data
 [**ezsignbulksendtransmission_get_object_v2**](ObjectEzsignbulksendtransmissionApi.md#ezsignbulksendtransmission_get_object_v2) | **GET** /2/object/ezsignbulksendtransmission/{pkiEzsignbulksendtransmissionID} | Retrieve an existing Ezsignbulksendtransmission
 
+
+# **ezsignbulksendtransmission_get_batch_file_v1**
+> bytearray ezsignbulksendtransmission_get_batch_file_v1(pki_ezsignbulksendtransmission_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+
+Retrieve file to download documents in batch
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsignbulksendtransmissionApi(api_client)
+    pki_ezsignbulksendtransmission_id = 56 # int | 
+    b_include_signed = True # bool | Include final document once all signatures were applied (optional)
+    b_include_attachment = True # bool | Include attached files in signatures (optional)
+    b_include_proofdocument = True # bool | Include the evidence report (optional)
+    b_include_proof = True # bool | include the complete evidence archive including all of the above and more (optional)
+
+    try:
+        # Retrieve file to download documents in batch
+        api_response = api_instance.ezsignbulksendtransmission_get_batch_file_v1(pki_ezsignbulksendtransmission_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+        print("The response of ObjectEzsignbulksendtransmissionApi->ezsignbulksendtransmission_get_batch_file_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsignbulksendtransmissionApi->ezsignbulksendtransmission_get_batch_file_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsignbulksendtransmission_id** | **int**|  | 
+ **b_include_signed** | **bool**| Include final document once all signatures were applied | [optional] 
+ **b_include_attachment** | **bool**| Include attached files in signatures | [optional] 
+ **b_include_proofdocument** | **bool**| Include the evidence report | [optional] 
+ **b_include_proof** | **bool**| include the complete evidence archive including all of the above and more | [optional] 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/xml, application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**406** | The URL is valid, but one of the Accept header is not defined or invalid. For example, you set the header \&quot;Accept: application/json\&quot; but the function can only return \&quot;Content-type: image/png\&quot; |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignbulksendtransmission_get_csv_errors_v1**
 > str ezsignbulksendtransmission_get_csv_errors_v1(pki_ezsignbulksendtransmission_id)

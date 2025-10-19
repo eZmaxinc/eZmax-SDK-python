@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_paymentgateway_id** | **int** | The unique ID of the Paymentgateway | 
 **s_paymentgateway_description_x** | **str** | The description of the Paymentgateway in the language of the requester | 
-**b_paymentgateway_isactive** | **bool** | Whether the Currency is active or not | 
+**b_paymentgateway_isactive** | **bool** | Whether the Paymentgateway is active or not | 
 
 ## Example
 

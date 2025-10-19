@@ -7,8 +7,9 @@ A form Signer Object in the context of an Ezsignfoldertransmissions
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **fki_user_id** | **int** | The unique ID of the User | [optional] 
-**s_contact_firstname** | **str** | The First name of the contact | 
-**s_contact_lastname** | **str** | The Last name of the contact | 
+**s_contact_firstname** | **str** | The First name of the contact | [optional] 
+**s_contact_lastname** | **str** | The Last name of the contact | [optional] 
+**s_ezsignsignergroup_description_x** | **str** | The Description of the Ezsignsignergroup in the language of the requester | [optional] 
 
 ## Example
 
