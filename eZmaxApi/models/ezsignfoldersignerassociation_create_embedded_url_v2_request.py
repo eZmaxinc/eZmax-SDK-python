@@ -48,8 +48,8 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV2Request(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^https:\/\/[a-z0-9.-]+(:\d{1,5})?$", value):
-            raise ValueError(r"must validate the regular expression /^https:\/\/[a-z0-9.-]+(:\d{1,5})?$/")
+        if not re.match(r"^(https|http):\/\/[a-z0-9.-]+(:\d{1,5})?$", value):
+            raise ValueError(r"must validate the regular expression /^(https|http):\/\/[a-z0-9.-]+(:\d{1,5})?$/")
         return value
 
     model_config = ConfigDict(

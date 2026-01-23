@@ -8,6 +8,8 @@ The Type of User for the Activesession
 
 * `ASSISTANT` (value: `'Assistant'`)
 
+* `EMPLOYEE` (value: `'Employee'`)
+
 * `EZSIGNSIGNER` (value: `'EzsignSigner'`)
 
 * `EZSIGNUSER` (value: `'EzsignUser'`)

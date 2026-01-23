@@ -84,6 +84,7 @@ from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi
 from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi
 from eZmaxApi.api.object_glaccount_api import ObjectGlaccountApi
 from eZmaxApi.api.object_glaccountcontainer_api import ObjectGlaccountcontainerApi
+from eZmaxApi.api.object_infrastructureregion_api import ObjectInfrastructureregionApi
 from eZmaxApi.api.object_inscription_api import ObjectInscriptionApi
 from eZmaxApi.api.object_inscriptionchecklist_api import ObjectInscriptionchecklistApi
 from eZmaxApi.api.object_inscriptionnotauthenticated_api import ObjectInscriptionnotauthenticatedApi
@@ -107,6 +108,8 @@ from eZmaxApi.api.object_period_api import ObjectPeriodApi
 from eZmaxApi.api.object_permission_api import ObjectPermissionApi
 from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi
 from eZmaxApi.api.object_province_api import ObjectProvinceApi
+from eZmaxApi.api.object_realestateassociation_api import ObjectRealestateassociationApi
+from eZmaxApi.api.object_realestateboard_api import ObjectRealestateboardApi
 from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi
 from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi
 from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi
@@ -115,6 +118,7 @@ from eZmaxApi.api.object_subnet_api import ObjectSubnetApi
 from eZmaxApi.api.object_supplier_api import ObjectSupplierApi
 from eZmaxApi.api.object_supply_api import ObjectSupplyApi
 from eZmaxApi.api.object_systemconfiguration_api import ObjectSystemconfigurationApi
+from eZmaxApi.api.object_systemconfigurationtype_api import ObjectSystemconfigurationtypeApi
 from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi
 from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi
 from eZmaxApi.api.object_tranqcontract_api import ObjectTranqcontractApi

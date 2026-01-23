@@ -26,6 +26,7 @@ from eZmaxApi.models.computed_e_ezsignfolder_access import ComputedEEzsignfolder
 from eZmaxApi.models.custom_ezsignfoldertype_response import CustomEzsignfoldertypeResponse
 from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
 from eZmaxApi.models.field_e_ezsignfolder_documentdependency import FieldEEzsignfolderDocumentdependency
+from eZmaxApi.models.field_e_ezsignfolder_messageorder import FieldEEzsignfolderMessageorder
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from typing import Optional, Set
 from typing_extensions import Self
@@ -60,10 +61,11 @@ class EzsignfolderResponseV3(BaseModel):
     dt_ezsignfolder_archive: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was archived.", alias="dtEzsignfolderArchive")
     dt_ezsignfolder_dispose: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was disposed.", alias="dtEzsignfolderDispose")
     t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
+    e_ezsignfolder_messageorder: Optional[FieldEEzsignfolderMessageorder] = Field(default=FieldEEzsignfolderMessageorder.GLOBALFIRST, alias="eEzsignfolderMessageorder")
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
     e_ezsignfolder_access: Optional[ComputedEEzsignfolderAccess] = Field(default=None, alias="eEzsignfolderAccess")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiTimezoneID", "eEzsignfolderCompletion", "eEzsignfolderDocumentdependency", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "tEzsignfolderMessage", "objAudit", "sEzsignfolderExternalid", "eEzsignfolderAccess"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiTimezoneID", "eEzsignfolderCompletion", "eEzsignfolderDocumentdependency", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "tEzsignfolderMessage", "eEzsignfolderMessageorder", "objAudit", "sEzsignfolderExternalid", "eEzsignfolderAccess"]
 
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
@@ -165,6 +167,7 @@ class EzsignfolderResponseV3(BaseModel):
             "dtEzsignfolderArchive": obj.get("dtEzsignfolderArchive"),
             "dtEzsignfolderDispose": obj.get("dtEzsignfolderDispose"),
             "tEzsignfolderMessage": obj.get("tEzsignfolderMessage"),
+            "eEzsignfolderMessageorder": obj.get("eEzsignfolderMessageorder") if obj.get("eEzsignfolderMessageorder") is not None else FieldEEzsignfolderMessageorder.GLOBALFIRST,
             "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None,
             "sEzsignfolderExternalid": obj.get("sEzsignfolderExternalid"),
             "eEzsignfolderAccess": obj.get("eEzsignfolderAccess")

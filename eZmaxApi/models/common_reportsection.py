@@ -32,7 +32,8 @@ class CommonReportsection(BaseModel):
     a_obj_reportsubsection: List[CommonReportsubsection] = Field(alias="a_objReportsubsection")
     e_reportsection_horizontalalignment: EnumHorizontalalignment = Field(alias="eReportsectionHorizontalalignment")
     s_reportsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsection", alias="sReportsectionTitle")
-    __properties: ClassVar[List[str]] = ["a_objReportsubsection", "eReportsectionHorizontalalignment", "sReportsectionTitle"]
+    s_reportsection_tabname: Optional[StrictStr] = Field(default=None, description="The name of tab in excel version", alias="sReportsectionTabname")
+    __properties: ClassVar[List[str]] = ["a_objReportsubsection", "eReportsectionHorizontalalignment", "sReportsectionTitle", "sReportsectionTabname"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +95,8 @@ class CommonReportsection(BaseModel):
         _obj = cls.model_validate({
             "a_objReportsubsection": [CommonReportsubsection.from_dict(_item) for _item in obj["a_objReportsubsection"]] if obj.get("a_objReportsubsection") is not None else None,
             "eReportsectionHorizontalalignment": obj.get("eReportsectionHorizontalalignment"),
-            "sReportsectionTitle": obj.get("sReportsectionTitle")
+            "sReportsectionTitle": obj.get("sReportsectionTitle"),
+            "sReportsectionTabname": obj.get("sReportsectionTabname")
         })
         return _obj
 

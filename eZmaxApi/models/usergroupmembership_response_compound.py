@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -37,8 +37,9 @@ class UsergroupmembershipResponseCompound(BaseModel):
     s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname")
     s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
+    b_user_isactive: Optional[StrictBool] = Field(default=None, description="Whether the User is active or not", alias="bUserIsactive")
     s_usergroupexternal_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX", "sUsergroupexternalName"]
+    __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX", "bUserIsactive", "sUsergroupexternalName"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
@@ -137,6 +138,7 @@ class UsergroupmembershipResponseCompound(BaseModel):
             "sUserLoginname": obj.get("sUserLoginname"),
             "sEmailAddress": obj.get("sEmailAddress"),
             "sUsergroupNameX": obj.get("sUsergroupNameX"),
+            "bUserIsactive": obj.get("bUserIsactive"),
             "sUsergroupexternalName": obj.get("sUsergroupexternalName")
         })
         return _obj

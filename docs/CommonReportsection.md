@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **a_obj_reportsubsection** | [**List[CommonReportsubsection]**](CommonReportsubsection.md) |  | 
 **e_reportsection_horizontalalignment** | [**EnumHorizontalalignment**](EnumHorizontalalignment.md) |  | 
 **s_reportsection_title** | **str** | The title of this Reportsection | [optional] 
+**s_reportsection_tabname** | **str** | The name of tab in excel version | [optional] 
 
 ## Example
 

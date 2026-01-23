@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **pki_customer_id** | **int** | The unique ID of the Customer. | 
 **fki_department_id** | **int** | The unique ID of the Department | 
 **s_customer_name** | **str** | The name of the Customer | 
+**s_customer_code** | **str** | The code of the Customer | 
 **b_customer_isactive** | **bool** | Whether the customer is active or not | 
 
 ## Example

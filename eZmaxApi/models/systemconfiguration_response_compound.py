@@ -37,6 +37,8 @@ class SystemconfigurationResponseCompound(BaseModel):
     pki_systemconfiguration_id: Annotated[int, Field(le=1, strict=True, ge=1)] = Field(description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID")
     fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
     fki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="fkiBrandingID")
+    fki_timezone_id_default: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneIDDefault")
+    s_timezone_name_default: StrictStr = Field(description="The description of the Timezone", alias="sTimezoneNameDefault")
     s_systemconfigurationtype_description_x: StrictStr = Field(description="The description of the Systemconfigurationtype in the language of the requester", alias="sSystemconfigurationtypeDescriptionX")
     e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(alias="eSystemconfigurationNewexternaluseraction")
     e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
@@ -51,7 +53,8 @@ class SystemconfigurationResponseCompound(BaseModel):
     dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
     dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
     obj_branding: Optional[CustomBrandingResponse] = Field(default=None, alias="objBranding")
-    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiSystemconfigurationtypeID", "fkiBrandingID", "sSystemconfigurationtypeDescriptionX", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationHascreditcardmerchant", "bSystemconfigurationIsdisposalactive", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "objBranding"]
+    i_systemconfiguration_ezsignreminderhoursend: Optional[Annotated[int, Field(le=23, strict=True, ge=0)]] = Field(default=None, description="The hour we will send the eZsign reminders", alias="iSystemconfigurationEzsignreminderhoursend")
+    __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiSystemconfigurationtypeID", "fkiBrandingID", "fkiTimezoneIDDefault", "sTimezoneNameDefault", "sSystemconfigurationtypeDescriptionX", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsign", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationHascreditcardmerchant", "bSystemconfigurationIsdisposalactive", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "objBranding", "iSystemconfigurationEzsignreminderhoursend"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
@@ -130,6 +133,8 @@ class SystemconfigurationResponseCompound(BaseModel):
             "pkiSystemconfigurationID": obj.get("pkiSystemconfigurationID"),
             "fkiSystemconfigurationtypeID": obj.get("fkiSystemconfigurationtypeID"),
             "fkiBrandingID": obj.get("fkiBrandingID"),
+            "fkiTimezoneIDDefault": obj.get("fkiTimezoneIDDefault"),
+            "sTimezoneNameDefault": obj.get("sTimezoneNameDefault"),
             "sSystemconfigurationtypeDescriptionX": obj.get("sSystemconfigurationtypeDescriptionX"),
             "eSystemconfigurationNewexternaluseraction": obj.get("eSystemconfigurationNewexternaluseraction"),
             "eSystemconfigurationLanguage1": obj.get("eSystemconfigurationLanguage1"),
@@ -143,7 +148,8 @@ class SystemconfigurationResponseCompound(BaseModel):
             "bSystemconfigurationSspr": obj.get("bSystemconfigurationSspr"),
             "dtSystemconfigurationReadonlyexpirationstart": obj.get("dtSystemconfigurationReadonlyexpirationstart"),
             "dtSystemconfigurationReadonlyexpirationend": obj.get("dtSystemconfigurationReadonlyexpirationend"),
-            "objBranding": CustomBrandingResponse.from_dict(obj["objBranding"]) if obj.get("objBranding") is not None else None
+            "objBranding": CustomBrandingResponse.from_dict(obj["objBranding"]) if obj.get("objBranding") is not None else None,
+            "iSystemconfigurationEzsignreminderhoursend": obj.get("iSystemconfigurationEzsignreminderhoursend")
         })
         return _obj
 

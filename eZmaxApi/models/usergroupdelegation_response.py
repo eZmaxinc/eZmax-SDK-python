@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -35,8 +35,9 @@ class UsergroupdelegationResponse(BaseModel):
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
     s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
     s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupdelegationID", "fkiUsergroupID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX"]
+    __properties: ClassVar[List[str]] = ["pkiUsergroupdelegationID", "fkiUsergroupID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "bUserIsactive", "sUsergroupNameX"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
@@ -120,6 +121,7 @@ class UsergroupdelegationResponse(BaseModel):
             "sUserLastname": obj.get("sUserLastname"),
             "sUserLoginname": obj.get("sUserLoginname"),
             "sEmailAddress": obj.get("sEmailAddress"),
+            "bUserIsactive": obj.get("bUserIsactive"),
             "sUsergroupNameX": obj.get("sUsergroupNameX")
         })
         return _obj

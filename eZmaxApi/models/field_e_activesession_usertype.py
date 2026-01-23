@@ -29,6 +29,7 @@ class FieldEActivesessionUsertype(str, Enum):
     """
     AGENTBROKER = 'AgentBroker'
     ASSISTANT = 'Assistant'
+    EMPLOYEE = 'Employee'
     EZSIGNSIGNER = 'EzsignSigner'
     EZSIGNUSER = 'EzsignUser'
     NORMAL = 'Normal'

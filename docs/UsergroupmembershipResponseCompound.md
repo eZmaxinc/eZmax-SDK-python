@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **s_user_loginname** | **str** | The login name of the User. | [optional] 
 **s_email_address** | **str** | The email address. | [optional] 
 **s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 
+**b_user_isactive** | **bool** | Whether the User is active or not | [optional] 
 **s_usergroupexternal_name** | **str** | The name of the Usergroupexternal | [optional] 
 
 ## Example

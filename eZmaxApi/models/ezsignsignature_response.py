@@ -27,6 +27,8 @@ from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEE
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont
+from eZmaxApi.models.field_e_ezsignsignature_signaturepad import FieldEEzsignsignatureSignaturepad
+from eZmaxApi.models.field_e_ezsignsignature_signaturepadrequired import FieldEEzsignsignatureSignaturepadrequired
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 from eZmaxApi.models.signature_response_compound import SignatureResponseCompound
@@ -46,6 +48,7 @@ class EzsignsignatureResponse(BaseModel):
     s_currency_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Currency in the language of the requester", alias="sCurrencyDescriptionX")
     d_ezsignsignature_creditcardamount: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The amount of the Creditcard signature", alias="dEzsignsignatureCreditcardamount")
     s_ezsignsignature_creditcardamountdescription: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Creditcard signature", alias="sEzsignsignatureCreditcardamountdescription")
+    b_ezsignsignature_creditcardcustomamount: Optional[StrictBool] = Field(default=None, description="Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not", alias="bEzsignsignatureCreditcardcustomamount")
     s_ezsignsigningreason_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX")
     i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
     i_ezsignsignature_x: Annotated[int, Field(strict=True, ge=0)] = Field(description="The X coordinate (Horizontal) where to put the Ezsignsignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsignsignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsignsignatureX")
@@ -55,6 +58,8 @@ class EzsignsignatureResponse(BaseModel):
     i_ezsignsignature_step: StrictInt = Field(description="The step when the Ezsignsigner will be invited to sign", alias="iEzsignsignatureStep")
     i_ezsignsignature_stepadjusted: Optional[StrictInt] = Field(default=None, description="The step when the Ezsignsigner will be invited to sign", alias="iEzsignsignatureStepadjusted")
     e_ezsignsignature_type: FieldEEzsignsignatureType = Field(alias="eEzsignsignatureType")
+    e_ezsignsignature_signaturepad: Optional[FieldEEzsignsignatureSignaturepad] = Field(default=None, alias="eEzsignsignatureSignaturepad")
+    e_ezsignsignature_signaturepadrequired: Optional[FieldEEzsignsignatureSignaturepadrequired] = Field(default=None, alias="eEzsignsignatureSignaturepadrequired")
     t_ezsignsignature_tooltip: Optional[StrictStr] = Field(default=None, description="A tooltip that will be presented to Ezsignsigner about the Ezsignsignature", alias="tEzsignsignatureTooltip")
     e_ezsignsignature_tooltipposition: Optional[FieldEEzsignsignatureTooltipposition] = Field(default=None, alias="eEzsignsignatureTooltipposition")
     e_ezsignsignature_font: Optional[FieldEEzsignsignatureFont] = Field(default=None, alias="eEzsignsignatureFont")
@@ -78,7 +83,7 @@ class EzsignsignatureResponse(BaseModel):
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     obj_contact_name_delegation: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactNameDelegation")
     obj_signature: Optional[SignatureResponseCompound] = Field(default=None, alias="objSignature")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "fkiPaymentgatewayID", "sCurrencyDescriptionX", "dEzsignsignatureCreditcardamount", "sEzsignsignatureCreditcardamountdescription", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "fkiPaymentgatewayID", "sCurrencyDescriptionX", "dEzsignsignatureCreditcardamount", "sEzsignsignatureCreditcardamountdescription", "bEzsignsignatureCreditcardcustomamount", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "eEzsignsignatureSignaturepad", "eEzsignsignatureSignaturepadrequired", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature"]
 
     @field_validator('s_currency_description_x')
     def s_currency_description_x_validate_regular_expression(cls, value):
@@ -96,8 +101,8 @@ class EzsignsignatureResponse(BaseModel):
         if value is None:
             return value
 
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
-            raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
+        if not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^[\d]{1,9}?\.[\d]{2}$/")
         return value
 
     @field_validator('s_ezsignsignature_creditcardamountdescription')
@@ -209,6 +214,7 @@ class EzsignsignatureResponse(BaseModel):
             "sCurrencyDescriptionX": obj.get("sCurrencyDescriptionX"),
             "dEzsignsignatureCreditcardamount": obj.get("dEzsignsignatureCreditcardamount"),
             "sEzsignsignatureCreditcardamountdescription": obj.get("sEzsignsignatureCreditcardamountdescription"),
+            "bEzsignsignatureCreditcardcustomamount": obj.get("bEzsignsignatureCreditcardcustomamount"),
             "sEzsignsigningreasonDescriptionX": obj.get("sEzsignsigningreasonDescriptionX"),
             "iEzsignpagePagenumber": obj.get("iEzsignpagePagenumber"),
             "iEzsignsignatureX": obj.get("iEzsignsignatureX"),
@@ -218,6 +224,8 @@ class EzsignsignatureResponse(BaseModel):
             "iEzsignsignatureStep": obj.get("iEzsignsignatureStep"),
             "iEzsignsignatureStepadjusted": obj.get("iEzsignsignatureStepadjusted"),
             "eEzsignsignatureType": obj.get("eEzsignsignatureType"),
+            "eEzsignsignatureSignaturepad": obj.get("eEzsignsignatureSignaturepad"),
+            "eEzsignsignatureSignaturepadrequired": obj.get("eEzsignsignatureSignaturepadrequired"),
             "tEzsignsignatureTooltip": obj.get("tEzsignsignatureTooltip"),
             "eEzsignsignatureTooltipposition": obj.get("eEzsignsignatureTooltipposition"),
             "eEzsignsignatureFont": obj.get("eEzsignsignatureFont"),

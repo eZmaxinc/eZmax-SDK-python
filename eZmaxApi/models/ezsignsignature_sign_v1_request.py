@@ -32,6 +32,7 @@ class EzsignsignatureSignV1Request(BaseModel):
     """ # noqa: E501
     fki_ezsignsigningreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigningreason", alias="fkiEzsignsigningreasonID")
     fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
+    d_ezsignsignature_creditcardamount: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The amount of the Creditcard signature", alias="dEzsignsignatureCreditcardamount")
     s_value: Optional[StrictStr] = Field(default=None, description="The value required for the Ezsignsignature.  This can only be set if eEzsignsignatureType is **City**, **FieldText** or **FieldTextarea**", alias="sValue")
     e_attachments_confirmation_decision: Optional[StrictStr] = Field(default=None, description="Whether the attachment are accepted or refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="eAttachmentsConfirmationDecision")
     s_attachments_refusal_reason: Optional[StrictStr] = Field(default=None, description="The reason of refused.  This can only be set if eEzsignsignatureType is **AttachmentsConfirmation**", alias="sAttachmentsRefusalReason")
@@ -39,7 +40,17 @@ class EzsignsignatureSignV1Request(BaseModel):
     a_obj_file: Optional[List[CommonFile]] = Field(default=None, alias="a_objFile")
     obj_creditcard: Optional[CustomCreditcardRequest] = Field(default=None, alias="objCreditcard")
     b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. ", alias="bIsAutomatic")
-    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "objCreditcard", "bIsAutomatic"]
+    __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "dEzsignsignatureCreditcardamount", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "objCreditcard", "bIsAutomatic"]
+
+    @field_validator('d_ezsignsignature_creditcardamount')
+    def d_ezsignsignature_creditcardamount_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
+            raise ValueError(r"must validate the regular expression /^[\d]{1,9}?\.[\d]{2}$/")
+        return value
 
     @field_validator('e_attachments_confirmation_decision')
     def e_attachments_confirmation_decision_validate_enum(cls, value):
@@ -124,6 +135,7 @@ class EzsignsignatureSignV1Request(BaseModel):
         _obj = cls.model_validate({
             "fkiEzsignsigningreasonID": obj.get("fkiEzsignsigningreasonID"),
             "fkiFontID": obj.get("fkiFontID"),
+            "dEzsignsignatureCreditcardamount": obj.get("dEzsignsignatureCreditcardamount"),
             "sValue": obj.get("sValue"),
             "eAttachmentsConfirmationDecision": obj.get("eAttachmentsConfirmationDecision"),
             "sAttachmentsRefusalReason": obj.get("sAttachmentsRefusalReason"),

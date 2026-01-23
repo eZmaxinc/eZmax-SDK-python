@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **s_user_lastname** | **str** | The last name of the user | 
 **s_user_loginname** | **str** | The login name of the User. | 
 **s_email_address** | **str** | The email address. | [optional] 
+**b_user_isactive** | **bool** | Whether the User is active or not | 
 **s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 
 
 ## Example

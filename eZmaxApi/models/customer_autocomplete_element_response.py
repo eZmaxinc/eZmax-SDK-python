@@ -31,14 +31,22 @@ class CustomerAutocompleteElementResponse(BaseModel):
     pki_customer_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Customer.", alias="pkiCustomerID")
     fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
     s_customer_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Customer", alias="sCustomerName")
+    s_customer_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Customer", alias="sCustomerCode")
     b_customer_isactive: StrictBool = Field(description="Whether the customer is active or not", alias="bCustomerIsactive")
-    __properties: ClassVar[List[str]] = ["pkiCustomerID", "fkiDepartmentID", "sCustomerName", "bCustomerIsactive"]
+    __properties: ClassVar[List[str]] = ["pkiCustomerID", "fkiDepartmentID", "sCustomerName", "sCustomerCode", "bCustomerIsactive"]
 
     @field_validator('s_customer_name')
     def s_customer_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
+        return value
+
+    @field_validator('s_customer_code')
+    def s_customer_code_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^.{0,6}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
 
     model_config = ConfigDict(
@@ -95,6 +103,7 @@ class CustomerAutocompleteElementResponse(BaseModel):
             "pkiCustomerID": obj.get("pkiCustomerID"),
             "fkiDepartmentID": obj.get("fkiDepartmentID"),
             "sCustomerName": obj.get("sCustomerName"),
+            "sCustomerCode": obj.get("sCustomerCode"),
             "bCustomerIsactive": obj.get("bCustomerIsactive")
         })
         return _obj

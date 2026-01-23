@@ -31,7 +31,8 @@ class UsergroupListElement(BaseModel):
     pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID")
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
     i_count_user: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="Number of users in group", alias="iCountUser")
-    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "sUsergroupNameX", "iCountUser"]
+    i_count_inactiveuser: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="Number of inactive users in group", alias="iCountInactiveuser")
+    __properties: ClassVar[List[str]] = ["pkiUsergroupID", "sUsergroupNameX", "iCountUser", "iCountInactiveuser"]
 
     @field_validator('s_usergroup_name_x')
     def s_usergroup_name_x_validate_regular_expression(cls, value):
@@ -93,7 +94,8 @@ class UsergroupListElement(BaseModel):
         _obj = cls.model_validate({
             "pkiUsergroupID": obj.get("pkiUsergroupID"),
             "sUsergroupNameX": obj.get("sUsergroupNameX"),
-            "iCountUser": obj.get("iCountUser")
+            "iCountUser": obj.get("iCountUser"),
+            "iCountInactiveuser": obj.get("iCountInactiveuser")
         })
         return _obj
 

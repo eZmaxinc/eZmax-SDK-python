@@ -166,6 +166,8 @@ class Configuration:
     :param retries: Number of retries for API requests.
     :param ca_cert_data: verify the peer using concatenated CA certificate data
       in PEM (str) or DER (bytes) format.
+    :param cert_file: the path to a client certificate file, for mTLS.
+    :param key_file: the path to a client key file, for mTLS.
 
     :Example:
 
@@ -207,6 +209,8 @@ conf = eZmaxApi.Configuration(
         ssl_ca_cert: Optional[str]=None,
         retries: Optional[int] = None,
         ca_cert_data: Optional[Union[str, bytes]] = None,
+        cert_file: Optional[str]=None,
+        key_file: Optional[str]=None,
         *,
         debug: Optional[bool] = None,
     ) -> None:
@@ -288,10 +292,10 @@ conf = eZmaxApi.Configuration(
         """Set this to verify the peer using PEM (str) or DER (bytes)
            certificate data.
         """
-        self.cert_file = None
+        self.cert_file = cert_file
         """client certificate file
         """
-        self.key_file = None
+        self.key_file = key_file
         """client key file
         """
         self.assert_hostname = None
@@ -504,6 +508,7 @@ conf = eZmaxApi.Configuration(
         password = ""
         if self.password is not None:
             password = self.password
+
         return urllib3.util.make_headers(
             basic_auth=username + ':' + password
         ).get('authorization')
@@ -550,7 +555,7 @@ conf = eZmaxApi.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.3.0\n"\
-               "SDK Package Version: 1.2.3".\
+               "SDK Package Version: 1.3.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
@@ -656,6 +661,7 @@ conf = eZmaxApi.Configuration(
                 variable_name, variable['default_value'])
 
             if 'enum_values' in variable \
+                    and variable['enum_values'] \
                     and used_value not in variable['enum_values']:
                 raise ValueError(
                     "The variable `{0}` in the host URL has invalid value "

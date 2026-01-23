@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.2.3"
+__version__ = "1.3.0"
 
 # Define package exports
 __all__ = [
@@ -102,6 +102,7 @@ __all__ = [
     "ObjectFranchisereferalincomeApi",
     "ObjectGlaccountApi",
     "ObjectGlaccountcontainerApi",
+    "ObjectInfrastructureregionApi",
     "ObjectInscriptionApi",
     "ObjectInscriptionchecklistApi",
     "ObjectInscriptionnotauthenticatedApi",
@@ -125,6 +126,8 @@ __all__ = [
     "ObjectPermissionApi",
     "ObjectPhonetypeApi",
     "ObjectProvinceApi",
+    "ObjectRealestateassociationApi",
+    "ObjectRealestateboardApi",
     "ObjectRejectedoffertopurchaseApi",
     "ObjectSecretquestionApi",
     "ObjectSessionhistoryApi",
@@ -133,6 +136,7 @@ __all__ = [
     "ObjectSupplierApi",
     "ObjectSupplyApi",
     "ObjectSystemconfigurationApi",
+    "ObjectSystemconfigurationtypeApi",
     "ObjectTaxassignmentApi",
     "ObjectTimezoneApi",
     "ObjectTranqcontractApi",
@@ -517,21 +521,13 @@ __all__ = [
     "CustomWordPositionOccurenceResponse",
     "CustomWordPositionWordResponse",
     "CustomerAutocompleteElementResponse",
-    "CustomerCreateObjectV1Request",
-    "CustomerCreateObjectV1Response",
-    "CustomerCreateObjectV1ResponseMPayload",
     "CustomerGetAutocompleteV2Response",
     "CustomerGetAutocompleteV2ResponseMPayload",
-    "CustomerGetListV1Response",
-    "CustomerGetListV1ResponseMPayload",
     "CustomerGetObjectV2Response",
     "CustomerGetObjectV2ResponseMPayload",
     "CustomerImportIntoEDMV1Request",
     "CustomerImportIntoEDMV1Response",
     "CustomerImportIntoEDMV1ResponseMPayload",
-    "CustomerListElement",
-    "CustomerRequest",
-    "CustomerRequestCompound",
     "CustomerResponse",
     "CustomerResponseCompound",
     "DepartmentAutocompleteElementResponse",
@@ -706,8 +702,6 @@ __all__ = [
     "EzsignbulksendCreateObjectV2Response",
     "EzsignbulksendCreateObjectV2ResponseMPayload",
     "EzsignbulksendDeleteObjectV1Response",
-    "EzsignbulksendEditObjectV1Request",
-    "EzsignbulksendEditObjectV1Response",
     "EzsignbulksendEditObjectV2Request",
     "EzsignbulksendEditObjectV2Response",
     "EzsignbulksendGetEzsignbulksendtransmissionsV1Response",
@@ -802,6 +796,9 @@ __all__ = [
     "EzsigndocumentEditEzsignformfieldgroupsV1Request",
     "EzsigndocumentEditEzsignformfieldgroupsV1Response",
     "EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload",
+    "EzsigndocumentEditEzsignformfieldgroupsV2Request",
+    "EzsigndocumentEditEzsignformfieldgroupsV2Response",
+    "EzsigndocumentEditEzsignformfieldgroupsV2ResponseMPayload",
     "EzsigndocumentEditEzsignsignaturesV1Request",
     "EzsigndocumentEditEzsignsignaturesV1Response",
     "EzsigndocumentEditEzsignsignaturesV1ResponseMPayload",
@@ -819,6 +816,8 @@ __all__ = [
     "EzsigndocumentGetActionableElementsV1ResponseMPayload",
     "EzsigndocumentGetActionableElementsV2Response",
     "EzsigndocumentGetActionableElementsV2ResponseMPayload",
+    "EzsigndocumentGetActionableElementsV3Response",
+    "EzsigndocumentGetActionableElementsV3ResponseMPayload",
     "EzsigndocumentGetAttachmentsV1Response",
     "EzsigndocumentGetAttachmentsV1ResponseMPayload",
     "EzsigndocumentGetCompletedElementsV1Response",
@@ -898,6 +897,8 @@ __all__ = [
     "EzsignfolderGetActionableElementsV1ResponseMPayload",
     "EzsignfolderGetActionableElementsV2Response",
     "EzsignfolderGetActionableElementsV2ResponseMPayload",
+    "EzsignfolderGetActionableElementsV3Response",
+    "EzsignfolderGetActionableElementsV3ResponseMPayload",
     "EzsignfolderGetAttachmentCountV1Response",
     "EzsignfolderGetAttachmentCountV1ResponseMPayload",
     "EzsignfolderGetAttachmentsV1Response",
@@ -938,8 +939,6 @@ __all__ = [
     "EzsignfolderImportEzsigntemplatepackageV2Response",
     "EzsignfolderImportEzsigntemplatepackageV2ResponseMPayload",
     "EzsignfolderListElement",
-    "EzsignfolderReorderV1Request",
-    "EzsignfolderReorderV1Response",
     "EzsignfolderReorderV2Request",
     "EzsignfolderReorderV2Response",
     "EzsignfolderRequest",
@@ -955,9 +954,6 @@ __all__ = [
     "EzsignfolderSendV3Request",
     "EzsignfolderSendV3Response",
     "EzsignfolderUnsendV1Response",
-    "EzsignfoldersignerassociationCreateEmbeddedUrlV1Request",
-    "EzsignfoldersignerassociationCreateEmbeddedUrlV1Response",
-    "EzsignfoldersignerassociationCreateEmbeddedUrlV1ResponseMPayload",
     "EzsignfoldersignerassociationCreateEmbeddedUrlV2Request",
     "EzsignfoldersignerassociationCreateEmbeddedUrlV2Response",
     "EzsignfoldersignerassociationCreateEmbeddedUrlV2ResponseMPayload",
@@ -1053,16 +1049,12 @@ __all__ = [
     "EzsignsignatureCreateObjectV4Response",
     "EzsignsignatureCreateObjectV4ResponseMPayload",
     "EzsignsignatureDeleteObjectV1Response",
-    "EzsignsignatureEditObjectV2Request",
-    "EzsignsignatureEditObjectV2Response",
     "EzsignsignatureEditObjectV3Request",
     "EzsignsignatureEditObjectV3Response",
     "EzsignsignatureGetEzsignsignatureattachmentV1Response",
     "EzsignsignatureGetEzsignsignatureattachmentV1ResponseMPayload",
     "EzsignsignatureGetEzsignsignaturesAutomaticV1Response",
     "EzsignsignatureGetEzsignsignaturesAutomaticV1ResponseMPayload",
-    "EzsignsignatureGetObjectV3Response",
-    "EzsignsignatureGetObjectV3ResponseMPayload",
     "EzsignsignatureGetObjectV4Response",
     "EzsignsignatureGetObjectV4ResponseMPayload",
     "EzsignsignatureRequest",
@@ -1187,8 +1179,6 @@ __all__ = [
     "EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload",
     "EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response",
     "EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload",
-    "EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response",
-    "EzsigntemplatedocumentGetEzsigntemplatesignaturesV1ResponseMPayload",
     "EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response",
     "EzsigntemplatedocumentGetEzsigntemplatesignaturesV2ResponseMPayload",
     "EzsigntemplatedocumentGetObjectV2Response",
@@ -1339,12 +1329,8 @@ __all__ = [
     "EzsigntemplatesignatureCreateObjectV3Response",
     "EzsigntemplatesignatureCreateObjectV3ResponseMPayload",
     "EzsigntemplatesignatureDeleteObjectV1Response",
-    "EzsigntemplatesignatureEditObjectV2Request",
-    "EzsigntemplatesignatureEditObjectV2Response",
     "EzsigntemplatesignatureEditObjectV3Request",
     "EzsigntemplatesignatureEditObjectV3Response",
-    "EzsigntemplatesignatureGetObjectV3Response",
-    "EzsigntemplatesignatureGetObjectV3ResponseMPayload",
     "EzsigntemplatesignatureGetObjectV4Response",
     "EzsigntemplatesignatureGetObjectV4ResponseMPayload",
     "EzsigntemplatesignatureRequest",
@@ -1352,7 +1338,6 @@ __all__ = [
     "EzsigntemplatesignatureRequestCompoundV2",
     "EzsigntemplatesignatureResponse",
     "EzsigntemplatesignatureResponseCompound",
-    "EzsigntemplatesignatureResponseCompoundV3",
     "EzsigntemplatesignatureResponseCompoundV4",
     "EzsigntemplatesignaturecustomdateRequest",
     "EzsigntemplatesignaturecustomdateRequestCompound",
@@ -1456,6 +1441,8 @@ __all__ = [
     "FieldEEzsignsignatureConsultationtrigger",
     "FieldEEzsignsignatureDependencyrequirement",
     "FieldEEzsignsignatureFont",
+    "FieldEEzsignsignatureSignaturepad",
+    "FieldEEzsignsignatureSignaturepadrequired",
     "FieldEEzsignsignatureTooltipposition",
     "FieldEEzsignsignatureType",
     "FieldEEzsignsignaturepaymentdetailTaxable",
@@ -1481,6 +1468,8 @@ __all__ = [
     "FieldEEzsigntemplatesignatureFont",
     "FieldEEzsigntemplatesignaturePositioning",
     "FieldEEzsigntemplatesignaturePositioningoccurence",
+    "FieldEEzsigntemplatesignatureSignaturepad",
+    "FieldEEzsigntemplatesignatureSignaturepadrequired",
     "FieldEEzsigntemplatesignatureTooltipposition",
     "FieldEEzsigntemplatesignatureType",
     "FieldEEzsigntemplatesignaturepaymentdetailTaxable",
@@ -1537,6 +1526,9 @@ __all__ = [
     "GlobalEzmaxclientVersionV1Response",
     "GlobalEzmaxcustomerGetConfigurationV1Response",
     "HeaderAcceptLanguage",
+    "InfrastructureregionAutocompleteElementResponse",
+    "InfrastructureregionGetAutocompleteV2Response",
+    "InfrastructureregionGetAutocompleteV2ResponseMPayload",
     "InscriptionGetAttachmentsV1Response",
     "InscriptionGetAttachmentsV1ResponseMPayload",
     "InscriptionGetCommunicationCountV1Response",
@@ -1557,8 +1549,6 @@ __all__ = [
     "InscriptionPrepareFilesTransferV1Response",
     "InscriptionPrepareFilesTransferV1ResponseMPayload",
     "InscriptionchecklistAutocompleteElementResponse",
-    "InscriptionchecklistGetAutocompleteV2Response",
-    "InscriptionchecklistGetAutocompleteV2ResponseMPayload",
     "InscriptionchecklistGetAutocompleteV3Response",
     "InscriptionchecklistGetAutocompleteV3ResponseMPayload",
     "InscriptionnotauthenticatedGetCommunicationCountV1Response",
@@ -1651,8 +1641,6 @@ __all__ = [
     "NotificationsectionGetNotificationtestsV1Response",
     "NotificationsectionGetNotificationtestsV1ResponseMPayload",
     "NotificationsubsectionResponse",
-    "NotificationtestGetElementsV1Response",
-    "NotificationtestGetElementsV1ResponseMPayload",
     "NotificationtestGetElementsV2Response",
     "NotificationtestGetElementsV2ResponseMPayload",
     "NotificationtestResponse",
@@ -1740,6 +1728,12 @@ __all__ = [
     "ProvinceAutocompleteElementResponse",
     "ProvinceGetAutocompleteV2Response",
     "ProvinceGetAutocompleteV2ResponseMPayload",
+    "RealestateassociationAutocompleteElementResponse",
+    "RealestateassociationGetAutocompleteV2Response",
+    "RealestateassociationGetAutocompleteV2ResponseMPayload",
+    "RealestateboardAutocompleteElementResponse",
+    "RealestateboardGetAutocompleteV2Response",
+    "RealestateboardGetAutocompleteV2ResponseMPayload",
     "RejectedoffertopurchaseGetCommunicationCountV1Response",
     "RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload",
     "RejectedoffertopurchaseGetCommunicationListV1Response",
@@ -1779,8 +1773,6 @@ __all__ = [
     "SignatureDeleteObjectV1Response",
     "SignatureEditObjectV1Request",
     "SignatureEditObjectV1Response",
-    "SignatureGetObjectV2Response",
-    "SignatureGetObjectV2ResponseMPayload",
     "SignatureGetObjectV3Response",
     "SignatureGetObjectV3ResponseMPayload",
     "SignatureRequest",
@@ -1825,14 +1817,17 @@ __all__ = [
     "SupplyRequestCompound",
     "SupplyResponse",
     "SupplyResponseCompound",
-    "SystemconfigurationEditObjectV1Request",
-    "SystemconfigurationEditObjectV1Response",
+    "SystemconfigurationEditObjectV2Request",
+    "SystemconfigurationEditObjectV2Response",
     "SystemconfigurationGetObjectV2Response",
     "SystemconfigurationGetObjectV2ResponseMPayload",
-    "SystemconfigurationRequest",
-    "SystemconfigurationRequestCompound",
+    "SystemconfigurationRequestCompoundV2",
+    "SystemconfigurationRequestV2",
     "SystemconfigurationResponse",
     "SystemconfigurationResponseCompound",
+    "SystemconfigurationtypeAutocompleteElementResponse",
+    "SystemconfigurationtypeGetAutocompleteV2Response",
+    "SystemconfigurationtypeGetAutocompleteV2ResponseMPayload",
     "TaxassignmentAutocompleteElementResponse",
     "TaxassignmentGetAutocompleteV2Response",
     "TaxassignmentGetAutocompleteV2ResponseMPayload",
@@ -2153,6 +2148,7 @@ from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi as 
 from eZmaxApi.api.object_franchisereferalincome_api import ObjectFranchisereferalincomeApi as ObjectFranchisereferalincomeApi
 from eZmaxApi.api.object_glaccount_api import ObjectGlaccountApi as ObjectGlaccountApi
 from eZmaxApi.api.object_glaccountcontainer_api import ObjectGlaccountcontainerApi as ObjectGlaccountcontainerApi
+from eZmaxApi.api.object_infrastructureregion_api import ObjectInfrastructureregionApi as ObjectInfrastructureregionApi
 from eZmaxApi.api.object_inscription_api import ObjectInscriptionApi as ObjectInscriptionApi
 from eZmaxApi.api.object_inscriptionchecklist_api import ObjectInscriptionchecklistApi as ObjectInscriptionchecklistApi
 from eZmaxApi.api.object_inscriptionnotauthenticated_api import ObjectInscriptionnotauthenticatedApi as ObjectInscriptionnotauthenticatedApi
@@ -2176,6 +2172,8 @@ from eZmaxApi.api.object_period_api import ObjectPeriodApi as ObjectPeriodApi
 from eZmaxApi.api.object_permission_api import ObjectPermissionApi as ObjectPermissionApi
 from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi as ObjectPhonetypeApi
 from eZmaxApi.api.object_province_api import ObjectProvinceApi as ObjectProvinceApi
+from eZmaxApi.api.object_realestateassociation_api import ObjectRealestateassociationApi as ObjectRealestateassociationApi
+from eZmaxApi.api.object_realestateboard_api import ObjectRealestateboardApi as ObjectRealestateboardApi
 from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi as ObjectRejectedoffertopurchaseApi
 from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi as ObjectSecretquestionApi
 from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi as ObjectSessionhistoryApi
@@ -2184,6 +2182,7 @@ from eZmaxApi.api.object_subnet_api import ObjectSubnetApi as ObjectSubnetApi
 from eZmaxApi.api.object_supplier_api import ObjectSupplierApi as ObjectSupplierApi
 from eZmaxApi.api.object_supply_api import ObjectSupplyApi as ObjectSupplyApi
 from eZmaxApi.api.object_systemconfiguration_api import ObjectSystemconfigurationApi as ObjectSystemconfigurationApi
+from eZmaxApi.api.object_systemconfigurationtype_api import ObjectSystemconfigurationtypeApi as ObjectSystemconfigurationtypeApi
 from eZmaxApi.api.object_taxassignment_api import ObjectTaxassignmentApi as ObjectTaxassignmentApi
 from eZmaxApi.api.object_timezone_api import ObjectTimezoneApi as ObjectTimezoneApi
 from eZmaxApi.api.object_tranqcontract_api import ObjectTranqcontractApi as ObjectTranqcontractApi
@@ -2572,21 +2571,13 @@ from eZmaxApi.models.custom_webhooklog_response import CustomWebhooklogResponse 
 from eZmaxApi.models.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse as CustomWordPositionOccurenceResponse
 from eZmaxApi.models.custom_word_position_word_response import CustomWordPositionWordResponse as CustomWordPositionWordResponse
 from eZmaxApi.models.customer_autocomplete_element_response import CustomerAutocompleteElementResponse as CustomerAutocompleteElementResponse
-from eZmaxApi.models.customer_create_object_v1_request import CustomerCreateObjectV1Request as CustomerCreateObjectV1Request
-from eZmaxApi.models.customer_create_object_v1_response import CustomerCreateObjectV1Response as CustomerCreateObjectV1Response
-from eZmaxApi.models.customer_create_object_v1_response_m_payload import CustomerCreateObjectV1ResponseMPayload as CustomerCreateObjectV1ResponseMPayload
 from eZmaxApi.models.customer_get_autocomplete_v2_response import CustomerGetAutocompleteV2Response as CustomerGetAutocompleteV2Response
 from eZmaxApi.models.customer_get_autocomplete_v2_response_m_payload import CustomerGetAutocompleteV2ResponseMPayload as CustomerGetAutocompleteV2ResponseMPayload
-from eZmaxApi.models.customer_get_list_v1_response import CustomerGetListV1Response as CustomerGetListV1Response
-from eZmaxApi.models.customer_get_list_v1_response_m_payload import CustomerGetListV1ResponseMPayload as CustomerGetListV1ResponseMPayload
 from eZmaxApi.models.customer_get_object_v2_response import CustomerGetObjectV2Response as CustomerGetObjectV2Response
 from eZmaxApi.models.customer_get_object_v2_response_m_payload import CustomerGetObjectV2ResponseMPayload as CustomerGetObjectV2ResponseMPayload
 from eZmaxApi.models.customer_import_into_edmv1_request import CustomerImportIntoEDMV1Request as CustomerImportIntoEDMV1Request
 from eZmaxApi.models.customer_import_into_edmv1_response import CustomerImportIntoEDMV1Response as CustomerImportIntoEDMV1Response
 from eZmaxApi.models.customer_import_into_edmv1_response_m_payload import CustomerImportIntoEDMV1ResponseMPayload as CustomerImportIntoEDMV1ResponseMPayload
-from eZmaxApi.models.customer_list_element import CustomerListElement as CustomerListElement
-from eZmaxApi.models.customer_request import CustomerRequest as CustomerRequest
-from eZmaxApi.models.customer_request_compound import CustomerRequestCompound as CustomerRequestCompound
 from eZmaxApi.models.customer_response import CustomerResponse as CustomerResponse
 from eZmaxApi.models.customer_response_compound import CustomerResponseCompound as CustomerResponseCompound
 from eZmaxApi.models.department_autocomplete_element_response import DepartmentAutocompleteElementResponse as DepartmentAutocompleteElementResponse
@@ -2761,8 +2752,6 @@ from eZmaxApi.models.ezsignbulksend_create_object_v2_request import Ezsignbulkse
 from eZmaxApi.models.ezsignbulksend_create_object_v2_response import EzsignbulksendCreateObjectV2Response as EzsignbulksendCreateObjectV2Response
 from eZmaxApi.models.ezsignbulksend_create_object_v2_response_m_payload import EzsignbulksendCreateObjectV2ResponseMPayload as EzsignbulksendCreateObjectV2ResponseMPayload
 from eZmaxApi.models.ezsignbulksend_delete_object_v1_response import EzsignbulksendDeleteObjectV1Response as EzsignbulksendDeleteObjectV1Response
-from eZmaxApi.models.ezsignbulksend_edit_object_v1_request import EzsignbulksendEditObjectV1Request as EzsignbulksendEditObjectV1Request
-from eZmaxApi.models.ezsignbulksend_edit_object_v1_response import EzsignbulksendEditObjectV1Response as EzsignbulksendEditObjectV1Response
 from eZmaxApi.models.ezsignbulksend_edit_object_v2_request import EzsignbulksendEditObjectV2Request as EzsignbulksendEditObjectV2Request
 from eZmaxApi.models.ezsignbulksend_edit_object_v2_response import EzsignbulksendEditObjectV2Response as EzsignbulksendEditObjectV2Response
 from eZmaxApi.models.ezsignbulksend_get_ezsignbulksendtransmissions_v1_response import EzsignbulksendGetEzsignbulksendtransmissionsV1Response as EzsignbulksendGetEzsignbulksendtransmissionsV1Response
@@ -2857,6 +2846,9 @@ from eZmaxApi.models.ezsigndocument_edit_ezsignannotations_v1_response_m_payload
 from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v1_request import EzsigndocumentEditEzsignformfieldgroupsV1Request as EzsigndocumentEditEzsignformfieldgroupsV1Request
 from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v1_response import EzsigndocumentEditEzsignformfieldgroupsV1Response as EzsigndocumentEditEzsignformfieldgroupsV1Response
 from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v1_response_m_payload import EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload as EzsigndocumentEditEzsignformfieldgroupsV1ResponseMPayload
+from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v2_request import EzsigndocumentEditEzsignformfieldgroupsV2Request as EzsigndocumentEditEzsignformfieldgroupsV2Request
+from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v2_response import EzsigndocumentEditEzsignformfieldgroupsV2Response as EzsigndocumentEditEzsignformfieldgroupsV2Response
+from eZmaxApi.models.ezsigndocument_edit_ezsignformfieldgroups_v2_response_m_payload import EzsigndocumentEditEzsignformfieldgroupsV2ResponseMPayload as EzsigndocumentEditEzsignformfieldgroupsV2ResponseMPayload
 from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_request import EzsigndocumentEditEzsignsignaturesV1Request as EzsigndocumentEditEzsignsignaturesV1Request
 from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_response import EzsigndocumentEditEzsignsignaturesV1Response as EzsigndocumentEditEzsignsignaturesV1Response
 from eZmaxApi.models.ezsigndocument_edit_ezsignsignatures_v1_response_m_payload import EzsigndocumentEditEzsignsignaturesV1ResponseMPayload as EzsigndocumentEditEzsignsignaturesV1ResponseMPayload
@@ -2874,6 +2866,8 @@ from eZmaxApi.models.ezsigndocument_get_actionable_elements_v1_response import E
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v1_response_m_payload import EzsigndocumentGetActionableElementsV1ResponseMPayload as EzsigndocumentGetActionableElementsV1ResponseMPayload
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v2_response import EzsigndocumentGetActionableElementsV2Response as EzsigndocumentGetActionableElementsV2Response
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v2_response_m_payload import EzsigndocumentGetActionableElementsV2ResponseMPayload as EzsigndocumentGetActionableElementsV2ResponseMPayload
+from eZmaxApi.models.ezsigndocument_get_actionable_elements_v3_response import EzsigndocumentGetActionableElementsV3Response as EzsigndocumentGetActionableElementsV3Response
+from eZmaxApi.models.ezsigndocument_get_actionable_elements_v3_response_m_payload import EzsigndocumentGetActionableElementsV3ResponseMPayload as EzsigndocumentGetActionableElementsV3ResponseMPayload
 from eZmaxApi.models.ezsigndocument_get_attachments_v1_response import EzsigndocumentGetAttachmentsV1Response as EzsigndocumentGetAttachmentsV1Response
 from eZmaxApi.models.ezsigndocument_get_attachments_v1_response_m_payload import EzsigndocumentGetAttachmentsV1ResponseMPayload as EzsigndocumentGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.ezsigndocument_get_completed_elements_v1_response import EzsigndocumentGetCompletedElementsV1Response as EzsigndocumentGetCompletedElementsV1Response
@@ -2953,6 +2947,8 @@ from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response import Ezs
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response_m_payload import EzsignfolderGetActionableElementsV1ResponseMPayload as EzsignfolderGetActionableElementsV1ResponseMPayload
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v2_response import EzsignfolderGetActionableElementsV2Response as EzsignfolderGetActionableElementsV2Response
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v2_response_m_payload import EzsignfolderGetActionableElementsV2ResponseMPayload as EzsignfolderGetActionableElementsV2ResponseMPayload
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_v3_response import EzsignfolderGetActionableElementsV3Response as EzsignfolderGetActionableElementsV3Response
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_v3_response_m_payload import EzsignfolderGetActionableElementsV3ResponseMPayload as EzsignfolderGetActionableElementsV3ResponseMPayload
 from eZmaxApi.models.ezsignfolder_get_attachment_count_v1_response import EzsignfolderGetAttachmentCountV1Response as EzsignfolderGetAttachmentCountV1Response
 from eZmaxApi.models.ezsignfolder_get_attachment_count_v1_response_m_payload import EzsignfolderGetAttachmentCountV1ResponseMPayload as EzsignfolderGetAttachmentCountV1ResponseMPayload
 from eZmaxApi.models.ezsignfolder_get_attachments_v1_response import EzsignfolderGetAttachmentsV1Response as EzsignfolderGetAttachmentsV1Response
@@ -2993,8 +2989,6 @@ from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v2_request import
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v2_response import EzsignfolderImportEzsigntemplatepackageV2Response as EzsignfolderImportEzsigntemplatepackageV2Response
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v2_response_m_payload import EzsignfolderImportEzsigntemplatepackageV2ResponseMPayload as EzsignfolderImportEzsigntemplatepackageV2ResponseMPayload
 from eZmaxApi.models.ezsignfolder_list_element import EzsignfolderListElement as EzsignfolderListElement
-from eZmaxApi.models.ezsignfolder_reorder_v1_request import EzsignfolderReorderV1Request as EzsignfolderReorderV1Request
-from eZmaxApi.models.ezsignfolder_reorder_v1_response import EzsignfolderReorderV1Response as EzsignfolderReorderV1Response
 from eZmaxApi.models.ezsignfolder_reorder_v2_request import EzsignfolderReorderV2Request as EzsignfolderReorderV2Request
 from eZmaxApi.models.ezsignfolder_reorder_v2_response import EzsignfolderReorderV2Response as EzsignfolderReorderV2Response
 from eZmaxApi.models.ezsignfolder_request import EzsignfolderRequest as EzsignfolderRequest
@@ -3010,9 +3004,6 @@ from eZmaxApi.models.ezsignfolder_send_v1_response import EzsignfolderSendV1Resp
 from eZmaxApi.models.ezsignfolder_send_v3_request import EzsignfolderSendV3Request as EzsignfolderSendV3Request
 from eZmaxApi.models.ezsignfolder_send_v3_response import EzsignfolderSendV3Response as EzsignfolderSendV3Response
 from eZmaxApi.models.ezsignfolder_unsend_v1_response import EzsignfolderUnsendV1Response as EzsignfolderUnsendV1Response
-from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v1_request import EzsignfoldersignerassociationCreateEmbeddedUrlV1Request as EzsignfoldersignerassociationCreateEmbeddedUrlV1Request
-from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v1_response import EzsignfoldersignerassociationCreateEmbeddedUrlV1Response as EzsignfoldersignerassociationCreateEmbeddedUrlV1Response
-from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v1_response_m_payload import EzsignfoldersignerassociationCreateEmbeddedUrlV1ResponseMPayload as EzsignfoldersignerassociationCreateEmbeddedUrlV1ResponseMPayload
 from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v2_request import EzsignfoldersignerassociationCreateEmbeddedUrlV2Request as EzsignfoldersignerassociationCreateEmbeddedUrlV2Request
 from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v2_response import EzsignfoldersignerassociationCreateEmbeddedUrlV2Response as EzsignfoldersignerassociationCreateEmbeddedUrlV2Response
 from eZmaxApi.models.ezsignfoldersignerassociation_create_embedded_url_v2_response_m_payload import EzsignfoldersignerassociationCreateEmbeddedUrlV2ResponseMPayload as EzsignfoldersignerassociationCreateEmbeddedUrlV2ResponseMPayload
@@ -3108,16 +3099,12 @@ from eZmaxApi.models.ezsignsignature_create_object_v4_request import Ezsignsigna
 from eZmaxApi.models.ezsignsignature_create_object_v4_response import EzsignsignatureCreateObjectV4Response as EzsignsignatureCreateObjectV4Response
 from eZmaxApi.models.ezsignsignature_create_object_v4_response_m_payload import EzsignsignatureCreateObjectV4ResponseMPayload as EzsignsignatureCreateObjectV4ResponseMPayload
 from eZmaxApi.models.ezsignsignature_delete_object_v1_response import EzsignsignatureDeleteObjectV1Response as EzsignsignatureDeleteObjectV1Response
-from eZmaxApi.models.ezsignsignature_edit_object_v2_request import EzsignsignatureEditObjectV2Request as EzsignsignatureEditObjectV2Request
-from eZmaxApi.models.ezsignsignature_edit_object_v2_response import EzsignsignatureEditObjectV2Response as EzsignsignatureEditObjectV2Response
 from eZmaxApi.models.ezsignsignature_edit_object_v3_request import EzsignsignatureEditObjectV3Request as EzsignsignatureEditObjectV3Request
 from eZmaxApi.models.ezsignsignature_edit_object_v3_response import EzsignsignatureEditObjectV3Response as EzsignsignatureEditObjectV3Response
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatureattachment_v1_response import EzsignsignatureGetEzsignsignatureattachmentV1Response as EzsignsignatureGetEzsignsignatureattachmentV1Response
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatureattachment_v1_response_m_payload import EzsignsignatureGetEzsignsignatureattachmentV1ResponseMPayload as EzsignsignatureGetEzsignsignatureattachmentV1ResponseMPayload
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatures_automatic_v1_response import EzsignsignatureGetEzsignsignaturesAutomaticV1Response as EzsignsignatureGetEzsignsignaturesAutomaticV1Response
 from eZmaxApi.models.ezsignsignature_get_ezsignsignatures_automatic_v1_response_m_payload import EzsignsignatureGetEzsignsignaturesAutomaticV1ResponseMPayload as EzsignsignatureGetEzsignsignaturesAutomaticV1ResponseMPayload
-from eZmaxApi.models.ezsignsignature_get_object_v3_response import EzsignsignatureGetObjectV3Response as EzsignsignatureGetObjectV3Response
-from eZmaxApi.models.ezsignsignature_get_object_v3_response_m_payload import EzsignsignatureGetObjectV3ResponseMPayload as EzsignsignatureGetObjectV3ResponseMPayload
 from eZmaxApi.models.ezsignsignature_get_object_v4_response import EzsignsignatureGetObjectV4Response as EzsignsignatureGetObjectV4Response
 from eZmaxApi.models.ezsignsignature_get_object_v4_response_m_payload import EzsignsignatureGetObjectV4ResponseMPayload as EzsignsignatureGetObjectV4ResponseMPayload
 from eZmaxApi.models.ezsignsignature_request import EzsignsignatureRequest as EzsignsignatureRequest
@@ -3242,8 +3229,6 @@ from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_r
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1_response_m_payload import EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload as EzsigntemplatedocumentGetEzsigntemplatedocumentpagesV1ResponseMPayload
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_response import EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response as EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1Response
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1_response_m_payload import EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload as EzsigntemplatedocumentGetEzsigntemplateformfieldgroupsV1ResponseMPayload
-from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_response import EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response as EzsigntemplatedocumentGetEzsigntemplatesignaturesV1Response
-from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatesignatures_v1_response_m_payload import EzsigntemplatedocumentGetEzsigntemplatesignaturesV1ResponseMPayload as EzsigntemplatedocumentGetEzsigntemplatesignaturesV1ResponseMPayload
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatesignatures_v2_response import EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response as EzsigntemplatedocumentGetEzsigntemplatesignaturesV2Response
 from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplatesignatures_v2_response_m_payload import EzsigntemplatedocumentGetEzsigntemplatesignaturesV2ResponseMPayload as EzsigntemplatedocumentGetEzsigntemplatesignaturesV2ResponseMPayload
 from eZmaxApi.models.ezsigntemplatedocument_get_object_v2_response import EzsigntemplatedocumentGetObjectV2Response as EzsigntemplatedocumentGetObjectV2Response
@@ -3394,12 +3379,8 @@ from eZmaxApi.models.ezsigntemplatesignature_create_object_v3_request import Ezs
 from eZmaxApi.models.ezsigntemplatesignature_create_object_v3_response import EzsigntemplatesignatureCreateObjectV3Response as EzsigntemplatesignatureCreateObjectV3Response
 from eZmaxApi.models.ezsigntemplatesignature_create_object_v3_response_m_payload import EzsigntemplatesignatureCreateObjectV3ResponseMPayload as EzsigntemplatesignatureCreateObjectV3ResponseMPayload
 from eZmaxApi.models.ezsigntemplatesignature_delete_object_v1_response import EzsigntemplatesignatureDeleteObjectV1Response as EzsigntemplatesignatureDeleteObjectV1Response
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_request import EzsigntemplatesignatureEditObjectV2Request as EzsigntemplatesignatureEditObjectV2Request
-from eZmaxApi.models.ezsigntemplatesignature_edit_object_v2_response import EzsigntemplatesignatureEditObjectV2Response as EzsigntemplatesignatureEditObjectV2Response
 from eZmaxApi.models.ezsigntemplatesignature_edit_object_v3_request import EzsigntemplatesignatureEditObjectV3Request as EzsigntemplatesignatureEditObjectV3Request
 from eZmaxApi.models.ezsigntemplatesignature_edit_object_v3_response import EzsigntemplatesignatureEditObjectV3Response as EzsigntemplatesignatureEditObjectV3Response
-from eZmaxApi.models.ezsigntemplatesignature_get_object_v3_response import EzsigntemplatesignatureGetObjectV3Response as EzsigntemplatesignatureGetObjectV3Response
-from eZmaxApi.models.ezsigntemplatesignature_get_object_v3_response_m_payload import EzsigntemplatesignatureGetObjectV3ResponseMPayload as EzsigntemplatesignatureGetObjectV3ResponseMPayload
 from eZmaxApi.models.ezsigntemplatesignature_get_object_v4_response import EzsigntemplatesignatureGetObjectV4Response as EzsigntemplatesignatureGetObjectV4Response
 from eZmaxApi.models.ezsigntemplatesignature_get_object_v4_response_m_payload import EzsigntemplatesignatureGetObjectV4ResponseMPayload as EzsigntemplatesignatureGetObjectV4ResponseMPayload
 from eZmaxApi.models.ezsigntemplatesignature_request import EzsigntemplatesignatureRequest as EzsigntemplatesignatureRequest
@@ -3407,7 +3388,6 @@ from eZmaxApi.models.ezsigntemplatesignature_request_compound import Ezsigntempl
 from eZmaxApi.models.ezsigntemplatesignature_request_compound_v2 import EzsigntemplatesignatureRequestCompoundV2 as EzsigntemplatesignatureRequestCompoundV2
 from eZmaxApi.models.ezsigntemplatesignature_response import EzsigntemplatesignatureResponse as EzsigntemplatesignatureResponse
 from eZmaxApi.models.ezsigntemplatesignature_response_compound import EzsigntemplatesignatureResponseCompound as EzsigntemplatesignatureResponseCompound
-from eZmaxApi.models.ezsigntemplatesignature_response_compound_v3 import EzsigntemplatesignatureResponseCompoundV3 as EzsigntemplatesignatureResponseCompoundV3
 from eZmaxApi.models.ezsigntemplatesignature_response_compound_v4 import EzsigntemplatesignatureResponseCompoundV4 as EzsigntemplatesignatureResponseCompoundV4
 from eZmaxApi.models.ezsigntemplatesignaturecustomdate_request import EzsigntemplatesignaturecustomdateRequest as EzsigntemplatesignaturecustomdateRequest
 from eZmaxApi.models.ezsigntemplatesignaturecustomdate_request_compound import EzsigntemplatesignaturecustomdateRequestCompound as EzsigntemplatesignaturecustomdateRequestCompound
@@ -3511,6 +3491,8 @@ from eZmaxApi.models.field_e_ezsignsignature_attachmentnamesource import FieldEE
 from eZmaxApi.models.field_e_ezsignsignature_consultationtrigger import FieldEEzsignsignatureConsultationtrigger as FieldEEzsignsignatureConsultationtrigger
 from eZmaxApi.models.field_e_ezsignsignature_dependencyrequirement import FieldEEzsignsignatureDependencyrequirement as FieldEEzsignsignatureDependencyrequirement
 from eZmaxApi.models.field_e_ezsignsignature_font import FieldEEzsignsignatureFont as FieldEEzsignsignatureFont
+from eZmaxApi.models.field_e_ezsignsignature_signaturepad import FieldEEzsignsignatureSignaturepad as FieldEEzsignsignatureSignaturepad
+from eZmaxApi.models.field_e_ezsignsignature_signaturepadrequired import FieldEEzsignsignatureSignaturepadrequired as FieldEEzsignsignatureSignaturepadrequired
 from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsignsignatureTooltipposition as FieldEEzsignsignatureTooltipposition
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType as FieldEEzsignsignatureType
 from eZmaxApi.models.field_e_ezsignsignaturepaymentdetail_taxable import FieldEEzsignsignaturepaymentdetailTaxable as FieldEEzsignsignaturepaymentdetailTaxable
@@ -3536,6 +3518,8 @@ from eZmaxApi.models.field_e_ezsigntemplatesignature_dependencyrequirement impor
 from eZmaxApi.models.field_e_ezsigntemplatesignature_font import FieldEEzsigntemplatesignatureFont as FieldEEzsigntemplatesignatureFont
 from eZmaxApi.models.field_e_ezsigntemplatesignature_positioning import FieldEEzsigntemplatesignaturePositioning as FieldEEzsigntemplatesignaturePositioning
 from eZmaxApi.models.field_e_ezsigntemplatesignature_positioningoccurence import FieldEEzsigntemplatesignaturePositioningoccurence as FieldEEzsigntemplatesignaturePositioningoccurence
+from eZmaxApi.models.field_e_ezsigntemplatesignature_signaturepad import FieldEEzsigntemplatesignatureSignaturepad as FieldEEzsigntemplatesignatureSignaturepad
+from eZmaxApi.models.field_e_ezsigntemplatesignature_signaturepadrequired import FieldEEzsigntemplatesignatureSignaturepadrequired as FieldEEzsigntemplatesignatureSignaturepadrequired
 from eZmaxApi.models.field_e_ezsigntemplatesignature_tooltipposition import FieldEEzsigntemplatesignatureTooltipposition as FieldEEzsigntemplatesignatureTooltipposition
 from eZmaxApi.models.field_e_ezsigntemplatesignature_type import FieldEEzsigntemplatesignatureType as FieldEEzsigntemplatesignatureType
 from eZmaxApi.models.field_e_ezsigntemplatesignaturepaymentdetail_taxable import FieldEEzsigntemplatesignaturepaymentdetailTaxable as FieldEEzsigntemplatesignaturepaymentdetailTaxable
@@ -3592,6 +3576,9 @@ from eZmaxApi.models.global_customer_get_endpoint_v1_response import GlobalCusto
 from eZmaxApi.models.global_ezmaxclient_version_v1_response import GlobalEzmaxclientVersionV1Response as GlobalEzmaxclientVersionV1Response
 from eZmaxApi.models.global_ezmaxcustomer_get_configuration_v1_response import GlobalEzmaxcustomerGetConfigurationV1Response as GlobalEzmaxcustomerGetConfigurationV1Response
 from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage as HeaderAcceptLanguage
+from eZmaxApi.models.infrastructureregion_autocomplete_element_response import InfrastructureregionAutocompleteElementResponse as InfrastructureregionAutocompleteElementResponse
+from eZmaxApi.models.infrastructureregion_get_autocomplete_v2_response import InfrastructureregionGetAutocompleteV2Response as InfrastructureregionGetAutocompleteV2Response
+from eZmaxApi.models.infrastructureregion_get_autocomplete_v2_response_m_payload import InfrastructureregionGetAutocompleteV2ResponseMPayload as InfrastructureregionGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.inscription_get_attachments_v1_response import InscriptionGetAttachmentsV1Response as InscriptionGetAttachmentsV1Response
 from eZmaxApi.models.inscription_get_attachments_v1_response_m_payload import InscriptionGetAttachmentsV1ResponseMPayload as InscriptionGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.inscription_get_communication_count_v1_response import InscriptionGetCommunicationCountV1Response as InscriptionGetCommunicationCountV1Response
@@ -3612,8 +3599,6 @@ from eZmaxApi.models.inscription_prepare_files_transfer_v1_request import Inscri
 from eZmaxApi.models.inscription_prepare_files_transfer_v1_response import InscriptionPrepareFilesTransferV1Response as InscriptionPrepareFilesTransferV1Response
 from eZmaxApi.models.inscription_prepare_files_transfer_v1_response_m_payload import InscriptionPrepareFilesTransferV1ResponseMPayload as InscriptionPrepareFilesTransferV1ResponseMPayload
 from eZmaxApi.models.inscriptionchecklist_autocomplete_element_response import InscriptionchecklistAutocompleteElementResponse as InscriptionchecklistAutocompleteElementResponse
-from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v2_response import InscriptionchecklistGetAutocompleteV2Response as InscriptionchecklistGetAutocompleteV2Response
-from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v2_response_m_payload import InscriptionchecklistGetAutocompleteV2ResponseMPayload as InscriptionchecklistGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response import InscriptionchecklistGetAutocompleteV3Response as InscriptionchecklistGetAutocompleteV3Response
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response_m_payload import InscriptionchecklistGetAutocompleteV3ResponseMPayload as InscriptionchecklistGetAutocompleteV3ResponseMPayload
 from eZmaxApi.models.inscriptionnotauthenticated_get_communication_count_v1_response import InscriptionnotauthenticatedGetCommunicationCountV1Response as InscriptionnotauthenticatedGetCommunicationCountV1Response
@@ -3706,8 +3691,6 @@ from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersi
 from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response as NotificationsectionGetNotificationtestsV1Response
 from eZmaxApi.models.notificationsection_get_notificationtests_v1_response_m_payload import NotificationsectionGetNotificationtestsV1ResponseMPayload as NotificationsectionGetNotificationtestsV1ResponseMPayload
 from eZmaxApi.models.notificationsubsection_response import NotificationsubsectionResponse as NotificationsubsectionResponse
-from eZmaxApi.models.notificationtest_get_elements_v1_response import NotificationtestGetElementsV1Response as NotificationtestGetElementsV1Response
-from eZmaxApi.models.notificationtest_get_elements_v1_response_m_payload import NotificationtestGetElementsV1ResponseMPayload as NotificationtestGetElementsV1ResponseMPayload
 from eZmaxApi.models.notificationtest_get_elements_v2_response import NotificationtestGetElementsV2Response as NotificationtestGetElementsV2Response
 from eZmaxApi.models.notificationtest_get_elements_v2_response_m_payload import NotificationtestGetElementsV2ResponseMPayload as NotificationtestGetElementsV2ResponseMPayload
 from eZmaxApi.models.notificationtest_response import NotificationtestResponse as NotificationtestResponse
@@ -3795,6 +3778,12 @@ from eZmaxApi.models.phonetype_get_autocomplete_v2_response_m_payload import Pho
 from eZmaxApi.models.province_autocomplete_element_response import ProvinceAutocompleteElementResponse as ProvinceAutocompleteElementResponse
 from eZmaxApi.models.province_get_autocomplete_v2_response import ProvinceGetAutocompleteV2Response as ProvinceGetAutocompleteV2Response
 from eZmaxApi.models.province_get_autocomplete_v2_response_m_payload import ProvinceGetAutocompleteV2ResponseMPayload as ProvinceGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.realestateassociation_autocomplete_element_response import RealestateassociationAutocompleteElementResponse as RealestateassociationAutocompleteElementResponse
+from eZmaxApi.models.realestateassociation_get_autocomplete_v2_response import RealestateassociationGetAutocompleteV2Response as RealestateassociationGetAutocompleteV2Response
+from eZmaxApi.models.realestateassociation_get_autocomplete_v2_response_m_payload import RealestateassociationGetAutocompleteV2ResponseMPayload as RealestateassociationGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.realestateboard_autocomplete_element_response import RealestateboardAutocompleteElementResponse as RealestateboardAutocompleteElementResponse
+from eZmaxApi.models.realestateboard_get_autocomplete_v2_response import RealestateboardGetAutocompleteV2Response as RealestateboardGetAutocompleteV2Response
+from eZmaxApi.models.realestateboard_get_autocomplete_v2_response_m_payload import RealestateboardGetAutocompleteV2ResponseMPayload as RealestateboardGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_count_v1_response import RejectedoffertopurchaseGetCommunicationCountV1Response as RejectedoffertopurchaseGetCommunicationCountV1Response
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_count_v1_response_m_payload import RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload as RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_list_v1_response import RejectedoffertopurchaseGetCommunicationListV1Response as RejectedoffertopurchaseGetCommunicationListV1Response
@@ -3834,8 +3823,6 @@ from eZmaxApi.models.signature_create_object_v1_response_m_payload import Signat
 from eZmaxApi.models.signature_delete_object_v1_response import SignatureDeleteObjectV1Response as SignatureDeleteObjectV1Response
 from eZmaxApi.models.signature_edit_object_v1_request import SignatureEditObjectV1Request as SignatureEditObjectV1Request
 from eZmaxApi.models.signature_edit_object_v1_response import SignatureEditObjectV1Response as SignatureEditObjectV1Response
-from eZmaxApi.models.signature_get_object_v2_response import SignatureGetObjectV2Response as SignatureGetObjectV2Response
-from eZmaxApi.models.signature_get_object_v2_response_m_payload import SignatureGetObjectV2ResponseMPayload as SignatureGetObjectV2ResponseMPayload
 from eZmaxApi.models.signature_get_object_v3_response import SignatureGetObjectV3Response as SignatureGetObjectV3Response
 from eZmaxApi.models.signature_get_object_v3_response_m_payload import SignatureGetObjectV3ResponseMPayload as SignatureGetObjectV3ResponseMPayload
 from eZmaxApi.models.signature_request import SignatureRequest as SignatureRequest
@@ -3880,14 +3867,17 @@ from eZmaxApi.models.supply_request import SupplyRequest as SupplyRequest
 from eZmaxApi.models.supply_request_compound import SupplyRequestCompound as SupplyRequestCompound
 from eZmaxApi.models.supply_response import SupplyResponse as SupplyResponse
 from eZmaxApi.models.supply_response_compound import SupplyResponseCompound as SupplyResponseCompound
-from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request as SystemconfigurationEditObjectV1Request
-from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response as SystemconfigurationEditObjectV1Response
+from eZmaxApi.models.systemconfiguration_edit_object_v2_request import SystemconfigurationEditObjectV2Request as SystemconfigurationEditObjectV2Request
+from eZmaxApi.models.systemconfiguration_edit_object_v2_response import SystemconfigurationEditObjectV2Response as SystemconfigurationEditObjectV2Response
 from eZmaxApi.models.systemconfiguration_get_object_v2_response import SystemconfigurationGetObjectV2Response as SystemconfigurationGetObjectV2Response
 from eZmaxApi.models.systemconfiguration_get_object_v2_response_m_payload import SystemconfigurationGetObjectV2ResponseMPayload as SystemconfigurationGetObjectV2ResponseMPayload
-from eZmaxApi.models.systemconfiguration_request import SystemconfigurationRequest as SystemconfigurationRequest
-from eZmaxApi.models.systemconfiguration_request_compound import SystemconfigurationRequestCompound as SystemconfigurationRequestCompound
+from eZmaxApi.models.systemconfiguration_request_compound_v2 import SystemconfigurationRequestCompoundV2 as SystemconfigurationRequestCompoundV2
+from eZmaxApi.models.systemconfiguration_request_v2 import SystemconfigurationRequestV2 as SystemconfigurationRequestV2
 from eZmaxApi.models.systemconfiguration_response import SystemconfigurationResponse as SystemconfigurationResponse
 from eZmaxApi.models.systemconfiguration_response_compound import SystemconfigurationResponseCompound as SystemconfigurationResponseCompound
+from eZmaxApi.models.systemconfigurationtype_autocomplete_element_response import SystemconfigurationtypeAutocompleteElementResponse as SystemconfigurationtypeAutocompleteElementResponse
+from eZmaxApi.models.systemconfigurationtype_get_autocomplete_v2_response import SystemconfigurationtypeGetAutocompleteV2Response as SystemconfigurationtypeGetAutocompleteV2Response
+from eZmaxApi.models.systemconfigurationtype_get_autocomplete_v2_response_m_payload import SystemconfigurationtypeGetAutocompleteV2ResponseMPayload as SystemconfigurationtypeGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.taxassignment_autocomplete_element_response import TaxassignmentAutocompleteElementResponse as TaxassignmentAutocompleteElementResponse
 from eZmaxApi.models.taxassignment_get_autocomplete_v2_response import TaxassignmentGetAutocompleteV2Response as TaxassignmentGetAutocompleteV2Response
 from eZmaxApi.models.taxassignment_get_autocomplete_v2_response_m_payload import TaxassignmentGetAutocompleteV2ResponseMPayload as TaxassignmentGetAutocompleteV2ResponseMPayload

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **dt_lead_expiration** | **str** | The expiration of the Lead | 
 **b_lead_isactive** | **bool** | Whether the lead is active or not | 
 **s_lead_code** | **str** | The code of the Lead | 
+**s_lead_contacts** | **str** | The contacts&#39; name of the Lead | [optional] 
 
 ## Example
 

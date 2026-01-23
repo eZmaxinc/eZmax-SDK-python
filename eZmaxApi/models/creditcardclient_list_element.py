@@ -32,13 +32,14 @@ class CreditcardclientListElement(BaseModel):
     fki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="fkiCreditcarddetailID")
     fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID")
     b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
+    b_creditcardclient_legacy: StrictBool = Field(description="Whether the Creditcardclient is legacy or not", alias="bCreditcardclientLegacy")
     s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
     b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment")
     b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit")
     i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
     i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
     i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits")
-    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "fkiCreditcardtypeID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "iCreditcarddetailLastdigits"]
+    __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "fkiCreditcardtypeID", "bCreditcardclientrelationIsdefault", "bCreditcardclientLegacy", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "iCreditcarddetailLastdigits"]
 
     @field_validator('s_creditcardclient_description')
     def s_creditcardclient_description_validate_regular_expression(cls, value):
@@ -102,6 +103,7 @@ class CreditcardclientListElement(BaseModel):
             "fkiCreditcarddetailID": obj.get("fkiCreditcarddetailID"),
             "fkiCreditcardtypeID": obj.get("fkiCreditcardtypeID"),
             "bCreditcardclientrelationIsdefault": obj.get("bCreditcardclientrelationIsdefault"),
+            "bCreditcardclientLegacy": obj.get("bCreditcardclientLegacy"),
             "sCreditcardclientDescription": obj.get("sCreditcardclientDescription"),
             "bCreditcardclientAllowedcompanypayment": obj.get("bCreditcardclientAllowedcompanypayment"),
             "bCreditcardclientAllowedtranquillit": obj.get("bCreditcardclientAllowedtranquillit"),

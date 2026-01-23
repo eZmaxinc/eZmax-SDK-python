@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_lead_status import FieldELeadStatus
 from typing import Optional, Set
@@ -36,7 +36,8 @@ class LeadListElement(BaseModel):
     dt_lead_expiration: Annotated[str, Field(strict=True)] = Field(description="The expiration of the Lead", alias="dtLeadExpiration")
     b_lead_isactive: StrictBool = Field(description="Whether the lead is active or not", alias="bLeadIsactive")
     s_lead_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Lead", alias="sLeadCode")
-    __properties: ClassVar[List[str]] = ["pkiLeadID", "fkiLeadsourceID", "sLeadsourceNameX", "eLeadStatus", "dtLeadExpiration", "bLeadIsactive", "sLeadCode"]
+    s_lead_contacts: Optional[StrictStr] = Field(default=None, description="The contacts' name of the Lead", alias="sLeadContacts")
+    __properties: ClassVar[List[str]] = ["pkiLeadID", "fkiLeadsourceID", "sLeadsourceNameX", "eLeadStatus", "dtLeadExpiration", "bLeadIsactive", "sLeadCode", "sLeadContacts"]
 
     @field_validator('s_leadsource_name_x')
     def s_leadsource_name_x_validate_regular_expression(cls, value):
@@ -55,8 +56,8 @@ class LeadListElement(BaseModel):
     @field_validator('s_lead_code')
     def s_lead_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^.{0,10}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,10}$/")
+        if not re.match(r"^.{0,25}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
     model_config = ConfigDict(
@@ -116,7 +117,8 @@ class LeadListElement(BaseModel):
             "eLeadStatus": obj.get("eLeadStatus"),
             "dtLeadExpiration": obj.get("dtLeadExpiration"),
             "bLeadIsactive": obj.get("bLeadIsactive"),
-            "sLeadCode": obj.get("sLeadCode")
+            "sLeadCode": obj.get("sLeadCode"),
+            "sLeadContacts": obj.get("sLeadContacts")
         })
         return _obj
 

@@ -19,8 +19,8 @@ from typing_extensions import Annotated
 
 from pydantic import Field
 from typing_extensions import Annotated
-from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
-from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
+from eZmaxApi.models.systemconfiguration_edit_object_v2_request import SystemconfigurationEditObjectV2Request
+from eZmaxApi.models.systemconfiguration_edit_object_v2_response import SystemconfigurationEditObjectV2Response
 from eZmaxApi.models.systemconfiguration_get_object_v2_response import SystemconfigurationGetObjectV2Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
@@ -42,10 +42,10 @@ class ObjectSystemconfigurationApi:
 
 
     @validate_call
-    def systemconfiguration_edit_object_v1(
+    def systemconfiguration_edit_object_v2(
         self,
         pki_systemconfiguration_id: Annotated[int, Field(le=1, strict=True, ge=1, description="The unique ID of the Systemconfiguration")],
-        systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request,
+        systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -58,15 +58,15 @@ class ObjectSystemconfigurationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemconfigurationEditObjectV1Response:
+    ) -> SystemconfigurationEditObjectV2Response:
         """Edit an existing Systemconfiguration
 
         
 
         :param pki_systemconfiguration_id: The unique ID of the Systemconfiguration (required)
         :type pki_systemconfiguration_id: int
-        :param systemconfiguration_edit_object_v1_request: (required)
-        :type systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request
+        :param systemconfiguration_edit_object_v2_request: (required)
+        :type systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -89,9 +89,9 @@ class ObjectSystemconfigurationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._systemconfiguration_edit_object_v1_serialize(
+        _param = self._systemconfiguration_edit_object_v2_serialize(
             pki_systemconfiguration_id=pki_systemconfiguration_id,
-            systemconfiguration_edit_object_v1_request=systemconfiguration_edit_object_v1_request,
+            systemconfiguration_edit_object_v2_request=systemconfiguration_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -99,7 +99,7 @@ class ObjectSystemconfigurationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemconfigurationEditObjectV1Response",
+            '200': "SystemconfigurationEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -115,10 +115,10 @@ class ObjectSystemconfigurationApi:
 
 
     @validate_call
-    def systemconfiguration_edit_object_v1_with_http_info(
+    def systemconfiguration_edit_object_v2_with_http_info(
         self,
         pki_systemconfiguration_id: Annotated[int, Field(le=1, strict=True, ge=1, description="The unique ID of the Systemconfiguration")],
-        systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request,
+        systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -131,15 +131,15 @@ class ObjectSystemconfigurationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemconfigurationEditObjectV1Response]:
+    ) -> ApiResponse[SystemconfigurationEditObjectV2Response]:
         """Edit an existing Systemconfiguration
 
         
 
         :param pki_systemconfiguration_id: The unique ID of the Systemconfiguration (required)
         :type pki_systemconfiguration_id: int
-        :param systemconfiguration_edit_object_v1_request: (required)
-        :type systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request
+        :param systemconfiguration_edit_object_v2_request: (required)
+        :type systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,9 +162,9 @@ class ObjectSystemconfigurationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._systemconfiguration_edit_object_v1_serialize(
+        _param = self._systemconfiguration_edit_object_v2_serialize(
             pki_systemconfiguration_id=pki_systemconfiguration_id,
-            systemconfiguration_edit_object_v1_request=systemconfiguration_edit_object_v1_request,
+            systemconfiguration_edit_object_v2_request=systemconfiguration_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -172,7 +172,7 @@ class ObjectSystemconfigurationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemconfigurationEditObjectV1Response",
+            '200': "SystemconfigurationEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -188,10 +188,10 @@ class ObjectSystemconfigurationApi:
 
 
     @validate_call
-    def systemconfiguration_edit_object_v1_without_preload_content(
+    def systemconfiguration_edit_object_v2_without_preload_content(
         self,
         pki_systemconfiguration_id: Annotated[int, Field(le=1, strict=True, ge=1, description="The unique ID of the Systemconfiguration")],
-        systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request,
+        systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,8 +211,8 @@ class ObjectSystemconfigurationApi:
 
         :param pki_systemconfiguration_id: The unique ID of the Systemconfiguration (required)
         :type pki_systemconfiguration_id: int
-        :param systemconfiguration_edit_object_v1_request: (required)
-        :type systemconfiguration_edit_object_v1_request: SystemconfigurationEditObjectV1Request
+        :param systemconfiguration_edit_object_v2_request: (required)
+        :type systemconfiguration_edit_object_v2_request: SystemconfigurationEditObjectV2Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -235,9 +235,9 @@ class ObjectSystemconfigurationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._systemconfiguration_edit_object_v1_serialize(
+        _param = self._systemconfiguration_edit_object_v2_serialize(
             pki_systemconfiguration_id=pki_systemconfiguration_id,
-            systemconfiguration_edit_object_v1_request=systemconfiguration_edit_object_v1_request,
+            systemconfiguration_edit_object_v2_request=systemconfiguration_edit_object_v2_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -245,7 +245,7 @@ class ObjectSystemconfigurationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemconfigurationEditObjectV1Response",
+            '200': "SystemconfigurationEditObjectV2Response",
             '404': "CommonResponseError",
             '422': "CommonResponseError",
         }
@@ -256,10 +256,10 @@ class ObjectSystemconfigurationApi:
         return response_data.response
 
 
-    def _systemconfiguration_edit_object_v1_serialize(
+    def _systemconfiguration_edit_object_v2_serialize(
         self,
         pki_systemconfiguration_id,
-        systemconfiguration_edit_object_v1_request,
+        systemconfiguration_edit_object_v2_request,
         _request_auth,
         _content_type,
         _headers,
@@ -287,8 +287,8 @@ class ObjectSystemconfigurationApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if systemconfiguration_edit_object_v1_request is not None:
-            _body_params = systemconfiguration_edit_object_v1_request
+        if systemconfiguration_edit_object_v2_request is not None:
+            _body_params = systemconfiguration_edit_object_v2_request
 
 
         # set the HTTP header `Accept`
@@ -320,7 +320,7 @@ class ObjectSystemconfigurationApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/1/object/systemconfiguration/{pkiSystemconfigurationID}',
+            resource_path='/2/object/systemconfiguration/{pkiSystemconfigurationID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

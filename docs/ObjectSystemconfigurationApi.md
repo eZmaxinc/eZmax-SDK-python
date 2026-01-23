@@ -4,12 +4,12 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**systemconfiguration_edit_object_v1**](ObjectSystemconfigurationApi.md#systemconfiguration_edit_object_v1) | **PUT** /1/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
+[**systemconfiguration_edit_object_v2**](ObjectSystemconfigurationApi.md#systemconfiguration_edit_object_v2) | **PUT** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Edit an existing Systemconfiguration
 [**systemconfiguration_get_object_v2**](ObjectSystemconfigurationApi.md#systemconfiguration_get_object_v2) | **GET** /2/object/systemconfiguration/{pkiSystemconfigurationID} | Retrieve an existing Systemconfiguration
 
 
-# **systemconfiguration_edit_object_v1**
-> SystemconfigurationEditObjectV1Response systemconfiguration_edit_object_v1(pki_systemconfiguration_id, systemconfiguration_edit_object_v1_request)
+# **systemconfiguration_edit_object_v2**
+> SystemconfigurationEditObjectV2Response systemconfiguration_edit_object_v2(pki_systemconfiguration_id, systemconfiguration_edit_object_v2_request)
 
 Edit an existing Systemconfiguration
 
@@ -21,8 +21,8 @@ Edit an existing Systemconfiguration
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.systemconfiguration_edit_object_v1_request import SystemconfigurationEditObjectV1Request
-from eZmaxApi.models.systemconfiguration_edit_object_v1_response import SystemconfigurationEditObjectV1Response
+from eZmaxApi.models.systemconfiguration_edit_object_v2_request import SystemconfigurationEditObjectV2Request
+from eZmaxApi.models.systemconfiguration_edit_object_v2_response import SystemconfigurationEditObjectV2Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -48,15 +48,15 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectSystemconfigurationApi(api_client)
     pki_systemconfiguration_id = 56 # int | The unique ID of the Systemconfiguration
-    systemconfiguration_edit_object_v1_request = eZmaxApi.SystemconfigurationEditObjectV1Request() # SystemconfigurationEditObjectV1Request | 
+    systemconfiguration_edit_object_v2_request = eZmaxApi.SystemconfigurationEditObjectV2Request() # SystemconfigurationEditObjectV2Request | 
 
     try:
         # Edit an existing Systemconfiguration
-        api_response = api_instance.systemconfiguration_edit_object_v1(pki_systemconfiguration_id, systemconfiguration_edit_object_v1_request)
-        print("The response of ObjectSystemconfigurationApi->systemconfiguration_edit_object_v1:\n")
+        api_response = api_instance.systemconfiguration_edit_object_v2(pki_systemconfiguration_id, systemconfiguration_edit_object_v2_request)
+        print("The response of ObjectSystemconfigurationApi->systemconfiguration_edit_object_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ObjectSystemconfigurationApi->systemconfiguration_edit_object_v1: %s\n" % e)
+        print("Exception when calling ObjectSystemconfigurationApi->systemconfiguration_edit_object_v2: %s\n" % e)
 ```
 
 
@@ -67,11 +67,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_systemconfiguration_id** | **int**| The unique ID of the Systemconfiguration | 
- **systemconfiguration_edit_object_v1_request** | [**SystemconfigurationEditObjectV1Request**](SystemconfigurationEditObjectV1Request.md)|  | 
+ **systemconfiguration_edit_object_v2_request** | [**SystemconfigurationEditObjectV2Request**](SystemconfigurationEditObjectV2Request.md)|  | 
 
 ### Return type
 
-[**SystemconfigurationEditObjectV1Response**](SystemconfigurationEditObjectV1Response.md)
+[**SystemconfigurationEditObjectV2Response**](SystemconfigurationEditObjectV2Response.md)
 
 ### Authorization
 

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **pki_usergroup_id** | **int** | The unique ID of the Usergroup | 
 **s_usergroup_name_x** | **str** | The Name of the Usergroup in the language of the requester | 
 **i_count_user** | **int** | Number of users in group | 
+**i_count_inactiveuser** | **int** | Number of inactive users in group | 
 
 ## Example
 
