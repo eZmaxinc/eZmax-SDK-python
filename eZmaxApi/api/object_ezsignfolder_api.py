@@ -386,7 +386,6 @@ class ObjectEzsignfolderApi:
         self,
         pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
         ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request,
-        accept: Annotated[Optional[StrictStr], Field(description="Test csharp")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -407,8 +406,6 @@ class ObjectEzsignfolderApi:
         :type pki_ezsignfolder_id: int
         :param ezsignfolder_batch_download_v1_request: (required)
         :type ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request
-        :param accept: Test csharp
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -434,7 +431,6 @@ class ObjectEzsignfolderApi:
         _param = self._ezsignfolder_batch_download_v1_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
             ezsignfolder_batch_download_v1_request=ezsignfolder_batch_download_v1_request,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -463,7 +459,6 @@ class ObjectEzsignfolderApi:
         self,
         pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
         ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request,
-        accept: Annotated[Optional[StrictStr], Field(description="Test csharp")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -484,8 +479,6 @@ class ObjectEzsignfolderApi:
         :type pki_ezsignfolder_id: int
         :param ezsignfolder_batch_download_v1_request: (required)
         :type ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request
-        :param accept: Test csharp
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -511,7 +504,6 @@ class ObjectEzsignfolderApi:
         _param = self._ezsignfolder_batch_download_v1_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
             ezsignfolder_batch_download_v1_request=ezsignfolder_batch_download_v1_request,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -540,7 +532,6 @@ class ObjectEzsignfolderApi:
         self,
         pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
         ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request,
-        accept: Annotated[Optional[StrictStr], Field(description="Test csharp")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -561,8 +552,6 @@ class ObjectEzsignfolderApi:
         :type pki_ezsignfolder_id: int
         :param ezsignfolder_batch_download_v1_request: (required)
         :type ezsignfolder_batch_download_v1_request: EzsignfolderBatchDownloadV1Request
-        :param accept: Test csharp
-        :type accept: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -588,7 +577,6 @@ class ObjectEzsignfolderApi:
         _param = self._ezsignfolder_batch_download_v1_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
             ezsignfolder_batch_download_v1_request=ezsignfolder_batch_download_v1_request,
-            accept=accept,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -612,7 +600,6 @@ class ObjectEzsignfolderApi:
         self,
         pki_ezsignfolder_id,
         ezsignfolder_batch_download_v1_request,
-        accept,
         _request_auth,
         _content_type,
         _headers,
@@ -638,8 +625,6 @@ class ObjectEzsignfolderApi:
             _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
         # process the query parameters
         # process the header parameters
-        if accept is not None:
-            _header_params['Accept'] = accept
         # process the form parameters
         # process the body parameter
         if ezsignfolder_batch_download_v1_request is not None:

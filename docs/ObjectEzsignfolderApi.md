@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignfolder_batch_download_v1**
-> bytearray ezsignfolder_batch_download_v1(pki_ezsignfolder_id, ezsignfolder_batch_download_v1_request, accept=accept)
+> bytearray ezsignfolder_batch_download_v1(pki_ezsignfolder_id, ezsignfolder_batch_download_v1_request)
 
 Download multiples files from an Ezsignfolder
 
@@ -162,11 +162,10 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     api_instance = eZmaxApi.ObjectEzsignfolderApi(api_client)
     pki_ezsignfolder_id = 56 # int | 
     ezsignfolder_batch_download_v1_request = eZmaxApi.EzsignfolderBatchDownloadV1Request() # EzsignfolderBatchDownloadV1Request | 
-    accept = 'accept_example' # str | Test csharp (optional)
 
     try:
         # Download multiples files from an Ezsignfolder
-        api_response = api_instance.ezsignfolder_batch_download_v1(pki_ezsignfolder_id, ezsignfolder_batch_download_v1_request, accept=accept)
+        api_response = api_instance.ezsignfolder_batch_download_v1(pki_ezsignfolder_id, ezsignfolder_batch_download_v1_request)
         print("The response of ObjectEzsignfolderApi->ezsignfolder_batch_download_v1:\n")
         pprint(api_response)
     except Exception as e:
@@ -182,7 +181,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pki_ezsignfolder_id** | **int**|  | 
  **ezsignfolder_batch_download_v1_request** | [**EzsignfolderBatchDownloadV1Request**](EzsignfolderBatchDownloadV1Request.md)|  | 
- **accept** | **str**| Test csharp | [optional] 
 
 ### Return type
 
