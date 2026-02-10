@@ -1,0 +1,13 @@
+# FieldEEzsigntemplateglobalannotationType
+
+The type of the Ezsigntemplateglobalannotation
+
+## Enum
+
+* `DROPDOWN` (value: `'Dropdown'`)
+
+* `TEXT` (value: `'Text'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
