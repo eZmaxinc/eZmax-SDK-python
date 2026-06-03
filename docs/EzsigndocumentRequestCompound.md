@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **fki_language_id** | **int** | The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English| | 
 **e_ezsigndocument_source** | **str** | Indicates where to look for the document binary content. | 
 **e_ezsigndocument_format** | **str** | Indicates the format of the document. | [optional] 
-**s_ezsigndocument_base64** | **bytearray** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
+**s_ezsigndocument_base64** | **bytes** | The Base64 encoded binary content of the document.  This field is Required when eEzsigndocumentSource &#x3D; Base64. | [optional] 
 **s_ezsigndocument_url** | **str** | The url where the document content resides.  This field is Required when eEzsigndocumentSource &#x3D; Url. | [optional] 
 **b_ezsigndocument_forcerepair** | **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature.  | [optional] [default to True]
 **s_ezsigndocument_password** | **str** | If the source document is password protected, the password to open/modify it. | [optional] 

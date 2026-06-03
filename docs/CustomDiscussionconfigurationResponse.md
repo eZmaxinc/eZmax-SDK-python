@@ -7,10 +7,10 @@ A Custom Discussionconfiguration Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **b_discussionconfiguration_completehistorywhenadded** | **bool** | If the added Discussionmembership will have access to the entire history or not | 
-**b_discussionconfiguration_createallowed** | **bool** | If the the creation of the Discussion is allowed or not | 
-**b_discussionconfiguration_deleteallowed** | **bool** | If the the destruction of the Discussion is allowed or not | 
-**b_discussionconfiguration_deletediscussionmessageallowed** | **bool** | If the the destruction of the Discussionmessage is allowed or not | 
-**b_discussionconfiguration_editdiscussionmessageallowed** | **bool** | If the the creation of the Discussionmessage is allowed or not | 
+**b_discussionconfiguration_createallowed** | **bool** | If the creation of the Discussion is allowed or not | 
+**b_discussionconfiguration_deleteallowed** | **bool** | If the destruction of the Discussion is allowed or not | 
+**b_discussionconfiguration_deletediscussionmessageallowed** | **bool** | If the destruction of the Discussionmessage is allowed or not | 
+**b_discussionconfiguration_editdiscussionmessageallowed** | **bool** | If the creation of the Discussionmessage is allowed or not | 
 
 ## Example
 

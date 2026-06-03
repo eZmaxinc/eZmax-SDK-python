@@ -21,8 +21,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from eZmaxApi.models.field_e_ezsigntemplateglobaldocument_acceptationtype import FieldEEzsigntemplateglobaldocumentAcceptationtype
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigntemplateglobaldocumentResponse(BaseModel):
     """
@@ -30,12 +32,14 @@ class EzsigntemplateglobaldocumentResponse(BaseModel):
     """ # noqa: E501
     pki_ezsigntemplateglobaldocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocument", alias="pkiEzsigntemplateglobaldocumentID")
     s_ezsigntemplateglobaldocument_name: StrictStr = Field(description="The name of the Ezsigntemplateglobaldocument.", alias="sEzsigntemplateglobaldocumentName")
+    e_ezsigntemplateglobaldocument_acceptationtype: FieldEEzsigntemplateglobaldocumentAcceptationtype = Field(alias="eEzsigntemplateglobaldocumentAcceptationtype")
     i_ezsigntemplateglobaldocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplateglobaldocument.", alias="iEzsigntemplateglobaldocumentPagetotal")
     i_ezsigntemplateglobaldocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplateglobal.", alias="iEzsigntemplateglobaldocumentSignaturetotal")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobaldocumentID", "sEzsigntemplateglobaldocumentName", "iEzsigntemplateglobaldocumentPagetotal", "iEzsigntemplateglobaldocumentSignaturetotal"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobaldocumentID", "sEzsigntemplateglobaldocumentName", "eEzsigntemplateglobaldocumentAcceptationtype", "iEzsigntemplateglobaldocumentPagetotal", "iEzsigntemplateglobaldocumentSignaturetotal"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -47,8 +51,7 @@ class EzsigntemplateglobaldocumentResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -87,6 +90,7 @@ class EzsigntemplateglobaldocumentResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsigntemplateglobaldocumentID": obj.get("pkiEzsigntemplateglobaldocumentID"),
             "sEzsigntemplateglobaldocumentName": obj.get("sEzsigntemplateglobaldocumentName"),
+            "eEzsigntemplateglobaldocumentAcceptationtype": obj.get("eEzsigntemplateglobaldocumentAcceptationtype"),
             "iEzsigntemplateglobaldocumentPagetotal": obj.get("iEzsigntemplateglobaldocumentPagetotal"),
             "iEzsigntemplateglobaldocumentSignaturetotal": obj.get("iEzsigntemplateglobaldocumentSignaturetotal")
         })

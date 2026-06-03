@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **s_ezsigntemplatedocument_name** | **str** | The name of the Ezsigntemplatedocument. | 
 **e_ezsigntemplatedocument_source** | **str** | Indicates where to look for the document binary content. | 
 **e_ezsigntemplatedocument_format** | **str** | Indicates the format of the template. | [optional] 
-**s_ezsigntemplatedocument_base64** | **bytearray** | The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Base64. | [optional] 
+**s_ezsigntemplatedocument_base64** | **bytes** | The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Base64. | [optional] 
 **s_ezsigntemplatedocument_url** | **str** | The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource &#x3D; Url. | [optional] 
 **b_ezsigntemplatedocument_forcerepair** | **bool** | Try to repair the document or flatten it if it cannot be used for electronic signature. | [optional] 
 **e_ezsigntemplatedocument_form** | **str** | If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document. | [optional] 

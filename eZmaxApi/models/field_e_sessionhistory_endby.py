@@ -41,6 +41,7 @@ class FieldESessionhistoryEndby(str, Enum):
     BADUSERTYPE = 'BadUserType'
     BADIP = 'BadIP'
     FORCEDLOGOFF = 'ForcedLogoff'
+    SUSPENDED = 'Suspended'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

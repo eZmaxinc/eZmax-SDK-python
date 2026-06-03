@@ -34,6 +34,7 @@ from eZmaxApi.models.ezmaxinvoicinguser_response_compound import Ezmaxinvoicingu
 from eZmaxApi.models.field_e_ezmaxinvoicing_paymenttype import FieldEEzmaxinvoicingPaymenttype
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzmaxinvoicingResponseCompound(BaseModel):
     """
@@ -66,6 +67,9 @@ class EzmaxinvoicingResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicing_rebatepaymenttype')
     def d_ezmaxinvoicing_rebatepaymenttype_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
@@ -73,12 +77,16 @@ class EzmaxinvoicingResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicing_rebatecontractlength')
     def d_ezmaxinvoicing_rebatecontractlength_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -90,8 +98,7 @@ class EzmaxinvoicingResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

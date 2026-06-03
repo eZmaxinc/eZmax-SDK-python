@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s_file_name** | **str** | The name of the file | 
 **s_file_url** | **str** | The URL used to reach the File | [optional] 
-**s_file_base64** | **bytearray** | The Base64 encoded binary content of the File | [optional] 
+**s_file_base64** | **bytes** | The Base64 encoded binary content of the File | [optional] 
 **e_file_source** | **str** | The source of the File | 
 
 ## Example

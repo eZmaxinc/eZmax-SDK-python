@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CreditcardmerchantRequestCompound(BaseModel):
     """
@@ -47,6 +48,9 @@ class CreditcardmerchantRequestCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
@@ -54,6 +58,9 @@ class CreditcardmerchantRequestCompound(BaseModel):
     @field_validator('s_creditcardmerchant_description')
     def s_creditcardmerchant_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
@@ -61,12 +68,16 @@ class CreditcardmerchantRequestCompound(BaseModel):
     @field_validator('s_creditcardmerchant_storeid')
     def s_creditcardmerchant_storeid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -78,8 +89,7 @@ class CreditcardmerchantRequestCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

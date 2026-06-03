@@ -37,6 +37,7 @@ from eZmaxApi.models.field_e_ezsigntemplatesignature_tooltipposition import Fiel
 from eZmaxApi.models.field_e_ezsigntemplatesignature_type import FieldEEzsigntemplatesignatureType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
     """
@@ -91,6 +92,9 @@ class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
@@ -100,6 +104,9 @@ class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
@@ -111,6 +118,9 @@ class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
@@ -121,12 +131,16 @@ class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -138,8 +152,7 @@ class EzsigntemplatesignatureResponseCompoundV4(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

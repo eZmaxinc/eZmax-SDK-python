@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CommonResponseErrorSTemporaryFileUrl(BaseModel):
     """
@@ -38,6 +39,9 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
     @field_validator('s_error_message')
     def s_error_message_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,500}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,500}$/")
         return value
@@ -48,12 +52,16 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -65,8 +73,7 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

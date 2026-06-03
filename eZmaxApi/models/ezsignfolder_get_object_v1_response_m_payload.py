@@ -30,6 +30,7 @@ from eZmaxApi.models.field_e_ezsignfolder_sendreminderfrequency import FieldEEzs
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfolderGetObjectV1ResponseMPayload(BaseModel):
     """
@@ -49,7 +50,7 @@ class EzsignfolderGetObjectV1ResponseMPayload(BaseModel):
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
     b_ezsignfolder_isdisposable: Optional[StrictBool] = Field(default=None, description="If the Ezsigndocument can be disposed", alias="bEzsignfolderIsdisposable")
     e_ezsignfolder_sendreminderfrequency: Optional[FieldEEzsignfolderSendreminderfrequency] = Field(default=None, alias="eEzsignfolderSendreminderfrequency")
-    i_ezsignfolder_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
+    i_ezsignfolder_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
     i_ezsignfolder_sendreminderotherdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days after the first reminder sending", alias="iEzsignfolderSendreminderotherdays")
     dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
     dt_ezsignfolder_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsignfolder can be signed.", alias="dtEzsignfolderDuedate")
@@ -68,6 +69,9 @@ class EzsignfolderGetObjectV1ResponseMPayload(BaseModel):
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
@@ -78,12 +82,16 @@ class EzsignfolderGetObjectV1ResponseMPayload(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -95,8 +103,7 @@ class EzsignfolderGetObjectV1ResponseMPayload(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

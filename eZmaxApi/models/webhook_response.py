@@ -27,12 +27,13 @@ from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagem
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class WebhookResponse(BaseModel):
     """
     A webhook object
     """ # noqa: E501
-    pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
+    pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID")
     fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID")
     s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
@@ -48,12 +49,15 @@ class WebhookResponse(BaseModel):
     b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
     s_authenticationexternal_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription")
-    obj_audit: CommonAudit = Field(alias="objAudit")
+    obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "sAuthenticationexternalDescription", "objAudit"]
 
     @field_validator('s_webhook_url')
     def s_webhook_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
@@ -64,12 +68,16 @@ class WebhookResponse(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -81,8 +89,7 @@ class WebhookResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

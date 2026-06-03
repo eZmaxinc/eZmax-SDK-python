@@ -6,7 +6,7 @@ A custom Webhook object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**pki_webhook_id** | **int** | The unique ID of the Webhook | 
+**pki_webhook_id** | **int** | The unique ID of the Webhook | [optional] 
 **fki_authenticationexternal_id** | **int** | The unique ID of the Authenticationexternal | [optional] 
 **s_webhook_description** | **str** | The description of the Webhook | 
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
@@ -22,13 +22,14 @@ Name | Type | Description | Notes
 **b_webhook_issigned** | **bool** | Whether the requests will be signed or not | 
 **b_webhook_skipsslvalidation** | **bool** | Wheter the server&#39;s SSL certificate should be validated or not. Not recommended to skip for production use | 
 **s_authenticationexternal_description** | **str** | The description of the Authenticationexternal | [optional] 
-**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
+**obj_audit** | [**CommonAudit**](CommonAudit.md) |  | [optional] 
 **s_webhook_event** | **str** | The concatenated string to describe the Webhook event | [optional] 
 **s_webhook_authentificationexternalerror** | **str** | Error message when token renewal failed or is not configured. Only if an Authenticationexternal is set. | [optional] 
 **a_obj_webhookheader** | [**List[WebhookheaderResponseCompound]**](WebhookheaderResponseCompound.md) |  | [optional] 
 **pks_customer_code** | **str** | The customer code assigned to your account | 
 **b_webhook_test** | **bool** | Wheter the webhook received is a manual test or a real event | 
 **e_webhook_emittype** | **str** | Wheter the webhook received is a manual test or a real event | [optional] 
+**fki_ezmaxpartnerproductstagewebhook_id** | **int** | The unique ID of the Ezmaxpartnerproductstagewebhook | [optional] 
 
 ## Example
 

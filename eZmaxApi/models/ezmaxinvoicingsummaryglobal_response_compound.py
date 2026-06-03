@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.ezmaxinvoicingcommission_response_compound import EzmaxinvoicingcommissionResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     """
@@ -54,6 +55,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_countreal')
     def d_ezmaxinvoicingsummaryglobal_countreal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
         return value
@@ -61,6 +65,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_countbilled')
     def d_ezmaxinvoicingsummaryglobal_countbilled_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
         return value
@@ -68,6 +75,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_subtotal')
     def d_ezmaxinvoicingsummaryglobal_subtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -75,6 +85,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_rebateamount')
     def d_ezmaxinvoicingsummaryglobal_rebateamount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -82,6 +95,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_rebatepercent')
     def d_ezmaxinvoicingsummaryglobal_rebatepercent_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
@@ -89,6 +105,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_rebatetotal')
     def d_ezmaxinvoicingsummaryglobal_rebatetotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -96,6 +115,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
     @field_validator('d_ezmaxinvoicingsummaryglobal_total')
     def d_ezmaxinvoicingsummaryglobal_total_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -105,6 +127,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
@@ -116,6 +141,9 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -126,12 +154,16 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -143,8 +175,7 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

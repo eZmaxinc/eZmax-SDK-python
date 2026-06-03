@@ -25,6 +25,7 @@ from eZmaxApi.models.field_e_ezdoctemplatedocument_privacylevel import FieldEEzd
 from eZmaxApi.models.multilingual_ezdoctemplatedocument_name import MultilingualEzdoctemplatedocumentName
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzdoctemplatedocumentRequest(BaseModel):
     """
@@ -34,14 +35,15 @@ class EzdoctemplatedocumentRequest(BaseModel):
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
     fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
     fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID")
-    fki_ezdoctemplatefieldtypecategory_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="fkiEzdoctemplatefieldtypecategoryID")
+    fki_ezdoctemplatefieldtypecategory_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="fkiEzdoctemplatefieldtypecategoryID")
     e_ezdoctemplatedocument_privacylevel: Optional[FieldEEzdoctemplatedocumentPrivacylevel] = Field(default=None, alias="eEzdoctemplatedocumentPrivacylevel")
     b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive")
     obj_ezdoctemplatedocument_name: MultilingualEzdoctemplatedocumentName = Field(alias="objEzdoctemplatedocumentName")
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "fkiLanguageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatetypeID", "fkiEzdoctemplatefieldtypecategoryID", "eEzdoctemplatedocumentPrivacylevel", "bEzdoctemplatedocumentIsactive", "objEzdoctemplatedocumentName"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -53,8 +55,7 @@ class EzdoctemplatedocumentRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **ezsignbulksendtransmission_get_batch_file_v1**
-> bytearray ezsignbulksendtransmission_get_batch_file_v1(pki_ezsignbulksendtransmission_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+> bytes ezsignbulksendtransmission_get_batch_file_v1(pki_ezsignbulksendtransmission_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
 
 Retrieve file to download documents in batch
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 

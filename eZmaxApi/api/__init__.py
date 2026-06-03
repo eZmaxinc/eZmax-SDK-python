@@ -4,6 +4,7 @@
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi
 from eZmaxApi.api.global_ezmaxclient_api import GlobalEzmaxclientApi
 from eZmaxApi.api.global_ezmaxcustomer_api import GlobalEzmaxcustomerApi
+from eZmaxApi.api.module_ezmaxmaillinglist_api import ModuleEzmaxmaillinglistApi
 from eZmaxApi.api.module_report_api import ModuleReportApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
@@ -45,6 +46,8 @@ from eZmaxApi.api.object_ezdoctemplatetype_api import ObjectEzdoctemplatetypeApi
 from eZmaxApi.api.object_ezmaxcustomer_api import ObjectEzmaxcustomerApi
 from eZmaxApi.api.object_ezmaxcustomeruser_api import ObjectEzmaxcustomeruserApi
 from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
+from eZmaxApi.api.object_ezmaxmaillinglist_api import ObjectEzmaxmaillinglistApi
+from eZmaxApi.api.object_ezmaxpartner_api import ObjectEzmaxpartnerApi
 from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi
 from eZmaxApi.api.object_ezsignannotation_api import ObjectEzsignannotationApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi

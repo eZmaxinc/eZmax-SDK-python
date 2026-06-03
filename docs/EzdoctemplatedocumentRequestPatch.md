@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **e_ezdoctemplatedocument_format** | **str** | Indicates the format of the template.  This field is Required when sEzdoctemplatedocumentBase64 is set. | [optional] 
 **s_ezdoctemplatedocument_fields** | **str** | List of field in Ezdoctemplatedocument | [optional] 
-**s_ezdoctemplatedocument_base64** | **bytearray** | The Base64 encoded binary content of the document.  This field is Required when eEzdoctemplatedocumentFormat is set. | [optional] 
+**s_ezdoctemplatedocument_base64** | **bytes** | The Base64 encoded binary content of the document.  This field is Required when eEzdoctemplatedocumentFormat is set. | [optional] 
 
 ## Example
 

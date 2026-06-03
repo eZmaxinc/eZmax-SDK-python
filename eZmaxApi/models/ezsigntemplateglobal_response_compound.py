@@ -21,12 +21,14 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.ezsigntemplateglobalannotation_response_compound import EzsigntemplateglobalannotationResponseCompound
 from eZmaxApi.models.ezsigntemplateglobaldocument_response import EzsigntemplateglobaldocumentResponse
 from eZmaxApi.models.ezsigntemplateglobalsigner_response_compound import EzsigntemplateglobalsignerResponseCompound
 from eZmaxApi.models.field_e_ezsigntemplateglobal_module import FieldEEzsigntemplateglobalModule
 from eZmaxApi.models.field_e_ezsigntemplateglobal_supplier import FieldEEzsigntemplateglobalSupplier
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigntemplateglobalResponseCompound(BaseModel):
     """
@@ -44,17 +46,22 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
     s_ezsigntemplateglobal_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription")
     obj_ezsigntemplateglobaldocument: Optional[EzsigntemplateglobaldocumentResponse] = Field(default=None, alias="objEzsigntemplateglobaldocument")
     a_obj_ezsigntemplateglobalsigner: List[EzsigntemplateglobalsignerResponseCompound] = Field(alias="a_objEzsigntemplateglobalsigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalID", "fkiEzsigntemplateglobaldocumentID", "fkiModuleID", "sModuleNameX", "fkiLanguageID", "sLanguageNameX", "eEzsigntemplateglobalModule", "eEzsigntemplateglobalSupplier", "sEzsigntemplateglobalCode", "sEzsigntemplateglobalDescription", "objEzsigntemplateglobaldocument", "a_objEzsigntemplateglobalsigner"]
+    a_obj_ezsigntemplateglobalannotation: Optional[List[EzsigntemplateglobalannotationResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateglobalannotation")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalID", "fkiEzsigntemplateglobaldocumentID", "fkiModuleID", "sModuleNameX", "fkiLanguageID", "sLanguageNameX", "eEzsigntemplateglobalModule", "eEzsigntemplateglobalSupplier", "sEzsigntemplateglobalCode", "sEzsigntemplateglobalDescription", "objEzsigntemplateglobaldocument", "a_objEzsigntemplateglobalsigner", "a_objEzsigntemplateglobalannotation"]
 
     @field_validator('s_ezsigntemplateglobal_code')
     def s_ezsigntemplateglobal_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,10}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,10}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -66,8 +73,7 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -102,6 +108,13 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
                 if _item_a_obj_ezsigntemplateglobalsigner:
                     _items.append(_item_a_obj_ezsigntemplateglobalsigner.to_dict())
             _dict['a_objEzsigntemplateglobalsigner'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateglobalannotation (list)
+        _items = []
+        if self.a_obj_ezsigntemplateglobalannotation:
+            for _item_a_obj_ezsigntemplateglobalannotation in self.a_obj_ezsigntemplateglobalannotation:
+                if _item_a_obj_ezsigntemplateglobalannotation:
+                    _items.append(_item_a_obj_ezsigntemplateglobalannotation.to_dict())
+            _dict['a_objEzsigntemplateglobalannotation'] = _items
         return _dict
 
     @classmethod
@@ -125,7 +138,8 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
             "sEzsigntemplateglobalCode": obj.get("sEzsigntemplateglobalCode"),
             "sEzsigntemplateglobalDescription": obj.get("sEzsigntemplateglobalDescription"),
             "objEzsigntemplateglobaldocument": EzsigntemplateglobaldocumentResponse.from_dict(obj["objEzsigntemplateglobaldocument"]) if obj.get("objEzsigntemplateglobaldocument") is not None else None,
-            "a_objEzsigntemplateglobalsigner": [EzsigntemplateglobalsignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateglobalsigner"]] if obj.get("a_objEzsigntemplateglobalsigner") is not None else None
+            "a_objEzsigntemplateglobalsigner": [EzsigntemplateglobalsignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateglobalsigner"]] if obj.get("a_objEzsigntemplateglobalsigner") is not None else None,
+            "a_objEzsigntemplateglobalannotation": [EzsigntemplateglobalannotationResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateglobalannotation"]] if obj.get("a_objEzsigntemplateglobalannotation") is not None else None
         })
         return _obj
 

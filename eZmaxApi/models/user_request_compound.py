@@ -28,6 +28,7 @@ from eZmaxApi.models.field_e_user_type import FieldEUserType
 from eZmaxApi.models.phone_request_compound import PhoneRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UserRequestCompound(BaseModel):
     """
@@ -46,7 +47,7 @@ class UserRequestCompound(BaseModel):
     fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
     obj_phone_home: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneHome")
     obj_phone_sms: Optional[PhoneRequestCompound] = Field(default=None, alias="objPhoneSMS")
-    fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|", alias="fkiSecretquestionID")
+    fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |23|Secret Code| |24|Your reference code| |25|What are the last 4 digits of your SIN| |26|What is your postal code| |27|What is your employee number| |28|What is your manager’s first name| |29|What is your file number| |30|What is your client/member number| |31|What is your license number| |32|What are the last 4 digits of your phone number| |33|What is your student number|", alias="fkiSecretquestionID")
     s_user_secretresponse: Optional[StrictStr] = Field(default=None, description="The answer to the Secretquestion", alias="sUserSecretresponse")
     fki_module_id_form: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleIDForm")
     e_user_type: FieldEUserType = Field(alias="eUserType")
@@ -61,11 +62,15 @@ class UserRequestCompound(BaseModel):
     b_user_validatebydirector: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by a director or not", alias="bUserValidatebydirector")
     b_user_attachmentautoverified: Optional[StrictBool] = Field(default=None, description="Whether if Attachments uploaded by the User must be validated or not", alias="bUserAttachmentautoverified")
     b_user_changepassword: Optional[StrictBool] = Field(default=None, description="Whether if the User is forced to change its password", alias="bUserChangepassword")
-    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword"]
+    b_user_ezsigntemplaterolegrouping: Optional[StrictBool] = Field(default=None, description="Whether we group or not the Ezsigntemplate roles", alias="bUserEzsigntemplaterolegrouping")
+    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword", "bUserEzsigntemplaterolegrouping"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
@@ -76,12 +81,16 @@ class UserRequestCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -93,8 +102,7 @@ class UserRequestCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -167,7 +175,8 @@ class UserRequestCompound(BaseModel):
             "bUserValidatebyadministration": obj.get("bUserValidatebyadministration"),
             "bUserValidatebydirector": obj.get("bUserValidatebydirector"),
             "bUserAttachmentautoverified": obj.get("bUserAttachmentautoverified"),
-            "bUserChangepassword": obj.get("bUserChangepassword")
+            "bUserChangepassword": obj.get("bUserChangepassword"),
+            "bUserEzsigntemplaterolegrouping": obj.get("bUserEzsigntemplaterolegrouping")
         })
         return _obj
 

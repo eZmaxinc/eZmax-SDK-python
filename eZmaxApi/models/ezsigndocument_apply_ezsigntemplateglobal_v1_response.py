@@ -25,10 +25,11 @@ from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjD
 from eZmaxApi.models.common_response_warning import CommonResponseWarning
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigndocumentApplyEzsigntemplateglobalV1Response(BaseModel):
     """
-    Response for POST /2/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplate
+    Response for POST /1/object/ezsigndocument/{pkiEzsigndocument}/applyEzsigntemplateglobal
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
@@ -36,7 +37,8 @@ class EzsigndocumentApplyEzsigntemplateglobalV1Response(BaseModel):
     __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "a_objWarning"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +50,7 @@ class EzsigndocumentApplyEzsigntemplateglobalV1Response(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

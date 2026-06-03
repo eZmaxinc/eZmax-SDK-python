@@ -26,6 +26,7 @@ from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagem
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class WebhookRequest(BaseModel):
     """
@@ -48,12 +49,16 @@ class WebhookRequest(BaseModel):
     @field_validator('s_webhook_url')
     def s_webhook_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -65,8 +70,7 @@ class WebhookRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

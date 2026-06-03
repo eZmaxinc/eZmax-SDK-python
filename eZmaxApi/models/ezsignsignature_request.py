@@ -32,6 +32,7 @@ from eZmaxApi.models.field_e_ezsignsignature_tooltipposition import FieldEEzsign
 from eZmaxApi.models.field_e_ezsignsignature_type import FieldEEzsignsignatureType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignsignatureRequest(BaseModel):
     """
@@ -78,6 +79,9 @@ class EzsignsignatureRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
@@ -87,6 +91,9 @@ class EzsignsignatureRequest(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
@@ -98,12 +105,16 @@ class EzsignsignatureRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{1,9}?\.[\d]{2}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -115,8 +126,7 @@ class EzsignsignatureRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **fki_attachment_id** | **int** | The unique ID of the Attachment. | [optional] 
 **fki_inscriptionchecklist_id** | **int** | The unique ID of the Inscriptionchecklist | [optional] 
 **s_attachment_url** | **str** | The url of the file to import | [optional] 
-**s_attachment_base64** | **bytearray** | The Base64 encoded binary content of the attachment. | [optional] 
+**s_attachment_base64** | **bytes** | The Base64 encoded binary content of the attachment. | [optional] 
 **s_attachment_name** | **str** | The name of the Attachment | 
 **s_attachment_category** | **str** | The attachment category | 
 **e_attachment_privacy** | [**FieldEAttachmentPrivacy**](FieldEAttachmentPrivacy.md) |  | 

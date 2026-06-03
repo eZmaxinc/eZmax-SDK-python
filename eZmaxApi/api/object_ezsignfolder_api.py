@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     eZmax API Definition (Full)
 
@@ -11,6 +9,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -32,6 +31,8 @@ from eZmaxApi.models.ezsignfolder_delete_object_v1_response import EzsignfolderD
 from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_request import EzsignfolderDisposeEzsignfoldersV1Request
 from eZmaxApi.models.ezsignfolder_dispose_ezsignfolders_v1_response import EzsignfolderDisposeEzsignfoldersV1Response
 from eZmaxApi.models.ezsignfolder_dispose_v1_response import EzsignfolderDisposeV1Response
+from eZmaxApi.models.ezsignfolder_duplicate_v1_request import EzsignfolderDuplicateV1Request
+from eZmaxApi.models.ezsignfolder_duplicate_v1_response import EzsignfolderDuplicateV1Response
 from eZmaxApi.models.ezsignfolder_edit_object_v3_request import EzsignfolderEditObjectV3Request
 from eZmaxApi.models.ezsignfolder_edit_object_v3_response import EzsignfolderEditObjectV3Response
 from eZmaxApi.models.ezsignfolder_end_prematurely_v1_response import EzsignfolderEndPrematurelyV1Response
@@ -44,10 +45,13 @@ from eZmaxApi.models.ezsignfolder_get_communication_count_v1_response import Ezs
 from eZmaxApi.models.ezsignfolder_get_communication_list_v1_response import EzsignfolderGetCommunicationListV1Response
 from eZmaxApi.models.ezsignfolder_get_communicationrecipients_v1_response import EzsignfolderGetCommunicationrecipientsV1Response
 from eZmaxApi.models.ezsignfolder_get_communicationsenders_v1_response import EzsignfolderGetCommunicationsendersV1Response
+from eZmaxApi.models.ezsignfolder_get_ezsignannotations_v1_response import EzsignfolderGetEzsignannotationsV1Response
 from eZmaxApi.models.ezsignfolder_get_ezsigndocuments_v1_response import EzsignfolderGetEzsigndocumentsV1Response
 from eZmaxApi.models.ezsignfolder_get_ezsigndocuments_v2_response import EzsignfolderGetEzsigndocumentsV2Response
 from eZmaxApi.models.ezsignfolder_get_ezsignfoldersignerassociations_v1_response import EzsignfolderGetEzsignfoldersignerassociationsV1Response
+from eZmaxApi.models.ezsignfolder_get_ezsignformfieldgroups_v1_response import EzsignfolderGetEzsignformfieldgroupsV1Response
 from eZmaxApi.models.ezsignfolder_get_ezsignsignatures_automatic_v1_response import EzsignfolderGetEzsignsignaturesAutomaticV1Response
+from eZmaxApi.models.ezsignfolder_get_ezsignsignatures_v1_response import EzsignfolderGetEzsignsignaturesV1Response
 from eZmaxApi.models.ezsignfolder_get_forms_data_v1_response import EzsignfolderGetFormsDataV1Response
 from eZmaxApi.models.ezsignfolder_get_list_v1_response import EzsignfolderGetListV1Response
 from eZmaxApi.models.ezsignfolder_get_object_v1_response import EzsignfolderGetObjectV1Response
@@ -59,6 +63,8 @@ from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v1_request import
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v1_response import EzsignfolderImportEzsigntemplatepackageV1Response
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v2_request import EzsignfolderImportEzsigntemplatepackageV2Request
 from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v2_response import EzsignfolderImportEzsigntemplatepackageV2Response
+from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v3_request import EzsignfolderImportEzsigntemplatepackageV3Request
+from eZmaxApi.models.ezsignfolder_import_ezsigntemplatepackage_v3_response import EzsignfolderImportEzsigntemplatepackageV3Response
 from eZmaxApi.models.ezsignfolder_reorder_v2_request import EzsignfolderReorderV2Request
 from eZmaxApi.models.ezsignfolder_reorder_v2_response import EzsignfolderReorderV2Response
 from eZmaxApi.models.ezsignfolder_send_v1_request import EzsignfolderSendV1Request
@@ -398,7 +404,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Download multiples files from an Ezsignfolder
 
 
@@ -438,7 +444,7 @@ class ObjectEzsignfolderApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
@@ -471,7 +477,7 @@ class ObjectEzsignfolderApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Download multiples files from an Ezsignfolder
 
 
@@ -511,7 +517,7 @@ class ObjectEzsignfolderApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
@@ -584,7 +590,7 @@ class ObjectEzsignfolderApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
@@ -2331,6 +2337,301 @@ class ObjectEzsignfolderApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/dispose',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignfolder_duplicate_v1(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfolderDuplicateV1Response:
+        """Duplicate the Ezsignfolder
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_duplicate_v1_request: (required)
+        :type ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_duplicate_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_duplicate_v1_request=ezsignfolder_duplicate_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderDuplicateV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfolder_duplicate_v1_with_http_info(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfolderDuplicateV1Response]:
+        """Duplicate the Ezsignfolder
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_duplicate_v1_request: (required)
+        :type ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_duplicate_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_duplicate_v1_request=ezsignfolder_duplicate_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderDuplicateV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfolder_duplicate_v1_without_preload_content(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Duplicate the Ezsignfolder
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_duplicate_v1_request: (required)
+        :type ezsignfolder_duplicate_v1_request: EzsignfolderDuplicateV1Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_duplicate_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_duplicate_v1_request=ezsignfolder_duplicate_v1_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderDuplicateV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfolder_duplicate_v1_serialize(
+        self,
+        pki_ezsignfolder_id,
+        ezsignfolder_duplicate_v1_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfolder_id is not None:
+            _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignfolder_duplicate_v1_request is not None:
+            _body_params = ezsignfolder_duplicate_v1_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/duplicate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5328,6 +5629,273 @@ class ObjectEzsignfolderApi:
 
 
     @validate_call
+    def ezsignfolder_get_ezsignannotations_v1(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfolderGetEzsignannotationsV1Response:
+        """Retrieve an existing Ezsignfolder's Ezsignannotations
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignannotations_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignannotationsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignannotations_v1_with_http_info(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfolderGetEzsignannotationsV1Response]:
+        """Retrieve an existing Ezsignfolder's Ezsignannotations
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignannotations_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignannotationsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignannotations_v1_without_preload_content(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignfolder's Ezsignannotations
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignannotations_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignannotationsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfolder_get_ezsignannotations_v1_serialize(
+        self,
+        pki_ezsignfolder_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfolder_id is not None:
+            _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignannotations',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def ezsignfolder_get_ezsigndocuments_v1(
         self,
         pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
@@ -6123,6 +6691,273 @@ class ObjectEzsignfolderApi:
 
 
     @validate_call
+    def ezsignfolder_get_ezsignformfieldgroups_v1(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfolderGetEzsignformfieldgroupsV1Response:
+        """Retrieve an existing Ezsignfolder's Ezsignformfieldgroups
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignformfieldgroups_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignformfieldgroups_v1_with_http_info(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfolderGetEzsignformfieldgroupsV1Response]:
+        """Retrieve an existing Ezsignfolder's Ezsignformfieldgroups
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignformfieldgroups_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignformfieldgroups_v1_without_preload_content(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignfolder's Ezsignformfieldgroups
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignformfieldgroups_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignformfieldgroupsV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfolder_get_ezsignformfieldgroups_v1_serialize(
+        self,
+        pki_ezsignfolder_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfolder_id is not None:
+            _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignformfieldgroups',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def ezsignfolder_get_ezsignsignatures_automatic_v1(
         self,
         pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
@@ -6371,6 +7206,273 @@ class ObjectEzsignfolderApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignaturesAutomatic',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignsignatures_v1(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfolderGetEzsignsignaturesV1Response:
+        """Retrieve an existing Ezsignfolder's Ezsignsignatures
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignsignatures_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignsignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignsignatures_v1_with_http_info(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfolderGetEzsignsignaturesV1Response]:
+        """Retrieve an existing Ezsignfolder's Ezsignsignatures
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignsignatures_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignsignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfolder_get_ezsignsignatures_v1_without_preload_content(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an existing Ezsignfolder's Ezsignsignatures
+
+        
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_get_ezsignsignatures_v1_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderGetEzsignsignaturesV1Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfolder_get_ezsignsignatures_v1_serialize(
+        self,
+        pki_ezsignfolder_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfolder_id is not None:
+            _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/1/object/ezsignfolder/{pkiEzsignfolderID}/getEzsignsignatures',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6680,7 +7782,7 @@ class ObjectEzsignfolderApi:
     ) -> EzsignfolderGetListV1Response:
         """Retrieve Ezsignfolder list
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup | | eEzsignfolderSource | Normal<br>Ezsignbulksend<br>Ezsigntemplatepublic |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
 
         :param e_order_by: Specify how you want the results to be sorted
         :type e_order_by: str
@@ -6764,7 +7866,7 @@ class ObjectEzsignfolderApi:
     ) -> ApiResponse[EzsignfolderGetListV1Response]:
         """Retrieve Ezsignfolder list
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup | | eEzsignfolderSource | Normal<br>Ezsignbulksend<br>Ezsigntemplatepublic |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
 
         :param e_order_by: Specify how you want the results to be sorted
         :type e_order_by: str
@@ -6848,7 +7950,7 @@ class ObjectEzsignfolderApi:
     ) -> RESTResponseType:
         """Retrieve Ezsignfolder list
 
-        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
+        Enum values that can be filtered in query parameter *sFilter*:  | Variable | Valid values | |---|---| | eEzsignfolderStep | Unsent<br>Sent<br>PartiallySigned<br>Expired<br>Completed<br>Archived<br>Disposed| | eEzsignfoldertypePrivacylevel | User<br>Usergroup | | eEzsignfolderSource | Normal<br>Ezsignbulksend<br>Ezsigntemplatepublic |  Advanced filters that can be used in query parameter *sFilter*:  | Variable | |---| | fkiUserID | | sContactFirstname | | sContactLastname | | sUserFirstname | | sUserLastname | | sEzsigndocumentName |
 
         :param e_order_by: Specify how you want the results to be sorted
         :type e_order_by: str
@@ -8399,7 +9501,7 @@ class ObjectEzsignfolderApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> EzsignfolderImportEzsigntemplatepackageV2Response:
-        """Import an Ezsigntemplatepackage in the Ezsignfolder
+        """(Deprecated) Import an Ezsigntemplatepackage in the Ezsignfolder
 
         This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
 
@@ -8428,6 +9530,7 @@ class ObjectEzsignfolderApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfolder_import_ezsigntemplatepackage_v2_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
@@ -8472,7 +9575,7 @@ class ObjectEzsignfolderApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[EzsignfolderImportEzsigntemplatepackageV2Response]:
-        """Import an Ezsigntemplatepackage in the Ezsignfolder
+        """(Deprecated) Import an Ezsigntemplatepackage in the Ezsignfolder
 
         This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
 
@@ -8501,6 +9604,7 @@ class ObjectEzsignfolderApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfolder_import_ezsigntemplatepackage_v2_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
@@ -8545,7 +9649,7 @@ class ObjectEzsignfolderApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Import an Ezsigntemplatepackage in the Ezsignfolder
+        """(Deprecated) Import an Ezsigntemplatepackage in the Ezsignfolder
 
         This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
 
@@ -8574,6 +9678,7 @@ class ObjectEzsignfolderApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("POST /2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage is deprecated.", DeprecationWarning)
 
         _param = self._ezsignfolder_import_ezsigntemplatepackage_v2_serialize(
             pki_ezsignfolder_id=pki_ezsignfolder_id,
@@ -8661,6 +9766,301 @@ class ObjectEzsignfolderApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/2/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ezsignfolder_import_ezsigntemplatepackage_v3(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EzsignfolderImportEzsigntemplatepackageV3Response:
+        """Import an Ezsigntemplatepackage in the Ezsignfolder
+
+        This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_import_ezsigntemplatepackage_v3_request: (required)
+        :type ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_import_ezsigntemplatepackage_v3_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_import_ezsigntemplatepackage_v3_request=ezsignfolder_import_ezsigntemplatepackage_v3_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderImportEzsigntemplatepackageV3Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ezsignfolder_import_ezsigntemplatepackage_v3_with_http_info(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EzsignfolderImportEzsigntemplatepackageV3Response]:
+        """Import an Ezsigntemplatepackage in the Ezsignfolder
+
+        This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_import_ezsigntemplatepackage_v3_request: (required)
+        :type ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_import_ezsigntemplatepackage_v3_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_import_ezsigntemplatepackage_v3_request=ezsignfolder_import_ezsigntemplatepackage_v3_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderImportEzsigntemplatepackageV3Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ezsignfolder_import_ezsigntemplatepackage_v3_without_preload_content(
+        self,
+        pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)],
+        ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Import an Ezsigntemplatepackage in the Ezsignfolder
+
+        This endpoint imports all of the Ezsigntemplates from the Ezsigntemplatepackage into the Ezsignfolder as Ezsigndocuments.  This allows to automatically apply all the Ezsigntemplateformfieldgroups and Ezsigntemplatesignatures on the newly created Ezsigndocuments in a single step.
+
+        :param pki_ezsignfolder_id: (required)
+        :type pki_ezsignfolder_id: int
+        :param ezsignfolder_import_ezsigntemplatepackage_v3_request: (required)
+        :type ezsignfolder_import_ezsigntemplatepackage_v3_request: EzsignfolderImportEzsigntemplatepackageV3Request
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ezsignfolder_import_ezsigntemplatepackage_v3_serialize(
+            pki_ezsignfolder_id=pki_ezsignfolder_id,
+            ezsignfolder_import_ezsigntemplatepackage_v3_request=ezsignfolder_import_ezsigntemplatepackage_v3_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "EzsignfolderImportEzsigntemplatepackageV3Response",
+            '404': "CommonResponseError",
+            '422': "CommonResponseError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ezsignfolder_import_ezsigntemplatepackage_v3_serialize(
+        self,
+        pki_ezsignfolder_id,
+        ezsignfolder_import_ezsigntemplatepackage_v3_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if pki_ezsignfolder_id is not None:
+            _path_params['pkiEzsignfolderID'] = pki_ezsignfolder_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if ezsignfolder_import_ezsigntemplatepackage_v3_request is not None:
+            _body_params = ezsignfolder_import_ezsigntemplatepackage_v3_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Authorization'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/3/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

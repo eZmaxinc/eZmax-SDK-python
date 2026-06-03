@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfolder_documentdependency import FieldEEzsignfolderDocumentdependency
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfolderRequestV3(BaseModel):
     """
@@ -37,7 +38,7 @@ class EzsignfolderRequestV3(BaseModel):
     s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
     t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
-    i_ezsignfolder_sendreminderfirstdays: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The number of days before the the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
+    i_ezsignfolder_sendreminderfirstdays: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The number of days before the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
     i_ezsignfolder_sendreminderotherdays: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The number of days after the first reminder sending", alias="iEzsignfolderSendreminderotherdays")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiTimezoneID", "fkiEzsigntsarequirementID", "eEzsignfolderDocumentdependency", "sEzsignfolderDescription", "tEzsignfolderNote", "tEzsignfolderMessage", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "sEzsignfolderExternalid"]
@@ -45,6 +46,9 @@ class EzsignfolderRequestV3(BaseModel):
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
@@ -55,12 +59,16 @@ class EzsignfolderRequestV3(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -72,8 +80,7 @@ class EzsignfolderRequestV3(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

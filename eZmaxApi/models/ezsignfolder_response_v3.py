@@ -30,6 +30,7 @@ from eZmaxApi.models.field_e_ezsignfolder_messageorder import FieldEEzsignfolder
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfolderResponseV3(BaseModel):
     """
@@ -49,7 +50,7 @@ class EzsignfolderResponseV3(BaseModel):
     s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
     b_ezsignfolder_isdisposable: Optional[StrictBool] = Field(default=None, description="If the Ezsigndocument can be disposed", alias="bEzsignfolderIsdisposable")
-    i_ezsignfolder_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
+    i_ezsignfolder_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the first reminder sending", alias="iEzsignfolderSendreminderfirstdays")
     i_ezsignfolder_sendreminderotherdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days after the first reminder sending", alias="iEzsignfolderSendreminderotherdays")
     dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
     dt_ezsignfolder_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsignfolder can be signed.", alias="dtEzsignfolderDuedate")
@@ -57,6 +58,7 @@ class EzsignfolderResponseV3(BaseModel):
     dt_ezsignfolder_scheduledarchive: Optional[StrictStr] = Field(default=None, description="The scheduled date and time at which the Ezsignfolder should be archived.", alias="dtEzsignfolderScheduledarchive")
     dt_ezsignfolder_scheduleddispose: Optional[StrictStr] = Field(default=None, description="The scheduled date at which the Ezsignfolder should be Disposed.", alias="dtEzsignfolderScheduleddispose")
     e_ezsignfolder_step: Optional[FieldEEzsignfolderStep] = Field(default=None, alias="eEzsignfolderStep")
+    i_ezsignfolder_stepcurrent: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The current step of the ezsignfolder when eEzsignfolderCompletion = 'PerEzsignfolderStepSync'", alias="iEzsignfolderStepcurrent")
     dt_ezsignfolder_close: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was closed. Either by applying the last signature or by completing it prematurely.", alias="dtEzsignfolderClose")
     dt_ezsignfolder_archive: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was archived.", alias="dtEzsignfolderArchive")
     dt_ezsignfolder_dispose: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was disposed.", alias="dtEzsignfolderDispose")
@@ -65,11 +67,14 @@ class EzsignfolderResponseV3(BaseModel):
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid")
     e_ezsignfolder_access: Optional[ComputedEEzsignfolderAccess] = Field(default=None, alias="eEzsignfolderAccess")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiTimezoneID", "eEzsignfolderCompletion", "eEzsignfolderDocumentdependency", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "tEzsignfolderMessage", "eEzsignfolderMessageorder", "objAudit", "sEzsignfolderExternalid", "eEzsignfolderAccess"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "objEzsignfoldertype", "fkiTimezoneID", "eEzsignfolderCompletion", "eEzsignfolderDocumentdependency", "sEzsignfoldertypeNameX", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiEzsigntsarequirementID", "sEzsigntsarequirementDescriptionX", "sEzsignfolderDescription", "tEzsignfolderNote", "bEzsignfolderIsdisposable", "iEzsignfolderSendreminderfirstdays", "iEzsignfolderSendreminderotherdays", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderDuedate", "dtEzsignfolderSentdate", "dtEzsignfolderScheduledarchive", "dtEzsignfolderScheduleddispose", "eEzsignfolderStep", "iEzsignfolderStepcurrent", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "tEzsignfolderMessage", "eEzsignfolderMessageorder", "objAudit", "sEzsignfolderExternalid", "eEzsignfolderAccess"]
 
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
@@ -80,12 +85,16 @@ class EzsignfolderResponseV3(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -97,8 +106,7 @@ class EzsignfolderResponseV3(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -163,6 +171,7 @@ class EzsignfolderResponseV3(BaseModel):
             "dtEzsignfolderScheduledarchive": obj.get("dtEzsignfolderScheduledarchive"),
             "dtEzsignfolderScheduleddispose": obj.get("dtEzsignfolderScheduleddispose"),
             "eEzsignfolderStep": obj.get("eEzsignfolderStep"),
+            "iEzsignfolderStepcurrent": obj.get("iEzsignfolderStepcurrent"),
             "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
             "dtEzsignfolderArchive": obj.get("dtEzsignfolderArchive"),
             "dtEzsignfolderDispose": obj.get("dtEzsignfolderDispose"),

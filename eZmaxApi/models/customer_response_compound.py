@@ -25,6 +25,7 @@ from eZmaxApi.models.field_e_customer_marketingcorrespondence import FieldECusto
 from eZmaxApi.models.field_e_customer_type import FieldECustomerType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CustomerResponseCompound(BaseModel):
     """
@@ -87,6 +88,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('s_customer_name')
     def s_customer_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
@@ -96,6 +100,9 @@ class CustomerResponseCompound(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
@@ -107,6 +114,9 @@ class CustomerResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
@@ -114,6 +124,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('s_customer_code')
     def s_customer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
@@ -121,6 +134,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('d_customer_fulltimeequivalent')
     def d_customer_fulltimeequivalent_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
@@ -128,6 +144,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('d_customer_minimumchargeableinterests')
     def d_customer_minimumchargeableinterests_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -135,6 +154,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('dt_customer_birthdate')
     def dt_customer_birthdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -142,6 +164,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('dt_customer_transfer')
     def dt_customer_transfer_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
@@ -149,6 +174,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('dt_customer_transferappointment')
     def dt_customer_transferappointment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
@@ -156,6 +184,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('dt_customer_transfersurvey')
     def dt_customer_transfersurvey_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
@@ -163,6 +194,9 @@ class CustomerResponseCompound(BaseModel):
     @field_validator('t_customer_comment')
     def t_customer_comment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,16777215}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,16777215}$/")
         return value
@@ -173,12 +207,16 @@ class CustomerResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -190,8 +228,7 @@ class CustomerResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

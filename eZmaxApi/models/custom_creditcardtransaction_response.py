@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_creditcardtype_codename import FieldECreditcardtypeCodename
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CustomCreditcardtransactionResponse(BaseModel):
     """
@@ -38,6 +39,9 @@ class CustomCreditcardtransactionResponse(BaseModel):
     @field_validator('d_creditcardtransaction_amount')
     def d_creditcardtransaction_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -45,6 +49,9 @@ class CustomCreditcardtransactionResponse(BaseModel):
     @field_validator('s_creditcardtransaction_partiallydecryptednumber')
     def s_creditcardtransaction_partiallydecryptednumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(([X]{4}[ ]){3}(\d){4})|([X]{4}[ ][X]{6}[ ][X][\d]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(([X]{4}[ ]){3}(\d){4})|([X]{4}[ ][X]{6}[ ][X][\d]{4})$/")
         return value
@@ -52,12 +59,16 @@ class CustomCreditcardtransactionResponse(BaseModel):
     @field_validator('s_creditcardtransaction_referencenumber')
     def s_creditcardtransaction_referencenumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[\d]{18}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{18}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -69,8 +80,7 @@ class CustomCreditcardtransactionResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

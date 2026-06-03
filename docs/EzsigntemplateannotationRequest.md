@@ -7,8 +7,7 @@ A Ezsigntemplateannotation Object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_ezsigntemplateannotation_id** | **int** | The unique ID of the Ezsigntemplateannotation | [optional] 
-**fki_ezsigntemplatedocumentpage_id** | **int** | The unique ID of the Ezsigntemplatedocumentpage | 
-**fki_textstylestatic_id** | **int** | The unique ID of the Textstylestatic | 
+**fki_ezsigntemplatedocument_id** | **int** | The unique ID of the Ezsigntemplatedocument | 
 **e_ezsigntemplateannotation_horizontalalignment** | [**FieldEEzsigntemplateannotationHorizontalalignment**](FieldEEzsigntemplateannotationHorizontalalignment.md) |  | 
 **e_ezsigntemplateannotation_verticalalignment** | [**FieldEEzsigntemplateannotationVerticalalignment**](FieldEEzsigntemplateannotationVerticalalignment.md) |  | 
 **e_ezsigntemplateannotation_type** | [**FieldEEzsigntemplateannotationType**](FieldEEzsigntemplateannotationType.md) |  | 
@@ -16,9 +15,11 @@ Name | Type | Description | Notes
 **i_ezsigntemplateannotation_y** | **int** | The y of the Ezsigntemplateannotation | 
 **i_ezsigntemplateannotation_width** | **int** | The width of the Ezsigntemplateannotation | 
 **i_ezsigntemplateannotation_height** | **int** | The height of the Ezsigntemplateannotation | 
+**i_ezsigntemplatedocumentpage_pagenumber** | **int** | The page number in the Ezsigntemplatedocument | 
 **s_ezsigntemplateannotation_description** | **str** | The description of the Ezsigntemplateannotation | 
 **s_ezsigntemplateannotation_defaulttext** | **str** | The defaulttext of the Ezsigntemplateannotation | 
-**s_ezsigntemplateannotationn_dropdownvalues** | **str** | The ndropdownvalues of the Ezsigntemplateannotation | 
+**s_ezsigntemplateannotation_dropdownvalues** | **str** | The ndropdownvalues of the Ezsigntemplateannotation | 
+**obj_textstylestatic** | [**TextstylestaticRequestCompound**](TextstylestaticRequestCompound.md) |  | [optional] 
 
 ## Example
 

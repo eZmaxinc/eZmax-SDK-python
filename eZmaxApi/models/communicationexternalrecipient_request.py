@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_communicationexternalrecipient_type import FieldECommunicationexternalrecipientType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CommunicationexternalrecipientRequest(BaseModel):
     """
@@ -42,6 +43,9 @@ class CommunicationexternalrecipientRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
@@ -51,6 +55,9 @@ class CommunicationexternalrecipientRequest(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
@@ -62,12 +69,16 @@ class CommunicationexternalrecipientRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -79,8 +90,7 @@ class CommunicationexternalrecipientRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -30,6 +30,7 @@ from eZmaxApi.models.field_e_user_type import FieldEUserType
 from eZmaxApi.models.phone_response_compound import PhoneResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UserResponse(BaseModel):
     """
@@ -40,6 +41,7 @@ class UserResponse(BaseModel):
     fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
     fki_assistant_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Assistant.", alias="fkiAssistantID")
     fki_employee_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Employee.", alias="fkiEmployeeID")
+    fki_ezmaxpartner_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxpartner", alias="fkiEzmaxpartnerID")
     fki_company_id_default: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyIDDefault")
     s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
     fki_department_id_default: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentIDDefault")
@@ -53,7 +55,7 @@ class UserResponse(BaseModel):
     s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
     obj_phone_home: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneHome")
     obj_phone_sms: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneSMS")
-    fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |22|Secret Code| |22|Your reference code|", alias="fkiSecretquestionID")
+    fki_secretquestion_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Secretquestion.  Valid values:  |Value|Description| |-|-| |1|The name of the hospital in which you were born| |2|The name of your grade school| |3|The last name of your favorite teacher| |4|Your favorite sports team| |5|Your favorite TV show| |6|Your favorite movie| |7|The name of the street on which you grew up| |8|The name of your first employer| |9|Your first car| |10|Your favorite food| |11|The name of your first pet| |12|Favorite musician/band| |13|What instrument you play| |14|Your father's middle name| |15|Your mother's maiden name| |16|Name of your eldest child| |17|Your spouse's middle name| |18|Favorite restaurant| |19|Childhood nickname| |20|Favorite vacation destination| |21|Your boat's name| |22|Date of Birth (YYYY-MM-DD)| |23|Secret Code| |24|Your reference code| |25|What are the last 4 digits of your SIN| |26|What is your postal code| |27|What is your employee number| |28|What is your manager’s first name| |29|What is your file number| |30|What is your client/member number| |31|What is your license number| |32|What are the last 4 digits of your phone number| |33|What is your student number|", alias="fkiSecretquestionID")
     fki_module_id_form: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleIDForm")
     s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX")
     e_user_origin: FieldEUserOrigin = Field(alias="eUserOrigin")
@@ -68,16 +70,21 @@ class UserResponse(BaseModel):
     dt_user_passwordchanged: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date at which the User's password was last changed", alias="dtUserPasswordchanged")
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
     b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
+    b_user_suspended: Optional[StrictBool] = Field(default=None, description="Whether the User is suspended or not", alias="bUserSuspended")
     b_user_validatebyadministration: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by administrative personnel or not", alias="bUserValidatebyadministration")
     b_user_validatebydirector: Optional[StrictBool] = Field(default=None, description="Whether if the transactions in which the User is implicated must be validated by a director or not", alias="bUserValidatebydirector")
     b_user_attachmentautoverified: Optional[StrictBool] = Field(default=None, description="Whether if Attachments uploaded by the User must be validated or not", alias="bUserAttachmentautoverified")
     b_user_changepassword: StrictBool = Field(description="Whether if the User is forced to change its password", alias="bUserChangepassword")
+    b_user_ezsigntemplaterolegrouping: Optional[StrictBool] = Field(default=None, description="Whether we group or not the Ezsigntemplate roles", alias="bUserEzsigntemplaterolegrouping")
     obj_audit: CommonAudit = Field(alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "sCompanyNameX", "fkiDepartmentIDDefault", "sDepartmentNameX", "fkiTimezoneID", "sTimezoneName", "fkiLanguageID", "sLanguageNameX", "objEmail", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "fkiModuleIDForm", "sModuleNameX", "eUserOrigin", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "dtUserLastlogondate", "dtUserPasswordchanged", "dtUserEzsignprepaidexpiration", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiEzmaxpartnerID", "fkiCompanyIDDefault", "sCompanyNameX", "fkiDepartmentIDDefault", "sDepartmentNameX", "fkiTimezoneID", "sTimezoneName", "fkiLanguageID", "sLanguageNameX", "objEmail", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "fkiModuleIDForm", "sModuleNameX", "eUserOrigin", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "dtUserLastlogondate", "dtUserPasswordchanged", "dtUserEzsignprepaidexpiration", "bUserIsactive", "bUserSuspended", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword", "bUserEzsigntemplaterolegrouping", "objAudit"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
@@ -87,6 +94,9 @@ class UserResponse(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
@@ -98,6 +108,9 @@ class UserResponse(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
@@ -107,6 +120,9 @@ class UserResponse(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
@@ -118,12 +134,16 @@ class UserResponse(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -135,8 +155,7 @@ class UserResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -190,6 +209,7 @@ class UserResponse(BaseModel):
             "fkiBrokerID": obj.get("fkiBrokerID"),
             "fkiAssistantID": obj.get("fkiAssistantID"),
             "fkiEmployeeID": obj.get("fkiEmployeeID"),
+            "fkiEzmaxpartnerID": obj.get("fkiEzmaxpartnerID"),
             "fkiCompanyIDDefault": obj.get("fkiCompanyIDDefault"),
             "sCompanyNameX": obj.get("sCompanyNameX"),
             "fkiDepartmentIDDefault": obj.get("fkiDepartmentIDDefault"),
@@ -218,10 +238,12 @@ class UserResponse(BaseModel):
             "dtUserPasswordchanged": obj.get("dtUserPasswordchanged"),
             "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
             "bUserIsactive": obj.get("bUserIsactive"),
+            "bUserSuspended": obj.get("bUserSuspended"),
             "bUserValidatebyadministration": obj.get("bUserValidatebyadministration"),
             "bUserValidatebydirector": obj.get("bUserValidatebydirector"),
             "bUserAttachmentautoverified": obj.get("bUserAttachmentautoverified"),
             "bUserChangepassword": obj.get("bUserChangepassword"),
+            "bUserEzsigntemplaterolegrouping": obj.get("bUserEzsigntemplaterolegrouping"),
             "objAudit": CommonAudit.from_dict(obj["objAudit"]) if obj.get("objAudit") is not None else None
         })
         return _obj

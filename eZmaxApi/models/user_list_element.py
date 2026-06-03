@@ -26,6 +26,7 @@ from eZmaxApi.models.field_e_user_origin import FieldEUserOrigin
 from eZmaxApi.models.field_e_user_type import FieldEUserType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UserListElement(BaseModel):
     """
@@ -36,17 +37,21 @@ class UserListElement(BaseModel):
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
     s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
     b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
+    b_user_suspended: Optional[StrictBool] = Field(default=None, description="Whether the User is suspended or not", alias="bUserSuspended")
     e_user_type: FieldEUserType = Field(alias="eUserType")
     e_user_origin: FieldEUserOrigin = Field(alias="eUserOrigin")
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
     s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
     s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
-    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
+    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "bUserSuspended", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
 
     @field_validator('s_user_loginname')
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
@@ -57,6 +62,9 @@ class UserListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -64,6 +72,9 @@ class UserListElement(BaseModel):
     @field_validator('s_email_address')
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
@@ -74,12 +85,16 @@ class UserListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -91,8 +106,7 @@ class UserListElement(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -134,6 +148,7 @@ class UserListElement(BaseModel):
             "sUserLastname": obj.get("sUserLastname"),
             "sUserLoginname": obj.get("sUserLoginname"),
             "bUserIsactive": obj.get("bUserIsactive"),
+            "bUserSuspended": obj.get("bUserSuspended"),
             "eUserType": obj.get("eUserType"),
             "eUserOrigin": obj.get("eUserOrigin"),
             "eUserEzsignaccess": obj.get("eUserEzsignaccess"),

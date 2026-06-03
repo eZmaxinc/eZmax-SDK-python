@@ -23,13 +23,14 @@ from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfolderBatchDownloadV1Request(BaseModel):
     """
     Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/batchDownload
     """ # noqa: E501
     a_pki_ezsigndocument_id: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1)] = Field(alias="a_pkiEzsigndocumentID")
-    a_e_document_type: List[StrictStr] = Field(description="The type of document to retrieve.  1. **Signed** Is the final document once all signatures were applied. 2. **Proofdocument** Is the evidence report. 3. **Proof** Is the complete evidence archive including all of the above and more.", alias="a_eDocumentType")
+    a_e_document_type: Annotated[List[StrictStr], Field(min_length=1)] = Field(description="The type of document to retrieve.  1. **Signed** Is the final document once all signatures were applied. 2. **Proofdocument** Is the evidence report. 3. **Proof** Is the complete evidence archive including all of the above and more.", alias="a_eDocumentType")
     __properties: ClassVar[List[str]] = ["a_pkiEzsigndocumentID", "a_eDocumentType"]
 
     @field_validator('a_e_document_type')
@@ -41,7 +42,8 @@ class EzsignfolderBatchDownloadV1Request(BaseModel):
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -53,8 +55,7 @@ class EzsignfolderBatchDownloadV1Request(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

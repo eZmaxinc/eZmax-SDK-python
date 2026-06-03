@@ -13,12 +13,14 @@ Method | HTTP request | Description
 [**user_get_autocomplete_v2**](ObjectUserApi.md#user_get_autocomplete_v2) | **GET** /2/object/user/getAutocomplete/{sSelector} | Retrieve Users and IDs
 [**user_get_colleagues_v2**](ObjectUserApi.md#user_get_colleagues_v2) | **GET** /2/object/user/{pkiUserID}/getColleagues | Retrieve an existing User&#39;s Colleagues
 [**user_get_effective_permissions_v1**](ObjectUserApi.md#user_get_effective_permissions_v1) | **GET** /1/object/user/{pkiUserID}/getEffectivePermissions | Retrieve an existing User&#39;s Effective Permissions
+[**user_get_ezmaxcustomeruser_v1**](ObjectUserApi.md#user_get_ezmaxcustomeruser_v1) | **GET** /1/object/user/{pkiUserID}/getEzmaxcustomeruser | Returns the Ezmaxcustomeruser for the User
 [**user_get_list_v1**](ObjectUserApi.md#user_get_list_v1) | **GET** /1/object/user/getList | Retrieve User list
 [**user_get_object_v2**](ObjectUserApi.md#user_get_object_v2) | **GET** /2/object/user/{pkiUserID} | Retrieve an existing User
 [**user_get_permissions_v1**](ObjectUserApi.md#user_get_permissions_v1) | **GET** /1/object/user/{pkiUserID}/getPermissions | Retrieve an existing User&#39;s Permissions
 [**user_get_subnets_v1**](ObjectUserApi.md#user_get_subnets_v1) | **GET** /1/object/user/{pkiUserID}/getSubnets | Retrieve an existing User&#39;s Subnets
 [**user_get_usergroupexternals_v1**](ObjectUserApi.md#user_get_usergroupexternals_v1) | **GET** /1/object/user/{pkiUserID}/getUsergroupexternals | Get User&#39;s Usergroupexternals
 [**user_get_usergroups_v1**](ObjectUserApi.md#user_get_usergroups_v1) | **GET** /1/object/user/{pkiUserID}/getUsergroups | Get User&#39;s Usergroups
+[**user_impersonate_v1**](ObjectUserApi.md#user_impersonate_v1) | **POST** /1/object/user/{pkiUserID}/impersonate | Impersonate the user
 [**user_send_password_reset_v1**](ObjectUserApi.md#user_send_password_reset_v1) | **POST** /1/object/user/{pkiUserID}/sendPasswordReset | Send password reset
 
 
@@ -756,6 +758,87 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **user_get_ezmaxcustomeruser_v1**
+> UserGetEzmaxcustomeruserV1Response user_get_ezmaxcustomeruser_v1(pki_user_id)
+
+Returns the Ezmaxcustomeruser for the User
+
+Returns the Ezmaxcustomeruser for the User
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.user_get_ezmaxcustomeruser_v1_response import UserGetEzmaxcustomeruserV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectUserApi(api_client)
+    pki_user_id = 56 # int | 
+
+    try:
+        # Returns the Ezmaxcustomeruser for the User
+        api_response = api_instance.user_get_ezmaxcustomeruser_v1(pki_user_id)
+        print("The response of ObjectUserApi->user_get_ezmaxcustomeruser_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectUserApi->user_get_ezmaxcustomeruser_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_user_id** | **int**|  | 
+
+### Return type
+
+[**UserGetEzmaxcustomeruserV1Response**](UserGetEzmaxcustomeruserV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **user_get_list_v1**
 > UserGetListV1Response user_get_list_v1(e_order_by=e_order_by, i_row_max=i_row_max, i_row_offset=i_row_offset, accept_language=accept_language, s_filter=s_filter)
 
@@ -1240,6 +1323,90 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **user_impersonate_v1**
+> UserImpersonateV1Response user_impersonate_v1(pki_user_id, user_impersonate_v1_request)
+
+Impersonate the user
+
+Using this endpoint, you can impersonate the user.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.user_impersonate_v1_request import UserImpersonateV1Request
+from eZmaxApi.models.user_impersonate_v1_response import UserImpersonateV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectUserApi(api_client)
+    pki_user_id = 56 # int | 
+    user_impersonate_v1_request = eZmaxApi.UserImpersonateV1Request() # UserImpersonateV1Request | 
+
+    try:
+        # Impersonate the user
+        api_response = api_instance.user_impersonate_v1(pki_user_id, user_impersonate_v1_request)
+        print("The response of ObjectUserApi->user_impersonate_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectUserApi->user_impersonate_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_user_id** | **int**|  | 
+ **user_impersonate_v1_request** | [**UserImpersonateV1Request**](UserImpersonateV1Request.md)|  | 
+
+### Return type
+
+[**UserImpersonateV1Response**](UserImpersonateV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

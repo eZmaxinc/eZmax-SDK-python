@@ -19,21 +19,23 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsigntemplateglobalannotation_horizontalalignment import FieldEEzsigntemplateglobalannotationHorizontalalignment
 from eZmaxApi.models.field_e_ezsigntemplateglobalannotation_type import FieldEEzsigntemplateglobalannotationType
 from eZmaxApi.models.field_e_ezsigntemplateglobalannotation_verticalalignment import FieldEEzsigntemplateglobalannotationVerticalalignment
+from eZmaxApi.models.textstylestatic_request_compound import TextstylestaticRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigntemplateglobalannotationResponseCompound(BaseModel):
     """
     A Ezsigntemplateglobalannotation Object
     """ # noqa: E501
     pki_ezsigntemplateglobalannotation_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalannotation", alias="pkiEzsigntemplateglobalannotationID")
-    fki_ezsigntemplateglobaldocumentpage_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocumentpage", alias="fkiEzsigntemplateglobaldocumentpageID")
-    fki_textstylestatic_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Textstylestatic", alias="fkiTextstylestaticID")
+    fki_textstylestatic_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Textstylestatic", alias="fkiTextstylestaticID")
+    obj_textstylestatic: Optional[TextstylestaticRequestCompound] = Field(default=None, alias="objTextstylestatic")
     e_ezsigntemplateglobalannotation_horizontalalignment: FieldEEzsigntemplateglobalannotationHorizontalalignment = Field(alias="eEzsigntemplateglobalannotationHorizontalalignment")
     e_ezsigntemplateglobalannotation_verticalalignment: FieldEEzsigntemplateglobalannotationVerticalalignment = Field(alias="eEzsigntemplateglobalannotationVerticalalignment")
     e_ezsigntemplateglobalannotation_type: FieldEEzsigntemplateglobalannotationType = Field(alias="eEzsigntemplateglobalannotationType")
@@ -41,14 +43,18 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
     i_ezsigntemplateglobalannotation_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationY")
     i_ezsigntemplateglobalannotation_width: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The width of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationWidth")
     i_ezsigntemplateglobalannotation_height: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The height of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationHeight")
+    i_ezsigntemplateglobaldocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplateglobaldocument", alias="iEzsigntemplateglobaldocumentpagePagenumber")
     s_ezsigntemplateglobalannotation_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDescription")
     s_ezsigntemplateglobalannotation_defaulttext: Annotated[str, Field(strict=True)] = Field(description="The defaulttext of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDefaulttext")
     s_ezsigntemplateglobalannotation_dropdownvalues: Annotated[str, Field(strict=True)] = Field(description="The dropdownvalues of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDropdownvalues")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalannotationID", "fkiEzsigntemplateglobaldocumentpageID", "fkiTextstylestaticID", "eEzsigntemplateglobalannotationHorizontalalignment", "eEzsigntemplateglobalannotationVerticalalignment", "eEzsigntemplateglobalannotationType", "iEzsigntemplateglobalannotationX", "iEzsigntemplateglobalannotationY", "iEzsigntemplateglobalannotationWidth", "iEzsigntemplateglobalannotationHeight", "sEzsigntemplateglobalannotationDescription", "sEzsigntemplateglobalannotationDefaulttext", "sEzsigntemplateglobalannotationDropdownvalues"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalannotationID", "fkiTextstylestaticID", "objTextstylestatic", "eEzsigntemplateglobalannotationHorizontalalignment", "eEzsigntemplateglobalannotationVerticalalignment", "eEzsigntemplateglobalannotationType", "iEzsigntemplateglobalannotationX", "iEzsigntemplateglobalannotationY", "iEzsigntemplateglobalannotationWidth", "iEzsigntemplateglobalannotationHeight", "iEzsigntemplateglobaldocumentpagePagenumber", "sEzsigntemplateglobalannotationDescription", "sEzsigntemplateglobalannotationDefaulttext", "sEzsigntemplateglobalannotationDropdownvalues"]
 
     @field_validator('s_ezsigntemplateglobalannotation_description')
     def s_ezsigntemplateglobalannotation_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
@@ -56,6 +62,9 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
     @field_validator('s_ezsigntemplateglobalannotation_defaulttext')
     def s_ezsigntemplateglobalannotation_defaulttext_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
@@ -63,12 +72,16 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
     @field_validator('s_ezsigntemplateglobalannotation_dropdownvalues')
     def s_ezsigntemplateglobalannotation_dropdownvalues_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -80,8 +93,7 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -106,6 +118,9 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_textstylestatic
+        if self.obj_textstylestatic:
+            _dict['objTextstylestatic'] = self.obj_textstylestatic.to_dict()
         return _dict
 
     @classmethod
@@ -119,8 +134,8 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
 
         _obj = cls.model_validate({
             "pkiEzsigntemplateglobalannotationID": obj.get("pkiEzsigntemplateglobalannotationID"),
-            "fkiEzsigntemplateglobaldocumentpageID": obj.get("fkiEzsigntemplateglobaldocumentpageID"),
             "fkiTextstylestaticID": obj.get("fkiTextstylestaticID"),
+            "objTextstylestatic": TextstylestaticRequestCompound.from_dict(obj["objTextstylestatic"]) if obj.get("objTextstylestatic") is not None else None,
             "eEzsigntemplateglobalannotationHorizontalalignment": obj.get("eEzsigntemplateglobalannotationHorizontalalignment"),
             "eEzsigntemplateglobalannotationVerticalalignment": obj.get("eEzsigntemplateglobalannotationVerticalalignment"),
             "eEzsigntemplateglobalannotationType": obj.get("eEzsigntemplateglobalannotationType"),
@@ -128,6 +143,7 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
             "iEzsigntemplateglobalannotationY": obj.get("iEzsigntemplateglobalannotationY"),
             "iEzsigntemplateglobalannotationWidth": obj.get("iEzsigntemplateglobalannotationWidth"),
             "iEzsigntemplateglobalannotationHeight": obj.get("iEzsigntemplateglobalannotationHeight"),
+            "iEzsigntemplateglobaldocumentpagePagenumber": obj.get("iEzsigntemplateglobaldocumentpagePagenumber"),
             "sEzsigntemplateglobalannotationDescription": obj.get("sEzsigntemplateglobalannotationDescription"),
             "sEzsigntemplateglobalannotationDefaulttext": obj.get("sEzsigntemplateglobalannotationDefaulttext"),
             "sEzsigntemplateglobalannotationDropdownvalues": obj.get("sEzsigntemplateglobalannotationDropdownvalues")

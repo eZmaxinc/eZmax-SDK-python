@@ -25,6 +25,7 @@ from eZmaxApi.models.field_e_buyercontract_step import FieldEBuyercontractStep
 from eZmaxApi.models.field_e_buyercontract_type import FieldEBuyercontractType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class BuyercontractListElement(BaseModel):
     """
@@ -37,16 +38,20 @@ class BuyercontractListElement(BaseModel):
     d_buyercontract_minimumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The minimumprice of the Buyercontract", alias="dBuyercontractMinimumprice")
     d_buyercontract_maximumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The maximumprice of the Buyercontract", alias="dBuyercontractMaximumprice")
     e_buyercontract_type: FieldEBuyercontractType = Field(alias="eBuyercontractType")
+    s_buyercontract_contract: Optional[StrictStr] = Field(default=None, description="The number of the Buyercontract", alias="sBuyercontractContract")
     dt_buyercontract_date: Annotated[str, Field(strict=True)] = Field(description="The date of the Buyercontract", alias="dtBuyercontractDate")
     dt_buyercontract_expirationdate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The expirationdate of the Buyercontract", alias="dtBuyercontractExpirationdate")
     b_buyercontract_isactive: StrictBool = Field(description="Whether the buyercontract is active or not", alias="bBuyercontractIsactive")
     s_buyercontract_brokers: StrictStr = Field(description="The brokers' name of the Buyercontract", alias="sBuyercontractBrokers")
     s_buyercontract_buyers: StrictStr = Field(description="The buyers' name of the Buyercontract", alias="sBuyercontractBuyers")
-    __properties: ClassVar[List[str]] = ["pkiBuyercontractID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eBuyercontractStep", "dBuyercontractMinimumprice", "dBuyercontractMaximumprice", "eBuyercontractType", "dtBuyercontractDate", "dtBuyercontractExpirationdate", "bBuyercontractIsactive", "sBuyercontractBrokers", "sBuyercontractBuyers"]
+    __properties: ClassVar[List[str]] = ["pkiBuyercontractID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eBuyercontractStep", "dBuyercontractMinimumprice", "dBuyercontractMaximumprice", "eBuyercontractType", "sBuyercontractContract", "dtBuyercontractDate", "dtBuyercontractExpirationdate", "bBuyercontractIsactive", "sBuyercontractBrokers", "sBuyercontractBuyers"]
 
     @field_validator('s_inscriptiontype_name_x')
     def s_inscriptiontype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
@@ -54,6 +59,9 @@ class BuyercontractListElement(BaseModel):
     @field_validator('d_buyercontract_minimumprice')
     def d_buyercontract_minimumprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -61,6 +69,9 @@ class BuyercontractListElement(BaseModel):
     @field_validator('d_buyercontract_maximumprice')
     def d_buyercontract_maximumprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -68,6 +79,9 @@ class BuyercontractListElement(BaseModel):
     @field_validator('dt_buyercontract_date')
     def dt_buyercontract_date_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -78,12 +92,16 @@ class BuyercontractListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -95,8 +113,7 @@ class BuyercontractListElement(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -140,6 +157,7 @@ class BuyercontractListElement(BaseModel):
             "dBuyercontractMinimumprice": obj.get("dBuyercontractMinimumprice"),
             "dBuyercontractMaximumprice": obj.get("dBuyercontractMaximumprice"),
             "eBuyercontractType": obj.get("eBuyercontractType"),
+            "sBuyercontractContract": obj.get("sBuyercontractContract"),
             "dtBuyercontractDate": obj.get("dtBuyercontractDate"),
             "dtBuyercontractExpirationdate": obj.get("dtBuyercontractExpirationdate"),
             "bBuyercontractIsactive": obj.get("bBuyercontractIsactive"),

@@ -29,12 +29,14 @@ from eZmaxApi.models.field_e_ezsignfoldertype_documentmerge import FieldEEzsignf
 from eZmaxApi.models.field_e_ezsignfoldertype_pdfanoncompliantaction import FieldEEzsignfoldertypePdfanoncompliantaction
 from eZmaxApi.models.field_e_ezsignfoldertype_pdfarequirement import FieldEEzsignfoldertypePdfarequirement
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
+from eZmaxApi.models.field_e_ezsignfoldertype_signaturedatedisplay import FieldEEzsignfoldertypeSignaturedatedisplay
 from eZmaxApi.models.field_e_ezsignfoldertype_signeraccess import FieldEEzsignfoldertypeSigneraccess
 from eZmaxApi.models.multilingual_ezsignfoldertype_name import MultilingualEzsignfoldertypeName
 from eZmaxApi.models.usergroup_response import UsergroupResponse
 from eZmaxApi.models.userlogintype_response import UserlogintypeResponse
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfoldertypeResponseV4(BaseModel):
     """
@@ -49,6 +51,8 @@ class EzsignfoldertypeResponseV4(BaseModel):
     fki_font_id_formfield: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontIDFormfield")
     fki_font_id_signature: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontIDSignature")
     fki_pdfalevel_id_convert: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Pdfalevel", alias="fkiPdfalevelIDConvert")
+    e_ezsignfoldertype_signaturedatedisplay: FieldEEzsignfoldertypeSignaturedatedisplay = Field(alias="eEzsignfoldertypeSignaturedatedisplay")
+    s_ezsignfoldertype_signaturedatecustomformat: Optional[StrictStr] = Field(default=None, description="The custom date format to use  You can use the codes below and they will be replaced at signature time. Text values like month and day names will be rendered in the proper language. Other text will be left as-is.  The codes examples below are based on the following datetime: Thursday, January 6, 2022 at 08:07:09 EST  For example, the format \"Signature date: {MM}/{DD}/{YYYY} {hh}:{mm}\" would become \"Signature date: 01/06/2022 08:07\"  **Year**  | Code | Example | | - | - | | {YYYY} | 2022 | | {YY} | 22 |  **Month**  | Code | Example | | - | - | | {MonthCapitalize} | Janvier | | {Month} | janvier | | {MM} | 01 | | {M} | 1 |  **Day**  | Code | Example | | - | - | | {DayCapitalize} | Jeudi | | {Day} | jeudi | | {DD} | 06 | | {D} | 6 |  **Hour**  | Code | Example | | - | - | | {hh} | 08 |  **Minute**  | Code | Example | | - | - | | {mm} | 07 |  **Second**  | Code | Example | | - | - | | {ss} | 09 |        **Timezone**  | Code | Example | | - | - | | {Z} | EST |       **Time**  | Code | Example | | - | - | | {Time} | 08:07:09 |   | {TimeZ} | 08:07:09 EST |     **Date**  | Code | Example | | - | - | | {Date} | 2022-01-06 |   | {DateText} | 1er Janvier 2022 |  **Full**  | Code | Example | | - | - | | {DateTime} | 2022-01-06 08:07:09 |   | {DateTimeZ} | 2022-01-06 08:07:09 EST | ", alias="sEzsignfoldertypeSignaturedatecustomformat")
     e_ezsignfoldertype_documentdependency: Optional[FieldEEzsignfoldertypeDocumentdependency] = Field(default=None, alias="eEzsignfoldertypeDocumentdependency")
     s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
     s_billingentityinternal_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
@@ -61,7 +65,7 @@ class EzsignfoldertypeResponseV4(BaseModel):
     e_ezsignfoldertype_documentmerge: Optional[FieldEEzsignfoldertypeDocumentmerge] = Field(default=FieldEEzsignfoldertypeDocumentmerge.NO, alias="eEzsignfoldertypeDocumentmerge")
     i_ezsignfoldertype_fontsizeannotation: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="Font size for annotations", alias="iEzsignfoldertypeFontsizeannotation")
     i_ezsignfoldertype_fontsizeformfield: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="Font size for form fields", alias="iEzsignfoldertypeFontsizeformfield")
-    i_ezsignfoldertype_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the the first reminder sending", alias="iEzsignfoldertypeSendreminderfirstdays")
+    i_ezsignfoldertype_sendreminderfirstdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days before the first reminder sending", alias="iEzsignfoldertypeSendreminderfirstdays")
     i_ezsignfoldertype_sendreminderotherdays: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The number of days after the first reminder sending", alias="iEzsignfoldertypeSendreminderotherdays")
     i_ezsignfoldertype_archivaldays: Annotated[int, Field(le=180, strict=True, ge=0)] = Field(description="The number of days before the archival of Ezsignfolders created using this Ezsignfoldertype", alias="iEzsignfoldertypeArchivaldays")
     e_ezsignfoldertype_disposal: FieldEEzsignfoldertypeDisposal = Field(alias="eEzsignfoldertypeDisposal")
@@ -77,6 +81,10 @@ class EzsignfoldertypeResponseV4(BaseModel):
     b_ezsignfoldertype_reassignezsignsigner: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a signatory to another signatory or not", alias="bEzsignfoldertypeReassignezsignsigner")
     b_ezsignfoldertype_reassignuser: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signature is allowed by a user to a signatory or another user or not", alias="bEzsignfoldertypeReassignuser")
     b_ezsignfoldertype_reassigngroup: Optional[StrictBool] = Field(default=None, description="Wheter if Reassignment of signatures of the groups to which the user belongs is authorized by a user to himself", alias="bEzsignfoldertypeReassigngroup")
+    b_ezsignfoldertype_senddocumentmergetoemail: Optional[StrictBool] = Field(default=None, description="Whether we send the merged documents in the email to external recipient", alias="bEzsignfoldertypeSenddocumentmergetoemail")
+    b_ezsignfoldertype_senddocumentmergetoezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send the merged documents in the email to Ezsignsigner", alias="bEzsignfoldertypeSenddocumentmergetoezsignsigner")
+    b_ezsignfoldertype_senddocumentmergetoreceivealldocument: Optional[StrictBool] = Field(default=None, description="Whether we send the merged documents in the email to user and Ezsignsigner who receive all documents.", alias="bEzsignfoldertypeSenddocumentmergetoreceivealldocument")
+    b_ezsignfoldertype_senddocumentmergetouser: Optional[StrictBool] = Field(default=None, description="Whether we send the merged documents in the email to User", alias="bEzsignfoldertypeSenddocumentmergetouser")
     b_ezsignfoldertype_sendsignedtoezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send an email to Ezsignsigner  when document is completed", alias="bEzsignfoldertypeSendsignedtoezsignsigner")
     b_ezsignfoldertype_sendsignedtouser: Optional[StrictBool] = Field(default=None, description="Whether we send an email to User who signed when document is completed", alias="bEzsignfoldertypeSendsignedtouser")
     b_ezsignfoldertype_sendattachmentezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we send the Ezsigndocument in the email to Ezsignsigner", alias="bEzsignfoldertypeSendattachmentezsignsigner")
@@ -110,13 +118,16 @@ class EzsignfoldertypeResponseV4(BaseModel):
     a_obj_usergroup_restricted: Optional[List[UsergroupResponse]] = Field(default=None, alias="a_objUsergroupRestricted")
     a_obj_usergroup_template: Optional[List[UsergroupResponse]] = Field(default=None, alias="a_objUsergroupTemplate")
     obj_audit: CommonAudit = Field(alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "objEzsignfoldertypeName", "fkiBrandingID", "fkiBillingentityinternalID", "fkiEzsigntsarequirementID", "fkiFontIDAnnotation", "fkiFontIDFormfield", "fkiFontIDSignature", "fkiPdfalevelIDConvert", "eEzsignfoldertypeDocumentdependency", "sBrandingDescriptionX", "sBillingentityinternalDescriptionX", "sEzsigntsarequirementDescriptionX", "sEmailAddressSigned", "sEmailAddressSummary", "eEzsignfoldertypePdfarequirement", "eEzsignfoldertypePdfanoncompliantaction", "eEzsignfoldertypePrivacylevel", "eEzsignfoldertypeDocumentmerge", "iEzsignfoldertypeFontsizeannotation", "iEzsignfoldertypeFontsizeformfield", "iEzsignfoldertypeSendreminderfirstdays", "iEzsignfoldertypeSendreminderotherdays", "iEzsignfoldertypeArchivaldays", "eEzsignfoldertypeDisposal", "eEzsignfoldertypeCompletion", "iEzsignfoldertypeDisposaldays", "iEzsignfoldertypeDeadlinedays", "bEzsignfoldertypePrematurelyendautomatically", "iEzsignfoldertypePrematurelyendautomaticallydays", "bEzsignfoldertypeAutomaticsignature", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeLogrecipientinproof", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeReassigngroup", "bEzsignfoldertypeSendsignedtoezsignsigner", "bEzsignfoldertypeSendsignedtouser", "bEzsignfoldertypeSendattachmentezsignsigner", "bEzsignfoldertypeSendsignatureattachmentezsignsigner", "bEzsignfoldertypeSendsignatureattachment", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeSendattachmentuser", "bEzsignfoldertypeSendsignatureattachmentuser", "bEzsignfoldertypeSendproofuser", "bEzsignfoldertypeSendproofemail", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeSendproofreceivealldocument", "bEzsignfoldertypeSendsignatureattachmentreceivealldocument", "bEzsignfoldertypeSendsignedtodocumentowner", "bEzsignfoldertypeSendsignedtofolderowner", "bEzsignfoldertypeSendsignedtofullgroup", "bEzsignfoldertypeSendsignedtolimitedgroup", "bEzsignfoldertypeSendsignedtocolleague", "bEzsignfoldertypeSendsummarytodocumentowner", "bEzsignfoldertypeSendsummarytofolderowner", "bEzsignfoldertypeSendsummarytofullgroup", "bEzsignfoldertypeSendsummarytolimitedgroup", "bEzsignfoldertypeSendsummarytocolleague", "eEzsignfoldertypeSigneraccess", "bEzsignfoldertypeIsactive", "a_fkiPdfalevelID", "a_objUserlogintype", "a_objUsergroupAll", "a_objUsergroupRestricted", "a_objUsergroupTemplate", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "objEzsignfoldertypeName", "fkiBrandingID", "fkiBillingentityinternalID", "fkiEzsigntsarequirementID", "fkiFontIDAnnotation", "fkiFontIDFormfield", "fkiFontIDSignature", "fkiPdfalevelIDConvert", "eEzsignfoldertypeSignaturedatedisplay", "sEzsignfoldertypeSignaturedatecustomformat", "eEzsignfoldertypeDocumentdependency", "sBrandingDescriptionX", "sBillingentityinternalDescriptionX", "sEzsigntsarequirementDescriptionX", "sEmailAddressSigned", "sEmailAddressSummary", "eEzsignfoldertypePdfarequirement", "eEzsignfoldertypePdfanoncompliantaction", "eEzsignfoldertypePrivacylevel", "eEzsignfoldertypeDocumentmerge", "iEzsignfoldertypeFontsizeannotation", "iEzsignfoldertypeFontsizeformfield", "iEzsignfoldertypeSendreminderfirstdays", "iEzsignfoldertypeSendreminderotherdays", "iEzsignfoldertypeArchivaldays", "eEzsignfoldertypeDisposal", "eEzsignfoldertypeCompletion", "iEzsignfoldertypeDisposaldays", "iEzsignfoldertypeDeadlinedays", "bEzsignfoldertypePrematurelyendautomatically", "iEzsignfoldertypePrematurelyendautomaticallydays", "bEzsignfoldertypeAutomaticsignature", "bEzsignfoldertypeDelegate", "bEzsignfoldertypeDiscussion", "bEzsignfoldertypeLogrecipientinproof", "bEzsignfoldertypeReassignezsignsigner", "bEzsignfoldertypeReassignuser", "bEzsignfoldertypeReassigngroup", "bEzsignfoldertypeSenddocumentmergetoemail", "bEzsignfoldertypeSenddocumentmergetoezsignsigner", "bEzsignfoldertypeSenddocumentmergetoreceivealldocument", "bEzsignfoldertypeSenddocumentmergetouser", "bEzsignfoldertypeSendsignedtoezsignsigner", "bEzsignfoldertypeSendsignedtouser", "bEzsignfoldertypeSendattachmentezsignsigner", "bEzsignfoldertypeSendsignatureattachmentezsignsigner", "bEzsignfoldertypeSendsignatureattachment", "bEzsignfoldertypeSendproofezsignsigner", "bEzsignfoldertypeSendattachmentuser", "bEzsignfoldertypeSendsignatureattachmentuser", "bEzsignfoldertypeSendproofuser", "bEzsignfoldertypeSendproofemail", "bEzsignfoldertypeAllowdownloadattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadsignatureattachmentezsignsigner", "bEzsignfoldertypeAllowdownloadproofezsignsigner", "bEzsignfoldertypeSendproofreceivealldocument", "bEzsignfoldertypeSendsignatureattachmentreceivealldocument", "bEzsignfoldertypeSendsignedtodocumentowner", "bEzsignfoldertypeSendsignedtofolderowner", "bEzsignfoldertypeSendsignedtofullgroup", "bEzsignfoldertypeSendsignedtolimitedgroup", "bEzsignfoldertypeSendsignedtocolleague", "bEzsignfoldertypeSendsummarytodocumentowner", "bEzsignfoldertypeSendsummarytofolderowner", "bEzsignfoldertypeSendsummarytofullgroup", "bEzsignfoldertypeSendsummarytolimitedgroup", "bEzsignfoldertypeSendsummarytocolleague", "eEzsignfoldertypeSigneraccess", "bEzsignfoldertypeIsactive", "a_fkiPdfalevelID", "a_objUserlogintype", "a_objUsergroupAll", "a_objUsergroupRestricted", "a_objUsergroupTemplate", "objAudit"]
 
     @field_validator('s_email_address_signed')
     def s_email_address_signed_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
@@ -128,12 +139,16 @@ class EzsignfoldertypeResponseV4(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -145,8 +160,7 @@ class EzsignfoldertypeResponseV4(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -226,6 +240,8 @@ class EzsignfoldertypeResponseV4(BaseModel):
             "fkiFontIDFormfield": obj.get("fkiFontIDFormfield"),
             "fkiFontIDSignature": obj.get("fkiFontIDSignature"),
             "fkiPdfalevelIDConvert": obj.get("fkiPdfalevelIDConvert"),
+            "eEzsignfoldertypeSignaturedatedisplay": obj.get("eEzsignfoldertypeSignaturedatedisplay"),
+            "sEzsignfoldertypeSignaturedatecustomformat": obj.get("sEzsignfoldertypeSignaturedatecustomformat"),
             "eEzsignfoldertypeDocumentdependency": obj.get("eEzsignfoldertypeDocumentdependency"),
             "sBrandingDescriptionX": obj.get("sBrandingDescriptionX"),
             "sBillingentityinternalDescriptionX": obj.get("sBillingentityinternalDescriptionX"),
@@ -254,6 +270,10 @@ class EzsignfoldertypeResponseV4(BaseModel):
             "bEzsignfoldertypeReassignezsignsigner": obj.get("bEzsignfoldertypeReassignezsignsigner"),
             "bEzsignfoldertypeReassignuser": obj.get("bEzsignfoldertypeReassignuser"),
             "bEzsignfoldertypeReassigngroup": obj.get("bEzsignfoldertypeReassigngroup"),
+            "bEzsignfoldertypeSenddocumentmergetoemail": obj.get("bEzsignfoldertypeSenddocumentmergetoemail"),
+            "bEzsignfoldertypeSenddocumentmergetoezsignsigner": obj.get("bEzsignfoldertypeSenddocumentmergetoezsignsigner"),
+            "bEzsignfoldertypeSenddocumentmergetoreceivealldocument": obj.get("bEzsignfoldertypeSenddocumentmergetoreceivealldocument"),
+            "bEzsignfoldertypeSenddocumentmergetouser": obj.get("bEzsignfoldertypeSenddocumentmergetouser"),
             "bEzsignfoldertypeSendsignedtoezsignsigner": obj.get("bEzsignfoldertypeSendsignedtoezsignsigner"),
             "bEzsignfoldertypeSendsignedtouser": obj.get("bEzsignfoldertypeSendsignedtouser"),
             "bEzsignfoldertypeSendattachmentezsignsigner": obj.get("bEzsignfoldertypeSendattachmentezsignsigner"),

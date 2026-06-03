@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     eZmax API Definition (Full)
 
@@ -11,6 +9,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -62,7 +61,7 @@ class ObjectEzsignbulksendtransmissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> bytearray:
+    ) -> bytes:
         """Retrieve file to download documents in batch
 
 
@@ -111,7 +110,7 @@ class ObjectEzsignbulksendtransmissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
@@ -147,7 +146,7 @@ class ObjectEzsignbulksendtransmissionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[bytearray]:
+    ) -> ApiResponse[bytes]:
         """Retrieve file to download documents in batch
 
 
@@ -196,7 +195,7 @@ class ObjectEzsignbulksendtransmissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",
@@ -281,7 +280,7 @@ class ObjectEzsignbulksendtransmissionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "bytearray",
+            '200': "bytes",
             '404': "CommonResponseError",
             '406': "CommonResponseError",
             '422': "CommonResponseError",

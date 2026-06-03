@@ -22,20 +22,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CustomDiscussionconfigurationResponse(BaseModel):
     """
     A Custom Discussionconfiguration Object
     """ # noqa: E501
     b_discussionconfiguration_completehistorywhenadded: StrictBool = Field(description="If the added Discussionmembership will have access to the entire history or not", alias="bDiscussionconfigurationCompletehistorywhenadded")
-    b_discussionconfiguration_createallowed: StrictBool = Field(description="If the the creation of the Discussion is allowed or not", alias="bDiscussionconfigurationCreateallowed")
-    b_discussionconfiguration_deleteallowed: StrictBool = Field(description="If the the destruction of the Discussion is allowed or not", alias="bDiscussionconfigurationDeleteallowed")
-    b_discussionconfiguration_deletediscussionmessageallowed: StrictBool = Field(description="If the the destruction of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationDeletediscussionmessageallowed")
-    b_discussionconfiguration_editdiscussionmessageallowed: StrictBool = Field(description="If the the creation of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationEditdiscussionmessageallowed")
+    b_discussionconfiguration_createallowed: StrictBool = Field(description="If the creation of the Discussion is allowed or not", alias="bDiscussionconfigurationCreateallowed")
+    b_discussionconfiguration_deleteallowed: StrictBool = Field(description="If the destruction of the Discussion is allowed or not", alias="bDiscussionconfigurationDeleteallowed")
+    b_discussionconfiguration_deletediscussionmessageallowed: StrictBool = Field(description="If the destruction of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationDeletediscussionmessageallowed")
+    b_discussionconfiguration_editdiscussionmessageallowed: StrictBool = Field(description="If the creation of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationEditdiscussionmessageallowed")
     __properties: ClassVar[List[str]] = ["bDiscussionconfigurationCompletehistorywhenadded", "bDiscussionconfigurationCreateallowed", "bDiscussionconfigurationDeleteallowed", "bDiscussionconfigurationDeletediscussionmessageallowed", "bDiscussionconfigurationEditdiscussionmessageallowed"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -47,8 +49,7 @@ class CustomDiscussionconfigurationResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -22,10 +22,12 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_ezsignfolder_completion import FieldEEzsignfolderCompletion
+from eZmaxApi.models.field_e_ezsignfolder_source import FieldEEzsignfolderSource
 from eZmaxApi.models.field_e_ezsignfolder_step import FieldEEzsignfolderStep
 from eZmaxApi.models.field_e_ezsignfoldertype_privacylevel import FieldEEzsignfoldertypePrivacylevel
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignfolderListElement(BaseModel):
     """
@@ -33,6 +35,13 @@ class EzsignfolderListElement(BaseModel):
     """ # noqa: E501
     pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
     fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
+    fki_ezsignbulksend_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
+    s_ezsignbulksend_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
+    fki_ezsignbulksendtransmission_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksendtransmission", alias="fkiEzsignbulksendtransmissionID")
+    s_ezsignbulksendtransmission_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignbulksendtransmission", alias="sEzsignbulksendtransmissionDescription")
+    fki_ezsigntemplatepublic_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepublic", alias="fkiEzsigntemplatepublicID")
+    s_ezsigntemplatepublic_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsigntemplatepublic", alias="sEzsigntemplatepublicDescription")
+    e_ezsignfolder_source: FieldEEzsignfolderSource = Field(alias="eEzsignfolderSource")
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
     s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
     s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
@@ -56,11 +65,28 @@ class EzsignfolderListElement(BaseModel):
     dt_ezsignfolder_archive: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was archived.", alias="dtEzsignfolderArchive")
     dt_ezsignfolder_dispose: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder was disposed.", alias="dtEzsignfolderDispose")
     b_ezsignfolder_signer: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignfolder has an Ezsignsignatures that need to be signed or an Ezsignformfieldgroups that need to be filled by the current user", alias="bEzsignfolderSigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "eEzsignfolderCompletion", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage", "dEzsignfolderFormcompletedpercentage", "dEzsignfolderSignaturecompletedpercentage", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "bEzsignfolderSigner"]
+    b_ezsignfolder_ismyown: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignfolder is my own or not", alias="bEzsignfolderIsmyown")
+    __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiEzsignbulksendID", "sEzsignbulksendDescription", "fkiEzsignbulksendtransmissionID", "sEzsignbulksendtransmissionDescription", "fkiEzsigntemplatepublicID", "sEzsigntemplatepublicDescription", "eEzsignfolderSource", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "eEzsignfolderCompletion", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage", "dEzsignfolderFormcompletedpercentage", "dEzsignfolderSignaturecompletedpercentage", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "bEzsignfolderSigner", "bEzsignfolderIsmyown"]
+
+    @field_validator('s_ezsigntemplatepublic_description')
+    def s_ezsigntemplatepublic_description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not isinstance(value, str):
+            value = str(value)
+
+        if not re.match(r"^.{0,80}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,80}$/")
+        return value
 
     @field_validator('s_ezsignfolder_description')
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
@@ -68,6 +94,9 @@ class EzsignfolderListElement(BaseModel):
     @field_validator('d_ezsignfolder_completedpercentage')
     def d_ezsignfolder_completedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
@@ -75,6 +104,9 @@ class EzsignfolderListElement(BaseModel):
     @field_validator('d_ezsignfolder_formcompletedpercentage')
     def d_ezsignfolder_formcompletedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
@@ -82,12 +114,16 @@ class EzsignfolderListElement(BaseModel):
     @field_validator('d_ezsignfolder_signaturecompletedpercentage')
     def d_ezsignfolder_signaturecompletedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -99,8 +135,7 @@ class EzsignfolderListElement(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -139,6 +174,13 @@ class EzsignfolderListElement(BaseModel):
         _obj = cls.model_validate({
             "pkiEzsignfolderID": obj.get("pkiEzsignfolderID"),
             "fkiEzsignfoldertypeID": obj.get("fkiEzsignfoldertypeID"),
+            "fkiEzsignbulksendID": obj.get("fkiEzsignbulksendID"),
+            "sEzsignbulksendDescription": obj.get("sEzsignbulksendDescription"),
+            "fkiEzsignbulksendtransmissionID": obj.get("fkiEzsignbulksendtransmissionID"),
+            "sEzsignbulksendtransmissionDescription": obj.get("sEzsignbulksendtransmissionDescription"),
+            "fkiEzsigntemplatepublicID": obj.get("fkiEzsigntemplatepublicID"),
+            "sEzsigntemplatepublicDescription": obj.get("sEzsigntemplatepublicDescription"),
+            "eEzsignfolderSource": obj.get("eEzsignfolderSource"),
             "eEzsignfoldertypePrivacylevel": obj.get("eEzsignfoldertypePrivacylevel"),
             "sEzsignfoldertypeNameX": obj.get("sEzsignfoldertypeNameX"),
             "sEzsignfolderDescription": obj.get("sEzsignfolderDescription"),
@@ -161,7 +203,8 @@ class EzsignfolderListElement(BaseModel):
             "dtEzsignfolderClose": obj.get("dtEzsignfolderClose"),
             "dtEzsignfolderArchive": obj.get("dtEzsignfolderArchive"),
             "dtEzsignfolderDispose": obj.get("dtEzsignfolderDispose"),
-            "bEzsignfolderSigner": obj.get("bEzsignfolderSigner")
+            "bEzsignfolderSigner": obj.get("bEzsignfolderSigner"),
+            "bEzsignfolderIsmyown": obj.get("bEzsignfolderIsmyown")
         })
         return _obj
 

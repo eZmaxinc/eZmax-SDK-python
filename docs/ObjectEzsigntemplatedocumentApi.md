@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigntemplatedocument_create_object_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_create_object_v1) | **POST** /1/object/ezsigntemplatedocument | Create a new Ezsigntemplatedocument
 [**ezsigntemplatedocument_download_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_download_v1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/download | Retrieve an existing Ezsigntemplatedocument&#39;s original file
+[**ezsigntemplatedocument_edit_ezsigntemplateannotations_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_edit_ezsigntemplateannotations_v1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateannotations | Edit multiple Ezsigntemplateannotations
 [**ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_edit_ezsigntemplatedocumentpagerecognitions_v1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatedocumentpagerecognitions | Edit multiple Ezsigntemplatedocumentpagerecognitions
 [**ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_edit_ezsigntemplateformfieldgroups_v1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplateformfieldgroups | Edit multiple Ezsigntemplateformfieldgroups
 [**ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_edit_ezsigntemplatesignatures_v1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/editEzsigntemplatesignatures | Edit multiple Ezsigntemplatesignatures
@@ -13,6 +14,7 @@ Method | HTTP request | Description
 [**ezsigntemplatedocument_edit_object_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_edit_object_v1) | **PUT** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID} | Edit an existing Ezsigntemplatedocument
 [**ezsigntemplatedocument_extract_text_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_extract_text_v1) | **POST** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/extractText | Extract text from Ezsigntemplatedocument area
 [**ezsigntemplatedocument_flatten_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_flatten_v1) | **POST** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/flatten | Flatten
+[**ezsigntemplatedocument_get_ezsigntemplateannotations_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_get_ezsigntemplateannotations_v1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateannotations | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateannotations
 [**ezsigntemplatedocument_get_ezsigntemplatedocumentpagerecognitions_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_get_ezsigntemplatedocumentpagerecognitions_v1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpagerecognitions | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpagerecognitions
 [**ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_get_ezsigntemplatedocumentpages_v1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplatedocumentpages | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplatedocumentpages
 [**ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1**](ObjectEzsigntemplatedocumentApi.md#ezsigntemplatedocument_get_ezsigntemplateformfieldgroups_v1) | **GET** /1/object/ezsigntemplatedocument/{pkiEzsigntemplatedocumentID}/getEzsigntemplateformfieldgroups | Retrieve an existing Ezsigntemplatedocument&#39;s Ezsigntemplateformfieldgroups
@@ -178,6 +180,90 @@ void (empty response body)
 |-------------|-------------|------------------|
 **302** | The user has been redirected |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatedocument_edit_ezsigntemplateannotations_v1**
+> EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response ezsigntemplatedocument_edit_ezsigntemplateannotations_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_request)
+
+Edit multiple Ezsigntemplateannotations
+
+Using this endpoint, you can edit multiple Ezsigntemplateannotations at the same time.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_request import EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request
+from eZmaxApi.models.ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_response import EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsigntemplatedocumentApi(api_client)
+    pki_ezsigntemplatedocument_id = 56 # int | 
+    ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_request = eZmaxApi.EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request() # EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request | 
+
+    try:
+        # Edit multiple Ezsigntemplateannotations
+        api_response = api_instance.ezsigntemplatedocument_edit_ezsigntemplateannotations_v1(pki_ezsigntemplatedocument_id, ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_request)
+        print("The response of ObjectEzsigntemplatedocumentApi->ezsigntemplatedocument_edit_ezsigntemplateannotations_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsigntemplatedocumentApi->ezsigntemplatedocument_edit_ezsigntemplateannotations_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigntemplatedocument_id** | **int**|  | 
+ **ezsigntemplatedocument_edit_ezsigntemplateannotations_v1_request** | [**EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request**](EzsigntemplatedocumentEditEzsigntemplateannotationsV1Request.md)|  | 
+
+### Return type
+
+[**EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response**](EzsigntemplatedocumentEditEzsigntemplateannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -760,6 +846,87 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigntemplatedocument_get_ezsigntemplateannotations_v1**
+> EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response ezsigntemplatedocument_get_ezsigntemplateannotations_v1(pki_ezsigntemplatedocument_id)
+
+Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateannotations
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsigntemplatedocument_get_ezsigntemplateannotations_v1_response import EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsigntemplatedocumentApi(api_client)
+    pki_ezsigntemplatedocument_id = 56 # int | 
+
+    try:
+        # Retrieve an existing Ezsigntemplatedocument's Ezsigntemplateannotations
+        api_response = api_instance.ezsigntemplatedocument_get_ezsigntemplateannotations_v1(pki_ezsigntemplatedocument_id)
+        print("The response of ObjectEzsigntemplatedocumentApi->ezsigntemplatedocument_get_ezsigntemplateannotations_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsigntemplatedocumentApi->ezsigntemplatedocument_get_ezsigntemplateannotations_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigntemplatedocument_id** | **int**|  | 
+
+### Return type
+
+[**EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response**](EzsigntemplatedocumentGetEzsigntemplateannotationsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

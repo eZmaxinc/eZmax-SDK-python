@@ -22,11 +22,13 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.ezsigntemplateannotation_response_compound import EzsigntemplateannotationResponseCompound
 from eZmaxApi.models.ezsigntemplatedocument_response import EzsigntemplatedocumentResponse
 from eZmaxApi.models.ezsigntemplatesigner_response_compound import EzsigntemplatesignerResponseCompound
 from eZmaxApi.models.field_e_ezsigntemplate_type import FieldEEzsigntemplateType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsigntemplateResponseCompound(BaseModel):
     """
@@ -49,11 +51,15 @@ class EzsigntemplateResponseCompound(BaseModel):
     e_ezsigntemplate_type: Optional[FieldEEzsigntemplateType] = Field(default=None, alias="eEzsigntemplateType")
     obj_ezsigntemplatedocument: Optional[EzsigntemplatedocumentResponse] = Field(default=None, alias="objEzsigntemplatedocument")
     a_obj_ezsigntemplatesigner: List[EzsigntemplatesignerResponseCompound] = Field(alias="a_objEzsigntemplatesigner")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType", "objEzsigntemplatedocument", "a_objEzsigntemplatesigner"]
+    a_obj_ezsigntemplateannotation: Optional[List[EzsigntemplateannotationResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateannotation")
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType", "objEzsigntemplatedocument", "a_objEzsigntemplatesigner", "a_objEzsigntemplateannotation"]
 
     @field_validator('s_ezsigntemplate_description')
     def s_ezsigntemplate_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
@@ -63,6 +69,9 @@ class EzsigntemplateResponseCompound(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
@@ -74,12 +83,16 @@ class EzsigntemplateResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -91,8 +104,7 @@ class EzsigntemplateResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -130,6 +142,13 @@ class EzsigntemplateResponseCompound(BaseModel):
                 if _item_a_obj_ezsigntemplatesigner:
                     _items.append(_item_a_obj_ezsigntemplatesigner.to_dict())
             _dict['a_objEzsigntemplatesigner'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateannotation (list)
+        _items = []
+        if self.a_obj_ezsigntemplateannotation:
+            for _item_a_obj_ezsigntemplateannotation in self.a_obj_ezsigntemplateannotation:
+                if _item_a_obj_ezsigntemplateannotation:
+                    _items.append(_item_a_obj_ezsigntemplateannotation.to_dict())
+            _dict['a_objEzsigntemplateannotation'] = _items
         return _dict
 
     @classmethod
@@ -158,7 +177,8 @@ class EzsigntemplateResponseCompound(BaseModel):
             "bEzsigntemplateEditallowed": obj.get("bEzsigntemplateEditallowed"),
             "eEzsigntemplateType": obj.get("eEzsigntemplateType"),
             "objEzsigntemplatedocument": EzsigntemplatedocumentResponse.from_dict(obj["objEzsigntemplatedocument"]) if obj.get("objEzsigntemplatedocument") is not None else None,
-            "a_objEzsigntemplatesigner": [EzsigntemplatesignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatesigner"]] if obj.get("a_objEzsigntemplatesigner") is not None else None
+            "a_objEzsigntemplatesigner": [EzsigntemplatesignerResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplatesigner"]] if obj.get("a_objEzsigntemplatesigner") is not None else None,
+            "a_objEzsigntemplateannotation": [EzsigntemplateannotationResponseCompound.from_dict(_item) for _item in obj["a_objEzsigntemplateannotation"]] if obj.get("a_objEzsigntemplateannotation") is not None else None
         })
         return _obj
 

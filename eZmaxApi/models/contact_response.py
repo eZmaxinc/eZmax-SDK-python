@@ -25,6 +25,7 @@ from eZmaxApi.models.contactinformations_response_compound import Contactinforma
 from eZmaxApi.models.field_e_contact_type import FieldEContactType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ContactResponse(BaseModel):
     """
@@ -48,6 +49,9 @@ class ContactResponse(BaseModel):
     @field_validator('s_contact_firstname')
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
@@ -55,6 +59,9 @@ class ContactResponse(BaseModel):
     @field_validator('s_contact_lastname')
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
@@ -64,6 +71,9 @@ class ContactResponse(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
@@ -75,12 +85,16 @@ class ContactResponse(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,32000}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,32000}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -92,8 +106,7 @@ class ContactResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -35,6 +35,7 @@ from eZmaxApi.models.field_e_user_ezsignaccess import FieldEUserEzsignaccess
 from eZmaxApi.models.field_e_user_ezsignprepaid import FieldEUserEzsignprepaid
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ActivesessionResponseCompound(BaseModel):
     """
@@ -65,6 +66,7 @@ class ActivesessionResponseCompound(BaseModel):
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
     e_user_ezsignprepaid: Optional[FieldEUserEzsignprepaid] = Field(default=None, alias="eUserEzsignprepaid")
     b_user_ezsigntrial: Optional[StrictBool] = Field(default=None, description="Whether the User's eZsign subscription is a trial", alias="bUserEzsigntrial")
+    b_user_ezsigntemplaterolegrouping: Optional[StrictBool] = Field(default=None, description="Whether we group or not the Ezsigntemplate roles", alias="bUserEzsigntemplaterolegrouping")
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
     dt_user_npsrequest: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date at which the NPS questionnaire will be show", alias="dtUserNpsrequest")
     a_pki_permission_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="An array of permissions granted to the user or api key", alias="a_pkiPermissionID")
@@ -72,13 +74,17 @@ class ActivesessionResponseCompound(BaseModel):
     obj_user_cloned: Optional[ActivesessionResponseCompoundUser] = Field(default=None, alias="objUserCloned")
     obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(default=None, alias="objApikey")
     a_e_module_internalname: List[StrictStr] = Field(description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.", alias="a_eModuleInternalname")
-    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "fkiEzsignuserID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "bUserEzsigntrial", "dtUserEzsignprepaidexpiration", "dtUserNpsrequest", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname"]
+    b_activesession_maillinglistrequest: Optional[StrictBool] = Field(default=None, description="If you need to ask which mailing lists this user wants to subscribe to", alias="bActivesessionMaillinglistrequest")
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "fkiEzsignuserID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "bUserEzsigntrial", "bUserEzsigntemplaterolegrouping", "dtUserEzsignprepaidexpiration", "dtUserNpsrequest", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname", "bActivesessionMaillinglistrequest"]
 
     @field_validator('dt_user_ezsignprepaidexpiration')
     def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -90,12 +96,16 @@ class ActivesessionResponseCompound(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -107,8 +117,7 @@ class ActivesessionResponseCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -179,13 +188,15 @@ class ActivesessionResponseCompound(BaseModel):
             "eUserEzsignaccess": obj.get("eUserEzsignaccess"),
             "eUserEzsignprepaid": obj.get("eUserEzsignprepaid"),
             "bUserEzsigntrial": obj.get("bUserEzsigntrial"),
+            "bUserEzsigntemplaterolegrouping": obj.get("bUserEzsigntemplaterolegrouping"),
             "dtUserEzsignprepaidexpiration": obj.get("dtUserEzsignprepaidexpiration"),
             "dtUserNpsrequest": obj.get("dtUserNpsrequest"),
             "a_pkiPermissionID": obj.get("a_pkiPermissionID"),
             "objUserReal": ActivesessionResponseCompoundUser.from_dict(obj["objUserReal"]) if obj.get("objUserReal") is not None else None,
             "objUserCloned": ActivesessionResponseCompoundUser.from_dict(obj["objUserCloned"]) if obj.get("objUserCloned") is not None else None,
             "objApikey": ActivesessionResponseCompoundApikey.from_dict(obj["objApikey"]) if obj.get("objApikey") is not None else None,
-            "a_eModuleInternalname": obj.get("a_eModuleInternalname")
+            "a_eModuleInternalname": obj.get("a_eModuleInternalname"),
+            "bActivesessionMaillinglistrequest": obj.get("bActivesessionMaillinglistrequest")
         })
         return _obj
 

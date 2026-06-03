@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_otherincome_remunerationtype import FieldEOtherincomeRemunerationtype
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class OtherincomeListElement(BaseModel):
     """
@@ -44,6 +45,9 @@ class OtherincomeListElement(BaseModel):
     @field_validator('s_otherincometype_description_x')
     def s_otherincometype_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
@@ -51,6 +55,9 @@ class OtherincomeListElement(BaseModel):
     @field_validator('s_otherincome_description')
     def s_otherincome_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(\n|.){0,75}$", value):
             raise ValueError(r"must validate the regular expression /^(\n|.){0,75}$/")
         return value
@@ -58,6 +65,9 @@ class OtherincomeListElement(BaseModel):
     @field_validator('d_otherincome_remunerationsubtotal')
     def d_otherincome_remunerationsubtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -67,6 +77,9 @@ class OtherincomeListElement(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
@@ -78,6 +91,9 @@ class OtherincomeListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -85,12 +101,16 @@ class OtherincomeListElement(BaseModel):
     @field_validator('dt_otherincome_paid')
     def dt_otherincome_paid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -102,8 +122,7 @@ class OtherincomeListElement(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

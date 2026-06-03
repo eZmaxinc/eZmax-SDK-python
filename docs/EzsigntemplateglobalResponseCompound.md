@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **s_ezsigntemplateglobal_description** | **str** | The description of the Ezsigntemplate | 
 **obj_ezsigntemplateglobaldocument** | [**EzsigntemplateglobaldocumentResponse**](EzsigntemplateglobaldocumentResponse.md) |  | [optional] 
 **a_obj_ezsigntemplateglobalsigner** | [**List[EzsigntemplateglobalsignerResponseCompound]**](EzsigntemplateglobalsignerResponseCompound.md) |  | 
+**a_obj_ezsigntemplateglobalannotation** | [**List[EzsigntemplateglobalannotationResponseCompound]**](EzsigntemplateglobalannotationResponseCompound.md) |  | [optional] 
 
 ## Example
 

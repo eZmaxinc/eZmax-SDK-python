@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_inscription_step import FieldEInscriptionStep
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class InscriptionListElement(BaseModel):
     """
@@ -54,15 +55,20 @@ class InscriptionListElement(BaseModel):
     s_address_suite: Optional[StrictStr] = Field(default=None, description="The Suite or appartment number", alias="sAddressSuite")
     s_address_city: Optional[StrictStr] = Field(default=None, description="The City name", alias="sAddressCity")
     s_address_zip: Optional[StrictStr] = Field(default=None, description="The Postal/Zip Code  The value must be entered without spaces", alias="sAddressZip")
+    fki_province_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Province.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|(Canada) Alberta |2|(Canada) British Columbia| |3|(Canada) Manitoba| |3|(Canada) Manitoba| |4|(Canada) New Brunswick| |5|(Canada) Newfoundland| |6|(Canada) Northwest Territories| |7|(Canada) Nova Scotia| |8|(Canada) Nunavut| |9|(Canada) Ontario| |10|(Canada) Prince Edward Island| |11|(Canada) Quebec| |12|(Canada) Saskatchewan| |13|(Canada) Yukon| |14|(United-States) Alabama| |15|(United-States) Alaska| |16|(United-States) Arizona| |17|(United-States) Arkansas| |18|(United-States) California| |19|(United-States) Colorado| |20|(United-States) Connecticut| |21|(United-States) Delaware| |22|(United-States) District of Columbia| |23|(United-States) Florida| |24|(United-States) Georgia| |25|(United-States) Hawaii| |26|(United-States) Idaho| |27|(United-States) Illinois| |28|(United-States) Indiana| |29|(United-States) Iowa| |30|(United-States) Kansas| |31|(United-States) Kentucky| |32|(United-States) Louisiane| |33|(United-States) Maine| |34|(United-States) Maryland| |35|(United-States) Massachusetts| |36|(United-States) Michigan| |37|(United-States) Minnesota| |38|(United-States) Mississippi| |39|(United-States) Missouri| |40|(United-States) Montana| |41|(United-States) Nebraska| |42|(United-States) Nevada| |43|(United-States) New Hampshire| |44|(United-States) New Jersey| |45|(United-States) New Mexico| |46|(United-States) New York| |47|(United-States) North Carolina| |48|(United-States) North Dakota| |49|(United-States) Ohio| |50|(United-States) Oklahoma| |51|(United-States) Oregon| |52|(United-States) Pennsylvania| |53|(United-States) Rhode Island| |54|(United-States) South Carolina| |55|(United-States) South Dakota| |56|(United-States) Tennessee| |57|(United-States) Texas| |58|(United-States) Utah| |60|(United-States) Vermont| |59|(United-States) Virginia| |61|(United-States) Washington| |62|(United-States) West Virginia| |63|(United-States) Wisconsin| |64|(United-States) Wyoming|", alias="fkiProvinceID")
     s_province_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Province in the language of the requester", alias="sProvinceNameX")
+    fki_country_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="fkiCountryID")
     s_country_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Country in the language of the requester", alias="sCountryNameX")
     i_inscriptionnotauthenticated_canceled: StrictInt = Field(description="The numbre of inscriptionnotauthenticated was canceled in this Inscription", alias="iInscriptionnotauthenticatedCanceled")
     b_allowed_copyintoinscriptionedm: StrictBool = Field(description="Whether we are allowed to copy into the Inscription EDM", alias="bAllowedCopyintoinscriptionedm")
-    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eInscriptionStep", "sInscriptionCivicend", "sInscriptionMLS", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionIsactive", "bInscriptionArchived", "bInscriptionInspection", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "sProvinceNameX", "sCountryNameX", "iInscriptionnotauthenticatedCanceled", "bAllowedCopyintoinscriptionedm"]
+    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eInscriptionStep", "sInscriptionCivicend", "sInscriptionMLS", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionIsactive", "bInscriptionArchived", "bInscriptionInspection", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "iInscriptionnotauthenticatedCanceled", "bAllowedCopyintoinscriptionedm"]
 
     @field_validator('s_inscriptiontype_name_x')
     def s_inscriptiontype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
@@ -70,6 +76,9 @@ class InscriptionListElement(BaseModel):
     @field_validator('s_inscription_civicend')
     def s_inscription_civicend_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
@@ -80,6 +89,9 @@ class InscriptionListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
@@ -87,6 +99,9 @@ class InscriptionListElement(BaseModel):
     @field_validator('d_inscription_saleprice')
     def d_inscription_saleprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -94,6 +109,9 @@ class InscriptionListElement(BaseModel):
     @field_validator('d_inscription_rentprice')
     def d_inscription_rentprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
@@ -103,6 +121,9 @@ class InscriptionListElement(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -114,6 +135,9 @@ class InscriptionListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -123,6 +147,9 @@ class InscriptionListElement(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -134,6 +161,9 @@ class InscriptionListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -143,6 +173,9 @@ class InscriptionListElement(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
@@ -154,6 +187,9 @@ class InscriptionListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
@@ -163,6 +199,9 @@ class InscriptionListElement(BaseModel):
         """Validates the regular expression"""
         if value is None:
             return value
+
+        if not isinstance(value, str):
+            value = str(value)
 
         if not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
@@ -174,12 +213,16 @@ class InscriptionListElement(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -191,8 +234,7 @@ class InscriptionListElement(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -254,7 +296,9 @@ class InscriptionListElement(BaseModel):
             "sAddressSuite": obj.get("sAddressSuite"),
             "sAddressCity": obj.get("sAddressCity"),
             "sAddressZip": obj.get("sAddressZip"),
+            "fkiProvinceID": obj.get("fkiProvinceID"),
             "sProvinceNameX": obj.get("sProvinceNameX"),
+            "fkiCountryID": obj.get("fkiCountryID"),
             "sCountryNameX": obj.get("sCountryNameX"),
             "iInscriptionnotauthenticatedCanceled": obj.get("iInscriptionnotauthenticatedCanceled"),
             "bAllowedCopyintoinscriptionedm": obj.get("bAllowedCopyintoinscriptionedm")

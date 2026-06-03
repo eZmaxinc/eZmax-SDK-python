@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **e_user_ezsignaccess** | [**FieldEUserEzsignaccess**](FieldEUserEzsignaccess.md) |  | 
 **e_user_ezsignprepaid** | [**FieldEUserEzsignprepaid**](FieldEUserEzsignprepaid.md) |  | [optional] 
 **b_user_ezsigntrial** | **bool** | Whether the User&#39;s eZsign subscription is a trial | [optional] 
+**b_user_ezsigntemplaterolegrouping** | **bool** | Whether we group or not the Ezsigntemplate roles | [optional] 
 **dt_user_ezsignprepaidexpiration** | **str** | The eZsign prepaid expiration date | [optional] 
 **dt_user_npsrequest** | **str** | The date at which the NPS questionnaire will be show | [optional] 
 **a_pki_permission_id** | **List[int]** | An array of permissions granted to the user or api key | 
@@ -38,6 +39,7 @@ Name | Type | Description | Notes
 **obj_user_cloned** | [**ActivesessionResponseCompoundUser**](ActivesessionResponseCompoundUser.md) |  | [optional] 
 **obj_apikey** | [**ActivesessionResponseCompoundApikey**](ActivesessionResponseCompoundApikey.md) |  | [optional] 
 **a_e_module_internalname** | **List[str]** | An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key. | 
+**b_activesession_maillinglistrequest** | **bool** | If you need to ask which mailing lists this user wants to subscribe to | [optional] 
 
 ## Example
 

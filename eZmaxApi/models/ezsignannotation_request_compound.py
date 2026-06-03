@@ -27,6 +27,7 @@ from eZmaxApi.models.field_e_ezsignannotation_type import FieldEEzsignannotation
 from eZmaxApi.models.textstylestatic_request_compound import TextstylestaticRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class EzsignannotationRequestCompound(BaseModel):
     """
@@ -47,7 +48,8 @@ class EzsignannotationRequestCompound(BaseModel):
     __properties: ClassVar[List[str]] = ["pkiEzsignannotationID", "fkiEzsigndocumentID", "eEzsignannotationHorizontalalignment", "eEzsignannotationVerticalalignment", "eEzsignannotationType", "iEzsignannotationX", "iEzsignannotationY", "iEzsignannotationWidth", "iEzsignannotationHeight", "sEzsignannotationText", "iEzsignpagePagenumber", "objTextstylestatic"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -59,8 +61,7 @@ class EzsignannotationRequestCompound(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

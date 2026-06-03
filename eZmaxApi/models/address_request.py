@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AddressRequest(BaseModel):
     """
@@ -47,6 +48,9 @@ class AddressRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(-?)(180(\.0{1,15})?|((1[0-7]\d)|(\d{1,2}))(\.\d{1,15})?)$", value):
             raise ValueError(r"must validate the regular expression /^(-?)(180(\.0{1,15})?|((1[0-7]\d)|(\d{1,2}))(\.\d{1,15})?)$/")
         return value
@@ -57,12 +61,16 @@ class AddressRequest(BaseModel):
         if value is None:
             return value
 
+        if not isinstance(value, str):
+            value = str(value)
+
         if not re.match(r"^(-?)(90(\.0{1,15})?|([1-8]?\d(\.\d{1,15})?))$", value):
             raise ValueError(r"must validate the regular expression /^(-?)(90(\.0{1,15})?|([1-8]?\d(\.\d{1,15})?))$/")
         return value
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -74,8 +82,7 @@ class AddressRequest(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ezsigndocument_apply_ezsigntemplate_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**ezsigndocument_apply_ezsigntemplate_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
+[**ezsigndocument_apply_ezsigntemplate_v3**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplate_v3) | **POST** /3/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplate | Apply an Ezsigntemplate to the Ezsigndocument
 [**ezsigndocument_apply_ezsigntemplateglobal_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplateglobal_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
+[**ezsigndocument_apply_ezsigntemplateglobal_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_apply_ezsigntemplateglobal_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/applyEzsigntemplateglobal | Apply an Ezsigntemplateglobal to the Ezsigndocument
 [**ezsigndocument_create_ezsignelements_positioned_by_word_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_create_ezsignelements_positioned_by_word_v1) | **POST** /1/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**ezsigndocument_create_ezsignelements_positioned_by_word_v2**](ObjectEzsigndocumentApi.md#ezsigndocument_create_ezsignelements_positioned_by_word_v2) | **POST** /2/object/ezsigndocument/{pkiEzsigndocumentID}/createEzsignelementsPositionedByWord | Create multiple Ezsignsignatures/Ezsignformfieldgroups
 [**ezsigndocument_create_object_v1**](ObjectEzsigndocumentApi.md#ezsigndocument_create_object_v1) | **POST** /1/object/ezsigndocument | Create a new Ezsigndocument
@@ -225,6 +227,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ezsigndocument_apply_ezsigntemplate_v3**
+> EzsigndocumentApplyEzsigntemplateV3Response ezsigndocument_apply_ezsigntemplate_v3(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v3_request)
+
+Apply an Ezsigntemplate to the Ezsigndocument
+
+This endpoint applies a predefined template to the ezsign document.
+This allows to automatically apply all the form and signature fields on a document in a single step.
+
+The document must not already have fields otherwise an error will be returned.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v3_request import EzsigndocumentApplyEzsigntemplateV3Request
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplate_v3_response import EzsigndocumentApplyEzsigntemplateV3Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 56 # int | 
+    ezsigndocument_apply_ezsigntemplate_v3_request = eZmaxApi.EzsigndocumentApplyEzsigntemplateV3Request() # EzsigndocumentApplyEzsigntemplateV3Request | 
+
+    try:
+        # Apply an Ezsigntemplate to the Ezsigndocument
+        api_response = api_instance.ezsigndocument_apply_ezsigntemplate_v3(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplate_v3_request)
+        print("The response of ObjectEzsigndocumentApi->ezsigndocument_apply_ezsigntemplate_v3:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_apply_ezsigntemplate_v3: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  | 
+ **ezsigndocument_apply_ezsigntemplate_v3_request** | [**EzsigndocumentApplyEzsigntemplateV3Request**](EzsigndocumentApplyEzsigntemplateV3Request.md)|  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateV3Response**](EzsigndocumentApplyEzsigntemplateV3Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ezsigndocument_apply_ezsigntemplateglobal_v1**
 > EzsigndocumentApplyEzsigntemplateglobalV1Response ezsigndocument_apply_ezsigntemplateglobal_v1(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplateglobal_v1_request)
 
@@ -292,6 +381,93 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EzsigndocumentApplyEzsigntemplateglobalV1Response**](EzsigndocumentApplyEzsigntemplateglobalV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ezsigndocument_apply_ezsigntemplateglobal_v2**
+> EzsigndocumentApplyEzsigntemplateglobalV2Response ezsigndocument_apply_ezsigntemplateglobal_v2(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplateglobal_v2_request)
+
+Apply an Ezsigntemplateglobal to the Ezsigndocument
+
+This endpoint applies a predefined template to the ezsign document.
+This allows to automatically apply all the form and signature fields on a document in a single step.
+
+The document must not already have fields otherwise an error will be returned.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplateglobal_v2_request import EzsigndocumentApplyEzsigntemplateglobalV2Request
+from eZmaxApi.models.ezsigndocument_apply_ezsigntemplateglobal_v2_response import EzsigndocumentApplyEzsigntemplateglobalV2Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectEzsigndocumentApi(api_client)
+    pki_ezsigndocument_id = 56 # int | 
+    ezsigndocument_apply_ezsigntemplateglobal_v2_request = eZmaxApi.EzsigndocumentApplyEzsigntemplateglobalV2Request() # EzsigndocumentApplyEzsigntemplateglobalV2Request | 
+
+    try:
+        # Apply an Ezsigntemplateglobal to the Ezsigndocument
+        api_response = api_instance.ezsigndocument_apply_ezsigntemplateglobal_v2(pki_ezsigndocument_id, ezsigndocument_apply_ezsigntemplateglobal_v2_request)
+        print("The response of ObjectEzsigndocumentApi->ezsigndocument_apply_ezsigntemplateglobal_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectEzsigndocumentApi->ezsigndocument_apply_ezsigntemplateglobal_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_ezsigndocument_id** | **int**|  | 
+ **ezsigndocument_apply_ezsigntemplateglobal_v2_request** | [**EzsigndocumentApplyEzsigntemplateglobalV2Request**](EzsigndocumentApplyEzsigntemplateglobalV2Request.md)|  | 
+
+### Return type
+
+[**EzsigndocumentApplyEzsigntemplateglobalV2Response**](EzsigndocumentApplyEzsigntemplateglobalV2Response.md)
 
 ### Authorization
 

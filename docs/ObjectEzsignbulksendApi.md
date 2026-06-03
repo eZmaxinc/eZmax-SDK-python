@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ezsignbulksend_get_batch_file_v1**
-> bytearray ezsignbulksend_get_batch_file_v1(pki_ezsignbulksend_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
+> bytes ezsignbulksend_get_batch_file_v1(pki_ezsignbulksend_id, b_include_signed=b_include_signed, b_include_attachment=b_include_attachment, b_include_proofdocument=b_include_proofdocument, b_include_proof=b_include_proof)
 
 Retrieve file to download documents in batch
 
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bytearray**
+**bytes**
 
 ### Authorization
 
