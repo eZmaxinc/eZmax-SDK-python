@@ -31,19 +31,19 @@ class BuyercontractListElement(BaseModel):
     """
     A Buyercontract List Element
     """ # noqa: E501
-    pki_buyercontract_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Buyercontract", alias="pkiBuyercontractID")
-    fki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="fkiInscriptiontypeID")
-    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX")
+    pki_buyercontract_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Buyercontract", alias="pkiBuyercontractID", json_schema_extra={"examples": [38]})
+    fki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="fkiInscriptiontypeID", json_schema_extra={"examples": [51]})
+    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX", json_schema_extra={"examples": ["Revenue Property"]})
     e_buyercontract_step: FieldEBuyercontractStep = Field(alias="eBuyercontractStep")
-    d_buyercontract_minimumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The minimumprice of the Buyercontract", alias="dBuyercontractMinimumprice")
-    d_buyercontract_maximumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The maximumprice of the Buyercontract", alias="dBuyercontractMaximumprice")
+    d_buyercontract_minimumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The minimumprice of the Buyercontract", alias="dBuyercontractMinimumprice", json_schema_extra={"examples": ["200000.00"]})
+    d_buyercontract_maximumprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The maximumprice of the Buyercontract", alias="dBuyercontractMaximumprice", json_schema_extra={"examples": ["250000.00"]})
     e_buyercontract_type: FieldEBuyercontractType = Field(alias="eBuyercontractType")
-    s_buyercontract_contract: Optional[StrictStr] = Field(default=None, description="The number of the Buyercontract", alias="sBuyercontractContract")
-    dt_buyercontract_date: Annotated[str, Field(strict=True)] = Field(description="The date of the Buyercontract", alias="dtBuyercontractDate")
-    dt_buyercontract_expirationdate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The expirationdate of the Buyercontract", alias="dtBuyercontractExpirationdate")
-    b_buyercontract_isactive: StrictBool = Field(description="Whether the buyercontract is active or not", alias="bBuyercontractIsactive")
-    s_buyercontract_brokers: StrictStr = Field(description="The brokers' name of the Buyercontract", alias="sBuyercontractBrokers")
-    s_buyercontract_buyers: StrictStr = Field(description="The buyers' name of the Buyercontract", alias="sBuyercontractBuyers")
+    s_buyercontract_contract: Optional[StrictStr] = Field(default=None, description="The number of the Buyercontract", alias="sBuyercontractContract", json_schema_extra={"examples": ["12345"]})
+    dt_buyercontract_date: Annotated[str, Field(strict=True)] = Field(description="The date of the Buyercontract", alias="dtBuyercontractDate", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_buyercontract_expirationdate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The expirationdate of the Buyercontract", alias="dtBuyercontractExpirationdate", json_schema_extra={"examples": ["2020-12-31"]})
+    b_buyercontract_isactive: StrictBool = Field(description="Whether the buyercontract is active or not", alias="bBuyercontractIsactive", json_schema_extra={"examples": [True]})
+    s_buyercontract_brokers: StrictStr = Field(description="The brokers' name of the Buyercontract", alias="sBuyercontractBrokers", json_schema_extra={"examples": ["Jane Doe"]})
+    s_buyercontract_buyers: StrictStr = Field(description="The buyers' name of the Buyercontract", alias="sBuyercontractBuyers", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiBuyercontractID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eBuyercontractStep", "dBuyercontractMinimumprice", "dBuyercontractMaximumprice", "eBuyercontractType", "sBuyercontractContract", "dtBuyercontractDate", "dtBuyercontractExpirationdate", "bBuyercontractIsactive", "sBuyercontractBrokers", "sBuyercontractBuyers"]
 
     @field_validator('s_inscriptiontype_name_x')

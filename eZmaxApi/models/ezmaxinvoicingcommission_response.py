@@ -29,14 +29,14 @@ class EzmaxinvoicingcommissionResponse(BaseModel):
     """
     A Ezmaxinvoicingcommission Object
     """ # noqa: E501
-    pki_ezmaxinvoicingcommission_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Ezmaxinvoicingcommission", alias="pkiEzmaxinvoicingcommissionID")
-    fki_ezmaxinvoicingsummaryglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryglobal", alias="fkiEzmaxinvoicingsummaryglobalID")
-    fki_ezmaxpartner_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxpartner", alias="fkiEzmaxpartnerID")
-    fki_ezmaxrepresentative_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxrepresentative", alias="fkiEzmaxrepresentativeID")
-    dt_ezmaxinvoicingcommission_start: StrictStr = Field(description="The start date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionStart")
-    dt_ezmaxinvoicingcommission_end: StrictStr = Field(description="The end date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionEnd")
-    i_ezmaxinvoicingcommission_days: Annotated[int, Field(strict=True, ge=0)] = Field(description="This is the number of days during the month on which the Ezmaxinvoigcommission applies", alias="iEzmaxinvoicingcommissionDays")
-    d_ezmaxinvoicingcommission_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of Ezmaxinvoicingcommission", alias="dEzmaxinvoicingcommissionAmount")
+    pki_ezmaxinvoicingcommission_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Ezmaxinvoicingcommission", alias="pkiEzmaxinvoicingcommissionID", json_schema_extra={"examples": [36]})
+    fki_ezmaxinvoicingsummaryglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryglobal", alias="fkiEzmaxinvoicingsummaryglobalID", json_schema_extra={"examples": [241]})
+    fki_ezmaxpartner_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxpartner", alias="fkiEzmaxpartnerID", json_schema_extra={"examples": [12]})
+    fki_ezmaxrepresentative_id: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Ezmaxrepresentative", alias="fkiEzmaxrepresentativeID", json_schema_extra={"examples": [21]})
+    dt_ezmaxinvoicingcommission_start: StrictStr = Field(description="The start date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionStart", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_ezmaxinvoicingcommission_end: StrictStr = Field(description="The end date for the Ezmaxinvoicingcommission", alias="dtEzmaxinvoicingcommissionEnd", json_schema_extra={"examples": ["2020-12-31"]})
+    i_ezmaxinvoicingcommission_days: Annotated[int, Field(strict=True, ge=0)] = Field(description="This is the number of days during the month on which the Ezmaxinvoigcommission applies", alias="iEzmaxinvoicingcommissionDays", json_schema_extra={"examples": [30]})
+    d_ezmaxinvoicingcommission_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of Ezmaxinvoicingcommission", alias="dEzmaxinvoicingcommissionAmount", json_schema_extra={"examples": ["450.34"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount"]
 
     @field_validator('d_ezmaxinvoicingcommission_amount')

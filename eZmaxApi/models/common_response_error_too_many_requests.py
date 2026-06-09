@@ -30,7 +30,7 @@ class CommonResponseErrorTooManyRequests(BaseModel):
     """
     Generic Error Message
     """ # noqa: E501
-    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
+    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage", json_schema_extra={"examples": ["Invalid Signature Headers"]})
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
     a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail"]

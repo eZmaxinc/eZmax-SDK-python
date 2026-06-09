@@ -29,9 +29,9 @@ class EzsigntemplatepackagemembershipRequestCompound(BaseModel):
     """
     A Ezsigntemplatepackagemembership Object and children
     """ # noqa: E501
-    pki_ezsigntemplatepackagemembership_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID")
-    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    pki_ezsigntemplatepackagemembership_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID", json_schema_extra={"examples": [194]})
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID"]
 
     model_config = ConfigDict(

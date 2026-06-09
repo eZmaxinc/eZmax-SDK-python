@@ -28,7 +28,7 @@ class EzsigntemplatedocumentRequestPatch(BaseModel):
     """
     An Ezsigntemplatedocument Object
     """ # noqa: E501
-    s_ezsigntemplatedocument_name: Optional[StrictStr] = Field(default=None, description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
+    s_ezsigntemplatedocument_name: Optional[StrictStr] = Field(default=None, description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["sEzsigntemplatedocumentName"]
 
     model_config = ConfigDict(

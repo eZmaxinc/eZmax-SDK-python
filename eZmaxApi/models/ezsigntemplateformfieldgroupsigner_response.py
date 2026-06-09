@@ -29,8 +29,8 @@ class EzsigntemplateformfieldgroupsignerResponse(BaseModel):
     """
     A Ezsigntemplateformfieldgroupsigner Object
     """ # noqa: E501
-    pki_ezsigntemplateformfieldgroupsigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateformfieldgroupsigner", alias="pkiEzsigntemplateformfieldgroupsignerID")
-    fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
+    pki_ezsigntemplateformfieldgroupsigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateformfieldgroupsigner", alias="pkiEzsigntemplateformfieldgroupsignerID", json_schema_extra={"examples": [87]})
+    fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID", json_schema_extra={"examples": [9]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldgroupsignerID", "fkiEzsigntemplatesignerID"]
 
     model_config = ConfigDict(

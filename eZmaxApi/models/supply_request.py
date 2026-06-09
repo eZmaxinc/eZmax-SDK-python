@@ -30,15 +30,15 @@ class SupplyRequest(BaseModel):
     """
     A Supply Object
     """ # noqa: E501
-    pki_supply_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supply", alias="pkiSupplyID")
-    fki_glaccount_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccount", alias="fkiGlaccountID")
-    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID")
-    fki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="fkiVariableexpenseID")
-    s_supply_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Supply", alias="sSupplyCode")
+    pki_supply_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supply", alias="pkiSupplyID", json_schema_extra={"examples": [85]})
+    fki_glaccount_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccount", alias="fkiGlaccountID", json_schema_extra={"examples": [35]})
+    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID", json_schema_extra={"examples": [66]})
+    fki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="fkiVariableexpenseID", json_schema_extra={"examples": [2]})
+    s_supply_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Supply", alias="sSupplyCode", json_schema_extra={"examples": ["PPLET"]})
     obj_supply_description: MultilingualSupplyDescription = Field(alias="objSupplyDescription")
-    d_supply_unitprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The unit price of the Supply", alias="dSupplyUnitprice")
-    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive")
-    b_supply_variableprice: StrictBool = Field(description="Whether if the price is variable", alias="bSupplyVariableprice")
+    d_supply_unitprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The unit price of the Supply", alias="dSupplyUnitprice", json_schema_extra={"examples": ["8.00"]})
+    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive", json_schema_extra={"examples": [True]})
+    b_supply_variableprice: StrictBool = Field(description="Whether if the price is variable", alias="bSupplyVariableprice", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiSupplyID", "fkiGlaccountID", "fkiGlaccountcontainerID", "fkiVariableexpenseID", "sSupplyCode", "objSupplyDescription", "dSupplyUnitprice", "bSupplyIsactive", "bSupplyVariableprice"]
 
     @field_validator('s_supply_code')

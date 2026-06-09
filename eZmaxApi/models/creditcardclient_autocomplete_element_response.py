@@ -29,8 +29,8 @@ class CreditcardclientAutocompleteElementResponse(BaseModel):
     """
     A Creditcardclient AutocompleteElement Response
     """ # noqa: E501
-    pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
-    s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
+    pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID", json_schema_extra={"examples": [114]})
+    s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription", json_schema_extra={"examples": ["Visa"]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "sCreditcardclientDescription"]
 
     @field_validator('s_creditcardclient_description')

@@ -28,7 +28,7 @@ class CommonResponseRedirectSSecretquestionTextX(BaseModel):
     """
     352 Redirect Message containing secret question
     """ # noqa: E501
-    s_secretquestion_text_x: StrictStr = Field(description="The text of the Secretquestion in the language of the requester", alias="sSecretquestionTextX")
+    s_secretquestion_text_x: StrictStr = Field(description="The text of the Secretquestion in the language of the requester", alias="sSecretquestionTextX", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
     __properties: ClassVar[List[str]] = ["sSecretquestionTextX"]
 
     model_config = ConfigDict(

@@ -28,9 +28,9 @@ class CommonFile(BaseModel):
     """
     Object representing a file used in a request or response context 
     """ # noqa: E501
-    s_file_name: StrictStr = Field(description="The name of the file", alias="sFileName")
+    s_file_name: StrictStr = Field(description="The name of the file", alias="sFileName", json_schema_extra={"examples": ["example.pdf"]})
     s_file_url: Optional[StrictStr] = Field(default=None, description="The URL used to reach the File", alias="sFileUrl")
-    s_file_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the File", alias="sFileBase64")
+    s_file_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the File", alias="sFileBase64", json_schema_extra={"examples": ["eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0="]})
     e_file_source: StrictStr = Field(description="The source of the File", alias="eFileSource")
     __properties: ClassVar[List[str]] = ["sFileName", "sFileUrl", "sFileBase64", "eFileSource"]
 

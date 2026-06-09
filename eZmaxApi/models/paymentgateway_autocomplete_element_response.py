@@ -29,9 +29,9 @@ class PaymentgatewayAutocompleteElementResponse(BaseModel):
     """
     A Paymentgateway AutocompleteElement Response
     """ # noqa: E501
-    pki_paymentgateway_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID")
-    s_paymentgateway_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentgateway in the language of the requester", alias="sPaymentgatewayDescriptionX")
-    b_paymentgateway_isactive: StrictBool = Field(description="Whether the Paymentgateway is active or not", alias="bPaymentgatewayIsactive")
+    pki_paymentgateway_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID", json_schema_extra={"examples": [235]})
+    s_paymentgateway_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentgateway in the language of the requester", alias="sPaymentgatewayDescriptionX", json_schema_extra={"examples": ["Moneris"]})
+    b_paymentgateway_isactive: StrictBool = Field(description="Whether the Paymentgateway is active or not", alias="bPaymentgatewayIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPaymentgatewayID", "sPaymentgatewayDescriptionX", "bPaymentgatewayIsactive"]
 
     @field_validator('s_paymentgateway_description_x')

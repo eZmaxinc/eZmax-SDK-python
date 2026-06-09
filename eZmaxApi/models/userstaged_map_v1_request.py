@@ -29,7 +29,7 @@ class UserstagedMapV1Request(BaseModel):
     """
     Request for POST /1/object/userstaged/{pkiUserstagedID}/map
     """ # noqa: E501
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     __properties: ClassVar[List[str]] = ["fkiUserID"]
 
     model_config = ConfigDict(

@@ -29,9 +29,9 @@ class BrokertypeAutocompleteElementResponse(BaseModel):
     """
     A Brokertype AutocompleteElement Response
     """ # noqa: E501
-    pki_brokertype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Brokertype", alias="pkiBrokertypeID")
-    s_brokertype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Brokertype in the language of the requester", alias="sBrokertypeNameX")
-    b_brokertype_isactive: StrictBool = Field(description="Whether the Brokertype is active or not", alias="bBrokertypeIsactive")
+    pki_brokertype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Brokertype", alias="pkiBrokertypeID", json_schema_extra={"examples": [1]})
+    s_brokertype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Brokertype in the language of the requester", alias="sBrokertypeNameX", json_schema_extra={"examples": ["Agence immobilière"]})
+    b_brokertype_isactive: StrictBool = Field(description="Whether the Brokertype is active or not", alias="bBrokertypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrokertypeID", "sBrokertypeNameX", "bBrokertypeIsactive"]
 
     @field_validator('s_brokertype_name_x')

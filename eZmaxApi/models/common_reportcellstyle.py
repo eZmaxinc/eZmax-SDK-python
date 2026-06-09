@@ -32,10 +32,10 @@ class CommonReportcellstyle(BaseModel):
     """
     Styles applied to a Reportcell 
     """ # noqa: E501
-    b_reportcellstyle_bordertop: StrictBool = Field(description="Whether there is a border at the top of the Reportcell", alias="bReportcellstyleBordertop")
-    b_reportcellstyle_borderbottom: StrictBool = Field(description="Whether there is a border at the bottom of the Reportcell", alias="bReportcellstyleBorderbottom")
-    b_reportcellstyle_borderleft: StrictBool = Field(description="Whether there is a border at the left of the Reportcell", alias="bReportcellstyleBorderleft")
-    b_reportcellstyle_borderright: StrictBool = Field(description="Whether there is a border at the right of the Reportcell", alias="bReportcellstyleBorderright")
+    b_reportcellstyle_bordertop: StrictBool = Field(description="Whether there is a border at the top of the Reportcell", alias="bReportcellstyleBordertop", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderbottom: StrictBool = Field(description="Whether there is a border at the bottom of the Reportcell", alias="bReportcellstyleBorderbottom", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderleft: StrictBool = Field(description="Whether there is a border at the left of the Reportcell", alias="bReportcellstyleBorderleft", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderright: StrictBool = Field(description="Whether there is a border at the right of the Reportcell", alias="bReportcellstyleBorderright", json_schema_extra={"examples": [True]})
     e_reportcell_horizontalalignment: EnumHorizontalalignment = Field(alias="eReportcellHorizontalalignment")
     e_reportcell_verticalalignment: EnumVerticalalignment = Field(alias="eReportcellVerticalalignment")
     e_reportcell_fontweight: EnumFontweight = Field(alias="eReportcellFontweight")

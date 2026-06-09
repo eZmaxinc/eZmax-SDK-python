@@ -29,13 +29,13 @@ class CommonAuditdetail(BaseModel):
     """
     Gives informations about the user that created the object or the last user to have modified it.  If the object was never modified after creation, both Created and Modified informations will be the same. 
     """ # noqa: E501
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_apikey_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX")
-    dt_auditdetail_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtAuditdetailDate")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID", json_schema_extra={"examples": [99]})
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_apikey_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX", json_schema_extra={"examples": ["Project X"]})
+    dt_auditdetail_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtAuditdetailDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["fkiUserID", "fkiApikeyID", "sUserLoginname", "sUserLastname", "sUserFirstname", "sApikeyDescriptionX", "dtAuditdetailDate"]
 
     @field_validator('s_user_loginname')

@@ -28,7 +28,7 @@ class EzsignfoldersignerassociationRequestPatch(BaseModel):
     """
     An Ezsignfoldersignerassociation Object
     """ # noqa: E501
-    t_ezsignfoldersignerassociation_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
+    t_ezsignfoldersignerassociation_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage", json_schema_extra={"examples": ["Hi John,\n\nThis is the document I need you to review.\n\nCould you sign it before Monday please.\n\nBest Regards.\n\nMary"]})
     __properties: ClassVar[List[str]] = ["tEzsignfoldersignerassociationMessage"]
 
     model_config = ConfigDict(

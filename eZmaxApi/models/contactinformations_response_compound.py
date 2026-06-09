@@ -34,13 +34,13 @@ class ContactinformationsResponseCompound(BaseModel):
     """
     A Contactinformations Object
     """ # noqa: E501
-    pki_contactinformations_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Contactinformations", alias="pkiContactinformationsID")
-    fki_address_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Address", alias="fkiAddressIDDefault")
-    fki_phone_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phone.", alias="fkiPhoneIDDefault")
-    fki_email_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailIDDefault")
-    fki_website_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Website Default", alias="fkiWebsiteIDDefault")
+    pki_contactinformations_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Contactinformations", alias="pkiContactinformationsID", json_schema_extra={"examples": [55]})
+    fki_address_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Address", alias="fkiAddressIDDefault", json_schema_extra={"examples": [142]})
+    fki_phone_id_default: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phone.", alias="fkiPhoneIDDefault", json_schema_extra={"examples": [1]})
+    fki_email_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailIDDefault", json_schema_extra={"examples": [22]})
+    fki_website_id_default: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Website Default", alias="fkiWebsiteIDDefault", json_schema_extra={"examples": [145]})
     e_contactinformations_type: FieldEContactinformationsType = Field(alias="eContactinformationsType")
-    s_contactinformations_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Contactinformations", alias="sContactinformationsUrl")
+    s_contactinformations_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Contactinformations", alias="sContactinformationsUrl", json_schema_extra={"examples": ["https://www.example.com"]})
     obj_address_default: Optional[AddressResponseCompound] = Field(default=None, alias="objAddressDefault")
     obj_phone_default: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneDefault")
     obj_email_default: Optional[EmailResponseCompound] = Field(default=None, alias="objEmailDefault")

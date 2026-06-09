@@ -30,10 +30,10 @@ class CustomFormDataDocumentResponse(BaseModel):
     """
     A form Data Document Object 
     """ # noqa: E501
-    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
-    dt_modified_date: StrictStr = Field(description="The date and time at which the object was last modified", alias="dtModifiedDate")
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID", json_schema_extra={"examples": [97]})
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName", json_schema_extra={"examples": ["Contract #123"]})
+    dt_modified_date: StrictStr = Field(description="The date and time at which the object was last modified", alias="dtModifiedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     a_obj_form_data_signer: List[CustomFormDataSignerResponse] = Field(alias="a_objFormDataSigner")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "sEzsigndocumentName", "dtModifiedDate", "a_objFormDataSigner"]
 

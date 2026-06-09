@@ -28,12 +28,12 @@ class EzsigndocumentExtractTextV1Request(BaseModel):
     """
     Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/extractText
     """ # noqa: E501
-    i_page: StrictInt = Field(description="The page where the area is located", alias="iPage")
-    e_section: Optional[StrictStr] = Field(default=None, description="The section of the page", alias="eSection")
-    i_x: Optional[StrictInt] = Field(default=None, description="The X coordinate (Horizontal). Require when eSection = 'Region' or eSection is not set.", alias="iX")
-    i_y: Optional[StrictInt] = Field(default=None, description="The Y coordinate (Vertical). Require when eSection = 'Region' or eSection is not set.", alias="iY")
-    i_width: Optional[StrictInt] = Field(default=None, description="Area's width. Require when eSection = 'Region' or eSection is not set.", alias="iWidth")
-    i_height: Optional[StrictInt] = Field(default=None, description="Area's height. Require when eSection = 'Region' or eSection is not set.", alias="iHeight")
+    i_page: StrictInt = Field(description="The page where the area is located", alias="iPage", json_schema_extra={"examples": [1]})
+    e_section: Optional[StrictStr] = Field(default=None, description="The section of the page", alias="eSection", json_schema_extra={"examples": ["Region"]})
+    i_x: Optional[StrictInt] = Field(default=None, description="The X coordinate (Horizontal). Require when eSection = 'Region' or eSection is not set.", alias="iX", json_schema_extra={"examples": [1]})
+    i_y: Optional[StrictInt] = Field(default=None, description="The Y coordinate (Vertical). Require when eSection = 'Region' or eSection is not set.", alias="iY", json_schema_extra={"examples": [1]})
+    i_width: Optional[StrictInt] = Field(default=None, description="Area's width. Require when eSection = 'Region' or eSection is not set.", alias="iWidth", json_schema_extra={"examples": [1]})
+    i_height: Optional[StrictInt] = Field(default=None, description="Area's height. Require when eSection = 'Region' or eSection is not set.", alias="iHeight", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["iPage", "eSection", "iX", "iY", "iWidth", "iHeight"]
 
     @field_validator('e_section')

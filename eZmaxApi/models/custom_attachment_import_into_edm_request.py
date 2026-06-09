@@ -31,17 +31,17 @@ class CustomAttachmentImportIntoEDMRequest(BaseModel):
     A AttachmentImportIntoEDM object
     """ # noqa: E501
     e_attachment_source: StrictStr = Field(description="The source of the Attachment", alias="eAttachmentSource")
-    fki_attachment_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="fkiAttachmentID")
-    fki_inscriptionchecklist_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionchecklist", alias="fkiInscriptionchecklistID")
-    s_attachment_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the file to import", alias="sAttachmentUrl")
-    s_attachment_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the attachment.", alias="sAttachmentBase64")
-    s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName")
-    s_attachment_category: Annotated[str, Field(strict=True)] = Field(description="The attachment category", alias="sAttachmentCategory")
+    fki_attachment_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="fkiAttachmentID", json_schema_extra={"examples": [1]})
+    fki_inscriptionchecklist_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionchecklist", alias="fkiInscriptionchecklistID", json_schema_extra={"examples": [191]})
+    s_attachment_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the file to import", alias="sAttachmentUrl", json_schema_extra={"examples": ["https://www.example.com"]})
+    s_attachment_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the attachment.", alias="sAttachmentBase64", json_schema_extra={"examples": ["eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0="]})
+    s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName", json_schema_extra={"examples": ["Document.pdf"]})
+    s_attachment_category: Annotated[str, Field(strict=True)] = Field(description="The attachment category", alias="sAttachmentCategory", json_schema_extra={"examples": ["Inscription"]})
     e_attachment_privacy: FieldEAttachmentPrivacy = Field(alias="eAttachmentPrivacy")
-    fki_user_id_specific: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDSpecific")
-    s_attachment_md5: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MD5 of the Attachment", alias="sAttachmentMD5")
-    b_attachment_forceoverwrite: Optional[StrictBool] = Field(default=None, description="Whether we force an overwrite of an existing file", alias="bAttachmentForceoverwrite")
-    b_attachment_forcerestore: Optional[StrictBool] = Field(default=None, description="Whether we force a restore of a deleted file", alias="bAttachmentForcerestore")
+    fki_user_id_specific: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDSpecific", json_schema_extra={"examples": [70]})
+    s_attachment_md5: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The MD5 of the Attachment", alias="sAttachmentMD5", json_schema_extra={"examples": ["2cb29026e8a93c930e71598579400db6"]})
+    b_attachment_forceoverwrite: Optional[StrictBool] = Field(default=None, description="Whether we force an overwrite of an existing file", alias="bAttachmentForceoverwrite", json_schema_extra={"examples": [False]})
+    b_attachment_forcerestore: Optional[StrictBool] = Field(default=None, description="Whether we force a restore of a deleted file", alias="bAttachmentForcerestore", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["eAttachmentSource", "fkiAttachmentID", "fkiInscriptionchecklistID", "sAttachmentUrl", "sAttachmentBase64", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "sAttachmentMD5", "bAttachmentForceoverwrite", "bAttachmentForcerestore"]
 
     @field_validator('e_attachment_source')

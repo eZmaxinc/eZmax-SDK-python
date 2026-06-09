@@ -31,14 +31,14 @@ class DiscussionmessageResponse(BaseModel):
     """
     A Discussionmessage Object
     """ # noqa: E501
-    pki_discussionmessage_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    fki_discussionmembership_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipID")
-    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired")
+    pki_discussionmessage_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID", json_schema_extra={"examples": [123]})
+    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
+    fki_discussionmembership_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipID", json_schema_extra={"examples": [165]})
+    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired", json_schema_extra={"examples": [165]})
     e_discussionmessage_status: FieldEDiscussionmessageStatus = Field(alias="eDiscussionmessageStatus")
-    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent")
-    s_discussionmessage_creatorname: Annotated[str, Field(strict=True)] = Field(description="The name the creator of the Discussionmessage.", alias="sDiscussionmessageCreatorname")
-    s_discussionmessage_actionrequiredname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name the Actionrequired of the Discussionmessage.", alias="sDiscussionmessageActionrequiredname")
+    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
+    s_discussionmessage_creatorname: Annotated[str, Field(strict=True)] = Field(description="The name the creator of the Discussionmessage.", alias="sDiscussionmessageCreatorname", json_schema_extra={"examples": ["John Doe"]})
+    s_discussionmessage_actionrequiredname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name the Actionrequired of the Discussionmessage.", alias="sDiscussionmessageActionrequiredname", json_schema_extra={"examples": ["Jane Doe"]})
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipID", "fkiDiscussionmembershipIDActionrequired", "eDiscussionmessageStatus", "tDiscussionmessageContent", "sDiscussionmessageCreatorname", "sDiscussionmessageActionrequiredname", "objAudit"]
 

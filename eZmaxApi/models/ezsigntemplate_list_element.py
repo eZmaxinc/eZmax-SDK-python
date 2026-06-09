@@ -30,15 +30,15 @@ class EzsigntemplateListElement(BaseModel):
     """
     A Ezsigntemplate List Element
     """ # noqa: E501
-    pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
-    i_ezsigntemplatedocument_pagetotal: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal")
-    i_ezsigntemplate_signaturetotal: Optional[StrictInt] = Field(default=None, description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplateSignaturetotal")
-    i_ezsigntemplate_formfieldtotal: Optional[StrictInt] = Field(default=None, description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplateFormfieldtotal")
-    b_ezsigntemplate_incomplete: StrictBool = Field(description="Indicate the Ezsigntemplate is incomplete and cannot be used", alias="bEzsigntemplateIncomplete")
-    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription", json_schema_extra={"examples": ["Standard Contract"]})
+    i_ezsigntemplatedocument_pagetotal: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal", json_schema_extra={"examples": [5]})
+    i_ezsigntemplate_signaturetotal: Optional[StrictInt] = Field(default=None, description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplateSignaturetotal", json_schema_extra={"examples": [8]})
+    i_ezsigntemplate_formfieldtotal: Optional[StrictInt] = Field(default=None, description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplateFormfieldtotal", json_schema_extra={"examples": [8]})
+    b_ezsigntemplate_incomplete: StrictBool = Field(description="Indicate the Ezsigntemplate is incomplete and cannot be used", alias="bEzsigntemplateIncomplete", json_schema_extra={"examples": [False]})
+    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX", json_schema_extra={"examples": ["Default"]})
     e_ezsigntemplate_type: FieldEEzsigntemplateType = Field(alias="eEzsigntemplateType")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplateSignaturetotal", "iEzsigntemplateFormfieldtotal", "bEzsigntemplateIncomplete", "sEzsignfoldertypeNameX", "eEzsigntemplateType"]
 

@@ -29,9 +29,9 @@ class CustomImportEzsigntemplatepackageRelationRequest(BaseModel):
     """
     The object used in /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage Request
     """ # noqa: E501
-    fki_ezsigntemplatepackagesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackagesigner", alias="fkiEzsigntemplatepackagesignerID")
-    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
-    s_ezsigntemplatepackagesigner_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntemplatepackagesigner", alias="sEzsigntemplatepackagesignerDescription")
+    fki_ezsigntemplatepackagesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackagesigner", alias="fkiEzsigntemplatepackagesignerID", json_schema_extra={"examples": [174]})
+    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
+    s_ezsigntemplatepackagesigner_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntemplatepackagesigner", alias="sEzsigntemplatepackagesignerDescription", json_schema_extra={"examples": ["Customer"]})
     __properties: ClassVar[List[str]] = ["fkiEzsigntemplatepackagesignerID", "fkiEzsignfoldersignerassociationID", "sEzsigntemplatepackagesignerDescription"]
 
     model_config = ConfigDict(

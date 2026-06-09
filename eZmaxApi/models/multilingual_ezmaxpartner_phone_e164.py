@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerPhoneE164(BaseModel):
     """
     Phone number of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_phone_e1641: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE1641")
-    s_ezmaxpartner_phone_e1642: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE1642")
+    s_ezmaxpartner_phone_e1641: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE1641", json_schema_extra={"examples": ["+15149901516"]})
+    s_ezmaxpartner_phone_e1642: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE1642", json_schema_extra={"examples": ["+15149901516"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerPhoneE1641", "sEzmaxpartnerPhoneE1642"]
 
     @field_validator('s_ezmaxpartner_phone_e1641')

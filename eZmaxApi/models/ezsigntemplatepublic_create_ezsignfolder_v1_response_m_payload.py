@@ -29,7 +29,7 @@ class EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/ezsigntemplatepublic/createEzsignfolder
     """ # noqa: E501
-    s_ezsigntemplatepublic_signingurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only**", alias="sEzsigntemplatepublicSigningurl")
+    s_ezsigntemplatepublic_signingurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only**", alias="sEzsigntemplatepublicSigningurl", json_schema_extra={"examples": ["https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}"]})
     __properties: ClassVar[List[str]] = ["sEzsigntemplatepublicSigningurl"]
 
     @field_validator('s_ezsigntemplatepublic_signingurl')

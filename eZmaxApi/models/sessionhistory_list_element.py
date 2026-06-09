@@ -30,16 +30,16 @@ class SessionhistoryListElement(BaseModel):
     """
     A Sessionhistory List Element
     """ # noqa: E501
-    pki_sessionhistory_id: Annotated[int, Field(le=2147483647, strict=True, ge=1)] = Field(description="The unique ID of the Sessionhistory", alias="pkiSessionhistoryID")
-    fki_computer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Computer", alias="fkiComputerID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    dt_sessionhistory_firsthit: Annotated[str, Field(strict=True)] = Field(description="The first hit of the Sessionhistory", alias="dtSessionhistoryFirsthit")
-    dt_sessionhistory_lasthit: Annotated[str, Field(strict=True)] = Field(description="The last hit of the Sessionhistory", alias="dtSessionhistoryLasthit")
+    pki_sessionhistory_id: Annotated[int, Field(le=2147483647, strict=True, ge=1)] = Field(description="The unique ID of the Sessionhistory", alias="pkiSessionhistoryID", json_schema_extra={"examples": [259]})
+    fki_computer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Computer", alias="fkiComputerID", json_schema_extra={"examples": [249]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    dt_sessionhistory_firsthit: Annotated[str, Field(strict=True)] = Field(description="The first hit of the Sessionhistory", alias="dtSessionhistoryFirsthit", json_schema_extra={"examples": ["2020-12-31 17:35:37"]})
+    dt_sessionhistory_lasthit: Annotated[str, Field(strict=True)] = Field(description="The last hit of the Sessionhistory", alias="dtSessionhistoryLasthit", json_schema_extra={"examples": ["2020-12-31 19:27:38"]})
     e_sessionhistory_endby: FieldESessionhistoryEndby = Field(alias="eSessionhistoryEndby")
-    s_computer_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Computer", alias="sComputerDescription")
-    s_sessionhistory_duration: Annotated[str, Field(strict=True)] = Field(description="The duration of the session", alias="sSessionhistoryDuration")
-    s_sessionhistory_ip: StrictStr = Field(description="Represent an IP address.", alias="sSessionhistoryIP")
-    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname")
+    s_computer_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Computer", alias="sComputerDescription", json_schema_extra={"examples": ["PC001"]})
+    s_sessionhistory_duration: Annotated[str, Field(strict=True)] = Field(description="The duration of the session", alias="sSessionhistoryDuration", json_schema_extra={"examples": ["01:52:01"]})
+    s_sessionhistory_ip: StrictStr = Field(description="Represent an IP address.", alias="sSessionhistoryIP", json_schema_extra={"examples": ["127.0.0.1"]})
+    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
     __properties: ClassVar[List[str]] = ["pkiSessionhistoryID", "fkiComputerID", "fkiUserID", "dtSessionhistoryFirsthit", "dtSessionhistoryLasthit", "eSessionhistoryEndby", "sComputerDescription", "sSessionhistoryDuration", "sSessionhistoryIP", "sUserLoginname"]
 
     @field_validator('dt_sessionhistory_firsthit')

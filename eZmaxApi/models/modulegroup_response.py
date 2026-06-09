@@ -29,8 +29,8 @@ class ModulegroupResponse(BaseModel):
     """
     A Modulegroup Object
     """ # noqa: E501
-    pki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="pkiModulegroupID")
-    s_modulegroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Modulegroup in the language of the requester", alias="sModulegroupNameX")
+    pki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="pkiModulegroupID", json_schema_extra={"examples": [46]})
+    s_modulegroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Modulegroup in the language of the requester", alias="sModulegroupNameX", json_schema_extra={"examples": ["Management"]})
     __properties: ClassVar[List[str]] = ["pkiModulegroupID", "sModulegroupNameX"]
 
     @field_validator('s_modulegroup_name_x')

@@ -29,8 +29,8 @@ class MultilingualEzdoctemplatedocumentName(BaseModel):
     """
     The name1 of the Ezdoctemplatedocument
     """ # noqa: E501
-    s_ezdoctemplatedocument_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name1 of the Ezdoctemplatedocument", alias="sEzdoctemplatedocumentName1")
-    s_ezdoctemplatedocument_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name2 of the Ezdoctemplatedocument", alias="sEzdoctemplatedocumentName2")
+    s_ezdoctemplatedocument_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name1 of the Ezdoctemplatedocument", alias="sEzdoctemplatedocumentName1", json_schema_extra={"examples": ["Contrat type"]})
+    s_ezdoctemplatedocument_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name2 of the Ezdoctemplatedocument", alias="sEzdoctemplatedocumentName2", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["sEzdoctemplatedocumentName1", "sEzdoctemplatedocumentName2"]
 
     @field_validator('s_ezdoctemplatedocument_name1')

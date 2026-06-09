@@ -29,9 +29,9 @@ class FontAutocompleteElementResponse(BaseModel):
     """
     A Font AutocompleteElement Response
     """ # noqa: E501
-    s_font_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Font", alias="sFontName")
-    pki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="pkiFontID")
-    b_font_isactive: StrictBool = Field(description="Whether the Font is active or not", alias="bFontIsactive")
+    s_font_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Font", alias="sFontName", json_schema_extra={"examples": ["Arial"]})
+    pki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="pkiFontID", json_schema_extra={"examples": [1]})
+    b_font_isactive: StrictBool = Field(description="Whether the Font is active or not", alias="bFontIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sFontName", "pkiFontID", "bFontIsactive"]
 
     @field_validator('s_font_name')

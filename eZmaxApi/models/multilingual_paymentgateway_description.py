@@ -29,8 +29,8 @@ class MultilingualPaymentgatewayDescription(BaseModel):
     """
     Description of the Paymentgateway
     """ # noqa: E501
-    s_paymentgateway_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentgateway in French", alias="sPaymentgatewayDescription1")
-    s_paymentgateway_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentgateway in English", alias="sPaymentgatewayDescription2")
+    s_paymentgateway_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentgateway in French", alias="sPaymentgatewayDescription1", json_schema_extra={"examples": ["Moneris"]})
+    s_paymentgateway_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentgateway in English", alias="sPaymentgatewayDescription2", json_schema_extra={"examples": ["Moneris"]})
     __properties: ClassVar[List[str]] = ["sPaymentgatewayDescription1", "sPaymentgatewayDescription2"]
 
     @field_validator('s_paymentgateway_description1')

@@ -29,18 +29,18 @@ class ActivesessionListElement(BaseModel):
     """
     A Activesession List Element
     """ # noqa: E501
-    pki_activesession_id: StrictInt = Field(description="The unique ID of the Activesession", alias="pkiActivesessionID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    fki_computer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Computer", alias="fkiComputerID")
-    fki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyID")
-    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
-    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
-    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
-    s_activesession_loginname: Annotated[str, Field(strict=True)] = Field(description="The loginname of the Activesession", alias="sActivesessionLoginname")
-    s_computer_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Computer", alias="sComputerDescription")
-    dt_activesession_firsthit: Annotated[str, Field(strict=True)] = Field(description="The first hit of the Activesession", alias="dtActivesessionFirsthit")
-    dt_activesession_lasthit: Annotated[str, Field(strict=True)] = Field(description="The last hit of the Activesession", alias="dtActivesessionLasthit")
-    s_activesession_ip: StrictStr = Field(description="Represent an IP address.", alias="sActivesessionIP")
+    pki_activesession_id: StrictInt = Field(description="The unique ID of the Activesession", alias="pkiActivesessionID", json_schema_extra={"examples": [16]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_computer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Computer", alias="fkiComputerID", json_schema_extra={"examples": [249]})
+    fki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyID", json_schema_extra={"examples": [1]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX", json_schema_extra={"examples": ["Acme inc."]})
+    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
+    s_activesession_loginname: Annotated[str, Field(strict=True)] = Field(description="The loginname of the Activesession", alias="sActivesessionLoginname", json_schema_extra={"examples": ["doej"]})
+    s_computer_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Computer", alias="sComputerDescription", json_schema_extra={"examples": ["PC001"]})
+    dt_activesession_firsthit: Annotated[str, Field(strict=True)] = Field(description="The first hit of the Activesession", alias="dtActivesessionFirsthit", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    dt_activesession_lasthit: Annotated[str, Field(strict=True)] = Field(description="The last hit of the Activesession", alias="dtActivesessionLasthit", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    s_activesession_ip: StrictStr = Field(description="Represent an IP address.", alias="sActivesessionIP", json_schema_extra={"examples": ["127.0.0.1"]})
     __properties: ClassVar[List[str]] = ["pkiActivesessionID", "fkiUserID", "fkiComputerID", "fkiCompanyID", "fkiDepartmentID", "sCompanyNameX", "sDepartmentNameX", "sActivesessionLoginname", "sComputerDescription", "dtActivesessionFirsthit", "dtActivesessionLasthit", "sActivesessionIP"]
 
     @field_validator('s_activesession_loginname')

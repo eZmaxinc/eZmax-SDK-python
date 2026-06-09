@@ -31,7 +31,7 @@ class UsergroupRequest(BaseModel):
     """
     A Usergroup Object
     """ # noqa: E501
-    pki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="pkiUsergroupID")
+    pki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="pkiUsergroupID", json_schema_extra={"examples": [2]})
     obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
     obj_usergroup_name: MultilingualUsergroupName = Field(alias="objUsergroupName")
     __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objEmail", "objUsergroupName"]

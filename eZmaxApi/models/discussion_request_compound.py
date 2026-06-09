@@ -29,9 +29,9 @@ class DiscussionRequestCompound(BaseModel):
     """
     A Discussion Object and children
     """ # noqa: E501
-    pki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="pkiDiscussionID")
-    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription")
-    b_discussion_closed: Optional[StrictBool] = Field(default=None, description="Whether if it's an closed", alias="bDiscussionClosed")
+    pki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="pkiDiscussionID", json_schema_extra={"examples": [125]})
+    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription", json_schema_extra={"examples": ["John Doe"]})
+    b_discussion_closed: Optional[StrictBool] = Field(default=None, description="Whether if it's an closed", alias="bDiscussionClosed", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed"]
 
     @field_validator('s_discussion_description')

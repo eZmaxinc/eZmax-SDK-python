@@ -29,10 +29,10 @@ class BrokerAutocompleteElementResponse(BaseModel):
     """
     A Broker AutocompleteElement Response
     """ # noqa: E501
-    pki_broker_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Broker.", alias="pkiBrokerID")
-    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
-    s_broker_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Broker", alias="sBrokerName")
-    b_broker_isactive: StrictBool = Field(description="Whether the Broker is active or not", alias="bBrokerIsactive")
+    pki_broker_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Broker.", alias="pkiBrokerID", json_schema_extra={"examples": [26]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
+    s_broker_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Broker", alias="sBrokerName", json_schema_extra={"examples": ["Sub franchisee"]})
+    b_broker_isactive: StrictBool = Field(description="Whether the Broker is active or not", alias="bBrokerIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrokerID", "fkiDepartmentID", "sBrokerName", "bBrokerIsactive"]
 
     @field_validator('s_broker_name')

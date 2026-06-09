@@ -28,11 +28,11 @@ class GlobalEzmaxcustomerGetConfigurationV1Response(BaseModel):
     """
     Response for GET /1/ezmaxcustomer/{pksEzmaxcustomerCode}/getConfiguration
     """ # noqa: E501
-    s_infrastructureregion_code: StrictStr = Field(description="The region code", alias="sInfrastructureregionCode")
-    s_infrastructureregion_code_web: StrictStr = Field(description="The region code", alias="sInfrastructureregionCodeWeb")
-    s_infrastructureenvironmenttype_description: StrictStr = Field(description="The environment type Description", alias="sInfrastructureenvironmenttypeDescription")
-    s_cognito_client_id_external: Optional[StrictStr] = Field(default=None, description="The ID of the client in Cognito", alias="sCognitoClientIDExternal")
-    s_cognito_client_id_ezmaxpublic: StrictStr = Field(description="The ID of the client in Cognito", alias="sCognitoClientIDEzmaxpublic")
+    s_infrastructureregion_code: StrictStr = Field(description="The region code", alias="sInfrastructureregionCode", json_schema_extra={"examples": ["ca-central-1"]})
+    s_infrastructureregion_code_web: StrictStr = Field(description="The region code", alias="sInfrastructureregionCodeWeb", json_schema_extra={"examples": ["ca-central-1"]})
+    s_infrastructureenvironmenttype_description: StrictStr = Field(description="The environment type Description", alias="sInfrastructureenvironmenttypeDescription", json_schema_extra={"examples": ["prod"]})
+    s_cognito_client_id_external: Optional[StrictStr] = Field(default=None, description="The ID of the client in Cognito", alias="sCognitoClientIDExternal", json_schema_extra={"examples": ["6kivk421lhteuktijfsvv4r1cl"]})
+    s_cognito_client_id_ezmaxpublic: StrictStr = Field(description="The ID of the client in Cognito", alias="sCognitoClientIDEzmaxpublic", json_schema_extra={"examples": ["6kivk421lhteuktijfsvv4r1cl"]})
     __properties: ClassVar[List[str]] = ["sInfrastructureregionCode", "sInfrastructureregionCodeWeb", "sInfrastructureenvironmenttypeDescription", "sCognitoClientIDExternal", "sCognitoClientIDEzmaxpublic"]
 
     model_config = ConfigDict(

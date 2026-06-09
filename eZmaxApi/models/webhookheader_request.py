@@ -29,9 +29,9 @@ class WebhookheaderRequest(BaseModel):
     """
     A webhookheader object
     """ # noqa: E501
-    pki_webhookheader_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhookheader", alias="pkiWebhookheaderID")
-    s_webhookheader_name: Annotated[str, Field(strict=True)] = Field(description="The Name of the Webhookheader", alias="sWebhookheaderName")
-    s_webhookheader_value: Annotated[str, Field(strict=True)] = Field(description="The Value of the Webhookheader", alias="sWebhookheaderValue")
+    pki_webhookheader_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhookheader", alias="pkiWebhookheaderID", json_schema_extra={"examples": [77]})
+    s_webhookheader_name: Annotated[str, Field(strict=True)] = Field(description="The Name of the Webhookheader", alias="sWebhookheaderName", json_schema_extra={"examples": ["Authorization"]})
+    s_webhookheader_value: Annotated[str, Field(strict=True)] = Field(description="The Value of the Webhookheader", alias="sWebhookheaderValue", json_schema_extra={"examples": ["d75fca0e12b6c671e7f6d4df0cf59e4e"]})
     __properties: ClassVar[List[str]] = ["pkiWebhookheaderID", "sWebhookheaderName", "sWebhookheaderValue"]
 
     @field_validator('s_webhookheader_name')

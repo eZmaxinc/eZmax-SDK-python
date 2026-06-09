@@ -29,9 +29,9 @@ class OtherincometypeAutocompleteElementResponse(BaseModel):
     """
     A Otherincometype AutocompleteElement Response
     """ # noqa: E501
-    pki_otherincometype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Otherincometype", alias="pkiOtherincometypeID")
-    s_otherincometype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincometype in the language of the requester", alias="sOtherincometypeDescriptionX")
-    b_otherincometype_isactive: StrictBool = Field(description="Whether the Otherincometype is active or not", alias="bOtherincometypeIsactive")
+    pki_otherincometype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Otherincometype", alias="pkiOtherincometypeID", json_schema_extra={"examples": [228]})
+    s_otherincometype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincometype in the language of the requester", alias="sOtherincometypeDescriptionX", json_schema_extra={"examples": ["Evaluation"]})
+    b_otherincometype_isactive: StrictBool = Field(description="Whether the Otherincometype is active or not", alias="bOtherincometypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiOtherincometypeID", "sOtherincometypeDescriptionX", "bOtherincometypeIsactive"]
 
     @field_validator('s_otherincometype_description_x')

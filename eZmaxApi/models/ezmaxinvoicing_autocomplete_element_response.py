@@ -29,9 +29,9 @@ class EzmaxinvoicingAutocompleteElementResponse(BaseModel):
     """
     A Ezmaxinvoicing AutocompleteElement Response
     """ # noqa: E501
-    yyyymm_ezmaxinvoicing: Annotated[str, Field(strict=True, max_length=7)] = Field(description="The YYYYMM period of the Ezmaxinvoicing", alias="yyyymmEzmaxinvoicing")
-    pki_ezmaxinvoicing_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezmaxinvoicing", alias="pkiEzmaxinvoicingID")
-    b_ezmaxinvoicing_isactive: StrictBool = Field(description="Whether the Ezmaxinvoicing is active or not", alias="bEzmaxinvoicingIsactive")
+    yyyymm_ezmaxinvoicing: Annotated[str, Field(strict=True, max_length=7)] = Field(description="The YYYYMM period of the Ezmaxinvoicing", alias="yyyymmEzmaxinvoicing", json_schema_extra={"examples": ["2022-01"]})
+    pki_ezmaxinvoicing_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezmaxinvoicing", alias="pkiEzmaxinvoicingID", json_schema_extra={"examples": [28]})
+    b_ezmaxinvoicing_isactive: StrictBool = Field(description="Whether the Ezmaxinvoicing is active or not", alias="bEzmaxinvoicingIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["yyyymmEzmaxinvoicing", "pkiEzmaxinvoicingID", "bEzmaxinvoicingIsactive"]
 
     model_config = ConfigDict(

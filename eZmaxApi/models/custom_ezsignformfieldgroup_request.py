@@ -30,8 +30,8 @@ class CustomEzsignformfieldgroupRequest(BaseModel):
     """
     A Custom Ezsignformfieldgroup Object to fill an Ezsignform using submitForm
     """ # noqa: E501
-    pki_ezsignformfieldgroup_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="pkiEzsignformfieldgroupID")
-    s_ezsignformfieldgroup_label: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
+    pki_ezsignformfieldgroup_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="pkiEzsignformfieldgroupID", json_schema_extra={"examples": [26]})
+    s_ezsignformfieldgroup_label: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel", json_schema_extra={"examples": ["Allergies"]})
     a_obj_ezsignformfield: Annotated[List[CustomEzsignformfieldRequest], Field(min_length=1)] = Field(description="An array containing all the values to fill the Ezsignform.", alias="a_objEzsignformfield")
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupID", "sEzsignformfieldgroupLabel", "a_objEzsignformfield"]
 

@@ -31,15 +31,15 @@ class EzsigntemplateRequestCompoundV3(BaseModel):
     """
     A Ezsigntemplate Object and children
     """ # noqa: E501
-    pki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
-    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
-    s_ezsigntemplate_externaldescription: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The external description of the Ezsigntemplate", alias="sEzsigntemplateExternaldescription")
-    t_ezsigntemplate_comment: Optional[StrictStr] = Field(default=None, description="The comment of the Ezsigntemplate", alias="tEzsigntemplateComment")
+    pki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription", json_schema_extra={"examples": ["Standard Contract"]})
+    s_ezsigntemplate_externaldescription: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The external description of the Ezsigntemplate", alias="sEzsigntemplateExternaldescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
+    t_ezsigntemplate_comment: Optional[StrictStr] = Field(default=None, description="The comment of the Ezsigntemplate", alias="tEzsigntemplateComment", json_schema_extra={"examples": [""]})
     e_ezsigntemplate_recognition: Optional[FieldEEzsigntemplateRecognition] = Field(default=FieldEEzsigntemplateRecognition.NO, alias="eEzsigntemplateRecognition")
-    s_ezsigntemplate_filenameregexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The filename regexp of the Ezsigntemplate.", alias="sEzsigntemplateFilenameregexp")
+    s_ezsigntemplate_filenameregexp: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The filename regexp of the Ezsigntemplate.", alias="sEzsigntemplateFilenameregexp", json_schema_extra={"examples": ["Contract"]})
     b_ezsigntemplate_adminonly: StrictBool = Field(description="Whether the Ezsigntemplate can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplateAdminonly")
     e_ezsigntemplate_type: FieldEEzsigntemplateType = Field(alias="eEzsigntemplateType")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "eEzsigntemplateRecognition", "sEzsigntemplateFilenameregexp", "bEzsigntemplateAdminonly", "eEzsigntemplateType"]

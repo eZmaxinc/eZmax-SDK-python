@@ -30,11 +30,11 @@ class EzmaxinvoicingsummaryexternalResponseCompound(BaseModel):
     """
     A Ezmaxinvoicingsummaryexternal Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryexternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternal", alias="pkiEzmaxinvoicingsummaryexternalID")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
-    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
-    s_ezmaxinvoicingsummaryexternal_description: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The description of the Ezmaxinvoicingsummaryexternal", alias="sEzmaxinvoicingsummaryexternalDescription")
+    pki_ezmaxinvoicingsummaryexternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryexternal", alias="pkiEzmaxinvoicingsummaryexternalID", json_schema_extra={"examples": [177]})
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID", json_schema_extra={"examples": [28]})
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID", json_schema_extra={"examples": [83]})
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription", json_schema_extra={"examples": ["ACME Inc"]})
+    s_ezmaxinvoicingsummaryexternal_description: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The description of the Ezmaxinvoicingsummaryexternal", alias="sEzmaxinvoicingsummaryexternalDescription", json_schema_extra={"examples": ["Company Demo"]})
     a_obj_ezmaxinvoicingsummaryexternaldetail: List[EzmaxinvoicingsummaryexternaldetailResponseCompound] = Field(alias="a_objEzmaxinvoicingsummaryexternaldetail")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxinvoicingID", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "sEzmaxinvoicingsummaryexternalDescription", "a_objEzmaxinvoicingsummaryexternaldetail"]
 

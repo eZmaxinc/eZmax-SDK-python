@@ -29,10 +29,10 @@ class CommunicationattachmentRequest(BaseModel):
     """
     A Communicationattachment Object
     """ # noqa: E501
-    pki_communicationattachment_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationattachment", alias="pkiCommunicationattachmentID")
-    fki_attachment_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="fkiAttachmentID")
-    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID")
-    fki_salarypreparation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Salarypreparation.", alias="fkiSalarypreparationID")
+    pki_communicationattachment_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationattachment", alias="pkiCommunicationattachmentID", json_schema_extra={"examples": [203]})
+    fki_attachment_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="fkiAttachmentID", json_schema_extra={"examples": [1]})
+    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID", json_schema_extra={"examples": [1]})
+    fki_salarypreparation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Salarypreparation.", alias="fkiSalarypreparationID", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationattachmentID", "fkiAttachmentID", "fkiInvoiceID", "fkiSalarypreparationID"]
 
     model_config = ConfigDict(

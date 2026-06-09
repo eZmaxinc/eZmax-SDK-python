@@ -29,9 +29,9 @@ class BrandingAutocompleteElementResponse(BaseModel):
     """
     Branding AutocompleteElement Response
     """ # noqa: E501
-    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
-    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID")
-    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
+    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX", json_schema_extra={"examples": ["Company X"]})
+    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID", json_schema_extra={"examples": [78]})
+    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sBrandingDescriptionX", "pkiBrandingID", "bBrandingIsactive"]
 
     model_config = ConfigDict(

@@ -28,8 +28,8 @@ class MultilingualEzsignfoldertypeName(BaseModel):
     """
     Name of the Ezsignfoldertype
     """ # noqa: E501
-    s_ezsignfoldertype_name1: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in French", alias="sEzsignfoldertypeName1")
-    s_ezsignfoldertype_name2: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in English", alias="sEzsignfoldertypeName2")
+    s_ezsignfoldertype_name1: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in French", alias="sEzsignfoldertypeName1", json_schema_extra={"examples": ["Embauche"]})
+    s_ezsignfoldertype_name2: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in English", alias="sEzsignfoldertypeName2", json_schema_extra={"examples": ["Recruitment"]})
     __properties: ClassVar[List[str]] = ["sEzsignfoldertypeName1", "sEzsignfoldertypeName2"]
 
     model_config = ConfigDict(

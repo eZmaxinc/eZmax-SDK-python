@@ -30,10 +30,10 @@ class CustomEzsignfoldersignerassociationstatusResponseV3(BaseModel):
     """
     A Ezsignfoldersignerassociationstatus Object and children to create a complete structure
     """ # noqa: E501
-    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
-    s_ezsignfoldersignerassociationstatus_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusLastname")
-    s_ezsignfoldersignerassociationstatus_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusFirstname")
-    s_ezsignfoldersignerassociationstatus_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusDescriptionX")
+    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
+    s_ezsignfoldersignerassociationstatus_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusLastname", json_schema_extra={"examples": ["Doe"]})
+    s_ezsignfoldersignerassociationstatus_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusFirstname", json_schema_extra={"examples": ["John"]})
+    s_ezsignfoldersignerassociationstatus_description_x: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsigner", alias="sEzsignfoldersignerassociationstatusDescriptionX", json_schema_extra={"examples": ["John Doe"]})
     a_obj_ezsignsignaturestatus: List[CustomEzsignsignaturestatusResponse] = Field(alias="a_objEzsignsignaturestatus")
     __properties: ClassVar[List[str]] = ["fkiEzsignfoldersignerassociationID", "sEzsignfoldersignerassociationstatusLastname", "sEzsignfoldersignerassociationstatusFirstname", "sEzsignfoldersignerassociationstatusDescriptionX", "a_objEzsignsignaturestatus"]
 

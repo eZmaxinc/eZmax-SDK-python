@@ -29,9 +29,9 @@ class EmailtypeAutocompleteElementResponse(BaseModel):
     """
     A Emailtype AutocompleteElement Response
     """ # noqa: E501
-    pki_emailtype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|", alias="pkiEmailtypeID")
-    s_emailtype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Emailtype in the language of the requester", alias="sEmailtypeNameX")
-    b_emailtype_isactive: StrictBool = Field(description="Whether the Emailtype is active or not", alias="bEmailtypeIsactive")
+    pki_emailtype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|", alias="pkiEmailtypeID", json_schema_extra={"examples": [1]})
+    s_emailtype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Emailtype in the language of the requester", alias="sEmailtypeNameX", json_schema_extra={"examples": ["Office"]})
+    b_emailtype_isactive: StrictBool = Field(description="Whether the Emailtype is active or not", alias="bEmailtypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEmailtypeID", "sEmailtypeNameX", "bEmailtypeIsactive"]
 
     @field_validator('s_emailtype_name_x')

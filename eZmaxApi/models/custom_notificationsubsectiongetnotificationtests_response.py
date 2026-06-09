@@ -31,11 +31,11 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
     """
     A Notificationsubsection Object in the context of getNotificationtests
     """ # noqa: E501
-    pki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="pkiNotificationsubsectionID")
-    fki_notificationsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsection", alias="fkiNotificationsectionID")
+    pki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="pkiNotificationsubsectionID", json_schema_extra={"examples": [3]})
+    fki_notificationsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsection", alias="fkiNotificationsectionID", json_schema_extra={"examples": [1]})
     obj_notificationsubsection_name: Optional[MultilingualNotificationsubsectionName] = Field(default=None, alias="objNotificationsubsectionName")
-    s_notificationsection_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsection in the language of the requester", alias="sNotificationsectionNameX")
-    s_notificationsubsection_name_x: StrictStr = Field(description="The name of the Notificationsubsection in the language of the requester", alias="sNotificationsubsectionNameX")
+    s_notificationsection_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsection in the language of the requester", alias="sNotificationsectionNameX", json_schema_extra={"examples": ["Homepage"]})
+    s_notificationsubsection_name_x: StrictStr = Field(description="The name of the Notificationsubsection in the language of the requester", alias="sNotificationsubsectionNameX", json_schema_extra={"examples": ["Default"]})
     a_obj_notificationtest: List[CustomNotificationtestgetnotificationtestsResponse] = Field(alias="a_objNotificationtest")
     __properties: ClassVar[List[str]] = ["pkiNotificationsubsectionID", "fkiNotificationsectionID", "objNotificationsubsectionName", "sNotificationsectionNameX", "sNotificationsubsectionNameX", "a_objNotificationtest"]
 

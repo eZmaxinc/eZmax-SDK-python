@@ -36,13 +36,13 @@ class CommunicationRequestCompound(BaseModel):
     """
     Request for POST /1/object/communication
     """ # noqa: E501
-    pki_communication_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communication.", alias="pkiCommunicationID")
+    pki_communication_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communication.", alias="pkiCommunicationID", json_schema_extra={"examples": [1]})
     e_communication_importance: Optional[FieldECommunicationImportance] = Field(default=None, alias="eCommunicationImportance")
     e_communication_type: FieldECommunicationType = Field(alias="eCommunicationType")
     obj_communicationsender: Optional[CustomCommunicationsenderRequest] = Field(default=None, alias="objCommunicationsender")
-    s_communication_subject: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The subject of the Communication", alias="sCommunicationSubject")
+    s_communication_subject: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The subject of the Communication", alias="sCommunicationSubject", json_schema_extra={"examples": ["This is an example of subject"]})
     t_communication_body: StrictStr = Field(description="The Body of the Communication", alias="tCommunicationBody")
-    b_communication_private: StrictBool = Field(description="Whether the Communication is private or not", alias="bCommunicationPrivate")
+    b_communication_private: StrictBool = Field(description="Whether the Communication is private or not", alias="bCommunicationPrivate", json_schema_extra={"examples": [False]})
     e_communication_attachmenttype: Optional[StrictStr] = Field(default=None, description="How the attachment should be included in the email.   Only used if eCommunicationType is **Email**", alias="eCommunicationAttachmenttype")
     i_communication_attachmentlinkexpiration: Optional[Annotated[int, Field(le=30, strict=True, ge=1)]] = Field(default=None, description="The number of days before the attachment link expired.   Only used if eCommunicationType is **Email** and eCommunicationattachmentType is **Link**", alias="iCommunicationAttachmentlinkexpiration")
     b_communication_readreceipt: Optional[StrictBool] = Field(default=None, description="Whether we ask for a read receipt or not.", alias="bCommunicationReadreceipt")

@@ -29,11 +29,11 @@ class EzsignsignergroupmembershipResponseCompound(BaseModel):
     """
     A Ezsignsignergroupmembership Object
     """ # noqa: E501
-    pki_ezsignsignergroupmembership_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroupmembership", alias="pkiEzsignsignergroupmembershipID")
-    fki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
-    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
+    pki_ezsignsignergroupmembership_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroupmembership", alias="pkiEzsignsignergroupmembershipID", json_schema_extra={"examples": [153]})
+    fki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID", json_schema_extra={"examples": [27]})
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID", json_schema_extra={"examples": [89]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupmembershipID", "fkiEzsignsignergroupID", "fkiEzsignsignerID", "fkiUserID", "fkiUsergroupID"]
 
     model_config = ConfigDict(

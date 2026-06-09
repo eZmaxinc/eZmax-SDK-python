@@ -32,16 +32,16 @@ class BrandingRequestV2(BaseModel):
     """
     A Branding Object
     """ # noqa: E501
-    pki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="pkiBrandingID")
-    fki_domain_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Domain", alias="fkiDomainID")
+    pki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="pkiBrandingID", json_schema_extra={"examples": [78]})
+    fki_domain_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Domain", alias="fkiDomainID", json_schema_extra={"examples": [96]})
     obj_branding_description: MultilingualBrandingDescription = Field(alias="objBrandingDescription")
     e_branding_logo: FieldEBrandingLogo = Field(alias="eBrandingLogo")
     e_branding_alignlogo: Optional[FieldEBrandingAlignlogo] = Field(default=None, alias="eBrandingAlignlogo")
-    s_branding_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the branding logo. This need to match image type selected in eBrandingLogo if you supply an image. If you select 'Default', the logo will be deleted and the default one will be used.", alias="sBrandingBase64")
-    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor")
-    s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
-    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
+    s_branding_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the branding logo. This need to match image type selected in eBrandingLogo if you supply an image. If you select 'Default', the logo will be deleted and the default one will be used.", alias="sBrandingBase64", json_schema_extra={"examples": ["eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BuZ0FzQmFzZTY0L3ZhbHVlIn0="]})
+    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor", json_schema_extra={"examples": [15658734]})
+    s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName", json_schema_extra={"examples": ["eZmax (Corp)"]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "fkiDomainID", "objBrandingDescription", "eBrandingLogo", "eBrandingAlignlogo", "sBrandingBase64", "iBrandingColor", "sBrandingName", "sEmailAddress", "bBrandingIsactive"]
 
     @field_validator('s_branding_name')

@@ -29,12 +29,12 @@ class EzsignpageResponse(BaseModel):
     """
     An Ezsignpage Object
     """ # noqa: E501
-    pki_ezsignpage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignpage", alias="pkiEzsignpageID")
-    i_ezsignpage_widthimage: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the page's image in pixels calculated at 100 DPI", alias="iEzsignpageWidthimage")
-    i_ezsignpage_heightimage: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the page's image in pixels calculated at 100 DPI", alias="iEzsignpageHeightimage")
-    i_ezsignpage_widthpdf: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the page in points calculated at 72 DPI", alias="iEzsignpageWidthpdf")
-    i_ezsignpage_heightpdf: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the page in points calculated at 72 DPI", alias="iEzsignpageHeightpdf")
-    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
+    pki_ezsignpage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignpage", alias="pkiEzsignpageID", json_schema_extra={"examples": [64]})
+    i_ezsignpage_widthimage: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the page's image in pixels calculated at 100 DPI", alias="iEzsignpageWidthimage", json_schema_extra={"examples": [850]})
+    i_ezsignpage_heightimage: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the page's image in pixels calculated at 100 DPI", alias="iEzsignpageHeightimage", json_schema_extra={"examples": [1100]})
+    i_ezsignpage_widthpdf: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Width of the page in points calculated at 72 DPI", alias="iEzsignpageWidthpdf", json_schema_extra={"examples": [612]})
+    i_ezsignpage_heightpdf: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Height of the page in points calculated at 72 DPI", alias="iEzsignpageHeightpdf", json_schema_extra={"examples": [792]})
+    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber", json_schema_extra={"examples": [1]})
     s_computed_imageurl: StrictStr = Field(description="The Url to the Ezsignpage's rasterized image.  Url will expire after 5 minutes.", alias="sComputedImageurl")
     __properties: ClassVar[List[str]] = ["pkiEzsignpageID", "iEzsignpageWidthimage", "iEzsignpageHeightimage", "iEzsignpageWidthpdf", "iEzsignpageHeightpdf", "iEzsignpagePagenumber", "sComputedImageurl"]
 

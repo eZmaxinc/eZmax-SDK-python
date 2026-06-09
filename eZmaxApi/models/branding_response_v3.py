@@ -32,18 +32,18 @@ class BrandingResponseV3(BaseModel):
     """
     A Branding Object
     """ # noqa: E501
-    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID")
-    fki_domain_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Domain", alias="fkiDomainID")
-    s_domain_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Domain", alias="sDomainName")
-    fki_email_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailID")
+    pki_branding_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Branding", alias="pkiBrandingID", json_schema_extra={"examples": [78]})
+    fki_domain_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Domain", alias="fkiDomainID", json_schema_extra={"examples": [96]})
+    s_domain_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Domain", alias="sDomainName", json_schema_extra={"examples": ["ezsign.ca"]})
+    fki_email_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="fkiEmailID", json_schema_extra={"examples": [22]})
     obj_branding_description: MultilingualBrandingDescription = Field(alias="objBrandingDescription")
-    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX")
-    s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
+    s_branding_description_x: StrictStr = Field(description="The Description of the Branding in the language of the requester", alias="sBrandingDescriptionX", json_schema_extra={"examples": ["Company X"]})
+    s_branding_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Branding  This value will only be set if you wish to overwrite the default name. If you want to keep the default name, leave this property empty", alias="sBrandingName", json_schema_extra={"examples": ["eZmax (Corp)"]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
     e_branding_logo: FieldEBrandingLogo = Field(alias="eBrandingLogo")
     e_branding_alignlogo: FieldEBrandingAlignlogo = Field(alias="eBrandingAlignlogo")
-    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor")
-    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive")
+    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor", json_schema_extra={"examples": [15658734]})
+    b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "fkiDomainID", "sDomainName", "fkiEmailID", "objBrandingDescription", "sBrandingDescriptionX", "sBrandingName", "sEmailAddress", "eBrandingLogo", "eBrandingAlignlogo", "iBrandingColor", "bBrandingIsactive"]
 
     @field_validator('s_domain_name')

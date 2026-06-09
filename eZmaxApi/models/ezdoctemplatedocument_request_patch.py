@@ -30,8 +30,8 @@ class EzdoctemplatedocumentRequestPatch(BaseModel):
     An Ezdoctemplatedocument Object
     """ # noqa: E501
     e_ezdoctemplatedocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the template.  This field is Required when sEzdoctemplatedocumentBase64 is set.", alias="eEzdoctemplatedocumentFormat")
-    s_ezdoctemplatedocument_fields: Optional[Annotated[str, Field(strict=True, max_length=16000000)]] = Field(default=None, description="List of field in Ezdoctemplatedocument", alias="sEzdoctemplatedocumentFields")
-    s_ezdoctemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzdoctemplatedocumentFormat is set.", alias="sEzdoctemplatedocumentBase64")
+    s_ezdoctemplatedocument_fields: Optional[Annotated[str, Field(strict=True, max_length=16000000)]] = Field(default=None, description="List of field in Ezdoctemplatedocument", alias="sEzdoctemplatedocumentFields", json_schema_extra={"examples": [""]})
+    s_ezdoctemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzdoctemplatedocumentFormat is set.", alias="sEzdoctemplatedocumentBase64", json_schema_extra={"examples": ["eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0="]})
     __properties: ClassVar[List[str]] = ["eEzdoctemplatedocumentFormat", "sEzdoctemplatedocumentFields", "sEzdoctemplatedocumentBase64"]
 
     @field_validator('e_ezdoctemplatedocument_format')

@@ -29,9 +29,9 @@ class CustomPrefillEzsignformValueRequest(BaseModel):
     """
     A Custom PrefillEzsignformValue Object
     """ # noqa: E501
-    s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
-    s_ezsignformfield_label: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
-    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue")
+    s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel", json_schema_extra={"examples": ["Allergies"]})
+    s_ezsignformfield_label: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel", json_schema_extra={"examples": ["Peanuts"]})
+    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue", json_schema_extra={"examples": ["Montreal"]})
     b_ezsignformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsignformfieldSelected")
     __properties: ClassVar[List[str]] = ["sEzsignformfieldgroupLabel", "sEzsignformfieldLabel", "sEzsignformfieldEnteredvalue", "bEzsignformfieldSelected"]
 

@@ -29,7 +29,7 @@ class UserstagedCreateUserV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/userstaged/{pkiUserstagedID}/createUser
     """ # noqa: E501
-    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
     __properties: ClassVar[List[str]] = ["pkiUserID"]
 
     model_config = ConfigDict(

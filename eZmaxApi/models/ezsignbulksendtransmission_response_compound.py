@@ -31,10 +31,10 @@ class EzsignbulksendtransmissionResponseCompound(BaseModel):
     """
     An Ezsignbulksendtransmission Object and children to create a complete structure
     """ # noqa: E501
-    pki_ezsignbulksendtransmission_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksendtransmission", alias="pkiEzsignbulksendtransmissionID")
-    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
-    s_ezsignbulksendtransmission_description: StrictStr = Field(description="The description of the Ezsignbulksendtransmission", alias="sEzsignbulksendtransmissionDescription")
-    i_ezsignbulksendtransmission_errors: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of errors during the Ezsignbulksendtransmission", alias="iEzsignbulksendtransmissionErrors")
+    pki_ezsignbulksendtransmission_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksendtransmission", alias="pkiEzsignbulksendtransmissionID", json_schema_extra={"examples": [21]})
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID", json_schema_extra={"examples": [8]})
+    s_ezsignbulksendtransmission_description: StrictStr = Field(description="The description of the Ezsignbulksendtransmission", alias="sEzsignbulksendtransmissionDescription", json_schema_extra={"examples": ["Test eZsign Bulk Send Transmission #1"]})
+    i_ezsignbulksendtransmission_errors: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of errors during the Ezsignbulksendtransmission", alias="iEzsignbulksendtransmissionErrors", json_schema_extra={"examples": [1]})
     obj_audit: CommonAudit = Field(alias="objAudit")
     a_obj_ezsignfoldertransmission: List[CustomEzsignfoldertransmissionResponse] = Field(alias="a_objEzsignfoldertransmission")
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendtransmissionID", "fkiEzsignbulksendID", "sEzsignbulksendtransmissionDescription", "iEzsignbulksendtransmissionErrors", "objAudit", "a_objEzsignfoldertransmission"]

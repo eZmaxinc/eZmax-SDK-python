@@ -29,9 +29,9 @@ class EzmaxproductAutocompleteElementResponse(BaseModel):
     """
     A Ezmaxproduct AutocompleteElement Response
     """ # noqa: E501
-    pki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="pkiEzmaxproductID")
-    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
-    b_ezmaxproduct_isactive: StrictBool = Field(description="Whether the Ezmaxproduct is active or not", alias="bEzmaxproductIsactive")
+    pki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="pkiEzmaxproductID", json_schema_extra={"examples": [172]})
+    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX", json_schema_extra={"examples": ["eZmax (License)"]})
+    b_ezmaxproduct_isactive: StrictBool = Field(description="Whether the Ezmaxproduct is active or not", alias="bEzmaxproductIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxproductID", "sEzmaxproductDescriptionX", "bEzmaxproductIsactive"]
 
     model_config = ConfigDict(

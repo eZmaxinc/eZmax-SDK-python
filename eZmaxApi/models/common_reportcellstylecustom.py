@@ -32,10 +32,10 @@ class CommonReportcellstylecustom(BaseModel):
     """
     Styles applied to a Reportcell 
     """ # noqa: E501
-    b_reportcellstyle_bordertop: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the top of the Reportcell", alias="bReportcellstyleBordertop")
-    b_reportcellstyle_borderbottom: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the bottom of the Reportcell", alias="bReportcellstyleBorderbottom")
-    b_reportcellstyle_borderleft: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the left of the Reportcell", alias="bReportcellstyleBorderleft")
-    b_reportcellstyle_borderright: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the right of the Reportcell", alias="bReportcellstyleBorderright")
+    b_reportcellstyle_bordertop: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the top of the Reportcell", alias="bReportcellstyleBordertop", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderbottom: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the bottom of the Reportcell", alias="bReportcellstyleBorderbottom", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderleft: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the left of the Reportcell", alias="bReportcellstyleBorderleft", json_schema_extra={"examples": [True]})
+    b_reportcellstyle_borderright: Optional[StrictBool] = Field(default=None, description="Whether there is a border at the right of the Reportcell", alias="bReportcellstyleBorderright", json_schema_extra={"examples": [True]})
     e_reportcell_horizontalalignment: Optional[EnumHorizontalalignment] = Field(default=None, alias="eReportcellHorizontalalignment")
     e_reportcell_verticalalignment: Optional[EnumVerticalalignment] = Field(default=None, alias="eReportcellVerticalalignment")
     e_reportcell_fontweight: Optional[EnumFontweight] = Field(default=None, alias="eReportcellFontweight")

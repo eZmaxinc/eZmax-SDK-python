@@ -29,12 +29,12 @@ class ModuleResponse(BaseModel):
     """
     A Module Object
     """ # noqa: E501
-    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID")
-    fki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="fkiModulegroupID")
-    e_module_internalname: StrictStr = Field(description="The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.", alias="eModuleInternalname")
-    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX")
-    b_module_registered: StrictBool = Field(description="Whether the Module is registered or not", alias="bModuleRegistered")
-    b_module_registeredapi: StrictBool = Field(description="Whether the Module is registered or not for api use", alias="bModuleRegisteredapi")
+    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID", json_schema_extra={"examples": [40]})
+    fki_modulegroup_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Modulegroup", alias="fkiModulegroupID", json_schema_extra={"examples": [46]})
+    e_module_internalname: StrictStr = Field(description="The Internal name of the Module.  This is theoretically an enum field but there are so many possibles values we decided not to list them all.", alias="eModuleInternalname", json_schema_extra={"examples": ["Purchases"]})
+    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX", json_schema_extra={"examples": ["Purchase"]})
+    b_module_registered: StrictBool = Field(description="Whether the Module is registered or not", alias="bModuleRegistered", json_schema_extra={"examples": [True]})
+    b_module_registeredapi: StrictBool = Field(description="Whether the Module is registered or not for api use", alias="bModuleRegisteredapi", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiModuleID", "fkiModulegroupID", "eModuleInternalname", "sModuleNameX", "bModuleRegistered", "bModuleRegisteredapi"]
 
     model_config = ConfigDict(

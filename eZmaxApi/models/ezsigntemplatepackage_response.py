@@ -29,17 +29,17 @@ class EzsigntemplatepackageResponse(BaseModel):
     """
     A Ezsigntemplatepackage Object
     """ # noqa: E501
-    pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
-    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
-    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
+    pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX", json_schema_extra={"examples": ["Standard Contract"]})
+    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX", json_schema_extra={"examples": ["English"]})
+    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription", json_schema_extra={"examples": ["Package for new clients"]})
     b_ezsigntemplatepackage_adminonly: StrictBool = Field(description="Whether the Ezsigntemplatepackage can be accessed by admin users only (eUserType=Normal)", alias="bEzsigntemplatepackageAdminonly")
     b_ezsigntemplatepackage_needvalidation: StrictBool = Field(description="Whether the Ezsignbulksend was automatically modified and needs a manual validation", alias="bEzsigntemplatepackageNeedvalidation")
-    b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
-    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive", json_schema_extra={"examples": [True]})
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX", json_schema_extra={"examples": ["Default"]})
     b_ezsigntemplatepackage_editallowed: StrictBool = Field(description="Whether the Ezsigntemplatepackage if allowed to edit or not", alias="bEzsigntemplatepackageEditallowed")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatedocumentID", "fkiLanguageID", "sEzdoctemplatedocumentNameX", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageEditallowed"]
 

@@ -29,11 +29,11 @@ class EzsignbulksendsignermappingResponseCompound(BaseModel):
     """
     A Ezsignbulksendsignermapping Object
     """ # noqa: E501
-    pki_ezsignbulksendsignermapping_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksendsignermapping", alias="pkiEzsignbulksendsignermappingID")
-    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    b_ezsignbulksendsignermapping_receivecopy: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignbulksendsigner will receive a copy or not", alias="bEzsignbulksendsignermappingReceivecopy")
-    s_ezsignbulksendsignermapping_description: StrictStr = Field(description="The description of the Ezsignbulksendsignermapping", alias="sEzsignbulksendsignermappingDescription")
+    pki_ezsignbulksendsignermapping_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksendsignermapping", alias="pkiEzsignbulksendsignermappingID", json_schema_extra={"examples": [57]})
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID", json_schema_extra={"examples": [8]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    b_ezsignbulksendsignermapping_receivecopy: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignbulksendsigner will receive a copy or not", alias="bEzsignbulksendsignermappingReceivecopy", json_schema_extra={"examples": [False]})
+    s_ezsignbulksendsignermapping_description: StrictStr = Field(description="The description of the Ezsignbulksendsignermapping", alias="sEzsignbulksendsignermappingDescription", json_schema_extra={"examples": ["Supervisor"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendsignermappingID", "fkiEzsignbulksendID", "fkiUserID", "bEzsignbulksendsignermappingReceivecopy", "sEzsignbulksendsignermappingDescription"]
 
     model_config = ConfigDict(

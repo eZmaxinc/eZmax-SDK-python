@@ -30,11 +30,11 @@ class ApikeyRequest(BaseModel):
     """
     An Apikey Object
     """ # noqa: E501
-    pki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="pkiApikeyID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    pki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="pkiApikeyID", json_schema_extra={"examples": [99]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     obj_apikey_description: MultilingualApikeyDescription = Field(alias="objApikeyDescription")
-    b_apikey_isactive: Optional[StrictBool] = Field(default=None, description="Whether the apikey is active or not", alias="bApikeyIsactive")
-    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned")
+    b_apikey_isactive: Optional[StrictBool] = Field(default=None, description="Whether the apikey is active or not", alias="bApikeyIsactive", json_schema_extra={"examples": [True]})
+    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiApikeyID", "fkiUserID", "objApikeyDescription", "bApikeyIsactive", "bApikeyIssigned"]
 
     model_config = ConfigDict(

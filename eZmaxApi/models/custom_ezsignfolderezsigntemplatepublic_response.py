@@ -31,12 +31,12 @@ class CustomEzsignfolderezsigntemplatepublicResponse(BaseModel):
     """
     An Ezsignfolder Object in the context of an Ezsigntemplatepublic
     """ # noqa: E501
-    pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
-    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
     e_ezsignfolder_step: FieldEEzsignfolderStep = Field(alias="eEzsignfolderStep")
-    i_ezsignfolder_signaturetotal: StrictInt = Field(description="The number of total signatures that were requested in the Ezsignfolder", alias="iEzsignfolderSignaturetotal")
-    i_ezsignfolder_formfieldtotal: StrictInt = Field(description="The number of total form fields that were requested in the Ezsignfolder", alias="iEzsignfolderFormfieldtotal")
-    i_ezsignfolder_signaturesigned: StrictInt = Field(description="The number of signatures that were signed in the Ezsignfolder.", alias="iEzsignfolderSignaturesigned")
+    i_ezsignfolder_signaturetotal: StrictInt = Field(description="The number of total signatures that were requested in the Ezsignfolder", alias="iEzsignfolderSignaturetotal", json_schema_extra={"examples": [4]})
+    i_ezsignfolder_formfieldtotal: StrictInt = Field(description="The number of total form fields that were requested in the Ezsignfolder", alias="iEzsignfolderFormfieldtotal", json_schema_extra={"examples": [4]})
+    i_ezsignfolder_signaturesigned: StrictInt = Field(description="The number of signatures that were signed in the Ezsignfolder.", alias="iEzsignfolderSignaturesigned", json_schema_extra={"examples": [3]})
     a_obj_ezsignfolderezsigntemplatepublic_signer: Optional[List[CustomEzsignfolderezsigntemplatepublicSignerResponse]] = Field(default=None, alias="a_objEzsignfolderezsigntemplatepublicSigner")
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "sEzsignfolderDescription", "eEzsignfolderStep", "iEzsignfolderSignaturetotal", "iEzsignfolderFormfieldtotal", "iEzsignfolderSignaturesigned", "a_objEzsignfolderezsigntemplatepublicSigner"]
 

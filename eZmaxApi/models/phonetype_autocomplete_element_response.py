@@ -29,9 +29,9 @@ class PhonetypeAutocompleteElementResponse(BaseModel):
     """
     A Phonetype AutocompleteElement Response
     """ # noqa: E501
-    pki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="pkiPhonetypeID")
-    s_phonetype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Phonetype in the language of the requester", alias="sPhonetypeNameX")
-    b_phonetype_isactive: StrictBool = Field(description="Whether the Phonetype is active or not", alias="bPhonetypeIsactive")
+    pki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="pkiPhonetypeID", json_schema_extra={"examples": [1]})
+    s_phonetype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Phonetype in the language of the requester", alias="sPhonetypeNameX", json_schema_extra={"examples": ["Office"]})
+    b_phonetype_isactive: StrictBool = Field(description="Whether the Phonetype is active or not", alias="bPhonetypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPhonetypeID", "sPhonetypeNameX", "bPhonetypeIsactive"]
 
     @field_validator('s_phonetype_name_x')

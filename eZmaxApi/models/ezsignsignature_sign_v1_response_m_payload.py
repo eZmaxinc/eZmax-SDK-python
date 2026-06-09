@@ -31,7 +31,7 @@ class EzsignsignatureSignV1ResponseMPayload(BaseModel):
     """
     Response for POST /1/object/ezsignsignature/{pkiEzsignsignatureID}/sign
     """ # noqa: E501
-    dt_ezsignsignature_date_in_folder_timezone: Annotated[str, Field(strict=True)] = Field(description="The date the Ezsignsignature was signed in folder's timezone", alias="dtEzsignsignatureDateInFolderTimezone")
+    dt_ezsignsignature_date_in_folder_timezone: Annotated[str, Field(strict=True)] = Field(description="The date the Ezsignsignature was signed in folder's timezone", alias="dtEzsignsignatureDateInFolderTimezone", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     obj_timezone: Optional[CustomTimezoneWithCodeResponse] = Field(default=None, alias="objTimezone")
     obj_creditcardtransaction: Optional[CustomCreditcardtransactionResponse] = Field(default=None, alias="objCreditcardtransaction")
     __properties: ClassVar[List[str]] = ["dtEzsignsignatureDateInFolderTimezone", "objTimezone", "objCreditcardtransaction"]

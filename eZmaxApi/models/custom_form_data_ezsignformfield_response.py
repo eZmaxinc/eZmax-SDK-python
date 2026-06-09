@@ -28,8 +28,8 @@ class CustomFormDataEzsignformfieldResponse(BaseModel):
     """
     An Ezsignformfield Object
     """ # noqa: E501
-    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
-    s_ezsignformfield_value: StrictStr = Field(description="The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio", alias="sEzsignformfieldValue")
+    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel", json_schema_extra={"examples": ["Peanuts"]})
+    s_ezsignformfield_value: StrictStr = Field(description="The value for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is Checkbox or Radio", alias="sEzsignformfieldValue", json_schema_extra={"examples": ["Yes"]})
     __properties: ClassVar[List[str]] = ["sEzsignformfieldLabel", "sEzsignformfieldValue"]
 
     model_config = ConfigDict(

@@ -30,8 +30,8 @@ class CustomEzsigndocumentEzsignsignaturesAutomaticResponse(BaseModel):
     """
     An Ezsigndocument Object in the context of an EzsignsignaturesAutomatic path
     """ # noqa: E501
-    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
-    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID", json_schema_extra={"examples": [97]})
+    s_ezsigndocument_name: StrictStr = Field(description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName", json_schema_extra={"examples": ["Contract #123"]})
     a_obj_ezsignsignature: List[CustomEzsignsignatureEzsignsignaturesAutomaticResponse] = Field(alias="a_objEzsignsignature")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "sEzsigndocumentName", "a_objEzsignsignature"]
 

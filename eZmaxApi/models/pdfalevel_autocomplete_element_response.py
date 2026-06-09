@@ -29,9 +29,9 @@ class PdfalevelAutocompleteElementResponse(BaseModel):
     """
     A Pdfalevel AutocompleteElement Response
     """ # noqa: E501
-    pki_pdfalevel_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Pdfalevel", alias="pkiPdfalevelID")
-    s_pdfalevel_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Pdfalevel", alias="sPdfalevelName")
-    b_pdfalevel_isactive: StrictBool = Field(description="Whether the Pdfalevel is active or not", alias="bPdfalevelIsactive")
+    pki_pdfalevel_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Pdfalevel", alias="pkiPdfalevelID", json_schema_extra={"examples": [102]})
+    s_pdfalevel_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Pdfalevel", alias="sPdfalevelName", json_schema_extra={"examples": ["PDF/A-1a"]})
+    b_pdfalevel_isactive: StrictBool = Field(description="Whether the Pdfalevel is active or not", alias="bPdfalevelIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPdfalevelID", "sPdfalevelName", "bPdfalevelIsactive"]
 
     @field_validator('s_pdfalevel_name')

@@ -33,18 +33,18 @@ class SystemconfigurationRequestV2(BaseModel):
     """
     A Systemconfiguration Object
     """ # noqa: E501
-    pki_systemconfiguration_id: Optional[Annotated[int, Field(le=1, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID")
-    fki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="fkiBrandingID")
+    pki_systemconfiguration_id: Optional[Annotated[int, Field(le=1, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Systemconfiguration", alias="pkiSystemconfigurationID", json_schema_extra={"examples": [1]})
+    fki_branding_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Branding", alias="fkiBrandingID", json_schema_extra={"examples": [78]})
     e_systemconfiguration_newexternaluseraction: FieldESystemconfigurationNewexternaluseraction = Field(alias="eSystemconfigurationNewexternaluseraction")
     e_systemconfiguration_language1: FieldESystemconfigurationLanguage1 = Field(alias="eSystemconfigurationLanguage1")
     e_systemconfiguration_language2: FieldESystemconfigurationLanguage2 = Field(alias="eSystemconfigurationLanguage2")
     e_systemconfiguration_ezsignofficeplan: Optional[FieldESystemconfigurationEzsignofficeplan] = Field(default=None, alias="eSystemconfigurationEzsignofficeplan")
-    b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice")
-    b_systemconfiguration_ezsignpersonnal: StrictBool = Field(description="Whether if we allow the creation of personal files in eZsign", alias="bSystemconfigurationEzsignpersonnal")
-    b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr")
-    dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart")
-    dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend")
-    i_systemconfiguration_ezsignreminderhoursend: Annotated[int, Field(le=23, strict=True, ge=0)] = Field(description="The hour we will send the eZsign reminders", alias="iSystemconfigurationEzsignreminderhoursend")
+    b_systemconfiguration_ezsignpaidbyoffice: Optional[StrictBool] = Field(default=None, description="Whether if Ezsign is paid by the company or not", alias="bSystemconfigurationEzsignpaidbyoffice", json_schema_extra={"examples": [True]})
+    b_systemconfiguration_ezsignpersonnal: StrictBool = Field(description="Whether if we allow the creation of personal files in eZsign", alias="bSystemconfigurationEzsignpersonnal", json_schema_extra={"examples": [True]})
+    b_systemconfiguration_sspr: StrictBool = Field(description="Whether if we allow SSPR", alias="bSystemconfigurationSspr", json_schema_extra={"examples": [True]})
+    dt_systemconfiguration_readonlyexpirationstart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The start date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationstart", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_systemconfiguration_readonlyexpirationend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The end date where the system will be in read only", alias="dtSystemconfigurationReadonlyexpirationend", json_schema_extra={"examples": ["2021-12-31"]})
+    i_systemconfiguration_ezsignreminderhoursend: Annotated[int, Field(le=23, strict=True, ge=0)] = Field(description="The hour we will send the eZsign reminders", alias="iSystemconfigurationEzsignreminderhoursend", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiBrandingID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "iSystemconfigurationEzsignreminderhoursend"]
 
     @field_validator('dt_systemconfiguration_readonlyexpirationstart')

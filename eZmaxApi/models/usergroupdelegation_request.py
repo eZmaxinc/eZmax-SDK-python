@@ -29,9 +29,9 @@ class UsergroupdelegationRequest(BaseModel):
     """
     A Usergroupdelegation Object
     """ # noqa: E501
-    pki_usergroupdelegation_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupdelegation", alias="pkiUsergroupdelegationID")
-    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    pki_usergroupdelegation_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupdelegation", alias="pkiUsergroupdelegationID", json_schema_extra={"examples": [141]})
+    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupdelegationID", "fkiUsergroupID", "fkiUserID"]
 
     model_config = ConfigDict(

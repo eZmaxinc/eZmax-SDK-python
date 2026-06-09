@@ -29,9 +29,9 @@ class LanguageAutocompleteElementResponse(BaseModel):
     """
     A Language AutocompleteElement Response
     """ # noqa: E501
-    pki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="pkiLanguageID")
-    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
-    b_language_isactive: StrictBool = Field(description="Whether the Language is active or not", alias="bLanguageIsactive")
+    pki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="pkiLanguageID", json_schema_extra={"examples": [2]})
+    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX", json_schema_extra={"examples": ["English"]})
+    b_language_isactive: StrictBool = Field(description="Whether the Language is active or not", alias="bLanguageIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiLanguageID", "sLanguageNameX", "bLanguageIsactive"]
 
     model_config = ConfigDict(

@@ -32,12 +32,12 @@ class PaymenttermResponseCompound(BaseModel):
     """
     A Paymentterm Object
     """ # noqa: E501
-    pki_paymentterm_id: StrictInt = Field(description="The unique ID of the Paymentterm", alias="pkiPaymenttermID")
-    s_paymentterm_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Paymentterm", alias="sPaymenttermCode")
+    pki_paymentterm_id: StrictInt = Field(description="The unique ID of the Paymentterm", alias="pkiPaymenttermID", json_schema_extra={"examples": [46]})
+    s_paymentterm_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Paymentterm", alias="sPaymenttermCode", json_schema_extra={"examples": ["0030"]})
     e_paymentterm_type: FieldEPaymenttermType = Field(alias="ePaymenttermType")
-    i_paymentterm_day: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The day of the Paymentterm", alias="iPaymenttermDay")
+    i_paymentterm_day: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The day of the Paymentterm", alias="iPaymenttermDay", json_schema_extra={"examples": [30]})
     obj_paymentterm_description: MultilingualPaymenttermDescription = Field(alias="objPaymenttermDescription")
-    b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive")
+    b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive", json_schema_extra={"examples": [True]})
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiPaymenttermID", "sPaymenttermCode", "ePaymenttermType", "iPaymenttermDay", "objPaymenttermDescription", "bPaymenttermIsactive", "objAudit"]
 

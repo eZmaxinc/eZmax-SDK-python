@@ -29,8 +29,8 @@ class CustomAttachmentPrepareFilesTransferRequest(BaseModel):
     """
     A AttachmentPrepareFilesTransfer object
     """ # noqa: E501
-    s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName")
-    s_attachment_md5: Annotated[str, Field(strict=True)] = Field(description="The MD5 of the Attachment", alias="sAttachmentMD5")
+    s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName", json_schema_extra={"examples": ["Document.pdf"]})
+    s_attachment_md5: Annotated[str, Field(strict=True)] = Field(description="The MD5 of the Attachment", alias="sAttachmentMD5", json_schema_extra={"examples": ["2cb29026e8a93c930e71598579400db6"]})
     __properties: ClassVar[List[str]] = ["sAttachmentName", "sAttachmentMD5"]
 
     @field_validator('s_attachment_name')

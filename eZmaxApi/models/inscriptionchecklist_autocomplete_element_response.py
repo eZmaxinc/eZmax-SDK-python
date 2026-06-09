@@ -29,9 +29,9 @@ class InscriptionchecklistAutocompleteElementResponse(BaseModel):
     """
     A Inscriptionchecklist AutocompleteElement Response
     """ # noqa: E501
-    pki_inscriptionchecklist_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionchecklist", alias="pkiInscriptionchecklistID")
-    s_inscriptionchecklistelement_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptionchecklistelement in the language of the requester", alias="sInscriptionchecklistelementNameX")
-    b_inscriptionchecklist_isactive: StrictBool = Field(description="Whether the Inscriptionchecklist is active or not", alias="bInscriptionchecklistIsactive")
+    pki_inscriptionchecklist_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionchecklist", alias="pkiInscriptionchecklistID", json_schema_extra={"examples": [191]})
+    s_inscriptionchecklistelement_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptionchecklistelement in the language of the requester", alias="sInscriptionchecklistelementNameX", json_schema_extra={"examples": ["Loan deed"]})
+    b_inscriptionchecklist_isactive: StrictBool = Field(description="Whether the Inscriptionchecklist is active or not", alias="bInscriptionchecklistIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionchecklistID", "sInscriptionchecklistelementNameX", "bInscriptionchecklistIsactive"]
 
     @field_validator('s_inscriptionchecklistelement_name_x')

@@ -31,14 +31,14 @@ class EzmaxinvoicingcontractResponse(BaseModel):
     """
     A Ezmaxinvoicingcontract Object
     """ # noqa: E501
-    pki_ezmaxinvoicingcontract_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxinvoicingcontract", alias="pkiEzmaxinvoicingcontractID")
+    pki_ezmaxinvoicingcontract_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxinvoicingcontract", alias="pkiEzmaxinvoicingcontractID", json_schema_extra={"examples": [28]})
     e_ezmaxinvoicingcontract_paymenttype: FieldEEzmaxinvoicingcontractPaymenttype = Field(alias="eEzmaxinvoicingcontractPaymenttype")
-    i_ezmaxinvoicingcontract_length: Annotated[int, Field(strict=True, ge=1)] = Field(description="The length in years of the Ezmaxinvoicingcontract", alias="iEzmaxinvoicingcontractLength")
-    dt_ezmaxinvoicingcontract_start: StrictStr = Field(description="The start date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractStart")
-    dt_ezmaxinvoicingcontract_end: StrictStr = Field(description="The end date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractEnd")
-    d_ezmaxinvoicingcontract_license: Annotated[str, Field(strict=True)] = Field(description="The price of the license", alias="dEzmaxinvoicingcontractLicense")
-    d_ezmaxinvoicingcontract121qa: Annotated[str, Field(strict=True)] = Field(description="The price for 121QA", alias="dEzmaxinvoicingcontract121qa")
-    b_ezmaxinvoicingcontract_ezsignallagents: StrictBool = Field(description="Whether eZsign is for all agents", alias="bEzmaxinvoicingcontractEzsignallagents")
+    i_ezmaxinvoicingcontract_length: Annotated[int, Field(strict=True, ge=1)] = Field(description="The length in years of the Ezmaxinvoicingcontract", alias="iEzmaxinvoicingcontractLength", json_schema_extra={"examples": [3]})
+    dt_ezmaxinvoicingcontract_start: StrictStr = Field(description="The start date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractStart", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_ezmaxinvoicingcontract_end: StrictStr = Field(description="The end date of the Ezmaxinvoicingcontract", alias="dtEzmaxinvoicingcontractEnd", json_schema_extra={"examples": ["2020-12-31"]})
+    d_ezmaxinvoicingcontract_license: Annotated[str, Field(strict=True)] = Field(description="The price of the license", alias="dEzmaxinvoicingcontractLicense", json_schema_extra={"examples": ["335.42"]})
+    d_ezmaxinvoicingcontract121qa: Annotated[str, Field(strict=True)] = Field(description="The price for 121QA", alias="dEzmaxinvoicingcontract121qa", json_schema_extra={"examples": ["295.48"]})
+    b_ezmaxinvoicingcontract_ezsignallagents: StrictBool = Field(description="Whether eZsign is for all agents", alias="bEzmaxinvoicingcontractEzsignallagents", json_schema_extra={"examples": [True]})
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcontractID", "eEzmaxinvoicingcontractPaymenttype", "iEzmaxinvoicingcontractLength", "dtEzmaxinvoicingcontractStart", "dtEzmaxinvoicingcontractEnd", "dEzmaxinvoicingcontractLicense", "dEzmaxinvoicingcontract121qa", "bEzmaxinvoicingcontractEzsignallagents", "objAudit"]
 

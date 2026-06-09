@@ -29,7 +29,7 @@ class EzsignfolderDuplicateV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/duplicate
     """ # noqa: E501
-    pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID")
+    pki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="pkiEzsignfolderID", json_schema_extra={"examples": [33]})
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID"]
 
     model_config = ConfigDict(

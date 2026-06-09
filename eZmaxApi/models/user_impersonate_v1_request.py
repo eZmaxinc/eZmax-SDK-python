@@ -29,7 +29,7 @@ class UserImpersonateV1Request(BaseModel):
     """
     Request for POST /1/object/user/{pkiUserID}/impersonate
     """ # noqa: E501
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     i_expiration_minutes: Annotated[int, Field(le=180, strict=True, ge=1)] = Field(description="The number of minute before key is no longer active", alias="iExpirationMinutes")
     __properties: ClassVar[List[str]] = ["fkiUserID", "iExpirationMinutes"]
 

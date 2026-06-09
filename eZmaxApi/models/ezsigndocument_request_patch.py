@@ -28,8 +28,8 @@ class EzsigndocumentRequestPatch(BaseModel):
     """
     An Ezsigndocument Object
     """ # noqa: E501
-    dt_ezsigndocument_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
-    s_ezsigndocument_name: Optional[StrictStr] = Field(default=None, description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName")
+    dt_ezsigndocument_duedate: Optional[StrictStr] = Field(default=None, description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    s_ezsigndocument_name: Optional[StrictStr] = Field(default=None, description="The name of the document that will be presented to Ezsignfoldersignerassociations", alias="sEzsigndocumentName", json_schema_extra={"examples": ["Contract #123"]})
     __properties: ClassVar[List[str]] = ["dtEzsigndocumentDuedate", "sEzsigndocumentName"]
 
     model_config = ConfigDict(

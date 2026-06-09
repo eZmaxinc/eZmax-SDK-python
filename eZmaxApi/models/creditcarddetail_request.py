@@ -29,11 +29,11 @@ class CreditcarddetailRequest(BaseModel):
     """
     A Creditcarddetail Object
     """ # noqa: E501
-    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
-    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
-    s_creditcarddetail_civic: Annotated[str, Field(strict=True)] = Field(description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic")
-    s_creditcarddetail_street: Annotated[str, Field(strict=True)] = Field(description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet")
-    s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip")
+    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth", json_schema_extra={"examples": [10]})
+    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear", json_schema_extra={"examples": [2024]})
+    s_creditcarddetail_civic: Annotated[str, Field(strict=True)] = Field(description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic", json_schema_extra={"examples": ["2500"]})
+    s_creditcarddetail_street: Annotated[str, Field(strict=True)] = Field(description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet", json_schema_extra={"examples": ["Daniel-Johnson Blvd"]})
+    s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip", json_schema_extra={"examples": ["H7T 2P6"]})
     __properties: ClassVar[List[str]] = ["iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "sCreditcarddetailCivic", "sCreditcarddetailStreet", "sCreditcarddetailZip"]
 
     @field_validator('s_creditcarddetail_civic')

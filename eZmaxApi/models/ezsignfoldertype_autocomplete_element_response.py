@@ -31,9 +31,9 @@ class EzsignfoldertypeAutocompleteElementResponse(BaseModel):
     A Ezsignfoldertype AutocompleteElement Response
     """ # noqa: E501
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
-    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
-    pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
-    b_ezsignfoldertype_isactive: StrictBool = Field(description="Whether the Ezsignfoldertype is active or not", alias="bEzsignfoldertypeIsactive")
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX", json_schema_extra={"examples": ["Default"]})
+    pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    b_ezsignfoldertype_isactive: StrictBool = Field(description="Whether the Ezsignfoldertype is active or not", alias="bEzsignfoldertypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "pkiEzsignfoldertypeID", "bEzsignfoldertypeIsactive"]
 
     model_config = ConfigDict(

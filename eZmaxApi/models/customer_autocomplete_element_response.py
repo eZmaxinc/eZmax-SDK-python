@@ -29,11 +29,11 @@ class CustomerAutocompleteElementResponse(BaseModel):
     """
     A Customer AutocompleteElement Response
     """ # noqa: E501
-    pki_customer_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Customer.", alias="pkiCustomerID")
-    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
-    s_customer_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Customer", alias="sCustomerName")
-    s_customer_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Customer", alias="sCustomerCode")
-    b_customer_isactive: StrictBool = Field(description="Whether the customer is active or not", alias="bCustomerIsactive")
+    pki_customer_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Customer.", alias="pkiCustomerID", json_schema_extra={"examples": [18]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
+    s_customer_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Customer", alias="sCustomerName", json_schema_extra={"examples": ["eZmax Solutions"]})
+    s_customer_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Customer", alias="sCustomerCode", json_schema_extra={"examples": ["EZMA1"]})
+    b_customer_isactive: StrictBool = Field(description="Whether the customer is active or not", alias="bCustomerIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCustomerID", "fkiDepartmentID", "sCustomerName", "sCustomerCode", "bCustomerIsactive"]
 
     @field_validator('s_customer_name')

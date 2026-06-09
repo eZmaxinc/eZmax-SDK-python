@@ -32,7 +32,7 @@ class CommonReportrow(BaseModel):
     """ # noqa: E501
     a_obj_reportcell: List[CommonReportcell] = Field(alias="a_objReportcell")
     obj_variableobject: Dict[str, Any] = Field(description="A Variable object without predefined property names", alias="objVariableobject")
-    i_reportrow_height: StrictInt = Field(description="The reportrow height in pixels", alias="iReportrowHeight")
+    i_reportrow_height: StrictInt = Field(description="The reportrow height in pixels", alias="iReportrowHeight", json_schema_extra={"examples": [20]})
     obj_reportcellstyle_custom: Optional[CommonReportcellstylecustom] = Field(default=None, alias="objReportcellstyleCustom")
     __properties: ClassVar[List[str]] = ["a_objReportcell", "objVariableobject", "iReportrowHeight", "objReportcellstyleCustom"]
 

@@ -30,7 +30,7 @@ class CustomApikey(BaseModel):
     A Custom Apikey Object
     """ # noqa: E501
     s_apikey_key: Annotated[str, Field(strict=True)] = Field(description="The key of the Apikey", alias="sApikeyKey")
-    s_apikey_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikey", alias="sApikeySecret")
+    s_apikey_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikey", alias="sApikeySecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     __properties: ClassVar[List[str]] = ["sApikeyKey", "sApikeySecret"]
 
     @field_validator('s_apikey_key')

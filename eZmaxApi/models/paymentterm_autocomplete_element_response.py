@@ -29,9 +29,9 @@ class PaymenttermAutocompleteElementResponse(BaseModel):
     """
     A Paymentterm AutocompleteElement Response
     """ # noqa: E501
-    pki_paymentterm_id: StrictInt = Field(description="The unique ID of the Paymentterm", alias="pkiPaymenttermID")
-    s_paymentterm_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentterm in the language of the requester", alias="sPaymenttermDescriptionX")
-    b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive")
+    pki_paymentterm_id: StrictInt = Field(description="The unique ID of the Paymentterm", alias="pkiPaymenttermID", json_schema_extra={"examples": [46]})
+    s_paymentterm_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentterm in the language of the requester", alias="sPaymenttermDescriptionX", json_schema_extra={"examples": ["Net 30 days"]})
+    b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPaymenttermID", "sPaymenttermDescriptionX", "bPaymenttermIsactive"]
 
     @field_validator('s_paymentterm_description_x')

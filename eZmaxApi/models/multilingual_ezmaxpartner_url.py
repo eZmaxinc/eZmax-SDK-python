@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerUrl(BaseModel):
     """
     Short description of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_url1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Ezmaxpartner website in french", alias="sEzmaxpartnerUrl1")
-    s_ezmaxpartner_url2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Ezmaxpartner website in english", alias="sEzmaxpartnerUrl2")
+    s_ezmaxpartner_url1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Ezmaxpartner website in french", alias="sEzmaxpartnerUrl1", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
+    s_ezmaxpartner_url2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Ezmaxpartner website in english", alias="sEzmaxpartnerUrl2", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerUrl1", "sEzmaxpartnerUrl2"]
 
     @field_validator('s_ezmaxpartner_url1')

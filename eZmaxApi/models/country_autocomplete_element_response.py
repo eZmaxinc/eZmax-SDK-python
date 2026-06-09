@@ -29,10 +29,10 @@ class CountryAutocompleteElementResponse(BaseModel):
     """
     A Country AutocompleteElement Response
     """ # noqa: E501
-    pki_country_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="pkiCountryID")
-    s_country_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Country in the language of the requester", alias="sCountryNameX")
-    s_country_shortname: Annotated[str, Field(strict=True)] = Field(description="The shortname of the Country", alias="sCountryShortname")
-    b_country_isactive: StrictBool = Field(description="Whether the Country is active or not", alias="bCountryIsactive")
+    pki_country_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="pkiCountryID", json_schema_extra={"examples": [1]})
+    s_country_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Country in the language of the requester", alias="sCountryNameX", json_schema_extra={"examples": ["Canada"]})
+    s_country_shortname: Annotated[str, Field(strict=True)] = Field(description="The shortname of the Country", alias="sCountryShortname", json_schema_extra={"examples": ["CA"]})
+    b_country_isactive: StrictBool = Field(description="Whether the Country is active or not", alias="bCountryIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCountryID", "sCountryNameX", "sCountryShortname", "bCountryIsactive"]
 
     @field_validator('s_country_name_x')

@@ -29,18 +29,18 @@ class SupplyListElement(BaseModel):
     """
     A Supply List Element
     """ # noqa: E501
-    pki_supply_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Supply", alias="pkiSupplyID")
-    fki_glaccount_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccount", alias="fkiGlaccountID")
-    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID")
-    fki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="fkiVariableexpenseID")
-    s_supply_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Supply", alias="sSupplyCode")
-    s_supply_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Supply in the language of the requester", alias="sSupplyDescriptionX")
-    d_supply_unitprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The unit price of the Supply", alias="dSupplyUnitprice")
-    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive")
-    b_supply_variableprice: StrictBool = Field(description="Whether if the price is variable", alias="bSupplyVariableprice")
-    s_glaccount_description_x: Optional[StrictStr] = Field(default=None, description="The Description for the Glaccount in the language of the requester", alias="sGlaccountDescriptionX")
-    s_glaccountcontainer_longdescription_x: Optional[StrictStr] = Field(default=None, description="The Description for the Glaccountcontainer in the language of the requester", alias="sGlaccountcontainerLongdescriptionX")
-    s_variableexpense_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX")
+    pki_supply_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Supply", alias="pkiSupplyID", json_schema_extra={"examples": [85]})
+    fki_glaccount_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccount", alias="fkiGlaccountID", json_schema_extra={"examples": [35]})
+    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID", json_schema_extra={"examples": [66]})
+    fki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="fkiVariableexpenseID", json_schema_extra={"examples": [2]})
+    s_supply_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Supply", alias="sSupplyCode", json_schema_extra={"examples": ["PPLET"]})
+    s_supply_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Supply in the language of the requester", alias="sSupplyDescriptionX", json_schema_extra={"examples": ["Letter paper package"]})
+    d_supply_unitprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The unit price of the Supply", alias="dSupplyUnitprice", json_schema_extra={"examples": ["8.00"]})
+    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive", json_schema_extra={"examples": [True]})
+    b_supply_variableprice: StrictBool = Field(description="Whether if the price is variable", alias="bSupplyVariableprice", json_schema_extra={"examples": [True]})
+    s_glaccount_description_x: Optional[StrictStr] = Field(default=None, description="The Description for the Glaccount in the language of the requester", alias="sGlaccountDescriptionX", json_schema_extra={"examples": ["Supplies income"]})
+    s_glaccountcontainer_longdescription_x: Optional[StrictStr] = Field(default=None, description="The Description for the Glaccountcontainer in the language of the requester", alias="sGlaccountcontainerLongdescriptionX", json_schema_extra={"examples": ["Quebec"]})
+    s_variableexpense_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX", json_schema_extra={"examples": ["Équipements de bureau"]})
     __properties: ClassVar[List[str]] = ["pkiSupplyID", "fkiGlaccountID", "fkiGlaccountcontainerID", "fkiVariableexpenseID", "sSupplyCode", "sSupplyDescriptionX", "dSupplyUnitprice", "bSupplyIsactive", "bSupplyVariableprice", "sGlaccountDescriptionX", "sGlaccountcontainerLongdescriptionX", "sVariableexpenseDescriptionX"]
 
     @field_validator('s_supply_code')

@@ -29,9 +29,9 @@ class CreditcardmerchantAutocompleteElementResponse(BaseModel):
     """
     A Creditcardmerchant AutocompleteElement Response
     """ # noqa: E501
-    pki_creditcardmerchant_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardmerchant", alias="pkiCreditcardmerchantID")
-    s_creditcardmerchant_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription")
-    b_creditcardmerchant_isactive: StrictBool = Field(description="Whether the creditcardmerchant is active or not", alias="bCreditcardmerchantIsactive")
+    pki_creditcardmerchant_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardmerchant", alias="pkiCreditcardmerchantID", json_schema_extra={"examples": [30]})
+    s_creditcardmerchant_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription", json_schema_extra={"examples": ["Moneris"]})
+    b_creditcardmerchant_isactive: StrictBool = Field(description="Whether the creditcardmerchant is active or not", alias="bCreditcardmerchantIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardmerchantID", "sCreditcardmerchantDescription", "bCreditcardmerchantIsactive"]
 
     @field_validator('s_creditcardmerchant_description')

@@ -29,9 +29,9 @@ class EzdoctemplatetypeAutocompleteElementResponse(BaseModel):
     """
     A Ezdoctemplatetype AutocompleteElement Response
     """ # noqa: E501
-    pki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="pkiEzdoctemplatetypeID")
-    s_ezdoctemplatetype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatetype in the language of the requester", alias="sEzdoctemplatetypeDescriptionX")
-    b_ezdoctemplatetype_isactive: StrictBool = Field(description="Whether the Ezdoctemplatetype is active or not", alias="bEzdoctemplatetypeIsactive")
+    pki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="pkiEzdoctemplatetypeID", json_schema_extra={"examples": [7]})
+    s_ezdoctemplatetype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatetype in the language of the requester", alias="sEzdoctemplatetypeDescriptionX", json_schema_extra={"examples": ["Real Estate"]})
+    b_ezdoctemplatetype_isactive: StrictBool = Field(description="Whether the Ezdoctemplatetype is active or not", alias="bEzdoctemplatetypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatetypeID", "sEzdoctemplatetypeDescriptionX", "bEzdoctemplatetypeIsactive"]
 
     @field_validator('s_ezdoctemplatetype_description_x')

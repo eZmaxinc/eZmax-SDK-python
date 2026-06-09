@@ -30,12 +30,12 @@ class EzsigndiscussionResponse(BaseModel):
     """
     A Ezsigndiscussion Object
     """ # noqa: E501
-    pki_ezsigndiscussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndiscussion", alias="pkiEzsigndiscussionID")
-    fki_ezsignpage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignpage", alias="fkiEzsignpageID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    i_ezsigndiscussion_x: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The x of the Ezsigndiscussion", alias="iEzsigndiscussionX")
-    i_ezsigndiscussion_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigndiscussion", alias="iEzsigndiscussionY")
-    i_ezsigndiscussion_pagenumber: StrictInt = Field(description="The page number in the Ezsigndocument for the Ezsigndiscussion", alias="iEzsigndiscussionPagenumber")
+    pki_ezsigndiscussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndiscussion", alias="pkiEzsigndiscussionID", json_schema_extra={"examples": [194]})
+    fki_ezsignpage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignpage", alias="fkiEzsignpageID", json_schema_extra={"examples": [64]})
+    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
+    i_ezsigndiscussion_x: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The x of the Ezsigndiscussion", alias="iEzsigndiscussionX", json_schema_extra={"examples": [57208]})
+    i_ezsigndiscussion_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigndiscussion", alias="iEzsigndiscussionY", json_schema_extra={"examples": [57652]})
+    i_ezsigndiscussion_pagenumber: StrictInt = Field(description="The page number in the Ezsigndocument for the Ezsigndiscussion", alias="iEzsigndiscussionPagenumber", json_schema_extra={"examples": [4]})
     obj_discussion: DiscussionResponseCompound = Field(alias="objDiscussion")
     __properties: ClassVar[List[str]] = ["pkiEzsigndiscussionID", "fkiEzsignpageID", "fkiDiscussionID", "iEzsigndiscussionX", "iEzsigndiscussionY", "iEzsigndiscussionPagenumber", "objDiscussion"]
 

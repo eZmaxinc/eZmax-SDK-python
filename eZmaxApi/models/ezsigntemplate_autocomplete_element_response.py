@@ -31,9 +31,9 @@ class EzsigntemplateAutocompleteElementResponse(BaseModel):
     A Ezsigntemplate AutocompleteElement Response
     """ # noqa: E501
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
-    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription")
-    pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    b_ezsigntemplate_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateIsactive")
+    s_ezsigntemplate_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateDescription", json_schema_extra={"examples": ["Standard Contract"]})
+    pki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    b_ezsigntemplate_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplateDescription", "pkiEzsigntemplateID", "bEzsigntemplateIsactive"]
 
     @field_validator('s_ezsigntemplate_description')

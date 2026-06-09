@@ -32,15 +32,15 @@ class CustomCommunicationListElementResponse(BaseModel):
     """
     A Communication List Element
     """ # noqa: E501
-    pki_communication_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Communication.", alias="pkiCommunicationID")
-    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate")
+    pki_communication_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Communication.", alias="pkiCommunicationID", json_schema_extra={"examples": [1]})
+    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     e_communication_direction: ComputedECommunicationDirection = Field(alias="eCommunicationDirection")
     e_communication_importance: FieldECommunicationImportance = Field(alias="eCommunicationImportance")
     e_communication_type: FieldECommunicationType = Field(alias="eCommunicationType")
-    i_communicationrecipient_count: StrictInt = Field(description="The count of Communicationrecipient", alias="iCommunicationrecipientCount")
-    s_communication_subject: Annotated[str, Field(strict=True)] = Field(description="The subject of the Communication", alias="sCommunicationSubject")
-    s_communication_sender: StrictStr = Field(description="The sender name of the Communication", alias="sCommunicationSender")
-    s_communication_recipient: StrictStr = Field(description="The recipients' name of the Communication", alias="sCommunicationRecipient")
+    i_communicationrecipient_count: StrictInt = Field(description="The count of Communicationrecipient", alias="iCommunicationrecipientCount", json_schema_extra={"examples": [8]})
+    s_communication_subject: Annotated[str, Field(strict=True)] = Field(description="The subject of the Communication", alias="sCommunicationSubject", json_schema_extra={"examples": ["This is an example of subject"]})
+    s_communication_sender: StrictStr = Field(description="The sender name of the Communication", alias="sCommunicationSender", json_schema_extra={"examples": ["John Doe"]})
+    s_communication_recipient: StrictStr = Field(description="The recipients' name of the Communication", alias="sCommunicationRecipient", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationID", "dtCreatedDate", "eCommunicationDirection", "eCommunicationImportance", "eCommunicationType", "iCommunicationrecipientCount", "sCommunicationSubject", "sCommunicationSender", "sCommunicationRecipient"]
 
     @field_validator('s_communication_subject')

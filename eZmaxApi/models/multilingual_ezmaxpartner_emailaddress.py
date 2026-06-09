@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerEmailaddress(BaseModel):
     """
     Email of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_emailaddress1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEzmaxpartnerEmailaddress1")
-    s_ezmaxpartner_emailaddress2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEzmaxpartnerEmailaddress2")
+    s_ezmaxpartner_emailaddress1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEzmaxpartnerEmailaddress1", json_schema_extra={"examples": ["email@example.com"]})
+    s_ezmaxpartner_emailaddress2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEzmaxpartnerEmailaddress2", json_schema_extra={"examples": ["email@example.com"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerEmailaddress1", "sEzmaxpartnerEmailaddress2"]
 
     @field_validator('s_ezmaxpartner_emailaddress1')

@@ -32,7 +32,7 @@ class PaymentgatewayRequestCompound(BaseModel):
     """
     A Paymentgateway Object and children
     """ # noqa: E501
-    pki_paymentgateway_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID")
+    pki_paymentgateway_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID", json_schema_extra={"examples": [235]})
     e_paymentgateway_processor: FieldEPaymentgatewayProcessor = Field(alias="ePaymentgatewayProcessor")
     obj_paymentgateway_description: MultilingualPaymentgatewayDescription = Field(alias="objPaymentgatewayDescription")
     obj_creditcardmerchant: Optional[CreditcardmerchantRequestCompound] = Field(default=None, alias="objCreditcardmerchant")

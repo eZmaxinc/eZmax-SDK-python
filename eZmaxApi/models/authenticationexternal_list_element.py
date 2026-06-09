@@ -30,10 +30,10 @@ class AuthenticationexternalListElement(BaseModel):
     """
     A Authenticationexternal List Element
     """ # noqa: E501
-    pki_authenticationexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Authenticationexternal", alias="pkiAuthenticationexternalID")
-    s_authenticationexternal_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription")
+    pki_authenticationexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Authenticationexternal", alias="pkiAuthenticationexternalID", json_schema_extra={"examples": [56]})
+    s_authenticationexternal_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription", json_schema_extra={"examples": ["Authentification"]})
     e_authenticationexternal_type: FieldEAuthenticationexternalType = Field(alias="eAuthenticationexternalType")
-    b_authenticationexternal_connected: StrictBool = Field(description="Whether the Authenticationexternal has been connected or not", alias="bAuthenticationexternalConnected")
+    b_authenticationexternal_connected: StrictBool = Field(description="Whether the Authenticationexternal has been connected or not", alias="bAuthenticationexternalConnected", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiAuthenticationexternalID", "sAuthenticationexternalDescription", "eAuthenticationexternalType", "bAuthenticationexternalConnected"]
 
     @field_validator('s_authenticationexternal_description')

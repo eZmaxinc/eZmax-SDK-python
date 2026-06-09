@@ -29,9 +29,9 @@ class AgenttypeAutocompleteElementResponse(BaseModel):
     """
     A Agenttype AutocompleteElement Response
     """ # noqa: E501
-    pki_agenttype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Agenttype", alias="pkiAgenttypeID")
-    s_agenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Agenttype in the language of the requester", alias="sAgenttypeNameX")
-    b_agenttype_isactive: StrictBool = Field(description="Whether the Agenttype is active or not", alias="bAgenttypeIsactive")
+    pki_agenttype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Agenttype", alias="pkiAgenttypeID", json_schema_extra={"examples": [2]})
+    s_agenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Agenttype in the language of the requester", alias="sAgenttypeNameX", json_schema_extra={"examples": ["Real Estate Broker"]})
+    b_agenttype_isactive: StrictBool = Field(description="Whether the Agenttype is active or not", alias="bAgenttypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiAgenttypeID", "sAgenttypeNameX", "bAgenttypeIsactive"]
 
     @field_validator('s_agenttype_name_x')

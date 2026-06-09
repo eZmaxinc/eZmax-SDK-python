@@ -29,7 +29,7 @@ class EzsignfoldersignerassociationReassignV1Request(BaseModel):
     """
     Request for POST /1/object/ezsignfoldersignerassociation/{pkiEzsignfoldersignerassociationID}/reassign
     """ # noqa: E501
-    fki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    fki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
     __properties: ClassVar[List[str]] = ["fkiEzsignfoldersignerassociationID"]
 
     model_config = ConfigDict(

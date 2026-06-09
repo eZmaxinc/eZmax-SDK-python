@@ -30,7 +30,7 @@ class CustomFormDataEzsignformfieldgroupResponse(BaseModel):
     """
     An FormDataSigner->Ezsignformfieldgroup Object and children to create a complete structure
     """ # noqa: E501
-    s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel")
+    s_ezsignformfieldgroup_label: Annotated[str, Field(min_length=1, strict=True, max_length=50)] = Field(description="The Label for the Ezsignformfieldgroup", alias="sEzsignformfieldgroupLabel", json_schema_extra={"examples": ["Allergies"]})
     a_obj_ezsignformfield: List[CustomFormDataEzsignformfieldResponse] = Field(alias="a_objEzsignformfield")
     __properties: ClassVar[List[str]] = ["sEzsignformfieldgroupLabel", "a_objEzsignformfield"]
 

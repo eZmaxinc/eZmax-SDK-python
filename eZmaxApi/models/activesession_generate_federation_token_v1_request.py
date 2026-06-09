@@ -29,7 +29,7 @@ class ActivesessionGenerateFederationTokenV1Request(BaseModel):
     """
     Request for POST /1/object/activesession/generateFederationToken
     """ # noqa: E501
-    fks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="fksEzmaxcustomerCode")
+    fks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="fksEzmaxcustomerCode", json_schema_extra={"examples": ["demo"]})
     __properties: ClassVar[List[str]] = ["fksEzmaxcustomerCode"]
 
     @field_validator('fks_ezmaxcustomer_code')

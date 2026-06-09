@@ -31,7 +31,7 @@ class BillingentityexternalGenerateFederationTokenV1ResponseMPayload(BaseModel):
     Payload for POST /1/object/billingentityexternal/{pkiBillingentityexternalID}/generateFederationToken
     """ # noqa: E501
     obj_apikeyfederation: CustomApikeyfederation = Field(alias="objApikeyfederation")
-    s_ezmaxcustomercode_url: Annotated[str, Field(strict=True)] = Field(description="The url of the server the Ezmaxcustomer is located", alias="sEzmaxcustomercodeUrl")
+    s_ezmaxcustomercode_url: Annotated[str, Field(strict=True)] = Field(description="The url of the server the Ezmaxcustomer is located", alias="sEzmaxcustomercodeUrl", json_schema_extra={"examples": ["https://www.website.com/avatar.jpg"]})
     __properties: ClassVar[List[str]] = ["objApikeyfederation", "sEzmaxcustomercodeUrl"]
 
     @field_validator('s_ezmaxcustomercode_url')

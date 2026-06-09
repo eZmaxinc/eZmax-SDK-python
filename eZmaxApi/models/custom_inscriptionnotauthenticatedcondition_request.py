@@ -29,8 +29,8 @@ class CustomInscriptionnotauthenticatedconditionRequest(BaseModel):
     """
     A custom Inscriptionnotauthenticatedcondition object
     """ # noqa: E501
-    pki_inscriptionnotauthenticatedcondition_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedcondition", alias="pkiInscriptionnotauthenticatedconditionID")
-    dt_inscriptionnotauthenticatedcondition_completed: Annotated[str, Field(strict=True)] = Field(description="The date the Inscriptionnotauthenticatedcondition was completed", alias="dtInscriptionnotauthenticatedconditionCompleted")
+    pki_inscriptionnotauthenticatedcondition_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedcondition", alias="pkiInscriptionnotauthenticatedconditionID", json_schema_extra={"examples": [16]})
+    dt_inscriptionnotauthenticatedcondition_completed: Annotated[str, Field(strict=True)] = Field(description="The date the Inscriptionnotauthenticatedcondition was completed", alias="dtInscriptionnotauthenticatedconditionCompleted", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedconditionID", "dtInscriptionnotauthenticatedconditionCompleted"]
 
     @field_validator('dt_inscriptionnotauthenticatedcondition_completed')

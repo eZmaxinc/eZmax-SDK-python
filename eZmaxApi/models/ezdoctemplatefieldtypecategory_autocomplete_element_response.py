@@ -29,10 +29,10 @@ class EzdoctemplatefieldtypecategoryAutocompleteElementResponse(BaseModel):
     """
     A Ezdoctemplatefieldtypecategory AutocompleteElement Response
     """ # noqa: E501
-    pki_ezdoctemplatefieldtypecategory_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="pkiEzdoctemplatefieldtypecategoryID")
-    fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID")
-    s_ezdoctemplatefieldtypecategory_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatefieldtypecategory in the language of the requester", alias="sEzdoctemplatefieldtypecategoryDescriptionX")
-    b_ezdoctemplatefieldtypecategory_isactive: StrictBool = Field(description="Whether the Ezdoctemplatefieldtypecategory is active or not", alias="bEzdoctemplatefieldtypecategoryIsactive")
+    pki_ezdoctemplatefieldtypecategory_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="pkiEzdoctemplatefieldtypecategoryID", json_schema_extra={"examples": [4]})
+    fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID", json_schema_extra={"examples": [7]})
+    s_ezdoctemplatefieldtypecategory_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezdoctemplatefieldtypecategory in the language of the requester", alias="sEzdoctemplatefieldtypecategoryDescriptionX", json_schema_extra={"examples": ["Sale"]})
+    b_ezdoctemplatefieldtypecategory_isactive: StrictBool = Field(description="Whether the Ezdoctemplatefieldtypecategory is active or not", alias="bEzdoctemplatefieldtypecategoryIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatefieldtypecategoryID", "fkiEzdoctemplatetypeID", "sEzdoctemplatefieldtypecategoryDescriptionX", "bEzdoctemplatefieldtypecategoryIsactive"]
 
     @field_validator('s_ezdoctemplatefieldtypecategory_description_x')

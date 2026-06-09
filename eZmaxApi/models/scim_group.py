@@ -31,7 +31,7 @@ class ScimGroup(BaseModel):
     ScimGroup
     """ # noqa: E501
     id: Optional[StrictStr] = None
-    display_name: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="displayName")
+    display_name: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="displayName", json_schema_extra={"examples": ["Administration"]})
     members: Optional[List[ScimGroupMember]] = None
     __properties: ClassVar[List[str]] = ["id", "displayName", "members"]
 

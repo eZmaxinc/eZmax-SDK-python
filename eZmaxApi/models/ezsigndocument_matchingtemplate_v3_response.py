@@ -29,8 +29,8 @@ class EzsigndocumentMatchingtemplateV3Response(BaseModel):
     """
     A Ezsigndocument createObject Response
     """ # noqa: E501
-    pki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID")
-    pki_ezsigntemplateglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID")
+    pki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="pkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    pki_ezsigntemplateglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID", json_schema_extra={"examples": [36]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "pkiEzsigntemplateglobalID"]
 
     model_config = ConfigDict(

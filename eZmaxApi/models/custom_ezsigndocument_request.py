@@ -30,7 +30,7 @@ class CustomEzsigndocumentRequest(BaseModel):
     """
     Request for POST /2/object/ezsignfolder/{pkiEzsignfolderID}/reorder
     """ # noqa: E501
-    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID", json_schema_extra={"examples": [97]})
     a_obj_ezsigndocumentdependency: List[EzsigndocumentdependencyRequestCompound] = Field(alias="a_objEzsigndocumentdependency")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "a_objEzsigndocumentdependency"]
 

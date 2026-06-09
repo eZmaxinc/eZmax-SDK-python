@@ -30,9 +30,9 @@ class EzsignsignergroupResponseCompound(BaseModel):
     """
     An Ezsignsignergroup Object
     """ # noqa: E501
-    pki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="pkiEzsignsignergroupID")
+    pki_ezsignsignergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignergroup", alias="pkiEzsignsignergroupID", json_schema_extra={"examples": [27]})
     obj_ezsignsignergroup_description: MultilingualEzsignsignergroupDescription = Field(alias="objEzsignsignergroupDescription")
-    s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX")
+    s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX", json_schema_extra={"examples": ["HR"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupID", "objEzsignsignergroupDescription", "sEzsignsignergroupDescriptionX"]
 
     model_config = ConfigDict(

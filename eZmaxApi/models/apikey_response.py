@@ -32,16 +32,17 @@ class ApikeyResponse(BaseModel):
     """
     An Apikey Object
     """ # noqa: E501
-    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
+    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID", json_schema_extra={"examples": [99]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_ezmaxpartnerproductstage_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxpartnerproductstage", alias="fkiEzmaxpartnerproductstageID", json_schema_extra={"examples": [16]})
     obj_apikey_description: MultilingualApikeyDescription = Field(alias="objApikeyDescription")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     s_apikey_apikey: Optional[StrictStr] = Field(default=None, description="The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sApikeyApikey")
     s_apikey_secret: Optional[StrictStr] = Field(default=None, description="The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sApikeySecret")
-    b_apikey_isactive: StrictBool = Field(description="Whether the apikey is active or not", alias="bApikeyIsactive")
-    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned")
+    b_apikey_isactive: StrictBool = Field(description="Whether the apikey is active or not", alias="bApikeyIsactive", json_schema_extra={"examples": [True]})
+    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned", json_schema_extra={"examples": [True]})
     obj_audit: CommonAudit = Field(alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiApikeyID", "fkiUserID", "objApikeyDescription", "objContactName", "sApikeyApikey", "sApikeySecret", "bApikeyIsactive", "bApikeyIssigned", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiApikeyID", "fkiUserID", "fkiEzmaxpartnerproductstageID", "objApikeyDescription", "objContactName", "sApikeyApikey", "sApikeySecret", "bApikeyIsactive", "bApikeyIssigned", "objAudit"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,6 +106,7 @@ class ApikeyResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiApikeyID": obj.get("pkiApikeyID"),
             "fkiUserID": obj.get("fkiUserID"),
+            "fkiEzmaxpartnerproductstageID": obj.get("fkiEzmaxpartnerproductstageID"),
             "objApikeyDescription": MultilingualApikeyDescription.from_dict(obj["objApikeyDescription"]) if obj.get("objApikeyDescription") is not None else None,
             "objContactName": CustomContactNameResponse.from_dict(obj["objContactName"]) if obj.get("objContactName") is not None else None,
             "sApikeyApikey": obj.get("sApikeyApikey"),

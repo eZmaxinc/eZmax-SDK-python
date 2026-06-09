@@ -30,8 +30,8 @@ class CustomEzmaxcustomerResponse(BaseModel):
     """
     A Ezmaxcustomer Object
     """ # noqa: E501
-    fks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="fksEzmaxcustomerCode")
-    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID")
+    fks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="fksEzmaxcustomerCode", json_schema_extra={"examples": ["demo"]})
+    fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID", json_schema_extra={"examples": [28]})
     obj_ezmaxcustomer_company: MultilingualEzmaxcustomerCompany = Field(alias="objEzmaxcustomerCompany")
     __properties: ClassVar[List[str]] = ["fksEzmaxcustomerCode", "fkiSystemconfigurationtypeID", "objEzmaxcustomerCompany"]
 

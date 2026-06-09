@@ -30,11 +30,11 @@ class NotificationtestResponse(BaseModel):
     """
     A Notificationtest Object
     """ # noqa: E501
-    pki_notificationtest_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationtest", alias="pkiNotificationtestID")
+    pki_notificationtest_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationtest", alias="pkiNotificationtestID", json_schema_extra={"examples": [14]})
     obj_notificationtest_name: MultilingualNotificationtestName = Field(alias="objNotificationtestName")
-    fki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="fkiNotificationsubsectionID")
-    s_notificationtest_function: StrictStr = Field(description="The function name of the Notificationtest", alias="sNotificationtestFunction")
-    s_notificationtest_name_x: StrictStr = Field(description="The name of the Notificationtest in the language of the requester", alias="sNotificationtestNameX")
+    fki_notificationsubsection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationsubsection", alias="fkiNotificationsubsectionID", json_schema_extra={"examples": [3]})
+    s_notificationtest_function: StrictStr = Field(description="The function name of the Notificationtest", alias="sNotificationtestFunction", json_schema_extra={"examples": ["Default"]})
+    s_notificationtest_name_x: StrictStr = Field(description="The name of the Notificationtest in the language of the requester", alias="sNotificationtestNameX", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["pkiNotificationtestID", "objNotificationtestName", "fkiNotificationsubsectionID", "sNotificationtestFunction", "sNotificationtestNameX"]
 
     model_config = ConfigDict(

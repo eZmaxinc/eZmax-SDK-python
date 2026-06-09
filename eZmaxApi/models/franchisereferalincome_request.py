@@ -29,17 +29,17 @@ class FranchisereferalincomeRequest(BaseModel):
     """
     An Franchisereferalincome Object
     """ # noqa: E501
-    pki_franchisereferalincome_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisereferalincome", alias="pkiFranchisereferalincomeID")
-    fki_franchisebroker_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisebroker", alias="fkiFranchisebrokerID")
-    fki_franchisereferalincomeprogram_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereferalincomeprogram", alias="fkiFranchisereferalincomeprogramID")
-    fki_period_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Period", alias="fkiPeriodID")
-    d_franchisereferalincome_loan: StrictStr = Field(description="The loan amount", alias="dFranchisereferalincomeLoan")
-    d_franchisereferalincome_franchiseamount: StrictStr = Field(description="The amount that will be given to the franchise", alias="dFranchisereferalincomeFranchiseamount")
-    d_franchisereferalincome_franchisoramount: StrictStr = Field(description="The amount that will be kept by the franchisor", alias="dFranchisereferalincomeFranchisoramount")
-    d_franchisereferalincome_agentamount: StrictStr = Field(description="The amount that will be given to the agent", alias="dFranchisereferalincomeAgentamount")
-    dt_franchisereferalincome_disbursed: StrictStr = Field(description="The date the amounts were disbursed", alias="dtFranchisereferalincomeDisbursed")
-    t_franchisereferalincome_comment: StrictStr = Field(description="Comment about the transaction", alias="tFranchisereferalincomeComment")
-    fki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID")
+    pki_franchisereferalincome_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Franchisereferalincome", alias="pkiFranchisereferalincomeID", json_schema_extra={"examples": [35]})
+    fki_franchisebroker_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisebroker", alias="fkiFranchisebrokerID", json_schema_extra={"examples": [61]})
+    fki_franchisereferalincomeprogram_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereferalincomeprogram", alias="fkiFranchisereferalincomeprogramID", json_schema_extra={"examples": [51]})
+    fki_period_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Period", alias="fkiPeriodID", json_schema_extra={"examples": [21]})
+    d_franchisereferalincome_loan: StrictStr = Field(description="The loan amount", alias="dFranchisereferalincomeLoan", json_schema_extra={"examples": ["500275.62"]})
+    d_franchisereferalincome_franchiseamount: StrictStr = Field(description="The amount that will be given to the franchise", alias="dFranchisereferalincomeFranchiseamount", json_schema_extra={"examples": ["275.00"]})
+    d_franchisereferalincome_franchisoramount: StrictStr = Field(description="The amount that will be kept by the franchisor", alias="dFranchisereferalincomeFranchisoramount", json_schema_extra={"examples": ["385.00"]})
+    d_franchisereferalincome_agentamount: StrictStr = Field(description="The amount that will be given to the agent", alias="dFranchisereferalincomeAgentamount", json_schema_extra={"examples": ["800.00"]})
+    dt_franchisereferalincome_disbursed: StrictStr = Field(description="The date the amounts were disbursed", alias="dtFranchisereferalincomeDisbursed", json_schema_extra={"examples": ["2020-12-31"]})
+    t_franchisereferalincome_comment: StrictStr = Field(description="Comment about the transaction", alias="tFranchisereferalincomeComment", json_schema_extra={"examples": ["This is a comment"]})
+    fki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID", json_schema_extra={"examples": [50]})
     s_franchisereferalincome_remoteid: StrictStr = Field(alias="sFranchisereferalincomeRemoteid")
     __properties: ClassVar[List[str]] = ["pkiFranchisereferalincomeID", "fkiFranchisebrokerID", "fkiFranchisereferalincomeprogramID", "fkiPeriodID", "dFranchisereferalincomeLoan", "dFranchisereferalincomeFranchiseamount", "dFranchisereferalincomeFranchisoramount", "dFranchisereferalincomeAgentamount", "dtFranchisereferalincomeDisbursed", "tFranchisereferalincomeComment", "fkiFranchiseofficeID", "sFranchisereferalincomeRemoteid"]
 

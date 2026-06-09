@@ -29,9 +29,9 @@ class CorsResponseCompound(BaseModel):
     """
     A Cors Object
     """ # noqa: E501
-    pki_cors_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Cors", alias="pkiCorsID")
-    fki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="fkiApikeyID")
-    s_cors_entryurl: Annotated[str, Field(strict=True)] = Field(description="The entryurl of the Cors", alias="sCorsEntryurl")
+    pki_cors_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Cors", alias="pkiCorsID", json_schema_extra={"examples": [228]})
+    fki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="fkiApikeyID", json_schema_extra={"examples": [99]})
+    s_cors_entryurl: Annotated[str, Field(strict=True)] = Field(description="The entryurl of the Cors", alias="sCorsEntryurl", json_schema_extra={"examples": ["https://www.example.com"]})
     __properties: ClassVar[List[str]] = ["pkiCorsID", "fkiApikeyID", "sCorsEntryurl"]
 
     @field_validator('s_cors_entryurl')

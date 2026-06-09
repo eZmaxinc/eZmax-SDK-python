@@ -29,9 +29,9 @@ class VariableexpenseAutocompleteElementResponse(BaseModel):
     """
     A Variableexpense AutocompleteElement Response
     """ # noqa: E501
-    s_variableexpense_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX")
-    pki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID")
-    b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive")
+    s_variableexpense_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX", json_schema_extra={"examples": ["Équipements de bureau"]})
+    pki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID", json_schema_extra={"examples": [2]})
+    b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sVariableexpenseDescriptionX", "pkiVariableexpenseID", "bVariableexpenseIsactive"]
 
     @field_validator('s_variableexpense_description_x')

@@ -31,8 +31,8 @@ class DomainResponseCompound(BaseModel):
     """
     A Domain Object
     """ # noqa: E501
-    pki_domain_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Domain", alias="pkiDomainID")
-    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName")
+    pki_domain_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Domain", alias="pkiDomainID", json_schema_extra={"examples": [96]})
+    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName", json_schema_extra={"examples": ["ezsign.ca"]})
     b_domain_validdkim: StrictBool = Field(description="Whether the DKIM is valid or not", alias="bDomainValiddkim")
     b_domain_validmailfrom: StrictBool = Field(description="Whether the mail from is valid or not", alias="bDomainValidmailfrom")
     b_domain_validcustomer: StrictBool = Field(description="Whether the customer has access to it or not", alias="bDomainValidcustomer")

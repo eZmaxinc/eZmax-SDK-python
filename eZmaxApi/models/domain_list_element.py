@@ -29,8 +29,8 @@ class DomainListElement(BaseModel):
     """
     A Domain List Element
     """ # noqa: E501
-    pki_domain_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Domain", alias="pkiDomainID")
-    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName")
+    pki_domain_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Domain", alias="pkiDomainID", json_schema_extra={"examples": [96]})
+    s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName", json_schema_extra={"examples": ["ezsign.ca"]})
     __properties: ClassVar[List[str]] = ["pkiDomainID", "sDomainName"]
 
     @field_validator('s_domain_name')

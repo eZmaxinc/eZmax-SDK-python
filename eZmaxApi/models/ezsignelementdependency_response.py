@@ -31,15 +31,15 @@ class EzsignelementdependencyResponse(BaseModel):
     """
     An Ezsignelementdependency Object
     """ # noqa: E501
-    pki_ezsignelementdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
-    fki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldID")
-    fki_ezsignsignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignature", alias="fkiEzsignsignatureID")
-    fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation")
-    fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation")
+    pki_ezsignelementdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID", json_schema_extra={"examples": [89]})
+    fki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldID", json_schema_extra={"examples": [32]})
+    fki_ezsignsignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignature", alias="fkiEzsignsignatureID", json_schema_extra={"examples": [49]})
+    fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation", json_schema_extra={"examples": [32]})
+    fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation", json_schema_extra={"examples": [26]})
     e_ezsignelementdependency_validation: FieldEEzsignelementdependencyValidation = Field(alias="eEzsignelementdependencyValidation")
-    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected", alias="bEzsignelementdependencySelected")
+    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected", alias="bEzsignelementdependencySelected", json_schema_extra={"examples": [False]})
     e_ezsignelementdependency_operator: Optional[FieldEEzsignelementdependencyOperator] = Field(default=None, alias="eEzsignelementdependencyOperator")
-    s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue")
+    s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue", json_schema_extra={"examples": ["Montreal"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignelementdependencyID", "fkiEzsignformfieldID", "fkiEzsignsignatureID", "fkiEzsignformfieldIDValidation", "fkiEzsignformfieldgroupIDValidation", "eEzsignelementdependencyValidation", "bEzsignelementdependencySelected", "eEzsignelementdependencyOperator", "sEzsignelementdependencyValue"]
 
     @field_validator('s_ezsignelementdependency_value')

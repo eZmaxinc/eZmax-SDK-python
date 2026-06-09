@@ -31,15 +31,15 @@ class EzsigntemplateelementdependencyResponseCompound(BaseModel):
     """
     An Ezsigntemplateelementdependency Object and children to create a complete structure
     """ # noqa: E501
-    pki_ezsigntemplateelementdependency_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateelementdependency", alias="pkiEzsigntemplateelementdependencyID")
-    fki_ezsigntemplateformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldID")
-    fki_ezsigntemplatesignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesignature", alias="fkiEzsigntemplatesignatureID")
-    fki_ezsigntemplateformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldIDValidation")
-    fki_ezsigntemplateformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfieldgroup", alias="fkiEzsigntemplateformfieldgroupIDValidation")
+    pki_ezsigntemplateelementdependency_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateelementdependency", alias="pkiEzsigntemplateelementdependencyID", json_schema_extra={"examples": [314]})
+    fki_ezsigntemplateformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldID", json_schema_extra={"examples": [71]})
+    fki_ezsigntemplatesignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesignature", alias="fkiEzsigntemplatesignatureID", json_schema_extra={"examples": [99]})
+    fki_ezsigntemplateformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldIDValidation", json_schema_extra={"examples": [71]})
+    fki_ezsigntemplateformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfieldgroup", alias="fkiEzsigntemplateformfieldgroupIDValidation", json_schema_extra={"examples": [64]})
     e_ezsigntemplateelementdependency_validation: FieldEEzsigntemplateelementdependencyValidation = Field(alias="eEzsigntemplateelementdependencyValidation")
-    b_ezsigntemplateelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsigntemplateelementdependencyValidation = Selected", alias="bEzsigntemplateelementdependencySelected")
+    b_ezsigntemplateelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsigntemplateelementdependencyValidation = Selected", alias="bEzsigntemplateelementdependencySelected", json_schema_extra={"examples": [False]})
     e_ezsigntemplateelementdependency_operator: Optional[FieldEEzsigntemplateelementdependencyOperator] = Field(default=None, alias="eEzsigntemplateelementdependencyOperator")
-    s_ezsigntemplateelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsigntemplateelementdependencyValue")
+    s_ezsigntemplateelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsigntemplateelementdependencyValue", json_schema_extra={"examples": ["Montreal"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateelementdependencyID", "fkiEzsigntemplateformfieldID", "fkiEzsigntemplatesignatureID", "fkiEzsigntemplateformfieldIDValidation", "fkiEzsigntemplateformfieldgroupIDValidation", "eEzsigntemplateelementdependencyValidation", "bEzsigntemplateelementdependencySelected", "eEzsigntemplateelementdependencyOperator", "sEzsigntemplateelementdependencyValue"]
 
     @field_validator('s_ezsigntemplateelementdependency_value')

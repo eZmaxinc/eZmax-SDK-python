@@ -28,8 +28,8 @@ class MultilingualApikeyDescription(BaseModel):
     """
     Description of the API Key
     """ # noqa: E501
-    s_apikey_description1: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in French", alias="sApikeyDescription1")
-    s_apikey_description2: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in English", alias="sApikeyDescription2")
+    s_apikey_description1: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in French", alias="sApikeyDescription1", json_schema_extra={"examples": ["Projet X"]})
+    s_apikey_description2: Optional[StrictStr] = Field(default=None, description="The description of the Apikey in English", alias="sApikeyDescription2", json_schema_extra={"examples": ["Project X"]})
     __properties: ClassVar[List[str]] = ["sApikeyDescription1", "sApikeyDescription2"]
 
     model_config = ConfigDict(

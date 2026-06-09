@@ -28,8 +28,8 @@ class MultilingualEzmaxcustomeruserNote(BaseModel):
     """
     Note of the Ezmaxcustomeruser
     """ # noqa: E501
-    t_ezmaxcustomeruser_note1: Optional[StrictStr] = Field(default=None, description="A note added to an Ezmaxcaseactivity.", alias="tEzmaxcustomeruserNote1")
-    t_ezmaxcustomeruser_note2: Optional[StrictStr] = Field(default=None, description="A note added to an Ezmaxcaseactivity.", alias="tEzmaxcustomeruserNote2")
+    t_ezmaxcustomeruser_note1: Optional[StrictStr] = Field(default=None, description="A note added to an Ezmaxcaseactivity.", alias="tEzmaxcustomeruserNote1", json_schema_extra={"examples": ["Need to contact the customer for more informations"]})
+    t_ezmaxcustomeruser_note2: Optional[StrictStr] = Field(default=None, description="A note added to an Ezmaxcaseactivity.", alias="tEzmaxcustomeruserNote2", json_schema_extra={"examples": ["Need to contact the customer for more informations"]})
     __properties: ClassVar[List[str]] = ["tEzmaxcustomeruserNote1", "tEzmaxcustomeruserNote2"]
 
     model_config = ConfigDict(

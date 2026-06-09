@@ -29,7 +29,7 @@ class EzsigntemplatepublicResetUrlV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/resetUrl
     """ # noqa: E501
-    s_ezsigntemplatepublic_url: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number|", alias="sEzsigntemplatepublicUrl")
+    s_ezsigntemplatepublic_url: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number|", alias="sEzsigntemplatepublicUrl", json_schema_extra={"examples": ["https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}"]})
     __properties: ClassVar[List[str]] = ["sEzsigntemplatepublicUrl"]
 
     @field_validator('s_ezsigntemplatepublic_url')

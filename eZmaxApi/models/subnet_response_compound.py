@@ -30,12 +30,12 @@ class SubnetResponseCompound(BaseModel):
     """
     A Subnet Object
     """ # noqa: E501
-    pki_subnet_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Subnet", alias="pkiSubnetID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID")
+    pki_subnet_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Subnet", alias="pkiSubnetID", json_schema_extra={"examples": [3]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID", json_schema_extra={"examples": [99]})
     obj_subnet_description: MultilingualSubnetDescription = Field(alias="objSubnetDescription")
-    i_subnet_network: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The network of the Subnet in integer form. For example 8.8.8.0 would be 134744064", alias="iSubnetNetwork")
-    i_subnet_mask: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The mask of the Subnet  in integer form. For example 255.255.255.0 would be 4294967040", alias="iSubnetMask")
+    i_subnet_network: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The network of the Subnet in integer form. For example 8.8.8.0 would be 134744064", alias="iSubnetNetwork", json_schema_extra={"examples": [134744064]})
+    i_subnet_mask: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The mask of the Subnet  in integer form. For example 255.255.255.0 would be 4294967040", alias="iSubnetMask", json_schema_extra={"examples": [4294967040]})
     __properties: ClassVar[List[str]] = ["pkiSubnetID", "fkiUserID", "fkiApikeyID", "objSubnetDescription", "iSubnetNetwork", "iSubnetMask"]
 
     model_config = ConfigDict(

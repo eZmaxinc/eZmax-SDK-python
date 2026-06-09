@@ -30,16 +30,16 @@ class OtherincomeListElement(BaseModel):
     """
     A Otherincome List Element
     """ # noqa: E501
-    pki_otherincome_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Otherincome", alias="pkiOtherincomeID")
-    fki_otherincometype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Otherincometype", alias="fkiOtherincometypeID")
-    s_otherincometype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincometype in the language of the requester", alias="sOtherincometypeDescriptionX")
-    s_otherincome_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincome", alias="sOtherincomeDescription")
+    pki_otherincome_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Otherincome", alias="pkiOtherincomeID", json_schema_extra={"examples": [142]})
+    fki_otherincometype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Otherincometype", alias="fkiOtherincometypeID", json_schema_extra={"examples": [228]})
+    s_otherincometype_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincometype in the language of the requester", alias="sOtherincometypeDescriptionX", json_schema_extra={"examples": ["Evaluation"]})
+    s_otherincome_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Otherincome", alias="sOtherincomeDescription", json_schema_extra={"examples": ["610 Daniel-Johnson Blvd."]})
     e_otherincome_remunerationtype: FieldEOtherincomeRemunerationtype = Field(alias="eOtherincomeRemunerationtype")
-    d_otherincome_remunerationsubtotal: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The remuneration subtotal of the Otherincome", alias="dOtherincomeRemunerationsubtotal")
-    d_otherincome_remunerationtaxes: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=13)]] = Field(default=None, description="The remuneration total taxes of the Otherincome", alias="dOtherincomeRemunerationtaxes")
-    d_otherincome_remunerationtotal: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=13)]] = Field(default=None, description="The remuneration total of the Otherincome", alias="dOtherincomeRemunerationtotal")
-    dt_otherincome_paid: Annotated[str, Field(strict=True)] = Field(description="The paid of the Otherincome", alias="dtOtherincomePaid")
-    b_otherincome_isactive: StrictBool = Field(description="Whether the otherincome is active or not", alias="bOtherincomeIsactive")
+    d_otherincome_remunerationsubtotal: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The remuneration subtotal of the Otherincome", alias="dOtherincomeRemunerationsubtotal", json_schema_extra={"examples": ["400.00"]})
+    d_otherincome_remunerationtaxes: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=13)]] = Field(default=None, description="The remuneration total taxes of the Otherincome", alias="dOtherincomeRemunerationtaxes", json_schema_extra={"examples": ["59.90"]})
+    d_otherincome_remunerationtotal: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=13)]] = Field(default=None, description="The remuneration total of the Otherincome", alias="dOtherincomeRemunerationtotal", json_schema_extra={"examples": ["459.90"]})
+    dt_otherincome_paid: Annotated[str, Field(strict=True)] = Field(description="The paid of the Otherincome", alias="dtOtherincomePaid", json_schema_extra={"examples": ["2020-12-31"]})
+    b_otherincome_isactive: StrictBool = Field(description="Whether the otherincome is active or not", alias="bOtherincomeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiOtherincomeID", "fkiOtherincometypeID", "sOtherincometypeDescriptionX", "sOtherincomeDescription", "eOtherincomeRemunerationtype", "dOtherincomeRemunerationsubtotal", "dOtherincomeRemunerationtaxes", "dOtherincomeRemunerationtotal", "dtOtherincomePaid", "bOtherincomeIsactive"]
 
     @field_validator('s_otherincometype_description_x')

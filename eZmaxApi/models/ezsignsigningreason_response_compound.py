@@ -30,9 +30,9 @@ class EzsignsigningreasonResponseCompound(BaseModel):
     """
     A Ezsignsigningreason Object
     """ # noqa: E501
-    pki_ezsignsigningreason_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsigningreason", alias="pkiEzsignsigningreasonID")
+    pki_ezsignsigningreason_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsigningreason", alias="pkiEzsignsigningreasonID", json_schema_extra={"examples": [194]})
     obj_ezsignsigningreason_description: MultilingualEzsignsigningreasonDescription = Field(alias="objEzsignsigningreasonDescription")
-    b_ezsignsigningreason_isactive: StrictBool = Field(description="Whether the ezsignsigningreason is active or not", alias="bEzsignsigningreasonIsactive")
+    b_ezsignsigningreason_isactive: StrictBool = Field(description="Whether the ezsignsigningreason is active or not", alias="bEzsignsigningreasonIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsigningreasonID", "objEzsignsigningreasonDescription", "bEzsignsigningreasonIsactive"]
 
     model_config = ConfigDict(

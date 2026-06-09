@@ -29,7 +29,7 @@ class CustomEzsigndocumentDuplicateRequest(BaseModel):
     """
     An Ezsigndocument Object in the context of a duplicate path
     """ # noqa: E501
-    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID", json_schema_extra={"examples": [97]})
     e_ezsigndocument_version: StrictStr = Field(description="Which version of the Ezsigndocument you would like to copy", alias="eEzsigndocumentVersion")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "eEzsigndocumentVersion"]
 

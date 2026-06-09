@@ -28,7 +28,7 @@ class InvoiceGetCommunicationCountV1ResponseMPayload(BaseModel):
     """
     Response for GET /1/object/invoice/{pkiInvoiceID}/getCommunicationCount
     """ # noqa: E501
-    i_communication_count: StrictInt = Field(description="The count of Communication.", alias="iCommunicationCount")
+    i_communication_count: StrictInt = Field(description="The count of Communication.", alias="iCommunicationCount", json_schema_extra={"examples": [8]})
     __properties: ClassVar[List[str]] = ["iCommunicationCount"]
 
     model_config = ConfigDict(

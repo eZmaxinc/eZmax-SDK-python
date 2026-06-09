@@ -29,8 +29,8 @@ class CustomNotificationtestgetelementsResponse(BaseModel):
     """
     Element Object in the context of Notificationtest
     """ # noqa: E501
-    pki_notificationtest_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationtest", alias="pkiNotificationtestID")
-    s_notificationtest_function: StrictStr = Field(description="The function name of the Notificationtest", alias="sNotificationtestFunction")
+    pki_notificationtest_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Notificationtest", alias="pkiNotificationtestID", json_schema_extra={"examples": [14]})
+    s_notificationtest_function: StrictStr = Field(description="The function name of the Notificationtest", alias="sNotificationtestFunction", json_schema_extra={"examples": ["Default"]})
     a_s_variableobject_property: List[StrictStr] = Field(alias="a_sVariableobjectProperty")
     a_obj_variableobject: List[Dict[str, Any]] = Field(alias="a_objVariableobject")
     __properties: ClassVar[List[str]] = ["pkiNotificationtestID", "sNotificationtestFunction", "a_sVariableobjectProperty", "a_objVariableobject"]

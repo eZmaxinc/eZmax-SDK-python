@@ -29,9 +29,9 @@ class SystemconfigurationtypeAutocompleteElementResponse(BaseModel):
     """
     A Systemconfigurationtype AutocompleteElement Response
     """ # noqa: E501
-    pki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="pkiSystemconfigurationtypeID")
-    s_systemconfigurationtype_description_x: StrictStr = Field(description="The description of the Systemconfigurationtype in the language of the requester", alias="sSystemconfigurationtypeDescriptionX")
-    b_systemconfigurationtype_isactive: StrictBool = Field(description="Whether Systemconfigurationtype is active or not", alias="bSystemconfigurationtypeIsactive")
+    pki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="pkiSystemconfigurationtypeID", json_schema_extra={"examples": [28]})
+    s_systemconfigurationtype_description_x: StrictStr = Field(description="The description of the Systemconfigurationtype in the language of the requester", alias="sSystemconfigurationtypeDescriptionX", json_schema_extra={"examples": ["eZsign (Pro)"]})
+    b_systemconfigurationtype_isactive: StrictBool = Field(description="Whether Systemconfigurationtype is active or not", alias="bSystemconfigurationtypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescriptionX", "bSystemconfigurationtypeIsactive"]
 
     model_config = ConfigDict(

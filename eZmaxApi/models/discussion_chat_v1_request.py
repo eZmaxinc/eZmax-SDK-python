@@ -30,9 +30,9 @@ class DiscussionChatV1Request(BaseModel):
     """
     Request for POST /1/object/discussion/chat
     """ # noqa: E501
-    fki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="fkiDiscussionID")
+    fki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
     e_discussion_robot: FieldEDiscussionRobot = Field(alias="eDiscussionRobot")
-    t_discussion_message: Annotated[str, Field(strict=True)] = Field(description="The Message of the Discussion", alias="tDiscussionMessage")
+    t_discussion_message: Annotated[str, Field(strict=True)] = Field(description="The Message of the Discussion", alias="tDiscussionMessage", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
     __properties: ClassVar[List[str]] = ["fkiDiscussionID", "eDiscussionRobot", "tDiscussionMessage"]
 
     @field_validator('t_discussion_message')

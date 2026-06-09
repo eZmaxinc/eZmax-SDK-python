@@ -29,8 +29,8 @@ class ActivesessionResponseCompoundApikey(BaseModel):
     """
     An Activesession->Apikey object and children to create a complete structure
     """ # noqa: E501
-    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID")
-    s_apikey_description_x: StrictStr = Field(description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX")
+    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID", json_schema_extra={"examples": [99]})
+    s_apikey_description_x: StrictStr = Field(description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX", json_schema_extra={"examples": ["Project X"]})
     __properties: ClassVar[List[str]] = ["pkiApikeyID", "sApikeyDescriptionX"]
 
     model_config = ConfigDict(

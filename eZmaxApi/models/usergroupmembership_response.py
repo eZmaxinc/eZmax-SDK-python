@@ -29,17 +29,17 @@ class UsergroupmembershipResponse(BaseModel):
     """
     A Usergroupmembership Object
     """ # noqa: E501
-    pki_usergroupmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupmembership", alias="pkiUsergroupmembershipID")
-    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID")
-    s_user_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
-    s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
-    b_user_isactive: Optional[StrictBool] = Field(default=None, description="Whether the User is active or not", alias="bUserIsactive")
-    s_usergroupexternal_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
+    pki_usergroupmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupmembership", alias="pkiUsergroupmembershipID", json_schema_extra={"examples": [21]})
+    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID", json_schema_extra={"examples": [16]})
+    s_user_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: Optional[StrictStr] = Field(default=None, description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
+    b_user_isactive: Optional[StrictBool] = Field(default=None, description="Whether the User is active or not", alias="bUserIsactive", json_schema_extra={"examples": [True]})
+    s_usergroupexternal_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroupexternal", alias="sUsergroupexternalName", json_schema_extra={"examples": ["Administrators"]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupmembershipID", "fkiUsergroupID", "fkiUserID", "fkiUsergroupexternalID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupNameX", "bUserIsactive", "sUsergroupexternalName"]
 
     @field_validator('s_user_loginname')

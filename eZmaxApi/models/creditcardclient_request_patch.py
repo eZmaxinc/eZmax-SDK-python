@@ -28,7 +28,7 @@ class CreditcardclientRequestPatch(BaseModel):
     """
     A Creditcardclient Object
     """ # noqa: E501
-    b_creditcardclientrelation_isdefault: Optional[StrictBool] = Field(default=None, description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
+    b_creditcardclientrelation_isdefault: Optional[StrictBool] = Field(default=None, description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bCreditcardclientrelationIsdefault"]
 
     model_config = ConfigDict(

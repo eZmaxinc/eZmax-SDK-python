@@ -31,14 +31,14 @@ class EzmaxinvoicinguserResponseCompound(BaseModel):
     """
     A Ezmaxinvoicinguser Object
     """ # noqa: E501
-    pki_ezmaxinvoicinguser_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicinguser", alias="pkiEzmaxinvoicinguserID")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    i_ezmaxinvoicinguser_ezsigndocument: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of ezsign documents", alias="iEzmaxinvoicinguserEzsigndocument")
-    b_ezmaxinvoicinguser_ezsignaccount: StrictBool = Field(description="Whether there is an eZsign account", alias="bEzmaxinvoicinguserEzsignaccount")
-    b_ezmaxinvoicinguser_billableezsign: StrictBool = Field(description="Whether it is billable for eZsign", alias="bEzmaxinvoicinguserBillableezsign")
+    pki_ezmaxinvoicinguser_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicinguser", alias="pkiEzmaxinvoicinguserID", json_schema_extra={"examples": [202]})
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID", json_schema_extra={"examples": [28]})
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID", json_schema_extra={"examples": [1]})
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX", json_schema_extra={"examples": ["Default"]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    i_ezmaxinvoicinguser_ezsigndocument: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of ezsign documents", alias="iEzmaxinvoicinguserEzsigndocument", json_schema_extra={"examples": [243]})
+    b_ezmaxinvoicinguser_ezsignaccount: StrictBool = Field(description="Whether there is an eZsign account", alias="bEzmaxinvoicinguserEzsignaccount", json_schema_extra={"examples": [True]})
+    b_ezmaxinvoicinguser_billableezsign: StrictBool = Field(description="Whether it is billable for eZsign", alias="bEzmaxinvoicinguserBillableezsign", json_schema_extra={"examples": [True]})
     e_ezmaxinvoicinguser_variationezsign: FieldEEzmaxinvoicinguserVariationezsign = Field(alias="eEzmaxinvoicinguserVariationezsign")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicinguserID", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "fkiUserID", "iEzmaxinvoicinguserEzsigndocument", "bEzmaxinvoicinguserEzsignaccount", "bEzmaxinvoicinguserBillableezsign", "eEzmaxinvoicinguserVariationezsign", "objContactName"]

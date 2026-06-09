@@ -29,8 +29,8 @@ class DiscussionmessageRequestPatch(BaseModel):
     """
     A Discussionmessage Object
     """ # noqa: E501
-    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired")
-    t_discussionmessage_content: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The content of the Discussionmessage", alias="tDiscussionmessageContent")
+    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired", json_schema_extra={"examples": [165]})
+    t_discussionmessage_content: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The content of the Discussionmessage", alias="tDiscussionmessageContent", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
     __properties: ClassVar[List[str]] = ["fkiDiscussionmembershipIDActionrequired", "tDiscussionmessageContent"]
 
     @field_validator('t_discussionmessage_content')

@@ -35,11 +35,11 @@ class WebhookSendWebhookV1Request(BaseModel):
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[CustomEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
-    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
-    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_userstaged_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Userstaged", alias="fkiUserstagedID")
+    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID", json_schema_extra={"examples": [97]})
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID", json_schema_extra={"examples": [89]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_userstaged_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Userstaged", alias="fkiUserstagedID", json_schema_extra={"examples": [90]})
     __properties: ClassVar[List[str]] = ["eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "fkiEzsignfolderID", "fkiEzsigndocumentID", "fkiEzsignsignerID", "fkiUserID", "fkiUserstagedID"]
 
     model_config = ConfigDict(

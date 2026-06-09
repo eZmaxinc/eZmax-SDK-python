@@ -29,9 +29,9 @@ class BillingentityinternalproductRequestCompound(BaseModel):
     """
     A Billingentityinternalproduct Object and children
     """ # noqa: E501
-    pki_billingentityinternalproduct_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternalproduct", alias="pkiBillingentityinternalproductID")
-    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
-    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
+    pki_billingentityinternalproduct_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternalproduct", alias="pkiBillingentityinternalproductID", json_schema_extra={"examples": [254]})
+    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID", json_schema_extra={"examples": [172]})
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID", json_schema_extra={"examples": [83]})
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalproductID", "fkiEzmaxproductID", "fkiBillingentityexternalID"]
 
     model_config = ConfigDict(

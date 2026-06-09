@@ -29,10 +29,10 @@ class DiscussionmessageRequest(BaseModel):
     """
     A Discussionmessage Object
     """ # noqa: E501
-    pki_discussionmessage_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired")
-    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent")
+    pki_discussionmessage_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmessage", alias="pkiDiscussionmessageID", json_schema_extra={"examples": [123]})
+    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
+    fki_discussionmembership_id_actionrequired: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussionmembership", alias="fkiDiscussionmembershipIDActionrequired", json_schema_extra={"examples": [165]})
+    t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipIDActionrequired", "tDiscussionmessageContent"]
 
     @field_validator('t_discussionmessage_content')

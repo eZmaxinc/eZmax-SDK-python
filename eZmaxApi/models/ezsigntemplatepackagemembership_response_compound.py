@@ -31,10 +31,10 @@ class EzsigntemplatepackagemembershipResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackagemembership Object
     """ # noqa: E501
-    pki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID")
-    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
-    i_ezsigntemplatepackagemembership_order: Annotated[int, Field(strict=True, ge=1)] = Field(description="The order in which the Ezsigntemplate will be imported when using an Ezsigntemplatepackage.", alias="iEzsigntemplatepackagemembershipOrder")
+    pki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="pkiEzsigntemplatepackagemembershipID", json_schema_extra={"examples": [194]})
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    i_ezsigntemplatepackagemembership_order: Annotated[int, Field(strict=True, ge=1)] = Field(description="The order in which the Ezsigntemplate will be imported when using an Ezsigntemplatepackage.", alias="iEzsigntemplatepackagemembershipOrder", json_schema_extra={"examples": [1]})
     obj_ezsigntemplate: EzsigntemplateResponseCompound = Field(alias="objEzsigntemplate")
     a_obj_ezsigntemplatepackagesignermembership: List[EzsigntemplatepackagesignermembershipResponseCompound] = Field(alias="a_objEzsigntemplatepackagesignermembership")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID", "iEzsigntemplatepackagemembershipOrder", "objEzsigntemplate", "a_objEzsigntemplatepackagesignermembership"]

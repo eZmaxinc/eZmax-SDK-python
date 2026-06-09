@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerName(BaseModel):
     """
     Name of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezmaxpartner in french", alias="sEzmaxpartnerName1")
-    s_ezmaxpartner_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezmaxpartner in english", alias="sEzmaxpartnerName2")
+    s_ezmaxpartner_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezmaxpartner in french", alias="sEzmaxpartnerName1", json_schema_extra={"examples": ["eZmax"]})
+    s_ezmaxpartner_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezmaxpartner in english", alias="sEzmaxpartnerName2", json_schema_extra={"examples": ["eZmax"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerName1", "sEzmaxpartnerName2"]
 
     @field_validator('s_ezmaxpartner_name1')

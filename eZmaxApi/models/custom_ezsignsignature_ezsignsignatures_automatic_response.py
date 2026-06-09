@@ -30,9 +30,9 @@ class CustomEzsignsignatureEzsignsignaturesAutomaticResponse(BaseModel):
     """
     An Ezsignsignature Object in the context of an EzsignsignaturesAutomatic path
     """ # noqa: E501
-    pki_ezsignsignature_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignature", alias="pkiEzsignsignatureID")
+    pki_ezsignsignature_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignature", alias="pkiEzsignsignatureID", json_schema_extra={"examples": [49]})
     e_ezsignsignature_type: FieldEEzsignsignatureType = Field(alias="eEzsignsignatureType")
-    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber")
+    i_ezsignpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigndocument", alias="iEzsignpagePagenumber", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "eEzsignsignatureType", "iEzsignpagePagenumber"]
 
     model_config = ConfigDict(

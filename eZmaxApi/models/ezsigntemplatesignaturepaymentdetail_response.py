@@ -30,10 +30,10 @@ class EzsigntemplatesignaturepaymentdetailResponse(BaseModel):
     """
     An Ezsigntemplatesignaturepaymentdetail Object
     """ # noqa: E501
-    pki_ezsigntemplatesignaturepaymentdetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignaturepaymentdetail", alias="pkiEzsigntemplatesignaturepaymentdetailID")
-    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID")
-    t_ezsigntemplatesignaturepaymentdetail_description: StrictStr = Field(description="A description for the Ezsignsignaturepaymentdetail.", alias="tEzsigntemplatesignaturepaymentdetailDescription")
-    d_ezsigntemplatesignaturepaymentdetail_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of the for the Ezsignsignaturepaymentdetail", alias="dEzsigntemplatesignaturepaymentdetailAmount")
+    pki_ezsigntemplatesignaturepaymentdetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignaturepaymentdetail", alias="pkiEzsigntemplatesignaturepaymentdetailID", json_schema_extra={"examples": [154]})
+    fki_glaccountcontainer_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Glaccountcontainer", alias="fkiGlaccountcontainerID", json_schema_extra={"examples": [66]})
+    t_ezsigntemplatesignaturepaymentdetail_description: StrictStr = Field(description="A description for the Ezsignsignaturepaymentdetail.", alias="tEzsigntemplatesignaturepaymentdetailDescription", json_schema_extra={"examples": ["Subscription to ezsign.ca"]})
+    d_ezsigntemplatesignaturepaymentdetail_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of the for the Ezsignsignaturepaymentdetail", alias="dEzsigntemplatesignaturepaymentdetailAmount", json_schema_extra={"examples": ["167.58"]})
     e_ezsigntemplatesignaturepaymentdetail_taxable: FieldEEzsigntemplatesignaturepaymentdetailTaxable = Field(alias="eEzsigntemplatesignaturepaymentdetailTaxable")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignaturepaymentdetailID", "fkiGlaccountcontainerID", "tEzsigntemplatesignaturepaymentdetailDescription", "dEzsigntemplatesignaturepaymentdetailAmount", "eEzsigntemplatesignaturepaymentdetailTaxable"]
 

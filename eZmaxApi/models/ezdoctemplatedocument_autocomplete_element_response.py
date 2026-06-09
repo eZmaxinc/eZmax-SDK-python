@@ -29,9 +29,9 @@ class EzdoctemplatedocumentAutocompleteElementResponse(BaseModel):
     """
     A Ezdoctemplatedocument AutocompleteElement Response
     """ # noqa: E501
-    pki_ezdoctemplatedocument_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatedocument", alias="pkiEzdoctemplatedocumentID")
-    s_ezdoctemplatedocument_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
-    b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive")
+    pki_ezdoctemplatedocument_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatedocument", alias="pkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
+    s_ezdoctemplatedocument_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX", json_schema_extra={"examples": ["Standard Contract"]})
+    b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "sEzdoctemplatedocumentNameX", "bEzdoctemplatedocumentIsactive"]
 
     @field_validator('s_ezdoctemplatedocument_name_x')

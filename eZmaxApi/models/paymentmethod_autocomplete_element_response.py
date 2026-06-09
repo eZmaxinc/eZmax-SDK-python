@@ -29,9 +29,9 @@ class PaymentmethodAutocompleteElementResponse(BaseModel):
     """
     A Paymentmethod AutocompleteElement Response
     """ # noqa: E501
-    pki_paymentmethod_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentmethod", alias="pkiPaymentmethodID")
-    s_paymentmethod_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentmethod in the language of the requester", alias="sPaymentmethodDescriptionX")
-    b_paymentmethod_isactive: StrictBool = Field(description="Whether the Paymentmethod is active or not", alias="bPaymentmethodIsactive")
+    pki_paymentmethod_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentmethod", alias="pkiPaymentmethodID", json_schema_extra={"examples": [166]})
+    s_paymentmethod_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Paymentmethod in the language of the requester", alias="sPaymentmethodDescriptionX", json_schema_extra={"examples": ["Check"]})
+    b_paymentmethod_isactive: StrictBool = Field(description="Whether the Paymentmethod is active or not", alias="bPaymentmethodIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPaymentmethodID", "sPaymentmethodDescriptionX", "bPaymentmethodIsactive"]
 
     @field_validator('s_paymentmethod_description_x')

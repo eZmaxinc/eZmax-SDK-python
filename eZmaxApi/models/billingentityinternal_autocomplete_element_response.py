@@ -29,9 +29,9 @@ class BillingentityinternalAutocompleteElementResponse(BaseModel):
     """
     A Billingentityinternal AutocompleteElement Response
     """ # noqa: E501
-    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
-    b_billingentityinternal_isactive: StrictBool = Field(description="Whether the Billingentityinternal is active or not", alias="bBillingentityinternalIsactive")
+    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID", json_schema_extra={"examples": [1]})
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX", json_schema_extra={"examples": ["Default"]})
+    b_billingentityinternal_isactive: StrictBool = Field(description="Whether the Billingentityinternal is active or not", alias="bBillingentityinternalIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "sBillingentityinternalDescriptionX", "bBillingentityinternalIsactive"]
 
     model_config = ConfigDict(

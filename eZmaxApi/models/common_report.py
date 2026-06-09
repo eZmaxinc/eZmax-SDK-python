@@ -30,8 +30,8 @@ class CommonReport(BaseModel):
     A Report containing Reportsections 
     """ # noqa: E501
     a_obj_reportsection: List[CommonReportsection] = Field(alias="a_objReportsection")
-    b_report_paginate: Optional[StrictBool] = Field(default=None, description="Whether we display pagination in the report", alias="bReportPaginate")
-    s_report_title: Optional[StrictStr] = Field(default=None, description="The title of this Report", alias="sReportTitle")
+    b_report_paginate: Optional[StrictBool] = Field(default=None, description="Whether we display pagination in the report", alias="bReportPaginate", json_schema_extra={"examples": [True]})
+    s_report_title: Optional[StrictStr] = Field(default=None, description="The title of this Report", alias="sReportTitle", json_schema_extra={"examples": ["text"]})
     __properties: ClassVar[List[str]] = ["a_objReportsection", "bReportPaginate", "sReportTitle"]
 
     model_config = ConfigDict(

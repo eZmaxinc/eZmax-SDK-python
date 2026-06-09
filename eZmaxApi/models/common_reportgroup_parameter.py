@@ -28,8 +28,8 @@ class CommonReportgroupParameter(BaseModel):
     """
     A parameter of Reportgroup 
     """ # noqa: E501
-    s_reportgroup_parameter_name: StrictStr = Field(description="The Reportparameter name", alias="sReportgroupParameterName")
-    s_reportgroup_parameter_value: Optional[StrictStr] = Field(default=None, description="The Reportparameter value", alias="sReportgroupParameterValue")
+    s_reportgroup_parameter_name: StrictStr = Field(description="The Reportparameter name", alias="sReportgroupParameterName", json_schema_extra={"examples": ["eOrderby"]})
+    s_reportgroup_parameter_value: Optional[StrictStr] = Field(default=None, description="The Reportparameter value", alias="sReportgroupParameterValue", json_schema_extra={"examples": ["Code"]})
     a_s_reportgroup_parameter_value: Optional[List[StrictStr]] = Field(default=None, alias="a_sReportgroupParameterValue")
     __properties: ClassVar[List[str]] = ["sReportgroupParameterName", "sReportgroupParameterValue", "a_sReportgroupParameterValue"]
 

@@ -29,10 +29,10 @@ class RealestateboardAutocompleteElementResponse(BaseModel):
     """
     A Realestateboard AutocompleteElement Response
     """ # noqa: E501
-    pki_realestateboard_id: StrictInt = Field(description="The unique ID of the Realestateboard", alias="pkiRealestateboardID")
-    s_province_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Province in the language of the requester", alias="sProvinceNameX")
-    s_realestateboard_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Realestateboard", alias="sRealestateboardNameX")
-    b_realestateboard_isactive: StrictBool = Field(description="Whether the Agenttype is active or not", alias="bRealestateboardIsactive")
+    pki_realestateboard_id: StrictInt = Field(description="The unique ID of the Realestateboard", alias="pkiRealestateboardID", json_schema_extra={"examples": [16]})
+    s_province_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Province in the language of the requester", alias="sProvinceNameX", json_schema_extra={"examples": ["Quebec"]})
+    s_realestateboard_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Realestateboard", alias="sRealestateboardNameX", json_schema_extra={"examples": ["Exclusive Listing"]})
+    b_realestateboard_isactive: StrictBool = Field(description="Whether the Agenttype is active or not", alias="bRealestateboardIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiRealestateboardID", "sProvinceNameX", "sRealestateboardNameX", "bRealestateboardIsactive"]
 
     @field_validator('s_province_name_x')

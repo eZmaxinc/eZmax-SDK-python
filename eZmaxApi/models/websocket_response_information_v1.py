@@ -31,7 +31,7 @@ class WebsocketResponseInformationV1(BaseModel):
     Response for Websocket Information V1
     """ # noqa: E501
     e_websocket_messagetype: StrictStr = Field(description="The Type of message", alias="eWebsocketMessagetype")
-    s_websocket_channel: Annotated[str, Field(strict=True)] = Field(description="The Channel on which to route the websocket message", alias="sWebsocketChannel")
+    s_websocket_channel: Annotated[str, Field(strict=True)] = Field(description="The Channel on which to route the websocket message", alias="sWebsocketChannel", json_schema_extra={"examples": ["Ch@nnel_1.0_124547_3453_4563_567"]})
     m_payload: WebsocketResponseInformationV1MPayload = Field(alias="mPayload")
     __properties: ClassVar[List[str]] = ["eWebsocketMessagetype", "sWebsocketChannel", "mPayload"]
 

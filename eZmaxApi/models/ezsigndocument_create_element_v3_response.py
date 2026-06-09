@@ -30,7 +30,7 @@ class EzsigndocumentCreateElementV3Response(BaseModel):
     """
     A Ezsigndocument createObject Response
     """ # noqa: E501
-    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID")
+    pki_ezsigndocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="pkiEzsigndocumentID", json_schema_extra={"examples": [97]})
     a_obj_matchingtemplate: List[EzsigndocumentMatchingtemplateV3Response] = Field(description="An array of possibly matching template.", alias="a_objMatchingtemplate")
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "a_objMatchingtemplate"]
 

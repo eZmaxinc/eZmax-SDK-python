@@ -29,9 +29,9 @@ class TaxassignmentAutocompleteElementResponse(BaseModel):
     """
     A Taxassignment AutocompleteElement Response
     """ # noqa: E501
-    s_taxassignment_description_x: StrictStr = Field(description="The description of the Taxassignment  in the language of the requester", alias="sTaxassignmentDescriptionX")
-    pki_taxassignment_id: Annotated[int, Field(le=15, strict=True, ge=0)] = Field(description="The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|", alias="pkiTaxassignmentID")
-    b_taxassignment_isactive: StrictBool = Field(description="Whether the Taxassignment is active or not", alias="bTaxassignmentIsactive")
+    s_taxassignment_description_x: StrictStr = Field(description="The description of the Taxassignment  in the language of the requester", alias="sTaxassignmentDescriptionX", json_schema_extra={"examples": ["Default"]})
+    pki_taxassignment_id: Annotated[int, Field(le=15, strict=True, ge=0)] = Field(description="The unique ID of the Taxassignment.  Valid values:  |Value|Description| |-|-| |1|No tax| |2|GST| |3|HST (ON)| |4|HST (NB)| |5|HST (NS)| |6|HST (NL)| |7|HST (PE)| |8|GST + QST (QC)| |9|GST + QST (QC) Non-Recoverable| |10|GST + PST (BC)| |11|GST + PST (SK)| |12|GST + RST (MB)| |13|GST + PST (BC) Non-Recoverable| |14|GST + PST (SK) Non-Recoverable| |15|GST + RST (MB) Non-Recoverable|", alias="pkiTaxassignmentID", json_schema_extra={"examples": [1]})
+    b_taxassignment_isactive: StrictBool = Field(description="Whether the Taxassignment is active or not", alias="bTaxassignmentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sTaxassignmentDescriptionX", "pkiTaxassignmentID", "bTaxassignmentIsactive"]
 
     model_config = ConfigDict(

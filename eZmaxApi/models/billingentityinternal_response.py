@@ -30,7 +30,7 @@ class BillingentityinternalResponse(BaseModel):
     """
     A Billingentityinternal Object
     """ # noqa: E501
-    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID")
+    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID", json_schema_extra={"examples": [1]})
     obj_billingentityinternal_description: MultilingualBillingentityinternalDescription = Field(alias="objBillingentityinternalDescription")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "objBillingentityinternalDescription"]
 

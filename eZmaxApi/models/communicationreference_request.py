@@ -29,15 +29,15 @@ class CommunicationreferenceRequest(BaseModel):
     """
     A Communicationreference Object
     """ # noqa: E501
-    pki_communicationreference_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communicationreference", alias="pkiCommunicationreferenceID")
-    fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID")
-    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    fki_inscription_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscription.", alias="fkiInscriptionID")
-    fki_inscriptiontemp_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Inscriptiontemp", alias="fkiInscriptiontempID")
-    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID")
-    fki_otherincome_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Otherincome", alias="fkiOtherincomeID")
-    fki_electronicfundstransfer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Electronicfundstransfer", alias="fkiElectronicfundstransferID")
-    fki_rejectedoffertopurchase_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Rejectedoffertopurchase", alias="fkiRejectedoffertopurchaseID")
+    pki_communicationreference_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Communicationreference", alias="pkiCommunicationreferenceID", json_schema_extra={"examples": [1263]})
+    fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID", json_schema_extra={"examples": [38]})
+    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    fki_inscription_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscription.", alias="fkiInscriptionID", json_schema_extra={"examples": [17]})
+    fki_inscriptiontemp_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Inscriptiontemp", alias="fkiInscriptiontempID", json_schema_extra={"examples": [2445]})
+    fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID", json_schema_extra={"examples": [1]})
+    fki_otherincome_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Otherincome", alias="fkiOtherincomeID", json_schema_extra={"examples": [142]})
+    fki_electronicfundstransfer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Electronicfundstransfer", alias="fkiElectronicfundstransferID", json_schema_extra={"examples": [1262]})
+    fki_rejectedoffertopurchase_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Rejectedoffertopurchase", alias="fkiRejectedoffertopurchaseID", json_schema_extra={"examples": [532]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationreferenceID", "fkiBuyercontractID", "fkiEzsignfolderID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInvoiceID", "fkiOtherincomeID", "fkiElectronicfundstransferID", "fkiRejectedoffertopurchaseID"]
 
     model_config = ConfigDict(

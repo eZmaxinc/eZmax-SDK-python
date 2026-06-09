@@ -29,8 +29,8 @@ class MultilingualUsergroupName(BaseModel):
     """
     The name of the Usergroup
     """ # noqa: E501
-    s_usergroup_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroup in French", alias="sUsergroupName1")
-    s_usergroup_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroup in English", alias="sUsergroupName2")
+    s_usergroup_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroup in French", alias="sUsergroupName1", json_schema_extra={"examples": ["Direction"]})
+    s_usergroup_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Usergroup in English", alias="sUsergroupName2", json_schema_extra={"examples": ["Management"]})
     __properties: ClassVar[List[str]] = ["sUsergroupName1", "sUsergroupName2"]
 
     @field_validator('s_usergroup_name1')

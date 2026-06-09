@@ -29,9 +29,9 @@ class EzsignsigningreasonAutocompleteElementResponse(BaseModel):
     """
     A Ezsignsigningreason AutocompleteElement Response
     """ # noqa: E501
-    pki_ezsignsigningreason_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsigningreason", alias="pkiEzsignsigningreasonID")
-    s_ezsignsigningreason_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX")
-    b_ezsignsigningreason_isactive: StrictBool = Field(description="Whether the ezsignsigningreason is active or not", alias="bEzsignsigningreasonIsactive")
+    pki_ezsignsigningreason_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsigningreason", alias="pkiEzsignsigningreasonID", json_schema_extra={"examples": [194]})
+    s_ezsignsigningreason_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignsigningreason in the language of the requester", alias="sEzsignsigningreasonDescriptionX", json_schema_extra={"examples": ["I approve this document"]})
+    b_ezsignsigningreason_isactive: StrictBool = Field(description="Whether the ezsignsigningreason is active or not", alias="bEzsignsigningreasonIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsigningreasonID", "sEzsignsigningreasonDescriptionX", "bEzsignsigningreasonIsactive"]
 
     @field_validator('s_ezsignsigningreason_description_x')

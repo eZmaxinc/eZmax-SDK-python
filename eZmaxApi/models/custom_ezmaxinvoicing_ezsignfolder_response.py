@@ -29,11 +29,11 @@ class CustomEzmaxinvoicingEzsignfolderResponse(BaseModel):
     """
     An EzmaxinvoicingEzsignfolder object containing information about the Ezmaxinvoicing for an Ezsignfolder
     """ # noqa: E501
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
-    b_ezsigntsarequirement_billable: StrictBool = Field(description="Whether the TSA requirement is billable or not", alias="bEzsigntsarequirementBillable")
-    b_ezsignfolder_mfaused: StrictBool = Field(description="Whether the MFA was used or not for the Ezsignfolder", alias="bEzsignfolderMfaused")
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    fki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID", json_schema_extra={"examples": [1]})
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
+    b_ezsigntsarequirement_billable: StrictBool = Field(description="Whether the TSA requirement is billable or not", alias="bEzsigntsarequirementBillable", json_schema_extra={"examples": [True]})
+    b_ezsignfolder_mfaused: StrictBool = Field(description="Whether the MFA was used or not for the Ezsignfolder", alias="bEzsignfolderMfaused", json_schema_extra={"examples": [True]})
     b_ezsignfolder_allowed: StrictBool = Field(description="Whether you have access to the Ezsignfolder or not", alias="bEzsignfolderAllowed")
     __properties: ClassVar[List[str]] = ["fkiEzsignfolderID", "fkiBillingentityinternalID", "sEzsignfolderDescription", "bEzsigntsarequirementBillable", "bEzsignfolderMfaused", "bEzsignfolderAllowed"]
 

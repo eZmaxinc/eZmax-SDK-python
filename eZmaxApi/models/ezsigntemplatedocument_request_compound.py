@@ -29,18 +29,18 @@ class EzsigntemplatedocumentRequestCompound(BaseModel):
     """
     A Ezsigntemplatedocument Object and children
     """ # noqa: E501
-    pki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID")
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
-    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID")
-    fki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
-    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
+    pki_ezsigntemplatedocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID", json_schema_extra={"examples": [133]})
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    fki_ezsigndocument_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentID", json_schema_extra={"examples": [97]})
+    fki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID", json_schema_extra={"examples": [9]})
+    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName", json_schema_extra={"examples": ["Standard Contract"]})
     e_ezsigntemplatedocument_source: StrictStr = Field(description="Indicates where to look for the document binary content.", alias="eEzsigntemplatedocumentSource")
     e_ezsigntemplatedocument_format: Optional[StrictStr] = Field(default=None, description="Indicates the format of the template.", alias="eEzsigntemplatedocumentFormat")
-    s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64")
-    s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl")
+    s_ezsigntemplatedocument_base64: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The Base64 encoded binary content of the document.  This field is Required when eEzsigntemplatedocumentSource = Base64.", alias="sEzsigntemplatedocumentBase64", json_schema_extra={"examples": ["eyIkcmVmIjoiIy9jb21wb25lbnRzL2V4YW1wbGVzL1BkZkFzQmFzZTY0L3ZhbHVlIn0="]})
+    s_ezsigntemplatedocument_url: Optional[StrictStr] = Field(default=None, description="The url where the document content resides.  This field is Required when eEzsigntemplatedocumentSource = Url.", alias="sEzsigntemplatedocumentUrl", json_schema_extra={"examples": ["http://www.example.com/template.pdf"]})
     b_ezsigntemplatedocument_forcerepair: Optional[StrictBool] = Field(default=None, description="Try to repair the document or flatten it if it cannot be used for electronic signature.", alias="bEzsigntemplatedocumentForcerepair")
     e_ezsigntemplatedocument_form: Optional[StrictStr] = Field(default=None, description="If the document contains an existing PDF form this property must be set.  **Keep** leaves the form as-is in the document.  **Convert** removes the form and convert all the existing fields to Ezsigntemplateformfieldgroups and assign them to the specified **fkiEzsigntemplatesignerID**  **Discard** removes the form from the document  **Flatten** prints the form values in the document.", alias="eEzsigntemplatedocumentForm")
-    s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword")
+    s_ezsigntemplatedocument_password: Optional[StrictStr] = Field(default='', description="If the source template is password protected, the password to open/modify it.", alias="sEzsigntemplatedocumentPassword", json_schema_extra={"examples": ["SecretPassword123"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "fkiEzsigndocumentID", "fkiEzsigntemplatesignerID", "sEzsigntemplatedocumentName", "eEzsigntemplatedocumentSource", "eEzsigntemplatedocumentFormat", "sEzsigntemplatedocumentBase64", "sEzsigntemplatedocumentUrl", "bEzsigntemplatedocumentForcerepair", "eEzsigntemplatedocumentForm", "sEzsigntemplatedocumentPassword"]
 
     @field_validator('e_ezsigntemplatedocument_source')

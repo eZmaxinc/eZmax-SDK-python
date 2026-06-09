@@ -28,7 +28,7 @@ class WebhookRegenerateApikeyV1Request(BaseModel):
     """
     Request for POST /1/object/webhook/{pkiWebhookID}/regenerateApikey
     """ # noqa: E501
-    b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned")
+    b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bWebhookIssigned"]
 
     model_config = ConfigDict(

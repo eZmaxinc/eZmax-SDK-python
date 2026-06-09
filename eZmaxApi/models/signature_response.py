@@ -29,10 +29,10 @@ class SignatureResponse(BaseModel):
     """
     A Signature Object
     """ # noqa: E501
-    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID")
-    fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID")
-    s_signature_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Signature", alias="sSignatureUrl")
-    s_signature_urlinitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Initials", alias="sSignatureUrlinitials")
+    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID", json_schema_extra={"examples": [12]})
+    fki_font_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Font", alias="fkiFontID", json_schema_extra={"examples": [1]})
+    s_signature_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Signature", alias="sSignatureUrl", json_schema_extra={"examples": ["https://www.example.com/signature.svg"]})
+    s_signature_urlinitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Initials", alias="sSignatureUrlinitials", json_schema_extra={"examples": ["https://www.example.com/signature.svg"]})
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "sSignatureUrl", "sSignatureUrlinitials"]
 
     @field_validator('s_signature_url')

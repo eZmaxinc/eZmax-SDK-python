@@ -29,11 +29,11 @@ class AgentAutocompleteElementResponse(BaseModel):
     """
     A Agent AutocompleteElement Response
     """ # noqa: E501
-    pki_agent_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Agent.", alias="pkiAgentID")
-    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID")
-    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
-    b_agent_isactive: StrictBool = Field(description="Whether the Agent is active or not", alias="bAgentIsactive")
+    pki_agent_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Agent.", alias="pkiAgentID", json_schema_extra={"examples": [1]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname", json_schema_extra={"examples": ["John"]})
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname", json_schema_extra={"examples": ["Doe"]})
+    b_agent_isactive: StrictBool = Field(description="Whether the Agent is active or not", alias="bAgentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiDepartmentID", "sContactFirstname", "sContactLastname", "bAgentIsactive"]
 
     @field_validator('s_contact_firstname')

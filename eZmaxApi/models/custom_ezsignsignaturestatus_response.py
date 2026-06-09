@@ -29,10 +29,10 @@ class CustomEzsignsignaturestatusResponse(BaseModel):
     A Ezsignsignaturestatus Object and children to create a complete structure
     """ # noqa: E501
     e_ezsignsignaturestatus_steptype: StrictStr = Field(description="Type of step", alias="eEzsignsignaturestatusSteptype")
-    i_ezsignsignaturestatus_step: StrictInt = Field(description="The step at which the Ezsignsigner will be invited to sign or fill the form fields", alias="iEzsignsignaturestatusStep")
-    i_ezsignsignaturestatus_total: StrictInt = Field(description="The total number of signature or form fields the Ezsignsigner must process at the current step", alias="iEzsignsignaturestatusTotal")
-    i_ezsignsignaturestatus_signed: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner has already processed at the current step", alias="iEzsignsignaturestatusSigned")
-    i_ezsignsignaturestatus_conditional: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions.", alias="iEzsignsignaturestatusConditional")
+    i_ezsignsignaturestatus_step: StrictInt = Field(description="The step at which the Ezsignsigner will be invited to sign or fill the form fields", alias="iEzsignsignaturestatusStep", json_schema_extra={"examples": [1]})
+    i_ezsignsignaturestatus_total: StrictInt = Field(description="The total number of signature or form fields the Ezsignsigner must process at the current step", alias="iEzsignsignaturestatusTotal", json_schema_extra={"examples": [2]})
+    i_ezsignsignaturestatus_signed: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner has already processed at the current step", alias="iEzsignsignaturestatusSigned", json_schema_extra={"examples": [1]})
+    i_ezsignsignaturestatus_conditional: StrictInt = Field(description="The number of signature or form fields the Ezsignsigner need to sign or fill under current conditions.", alias="iEzsignsignaturestatusConditional", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["eEzsignsignaturestatusSteptype", "iEzsignsignaturestatusStep", "iEzsignsignaturestatusTotal", "iEzsignsignaturestatusSigned", "iEzsignsignaturestatusConditional"]
 
     @field_validator('e_ezsignsignaturestatus_steptype')

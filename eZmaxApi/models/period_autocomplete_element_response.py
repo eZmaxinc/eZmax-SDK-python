@@ -29,9 +29,9 @@ class PeriodAutocompleteElementResponse(BaseModel):
     """
     A Period AutocompleteElement Response
     """ # noqa: E501
-    s_period_yyyymm: StrictStr = Field(description="The YYYYMM of the Period", alias="sPeriodYYYYMM")
-    pki_period_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Period", alias="pkiPeriodID")
-    b_period_isactive: StrictBool = Field(description="Whether the Period is active or not", alias="bPeriodIsactive")
+    s_period_yyyymm: StrictStr = Field(description="The YYYYMM of the Period", alias="sPeriodYYYYMM", json_schema_extra={"examples": ["2202-12"]})
+    pki_period_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Period", alias="pkiPeriodID", json_schema_extra={"examples": [21]})
+    b_period_isactive: StrictBool = Field(description="Whether the Period is active or not", alias="bPeriodIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sPeriodYYYYMM", "pkiPeriodID", "bPeriodIsactive"]
 
     model_config = ConfigDict(

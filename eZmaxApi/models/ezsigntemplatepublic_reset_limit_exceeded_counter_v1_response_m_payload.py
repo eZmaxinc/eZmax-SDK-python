@@ -29,7 +29,7 @@ class EzsigntemplatepublicResetLimitExceededCounterV1ResponseMPayload(BaseModel)
     """
     Payload for POST /1/object/ezsigntemplatepublic/{pkiEzsigntemplatepublicID}/resetLimitExceededCounter
     """ # noqa: E501
-    dt_ezsigntemplatepublic_limitexceededsince: Annotated[str, Field(strict=True)] = Field(description="The limitexceededsince of the Ezsigntemplatepublic", alias="dtEzsigntemplatepublicLimitexceededsince")
+    dt_ezsigntemplatepublic_limitexceededsince: Annotated[str, Field(strict=True)] = Field(description="The limitexceededsince of the Ezsigntemplatepublic", alias="dtEzsigntemplatepublicLimitexceededsince", json_schema_extra={"examples": ["2024-05-16 15:12:45"]})
     __properties: ClassVar[List[str]] = ["dtEzsigntemplatepublicLimitexceededsince"]
 
     @field_validator('dt_ezsigntemplatepublic_limitexceededsince')

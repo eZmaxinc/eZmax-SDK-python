@@ -28,7 +28,7 @@ class ApikeyRegenerateV1Request(BaseModel):
     """
     Request for POST /1/object/apikey/{pkiApikeyID}/regenerate
     """ # noqa: E501
-    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned")
+    b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bApikeyIssigned"]
 
     model_config = ConfigDict(

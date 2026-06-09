@@ -31,7 +31,7 @@ class CommonReportcolumn(BaseModel):
     A column in a Reportsection 
     """ # noqa: E501
     obj_reportcellstyle_default: CommonReportcellstyle = Field(alias="objReportcellstyleDefault")
-    i_reportcolumn_width: StrictInt = Field(description="The Reportcolumn width in pixels", alias="iReportcolumnWidth")
+    i_reportcolumn_width: StrictInt = Field(description="The Reportcolumn width in pixels", alias="iReportcolumnWidth", json_schema_extra={"examples": [120]})
     e_reportcolumn_type: EnumReportdataType = Field(alias="eReportcolumnType")
     __properties: ClassVar[List[str]] = ["objReportcellstyleDefault", "iReportcolumnWidth", "eReportcolumnType"]
 

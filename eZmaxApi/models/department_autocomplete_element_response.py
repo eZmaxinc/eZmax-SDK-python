@@ -29,10 +29,10 @@ class DepartmentAutocompleteElementResponse(BaseModel):
     """
     A Department AutocompleteElement Response
     """ # noqa: E501
-    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
-    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX")
-    pki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="pkiDepartmentID")
-    b_department_isactive: StrictBool = Field(description="Whether the Department is active or not", alias="bDepartmentIsactive")
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX", json_schema_extra={"examples": ["Acme inc."]})
+    s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
+    pki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="pkiDepartmentID", json_schema_extra={"examples": [21]})
+    b_department_isactive: StrictBool = Field(description="Whether the Department is active or not", alias="bDepartmentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sCompanyNameX", "sDepartmentNameX", "pkiDepartmentID", "bDepartmentIsactive"]
 
     model_config = ConfigDict(

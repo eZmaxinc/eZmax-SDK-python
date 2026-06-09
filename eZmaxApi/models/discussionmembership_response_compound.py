@@ -29,13 +29,13 @@ class DiscussionmembershipResponseCompound(BaseModel):
     """
     A Discussionmembership Object and children
     """ # noqa: E501
-    pki_discussionmembership_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussionmembership", alias="pkiDiscussionmembershipID")
-    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID")
-    s_discussionmembership_description: Annotated[str, Field(strict=True)] = Field(description="The Description containing the detail of who the Discussionmembership refers to", alias="sDiscussionmembershipDescription")
-    dt_discussionmembership_joined: Annotated[str, Field(strict=True)] = Field(description="The joined date of the Discussionmembership", alias="dtDiscussionmembershipJoined")
+    pki_discussionmembership_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussionmembership", alias="pkiDiscussionmembershipID", json_schema_extra={"examples": [165]})
+    fki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID", json_schema_extra={"examples": [53]})
+    s_discussionmembership_description: Annotated[str, Field(strict=True)] = Field(description="The Description containing the detail of who the Discussionmembership refers to", alias="sDiscussionmembershipDescription", json_schema_extra={"examples": ["John Doe"]})
+    dt_discussionmembership_joined: Annotated[str, Field(strict=True)] = Field(description="The joined date of the Discussionmembership", alias="dtDiscussionmembershipJoined", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionmembershipID", "fkiDiscussionID", "fkiUserID", "fkiUsergroupID", "fkiModulesectionID", "sDiscussionmembershipDescription", "dtDiscussionmembershipJoined"]
 
     @field_validator('s_discussionmembership_description')

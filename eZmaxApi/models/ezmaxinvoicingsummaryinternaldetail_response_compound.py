@@ -29,18 +29,18 @@ class EzmaxinvoicingsummaryinternaldetailResponseCompound(BaseModel):
     """
     A Ezmaxinvoicingsummaryinternaldetail Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryinternaldetail_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternaldetail", alias="pkiEzmaxinvoicingsummaryinternaldetailID")
-    fki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="fkiEzmaxinvoicingsummaryinternalID")
-    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID")
-    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX")
-    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID")
-    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
-    d_ezmaxinvoicingsummaryinternaldetail_countreal: Annotated[str, Field(strict=True)] = Field(description="The count item invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailCountreal")
-    d_ezmaxinvoicingsummaryinternaldetail_subtotal: Annotated[str, Field(strict=True)] = Field(description="The subtotal invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailSubtotal")
-    d_ezmaxinvoicingsummaryinternaldetail_rebate: Annotated[str, Field(strict=True)] = Field(description="The rebate for the product", alias="dEzmaxinvoicingsummaryinternaldetailRebate")
-    d_ezmaxinvoicingsummaryinternaldetail_total: Annotated[str, Field(strict=True)] = Field(description="The total invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailTotal")
-    b_ezmaxinvoicingsummaryinternaldetail_adjustment: StrictBool = Field(description="Whether if it's an adjustment", alias="bEzmaxinvoicingsummaryinternaldetailAdjustment")
-    t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX")
+    pki_ezmaxinvoicingsummaryinternaldetail_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternaldetail", alias="pkiEzmaxinvoicingsummaryinternaldetailID", json_schema_extra={"examples": [73]})
+    fki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="fkiEzmaxinvoicingsummaryinternalID", json_schema_extra={"examples": [57]})
+    fki_ezmaxproduct_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxproduct", alias="fkiEzmaxproductID", json_schema_extra={"examples": [172]})
+    s_ezmaxproduct_description_x: StrictStr = Field(description="The description of the Ezmaxproduct in the language of the requester", alias="sEzmaxproductDescriptionX", json_schema_extra={"examples": ["eZmax (License)"]})
+    fki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="fkiBillingentityexternalID", json_schema_extra={"examples": [83]})
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription", json_schema_extra={"examples": ["ACME Inc"]})
+    d_ezmaxinvoicingsummaryinternaldetail_countreal: Annotated[str, Field(strict=True)] = Field(description="The count item invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailCountreal", json_schema_extra={"examples": ["350.32"]})
+    d_ezmaxinvoicingsummaryinternaldetail_subtotal: Annotated[str, Field(strict=True)] = Field(description="The subtotal invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailSubtotal", json_schema_extra={"examples": ["625.41"]})
+    d_ezmaxinvoicingsummaryinternaldetail_rebate: Annotated[str, Field(strict=True)] = Field(description="The rebate for the product", alias="dEzmaxinvoicingsummaryinternaldetailRebate", json_schema_extra={"examples": ["560.81"]})
+    d_ezmaxinvoicingsummaryinternaldetail_total: Annotated[str, Field(strict=True)] = Field(description="The total invoiced for the product", alias="dEzmaxinvoicingsummaryinternaldetailTotal", json_schema_extra={"examples": ["510.77"]})
+    b_ezmaxinvoicingsummaryinternaldetail_adjustment: StrictBool = Field(description="Whether if it's an adjustment", alias="bEzmaxinvoicingsummaryinternaldetailAdjustment", json_schema_extra={"examples": [True]})
+    t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX", json_schema_extra={"examples": ["This is an exemple of help message"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryinternaldetailID", "fkiEzmaxinvoicingsummaryinternalID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "fkiBillingentityexternalID", "sBillingentityexternalDescription", "dEzmaxinvoicingsummaryinternaldetailCountreal", "dEzmaxinvoicingsummaryinternaldetailSubtotal", "dEzmaxinvoicingsummaryinternaldetailRebate", "dEzmaxinvoicingsummaryinternaldetailTotal", "bEzmaxinvoicingsummaryinternaldetailAdjustment", "tEzmaxproductHelpX"]
 
     @field_validator('d_ezmaxinvoicingsummaryinternaldetail_countreal')

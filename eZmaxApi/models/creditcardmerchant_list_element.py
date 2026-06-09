@@ -29,15 +29,15 @@ class CreditcardmerchantListElement(BaseModel):
     """
     A Creditcardmerchant List Element
     """ # noqa: E501
-    pki_creditcardmerchant_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardmerchant", alias="pkiCreditcardmerchantID")
-    fki_bankaccount_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Bankaccount", alias="fkiBankaccountID")
-    fki_language_id: Optional[Annotated[int, Field(le=2, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    b_creditcardmerchant_denyvisa: StrictBool = Field(description="Whether if visa are denied", alias="bCreditcardmerchantDenyvisa")
-    b_creditcardmerchant_denymastercard: StrictBool = Field(description="Whether if mastercard are denied", alias="bCreditcardmerchantDenymastercard")
-    b_creditcardmerchant_denyamex: StrictBool = Field(description="Whether if amex are denied", alias="bCreditcardmerchantDenyamex")
-    b_creditcardmerchant_isactive: StrictBool = Field(description="Whether the creditcardmerchant is active or not", alias="bCreditcardmerchantIsactive")
-    s_creditcardmerchant_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription")
-    s_creditcardmerchant_storeid: Annotated[str, Field(strict=True)] = Field(description="The storeid of the Creditcardmerchant", alias="sCreditcardmerchantStoreid")
+    pki_creditcardmerchant_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardmerchant", alias="pkiCreditcardmerchantID", json_schema_extra={"examples": [30]})
+    fki_bankaccount_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Bankaccount", alias="fkiBankaccountID", json_schema_extra={"examples": [46]})
+    fki_language_id: Optional[Annotated[int, Field(le=2, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    b_creditcardmerchant_denyvisa: StrictBool = Field(description="Whether if visa are denied", alias="bCreditcardmerchantDenyvisa", json_schema_extra={"examples": [True]})
+    b_creditcardmerchant_denymastercard: StrictBool = Field(description="Whether if mastercard are denied", alias="bCreditcardmerchantDenymastercard", json_schema_extra={"examples": [True]})
+    b_creditcardmerchant_denyamex: StrictBool = Field(description="Whether if amex are denied", alias="bCreditcardmerchantDenyamex", json_schema_extra={"examples": [True]})
+    b_creditcardmerchant_isactive: StrictBool = Field(description="Whether the creditcardmerchant is active or not", alias="bCreditcardmerchantIsactive", json_schema_extra={"examples": [True]})
+    s_creditcardmerchant_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription", json_schema_extra={"examples": ["Moneris"]})
+    s_creditcardmerchant_storeid: Annotated[str, Field(strict=True)] = Field(description="The storeid of the Creditcardmerchant", alias="sCreditcardmerchantStoreid", json_schema_extra={"examples": ["REPLACEME"]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardmerchantID", "fkiBankaccountID", "fkiLanguageID", "bCreditcardmerchantDenyvisa", "bCreditcardmerchantDenymastercard", "bCreditcardmerchantDenyamex", "bCreditcardmerchantIsactive", "sCreditcardmerchantDescription", "sCreditcardmerchantStoreid"]
 
     @field_validator('s_creditcardmerchant_description')

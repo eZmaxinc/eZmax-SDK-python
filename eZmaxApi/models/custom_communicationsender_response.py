@@ -32,12 +32,12 @@ class CustomCommunicationsenderResponse(BaseModel):
     """
     Generic Communicationsender Response
     """ # noqa: E501
-    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
-    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID")
-    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
-    e_communicationsender_objecttype: StrictStr = Field(alias="eCommunicationsenderObjecttype")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID", json_schema_extra={"examples": [1]})
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID", json_schema_extra={"examples": [26]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID", json_schema_extra={"examples": [47]})
+    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID", json_schema_extra={"examples": [47]})
+    e_communicationsender_objecttype: StrictStr = Field(alias="eCommunicationsenderObjecttype", json_schema_extra={"examples": ["User"]})
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     obj_email: Optional[EmailResponseCompound] = Field(default=None, alias="objEmail")
     obj_phone_fax: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhoneFax")

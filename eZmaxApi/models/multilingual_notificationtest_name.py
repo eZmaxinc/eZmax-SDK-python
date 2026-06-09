@@ -28,8 +28,8 @@ class MultilingualNotificationtestName(BaseModel):
     """
     Name of the Notificationtest
     """ # noqa: E501
-    s_notificationtest_name1: Optional[StrictStr] = Field(default=None, description="The name of the Notificationtest in French", alias="sNotificationtestName1")
-    s_notificationtest_name2: Optional[StrictStr] = Field(default=None, description="The name of the Notificationtest in English", alias="sNotificationtestName2")
+    s_notificationtest_name1: Optional[StrictStr] = Field(default=None, description="The name of the Notificationtest in French", alias="sNotificationtestName1", json_schema_extra={"examples": ["Default"]})
+    s_notificationtest_name2: Optional[StrictStr] = Field(default=None, description="The name of the Notificationtest in English", alias="sNotificationtestName2", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["sNotificationtestName1", "sNotificationtestName2"]
 
     model_config = ConfigDict(

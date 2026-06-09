@@ -29,7 +29,7 @@ class CustomTimezoneWithCodeResponse(BaseModel):
     Generic AutocompleteElement Response
     """ # noqa: E501
     s_timezone_name: StrictStr = Field(description="The Name of timezone", alias="sTimezoneName")
-    s_code: StrictStr = Field(description="The Code of the time", alias="sCode")
+    s_code: StrictStr = Field(description="The Code of the time", alias="sCode", json_schema_extra={"examples": ["EST"]})
     __properties: ClassVar[List[str]] = ["sTimezoneName", "sCode"]
 
     model_config = ConfigDict(

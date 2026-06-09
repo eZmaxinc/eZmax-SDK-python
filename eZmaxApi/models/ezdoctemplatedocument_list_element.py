@@ -30,17 +30,17 @@ class EzdoctemplatedocumentListElement(BaseModel):
     """
     A Ezdoctemplatedocument List Element
     """ # noqa: E501
-    pki_ezdoctemplatedocument_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatedocument", alias="pkiEzdoctemplatedocumentID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID")
-    fki_ezdoctemplatefieldtypecategory_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="fkiEzdoctemplatefieldtypecategoryID")
-    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
-    s_ezdoctemplatetype_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezdoctemplatetype in the language of the requester", alias="sEzdoctemplatetypeDescriptionX")
-    s_ezdoctemplatefieldtypecategory_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezdoctemplatefieldtypecategory in the language of the requester", alias="sEzdoctemplatefieldtypecategoryDescriptionX")
+    pki_ezdoctemplatedocument_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatedocument", alias="pkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    fki_ezdoctemplatetype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Ezdoctemplatetype", alias="fkiEzdoctemplatetypeID", json_schema_extra={"examples": [7]})
+    fki_ezdoctemplatefieldtypecategory_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatefieldtypecategory", alias="fkiEzdoctemplatefieldtypecategoryID", json_schema_extra={"examples": [4]})
+    s_ezsignfoldertype_name_x: Optional[StrictStr] = Field(default=None, description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX", json_schema_extra={"examples": ["Default"]})
+    s_ezdoctemplatetype_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezdoctemplatetype in the language of the requester", alias="sEzdoctemplatetypeDescriptionX", json_schema_extra={"examples": ["Real Estate"]})
+    s_ezdoctemplatefieldtypecategory_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezdoctemplatefieldtypecategory in the language of the requester", alias="sEzdoctemplatefieldtypecategoryDescriptionX", json_schema_extra={"examples": ["Sale"]})
     e_ezdoctemplatedocument_privacylevel: Optional[FieldEEzdoctemplatedocumentPrivacylevel] = Field(default=None, alias="eEzdoctemplatedocumentPrivacylevel")
-    b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive")
-    s_ezdoctemplatedocument_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
+    b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive", json_schema_extra={"examples": [True]})
+    s_ezdoctemplatedocument_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "fkiLanguageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatetypeID", "fkiEzdoctemplatefieldtypecategoryID", "sEzsignfoldertypeNameX", "sEzdoctemplatetypeDescriptionX", "sEzdoctemplatefieldtypecategoryDescriptionX", "eEzdoctemplatedocumentPrivacylevel", "bEzdoctemplatedocumentIsactive", "sEzdoctemplatedocumentNameX"]
 
     @field_validator('s_ezdoctemplatetype_description_x')

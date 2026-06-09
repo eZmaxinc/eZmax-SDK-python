@@ -28,9 +28,9 @@ class ScimServiceProviderConfigBulk(BaseModel):
     """
     A complex type that specifies bulk configuration options.
     """ # noqa: E501
-    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.")
-    max_operations: StrictInt = Field(description="An integer value specifying the maximum number of operations.", alias="maxOperations")
-    max_payload_size: StrictInt = Field(description="An integer value specifying the maximum payload size in bytes.", alias="maxPayloadSize")
+    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.", json_schema_extra={"examples": [False]})
+    max_operations: StrictInt = Field(description="An integer value specifying the maximum number of operations.", alias="maxOperations", json_schema_extra={"examples": [0]})
+    max_payload_size: StrictInt = Field(description="An integer value specifying the maximum payload size in bytes.", alias="maxPayloadSize", json_schema_extra={"examples": [0]})
     __properties: ClassVar[List[str]] = ["supported", "maxOperations", "maxPayloadSize"]
 
     model_config = ConfigDict(

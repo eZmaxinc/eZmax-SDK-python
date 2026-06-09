@@ -30,18 +30,18 @@ class ActivesessionResponseCompoundUser(BaseModel):
     """
     An Activesession->User Object and children to create a complete structure
     """ # noqa: E501
-    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
-    fki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneID")
-    s_avatar_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as avatar", alias="sAvatarUrl")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
-    b_user_addmeinezsignfolder: StrictBool = Field(description="Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner", alias="bUserAddmeinezsignfolder")
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
+    fki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="fkiTimezoneID", json_schema_extra={"examples": [247]})
+    s_avatar_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the picture used as avatar", alias="sAvatarUrl", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    b_user_addmeinezsignfolder: StrictBool = Field(description="Whether if I want to automatically add myself during the creation of Ezsignfolder of which I am the owner", alias="bUserAddmeinezsignfolder", json_schema_extra={"examples": [True]})
     e_user_ezsignsendreminderfrequency: FieldEUserEzsignsendreminderfrequency = Field(alias="eUserEzsignsendreminderfrequency")
-    i_user_interfacecolor: Annotated[int, Field(strict=True, ge=0)] = Field(description="The int32 representation of the interface color. For example, RGB color #39435B would be 3752795", alias="iUserInterfacecolor")
-    b_user_interfacedark: StrictBool = Field(description="Whether to use a dark mode interface", alias="bUserInterfacedark")
-    i_user_listresult: Annotated[int, Field(le=500, strict=True, ge=5)] = Field(description="The number of rows to return by default in lists", alias="iUserListresult")
-    i_user_frontendgoal: Annotated[int, Field(strict=True, ge=0)] = Field(description="Goals save as bit wise (one bit per goal)", alias="iUserFrontendgoal")
+    i_user_interfacecolor: Annotated[int, Field(strict=True, ge=0)] = Field(description="The int32 representation of the interface color. For example, RGB color #39435B would be 3752795", alias="iUserInterfacecolor", json_schema_extra={"examples": [3752795]})
+    b_user_interfacedark: StrictBool = Field(description="Whether to use a dark mode interface", alias="bUserInterfacedark", json_schema_extra={"examples": [False]})
+    i_user_listresult: Annotated[int, Field(le=500, strict=True, ge=5)] = Field(description="The number of rows to return by default in lists", alias="iUserListresult", json_schema_extra={"examples": [25]})
+    i_user_frontendgoal: Annotated[int, Field(strict=True, ge=0)] = Field(description="Goals save as bit wise (one bit per goal)", alias="iUserFrontendgoal", json_schema_extra={"examples": [256]})
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiTimezoneID", "sAvatarUrl", "sUserFirstname", "sUserLastname", "sEmailAddress", "bUserAddmeinezsignfolder", "eUserEzsignsendreminderfrequency", "iUserInterfacecolor", "bUserInterfacedark", "iUserListresult", "iUserFrontendgoal"]
 
     @field_validator('s_avatar_url')

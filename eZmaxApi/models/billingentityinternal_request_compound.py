@@ -31,7 +31,7 @@ class BillingentityinternalRequestCompound(BaseModel):
     """
     A Billingentityinternal Object and children
     """ # noqa: E501
-    pki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID")
+    pki_billingentityinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID", json_schema_extra={"examples": [1]})
     obj_billingentityinternal_description: MultilingualBillingentityinternalDescription = Field(alias="objBillingentityinternalDescription")
     a_obj_billingentityinternalproduct: List[BillingentityinternalproductRequestCompound] = Field(alias="a_objBillingentityinternalproduct")
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "objBillingentityinternalDescription", "a_objBillingentityinternalproduct"]

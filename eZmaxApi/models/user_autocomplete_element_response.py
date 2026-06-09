@@ -31,9 +31,9 @@ class UserAutocompleteElementResponse(BaseModel):
     A User AutocompleteElement Response
     """ # noqa: E501
     e_user_type: FieldEUserType = Field(alias="eUserType")
-    s_user_name: StrictStr = Field(description="The description of the User in the language of the requester", alias="sUserName")
-    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
-    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
+    s_user_name: StrictStr = Field(description="The description of the User in the language of the requester", alias="sUserName", json_schema_extra={"examples": ["Default"]})
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["eUserType", "sUserName", "pkiUserID", "bUserIsactive"]
 
     model_config = ConfigDict(

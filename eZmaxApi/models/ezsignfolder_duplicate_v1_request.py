@@ -30,10 +30,10 @@ class EzsignfolderDuplicateV1Request(BaseModel):
     """
     
     """ # noqa: E501
-    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    s_ezsignfolder_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsignfolder", alias="sEzsignfolderDescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
     a_fki_ezsignfoldersignerassociation_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_fkiEzsignfoldersignerassociationID")
     a_obj_ezsigndocument: List[CustomEzsigndocumentDuplicateRequest] = Field(alias="a_objEzsigndocument")
-    t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote")
+    t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote", json_schema_extra={"examples": ["This is a note"]})
     __properties: ClassVar[List[str]] = ["sEzsignfolderDescription", "a_fkiEzsignfoldersignerassociationID", "a_objEzsigndocument", "tEzsignfolderNote"]
 
     @field_validator('s_ezsignfolder_description')

@@ -29,8 +29,8 @@ class EzsigndocumentdependencyResponse(BaseModel):
     """
     An Ezsigndocumentdependency Object
     """ # noqa: E501
-    pki_ezsigndocumentdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocumentdependency", alias="pkiEzsigndocumentdependencyID")
-    fki_ezsigndocument_i_ddependency: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentIDdependency")
+    pki_ezsigndocumentdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocumentdependency", alias="pkiEzsigndocumentdependencyID", json_schema_extra={"examples": [87]})
+    fki_ezsigndocument_i_ddependency: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentIDdependency", json_schema_extra={"examples": [97]})
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentdependencyID", "fkiEzsigndocumentIDdependency"]
 
     model_config = ConfigDict(

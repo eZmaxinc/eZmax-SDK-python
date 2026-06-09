@@ -29,8 +29,8 @@ class MultilingualUserlogintypeDescription(BaseModel):
     """
     The description of the Userlogintype
     """ # noqa: E501
-    s_userlogintype_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Userlogintype in French", alias="sUserlogintypeDescription1")
-    s_userlogintype_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Userlogintype in English", alias="sUserlogintypeDescription2")
+    s_userlogintype_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Userlogintype in French", alias="sUserlogintypeDescription1", json_schema_extra={"examples": ["Courriel et téléphone ou SMS"]})
+    s_userlogintype_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Userlogintype in English", alias="sUserlogintypeDescription2", json_schema_extra={"examples": ["Email and phone or SMS"]})
     __properties: ClassVar[List[str]] = ["sUserlogintypeDescription1", "sUserlogintypeDescription2"]
 
     @field_validator('s_userlogintype_description1')

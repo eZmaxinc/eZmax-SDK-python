@@ -29,13 +29,13 @@ class TextstylestaticRequest(BaseModel):
     """
     A Textstylestatic Object
     """ # noqa: E501
-    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
-    b_textstylestatic_bold: StrictBool = Field(description="Whether the Textstylestatic is Bold or not", alias="bTextstylestaticBold")
-    b_textstylestatic_underline: StrictBool = Field(description="Whether the Textstylestatic is Underline or not", alias="bTextstylestaticUnderline")
-    b_textstylestatic_italic: StrictBool = Field(description="Whether the Textstylestatic is Italic or not", alias="bTextstylestaticItalic")
-    b_textstylestatic_strikethrough: StrictBool = Field(description="Whether the Textstylestatic is Strikethrough or not", alias="bTextstylestaticStrikethrough")
-    i_textstylestatic_fontcolor: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795", alias="iTextstylestaticFontcolor")
-    i_textstylestatic_size: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The Size for the Font of the Textstylestatic", alias="iTextstylestaticSize")
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID", json_schema_extra={"examples": [1]})
+    b_textstylestatic_bold: StrictBool = Field(description="Whether the Textstylestatic is Bold or not", alias="bTextstylestaticBold", json_schema_extra={"examples": [True]})
+    b_textstylestatic_underline: StrictBool = Field(description="Whether the Textstylestatic is Underline or not", alias="bTextstylestaticUnderline", json_schema_extra={"examples": [True]})
+    b_textstylestatic_italic: StrictBool = Field(description="Whether the Textstylestatic is Italic or not", alias="bTextstylestaticItalic", json_schema_extra={"examples": [True]})
+    b_textstylestatic_strikethrough: StrictBool = Field(description="Whether the Textstylestatic is Strikethrough or not", alias="bTextstylestaticStrikethrough", json_schema_extra={"examples": [True]})
+    i_textstylestatic_fontcolor: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The int32 representation of the Fontcolor. For example, RGB color #39435B would be 3752795", alias="iTextstylestaticFontcolor", json_schema_extra={"examples": [3752795]})
+    i_textstylestatic_size: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The Size for the Font of the Textstylestatic", alias="iTextstylestaticSize", json_schema_extra={"examples": [12]})
     __properties: ClassVar[List[str]] = ["fkiFontID", "bTextstylestaticBold", "bTextstylestaticUnderline", "bTextstylestaticItalic", "bTextstylestaticStrikethrough", "iTextstylestaticFontcolor", "iTextstylestaticSize"]
 
     model_config = ConfigDict(

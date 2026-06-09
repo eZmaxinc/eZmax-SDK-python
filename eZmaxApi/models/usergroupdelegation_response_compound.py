@@ -29,15 +29,15 @@ class UsergroupdelegationResponseCompound(BaseModel):
     """
     A Usergroupdelegation Object
     """ # noqa: E501
-    pki_usergroupdelegation_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupdelegation", alias="pkiUsergroupdelegationID")
-    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
-    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
-    s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
+    pki_usergroupdelegation_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupdelegation", alias="pkiUsergroupdelegationID", json_schema_extra={"examples": [141]})
+    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive", json_schema_extra={"examples": [True]})
+    s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupdelegationID", "fkiUsergroupID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "bUserIsactive", "sUsergroupNameX"]
 
     @field_validator('s_user_loginname')

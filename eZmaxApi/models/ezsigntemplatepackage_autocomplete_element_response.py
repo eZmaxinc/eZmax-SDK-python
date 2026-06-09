@@ -31,9 +31,9 @@ class EzsigntemplatepackageAutocompleteElementResponse(BaseModel):
     A Ezsigntemplatepackage AutocompleteElement Response
     """ # noqa: E501
     e_ezsignfoldertype_privacylevel: FieldEEzsignfoldertypePrivacylevel = Field(alias="eEzsignfoldertypePrivacylevel")
-    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription")
-    pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID")
-    b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive")
+    s_ezsigntemplatepackage_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplatepackage", alias="sEzsigntemplatepackageDescription", json_schema_extra={"examples": ["Package for new clients"]})
+    pki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="pkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    b_ezsigntemplatepackage_isactive: StrictBool = Field(description="Whether the Ezsigntemplatepackage is active or not", alias="bEzsigntemplatepackageIsactive", json_schema_extra={"examples": [True]})
     b_disabled: StrictBool = Field(description="Indicates if the element is disabled in the context", alias="bDisabled")
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplatepackageDescription", "pkiEzsigntemplatepackageID", "bEzsigntemplatepackageIsactive", "bDisabled"]
 

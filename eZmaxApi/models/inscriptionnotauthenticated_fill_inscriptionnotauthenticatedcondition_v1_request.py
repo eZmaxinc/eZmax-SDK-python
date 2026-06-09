@@ -31,7 +31,7 @@ class InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Reque
     Request for POST /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/fillInscriptionnotauthenticatedcondition
     """ # noqa: E501
     a_obj_inscriptionnotauthenticatedcondition: List[CustomInscriptionnotauthenticatedconditionRequest] = Field(alias="a_objInscriptionnotauthenticatedcondition")
-    dt_inscriptionnotauthenticated_transactiondate_real: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The transactiondatereal of the Inscriptionnotauthenticated", alias="dtInscriptionnotauthenticatedTransactiondateReal")
+    dt_inscriptionnotauthenticated_transactiondate_real: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The transactiondatereal of the Inscriptionnotauthenticated", alias="dtInscriptionnotauthenticatedTransactiondateReal", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["a_objInscriptionnotauthenticatedcondition", "dtInscriptionnotauthenticatedTransactiondateReal"]
 
     @field_validator('dt_inscriptionnotauthenticated_transactiondate_real')

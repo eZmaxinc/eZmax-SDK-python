@@ -30,11 +30,11 @@ class SignatureRequestCompound(BaseModel):
     """
     A Signature Object and children
     """ # noqa: E501
-    pki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="pkiSignatureID")
-    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
+    pki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="pkiSignatureID", json_schema_extra={"examples": [12]})
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID", json_schema_extra={"examples": [1]})
     e_signature_preference: FieldESignaturePreference = Field(alias="eSignaturePreference")
-    t_signature_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Signature", alias="tSignatureSvg")
-    t_signature_svginitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Initials", alias="tSignatureSvginitials")
+    t_signature_svg: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Signature", alias="tSignatureSvg", json_schema_extra={"examples": ["{\"$ref\":\"#/components/examples/Svg/value\"}"]})
+    t_signature_svginitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Initials", alias="tSignatureSvginitials", json_schema_extra={"examples": ["{\"$ref\":\"#/components/examples/Svg/value\"}"]})
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "eSignaturePreference", "tSignatureSvg", "tSignatureSvginitials"]
 
     @field_validator('t_signature_svg')

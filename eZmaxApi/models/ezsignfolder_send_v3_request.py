@@ -30,9 +30,9 @@ class EzsignfolderSendV3Request(BaseModel):
     """
     Request for POST /3/object/ezsignfolder/{pkiEzsignfolderID}/send
     """ # noqa: E501
-    t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage")
+    t_ezsignfolder_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfolderMessage", json_schema_extra={"examples": ["Hi everyone,\n\nThis is the document I need you to review.\n\nCould you sign it before Monday please.\n\nBest Regards.\n\nMary"]})
     e_ezsignfolder_messageorder: Optional[FieldEEzsignfolderMessageorder] = Field(default=FieldEEzsignfolderMessageorder.GLOBALFIRST, alias="eEzsignfolderMessageorder")
-    dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate")
+    dt_ezsignfolder_delayedsenddate: Optional[StrictStr] = Field(default=None, description="The date and time at which the Ezsignfolder will be sent in the future.", alias="dtEzsignfolderDelayedsenddate", json_schema_extra={"examples": ["2020-12-31T23:59:59.000Z"]})
     a_fki_ezsignfoldersignerassociation_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_fkiEzsignfoldersignerassociationID")
     __properties: ClassVar[List[str]] = ["tEzsignfolderMessage", "eEzsignfolderMessageorder", "dtEzsignfolderDelayedsenddate", "a_fkiEzsignfoldersignerassociationID"]
 

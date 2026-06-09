@@ -28,11 +28,11 @@ class CustomDiscussionconfigurationResponse(BaseModel):
     """
     A Custom Discussionconfiguration Object
     """ # noqa: E501
-    b_discussionconfiguration_completehistorywhenadded: StrictBool = Field(description="If the added Discussionmembership will have access to the entire history or not", alias="bDiscussionconfigurationCompletehistorywhenadded")
-    b_discussionconfiguration_createallowed: StrictBool = Field(description="If the creation of the Discussion is allowed or not", alias="bDiscussionconfigurationCreateallowed")
-    b_discussionconfiguration_deleteallowed: StrictBool = Field(description="If the destruction of the Discussion is allowed or not", alias="bDiscussionconfigurationDeleteallowed")
-    b_discussionconfiguration_deletediscussionmessageallowed: StrictBool = Field(description="If the destruction of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationDeletediscussionmessageallowed")
-    b_discussionconfiguration_editdiscussionmessageallowed: StrictBool = Field(description="If the creation of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationEditdiscussionmessageallowed")
+    b_discussionconfiguration_completehistorywhenadded: StrictBool = Field(description="If the added Discussionmembership will have access to the entire history or not", alias="bDiscussionconfigurationCompletehistorywhenadded", json_schema_extra={"examples": [True]})
+    b_discussionconfiguration_createallowed: StrictBool = Field(description="If the creation of the Discussion is allowed or not", alias="bDiscussionconfigurationCreateallowed", json_schema_extra={"examples": [True]})
+    b_discussionconfiguration_deleteallowed: StrictBool = Field(description="If the destruction of the Discussion is allowed or not", alias="bDiscussionconfigurationDeleteallowed", json_schema_extra={"examples": [True]})
+    b_discussionconfiguration_deletediscussionmessageallowed: StrictBool = Field(description="If the destruction of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationDeletediscussionmessageallowed", json_schema_extra={"examples": [True]})
+    b_discussionconfiguration_editdiscussionmessageallowed: StrictBool = Field(description="If the creation of the Discussionmessage is allowed or not", alias="bDiscussionconfigurationEditdiscussionmessageallowed", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bDiscussionconfigurationCompletehistorywhenadded", "bDiscussionconfigurationCreateallowed", "bDiscussionconfigurationDeleteallowed", "bDiscussionconfigurationDeletediscussionmessageallowed", "bDiscussionconfigurationEditdiscussionmessageallowed"]
 
     model_config = ConfigDict(

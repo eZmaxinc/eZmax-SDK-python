@@ -29,13 +29,13 @@ class CustomEzmaxpartnerListElement(BaseModel):
     """
     A custom Ezmaxpartner List Element
     """ # noqa: E501
-    pki_ezmaxpartner_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxpartner", alias="pkiEzmaxpartnerID")
-    s_ezmaxpartner_address_x: Annotated[str, Field(strict=True)] = Field(description="The complete address in a single line", alias="sEzmaxpartnerAddressX")
-    s_ezmaxpartner_emailaddress_x: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEzmaxpartnerEmailaddressX")
-    s_ezmaxpartner_shortdescription_x: Annotated[str, Field(strict=True)] = Field(description="The short description of the Ezmaxpartner in the language of the requester", alias="sEzmaxpartnerShortdescriptionX")
-    s_ezmaxpartner_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezmaxpartner in the language of the requester", alias="sEzmaxpartnerNameX")
-    s_ezmaxpartner_phone_e164_x: Annotated[str, Field(strict=True)] = Field(description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE164X")
-    s_ezmaxpartner_url_x: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezmaxpartner website in the language of the requester", alias="sEzmaxpartnerUrlX")
+    pki_ezmaxpartner_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxpartner", alias="pkiEzmaxpartnerID", json_schema_extra={"examples": [12]})
+    s_ezmaxpartner_address_x: Annotated[str, Field(strict=True)] = Field(description="The complete address in a single line", alias="sEzmaxpartnerAddressX", json_schema_extra={"examples": ["2500 Daniel-Johnson Blvd., Suite 800 Laval, Quebec H7T 2P6"]})
+    s_ezmaxpartner_emailaddress_x: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEzmaxpartnerEmailaddressX", json_schema_extra={"examples": ["email@example.com"]})
+    s_ezmaxpartner_shortdescription_x: Annotated[str, Field(strict=True)] = Field(description="The short description of the Ezmaxpartner in the language of the requester", alias="sEzmaxpartnerShortdescriptionX", json_schema_extra={"examples": ["This is a software to e-sign documents"]})
+    s_ezmaxpartner_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezmaxpartner in the language of the requester", alias="sEzmaxpartnerNameX", json_schema_extra={"examples": ["eZmax"]})
+    s_ezmaxpartner_phone_e164_x: Annotated[str, Field(strict=True)] = Field(description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE164X", json_schema_extra={"examples": ["+15149901516"]})
+    s_ezmaxpartner_url_x: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezmaxpartner website in the language of the requester", alias="sEzmaxpartnerUrlX", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxpartnerID", "sEzmaxpartnerAddressX", "sEzmaxpartnerEmailaddressX", "sEzmaxpartnerShortdescriptionX", "sEzmaxpartnerNameX", "sEzmaxpartnerPhoneE164X", "sEzmaxpartnerUrlX"]
 
     @field_validator('s_ezmaxpartner_address_x')

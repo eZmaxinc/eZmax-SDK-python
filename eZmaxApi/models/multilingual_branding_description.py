@@ -28,8 +28,8 @@ class MultilingualBrandingDescription(BaseModel):
     """
     Description of the Branding
     """ # noqa: E501
-    s_branding_description1: Optional[StrictStr] = Field(default=None, description="The description of the Branding in French", alias="sBrandingDescription1")
-    s_branding_description2: Optional[StrictStr] = Field(default=None, description="The description of the Branding in English", alias="sBrandingDescription2")
+    s_branding_description1: Optional[StrictStr] = Field(default=None, description="The description of the Branding in French", alias="sBrandingDescription1", json_schema_extra={"examples": ["Compagnie X"]})
+    s_branding_description2: Optional[StrictStr] = Field(default=None, description="The description of the Branding in English", alias="sBrandingDescription2", json_schema_extra={"examples": ["Company X"]})
     __properties: ClassVar[List[str]] = ["sBrandingDescription1", "sBrandingDescription2"]
 
     model_config = ConfigDict(

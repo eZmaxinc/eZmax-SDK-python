@@ -32,12 +32,12 @@ class CustomEzsignfoldersignerassociationActionableElementResponse(BaseModel):
     """
     A Ezsignfoldersignerassociation Object with actionable elements
     """ # noqa: E501
-    pki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID")
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    pki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
     b_ezsignfoldersignerassociation_delayedsend: StrictBool = Field(description="If this flag is true the signatory is part of a delayed send.", alias="bEzsignfoldersignerassociationDelayedsend")
     b_ezsignfoldersignerassociation_receivecopy: StrictBool = Field(description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
-    t_ezsignfoldersignerassociation_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
-    b_ezsignfoldersignerassociation_allowsigninginperson: StrictBool = Field(description="If the Ezsignfoldersignerassociation is allowed to sign in person or not", alias="bEzsignfoldersignerassociationAllowsigninginperson")
+    t_ezsignfoldersignerassociation_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage", json_schema_extra={"examples": ["Hi John,\n\nThis is the document I need you to review.\n\nCould you sign it before Monday please.\n\nBest Regards.\n\nMary"]})
+    b_ezsignfoldersignerassociation_allowsigninginperson: StrictBool = Field(description="If the Ezsignfoldersignerassociation is allowed to sign in person or not", alias="bEzsignfoldersignerassociationAllowsigninginperson", json_schema_extra={"examples": [True]})
     obj_ezsignsignergroup: Optional[EzsignsignergroupResponseCompound] = Field(default=None, alias="objEzsignsignergroup")
     obj_user: Optional[EzsignfoldersignerassociationResponseCompoundUser] = Field(default=None, alias="objUser")
     obj_ezsignsigner: Optional[EzsignsignerResponseCompound] = Field(default=None, alias="objEzsignsigner")

@@ -29,10 +29,10 @@ class CustomEzsignformfieldRequest(BaseModel):
     """
     A Custom Ezsignformfield Object to fill an Ezsignform using submitForm
     """ # noqa: E501
-    pki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="pkiEzsignformfieldID")
-    s_ezsignformfield_label: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
+    pki_ezsignformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="pkiEzsignformfieldID", json_schema_extra={"examples": [32]})
+    s_ezsignformfield_label: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel", json_schema_extra={"examples": ["Peanuts"]})
     b_ezsignformfield_selected: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignformfield is selected or not by default.  This can only be set if eEzsignformfieldgroupType is **Checkbox** or **Radio**", alias="bEzsignformfieldSelected")
-    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue")
+    s_ezsignformfield_enteredvalue: Optional[StrictStr] = Field(default=None, description="This is the value enterred for the Ezsignformfield  This can only be set if eEzsignformfieldgroupType is **Dropdown**, **Text** or **Textarea**", alias="sEzsignformfieldEnteredvalue", json_schema_extra={"examples": ["Montreal"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldID", "sEzsignformfieldLabel", "bEzsignformfieldSelected", "sEzsignformfieldEnteredvalue"]
 
     model_config = ConfigDict(

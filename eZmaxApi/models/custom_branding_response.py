@@ -29,8 +29,8 @@ class CustomBrandingResponse(BaseModel):
     """
     A Custom Branding Object
     """ # noqa: E501
-    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor")
-    s_branding_logointerfaceurl: Annotated[str, Field(strict=True)] = Field(description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl")
+    i_branding_color: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The primary color. This is a RGB color converted into integer", alias="iBrandingColor", json_schema_extra={"examples": [15658734]})
+    s_branding_logointerfaceurl: Annotated[str, Field(strict=True)] = Field(description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl", json_schema_extra={"examples": ["http://www.example.com/logo.jpg"]})
     __properties: ClassVar[List[str]] = ["iBrandingColor", "sBrandingLogointerfaceurl"]
 
     @field_validator('s_branding_logointerfaceurl')

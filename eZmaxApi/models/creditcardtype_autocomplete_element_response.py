@@ -30,8 +30,8 @@ class CreditcardtypeAutocompleteElementResponse(BaseModel):
     """
     Creditcardtype AutocompleteElement Response
     """ # noqa: E501
-    s_creditcardtype_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Creditcardtype", alias="sCreditcardtypeName")
-    pki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="pkiCreditcardtypeID")
+    s_creditcardtype_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Creditcardtype", alias="sCreditcardtypeName", json_schema_extra={"examples": ["Visa"]})
+    pki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="pkiCreditcardtypeID", json_schema_extra={"examples": [2]})
     e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(alias="eCreditcardtypeCodename")
     __properties: ClassVar[List[str]] = ["sCreditcardtypeName", "pkiCreditcardtypeID", "eCreditcardtypeCodename"]
 

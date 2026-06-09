@@ -29,11 +29,11 @@ class EzsigntemplatepackagesignermembershipResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackagesignermembership Object
     """ # noqa: E501
-    pki_ezsigntemplatepackagesignermembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesignermembership", alias="pkiEzsigntemplatepackagesignermembershipID")
-    fki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="fkiEzsigntemplatepackagemembershipID")
-    fki_ezsigntemplatepackagesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesigner", alias="fkiEzsigntemplatepackagesignerID")
-    fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID")
-    i_ezsigntemplatepackagesignermembership_copy: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The Copy number in case of multiple copies.", alias="iEzsigntemplatepackagesignermembershipCopy")
+    pki_ezsigntemplatepackagesignermembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesignermembership", alias="pkiEzsigntemplatepackagesignermembershipID", json_schema_extra={"examples": [237]})
+    fki_ezsigntemplatepackagemembership_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagemembership", alias="fkiEzsigntemplatepackagemembershipID", json_schema_extra={"examples": [194]})
+    fki_ezsigntemplatepackagesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesigner", alias="fkiEzsigntemplatepackagesignerID", json_schema_extra={"examples": [174]})
+    fki_ezsigntemplatesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatesigner", alias="fkiEzsigntemplatesignerID", json_schema_extra={"examples": [9]})
+    i_ezsigntemplatepackagesignermembership_copy: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="The Copy number in case of multiple copies.", alias="iEzsigntemplatepackagesignermembershipCopy", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagesignermembershipID", "fkiEzsigntemplatepackagemembershipID", "fkiEzsigntemplatepackagesignerID", "fkiEzsigntemplatesignerID", "iEzsigntemplatepackagesignermembershipCopy"]
 
     model_config = ConfigDict(

@@ -29,8 +29,8 @@ class MultilingualPaymenttermDescription(BaseModel):
     """
     Description of the Paymentterm
     """ # noqa: E501
-    s_paymentterm_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentterm in French", alias="sPaymenttermDescription1")
-    s_paymentterm_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentterm in English", alias="sPaymenttermDescription2")
+    s_paymentterm_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentterm in French", alias="sPaymenttermDescription1", json_schema_extra={"examples": ["Net 30 jours"]})
+    s_paymentterm_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentterm in English", alias="sPaymenttermDescription2", json_schema_extra={"examples": ["Net 30 days"]})
     __properties: ClassVar[List[str]] = ["sPaymenttermDescription1", "sPaymenttermDescription2"]
 
     @field_validator('s_paymentterm_description1')

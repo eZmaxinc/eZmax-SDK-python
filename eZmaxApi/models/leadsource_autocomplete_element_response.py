@@ -29,9 +29,9 @@ class LeadsourceAutocompleteElementResponse(BaseModel):
     """
     A Leadsource AutocompleteElement Response
     """ # noqa: E501
-    pki_leadsource_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Leadsource", alias="pkiLeadsourceID")
-    s_leadsource_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Leadsource in the language of the requester", alias="sLeadsourceNameX")
-    b_leadsource_isactive: StrictBool = Field(description="Whether the Leadsource is active or not", alias="bLeadsourceIsactive")
+    pki_leadsource_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Leadsource", alias="pkiLeadsourceID", json_schema_extra={"examples": [191]})
+    s_leadsource_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Leadsource in the language of the requester", alias="sLeadsourceNameX", json_schema_extra={"examples": ["Client Referral"]})
+    b_leadsource_isactive: StrictBool = Field(description="Whether the Leadsource is active or not", alias="bLeadsourceIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiLeadsourceID", "sLeadsourceNameX", "bLeadsourceIsactive"]
 
     @field_validator('s_leadsource_name_x')

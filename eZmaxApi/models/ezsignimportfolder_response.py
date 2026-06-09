@@ -29,8 +29,8 @@ class EzsignimportfolderResponse(BaseModel):
     """
     A Ezsignimportfolder Object
     """ # noqa: E501
-    pki_ezsignimportfolder_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportfolder", alias="pkiEzsignimportfolderID")
-    s_ezsignimportfolder_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportfolder", alias="sEzsignimportfolderName")
+    pki_ezsignimportfolder_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportfolder", alias="pkiEzsignimportfolderID", json_schema_extra={"examples": [209]})
+    s_ezsignimportfolder_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportfolder", alias="sEzsignimportfolderName", json_schema_extra={"examples": ["Promesse d'achat"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignimportfolderID", "sEzsignimportfolderName"]
 
     @field_validator('s_ezsignimportfolder_name')

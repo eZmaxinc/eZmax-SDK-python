@@ -29,12 +29,12 @@ class ApikeyListElement(BaseModel):
     """
     A Branding List Element
     """ # noqa: E501
-    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID")
-    s_apikey_description_x: StrictStr = Field(description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    b_apikey_isactive: StrictBool = Field(description="Whether the apikey is active or not", alias="bApikeyIsactive")
-    b_apikey_issigned: StrictBool = Field(description="Whether the apikey is signed or not", alias="bApikeyIssigned")
+    pki_apikey_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Apikey", alias="pkiApikeyID", json_schema_extra={"examples": [99]})
+    s_apikey_description_x: StrictStr = Field(description="The description of the Apikey in the language of the requester", alias="sApikeyDescriptionX", json_schema_extra={"examples": ["Project X"]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    b_apikey_isactive: StrictBool = Field(description="Whether the apikey is active or not", alias="bApikeyIsactive", json_schema_extra={"examples": [True]})
+    b_apikey_issigned: StrictBool = Field(description="Whether the apikey is signed or not", alias="bApikeyIssigned", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiApikeyID", "sApikeyDescriptionX", "sUserFirstname", "sUserLastname", "bApikeyIsactive", "bApikeyIssigned"]
 
     model_config = ConfigDict(

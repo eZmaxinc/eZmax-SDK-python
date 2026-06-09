@@ -32,8 +32,8 @@ class CommonReportsection(BaseModel):
     """ # noqa: E501
     a_obj_reportsubsection: List[CommonReportsubsection] = Field(alias="a_objReportsubsection")
     e_reportsection_horizontalalignment: EnumHorizontalalignment = Field(alias="eReportsectionHorizontalalignment")
-    s_reportsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsection", alias="sReportsectionTitle")
-    s_reportsection_tabname: Optional[StrictStr] = Field(default=None, description="The name of tab in excel version", alias="sReportsectionTabname")
+    s_reportsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsection", alias="sReportsectionTitle", json_schema_extra={"examples": ["text"]})
+    s_reportsection_tabname: Optional[StrictStr] = Field(default=None, description="The name of tab in excel version", alias="sReportsectionTabname", json_schema_extra={"examples": ["text"]})
     __properties: ClassVar[List[str]] = ["a_objReportsubsection", "eReportsectionHorizontalalignment", "sReportsectionTitle", "sReportsectionTabname"]
 
     model_config = ConfigDict(

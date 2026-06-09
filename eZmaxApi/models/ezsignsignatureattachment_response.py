@@ -29,11 +29,11 @@ class EzsignsignatureattachmentResponse(BaseModel):
     """
     An Ezsignsignatureattachment Object
     """ # noqa: E501
-    pki_ezsignsignatureattachment_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Ezsignsignatureattachment", alias="pkiEzsignsignatureattachmentID")
-    fki_ezsignsignature_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignature", alias="fkiEzsignsignatureID")
-    bin_ezsignsignatureattachment_md5: StrictStr = Field(description="The md5 of the Ezsignsignatureattachment", alias="binEzsignsignatureattachmentMD5")
-    s_ezsignsignatureattachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignsignatureattachment", alias="sEzsignsignatureattachmentName")
-    s_download_url: StrictStr = Field(description="The Url to the requested document.  Url will expire after 3 hours.", alias="sDownloadUrl")
+    pki_ezsignsignatureattachment_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Ezsignsignatureattachment", alias="pkiEzsignsignatureattachmentID", json_schema_extra={"examples": [177]})
+    fki_ezsignsignature_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignsignature", alias="fkiEzsignsignatureID", json_schema_extra={"examples": [49]})
+    bin_ezsignsignatureattachment_md5: StrictStr = Field(description="The md5 of the Ezsignsignatureattachment", alias="binEzsignsignatureattachmentMD5", json_schema_extra={"examples": ["098f6bcd4621d373cade4e832627b4f6"]})
+    s_ezsignsignatureattachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignsignatureattachment", alias="sEzsignsignatureattachmentName", json_schema_extra={"examples": ["document.pdf"]})
+    s_download_url: StrictStr = Field(description="The Url to the requested document.  Url will expire after 3 hours.", alias="sDownloadUrl", json_schema_extra={"examples": ["http://www.example.com/document.pdf"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureattachmentID", "fkiEzsignsignatureID", "binEzsignsignatureattachmentMD5", "sEzsignsignatureattachmentName", "sDownloadUrl"]
 
     @field_validator('s_ezsignsignatureattachment_name')

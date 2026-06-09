@@ -30,11 +30,11 @@ class AttachmentlogResponseCompound(BaseModel):
     """
     A Attachmentlog Object
     """ # noqa: E501
-    fki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="fkiAttachmentID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    dt_attachmentlog_datetime: Annotated[str, Field(strict=True)] = Field(description="The created date", alias="dtAttachmentlogDatetime")
+    fki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="fkiAttachmentID", json_schema_extra={"examples": [1]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    dt_attachmentlog_datetime: Annotated[str, Field(strict=True)] = Field(description="The created date", alias="dtAttachmentlogDatetime", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     e_attachmentlog_type: FieldEAttachmentlogType = Field(alias="eAttachmentlogType")
-    s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail")
+    s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail", json_schema_extra={"examples": ["System"]})
     __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
 
     @field_validator('dt_attachmentlog_datetime')

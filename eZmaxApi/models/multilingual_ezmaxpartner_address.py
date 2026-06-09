@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerAddress(BaseModel):
     """
     Address of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_address1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The complete address in a single line", alias="sEzmaxpartnerAddress1")
-    s_ezmaxpartner_address2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The complete address in a single line", alias="sEzmaxpartnerAddress2")
+    s_ezmaxpartner_address1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The complete address in a single line", alias="sEzmaxpartnerAddress1", json_schema_extra={"examples": ["2500 Daniel-Johnson Blvd., Suite 800 Laval, Quebec H7T 2P6"]})
+    s_ezmaxpartner_address2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The complete address in a single line", alias="sEzmaxpartnerAddress2", json_schema_extra={"examples": ["2500 Daniel-Johnson Blvd., Suite 800 Laval, Quebec H7T 2P6"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerAddress1", "sEzmaxpartnerAddress2"]
 
     @field_validator('s_ezmaxpartner_address1')

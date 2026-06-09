@@ -29,8 +29,8 @@ class InscriptiontypeAutocompleteElementResponse(BaseModel):
     """
     A Inscriptiontype AutocompleteElement Response
     """ # noqa: E501
-    pki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="pkiInscriptiontypeID")
-    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX")
+    pki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="pkiInscriptiontypeID", json_schema_extra={"examples": [51]})
+    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX", json_schema_extra={"examples": ["Revenue Property"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptiontypeID", "sInscriptiontypeNameX"]
 
     @field_validator('s_inscriptiontype_name_x')

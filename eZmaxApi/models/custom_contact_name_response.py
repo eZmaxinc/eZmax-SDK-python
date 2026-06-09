@@ -29,9 +29,9 @@ class CustomContactNameResponse(BaseModel):
     """
     A Custom ContactName Object
     """ # noqa: E501
-    s_contact_firstname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Last name of the contact", alias="sContactLastname")
-    s_contact_company: Optional[StrictStr] = Field(default=None, description="The Company name of the contact", alias="sContactCompany")
+    s_contact_firstname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The First name of the contact", alias="sContactFirstname", json_schema_extra={"examples": ["John"]})
+    s_contact_lastname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Last name of the contact", alias="sContactLastname", json_schema_extra={"examples": ["Doe"]})
+    s_contact_company: Optional[StrictStr] = Field(default=None, description="The Company name of the contact", alias="sContactCompany", json_schema_extra={"examples": ["eZmax Solutions Inc."]})
     __properties: ClassVar[List[str]] = ["sContactFirstname", "sContactLastname", "sContactCompany"]
 
     @field_validator('s_contact_firstname')

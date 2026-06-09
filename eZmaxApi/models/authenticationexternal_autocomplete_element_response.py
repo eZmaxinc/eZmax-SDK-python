@@ -29,8 +29,8 @@ class AuthenticationexternalAutocompleteElementResponse(BaseModel):
     """
     A Authenticationexternal AutocompleteElement Response
     """ # noqa: E501
-    pki_authenticationexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Authenticationexternal", alias="pkiAuthenticationexternalID")
-    s_authenticationexternal_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription")
+    pki_authenticationexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Authenticationexternal", alias="pkiAuthenticationexternalID", json_schema_extra={"examples": [56]})
+    s_authenticationexternal_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription", json_schema_extra={"examples": ["Authentification"]})
     b_authenticationexternal_isactive: StrictBool = Field(description="Whether the Authenticationexternal is active or not", alias="bAuthenticationexternalIsactive")
     __properties: ClassVar[List[str]] = ["pkiAuthenticationexternalID", "sAuthenticationexternalDescription", "bAuthenticationexternalIsactive"]
 

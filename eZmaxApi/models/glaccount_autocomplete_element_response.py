@@ -29,10 +29,10 @@ class GlaccountAutocompleteElementResponse(BaseModel):
     """
     A Glaccount AutocompleteElement Response
     """ # noqa: E501
-    pki_glaccount_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Glaccount", alias="pkiGlaccountID")
-    i_glaccount_code: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Code of the Glaccount", alias="iGlaccountCode")
-    s_glaccount_description_x: StrictStr = Field(description="The Description for the Glaccount in the language of the requester", alias="sGlaccountDescriptionX")
-    b_glaccount_isactive: StrictBool = Field(description="Whether the Glaccount is active or not", alias="bGlaccountIsactive")
+    pki_glaccount_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Glaccount", alias="pkiGlaccountID", json_schema_extra={"examples": [35]})
+    i_glaccount_code: Annotated[int, Field(strict=True, ge=0)] = Field(description="The Code of the Glaccount", alias="iGlaccountCode", json_schema_extra={"examples": [2000]})
+    s_glaccount_description_x: StrictStr = Field(description="The Description for the Glaccount in the language of the requester", alias="sGlaccountDescriptionX", json_schema_extra={"examples": ["Supplies income"]})
+    b_glaccount_isactive: StrictBool = Field(description="Whether the Glaccount is active or not", alias="bGlaccountIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiGlaccountID", "iGlaccountCode", "sGlaccountDescriptionX", "bGlaccountIsactive"]
 
     model_config = ConfigDict(

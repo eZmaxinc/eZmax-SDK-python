@@ -28,8 +28,8 @@ class CustomWebhooklogResponse(BaseModel):
     """
     A custom Webhooklog object
     """ # noqa: E501
-    dt_webhooklog_date: StrictStr = Field(description="The date and time at which the Webhooklog happened.", alias="dtWebhooklogDate")
-    t_webhooklog_json: StrictStr = Field(description="The Json containing the Webhook call and return", alias="tWebhooklogJson")
+    dt_webhooklog_date: StrictStr = Field(description="The date and time at which the Webhooklog happened.", alias="dtWebhooklogDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    t_webhooklog_json: StrictStr = Field(description="The Json containing the Webhook call and return", alias="tWebhooklogJson", json_schema_extra={"examples": ["{}"]})
     __properties: ClassVar[List[str]] = ["dtWebhooklogDate", "tWebhooklogJson"]
 
     model_config = ConfigDict(

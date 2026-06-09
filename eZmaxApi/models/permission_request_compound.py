@@ -29,12 +29,12 @@ class PermissionRequestCompound(BaseModel):
     """
     A Permission Object and children to create a complete structure
     """ # noqa: E501
-    pki_permission_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Permission", alias="pkiPermissionID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID")
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    fki_company_id: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Company", alias="fkiCompanyID")
-    fki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="fkiModulesectionID")
+    pki_permission_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Permission", alias="pkiPermissionID", json_schema_extra={"examples": [31]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_apikey_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Apikey", alias="fkiApikeyID", json_schema_extra={"examples": [99]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_company_id: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Company", alias="fkiCompanyID", json_schema_extra={"examples": [1]})
+    fki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="fkiModulesectionID", json_schema_extra={"examples": [53]})
     __properties: ClassVar[List[str]] = ["pkiPermissionID", "fkiUserID", "fkiApikeyID", "fkiUsergroupID", "fkiCompanyID", "fkiModulesectionID"]
 
     model_config = ConfigDict(

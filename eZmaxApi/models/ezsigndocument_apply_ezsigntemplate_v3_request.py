@@ -29,7 +29,7 @@ class EzsigndocumentApplyEzsigntemplateV3Request(BaseModel):
     """
     Request for POST /3/object/ezsigndocument/{pkiEzsigndocumentID}/applyezsigntemplate
     """ # noqa: E501
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
     a_s_ezsigntemplatesigner: List[StrictStr] = Field(alias="a_sEzsigntemplatesigner")
     a_fki_ezsignfoldersignerassociation_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_fkiEzsignfoldersignerassociationID")
     a_s_ezsigntemplateannotation_description: List[Annotated[str, Field(strict=True)]] = Field(alias="a_sEzsigntemplateannotationDescription")

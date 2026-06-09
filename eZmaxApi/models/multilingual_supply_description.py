@@ -29,8 +29,8 @@ class MultilingualSupplyDescription(BaseModel):
     """
     The description1 of the Supply
     """ # noqa: E501
-    s_supply_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Supply in French", alias="sSupplyDescription1")
-    s_supply_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Supply in English", alias="sSupplyDescription2")
+    s_supply_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Supply in French", alias="sSupplyDescription1", json_schema_extra={"examples": ["Papier lettre paquet"]})
+    s_supply_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Supply in English", alias="sSupplyDescription2", json_schema_extra={"examples": ["Letter paper package"]})
     __properties: ClassVar[List[str]] = ["sSupplyDescription1", "sSupplyDescription2"]
 
     @field_validator('s_supply_description1')

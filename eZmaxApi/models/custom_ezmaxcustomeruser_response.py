@@ -33,12 +33,12 @@ class CustomEzmaxcustomeruserResponse(BaseModel):
     A Ezmaxcustomeruser Object
     """ # noqa: E501
     obj_ezmaxcustomer: CustomEzmaxcustomerResponse = Field(alias="objEzmaxcustomer")
-    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
+    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID", json_schema_extra={"examples": [2]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
     obj_email: Optional[EmailResponseCompound] = Field(default=None, alias="objEmail")
     obj_phone: Optional[PhoneResponseCompound] = Field(default=None, alias="objPhone")
-    s_ezmaxcustomeruser_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the Ezmaxcustomeruser", alias="sEzmaxcustomeruserFirstname")
-    s_ezmaxcustomeruser_lastname: Annotated[str, Field(strict=True)] = Field(description="The First name of the Ezmaxcustomeruser", alias="sEzmaxcustomeruserLastname")
+    s_ezmaxcustomeruser_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the Ezmaxcustomeruser", alias="sEzmaxcustomeruserFirstname", json_schema_extra={"examples": ["John"]})
+    s_ezmaxcustomeruser_lastname: Annotated[str, Field(strict=True)] = Field(description="The First name of the Ezmaxcustomeruser", alias="sEzmaxcustomeruserLastname", json_schema_extra={"examples": ["John"]})
     __properties: ClassVar[List[str]] = ["objEzmaxcustomer", "fkiContacttitleID", "fkiLanguageID", "objEmail", "objPhone", "sEzmaxcustomeruserFirstname", "sEzmaxcustomeruserLastname"]
 
     @field_validator('s_ezmaxcustomeruser_firstname')

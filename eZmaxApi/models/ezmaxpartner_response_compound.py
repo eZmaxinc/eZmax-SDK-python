@@ -44,7 +44,7 @@ class EzmaxpartnerResponseCompound(BaseModel):
     obj_ezmaxpartner_phone_e164: MultilingualEzmaxpartnerPhoneE164 = Field(alias="objEzmaxpartnerPhoneE164")
     obj_ezmaxpartner_shortdescription: MultilingualEzmaxpartnerShortdescription = Field(alias="objEzmaxpartnerShortdescription")
     obj_ezmaxpartner_url: MultilingualEzmaxpartnerUrl = Field(alias="objEzmaxpartnerUrl")
-    b_ezmaxpartner_isactive: Optional[StrictBool] = Field(default=None, description="Whether the Ezmaxpartner is active or not", alias="bEzmaxpartnerIsactive")
+    b_ezmaxpartner_isactive: Optional[StrictBool] = Field(default=None, description="Whether the Ezmaxpartner is active or not", alias="bEzmaxpartnerIsactive", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["eEzmaxpartnerCustomdevelopment", "objEzmaxpartnerAddress", "objEzmaxpartnerDescription", "objEzmaxpartnerEmailaddress", "objEzmaxpartnerName", "objEzmaxpartnerPhoneE164", "objEzmaxpartnerShortdescription", "objEzmaxpartnerUrl", "bEzmaxpartnerIsactive"]
 
     model_config = ConfigDict(

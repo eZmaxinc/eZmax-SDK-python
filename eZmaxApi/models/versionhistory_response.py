@@ -32,15 +32,15 @@ class VersionhistoryResponse(BaseModel):
     """
     A Versionhistory Object
     """ # noqa: E501
-    pki_versionhistory_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Versionhistory", alias="pkiVersionhistoryID")
-    fki_module_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleID")
-    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID")
-    s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX")
-    s_modulesection_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
+    pki_versionhistory_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Versionhistory", alias="pkiVersionhistoryID", json_schema_extra={"examples": [42]})
+    fki_module_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Module", alias="fkiModuleID", json_schema_extra={"examples": [40]})
+    fki_modulesection_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Modulesection", alias="fkiModulesectionID", json_schema_extra={"examples": [53]})
+    s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX", json_schema_extra={"examples": ["Purchase"]})
+    s_modulesection_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX", json_schema_extra={"examples": ["Access"]})
     e_versionhistory_usertype: Optional[FieldEVersionhistoryUsertype] = Field(default=None, alias="eVersionhistoryUsertype")
     obj_versionhistory_detail: MultilingualVersionhistoryDetail = Field(alias="objVersionhistoryDetail")
-    dt_versionhistory_date: StrictStr = Field(description="The date at which the Versionhistory was published or should be published", alias="dtVersionhistoryDate")
-    dt_versionhistory_dateend: Optional[StrictStr] = Field(default=None, description="The date at which the Versionhistory will no longer be visible", alias="dtVersionhistoryDateend")
+    dt_versionhistory_date: StrictStr = Field(description="The date at which the Versionhistory was published or should be published", alias="dtVersionhistoryDate", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_versionhistory_dateend: Optional[StrictStr] = Field(default=None, description="The date at which the Versionhistory will no longer be visible", alias="dtVersionhistoryDateend", json_schema_extra={"examples": ["2020-12-31"]})
     e_versionhistory_type: FieldEVersionhistoryType = Field(alias="eVersionhistoryType")
     b_versionhistory_draft: StrictBool = Field(description="Whether the Versionhistory is published or still a draft", alias="bVersionhistoryDraft")
     __properties: ClassVar[List[str]] = ["pkiVersionhistoryID", "fkiModuleID", "fkiModulesectionID", "sModuleNameX", "sModulesectionNameX", "eVersionhistoryUsertype", "objVersionhistoryDetail", "dtVersionhistoryDate", "dtVersionhistoryDateend", "eVersionhistoryType", "bVersionhistoryDraft"]

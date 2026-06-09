@@ -30,8 +30,8 @@ class EzsignsignergroupRequestCompound(BaseModel):
     """
     A Ezsignsignergroup Object and children
     """ # noqa: E501
-    pki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="pkiEzsignsignergroupID")
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    pki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="pkiEzsignsignergroupID", json_schema_extra={"examples": [27]})
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
     obj_ezsignsignergroup_description: MultilingualEzsignsignergroupDescription = Field(alias="objEzsignsignergroupDescription")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignergroupID", "fkiEzsignfolderID", "objEzsignsignergroupDescription"]
 

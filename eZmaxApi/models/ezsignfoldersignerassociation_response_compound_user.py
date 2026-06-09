@@ -30,11 +30,11 @@ class EzsignfoldersignerassociationResponseCompoundUser(BaseModel):
     """
     A Ezsignfoldersignerassociation->User Object and children to create a complete structure
     """ # noqa: E501
-    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
     e_user_type: FieldEUserType = Field(alias="eUserType")
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress", "eUserType"]
 

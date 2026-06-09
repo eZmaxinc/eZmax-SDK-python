@@ -29,7 +29,7 @@ class WebsocketResponseGetWebsocketIDV1MPayload(BaseModel):
     """
     Payload for Websocket GetWebsocketID V1
     """ # noqa: E501
-    s_websocket_id: Annotated[str, Field(strict=True)] = Field(description="The Unique ID of the Websocket Connection", alias="sWebsocketID")
+    s_websocket_id: Annotated[str, Field(strict=True)] = Field(description="The Unique ID of the Websocket Connection", alias="sWebsocketID", json_schema_extra={"examples": ["G_omidyY4osCFEQ="]})
     __properties: ClassVar[List[str]] = ["sWebsocketID"]
 
     @field_validator('s_websocket_id')

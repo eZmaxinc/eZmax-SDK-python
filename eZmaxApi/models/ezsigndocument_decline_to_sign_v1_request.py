@@ -29,7 +29,7 @@ class EzsigndocumentDeclineToSignV1Request(BaseModel):
     """
     Request for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/declineToSign
     """ # noqa: E501
-    s_reason: Annotated[str, Field(strict=True)] = Field(description="Reason for refusal", alias="sReason")
+    s_reason: Annotated[str, Field(strict=True)] = Field(description="Reason for refusal", alias="sReason", json_schema_extra={"examples": ["Wrong document"]})
     __properties: ClassVar[List[str]] = ["sReason"]
 
     @field_validator('s_reason')

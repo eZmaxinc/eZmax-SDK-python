@@ -29,8 +29,8 @@ class MultilingualEzsignsigningreasonDescription(BaseModel):
     """
     The description of the Ezsignsigningreason
     """ # noqa: E501
-    s_ezsignsigningreason_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in French", alias="sEzsignsigningreasonDescription1")
-    s_ezsignsigningreason_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in English", alias="sEzsignsigningreasonDescription2")
+    s_ezsignsigningreason_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in French", alias="sEzsignsigningreasonDescription1", json_schema_extra={"examples": ["J'approuve ce document"]})
+    s_ezsignsigningreason_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignsigningreason in English", alias="sEzsignsigningreasonDescription2", json_schema_extra={"examples": ["I approve this document"]})
     __properties: ClassVar[List[str]] = ["sEzsignsigningreasonDescription1", "sEzsignsigningreasonDescription2"]
 
     @field_validator('s_ezsignsigningreason_description1')

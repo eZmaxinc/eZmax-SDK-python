@@ -32,9 +32,9 @@ class PaymentgatewayResponse(BaseModel):
     """
     A Paymentgateway Object
     """ # noqa: E501
-    pki_paymentgateway_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID")
-    fki_creditcardmerchant_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Creditcardmerchant", alias="fkiCreditcardmerchantID")
-    s_creditcardmerchant_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription")
+    pki_paymentgateway_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Paymentgateway", alias="pkiPaymentgatewayID", json_schema_extra={"examples": [235]})
+    fki_creditcardmerchant_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Creditcardmerchant", alias="fkiCreditcardmerchantID", json_schema_extra={"examples": [30]})
+    s_creditcardmerchant_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Creditcardmerchant", alias="sCreditcardmerchantDescription", json_schema_extra={"examples": ["Moneris"]})
     e_paymentgateway_processor: FieldEPaymentgatewayProcessor = Field(alias="ePaymentgatewayProcessor")
     obj_paymentgateway_description: MultilingualPaymentgatewayDescription = Field(alias="objPaymentgatewayDescription")
     obj_creditcardmerchant: Optional[CreditcardmerchantResponseCompound] = Field(default=None, alias="objCreditcardmerchant")

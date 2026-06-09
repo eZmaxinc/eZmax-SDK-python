@@ -29,9 +29,9 @@ class TimezoneAutocompleteElementResponse(BaseModel):
     """
     A Timezone AutocompleteElement Response
     """ # noqa: E501
-    s_timezone_name: StrictStr = Field(description="The description of the Timezone", alias="sTimezoneName")
-    pki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="pkiTimezoneID")
-    b_timezone_isactive: StrictBool = Field(description="Whether the Timezone is active or not", alias="bTimezoneIsactive")
+    s_timezone_name: StrictStr = Field(description="The description of the Timezone", alias="sTimezoneName", json_schema_extra={"examples": ["Default"]})
+    pki_timezone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Timezone", alias="pkiTimezoneID", json_schema_extra={"examples": [247]})
+    b_timezone_isactive: StrictBool = Field(description="Whether the Timezone is active or not", alias="bTimezoneIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sTimezoneName", "pkiTimezoneID", "bTimezoneIsactive"]
 
     model_config = ConfigDict(

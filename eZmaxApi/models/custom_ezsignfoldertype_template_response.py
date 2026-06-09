@@ -29,8 +29,8 @@ class CustomEzsignfoldertypeTemplateResponse(BaseModel):
     """
     A Custom Ezsignfoldertype Object
     """ # noqa: E501
-    pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID")
-    b_ezsignfoldertype_allowdownloadproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the proof to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadproofezsignsigner")
+    pki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="pkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    b_ezsignfoldertype_allowdownloadproofezsignsigner: Optional[StrictBool] = Field(default=None, description="Whether we allow the proof to be downloaded by an Ezsignsigner", alias="bEzsignfoldertypeAllowdownloadproofezsignsigner", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldertypeID", "bEzsignfoldertypeAllowdownloadproofezsignsigner"]
 
     model_config = ConfigDict(

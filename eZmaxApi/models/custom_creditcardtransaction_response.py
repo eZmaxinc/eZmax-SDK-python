@@ -31,9 +31,9 @@ class CustomCreditcardtransactionResponse(BaseModel):
     A custom Creditcardtransaction Object
     """ # noqa: E501
     e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(alias="eCreditcardtypeCodename")
-    d_creditcardtransaction_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of the Creditcardtransaction", alias="dCreditcardtransactionAmount")
-    s_creditcardtransaction_partiallydecryptednumber: Annotated[str, Field(strict=True)] = Field(description="The partially decrypted credit card number used in the Creditcardtransaction", alias="sCreditcardtransactionPartiallydecryptednumber")
-    s_creditcardtransaction_referencenumber: Annotated[str, Field(strict=True)] = Field(description="The reference number on the creditcard service for the Creditcardtransaction", alias="sCreditcardtransactionReferencenumber")
+    d_creditcardtransaction_amount: Annotated[str, Field(strict=True)] = Field(description="The amount of the Creditcardtransaction", alias="dCreditcardtransactionAmount", json_schema_extra={"examples": ["167.58"]})
+    s_creditcardtransaction_partiallydecryptednumber: Annotated[str, Field(strict=True)] = Field(description="The partially decrypted credit card number used in the Creditcardtransaction", alias="sCreditcardtransactionPartiallydecryptednumber", json_schema_extra={"examples": ["XXXX XXXX XXXX 1234"]})
+    s_creditcardtransaction_referencenumber: Annotated[str, Field(strict=True)] = Field(description="The reference number on the creditcard service for the Creditcardtransaction", alias="sCreditcardtransactionReferencenumber", json_schema_extra={"examples": ["651447854715478415"]})
     __properties: ClassVar[List[str]] = ["eCreditcardtypeCodename", "dCreditcardtransactionAmount", "sCreditcardtransactionPartiallydecryptednumber", "sCreditcardtransactionReferencenumber"]
 
     @field_validator('d_creditcardtransaction_amount')

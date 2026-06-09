@@ -29,10 +29,10 @@ class GlaccountcontainerAutocompleteElementResponse(BaseModel):
     """
     A Glaccountcontainer AutocompleteElement Response
     """ # noqa: E501
-    pki_glaccountcontainer_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Glaccountcontainer", alias="pkiGlaccountcontainerID")
-    s_glaccountcontainer_longcode: StrictStr = Field(description="The Code for the Glaccountcontainer", alias="sGlaccountcontainerLongcode")
-    s_glaccountcontainer_longdescription_x: StrictStr = Field(description="The Description for the Glaccountcontainer in the language of the requester", alias="sGlaccountcontainerLongdescriptionX")
-    b_glaccountcontainer_isactive: StrictBool = Field(description="Whether the glaccountcontainer is active or not", alias="bGlaccountcontainerIsactive")
+    pki_glaccountcontainer_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Glaccountcontainer", alias="pkiGlaccountcontainerID", json_schema_extra={"examples": [66]})
+    s_glaccountcontainer_longcode: StrictStr = Field(description="The Code for the Glaccountcontainer", alias="sGlaccountcontainerLongcode", json_schema_extra={"examples": ["5170.BARE1"]})
+    s_glaccountcontainer_longdescription_x: StrictStr = Field(description="The Description for the Glaccountcontainer in the language of the requester", alias="sGlaccountcontainerLongdescriptionX", json_schema_extra={"examples": ["Quebec"]})
+    b_glaccountcontainer_isactive: StrictBool = Field(description="Whether the glaccountcontainer is active or not", alias="bGlaccountcontainerIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiGlaccountcontainerID", "sGlaccountcontainerLongcode", "sGlaccountcontainerLongdescriptionX", "bGlaccountcontainerIsactive"]
 
     model_config = ConfigDict(

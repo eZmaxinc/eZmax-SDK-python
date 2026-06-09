@@ -28,8 +28,8 @@ class MultilingualEzsignsignergroupDescription(BaseModel):
     """
     Description of the Ezsignsignergroup
     """ # noqa: E501
-    s_ezsignsignergroup_description1: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsignergroup in French", alias="sEzsignsignergroupDescription1")
-    s_ezsignsignergroup_description2: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsignergroup in English", alias="sEzsignsignergroupDescription2")
+    s_ezsignsignergroup_description1: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsignergroup in French", alias="sEzsignsignergroupDescription1", json_schema_extra={"examples": ["RH"]})
+    s_ezsignsignergroup_description2: Optional[StrictStr] = Field(default=None, description="The description of the Ezsignsignergroup in English", alias="sEzsignsignergroupDescription2", json_schema_extra={"examples": ["HR"]})
     __properties: ClassVar[List[str]] = ["sEzsignsignergroupDescription1", "sEzsignsignergroupDescription2"]
 
     model_config = ConfigDict(

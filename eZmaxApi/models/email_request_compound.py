@@ -29,9 +29,9 @@ class EmailRequestCompound(BaseModel):
     """
     An Email Object and children to create a complete structure
     """ # noqa: E501
-    pki_email_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="pkiEmailID")
-    fki_emailtype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|", alias="fkiEmailtypeID")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
+    pki_email_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Email", alias="pkiEmailID", json_schema_extra={"examples": [22]})
+    fki_emailtype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Emailtype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home|", alias="fkiEmailtypeID", json_schema_extra={"examples": [1]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
     __properties: ClassVar[List[str]] = ["pkiEmailID", "fkiEmailtypeID", "sEmailAddress"]
 
     @field_validator('s_email_address')

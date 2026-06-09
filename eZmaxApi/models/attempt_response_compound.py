@@ -28,7 +28,7 @@ class AttemptResponseCompound(BaseModel):
     """
     An Attempt object and children to create a complete structure
     """ # noqa: E501
-    dt_attempt_start: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtAttemptStart")
+    dt_attempt_start: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtAttemptStart", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     s_attempt_result: StrictStr = Field(description="The Success or Failure message of the attempt when we tried to call the URL to deliver the webhook event.", alias="sAttemptResult")
     i_attempt_duration: StrictInt = Field(description="The number of second it took to process the webhook or get an error", alias="iAttemptDuration")
     __properties: ClassVar[List[str]] = ["dtAttemptStart", "sAttemptResult", "iAttemptDuration"]

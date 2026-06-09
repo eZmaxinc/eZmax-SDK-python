@@ -29,14 +29,14 @@ class CreditcarddetailResponseCompound(BaseModel):
     """
     A Creditcarddetail Object
     """ # noqa: E501
-    pki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="pkiCreditcarddetailID")
-    fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID")
-    i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits")
-    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
-    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
-    s_creditcarddetail_civic: Annotated[str, Field(strict=True)] = Field(description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic")
-    s_creditcarddetail_street: Annotated[str, Field(strict=True)] = Field(description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet")
-    s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip")
+    pki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="pkiCreditcarddetailID", json_schema_extra={"examples": [53]})
+    fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID", json_schema_extra={"examples": [2]})
+    i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits", json_schema_extra={"examples": [4242]})
+    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth", json_schema_extra={"examples": [10]})
+    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear", json_schema_extra={"examples": [2024]})
+    s_creditcarddetail_civic: Annotated[str, Field(strict=True)] = Field(description="The civic of the Creditcarddetail", alias="sCreditcarddetailCivic", json_schema_extra={"examples": ["2500"]})
+    s_creditcarddetail_street: Annotated[str, Field(strict=True)] = Field(description="The street of the Creditcarddetail", alias="sCreditcarddetailStreet", json_schema_extra={"examples": ["Daniel-Johnson Blvd"]})
+    s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip", json_schema_extra={"examples": ["H7T 2P6"]})
     __properties: ClassVar[List[str]] = ["pkiCreditcarddetailID", "fkiCreditcardtypeID", "iCreditcarddetailLastdigits", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "sCreditcarddetailCivic", "sCreditcarddetailStreet", "sCreditcarddetailZip"]
 
     @field_validator('s_creditcarddetail_civic')

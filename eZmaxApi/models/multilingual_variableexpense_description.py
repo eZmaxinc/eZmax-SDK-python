@@ -29,8 +29,8 @@ class MultilingualVariableexpenseDescription(BaseModel):
     """
     The description of the Variableexpense
     """ # noqa: E501
-    s_variableexpense_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in French", alias="sVariableexpenseDescription1")
-    s_variableexpense_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in English", alias="sVariableexpenseDescription2")
+    s_variableexpense_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in French", alias="sVariableexpenseDescription1", json_schema_extra={"examples": ["Équipements de bureau"]})
+    s_variableexpense_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in English", alias="sVariableexpenseDescription2", json_schema_extra={"examples": ["Office equipment"]})
     __properties: ClassVar[List[str]] = ["sVariableexpenseDescription1", "sVariableexpenseDescription2"]
 
     @field_validator('s_variableexpense_description1')

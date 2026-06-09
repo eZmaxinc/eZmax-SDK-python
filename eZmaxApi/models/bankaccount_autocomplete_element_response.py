@@ -29,9 +29,9 @@ class BankaccountAutocompleteElementResponse(BaseModel):
     """
     A Bankaccount AutocompleteElement Response
     """ # noqa: E501
-    pki_bankaccount_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Bankaccount", alias="pkiBankaccountID")
-    s_bankaccount_bankname: StrictStr = Field(description="The name of the bank", alias="sBankaccountBankname")
-    b_bankaccount_isactive: StrictBool = Field(description="Whether the Bankaccount is active or not", alias="bBankaccountIsactive")
+    pki_bankaccount_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Bankaccount", alias="pkiBankaccountID", json_schema_extra={"examples": [46]})
+    s_bankaccount_bankname: StrictStr = Field(description="The name of the bank", alias="sBankaccountBankname", json_schema_extra={"examples": ["ACME Inc"]})
+    b_bankaccount_isactive: StrictBool = Field(description="Whether the Bankaccount is active or not", alias="bBankaccountIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBankaccountID", "sBankaccountBankname", "bBankaccountIsactive"]
 
     model_config = ConfigDict(

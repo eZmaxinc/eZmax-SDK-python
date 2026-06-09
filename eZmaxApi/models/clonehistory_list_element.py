@@ -29,17 +29,17 @@ class ClonehistoryListElement(BaseModel):
     """
     A Clonehistory List Element
     """ # noqa: E501
-    pki_clonehistory_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Clonehistory", alias="pkiClonehistoryID")
-    fki_user_id_cloning: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloning")
-    fki_user_id_cloned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloned")
-    dt_clonehistory_firsthit: Annotated[str, Field(strict=True)] = Field(description="The firsthit of the Clonehistory", alias="dtClonehistoryFirsthit")
-    dt_clonehistory_lasthit: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The lasthit of the Clonehistory", alias="dtClonehistoryLasthit")
-    s_user_loginname_cloning: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloning")
-    s_user_firstname_cloning: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloning")
-    s_user_lastname_cloning: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloning")
-    s_user_loginname_cloned: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloned")
-    s_user_firstname_cloned: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloned")
-    s_user_lastname_cloned: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloned")
+    pki_clonehistory_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Clonehistory", alias="pkiClonehistoryID", json_schema_extra={"examples": [12]})
+    fki_user_id_cloning: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloning", json_schema_extra={"examples": [70]})
+    fki_user_id_cloned: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserIDCloned", json_schema_extra={"examples": [70]})
+    dt_clonehistory_firsthit: Annotated[str, Field(strict=True)] = Field(description="The firsthit of the Clonehistory", alias="dtClonehistoryFirsthit", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    dt_clonehistory_lasthit: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The lasthit of the Clonehistory", alias="dtClonehistoryLasthit", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    s_user_loginname_cloning: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloning", json_schema_extra={"examples": ["JohnDoe"]})
+    s_user_firstname_cloning: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloning", json_schema_extra={"examples": ["John"]})
+    s_user_lastname_cloning: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloning", json_schema_extra={"examples": ["Doe"]})
+    s_user_loginname_cloned: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginnameCloned", json_schema_extra={"examples": ["JohnDoe"]})
+    s_user_firstname_cloned: StrictStr = Field(description="The first name of the user", alias="sUserFirstnameCloned", json_schema_extra={"examples": ["John"]})
+    s_user_lastname_cloned: StrictStr = Field(description="The last name of the user", alias="sUserLastnameCloned", json_schema_extra={"examples": ["Doe"]})
     __properties: ClassVar[List[str]] = ["pkiClonehistoryID", "fkiUserIDCloning", "fkiUserIDCloned", "dtClonehistoryFirsthit", "dtClonehistoryLasthit", "sUserLoginnameCloning", "sUserFirstnameCloning", "sUserLastnameCloning", "sUserLoginnameCloned", "sUserFirstnameCloned", "sUserLastnameCloned"]
 
     @field_validator('dt_clonehistory_firsthit')

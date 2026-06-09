@@ -29,8 +29,8 @@ class EzsignformfieldgroupsignerRequestCompound(BaseModel):
     """
     An Ezsignformfieldgroupsigner Object and children to create a complete structure
     """ # noqa: E501
-    pki_ezsignformfieldgroupsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroupsigner", alias="pkiEzsignformfieldgroupsignerID")
-    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
+    pki_ezsignformfieldgroupsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroupsigner", alias="pkiEzsignformfieldgroupsignerID", json_schema_extra={"examples": [81]})
+    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupsignerID", "fkiEzsignfoldersignerassociationID"]
 
     model_config = ConfigDict(

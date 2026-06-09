@@ -29,9 +29,9 @@ class UsergroupexternalAutocompleteElementResponse(BaseModel):
     """
     A Usergroupexternal AutocompleteElement Response
     """ # noqa: E501
-    pki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="pkiUsergroupexternalID")
-    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
-    b_usergroupexternal_isactive: StrictBool = Field(description="Whether the Usergroupexternal is active or not", alias="bUsergroupexternalIsactive")
+    pki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="pkiUsergroupexternalID", json_schema_extra={"examples": [16]})
+    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName", json_schema_extra={"examples": ["Administrators"]})
+    b_usergroupexternal_isactive: StrictBool = Field(description="Whether the Usergroupexternal is active or not", alias="bUsergroupexternalIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalID", "sUsergroupexternalName", "bUsergroupexternalIsactive"]
 
     @field_validator('s_usergroupexternal_name')

@@ -29,13 +29,13 @@ class EzsigntemplatedocumentResponseCompound(BaseModel):
     """
     A Ezsigntemplatedocument Object
     """ # noqa: E501
-    pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID")
-    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
-    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName")
-    i_ezsigntemplatedocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal")
-    i_ezsigntemplatedocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplatedocumentSignaturetotal")
-    i_ezsigntemplatedocument_formfieldtotal: StrictInt = Field(description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplatedocumentFormfieldtotal")
-    b_ezsigntemplatedocument_hassignedsignatures: StrictBool = Field(description="If the Ezsigntemplatedocument contains signed signatures (From internal or external sources)", alias="bEzsigntemplatedocumentHassignedsignatures")
+    pki_ezsigntemplatedocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatedocument", alias="pkiEzsigntemplatedocumentID", json_schema_extra={"examples": [133]})
+    fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
+    s_ezsigntemplatedocument_name: StrictStr = Field(description="The name of the Ezsigntemplatedocument.", alias="sEzsigntemplatedocumentName", json_schema_extra={"examples": ["Standard Contract"]})
+    i_ezsigntemplatedocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplatedocument.", alias="iEzsigntemplatedocumentPagetotal", json_schema_extra={"examples": [5]})
+    i_ezsigntemplatedocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplate.", alias="iEzsigntemplatedocumentSignaturetotal", json_schema_extra={"examples": [8]})
+    i_ezsigntemplatedocument_formfieldtotal: StrictInt = Field(description="The number of total form fields in the Ezsigntemplate.", alias="iEzsigntemplatedocumentFormfieldtotal", json_schema_extra={"examples": [8]})
+    b_ezsigntemplatedocument_hassignedsignatures: StrictBool = Field(description="If the Ezsigntemplatedocument contains signed signatures (From internal or external sources)", alias="bEzsigntemplatedocumentHassignedsignatures", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentID", "fkiEzsigntemplateID", "sEzsigntemplatedocumentName", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplatedocumentSignaturetotal", "iEzsigntemplatedocumentFormfieldtotal", "bEzsigntemplatedocumentHassignedsignatures"]
 
     model_config = ConfigDict(

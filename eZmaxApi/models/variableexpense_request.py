@@ -31,11 +31,11 @@ class VariableexpenseRequest(BaseModel):
     """
     A Variableexpense Object
     """ # noqa: E501
-    pki_variableexpense_id: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID")
-    s_variableexpense_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Variableexpense", alias="sVariableexpenseCode")
+    pki_variableexpense_id: Optional[Annotated[int, Field(le=255, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID", json_schema_extra={"examples": [2]})
+    s_variableexpense_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Variableexpense", alias="sVariableexpenseCode", json_schema_extra={"examples": ["EQBUR"]})
     obj_variableexpense_description: MultilingualVariableexpenseDescription = Field(alias="objVariableexpenseDescription")
     e_variableexpense_taxable: FieldEVariableexpenseTaxable = Field(alias="eVariableexpenseTaxable")
-    b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive")
+    b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiVariableexpenseID", "sVariableexpenseCode", "objVariableexpenseDescription", "eVariableexpenseTaxable", "bVariableexpenseIsactive"]
 
     @field_validator('s_variableexpense_code')

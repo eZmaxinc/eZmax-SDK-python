@@ -29,8 +29,8 @@ class CustomAttachmentImportIntoEDMResponse(BaseModel):
     """
     A AttachmentImportIntoEDM object
     """ # noqa: E501
-    pki_attachment_id_source: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="pkiAttachmentIDSource")
-    pki_attachment_id_new: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="pkiAttachmentIDNew")
+    pki_attachment_id_source: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="pkiAttachmentIDSource", json_schema_extra={"examples": [1]})
+    pki_attachment_id_new: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachment.", alias="pkiAttachmentIDNew", json_schema_extra={"examples": [1]})
     e_attachment_status: Optional[StrictStr] = Field(default=None, alias="eAttachmentStatus")
     b_allow_overwrite: Optional[StrictBool] = Field(default=None, description="Whether we allow or not the file overwrite", alias="bAllowOverwrite")
     __properties: ClassVar[List[str]] = ["pkiAttachmentIDSource", "pkiAttachmentIDNew", "eAttachmentStatus", "bAllowOverwrite"]

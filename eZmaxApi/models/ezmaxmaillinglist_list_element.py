@@ -29,10 +29,10 @@ class EzmaxmaillinglistListElement(BaseModel):
     """
     A Ezmaxmaillinglist List Element
     """ # noqa: E501
-    pki_ezmaxmaillinglist_id: Annotated[int, Field(le=127, strict=True, ge=0)] = Field(description="The unique ID of the Ezmaxmaillinglist", alias="pkiEzmaxmaillinglistID")
-    s_ezmaxmaillinglist_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezmaxmaillinglist in the language of the requester", alias="sEzmaxmaillinglistNameX")
-    s_ezmaxmaillinglist_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezmaxmaillinglist in the language of the requester", alias="sEzmaxmaillinglistDescriptionX")
-    b_ezmaxmaillinglist_subscribed: StrictBool = Field(description="Whether the user subscribed to this Ezmaxmaillinglistor not", alias="bEzmaxmaillinglistSubscribed")
+    pki_ezmaxmaillinglist_id: Annotated[int, Field(le=127, strict=True, ge=0)] = Field(description="The unique ID of the Ezmaxmaillinglist", alias="pkiEzmaxmaillinglistID", json_schema_extra={"examples": [102]})
+    s_ezmaxmaillinglist_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezmaxmaillinglist in the language of the requester", alias="sEzmaxmaillinglistNameX", json_schema_extra={"examples": ["Service status"]})
+    s_ezmaxmaillinglist_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezmaxmaillinglist in the language of the requester", alias="sEzmaxmaillinglistDescriptionX", json_schema_extra={"examples": ["Outages, slowdowns, maintenance, incidents, and restoration of normal service."]})
+    b_ezmaxmaillinglist_subscribed: StrictBool = Field(description="Whether the user subscribed to this Ezmaxmaillinglistor not", alias="bEzmaxmaillinglistSubscribed", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxmaillinglistID", "sEzmaxmaillinglistNameX", "sEzmaxmaillinglistDescriptionX", "bEzmaxmaillinglistSubscribed"]
 
     @field_validator('s_ezmaxmaillinglist_name_x')

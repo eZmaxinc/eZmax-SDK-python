@@ -29,7 +29,7 @@ class DiscussionUpdateDiscussionreadstatusV1Request(BaseModel):
     """
     Request for POST /1/object/discussion/{pkiDiscussionID}/updateDiscussionreadstatus
     """ # noqa: E501
-    dt_discussionreadstatus_date: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date of the last discussion message read", alias="dtDiscussionreadstatusDate")
+    dt_discussionreadstatus_date: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date of the last discussion message read", alias="dtDiscussionreadstatusDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["dtDiscussionreadstatusDate"]
 
     @field_validator('dt_discussionreadstatus_date')

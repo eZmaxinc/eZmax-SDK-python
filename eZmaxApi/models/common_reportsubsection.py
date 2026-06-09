@@ -31,12 +31,12 @@ class CommonReportsubsection(BaseModel):
     A Subsection in a Reportsection. It contains 3 Reportsubsectionparts (Header, Body and Footer) 
     """ # noqa: E501
     a_obj_reportcolumn: List[CommonReportcolumn] = Field(alias="a_objReportcolumn")
-    i_reportsubsection_columncount: StrictInt = Field(description="The number of Reportcolumns in the Reportsection", alias="iReportsubsectionColumncount")
-    i_reportsubsection_width: StrictInt = Field(description="The combined width of all the Reportcolumns in the Reportsection", alias="iReportsubsectionWidth")
+    i_reportsubsection_columncount: StrictInt = Field(description="The number of Reportcolumns in the Reportsection", alias="iReportsubsectionColumncount", json_schema_extra={"examples": [5]})
+    i_reportsubsection_width: StrictInt = Field(description="The combined width of all the Reportcolumns in the Reportsection", alias="iReportsubsectionWidth", json_schema_extra={"examples": [1200]})
     obj_reportsubsectionpart_header: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartHeader")
     obj_reportsubsectionpart_body: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartBody")
     obj_reportsubsectionpart_footer: CommonReportsubsectionpart = Field(alias="objReportsubsectionpartFooter")
-    s_reportsubsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsubsection", alias="sReportsubsectionTitle")
+    s_reportsubsection_title: Optional[StrictStr] = Field(default=None, description="The title of this Reportsubsection", alias="sReportsubsectionTitle", json_schema_extra={"examples": ["text"]})
     __properties: ClassVar[List[str]] = ["a_objReportcolumn", "iReportsubsectionColumncount", "iReportsubsectionWidth", "objReportsubsectionpartHeader", "objReportsubsectionpartBody", "objReportsubsectionpartFooter", "sReportsubsectionTitle"]
 
     model_config = ConfigDict(

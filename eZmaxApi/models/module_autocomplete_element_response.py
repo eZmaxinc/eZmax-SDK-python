@@ -29,9 +29,9 @@ class ModuleAutocompleteElementResponse(BaseModel):
     """
     A Module AutocompleteElement Response
     """ # noqa: E501
-    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID")
-    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX")
-    b_module_isactive: StrictBool = Field(description="Whether the Module is active or not", alias="bModuleIsactive")
+    pki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="pkiModuleID", json_schema_extra={"examples": [40]})
+    s_module_name_x: StrictStr = Field(description="The Name of the Module in the language of the requester", alias="sModuleNameX", json_schema_extra={"examples": ["Purchase"]})
+    b_module_isactive: StrictBool = Field(description="Whether the Module is active or not", alias="bModuleIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiModuleID", "sModuleNameX", "bModuleIsactive"]
 
     model_config = ConfigDict(

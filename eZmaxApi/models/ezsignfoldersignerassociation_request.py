@@ -29,12 +29,12 @@ class EzsignfoldersignerassociationRequest(BaseModel):
     """
     An Ezsignfoldersignerassociation Object
     """ # noqa: E501
-    pki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
-    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
+    pki_ezsignfoldersignerassociation_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldersignerassociation", alias="pkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID", json_schema_extra={"examples": [27]})
+    fki_ezsignfolder_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
     b_ezsignfoldersignerassociation_receivecopy: Optional[StrictBool] = Field(default=None, description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsignfoldersignerassociationReceivecopy")
-    t_ezsignfoldersignerassociation_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage")
+    t_ezsignfoldersignerassociation_message: Optional[StrictStr] = Field(default=None, description="A custom text message that will be added to the email sent.", alias="tEzsignfoldersignerassociationMessage", json_schema_extra={"examples": ["Hi John,\n\nThis is the document I need you to review.\n\nCould you sign it before Monday please.\n\nBest Regards.\n\nMary"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignfoldersignerassociationID", "fkiUserID", "fkiEzsignsignergroupID", "fkiEzsignfolderID", "bEzsignfoldersignerassociationReceivecopy", "tEzsignfoldersignerassociationMessage"]
 
     model_config = ConfigDict(

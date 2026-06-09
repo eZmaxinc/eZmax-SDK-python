@@ -29,9 +29,9 @@ class UsergroupexternalRequestCompound(BaseModel):
     """
     A Usergroupexternal Object and children
     """ # noqa: E501
-    pki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="pkiUsergroupexternalID")
-    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
-    s_usergroupexternal_id: Annotated[str, Field(strict=True)] = Field(description="The id of the Usergroupexternal", alias="sUsergroupexternalID")
+    pki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="pkiUsergroupexternalID", json_schema_extra={"examples": [16]})
+    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName", json_schema_extra={"examples": ["Administrators"]})
+    s_usergroupexternal_id: Annotated[str, Field(strict=True)] = Field(description="The id of the Usergroupexternal", alias="sUsergroupexternalID", json_schema_extra={"examples": ["5140-1542"]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalID", "sUsergroupexternalName", "sUsergroupexternalID"]
 
     @field_validator('s_usergroupexternal_name')

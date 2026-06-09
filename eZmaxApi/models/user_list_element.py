@@ -32,18 +32,18 @@ class UserListElement(BaseModel):
     """
     A User List Element
     """ # noqa: E501
-    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
-    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive")
-    b_user_suspended: Optional[StrictBool] = Field(default=None, description="Whether the User is suspended or not", alias="bUserSuspended")
+    pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
+    b_user_isactive: StrictBool = Field(description="Whether the User is active or not", alias="bUserIsactive", json_schema_extra={"examples": [True]})
+    b_user_suspended: Optional[StrictBool] = Field(default=None, description="Whether the User is suspended or not", alias="bUserSuspended", json_schema_extra={"examples": [True]})
     e_user_type: FieldEUserType = Field(alias="eUserType")
     e_user_origin: FieldEUserOrigin = Field(alias="eUserOrigin")
     e_user_ezsignaccess: FieldEUserEzsignaccess = Field(alias="eUserEzsignaccess")
-    dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
-    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
+    dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration", json_schema_extra={"examples": ["2020-12-31"]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle", json_schema_extra={"examples": ["Sales Representative"]})
     __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "bUserSuspended", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
 
     @field_validator('s_user_loginname')

@@ -30,8 +30,8 @@ class EzsignuserRequestCompound(BaseModel):
     """
     A Ezsignuser Object and children
     """ # noqa: E501
-    pki_ezsignuser_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID")
-    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID")
+    pki_ezsignuser_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID", json_schema_extra={"examples": [94]})
+    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID", json_schema_extra={"examples": [21]})
     obj_contact: ContactRequestCompoundV2 = Field(alias="objContact")
     __properties: ClassVar[List[str]] = ["pkiEzsignuserID", "fkiContactID", "objContact"]
 

@@ -30,12 +30,12 @@ class ContactRequestCompound(BaseModel):
     """
     A Contact Object and children to create a complete structure
     """ # noqa: E501
-    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
-    s_contact_company: StrictStr = Field(description="The Company name of the contact", alias="sContactCompany")
-    dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate")
+    fki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="fkiContacttitleID", json_schema_extra={"examples": [2]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname", json_schema_extra={"examples": ["John"]})
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname", json_schema_extra={"examples": ["Doe"]})
+    s_contact_company: StrictStr = Field(description="The Company name of the contact", alias="sContactCompany", json_schema_extra={"examples": ["eZmax Solutions Inc."]})
+    dt_contact_birthdate: Optional[StrictStr] = Field(default=None, description="The Birth Date of the contact", alias="dtContactBirthdate", json_schema_extra={"examples": ["1980-01-01"]})
     obj_contactinformations: ContactinformationsRequestCompound = Field(alias="objContactinformations")
     __properties: ClassVar[List[str]] = ["fkiContacttitleID", "fkiLanguageID", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "objContactinformations"]
 

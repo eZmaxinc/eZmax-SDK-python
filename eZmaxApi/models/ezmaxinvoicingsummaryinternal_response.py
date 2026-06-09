@@ -30,12 +30,12 @@ class EzmaxinvoicingsummaryinternalResponse(BaseModel):
     """
     A Ezmaxinvoicingsummaryinternal Object
     """ # noqa: E501
-    pki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="pkiEzmaxinvoicingsummaryinternalID")
+    pki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="pkiEzmaxinvoicingsummaryinternalID", json_schema_extra={"examples": [57]})
     obj_ezmaxinvoicingsummaryinternal_description: MultilingualEzmaxinvoicingsummaryinternalDescription = Field(alias="objEzmaxinvoicingsummaryinternalDescription")
-    s_ezmaxinvoicingsummaryinternal_description_x: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The Ezmaxinvoicingsummaryinternal description in the language of the requester", alias="sEzmaxinvoicingsummaryinternalDescriptionX")
-    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID")
-    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
+    s_ezmaxinvoicingsummaryinternal_description_x: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The Ezmaxinvoicingsummaryinternal description in the language of the requester", alias="sEzmaxinvoicingsummaryinternalDescriptionX", json_schema_extra={"examples": ["Défaut"]})
+    fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID", json_schema_extra={"examples": [28]})
+    fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID", json_schema_extra={"examples": [1]})
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryinternalID", "objEzmaxinvoicingsummaryinternalDescription", "sEzmaxinvoicingsummaryinternalDescriptionX", "fkiEzmaxinvoicingID", "fkiBillingentityinternalID", "sBillingentityinternalDescriptionX"]
 
     model_config = ConfigDict(

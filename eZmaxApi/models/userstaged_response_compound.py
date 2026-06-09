@@ -29,12 +29,12 @@ class UserstagedResponseCompound(BaseModel):
     """
     A Userstaged Object
     """ # noqa: E501
-    pki_userstaged_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Userstaged", alias="pkiUserstagedID")
-    fki_email_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Email", alias="fkiEmailID")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
-    s_userstaged_firstname: Annotated[str, Field(strict=True)] = Field(description="The firstname of the Userstaged", alias="sUserstagedFirstname")
-    s_userstaged_lastname: Annotated[str, Field(strict=True)] = Field(description="The lastname of the Userstaged", alias="sUserstagedLastname")
-    s_userstaged_externalid: Annotated[str, Field(strict=True)] = Field(description="The externalid of the Userstaged", alias="sUserstagedExternalid")
+    pki_userstaged_id: Annotated[int, Field(le=65535, strict=True, ge=1)] = Field(description="The unique ID of the Userstaged", alias="pkiUserstagedID", json_schema_extra={"examples": [90]})
+    fki_email_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Email", alias="fkiEmailID", json_schema_extra={"examples": [22]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_userstaged_firstname: Annotated[str, Field(strict=True)] = Field(description="The firstname of the Userstaged", alias="sUserstagedFirstname", json_schema_extra={"examples": ["Jane"]})
+    s_userstaged_lastname: Annotated[str, Field(strict=True)] = Field(description="The lastname of the Userstaged", alias="sUserstagedLastname", json_schema_extra={"examples": ["Doe"]})
+    s_userstaged_externalid: Annotated[str, Field(strict=True)] = Field(description="The externalid of the Userstaged", alias="sUserstagedExternalid", json_schema_extra={"examples": ["azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e"]})
     __properties: ClassVar[List[str]] = ["pkiUserstagedID", "fkiEmailID", "sEmailAddress", "sUserstagedFirstname", "sUserstagedLastname", "sUserstagedExternalid"]
 
     @field_validator('s_email_address')

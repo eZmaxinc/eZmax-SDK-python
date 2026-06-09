@@ -32,18 +32,18 @@ class WebhookRequest(BaseModel):
     """
     A Webhook Object
     """ # noqa: E501
-    pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID")
-    fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID")
-    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
+    pki_webhook_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Webhook", alias="pkiWebhookID", json_schema_extra={"examples": [77]})
+    fki_authenticationexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Authenticationexternal", alias="fkiAuthenticationexternalID", json_schema_extra={"examples": [56]})
+    fki_ezsignfoldertype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription", json_schema_extra={"examples": ["Import into our system"]})
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
-    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
-    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
-    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
-    b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned")
-    b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation")
+    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl", json_schema_extra={"examples": ["https://www.example.com"]})
+    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed", json_schema_extra={"examples": ["email@example.com"]})
+    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive", json_schema_extra={"examples": [True]})
+    b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned", json_schema_extra={"examples": [True]})
+    b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation"]
 
     @field_validator('s_webhook_url')

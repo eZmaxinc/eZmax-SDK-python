@@ -29,7 +29,7 @@ class ScimEmail(BaseModel):
     """
     ScimEmail
     """ # noqa: E501
-    value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.")
+    value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", json_schema_extra={"examples": ["email@example.com"]})
     primary: Optional[StrictBool] = None
     __properties: ClassVar[List[str]] = ["value", "primary"]
 

@@ -28,7 +28,7 @@ class WebsocketResponseInformationV1MPayload(BaseModel):
     """
     Payload for Websocket Information V1
     """ # noqa: E501
-    s_information_message: StrictStr = Field(description="Information message", alias="sInformationMessage")
+    s_information_message: StrictStr = Field(description="Information message", alias="sInformationMessage", json_schema_extra={"examples": ["Rasterizing pages"]})
     __properties: ClassVar[List[str]] = ["sInformationMessage"]
 
     model_config = ConfigDict(

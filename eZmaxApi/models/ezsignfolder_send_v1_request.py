@@ -28,7 +28,7 @@ class EzsignfolderSendV1Request(BaseModel):
     """
     Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/send
     """ # noqa: E501
-    t_extra_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tExtraMessage")
+    t_extra_message: StrictStr = Field(description="A custom text message that will be added to the email sent.", alias="tExtraMessage", json_schema_extra={"examples": ["Hi John,\n\nThis is the document I need you to review.\n\nCould you sign it before Monday please.\n\nBest Regards.\n\nMary"]})
     __properties: ClassVar[List[str]] = ["tExtraMessage"]
 
     model_config = ConfigDict(

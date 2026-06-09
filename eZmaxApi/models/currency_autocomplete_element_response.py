@@ -29,9 +29,9 @@ class CurrencyAutocompleteElementResponse(BaseModel):
     """
     A Currency AutocompleteElement Response
     """ # noqa: E501
-    pki_currency_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Currency.", alias="pkiCurrencyID")
-    s_currency_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Currency in the language of the requester", alias="sCurrencyDescriptionX")
-    b_currency_isactive: StrictBool = Field(description="Whether the Currency is active or not", alias="bCurrencyIsactive")
+    pki_currency_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Currency.", alias="pkiCurrencyID", json_schema_extra={"examples": [1]})
+    s_currency_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Currency in the language of the requester", alias="sCurrencyDescriptionX", json_schema_extra={"examples": ["Canadian"]})
+    b_currency_isactive: StrictBool = Field(description="Whether the Currency is active or not", alias="bCurrencyIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCurrencyID", "sCurrencyDescriptionX", "bCurrencyIsactive"]
 
     @field_validator('s_currency_description_x')

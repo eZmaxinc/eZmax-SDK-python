@@ -29,14 +29,14 @@ class UsergroupexternalmembershipResponseCompound(BaseModel):
     """
     A Usergroupexternalmembership Object
     """ # noqa: E501
-    pki_usergroupexternalmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternalmembership", alias="pkiUsergroupexternalmembershipID")
-    fki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID")
-    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
-    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName")
+    pki_usergroupexternalmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternalmembership", alias="pkiUsergroupexternalmembershipID", json_schema_extra={"examples": [21]})
+    fki_usergroupexternal_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID", json_schema_extra={"examples": [16]})
+    fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_usergroupexternal_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Usergroupexternal", alias="sUsergroupexternalName", json_schema_extra={"examples": ["Administrators"]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalmembershipID", "fkiUsergroupexternalID", "fkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "sEmailAddress", "sUsergroupexternalName"]
 
     @field_validator('s_user_loginname')

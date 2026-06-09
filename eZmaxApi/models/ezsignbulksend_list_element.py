@@ -29,17 +29,17 @@ class EzsignbulksendListElement(BaseModel):
     """
     An Ezsignbulksend List Element
     """ # noqa: E501
-    pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID")
-    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID")
-    s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription")
-    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX")
+    pki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="pkiEzsignbulksendID", json_schema_extra={"examples": [8]})
+    fki_ezsignfoldertype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldertype.", alias="fkiEzsignfoldertypeID", json_schema_extra={"examples": [5]})
+    s_ezsignbulksend_description: StrictStr = Field(description="The description of the Ezsignbulksend", alias="sEzsignbulksendDescription", json_schema_extra={"examples": ["Test eZsign Bulk Send"]})
+    s_ezsignfoldertype_name_x: StrictStr = Field(description="The name of the Ezsignfoldertype in the language of the requester", alias="sEzsignfoldertypeNameX", json_schema_extra={"examples": ["Default"]})
     b_ezsignbulksend_needvalidation: StrictBool = Field(description="Whether the Ezsigntemplatepackage was automatically modified and needs a manual validation", alias="bEzsignbulksendNeedvalidation")
     i_ezsignbulksendtransmission: StrictInt = Field(description="The total number of Ezsignbulksendtransmissions in the Ezsignbulksend", alias="iEzsignbulksendtransmission")
     i_ezsignfolder: StrictInt = Field(description="The total number of Ezsignfolders in the Ezsignbulksend", alias="iEzsignfolder")
     i_ezsigndocument: StrictInt = Field(description="The total number of Ezsigndocuments in the Ezsignbulksend", alias="iEzsigndocument")
     i_ezsignsignature: StrictInt = Field(description="The total number of Ezsignsignature in the Ezsignbulksend", alias="iEzsignsignature")
     i_ezsignsignature_signed: StrictInt = Field(description="The total number of already signed Ezsignsignature blocks in the Ezsignbulksend", alias="iEzsignsignatureSigned")
-    b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive")
+    b_ezsignbulksend_isactive: StrictBool = Field(description="Whether the Ezsignbulksend is active or not", alias="bEzsignbulksendIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksendID", "fkiEzsignfoldertypeID", "sEzsignbulksendDescription", "sEzsignfoldertypeNameX", "bEzsignbulksendNeedvalidation", "iEzsignbulksendtransmission", "iEzsignfolder", "iEzsigndocument", "iEzsignsignature", "iEzsignsignatureSigned", "bEzsignbulksendIsactive"]
 
     model_config = ConfigDict(

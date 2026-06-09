@@ -30,12 +30,12 @@ class EzsignimportfolderListElement(BaseModel):
     """
     A Ezsignimportfolder List Element
     """ # noqa: E501
-    pki_ezsignimportfolder_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportfolder", alias="pkiEzsignimportfolderID")
-    s_ezsignimportfolder_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportfolder", alias="sEzsignimportfolderName")
-    dt_created_date: Optional[StrictStr] = Field(default=None, description="The date and time at which the object was created", alias="dtCreatedDate")
-    dt_modified_date: Optional[StrictStr] = Field(default=None, description="The date and time at which the object was last modified", alias="dtModifiedDate")
-    i_total_ezsignimportdocument: Optional[StrictInt] = Field(default=None, description="The count of Ezsignimportdocument.", alias="iTotalEzsignimportdocument")
-    i_total_ezsignimportdocument_not_imported: Optional[StrictInt] = Field(default=None, description="The count of Ezsignimportdocument not imported in an Ezsignfolder.", alias="iTotalEzsignimportdocumentNotImported")
+    pki_ezsignimportfolder_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportfolder", alias="pkiEzsignimportfolderID", json_schema_extra={"examples": [209]})
+    s_ezsignimportfolder_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportfolder", alias="sEzsignimportfolderName", json_schema_extra={"examples": ["Promesse d'achat"]})
+    dt_created_date: Optional[StrictStr] = Field(default=None, description="The date and time at which the object was created", alias="dtCreatedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    dt_modified_date: Optional[StrictStr] = Field(default=None, description="The date and time at which the object was last modified", alias="dtModifiedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    i_total_ezsignimportdocument: Optional[StrictInt] = Field(default=None, description="The count of Ezsignimportdocument.", alias="iTotalEzsignimportdocument", json_schema_extra={"examples": [4]})
+    i_total_ezsignimportdocument_not_imported: Optional[StrictInt] = Field(default=None, description="The count of Ezsignimportdocument not imported in an Ezsignfolder.", alias="iTotalEzsignimportdocumentNotImported", json_schema_extra={"examples": [4]})
     e_ezsignimportfolder_status: Optional[ComputedEEzsignimportfolderStatus] = Field(default=None, alias="eEzsignimportfolderStatus")
     __properties: ClassVar[List[str]] = ["pkiEzsignimportfolderID", "sEzsignimportfolderName", "dtCreatedDate", "dtModifiedDate", "iTotalEzsignimportdocument", "iTotalEzsignimportdocumentNotImported", "eEzsignimportfolderStatus"]
 

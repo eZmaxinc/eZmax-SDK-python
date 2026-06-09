@@ -28,8 +28,8 @@ class MultilingualVersionhistoryDetail(BaseModel):
     """
     Detail of the Versionhistory
     """ # noqa: E501
-    t_versionhistory_detail1: Optional[StrictStr] = Field(default=None, description="Detail of the Versionhistory in French", alias="tVersionhistoryDetail1")
-    t_versionhistory_detail2: Optional[StrictStr] = Field(default=None, description="Detail of the Versionhistory in English", alias="tVersionhistoryDetail2")
+    t_versionhistory_detail1: Optional[StrictStr] = Field(default=None, description="Detail of the Versionhistory in French", alias="tVersionhistoryDetail1", json_schema_extra={"examples": ["Message important"]})
+    t_versionhistory_detail2: Optional[StrictStr] = Field(default=None, description="Detail of the Versionhistory in English", alias="tVersionhistoryDetail2", json_schema_extra={"examples": ["Important message"]})
     __properties: ClassVar[List[str]] = ["tVersionhistoryDetail1", "tVersionhistoryDetail2"]
 
     model_config = ConfigDict(

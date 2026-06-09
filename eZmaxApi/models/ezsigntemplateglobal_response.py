@@ -31,16 +31,16 @@ class EzsigntemplateglobalResponse(BaseModel):
     """
     A Ezsigntemplateglobal Object
     """ # noqa: E501
-    pki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID")
-    fki_ezsigntemplateglobaldocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocument", alias="fkiEzsigntemplateglobaldocumentID")
-    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID")
-    s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX")
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX")
+    pki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID", json_schema_extra={"examples": [36]})
+    fki_ezsigntemplateglobaldocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocument", alias="fkiEzsigntemplateglobaldocumentID", json_schema_extra={"examples": [133]})
+    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID", json_schema_extra={"examples": [40]})
+    s_module_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Module in the language of the requester", alias="sModuleNameX", json_schema_extra={"examples": ["Purchase"]})
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_language_name_x: StrictStr = Field(description="The Name of the Language in the language of the requester", alias="sLanguageNameX", json_schema_extra={"examples": ["English"]})
     e_ezsigntemplateglobal_module: FieldEEzsigntemplateglobalModule = Field(alias="eEzsigntemplateglobalModule")
     e_ezsigntemplateglobal_supplier: FieldEEzsigntemplateglobalSupplier = Field(alias="eEzsigntemplateglobalSupplier")
-    s_ezsigntemplateglobal_code: Annotated[str, Field(strict=True)] = Field(description="The Code of the Ezsigntemplateglobal", alias="sEzsigntemplateglobalCode")
-    s_ezsigntemplateglobal_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription")
+    s_ezsigntemplateglobal_code: Annotated[str, Field(strict=True)] = Field(description="The Code of the Ezsigntemplateglobal", alias="sEzsigntemplateglobalCode", json_schema_extra={"examples": ["DR-FR"]})
+    s_ezsigntemplateglobal_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalID", "fkiEzsigntemplateglobaldocumentID", "fkiModuleID", "sModuleNameX", "fkiLanguageID", "sLanguageNameX", "eEzsigntemplateglobalModule", "eEzsigntemplateglobalSupplier", "sEzsigntemplateglobalCode", "sEzsigntemplateglobalDescription"]
 
     @field_validator('s_ezsigntemplateglobal_code')

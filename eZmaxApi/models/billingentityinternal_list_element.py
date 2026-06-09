@@ -29,8 +29,8 @@ class BillingentityinternalListElement(BaseModel):
     """
     A Billingentityinternal List Element
     """ # noqa: E501
-    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID")
-    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX")
+    pki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="pkiBillingentityinternalID", json_schema_extra={"examples": [1]})
+    s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["pkiBillingentityinternalID", "sBillingentityinternalDescriptionX"]
 
     model_config = ConfigDict(

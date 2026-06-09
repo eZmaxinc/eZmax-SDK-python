@@ -29,9 +29,9 @@ class WebsiteResponse(BaseModel):
     """
     A Website Object
     """ # noqa: E501
-    pki_website_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Website Default", alias="pkiWebsiteID")
-    fki_websitetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey|", alias="fkiWebsitetypeID")
-    s_website_address: StrictStr = Field(description="The URL of the website.", alias="sWebsiteAddress")
+    pki_website_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Website Default", alias="pkiWebsiteID", json_schema_extra={"examples": [145]})
+    fki_websitetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Websitetype.  Valid values:  |Value|Description| |-|-| |1|Website| |2|Twitter| |3|Facebook| |4|Survey|", alias="fkiWebsitetypeID", json_schema_extra={"examples": [1]})
+    s_website_address: StrictStr = Field(description="The URL of the website.", alias="sWebsiteAddress", json_schema_extra={"examples": ["https://www.example.com"]})
     __properties: ClassVar[List[str]] = ["pkiWebsiteID", "fkiWebsitetypeID", "sWebsiteAddress"]
 
     model_config = ConfigDict(

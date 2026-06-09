@@ -30,13 +30,13 @@ class CommonResponseErrorWrongFranchiseoffice(BaseModel):
     """
     Error Message when a Franchisebroker is not in this Franchiseoffice.
     """ # noqa: E501
-    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
+    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage", json_schema_extra={"examples": ["Invalid Signature Headers"]})
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
     a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
-    fki_franchiseagence_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Franchiseagence", alias="fkiFranchiseagenceID")
-    s_franchiseagence_name: StrictStr = Field(description="The name of the Franchiseagence", alias="sFranchiseagenceName")
-    fki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID")
-    i_franchiseoffice_code: StrictStr = Field(description="The code of the Franchiseoffice", alias="iFranchiseofficeCode")
+    fki_franchiseagence_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Franchiseagence", alias="fkiFranchiseagenceID", json_schema_extra={"examples": [117]})
+    s_franchiseagence_name: StrictStr = Field(description="The name of the Franchiseagence", alias="sFranchiseagenceName", json_schema_extra={"examples": ["Default"]})
+    fki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="fkiFranchiseofficeID", json_schema_extra={"examples": [50]})
+    i_franchiseoffice_code: StrictStr = Field(description="The code of the Franchiseoffice", alias="iFranchiseofficeCode", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "fkiFranchiseagenceID", "sFranchiseagenceName", "fkiFranchiseofficeID", "iFranchiseofficeCode"]
 
     @field_validator('s_error_message')

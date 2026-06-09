@@ -30,10 +30,10 @@ class CustomFormDataSignerResponse(BaseModel):
     """
     A form Data Signer Object
     """ # noqa: E501
-    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname")
+    fki_ezsignfoldersignerassociation_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignfoldersignerassociation", alias="fkiEzsignfoldersignerassociationID", json_schema_extra={"examples": [20]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    s_contact_firstname: Annotated[str, Field(strict=True)] = Field(description="The First name of the contact", alias="sContactFirstname", json_schema_extra={"examples": ["John"]})
+    s_contact_lastname: Annotated[str, Field(strict=True)] = Field(description="The Last name of the contact", alias="sContactLastname", json_schema_extra={"examples": ["Doe"]})
     a_obj_ezsignformfieldgroup: List[CustomFormDataEzsignformfieldgroupResponse] = Field(alias="a_objEzsignformfieldgroup")
     __properties: ClassVar[List[str]] = ["fkiEzsignfoldersignerassociationID", "fkiUserID", "sContactFirstname", "sContactLastname", "a_objEzsignformfieldgroup"]
 

@@ -28,7 +28,7 @@ class EzsigndocumentExtractTextV1ResponseMPayload(BaseModel):
     """
     Response for POST /1/object/ezsigndocument/{pkiEzsigndocumentID}/ExtractText
     """ # noqa: E501
-    s_text: StrictStr = Field(description="The text extract from document", alias="sText")
+    s_text: StrictStr = Field(description="The text extract from document", alias="sText", json_schema_extra={"examples": ["Text extract from document"]})
     __properties: ClassVar[List[str]] = ["sText"]
 
     model_config = ConfigDict(

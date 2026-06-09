@@ -30,7 +30,7 @@ class CustomCreditcardRequest(BaseModel):
     """
     A Custom Creditcard Object
     """ # noqa: E501
-    fks_creditcardtoken_id: Annotated[str, Field(strict=True)] = Field(description="The creditcard token identifier", alias="fksCreditcardtokenID")
+    fks_creditcardtoken_id: Annotated[str, Field(strict=True)] = Field(description="The creditcard token identifier", alias="fksCreditcardtokenID", json_schema_extra={"examples": ["6B29FC40-CA47-1067-B31D-00DD010662DA"]})
     s_creditcard_cvv: Annotated[str, Field(strict=True)] = Field(description="The creditcard card CVV", alias="sCreditcardCVV")
     obj_creditcarddetail: CreditcarddetailRequest = Field(alias="objCreditcarddetail")
     __properties: ClassVar[List[str]] = ["fksCreditcardtokenID", "sCreditcardCVV", "objCreditcarddetail"]

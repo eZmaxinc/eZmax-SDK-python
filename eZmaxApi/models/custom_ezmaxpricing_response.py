@@ -29,10 +29,10 @@ class CustomEzmaxpricingResponse(BaseModel):
     """
     A Custom Ezmaxpricing Object
     """ # noqa: E501
-    pki_ezmaxpricing_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxpricing", alias="pkiEzmaxpricingID")
-    d_ezmaxpricing_rebateezsignallagents: Annotated[str, Field(strict=True)] = Field(description="The rebate offered when eZsign is taken for all agents", alias="dEzmaxpricingRebateezsignallagents")
-    dt_ezmaxpricing_start: StrictStr = Field(description="The start date of the Ezmaxpricing", alias="dtEzmaxpricingStart")
-    dt_ezmaxpricing_end: Optional[StrictStr] = Field(default=None, description="The end date of the Ezmaxpricing", alias="dtEzmaxpricingEnd")
+    pki_ezmaxpricing_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Ezmaxpricing", alias="pkiEzmaxpricingID", json_schema_extra={"examples": [28]})
+    d_ezmaxpricing_rebateezsignallagents: Annotated[str, Field(strict=True)] = Field(description="The rebate offered when eZsign is taken for all agents", alias="dEzmaxpricingRebateezsignallagents", json_schema_extra={"examples": ["90.00"]})
+    dt_ezmaxpricing_start: StrictStr = Field(description="The start date of the Ezmaxpricing", alias="dtEzmaxpricingStart", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_ezmaxpricing_end: Optional[StrictStr] = Field(default=None, description="The end date of the Ezmaxpricing", alias="dtEzmaxpricingEnd", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxpricingID", "dEzmaxpricingRebateezsignallagents", "dtEzmaxpricingStart", "dtEzmaxpricingEnd"]
 
     @field_validator('d_ezmaxpricing_rebateezsignallagents')

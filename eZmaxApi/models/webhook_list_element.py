@@ -32,16 +32,16 @@ class WebhookListElement(BaseModel):
     """
     A Webhook List Element
     """ # noqa: E501
-    pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID")
-    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription")
-    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl")
-    s_webhook_event: StrictStr = Field(description="The concatenated string to describe the Webhook event", alias="sWebhookEvent")
-    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed")
+    pki_webhook_id: StrictInt = Field(description="The unique ID of the Webhook", alias="pkiWebhookID", json_schema_extra={"examples": [77]})
+    s_webhook_description: StrictStr = Field(description="The description of the Webhook", alias="sWebhookDescription", json_schema_extra={"examples": ["Import into our system"]})
+    s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl", json_schema_extra={"examples": ["https://www.example.com"]})
+    s_webhook_event: StrictStr = Field(description="The concatenated string to describe the Webhook event", alias="sWebhookEvent", json_schema_extra={"examples": ["Ezsign-DocumentCompleted"]})
+    s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed", json_schema_extra={"examples": ["email@example.com"]})
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
-    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive")
-    b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned")
+    b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive", json_schema_extra={"examples": [True]})
+    b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "bWebhookIsactive", "bWebhookIssigned"]
 
     @field_validator('s_webhook_url')

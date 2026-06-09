@@ -30,11 +30,11 @@ class EzsigntemplateglobaldocumentResponse(BaseModel):
     """
     A Ezsigntemplateglobaldocument Object
     """ # noqa: E501
-    pki_ezsigntemplateglobaldocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocument", alias="pkiEzsigntemplateglobaldocumentID")
-    s_ezsigntemplateglobaldocument_name: StrictStr = Field(description="The name of the Ezsigntemplateglobaldocument.", alias="sEzsigntemplateglobaldocumentName")
+    pki_ezsigntemplateglobaldocument_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobaldocument", alias="pkiEzsigntemplateglobaldocumentID", json_schema_extra={"examples": [133]})
+    s_ezsigntemplateglobaldocument_name: StrictStr = Field(description="The name of the Ezsigntemplateglobaldocument.", alias="sEzsigntemplateglobaldocumentName", json_schema_extra={"examples": ["Standard Contract"]})
     e_ezsigntemplateglobaldocument_acceptationtype: FieldEEzsigntemplateglobaldocumentAcceptationtype = Field(alias="eEzsigntemplateglobaldocumentAcceptationtype")
-    i_ezsigntemplateglobaldocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplateglobaldocument.", alias="iEzsigntemplateglobaldocumentPagetotal")
-    i_ezsigntemplateglobaldocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplateglobal.", alias="iEzsigntemplateglobaldocumentSignaturetotal")
+    i_ezsigntemplateglobaldocument_pagetotal: Annotated[int, Field(strict=True, ge=1)] = Field(description="The number of pages in the Ezsigntemplateglobaldocument.", alias="iEzsigntemplateglobaldocumentPagetotal", json_schema_extra={"examples": [5]})
+    i_ezsigntemplateglobaldocument_signaturetotal: StrictInt = Field(description="The number of total signatures in the Ezsigntemplateglobal.", alias="iEzsigntemplateglobaldocumentSignaturetotal", json_schema_extra={"examples": [8]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobaldocumentID", "sEzsigntemplateglobaldocumentName", "eEzsigntemplateglobaldocumentAcceptationtype", "iEzsigntemplateglobaldocumentPagetotal", "iEzsigntemplateglobaldocumentSignaturetotal"]
 
     model_config = ConfigDict(

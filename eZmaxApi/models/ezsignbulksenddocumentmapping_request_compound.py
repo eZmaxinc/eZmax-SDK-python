@@ -29,10 +29,10 @@ class EzsignbulksenddocumentmappingRequestCompound(BaseModel):
     """
     A Ezsignbulksenddocumentmapping Object and children
     """ # noqa: E501
-    pki_ezsignbulksenddocumentmapping_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksenddocumentmapping.", alias="pkiEzsignbulksenddocumentmappingID")
-    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID")
-    fki_ezsigntemplatepackage_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID")
+    pki_ezsignbulksenddocumentmapping_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignbulksenddocumentmapping.", alias="pkiEzsignbulksenddocumentmappingID", json_schema_extra={"examples": [48]})
+    fki_ezsignbulksend_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsignbulksend", alias="fkiEzsignbulksendID", json_schema_extra={"examples": [8]})
+    fki_ezsigntemplatepackage_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    fki_ezsigntemplate_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
     __properties: ClassVar[List[str]] = ["pkiEzsignbulksenddocumentmappingID", "fkiEzsignbulksendID", "fkiEzsigntemplatepackageID", "fkiEzsigntemplateID"]
 
     model_config = ConfigDict(

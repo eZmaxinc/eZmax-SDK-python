@@ -29,9 +29,9 @@ class SupplyAutocompleteElementResponse(BaseModel):
     """
     A Supply AutocompleteElement Response
     """ # noqa: E501
-    pki_supply_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Supply", alias="pkiSupplyID")
-    s_supply_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Supply in the language of the requester", alias="sSupplyDescriptionX")
-    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive")
+    pki_supply_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Supply", alias="pkiSupplyID", json_schema_extra={"examples": [85]})
+    s_supply_description_x: Annotated[str, Field(strict=True)] = Field(description="The description of the Supply in the language of the requester", alias="sSupplyDescriptionX", json_schema_extra={"examples": ["Letter paper package"]})
+    b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiSupplyID", "sSupplyDescriptionX", "bSupplyIsactive"]
 
     @field_validator('s_supply_description_x')

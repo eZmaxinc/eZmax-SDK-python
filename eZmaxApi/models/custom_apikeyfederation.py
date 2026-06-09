@@ -30,7 +30,7 @@ class CustomApikeyfederation(BaseModel):
     A Custom Apikeyfederation Object
     """ # noqa: E501
     s_apikeyfederation_key: Annotated[str, Field(strict=True)] = Field(description="The key of the Apikeyfederation", alias="sApikeyfederationKey")
-    s_apikeyfederation_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikeyfederation", alias="sApikeyfederationSecret")
+    s_apikeyfederation_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikeyfederation", alias="sApikeyfederationSecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     __properties: ClassVar[List[str]] = ["sApikeyfederationKey", "sApikeyfederationSecret"]
 
     @field_validator('s_apikeyfederation_key')

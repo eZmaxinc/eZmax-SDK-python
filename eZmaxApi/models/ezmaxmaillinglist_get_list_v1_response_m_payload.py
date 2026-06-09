@@ -29,8 +29,8 @@ class EzmaxmaillinglistGetListV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/ezmaxmaillinglist/getList
     """ # noqa: E501
-    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned")
-    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered")
+    i_row_returned: StrictInt = Field(description="The number of rows returned", alias="iRowReturned", json_schema_extra={"examples": [100]})
+    i_row_filtered: StrictInt = Field(description="The number of rows matching your filters (if any) or the total number of rows", alias="iRowFiltered", json_schema_extra={"examples": [533]})
     a_obj_ezmaxmaillinglist: List[EzmaxmaillinglistListElement] = Field(alias="a_objEzmaxmaillinglist")
     __properties: ClassVar[List[str]] = ["iRowReturned", "iRowFiltered", "a_objEzmaxmaillinglist"]
 

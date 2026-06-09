@@ -30,12 +30,12 @@ class PhoneResponseCompound(BaseModel):
     """
     A Phone Object and children to create a complete structure
     """ # noqa: E501
-    pki_phone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phone.", alias="pkiPhoneID")
-    fki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="fkiPhonetypeID")
+    pki_phone_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phone.", alias="pkiPhoneID", json_schema_extra={"examples": [1]})
+    fki_phonetype_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Phonetype.  Valid values:  |Value|Description| |-|-| |1|Office| |2|Home| |3|Mobile| |4|Fax| |5|Pager| |6|Toll Free|", alias="fkiPhonetypeID", json_schema_extra={"examples": [1]})
     e_phone_type: Optional[FieldEPhoneType] = Field(default=None, alias="ePhoneType")
-    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
-    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
-    b_phone_international: Optional[StrictBool] = Field(default=None, description="Indicate the phone number is an international phone number.", alias="bPhoneInternational")
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164", json_schema_extra={"examples": ["+15149901516"]})
+    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension", json_schema_extra={"examples": ["123"]})
+    b_phone_international: Optional[StrictBool] = Field(default=None, description="Indicate the phone number is an international phone number.", alias="bPhoneInternational", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneE164", "sPhoneExtension", "bPhoneInternational"]
 
     @field_validator('s_phone_e164')

@@ -29,11 +29,11 @@ class CustomCommunicationsenderRequest(BaseModel):
     """
     A Communicationsender Object
     """ # noqa: E501
-    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID")
-    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID")
-    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID")
-    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID", json_schema_extra={"examples": [1]})
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID", json_schema_extra={"examples": [26]})
+    fki_mailboxshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Mailboxshared", alias="fkiMailboxsharedID", json_schema_extra={"examples": [47]})
+    fki_phonelineshared_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Phonelineshared", alias="fkiPhonelinesharedID", json_schema_extra={"examples": [47]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     __properties: ClassVar[List[str]] = ["fkiAgentID", "fkiBrokerID", "fkiMailboxsharedID", "fkiPhonelinesharedID", "fkiUserID"]
 
     model_config = ConfigDict(

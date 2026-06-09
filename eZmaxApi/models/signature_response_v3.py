@@ -30,11 +30,11 @@ class SignatureResponseV3(BaseModel):
     """
     A Signature Object
     """ # noqa: E501
-    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID")
-    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID")
+    pki_signature_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Signature", alias="pkiSignatureID", json_schema_extra={"examples": [12]})
+    fki_font_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Font", alias="fkiFontID", json_schema_extra={"examples": [1]})
     e_signature_preference: FieldESignaturePreference = Field(alias="eSignaturePreference")
-    b_signature_svg: StrictBool = Field(description="Whether the signature has a SVG or not", alias="bSignatureSvg")
-    b_signature_svginitials: StrictBool = Field(description="Whether the initials has a SVG or not", alias="bSignatureSvginitials")
+    b_signature_svg: StrictBool = Field(description="Whether the signature has a SVG or not", alias="bSignatureSvg", json_schema_extra={"examples": [False]})
+    b_signature_svginitials: StrictBool = Field(description="Whether the initials has a SVG or not", alias="bSignatureSvginitials", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "eSignaturePreference", "bSignatureSvg", "bSignatureSvginitials"]
 
     model_config = ConfigDict(

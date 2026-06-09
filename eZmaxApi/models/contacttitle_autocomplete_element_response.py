@@ -29,8 +29,8 @@ class ContacttitleAutocompleteElementResponse(BaseModel):
     """
     A Contacttitle AutocompleteElement Response
     """ # noqa: E501
-    pki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="pkiContacttitleID")
-    s_contacttitle_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX")
+    pki_contacttitle_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contacttitle.  Valid values:  |Value|Description| |-|-| |1|Ms.| |2|Mr.| |4|(Blank)| |5|Me (For Notaries)|", alias="pkiContacttitleID", json_schema_extra={"examples": [2]})
+    s_contacttitle_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX", json_schema_extra={"examples": ["Sir"]})
     __properties: ClassVar[List[str]] = ["pkiContacttitleID", "sContacttitleNameX"]
 
     @field_validator('s_contacttitle_name_x')

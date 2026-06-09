@@ -31,15 +31,15 @@ class EzsignelementdependencyRequest(BaseModel):
     """
     An Ezsignelementdependency Object
     """ # noqa: E501
-    pki_ezsignelementdependency_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID")
-    fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation")
-    fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation")
-    s_ezsignelementdependency_ezsignformfieldgrouplabel: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignelementdependencyEzsignformfieldgrouplabel")
-    s_ezsignelementdependency_ezsignformfieldlabel: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignelementdependencyEzsignformfieldlabel")
+    pki_ezsignelementdependency_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignelementdependency", alias="pkiEzsignelementdependencyID", json_schema_extra={"examples": [89]})
+    fki_ezsignformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfield", alias="fkiEzsignformfieldIDValidation", json_schema_extra={"examples": [32]})
+    fki_ezsignformfieldgroup_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignformfieldgroup", alias="fkiEzsignformfieldgroupIDValidation", json_schema_extra={"examples": [26]})
+    s_ezsignelementdependency_ezsignformfieldgrouplabel: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=50)]] = Field(default=None, description="The Label for the Ezsignformfieldgroup", alias="sEzsignelementdependencyEzsignformfieldgrouplabel", json_schema_extra={"examples": ["Allergies"]})
+    s_ezsignelementdependency_ezsignformfieldlabel: Optional[StrictStr] = Field(default=None, description="The Label for the Ezsignformfield", alias="sEzsignelementdependencyEzsignformfieldlabel", json_schema_extra={"examples": ["Peanuts"]})
     e_ezsignelementdependency_validation: FieldEEzsignelementdependencyValidation = Field(alias="eEzsignelementdependencyValidation")
-    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected", alias="bEzsignelementdependencySelected")
+    b_ezsignelementdependency_selected: Optional[StrictBool] = Field(default=None, description="Whether if it's selected or not when using eEzsignelementdependencyValidation = Selected", alias="bEzsignelementdependencySelected", json_schema_extra={"examples": [False]})
     e_ezsignelementdependency_operator: Optional[FieldEEzsignelementdependencyOperator] = Field(default=None, alias="eEzsignelementdependencyOperator")
-    s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue")
+    s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue", json_schema_extra={"examples": ["Montreal"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignelementdependencyID", "fkiEzsignformfieldIDValidation", "fkiEzsignformfieldgroupIDValidation", "sEzsignelementdependencyEzsignformfieldgrouplabel", "sEzsignelementdependencyEzsignformfieldlabel", "eEzsignelementdependencyValidation", "bEzsignelementdependencySelected", "eEzsignelementdependencyOperator", "sEzsignelementdependencyValue"]
 
     @field_validator('s_ezsignelementdependency_value')

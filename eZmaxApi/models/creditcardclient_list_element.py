@@ -29,17 +29,17 @@ class CreditcardclientListElement(BaseModel):
     """
     A Creditcardclient List Element
     """ # noqa: E501
-    pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID")
-    fki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="fkiCreditcarddetailID")
-    fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID")
-    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault")
-    b_creditcardclient_legacy: StrictBool = Field(description="Whether the Creditcardclient is legacy or not", alias="bCreditcardclientLegacy")
-    s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription")
-    b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment")
-    b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit")
-    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth")
-    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear")
-    i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits")
+    pki_creditcardclient_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardclient", alias="pkiCreditcardclientID", json_schema_extra={"examples": [114]})
+    fki_creditcarddetail_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Creditcarddetail", alias="fkiCreditcarddetailID", json_schema_extra={"examples": [53]})
+    fki_creditcardtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Creditcardtype", alias="fkiCreditcardtypeID", json_schema_extra={"examples": [2]})
+    b_creditcardclientrelation_isdefault: StrictBool = Field(description="Whether if it's the creditcardclient is the default one", alias="bCreditcardclientrelationIsdefault", json_schema_extra={"examples": [True]})
+    b_creditcardclient_legacy: StrictBool = Field(description="Whether the Creditcardclient is legacy or not", alias="bCreditcardclientLegacy", json_schema_extra={"examples": [False]})
+    s_creditcardclient_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Creditcardclient", alias="sCreditcardclientDescription", json_schema_extra={"examples": ["Visa"]})
+    b_creditcardclient_allowedcompanypayment: StrictBool = Field(description="Whether if it's an allowedagencypayment", alias="bCreditcardclientAllowedcompanypayment", json_schema_extra={"examples": [True]})
+    b_creditcardclient_allowedtranquillit: StrictBool = Field(description="Whether if it's an allowedtranquillit", alias="bCreditcardclientAllowedtranquillit", json_schema_extra={"examples": [True]})
+    i_creditcarddetail_expirationmonth: Annotated[int, Field(le=12, strict=True, ge=0)] = Field(description="The expirationmonth of the Creditcarddetail", alias="iCreditcarddetailExpirationmonth", json_schema_extra={"examples": [10]})
+    i_creditcarddetail_expirationyear: Annotated[int, Field(le=2200, strict=True, ge=0)] = Field(description="The expirationyear of the Creditcarddetail", alias="iCreditcarddetailExpirationyear", json_schema_extra={"examples": [2024]})
+    i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits", json_schema_extra={"examples": [4242]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "fkiCreditcardtypeID", "bCreditcardclientrelationIsdefault", "bCreditcardclientLegacy", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "iCreditcarddetailLastdigits"]
 
     @field_validator('s_creditcardclient_description')

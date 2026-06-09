@@ -28,10 +28,10 @@ class CommonReportcell(BaseModel):
     """
     A cell in a Reportrow 
     """ # noqa: E501
-    i_reportcell_columnspan: StrictInt = Field(description="The number of Reportcolumns the Reportcell spans", alias="iReportcellColumnspan")
-    i_reportcell_rowspan: StrictInt = Field(description="The number of Reportrows the Reportcell spans", alias="iReportcellRowspan")
-    s_reportcell_content: StrictStr = Field(description="The content of this Reportcell", alias="sReportcellContent")
-    i_reportcell_column: StrictInt = Field(description="Position of the column where it is placed", alias="iReportcellColumn")
+    i_reportcell_columnspan: StrictInt = Field(description="The number of Reportcolumns the Reportcell spans", alias="iReportcellColumnspan", json_schema_extra={"examples": [1]})
+    i_reportcell_rowspan: StrictInt = Field(description="The number of Reportrows the Reportcell spans", alias="iReportcellRowspan", json_schema_extra={"examples": [1]})
+    s_reportcell_content: StrictStr = Field(description="The content of this Reportcell", alias="sReportcellContent", json_schema_extra={"examples": ["text"]})
+    i_reportcell_column: StrictInt = Field(description="Position of the column where it is placed", alias="iReportcellColumn", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["iReportcellColumnspan", "iReportcellRowspan", "sReportcellContent", "iReportcellColumn"]
 
     model_config = ConfigDict(

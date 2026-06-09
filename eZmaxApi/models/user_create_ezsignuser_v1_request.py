@@ -29,14 +29,14 @@ class UserCreateEzsignuserV1Request(BaseModel):
     """
     Request for POST /1/module/user/createEzsignuser
     """ # noqa: E501
-    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress")
-    s_phone_region: StrictStr = Field(description="The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneRegion")
-    s_phone_exchange: StrictStr = Field(description="The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneExchange")
-    s_phone_number: StrictStr = Field(description="The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneNumber")
-    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension")
+    fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_phone_region: StrictStr = Field(description="The region of the phone number. (For a North America Number only)  The region is the \"514\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneRegion", json_schema_extra={"examples": ["514"]})
+    s_phone_exchange: StrictStr = Field(description="The exchange of the phone number. (For a North America Number only)  The exchange is the \"990\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneExchange", json_schema_extra={"examples": ["990"]})
+    s_phone_number: StrictStr = Field(description="The number of the phone number. (For a North America Number only)  The number is the \"1516\" section in this sample phone number: (514) 990-1516 x123", alias="sPhoneNumber", json_schema_extra={"examples": ["1516"]})
+    s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension", json_schema_extra={"examples": ["123"]})
     __properties: ClassVar[List[str]] = ["fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress", "sPhoneRegion", "sPhoneExchange", "sPhoneNumber", "sPhoneExtension"]
 
     @field_validator('s_email_address')

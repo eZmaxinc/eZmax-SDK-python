@@ -28,7 +28,7 @@ class EzsigndocumentGetDownloadUrlV1ResponseMPayload(BaseModel):
     """
     Payload for GET /1/object/ezsigndocument/{pkiEzsigndocument}/getDownloadUrl
     """ # noqa: E501
-    s_download_url: StrictStr = Field(description="The Url to the requested document.  Url will expire after 5 minutes.", alias="sDownloadUrl")
+    s_download_url: StrictStr = Field(description="The Url to the requested document.  Url will expire after 5 minutes.", alias="sDownloadUrl", json_schema_extra={"examples": ["http://www.example.com/document.pdf"]})
     __properties: ClassVar[List[str]] = ["sDownloadUrl"]
 
     model_config = ConfigDict(

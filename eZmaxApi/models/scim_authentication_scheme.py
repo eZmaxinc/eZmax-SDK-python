@@ -28,9 +28,9 @@ class ScimAuthenticationScheme(BaseModel):
     """
     ScimAuthenticationScheme
     """ # noqa: E501
-    description: StrictStr = Field(description="A description of the authentication scheme.")
-    name: StrictStr = Field(description="The common authentication scheme name")
-    type: StrictStr = Field(description="The authentication scheme.")
+    description: StrictStr = Field(description="A description of the authentication scheme.", json_schema_extra={"examples": ["Bearer token in the Authorization header"]})
+    name: StrictStr = Field(description="The common authentication scheme name", json_schema_extra={"examples": ["Bearer"]})
+    type: StrictStr = Field(description="The authentication scheme.", json_schema_extra={"examples": ["oauthbearertoken"]})
     __properties: ClassVar[List[str]] = ["description", "name", "type"]
 
     @field_validator('type')

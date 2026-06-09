@@ -30,11 +30,11 @@ class CommunicationexternalrecipientRequestCompound(BaseModel):
     """
     A Communicationexternalrecipient Object and children
     """ # noqa: E501
-    pki_communicationexternalrecipient_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationexternalrecipient", alias="pkiCommunicationexternalrecipientID")
-    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress")
-    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164")
+    pki_communicationexternalrecipient_id: Optional[StrictInt] = Field(default=None, description="The unique ID of the Communicationexternalrecipient", alias="pkiCommunicationexternalrecipientID", json_schema_extra={"examples": [9]})
+    s_email_address: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
+    s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164", json_schema_extra={"examples": ["+15149901516"]})
     e_communicationexternalrecipient_type: Optional[FieldECommunicationexternalrecipientType] = Field(default=None, alias="eCommunicationexternalrecipientType")
-    s_communicationexternalrecipient_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Communicationexternalrecipient", alias="sCommunicationexternalrecipientName")
+    s_communicationexternalrecipient_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Communicationexternalrecipient", alias="sCommunicationexternalrecipientName", json_schema_extra={"examples": ["John Doe"]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationexternalrecipientID", "sEmailAddress", "sPhoneE164", "eCommunicationexternalrecipientType", "sCommunicationexternalrecipientName"]
 
     @field_validator('s_email_address')

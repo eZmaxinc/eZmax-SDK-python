@@ -28,8 +28,8 @@ class MultilingualEzmaxpartnerDescription(BaseModel):
     """
     Description of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_description1: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in french", alias="sEzmaxpartnerDescription1")
-    s_ezmaxpartner_description2: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in english", alias="sEzmaxpartnerDescription2")
+    s_ezmaxpartner_description1: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in french", alias="sEzmaxpartnerDescription1", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
+    s_ezmaxpartner_description2: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in english", alias="sEzmaxpartnerDescription2", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerDescription1", "sEzmaxpartnerDescription2"]
 
     model_config = ConfigDict(

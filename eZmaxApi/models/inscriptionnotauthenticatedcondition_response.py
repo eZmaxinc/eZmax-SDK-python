@@ -29,14 +29,14 @@ class InscriptionnotauthenticatedconditionResponse(BaseModel):
     """
     An Inscriptionnotauthenticatedcondition Object
     """ # noqa: E501
-    pki_inscriptionnotauthenticatedcondition_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedcondition", alias="pkiInscriptionnotauthenticatedconditionID")
-    fki_inscriptionnotauthenticatedconditiontype_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedconditiontype", alias="fkiInscriptionnotauthenticatedconditiontypeID")
-    s_inscriptionnotauthenticatedconditiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptionnotauthenticatedconditiontype in the language of the requester", alias="sInscriptionnotauthenticatedconditiontypeNameX")
-    fki_inscriptionnotauthenticated_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionnotauthenticated.", alias="fkiInscriptionnotauthenticatedID")
-    b_inscriptionnotauthenticatedcondition_filled: StrictBool = Field(description="Can access attachment when we clone a user", alias="bInscriptionnotauthenticatedconditionFilled")
-    dt_inscriptionnotauthenticatedcondition_completed: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date the Inscriptionnotauthenticatedcondition was completed", alias="dtInscriptionnotauthenticatedconditionCompleted")
-    dt_inscriptionnotauthenticatedcondition_due: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date the Inscriptionnotauthenticatedcondition is due", alias="dtInscriptionnotauthenticatedconditionDue")
-    t_inscriptionnotauthenticatedcondition_comment: Annotated[str, Field(strict=True)] = Field(description="The comment of the Inscriptionnotauthenticatedcondition", alias="tInscriptionnotauthenticatedconditionComment")
+    pki_inscriptionnotauthenticatedcondition_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedcondition", alias="pkiInscriptionnotauthenticatedconditionID", json_schema_extra={"examples": [16]})
+    fki_inscriptionnotauthenticatedconditiontype_id: StrictInt = Field(description="The unique ID of the Inscriptionnotauthenticatedconditiontype", alias="fkiInscriptionnotauthenticatedconditiontypeID", json_schema_extra={"examples": [16]})
+    s_inscriptionnotauthenticatedconditiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptionnotauthenticatedconditiontype in the language of the requester", alias="sInscriptionnotauthenticatedconditiontypeNameX", json_schema_extra={"examples": ["doej"]})
+    fki_inscriptionnotauthenticated_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionnotauthenticated.", alias="fkiInscriptionnotauthenticatedID", json_schema_extra={"examples": [24]})
+    b_inscriptionnotauthenticatedcondition_filled: StrictBool = Field(description="Can access attachment when we clone a user", alias="bInscriptionnotauthenticatedconditionFilled", json_schema_extra={"examples": [False]})
+    dt_inscriptionnotauthenticatedcondition_completed: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date the Inscriptionnotauthenticatedcondition was completed", alias="dtInscriptionnotauthenticatedconditionCompleted", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_inscriptionnotauthenticatedcondition_due: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date the Inscriptionnotauthenticatedcondition is due", alias="dtInscriptionnotauthenticatedconditionDue", json_schema_extra={"examples": ["2020-12-31"]})
+    t_inscriptionnotauthenticatedcondition_comment: Annotated[str, Field(strict=True)] = Field(description="The comment of the Inscriptionnotauthenticatedcondition", alias="tInscriptionnotauthenticatedconditionComment", json_schema_extra={"examples": ["Unreadable"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedconditionID", "fkiInscriptionnotauthenticatedconditiontypeID", "sInscriptionnotauthenticatedconditiontypeNameX", "fkiInscriptionnotauthenticatedID", "bInscriptionnotauthenticatedconditionFilled", "dtInscriptionnotauthenticatedconditionCompleted", "dtInscriptionnotauthenticatedconditionDue", "tInscriptionnotauthenticatedconditionComment"]
 
     @field_validator('s_inscriptionnotauthenticatedconditiontype_name_x')

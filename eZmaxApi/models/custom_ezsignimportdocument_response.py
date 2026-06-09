@@ -29,12 +29,12 @@ class CustomEzsignimportdocumentResponse(BaseModel):
     """
     An Ezsignimportdocument
     """ # noqa: E501
-    pki_ezsignimportdocument_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportdocument", alias="pkiEzsignimportdocumentID")
-    s_ezsignimportdocument_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportdocument", alias="sEzsignimportdocumentName")
-    fki_ezsigntemplateglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateglobal", alias="fkiEzsigntemplateglobalID")
-    s_ezsigntemplateglobal_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription")
-    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID")
-    s_ezsignfolder_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignfolder", alias="sEzsignfolderDescription")
+    pki_ezsignimportdocument_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignimportdocument", alias="pkiEzsignimportdocumentID", json_schema_extra={"examples": [40]})
+    s_ezsignimportdocument_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportdocument", alias="sEzsignimportdocumentName", json_schema_extra={"examples": ["Promesse d'achat (PA)"]})
+    fki_ezsigntemplateglobal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateglobal", alias="fkiEzsigntemplateglobalID", json_schema_extra={"examples": [36]})
+    s_ezsigntemplateglobal_description: Optional[StrictStr] = Field(default=None, description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription", json_schema_extra={"examples": ["Standard Contract"]})
+    fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
+    s_ezsignfolder_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignfolder", alias="sEzsignfolderDescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignimportdocumentID", "sEzsignimportdocumentName", "fkiEzsigntemplateglobalID", "sEzsigntemplateglobalDescription", "fkiEzsignfolderID", "sEzsignfolderDescription"]
 
     @field_validator('s_ezsignimportdocument_name')

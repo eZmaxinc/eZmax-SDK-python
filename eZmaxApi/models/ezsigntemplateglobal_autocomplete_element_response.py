@@ -29,9 +29,9 @@ class EzsigntemplateglobalAutocompleteElementResponse(BaseModel):
     """
     A Ezsigntemplate AutocompleteElement Response
     """ # noqa: E501
-    pki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID")
-    s_ezsigntemplateglobal_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription")
-    b_ezsigntemplateglobal_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateglobalIsactive")
+    pki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="pkiEzsigntemplateglobalID", json_schema_extra={"examples": [36]})
+    s_ezsigntemplateglobal_description: StrictStr = Field(description="The description of the Ezsigntemplate", alias="sEzsigntemplateglobalDescription", json_schema_extra={"examples": ["Standard Contract"]})
+    b_ezsigntemplateglobal_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateglobalIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalID", "sEzsigntemplateglobalDescription", "bEzsigntemplateglobalIsactive"]
 
     model_config = ConfigDict(

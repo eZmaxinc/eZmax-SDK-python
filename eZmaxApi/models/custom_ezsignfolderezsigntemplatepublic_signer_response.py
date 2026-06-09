@@ -29,11 +29,11 @@ class CustomEzsignfolderezsigntemplatepublicSignerResponse(BaseModel):
     """
     A form Signer Object in the context of an Ezsignfoldertransmissions
     """ # noqa: E501
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID")
-    s_contact_firstname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The First name of the contact", alias="sContactFirstname")
-    s_contact_lastname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Last name of the contact", alias="sContactLastname")
-    s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_ezsignsignergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsignergroup", alias="fkiEzsignsignergroupID", json_schema_extra={"examples": [27]})
+    s_contact_firstname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The First name of the contact", alias="sContactFirstname", json_schema_extra={"examples": ["John"]})
+    s_contact_lastname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Last name of the contact", alias="sContactLastname", json_schema_extra={"examples": ["Doe"]})
+    s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX", json_schema_extra={"examples": ["HR"]})
     __properties: ClassVar[List[str]] = ["fkiUserID", "fkiEzsignsignergroupID", "sContactFirstname", "sContactLastname", "sEzsignsignergroupDescriptionX"]
 
     @field_validator('s_contact_firstname')

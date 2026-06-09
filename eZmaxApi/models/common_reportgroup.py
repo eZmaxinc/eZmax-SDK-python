@@ -34,7 +34,7 @@ class CommonReportgroup(BaseModel):
     a_obj_report: List[CommonReport] = Field(alias="a_objReport")
     a_obj_reportcellstyle_custom: List[CommonReportcellstyle] = Field(alias="a_objReportcellstyleCustom")
     a_obj_reportgroup_parameter: List[CommonReportgroupParameter] = Field(alias="a_objReportgroupParameter")
-    s_reportgroup_filename: StrictStr = Field(description="The name of the file", alias="sReportgroupFilename")
+    s_reportgroup_filename: StrictStr = Field(description="The name of the file", alias="sReportgroupFilename", json_schema_extra={"examples": ["example.pdf"]})
     __properties: ClassVar[List[str]] = ["a_objReport", "a_objReportcellstyleCustom", "a_objReportgroupParameter", "sReportgroupFilename"]
 
     model_config = ConfigDict(

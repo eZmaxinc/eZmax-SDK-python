@@ -28,8 +28,8 @@ class MultilingualEzmaxcustomerCompany(BaseModel):
     """
     Company of the Ezmaxcustomer
     """ # noqa: E501
-    s_ezmaxcustomer_company1: Optional[StrictStr] = Field(default=None, description="The company of the Ezmaxcustomer in French", alias="sEzmaxcustomerCompany1")
-    s_ezmaxcustomer_company2: Optional[StrictStr] = Field(default=None, description="The company of the Ezmaxcustomer in English", alias="sEzmaxcustomerCompany2")
+    s_ezmaxcustomer_company1: Optional[StrictStr] = Field(default=None, description="The company of the Ezmaxcustomer in French", alias="sEzmaxcustomerCompany1", json_schema_extra={"examples": ["Les Solutions eZmax"]})
+    s_ezmaxcustomer_company2: Optional[StrictStr] = Field(default=None, description="The company of the Ezmaxcustomer in English", alias="sEzmaxcustomerCompany2", json_schema_extra={"examples": ["eZmax Solutions"]})
     __properties: ClassVar[List[str]] = ["sEzmaxcustomerCompany1", "sEzmaxcustomerCompany2"]
 
     model_config = ConfigDict(

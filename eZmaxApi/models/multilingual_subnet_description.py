@@ -29,8 +29,8 @@ class MultilingualSubnetDescription(BaseModel):
     """
     The description of the Subnet
     """ # noqa: E501
-    s_subnet_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Subnet in French", alias="sSubnetDescription1")
-    s_subnet_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Subnet in English", alias="sSubnetDescription2")
+    s_subnet_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Subnet in French", alias="sSubnetDescription1", json_schema_extra={"examples": ["Bureau chef"]})
+    s_subnet_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Subnet in English", alias="sSubnetDescription2", json_schema_extra={"examples": ["Head office"]})
     __properties: ClassVar[List[str]] = ["sSubnetDescription1", "sSubnetDescription2"]
 
     @field_validator('s_subnet_description1')

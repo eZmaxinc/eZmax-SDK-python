@@ -30,8 +30,8 @@ class EzsigntemplatepublicCreateEzsignfolderV1Request(BaseModel):
     """
     Request for POST /1/object/ezsigntemplatepublic/createEzsignfolder
     """ # noqa: E501
-    pks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="pksEzmaxcustomerCode")
-    s_ezsigntemplatepublic_referenceid: Annotated[str, Field(strict=True)] = Field(description="The referenceid of the Ezsigntemplatepublic", alias="sEzsigntemplatepublicReferenceid")
+    pks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="pksEzmaxcustomerCode", json_schema_extra={"examples": ["demo"]})
+    s_ezsigntemplatepublic_referenceid: Annotated[str, Field(strict=True)] = Field(description="The referenceid of the Ezsigntemplatepublic", alias="sEzsigntemplatepublicReferenceid", json_schema_extra={"examples": ["6B29FC40-CA47-1067-B31D-00DD010662DA"]})
     a_s_ezsigntemplatesigner_description: List[Annotated[str, Field(strict=True)]] = Field(alias="a_sEzsigntemplatesignerDescription")
     a_obj_ezsignsigner: List[EzsignsignerRequestCompound] = Field(alias="a_objEzsignsigner")
     __properties: ClassVar[List[str]] = ["pksEzmaxcustomerCode", "sEzsigntemplatepublicReferenceid", "a_sEzsigntemplatesignerDescription", "a_objEzsignsigner"]

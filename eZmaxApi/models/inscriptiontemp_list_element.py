@@ -30,13 +30,13 @@ class InscriptiontempListElement(BaseModel):
     """
     A Inscriptiontemp List Element
     """ # noqa: E501
-    pki_inscriptiontemp_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Inscriptiontemp", alias="pkiInscriptiontempID")
+    pki_inscriptiontemp_id: Annotated[int, Field(le=16777215, strict=True, ge=1)] = Field(description="The unique ID of the Inscriptiontemp", alias="pkiInscriptiontempID", json_schema_extra={"examples": [2445]})
     e_inscriptiontemp_status: FieldEInscriptiontempStatus = Field(alias="eInscriptiontempStatus")
-    s_inscriptiontemp_mls: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The mls of the Inscriptiontemp", alias="sInscriptiontempMLS")
-    s_inscriptiontemp_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Inscriptiontemp", alias="sInscriptiontempDescription")
-    b_inscriptiontemp_isactive: StrictBool = Field(description="Whether the inscriptiontemp is active or not", alias="bInscriptiontempIsactive")
-    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate")
-    dt_modified_date: StrictStr = Field(description="The date and time at which the object was last modified", alias="dtModifiedDate")
+    s_inscriptiontemp_mls: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The mls of the Inscriptiontemp", alias="sInscriptiontempMLS", json_schema_extra={"examples": ["X0000"]})
+    s_inscriptiontemp_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Inscriptiontemp", alias="sInscriptiontempDescription", json_schema_extra={"examples": ["2540 Daniel-Johnson Blvd."]})
+    b_inscriptiontemp_isactive: StrictBool = Field(description="Whether the inscriptiontemp is active or not", alias="bInscriptiontempIsactive", json_schema_extra={"examples": [True]})
+    dt_created_date: StrictStr = Field(description="The date and time at which the object was created", alias="dtCreatedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    dt_modified_date: StrictStr = Field(description="The date and time at which the object was last modified", alias="dtModifiedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptiontempID", "eInscriptiontempStatus", "sInscriptiontempMLS", "sInscriptiontempDescription", "bInscriptiontempIsactive", "dtCreatedDate", "dtModifiedDate"]
 
     @field_validator('s_inscriptiontemp_mls')

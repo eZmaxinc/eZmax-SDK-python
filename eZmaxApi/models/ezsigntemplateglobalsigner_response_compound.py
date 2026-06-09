@@ -29,9 +29,9 @@ class EzsigntemplateglobalsignerResponseCompound(BaseModel):
     """
     A Ezsigntemplateglobalsigner Object
     """ # noqa: E501
-    pki_ezsigntemplateglobalsigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalsigner", alias="pkiEzsigntemplateglobalsignerID")
-    fki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="fkiEzsigntemplateglobalID")
-    s_ezsigntemplateglobalsigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalsigner", alias="sEzsigntemplateglobalsignerDescription")
+    pki_ezsigntemplateglobalsigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalsigner", alias="pkiEzsigntemplateglobalsignerID", json_schema_extra={"examples": [9]})
+    fki_ezsigntemplateglobal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobal", alias="fkiEzsigntemplateglobalID", json_schema_extra={"examples": [36]})
+    s_ezsigntemplateglobalsigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalsigner", alias="sEzsigntemplateglobalsignerDescription", json_schema_extra={"examples": ["Customer"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalsignerID", "fkiEzsigntemplateglobalID", "sEzsigntemplateglobalsignerDescription"]
 
     @field_validator('s_ezsigntemplateglobalsigner_description')

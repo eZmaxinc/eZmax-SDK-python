@@ -31,8 +31,8 @@ class EzsignuserResponseCompound(BaseModel):
     """
     A Ezsignuser Object
     """ # noqa: E501
-    pki_ezsignuser_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID")
-    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID")
+    pki_ezsignuser_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsignuser", alias="pkiEzsignuserID", json_schema_extra={"examples": [94]})
+    fki_contact_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Contact", alias="fkiContactID", json_schema_extra={"examples": [21]})
     obj_contact: ContactResponseCompound = Field(alias="objContact")
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzsignuserID", "fkiContactID", "objContact", "objAudit"]

@@ -30,15 +30,15 @@ class CommonResponseObjDebugPayloadGetList(BaseModel):
     """
     This is a debug object containing debugging information on the actual function
     """ # noqa: E501
-    i_version_min: StrictInt = Field(description="The minimum version of the function that can be called", alias="iVersionMin")
-    i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax")
+    i_version_min: StrictInt = Field(description="The minimum version of the function that can be called", alias="iVersionMin", json_schema_extra={"examples": [1]})
+    i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax", json_schema_extra={"examples": [2]})
     a_required_permission: List[StrictInt] = Field(description="An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.", alias="a_RequiredPermission")
-    b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated")
-    dt_response_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtResponseDate")
+    b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated", json_schema_extra={"examples": [False]})
+    dt_response_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtResponseDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     a_filter: CommonResponseFilter = Field(alias="a_Filter")
     a_order_by: Dict[str, StrictStr] = Field(description="List of available values for *eOrderBy*", alias="a_OrderBy")
-    i_row_max: Annotated[int, Field(le=10000, strict=True, ge=1)] = Field(description="The maximum numbers of results to be returned.  When the content-type is **application/json** there is an implicit default of 10 000.  When it's **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet** the is no implicit default so if you do not specify iRowMax, all records will be returned.", alias="iRowMax")
-    i_row_offset: Annotated[int, Field(strict=True, ge=0)] = Field(description="The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,", alias="iRowOffset")
+    i_row_max: Annotated[int, Field(le=10000, strict=True, ge=1)] = Field(description="The maximum numbers of results to be returned.  When the content-type is **application/json** there is an implicit default of 10 000.  When it's **application/vnd.openxmlformats-officedocument.spreadsheetml.sheet** the is no implicit default so if you do not specify iRowMax, all records will be returned.", alias="iRowMax", json_schema_extra={"examples": [100]})
+    i_row_offset: Annotated[int, Field(strict=True, ge=0)] = Field(description="The starting element from where to start retrieving the results. For example if you started at iRowOffset=0 and asked for iRowMax=100, to get the next 100 results, you could specify iRowOffset=100&iRowMax=100,", alias="iRowOffset", json_schema_extra={"examples": [0]})
     __properties: ClassVar[List[str]] = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated", "dtResponseDate", "a_Filter", "a_OrderBy", "iRowMax", "iRowOffset"]
 
     model_config = ConfigDict(

@@ -30,8 +30,8 @@ class EzsignfolderImportEzsigntemplatepackageV1Request(BaseModel):
     """
     Request for POST /1/object/ezsignfolder/{pkiEzsignfolderID}/importEzsigntemplatepackage
     """ # noqa: E501
-    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate")
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    dt_ezsigndocument_duedate: StrictStr = Field(description="The maximum date and time at which the Ezsigndocument can be signed.", alias="dtEzsigndocumentDuedate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     a_obj_import_ezsigntemplatepackage_relation: List[CustomImportEzsigntemplatepackageRelationRequest] = Field(alias="a_objImportEzsigntemplatepackageRelation")
     __properties: ClassVar[List[str]] = ["fkiEzsigntemplatepackageID", "dtEzsigndocumentDuedate", "a_objImportEzsigntemplatepackageRelation"]
 

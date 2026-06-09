@@ -29,10 +29,10 @@ class InfrastructureregionAutocompleteElementResponse(BaseModel):
     """
     A Infrastructureregion AutocompleteElement Response
     """ # noqa: E501
-    pki_infrastructureregion_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Infrastructureregion", alias="pkiInfrastructureregionID")
-    s_infrastructureregion_code: StrictStr = Field(description="The region code", alias="sInfrastructureregionCode")
-    b_infrastructureregion_programmer: StrictBool = Field(description="Whether Infrastructureregion is Programmer or not", alias="bInfrastructureregionProgrammer")
-    b_infrastructureregion_isactive: StrictBool = Field(description="Whether the Infrastructureregion is active or not", alias="bInfrastructureregionIsactive")
+    pki_infrastructureregion_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Infrastructureregion", alias="pkiInfrastructureregionID", json_schema_extra={"examples": [16]})
+    s_infrastructureregion_code: StrictStr = Field(description="The region code", alias="sInfrastructureregionCode", json_schema_extra={"examples": ["ca-central-1"]})
+    b_infrastructureregion_programmer: StrictBool = Field(description="Whether Infrastructureregion is Programmer or not", alias="bInfrastructureregionProgrammer", json_schema_extra={"examples": [False]})
+    b_infrastructureregion_isactive: StrictBool = Field(description="Whether the Infrastructureregion is active or not", alias="bInfrastructureregionIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiInfrastructureregionID", "sInfrastructureregionCode", "bInfrastructureregionProgrammer", "bInfrastructureregionIsactive"]
 
     model_config = ConfigDict(

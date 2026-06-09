@@ -33,20 +33,20 @@ class EzsigntemplateglobalannotationResponse(BaseModel):
     """
     A Ezsigntemplateglobalannotation Object
     """ # noqa: E501
-    pki_ezsigntemplateglobalannotation_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalannotation", alias="pkiEzsigntemplateglobalannotationID")
-    fki_textstylestatic_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Textstylestatic", alias="fkiTextstylestaticID")
+    pki_ezsigntemplateglobalannotation_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateglobalannotation", alias="pkiEzsigntemplateglobalannotationID", json_schema_extra={"examples": [200]})
+    fki_textstylestatic_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Textstylestatic", alias="fkiTextstylestaticID", json_schema_extra={"examples": [216]})
     obj_textstylestatic: Optional[TextstylestaticRequestCompound] = Field(default=None, alias="objTextstylestatic")
     e_ezsigntemplateglobalannotation_horizontalalignment: FieldEEzsigntemplateglobalannotationHorizontalalignment = Field(alias="eEzsigntemplateglobalannotationHorizontalalignment")
     e_ezsigntemplateglobalannotation_verticalalignment: FieldEEzsigntemplateglobalannotationVerticalalignment = Field(alias="eEzsigntemplateglobalannotationVerticalalignment")
     e_ezsigntemplateglobalannotation_type: FieldEEzsigntemplateglobalannotationType = Field(alias="eEzsigntemplateglobalannotationType")
-    i_ezsigntemplateglobalannotation_x: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The x of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationX")
-    i_ezsigntemplateglobalannotation_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationY")
-    i_ezsigntemplateglobalannotation_width: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The width of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationWidth")
-    i_ezsigntemplateglobalannotation_height: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The height of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationHeight")
-    i_ezsigntemplateglobaldocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplateglobaldocument", alias="iEzsigntemplateglobaldocumentpagePagenumber")
-    s_ezsigntemplateglobalannotation_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDescription")
-    s_ezsigntemplateglobalannotation_defaulttext: Annotated[str, Field(strict=True)] = Field(description="The defaulttext of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDefaulttext")
-    s_ezsigntemplateglobalannotation_dropdownvalues: Annotated[str, Field(strict=True)] = Field(description="The dropdownvalues of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDropdownvalues")
+    i_ezsigntemplateglobalannotation_x: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The x of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationX", json_schema_extra={"examples": [59074]})
+    i_ezsigntemplateglobalannotation_y: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The y of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationY", json_schema_extra={"examples": [27324]})
+    i_ezsigntemplateglobalannotation_width: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The width of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationWidth", json_schema_extra={"examples": [26049]})
+    i_ezsigntemplateglobalannotation_height: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The height of the Ezsigntemplateglobalannotation", alias="iEzsigntemplateglobalannotationHeight", json_schema_extra={"examples": [31702]})
+    i_ezsigntemplateglobaldocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplateglobaldocument", alias="iEzsigntemplateglobaldocumentpagePagenumber", json_schema_extra={"examples": [1]})
+    s_ezsigntemplateglobalannotation_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDescription", json_schema_extra={"examples": ["Name"]})
+    s_ezsigntemplateglobalannotation_defaulttext: Annotated[str, Field(strict=True)] = Field(description="The defaulttext of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDefaulttext", json_schema_extra={"examples": ["John Doe"]})
+    s_ezsigntemplateglobalannotation_dropdownvalues: Annotated[str, Field(strict=True)] = Field(description="The dropdownvalues of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDropdownvalues", json_schema_extra={"examples": ["{\"Accepts\",\"Refuses\"}"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalannotationID", "fkiTextstylestaticID", "objTextstylestatic", "eEzsigntemplateglobalannotationHorizontalalignment", "eEzsigntemplateglobalannotationVerticalalignment", "eEzsigntemplateglobalannotationType", "iEzsigntemplateglobalannotationX", "iEzsigntemplateglobalannotationY", "iEzsigntemplateglobalannotationWidth", "iEzsigntemplateglobalannotationHeight", "iEzsigntemplateglobaldocumentpagePagenumber", "sEzsigntemplateglobalannotationDescription", "sEzsigntemplateglobalannotationDefaulttext", "sEzsigntemplateglobalannotationDropdownvalues"]
 
     @field_validator('s_ezsigntemplateglobalannotation_description')

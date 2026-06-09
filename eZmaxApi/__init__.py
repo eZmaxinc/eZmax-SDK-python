@@ -1850,10 +1850,7 @@ __all__ = [
     "ScimServiceProviderConfig",
     "ScimServiceProviderConfigBulk",
     "ScimServiceProviderConfigChangePassword",
-    "ScimServiceProviderConfigEtag",
     "ScimServiceProviderConfigFilter",
-    "ScimServiceProviderConfigPatch",
-    "ScimServiceProviderConfigSort",
     "ScimUser",
     "ScimUserList",
     "SecretquestionAutocompleteElementResponse",
@@ -4000,10 +3997,7 @@ from eZmaxApi.models.scim_group_member import ScimGroupMember as ScimGroupMember
 from eZmaxApi.models.scim_service_provider_config import ScimServiceProviderConfig as ScimServiceProviderConfig
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk as ScimServiceProviderConfigBulk
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword as ScimServiceProviderConfigChangePassword
-from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProviderConfigEtag as ScimServiceProviderConfigEtag
 from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter as ScimServiceProviderConfigFilter
-from eZmaxApi.models.scim_service_provider_config_patch import ScimServiceProviderConfigPatch as ScimServiceProviderConfigPatch
-from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort as ScimServiceProviderConfigSort
 from eZmaxApi.models.scim_user import ScimUser as ScimUser
 from eZmaxApi.models.scim_user_list import ScimUserList as ScimUserList
 from eZmaxApi.models.secretquestion_autocomplete_element_response import SecretquestionAutocompleteElementResponse as SecretquestionAutocompleteElementResponse

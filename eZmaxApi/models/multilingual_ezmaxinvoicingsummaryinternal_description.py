@@ -29,8 +29,8 @@ class MultilingualEzmaxinvoicingsummaryinternalDescription(BaseModel):
     """
     Description of the Ezmaxinvoicingsummaryinternal
     """ # noqa: E501
-    s_ezmaxinvoicingsummaryinternal_description1: Optional[Annotated[str, Field(strict=True, max_length=70)]] = Field(default=None, description="The Ezmaxinvoicingsummaryinternal description in French", alias="sEzmaxinvoicingsummaryinternalDescription1")
-    s_ezmaxinvoicingsummaryinternal_description2: Optional[Annotated[str, Field(strict=True, max_length=70)]] = Field(default=None, description="The Ezmaxinvoicingsummaryinternal description in English", alias="sEzmaxinvoicingsummaryinternalDescription2")
+    s_ezmaxinvoicingsummaryinternal_description1: Optional[Annotated[str, Field(strict=True, max_length=70)]] = Field(default=None, description="The Ezmaxinvoicingsummaryinternal description in French", alias="sEzmaxinvoicingsummaryinternalDescription1", json_schema_extra={"examples": ["Défaut"]})
+    s_ezmaxinvoicingsummaryinternal_description2: Optional[Annotated[str, Field(strict=True, max_length=70)]] = Field(default=None, description="The Ezmaxinvoicingsummaryinternal description in English", alias="sEzmaxinvoicingsummaryinternalDescription2", json_schema_extra={"examples": ["Défault"]})
     __properties: ClassVar[List[str]] = ["sEzmaxinvoicingsummaryinternalDescription1", "sEzmaxinvoicingsummaryinternalDescription2"]
 
     model_config = ConfigDict(

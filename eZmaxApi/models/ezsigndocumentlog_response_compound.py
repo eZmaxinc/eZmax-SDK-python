@@ -30,14 +30,14 @@ class EzsigndocumentlogResponseCompound(BaseModel):
     """
     An Ezsigndocumentlog Object and children to create a complete structure
     """ # noqa: E501
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID")
-    dt_ezsigndocumentlog_datetime: StrictStr = Field(description="The date and time at which the event was logged", alias="dtEzsigndocumentlogDatetime")
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID", json_schema_extra={"examples": [89]})
+    dt_ezsigndocumentlog_datetime: StrictStr = Field(description="The date and time at which the event was logged", alias="dtEzsigndocumentlogDatetime", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     e_ezsigndocumentlog_type: FieldEEzsigndocumentlogType = Field(alias="eEzsigndocumentlogType")
-    s_ezsigndocumentlog_detail: StrictStr = Field(description="The detail of the Ezsigndocumentlog", alias="sEzsigndocumentlogDetail")
-    s_ezsigndocumentlog_lastname: StrictStr = Field(description="The last name of the User or Ezsignsigner", alias="sEzsigndocumentlogLastname")
-    s_ezsigndocumentlog_firstname: StrictStr = Field(description="The first name of the User or Ezsignsigner", alias="sEzsigndocumentlogFirstname")
-    s_ezsigndocumentlog_ip: StrictStr = Field(description="Represent an IP address.", alias="sEzsigndocumentlogIP")
+    s_ezsigndocumentlog_detail: StrictStr = Field(description="The detail of the Ezsigndocumentlog", alias="sEzsigndocumentlogDetail", json_schema_extra={"examples": ["Page 1 MD5: a56bbc742ba2a4d074f2493550cf6ea5"]})
+    s_ezsigndocumentlog_lastname: StrictStr = Field(description="The last name of the User or Ezsignsigner", alias="sEzsigndocumentlogLastname", json_schema_extra={"examples": ["Doe"]})
+    s_ezsigndocumentlog_firstname: StrictStr = Field(description="The first name of the User or Ezsignsigner", alias="sEzsigndocumentlogFirstname", json_schema_extra={"examples": ["John"]})
+    s_ezsigndocumentlog_ip: StrictStr = Field(description="Represent an IP address.", alias="sEzsigndocumentlogIP", json_schema_extra={"examples": ["127.0.0.1"]})
     __properties: ClassVar[List[str]] = ["fkiUserID", "fkiEzsignsignerID", "dtEzsigndocumentlogDatetime", "eEzsigndocumentlogType", "sEzsigndocumentlogDetail", "sEzsigndocumentlogLastname", "sEzsigndocumentlogFirstname", "sEzsigndocumentlogIP"]
 
     model_config = ConfigDict(

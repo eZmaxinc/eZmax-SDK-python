@@ -29,7 +29,7 @@ class CustomEzsignformfielderrorResponse(BaseModel):
     """
     A Custom Ezsignformfield Object to contain an error list
     """ # noqa: E501
-    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel")
+    s_ezsignformfield_label: StrictStr = Field(description="The Label for the Ezsignformfield", alias="sEzsignformfieldLabel", json_schema_extra={"examples": ["Peanuts"]})
     a_obj_ezsignformfielderrortest: List[CustomEzsignformfielderrortestResponse] = Field(alias="a_objEzsignformfielderrortest")
     __properties: ClassVar[List[str]] = ["sEzsignformfieldLabel", "a_objEzsignformfielderrortest"]
 

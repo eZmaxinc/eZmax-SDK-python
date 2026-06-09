@@ -28,7 +28,7 @@ class EzsignfolderGetAttachmentCountV1ResponseMPayload(BaseModel):
     """
     Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getAttachmentCount
     """ # noqa: E501
-    i_attachment_count: StrictInt = Field(description="The count of Attachment.", alias="iAttachmentCount")
+    i_attachment_count: StrictInt = Field(description="The count of Attachment.", alias="iAttachmentCount", json_schema_extra={"examples": [4]})
     __properties: ClassVar[List[str]] = ["iAttachmentCount"]
 
     model_config = ConfigDict(

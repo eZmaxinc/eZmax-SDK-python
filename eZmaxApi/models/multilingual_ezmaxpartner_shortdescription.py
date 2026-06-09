@@ -29,8 +29,8 @@ class MultilingualEzmaxpartnerShortdescription(BaseModel):
     """
     Short description of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_shortdescription1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The short description of the Ezmaxpartner in french", alias="sEzmaxpartnerShortdescription1")
-    s_ezmaxpartner_shortdescription2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The short description of the Ezmaxpartner in english", alias="sEzmaxpartnerShortdescription2")
+    s_ezmaxpartner_shortdescription1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The short description of the Ezmaxpartner in french", alias="sEzmaxpartnerShortdescription1", json_schema_extra={"examples": ["This is a software to e-sign documents"]})
+    s_ezmaxpartner_shortdescription2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The short description of the Ezmaxpartner in english", alias="sEzmaxpartnerShortdescription2", json_schema_extra={"examples": ["This is a software to e-sign documents"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerShortdescription1", "sEzmaxpartnerShortdescription2"]
 
     @field_validator('s_ezmaxpartner_shortdescription1')

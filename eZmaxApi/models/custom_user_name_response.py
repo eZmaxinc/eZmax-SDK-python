@@ -29,10 +29,10 @@ class CustomUserNameResponse(BaseModel):
     """
     A User name Object
     """ # noqa: E501
-    s_contacttitle_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX")
-    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname")
-    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname")
-    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle")
+    s_contacttitle_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX", json_schema_extra={"examples": ["Sir"]})
+    s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
+    s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle", json_schema_extra={"examples": ["Sales Representative"]})
     __properties: ClassVar[List[str]] = ["sContacttitleNameX", "sUserLastname", "sUserFirstname", "sUserJobtitle"]
 
     @field_validator('s_contacttitle_name_x')

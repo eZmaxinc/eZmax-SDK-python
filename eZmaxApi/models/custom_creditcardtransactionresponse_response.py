@@ -31,9 +31,9 @@ class CustomCreditcardtransactionresponseResponse(BaseModel):
     """
     A custom Creditcardtransactionresponse Object
     """ # noqa: E501
-    s_creditcardtransaction_is_ocode: Annotated[str, Field(strict=True)] = Field(description="The ISO code", alias="sCreditcardtransactionISOcode")
-    s_creditcardtransaction_responsecode: Annotated[str, Field(strict=True)] = Field(description="The response code", alias="sCreditcardtransactionResponsecode")
-    s_creditcardtransaction_responseterminalmessage: Annotated[str, Field(strict=True)] = Field(description="The terminal response message", alias="sCreditcardtransactionResponseterminalmessage")
+    s_creditcardtransaction_is_ocode: Annotated[str, Field(strict=True)] = Field(description="The ISO code", alias="sCreditcardtransactionISOcode", json_schema_extra={"examples": ["01"]})
+    s_creditcardtransaction_responsecode: Annotated[str, Field(strict=True)] = Field(description="The response code", alias="sCreditcardtransactionResponsecode", json_schema_extra={"examples": ["027"]})
+    s_creditcardtransaction_responseterminalmessage: Annotated[str, Field(strict=True)] = Field(description="The terminal response message", alias="sCreditcardtransactionResponseterminalmessage", json_schema_extra={"examples": ["APPROVED"]})
     e_creditcardtransaction_avsresult: Optional[FieldECreditcardtransactionAvsresult] = Field(default=None, alias="eCreditcardtransactionAvsresult")
     e_creditcardtransaction_cvdresult: Optional[FieldECreditcardtransactionCvdresult] = Field(default=None, alias="eCreditcardtransactionCvdresult")
     __properties: ClassVar[List[str]] = ["sCreditcardtransactionISOcode", "sCreditcardtransactionResponsecode", "sCreditcardtransactionResponseterminalmessage", "eCreditcardtransactionAvsresult", "eCreditcardtransactionCvdresult"]

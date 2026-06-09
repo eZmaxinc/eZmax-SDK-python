@@ -28,7 +28,7 @@ class ScimServiceProviderConfigChangePassword(BaseModel):
     """
     A complex type that specifies configuration options related to changing a password.
     """ # noqa: E501
-    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.")
+    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["supported"]
 
     model_config = ConfigDict(

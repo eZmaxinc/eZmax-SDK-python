@@ -30,7 +30,7 @@ class WebsocketResponseErrorV1MPayload(BaseModel):
     """
     Payload for Websocket Error V1
     """ # noqa: E501
-    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage")
+    s_error_message: Annotated[str, Field(strict=True)] = Field(description="The message giving details about the error", alias="sErrorMessage", json_schema_extra={"examples": ["Invalid Signature Headers"]})
     e_error_code: FieldEErrorCode = Field(alias="eErrorCode")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode"]
 

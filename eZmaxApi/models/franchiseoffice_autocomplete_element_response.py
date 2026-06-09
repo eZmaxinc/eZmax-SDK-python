@@ -29,9 +29,9 @@ class FranchiseofficeAutocompleteElementResponse(BaseModel):
     """
     A Franchiseoffice AutocompleteElement Response
     """ # noqa: E501
-    s_franchiseoffice_description: StrictStr = Field(description="The description of the Franchiseoffice in the language of the requester", alias="sFranchiseofficeDescription")
-    pki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="pkiFranchiseofficeID")
-    b_franchiseoffice_isactive: StrictBool = Field(description="Whether the Franchiseoffice is active or not", alias="bFranchiseofficeIsactive")
+    s_franchiseoffice_description: StrictStr = Field(description="The description of the Franchiseoffice in the language of the requester", alias="sFranchiseofficeDescription", json_schema_extra={"examples": ["Default"]})
+    pki_franchiseoffice_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Franchisereoffice", alias="pkiFranchiseofficeID", json_schema_extra={"examples": [50]})
+    b_franchiseoffice_isactive: StrictBool = Field(description="Whether the Franchiseoffice is active or not", alias="bFranchiseofficeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sFranchiseofficeDescription", "pkiFranchiseofficeID", "bFranchiseofficeIsactive"]
 
     model_config = ConfigDict(

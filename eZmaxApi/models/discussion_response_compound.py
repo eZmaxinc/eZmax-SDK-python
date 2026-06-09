@@ -32,12 +32,12 @@ class DiscussionResponseCompound(BaseModel):
     """
     A Discussion Object
     """ # noqa: E501
-    pki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="pkiDiscussionID")
-    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription")
-    b_discussion_closed: StrictBool = Field(description="Whether if it's an closed", alias="bDiscussionClosed")
-    dt_discussion_lastread: Optional[StrictStr] = Field(default=None, description="The date the Discussion was last read", alias="dtDiscussionLastread")
-    i_discussionmessage_count: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCount")
-    i_discussionmessage_countunread: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCountunread")
+    pki_discussion_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Discussion", alias="pkiDiscussionID", json_schema_extra={"examples": [125]})
+    s_discussion_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Discussion", alias="sDiscussionDescription", json_schema_extra={"examples": ["John Doe"]})
+    b_discussion_closed: StrictBool = Field(description="Whether if it's an closed", alias="bDiscussionClosed", json_schema_extra={"examples": [True]})
+    dt_discussion_lastread: Optional[StrictStr] = Field(default=None, description="The date the Discussion was last read", alias="dtDiscussionLastread", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
+    i_discussionmessage_count: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCount", json_schema_extra={"examples": [4]})
+    i_discussionmessage_countunread: StrictInt = Field(description="The count of Attachment.", alias="iDiscussionmessageCountunread", json_schema_extra={"examples": [4]})
     obj_discussionconfiguration: Optional[CustomDiscussionconfigurationResponse] = Field(default=None, alias="objDiscussionconfiguration")
     a_obj_discussionmembership: List[DiscussionmembershipResponseCompound] = Field(alias="a_objDiscussionmembership")
     a_obj_discussionmessage: List[DiscussionmessageResponseCompound] = Field(alias="a_objDiscussionmessage")

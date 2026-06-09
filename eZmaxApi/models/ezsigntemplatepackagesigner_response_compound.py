@@ -30,17 +30,17 @@ class EzsigntemplatepackagesignerResponseCompound(BaseModel):
     """
     A Ezsigntemplatepackagesigner Object
     """ # noqa: E501
-    pki_ezsigntemplatepackagesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesigner", alias="pkiEzsigntemplatepackagesignerID")
-    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID")
-    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID")
-    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID")
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID")
-    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX")
+    pki_ezsigntemplatepackagesigner_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackagesigner", alias="pkiEzsigntemplatepackagesignerID", json_schema_extra={"examples": [174]})
+    fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
+    fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
+    fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    s_ezdoctemplatedocument_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX", json_schema_extra={"examples": ["Standard Contract"]})
     b_ezsigntemplatepackagesigner_receivecopy: Optional[StrictBool] = Field(default=None, description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsigntemplatepackagesignerReceivecopy")
     e_ezsigntemplatepackagesigner_mapping: Optional[FieldEEzsigntemplatepackagesignerMapping] = Field(default=FieldEEzsigntemplatepackagesignerMapping.MANUAL, alias="eEzsigntemplatepackagesignerMapping")
-    s_ezsigntemplatepackagesigner_description: StrictStr = Field(description="The description of the Ezsigntemplatepackagesigner", alias="sEzsigntemplatepackagesignerDescription")
-    s_user_name: Optional[StrictStr] = Field(default=None, description="The description of the User in the language of the requester", alias="sUserName")
-    s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX")
+    s_ezsigntemplatepackagesigner_description: StrictStr = Field(description="The description of the Ezsigntemplatepackagesigner", alias="sEzsigntemplatepackagesignerDescription", json_schema_extra={"examples": ["Customer"]})
+    s_user_name: Optional[StrictStr] = Field(default=None, description="The description of the User in the language of the requester", alias="sUserName", json_schema_extra={"examples": ["Default"]})
+    s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagesignerID", "fkiEzsigntemplatepackageID", "fkiEzdoctemplatedocumentID", "fkiUserID", "fkiUsergroupID", "sEzdoctemplatedocumentNameX", "bEzsigntemplatepackagesignerReceivecopy", "eEzsigntemplatepackagesignerMapping", "sEzsigntemplatepackagesignerDescription", "sUserName", "sUsergroupNameX"]
 
     @field_validator('s_ezdoctemplatedocument_name_x')

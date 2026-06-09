@@ -30,14 +30,14 @@ class LeadListElement(BaseModel):
     """
     A Lead List Element
     """ # noqa: E501
-    pki_lead_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Lead", alias="pkiLeadID")
-    fki_leadsource_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Leadsource", alias="fkiLeadsourceID")
-    s_leadsource_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Leadsource in the language of the requester", alias="sLeadsourceNameX")
+    pki_lead_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Lead", alias="pkiLeadID", json_schema_extra={"examples": [117]})
+    fki_leadsource_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Leadsource", alias="fkiLeadsourceID", json_schema_extra={"examples": [191]})
+    s_leadsource_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Leadsource in the language of the requester", alias="sLeadsourceNameX", json_schema_extra={"examples": ["Client Referral"]})
     e_lead_status: FieldELeadStatus = Field(alias="eLeadStatus")
-    dt_lead_expiration: Annotated[str, Field(strict=True)] = Field(description="The expiration of the Lead", alias="dtLeadExpiration")
-    b_lead_isactive: StrictBool = Field(description="Whether the lead is active or not", alias="bLeadIsactive")
-    s_lead_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Lead", alias="sLeadCode")
-    s_lead_contacts: Optional[StrictStr] = Field(default=None, description="The contacts' name of the Lead", alias="sLeadContacts")
+    dt_lead_expiration: Annotated[str, Field(strict=True)] = Field(description="The expiration of the Lead", alias="dtLeadExpiration", json_schema_extra={"examples": ["2020-12-31"]})
+    b_lead_isactive: StrictBool = Field(description="Whether the lead is active or not", alias="bLeadIsactive", json_schema_extra={"examples": [True]})
+    s_lead_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Lead", alias="sLeadCode", json_schema_extra={"examples": ["Recommandation de clients"]})
+    s_lead_contacts: Optional[StrictStr] = Field(default=None, description="The contacts' name of the Lead", alias="sLeadContacts", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiLeadID", "fkiLeadsourceID", "sLeadsourceNameX", "eLeadStatus", "dtLeadExpiration", "bLeadIsactive", "sLeadCode", "sLeadContacts"]
 
     @field_validator('s_leadsource_name_x')

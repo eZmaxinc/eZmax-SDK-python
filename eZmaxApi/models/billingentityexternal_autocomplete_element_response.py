@@ -29,9 +29,9 @@ class BillingentityexternalAutocompleteElementResponse(BaseModel):
     """
     A Billingentityexternal AutocompleteElement Response
     """ # noqa: E501
-    pki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="pkiBillingentityexternalID")
-    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription")
-    b_billingentityexternal_isactive: StrictBool = Field(description="Whether the Billingentityexternal is active or not", alias="bBillingentityexternalIsactive")
+    pki_billingentityexternal_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Billingentityexternal", alias="pkiBillingentityexternalID", json_schema_extra={"examples": [83]})
+    s_billingentityexternal_description: StrictStr = Field(description="The description of the Billingentityexternal", alias="sBillingentityexternalDescription", json_schema_extra={"examples": ["ACME Inc"]})
+    b_billingentityexternal_isactive: StrictBool = Field(description="Whether the Billingentityexternal is active or not", alias="bBillingentityexternalIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBillingentityexternalID", "sBillingentityexternalDescription", "bBillingentityexternalIsactive"]
 
     model_config = ConfigDict(

@@ -28,8 +28,8 @@ class ScimServiceProviderConfigFilter(BaseModel):
     """
     A complex type that specifies FILTER options.
     """ # noqa: E501
-    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.")
-    max_results: StrictInt = Field(description="An integer value specifying the maximum number of resources returned in a response.", alias="maxResults")
+    supported: StrictBool = Field(description="A Boolean value specifying whether or not the operation is supported.", json_schema_extra={"examples": [True]})
+    max_results: StrictInt = Field(description="An integer value specifying the maximum number of resources returned in a response.", alias="maxResults", json_schema_extra={"examples": [10000]})
     __properties: ClassVar[List[str]] = ["supported", "maxResults"]
 
     model_config = ConfigDict(

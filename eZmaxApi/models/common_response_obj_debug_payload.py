@@ -28,11 +28,11 @@ class CommonResponseObjDebugPayload(BaseModel):
     """
     This is a debug object containing debugging information on the actual function
     """ # noqa: E501
-    i_version_min: StrictInt = Field(description="The minimum version of the function that can be called", alias="iVersionMin")
-    i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax")
+    i_version_min: StrictInt = Field(description="The minimum version of the function that can be called", alias="iVersionMin", json_schema_extra={"examples": [1]})
+    i_version_max: StrictInt = Field(description="The maximum version of the function that can be called", alias="iVersionMax", json_schema_extra={"examples": [2]})
     a_required_permission: List[StrictInt] = Field(description="An array of permissions required to access this function.  If the value \"0\" is present in the array, anyone can call this function.  You must have one of the permission to access the function. You don't need to have all of them.", alias="a_RequiredPermission")
-    b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated")
-    dt_response_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtResponseDate")
+    b_version_deprecated: StrictBool = Field(description="Wheter the current route is deprecated or not", alias="bVersionDeprecated", json_schema_extra={"examples": [False]})
+    dt_response_date: StrictStr = Field(description="Represent a Date Time. The timezone is the one configured in the User's profile.", alias="dtResponseDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["iVersionMin", "iVersionMax", "a_RequiredPermission", "bVersionDeprecated", "dtResponseDate"]
 
     model_config = ConfigDict(

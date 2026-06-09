@@ -29,10 +29,10 @@ class ModulesectionResponse(BaseModel):
     """
     A Modulesection Object
     """ # noqa: E501
-    pki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="pkiModulesectionID")
-    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID")
-    s_modulesection_internalname: StrictStr = Field(description="The Internal name of the Module section.", alias="sModulesectionInternalname")
-    s_modulesection_name_x: StrictStr = Field(description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX")
+    pki_modulesection_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Modulesection", alias="pkiModulesectionID", json_schema_extra={"examples": [53]})
+    fki_module_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Module", alias="fkiModuleID", json_schema_extra={"examples": [40]})
+    s_modulesection_internalname: StrictStr = Field(description="The Internal name of the Module section.", alias="sModulesectionInternalname", json_schema_extra={"examples": ["Access"]})
+    s_modulesection_name_x: StrictStr = Field(description="The Name of the Modulesection in the language of the requester", alias="sModulesectionNameX", json_schema_extra={"examples": ["Access"]})
     __properties: ClassVar[List[str]] = ["pkiModulesectionID", "fkiModuleID", "sModulesectionInternalname", "sModulesectionNameX"]
 
     model_config = ConfigDict(

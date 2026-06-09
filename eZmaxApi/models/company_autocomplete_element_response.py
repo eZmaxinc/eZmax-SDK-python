@@ -29,9 +29,9 @@ class CompanyAutocompleteElementResponse(BaseModel):
     """
     A Company AutocompleteElement Response
     """ # noqa: E501
-    pki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="pkiCompanyID")
-    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX")
-    b_company_isactive: StrictBool = Field(description="Whether the Company is active or not", alias="bCompanyIsactive")
+    pki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="pkiCompanyID", json_schema_extra={"examples": [1]})
+    s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX", json_schema_extra={"examples": ["Acme inc."]})
+    b_company_isactive: StrictBool = Field(description="Whether the Company is active or not", alias="bCompanyIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCompanyID", "sCompanyNameX", "bCompanyIsactive"]
 
     model_config = ConfigDict(
