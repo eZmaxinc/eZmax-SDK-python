@@ -19,6 +19,7 @@ __version__ = "1.3.1"
 
 # Define package exports
 __all__ = [
+    "DocumentationEzmaxpartnerApi",
     "GlobalCustomerApi",
     "GlobalEzmaxclientApi",
     "GlobalEzmaxcustomerApi",
@@ -490,6 +491,7 @@ __all__ = [
     "CustomEzmaxinvoicingEzsigndocumentResponse",
     "CustomEzmaxinvoicingEzsignfolderResponse",
     "CustomEzmaxpartnerListElement",
+    "CustomEzmaxpartnerproductSubscribe",
     "CustomEzmaxpricingResponse",
     "CustomEzsigndocumentDuplicateRequest",
     "CustomEzsigndocumentEzsignsignaturesAutomaticResponse",
@@ -582,6 +584,8 @@ __all__ = [
     "DiscussionmessageRequestPatch",
     "DiscussionmessageResponse",
     "DiscussionmessageResponseCompound",
+    "DocumentationSubscribeV1Request",
+    "DocumentationSubscribeV1Response",
     "DomainAutocompleteElementResponse",
     "DomainCreateObjectV1Request",
     "DomainCreateObjectV1Response",
@@ -840,6 +844,8 @@ __all__ = [
     "EzsigndocumentExtractTextV1Response",
     "EzsigndocumentExtractTextV1ResponseMPayload",
     "EzsigndocumentFlattenV1Response",
+    "EzsigndocumentGetActionableElementsForSignerV1Response",
+    "EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload",
     "EzsigndocumentGetActionableElementsV1Response",
     "EzsigndocumentGetActionableElementsV1ResponseMPayload",
     "EzsigndocumentGetActionableElementsV2Response",
@@ -924,6 +930,8 @@ __all__ = [
     "EzsignfolderEditObjectV3Request",
     "EzsignfolderEditObjectV3Response",
     "EzsignfolderEndPrematurelyV1Response",
+    "EzsignfolderGetActionableElementsForSignerV1Response",
+    "EzsignfolderGetActionableElementsForSignerV1ResponseMPayload",
     "EzsignfolderGetActionableElementsV1Response",
     "EzsignfolderGetActionableElementsV1ResponseMPayload",
     "EzsignfolderGetActionableElementsV2Response",
@@ -2115,6 +2123,8 @@ __all__ = [
     "WebhookDeleteObjectV1Response",
     "WebhookEditObjectV1Request",
     "WebhookEditObjectV1Response",
+    "WebhookEzmaxpartnerproductSubscribe",
+    "WebhookEzmaxpartnerproductUnsubscribe",
     "WebhookEzsignDocumentCompleted",
     "WebhookEzsignDocumentFormCompleted",
     "WebhookEzsignDocumentUnsent",
@@ -2162,6 +2172,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from eZmaxApi.api.documentation_ezmaxpartner_api import DocumentationEzmaxpartnerApi as DocumentationEzmaxpartnerApi
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi as GlobalCustomerApi
 from eZmaxApi.api.global_ezmaxclient_api import GlobalEzmaxclientApi as GlobalEzmaxclientApi
 from eZmaxApi.api.global_ezmaxcustomer_api import GlobalEzmaxcustomerApi as GlobalEzmaxcustomerApi
@@ -2637,6 +2648,7 @@ from eZmaxApi.models.custom_ezmaxcustomeruser_response import CustomEzmaxcustome
 from eZmaxApi.models.custom_ezmaxinvoicing_ezsigndocument_response import CustomEzmaxinvoicingEzsigndocumentResponse as CustomEzmaxinvoicingEzsigndocumentResponse
 from eZmaxApi.models.custom_ezmaxinvoicing_ezsignfolder_response import CustomEzmaxinvoicingEzsignfolderResponse as CustomEzmaxinvoicingEzsignfolderResponse
 from eZmaxApi.models.custom_ezmaxpartner_list_element import CustomEzmaxpartnerListElement as CustomEzmaxpartnerListElement
+from eZmaxApi.models.custom_ezmaxpartnerproduct_subscribe import CustomEzmaxpartnerproductSubscribe as CustomEzmaxpartnerproductSubscribe
 from eZmaxApi.models.custom_ezmaxpricing_response import CustomEzmaxpricingResponse as CustomEzmaxpricingResponse
 from eZmaxApi.models.custom_ezsigndocument_duplicate_request import CustomEzsigndocumentDuplicateRequest as CustomEzsigndocumentDuplicateRequest
 from eZmaxApi.models.custom_ezsigndocument_ezsignsignatures_automatic_response import CustomEzsigndocumentEzsignsignaturesAutomaticResponse as CustomEzsigndocumentEzsignsignaturesAutomaticResponse
@@ -2729,6 +2741,8 @@ from eZmaxApi.models.discussionmessage_request_compound import Discussionmessage
 from eZmaxApi.models.discussionmessage_request_patch import DiscussionmessageRequestPatch as DiscussionmessageRequestPatch
 from eZmaxApi.models.discussionmessage_response import DiscussionmessageResponse as DiscussionmessageResponse
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound as DiscussionmessageResponseCompound
+from eZmaxApi.models.documentation_subscribe_v1_request import DocumentationSubscribeV1Request as DocumentationSubscribeV1Request
+from eZmaxApi.models.documentation_subscribe_v1_response import DocumentationSubscribeV1Response as DocumentationSubscribeV1Response
 from eZmaxApi.models.domain_autocomplete_element_response import DomainAutocompleteElementResponse as DomainAutocompleteElementResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request as DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response as DomainCreateObjectV1Response
@@ -2987,6 +3001,8 @@ from eZmaxApi.models.ezsigndocument_extract_text_v1_request import Ezsigndocumen
 from eZmaxApi.models.ezsigndocument_extract_text_v1_response import EzsigndocumentExtractTextV1Response as EzsigndocumentExtractTextV1Response
 from eZmaxApi.models.ezsigndocument_extract_text_v1_response_m_payload import EzsigndocumentExtractTextV1ResponseMPayload as EzsigndocumentExtractTextV1ResponseMPayload
 from eZmaxApi.models.ezsigndocument_flatten_v1_response import EzsigndocumentFlattenV1Response as EzsigndocumentFlattenV1Response
+from eZmaxApi.models.ezsigndocument_get_actionable_elements_for_signer_v1_response import EzsigndocumentGetActionableElementsForSignerV1Response as EzsigndocumentGetActionableElementsForSignerV1Response
+from eZmaxApi.models.ezsigndocument_get_actionable_elements_for_signer_v1_response_m_payload import EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload as EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v1_response import EzsigndocumentGetActionableElementsV1Response as EzsigndocumentGetActionableElementsV1Response
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v1_response_m_payload import EzsigndocumentGetActionableElementsV1ResponseMPayload as EzsigndocumentGetActionableElementsV1ResponseMPayload
 from eZmaxApi.models.ezsigndocument_get_actionable_elements_v2_response import EzsigndocumentGetActionableElementsV2Response as EzsigndocumentGetActionableElementsV2Response
@@ -3071,6 +3087,8 @@ from eZmaxApi.models.ezsignfolder_duplicate_v1_response_m_payload import Ezsignf
 from eZmaxApi.models.ezsignfolder_edit_object_v3_request import EzsignfolderEditObjectV3Request as EzsignfolderEditObjectV3Request
 from eZmaxApi.models.ezsignfolder_edit_object_v3_response import EzsignfolderEditObjectV3Response as EzsignfolderEditObjectV3Response
 from eZmaxApi.models.ezsignfolder_end_prematurely_v1_response import EzsignfolderEndPrematurelyV1Response as EzsignfolderEndPrematurelyV1Response
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_for_signer_v1_response import EzsignfolderGetActionableElementsForSignerV1Response as EzsignfolderGetActionableElementsForSignerV1Response
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_for_signer_v1_response_m_payload import EzsignfolderGetActionableElementsForSignerV1ResponseMPayload as EzsignfolderGetActionableElementsForSignerV1ResponseMPayload
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response import EzsignfolderGetActionableElementsV1Response as EzsignfolderGetActionableElementsV1Response
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v1_response_m_payload import EzsignfolderGetActionableElementsV1ResponseMPayload as EzsignfolderGetActionableElementsV1ResponseMPayload
 from eZmaxApi.models.ezsignfolder_get_actionable_elements_v2_response import EzsignfolderGetActionableElementsV2Response as EzsignfolderGetActionableElementsV2Response
@@ -4262,6 +4280,8 @@ from eZmaxApi.models.webhook_create_object_v2_response_m_payload import WebhookC
 from eZmaxApi.models.webhook_delete_object_v1_response import WebhookDeleteObjectV1Response as WebhookDeleteObjectV1Response
 from eZmaxApi.models.webhook_edit_object_v1_request import WebhookEditObjectV1Request as WebhookEditObjectV1Request
 from eZmaxApi.models.webhook_edit_object_v1_response import WebhookEditObjectV1Response as WebhookEditObjectV1Response
+from eZmaxApi.models.webhook_ezmaxpartnerproduct_subscribe import WebhookEzmaxpartnerproductSubscribe as WebhookEzmaxpartnerproductSubscribe
+from eZmaxApi.models.webhook_ezmaxpartnerproduct_unsubscribe import WebhookEzmaxpartnerproductUnsubscribe as WebhookEzmaxpartnerproductUnsubscribe
 from eZmaxApi.models.webhook_ezsign_document_completed import WebhookEzsignDocumentCompleted as WebhookEzsignDocumentCompleted
 from eZmaxApi.models.webhook_ezsign_document_form_completed import WebhookEzsignDocumentFormCompleted as WebhookEzsignDocumentFormCompleted
 from eZmaxApi.models.webhook_ezsign_document_unsent import WebhookEzsignDocumentUnsent as WebhookEzsignDocumentUnsent

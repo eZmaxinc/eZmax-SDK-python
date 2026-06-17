@@ -19,18 +19,22 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from typing import Any, ClassVar, Dict, List, Optional
+from eZmaxApi.models.common_response_obj_debug import CommonResponseObjDebug
+from eZmaxApi.models.common_response_obj_debug_payload import CommonResponseObjDebugPayload
+from eZmaxApi.models.ezsignfolder_get_actionable_elements_for_signer_v1_response_m_payload import EzsignfolderGetActionableElementsForSignerV1ResponseMPayload
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class UserImpersonateV1Request(BaseModel):
+class EzsignfolderGetActionableElementsForSignerV1Response(BaseModel):
     """
-    Request for POST /1/object/user/{pkiUserID}/impersonate
+    Response for GET /1/object/ezsignfolder/{pkiEzsignfolderID}/getActionableElementsForSigner
     """ # noqa: E501
-    i_expiration_minutes: Annotated[int, Field(le=180, strict=True, ge=1)] = Field(description="The number of minute before key is no longer active", alias="iExpirationMinutes")
-    __properties: ClassVar[List[str]] = ["iExpirationMinutes"]
+    obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
+    obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")
+    m_payload: EzsignfolderGetActionableElementsForSignerV1ResponseMPayload = Field(alias="mPayload")
+    __properties: ClassVar[List[str]] = ["objDebugPayload", "objDebug", "mPayload"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -50,7 +54,7 @@ class UserImpersonateV1Request(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a JSON string"""
+        """Create an instance of EzsignfolderGetActionableElementsForSignerV1Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +75,20 @@ class UserImpersonateV1Request(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_debug_payload
+        if self.obj_debug_payload:
+            _dict['objDebugPayload'] = self.obj_debug_payload.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of obj_debug
+        if self.obj_debug:
+            _dict['objDebug'] = self.obj_debug.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of m_payload
+        if self.m_payload:
+            _dict['mPayload'] = self.m_payload.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a dict"""
+        """Create an instance of EzsignfolderGetActionableElementsForSignerV1Response from a dict"""
         if obj is None:
             return None
 
@@ -83,7 +96,9 @@ class UserImpersonateV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "iExpirationMinutes": obj.get("iExpirationMinutes")
+            "objDebugPayload": CommonResponseObjDebugPayload.from_dict(obj["objDebugPayload"]) if obj.get("objDebugPayload") is not None else None,
+            "objDebug": CommonResponseObjDebug.from_dict(obj["objDebug"]) if obj.get("objDebug") is not None else None,
+            "mPayload": EzsignfolderGetActionableElementsForSignerV1ResponseMPayload.from_dict(obj["mPayload"]) if obj.get("mPayload") is not None else None
         })
         return _obj
 

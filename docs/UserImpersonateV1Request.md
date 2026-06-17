@@ -6,7 +6,6 @@ Request for POST /1/object/user/{pkiUserID}/impersonate
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_user_id** | **int** | The unique ID of the User | 
 **i_expiration_minutes** | **int** | The number of minute before key is no longer active | 
 
 ## Example

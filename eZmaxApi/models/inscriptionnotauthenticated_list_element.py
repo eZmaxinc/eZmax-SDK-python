@@ -33,10 +33,13 @@ class InscriptionnotauthenticatedListElement(BaseModel):
     pki_inscription_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscription.", alias="pkiInscriptionID", json_schema_extra={"examples": [17]})
     pki_inscriptionnotauthenticated_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionnotauthenticated.", alias="pkiInscriptionnotauthenticatedID", json_schema_extra={"examples": [24]})
     fki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="fkiInscriptiontypeID", json_schema_extra={"examples": [51]})
+    fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID", json_schema_extra={"examples": [38]})
+    s_buyercontract_contract: Optional[StrictStr] = Field(default=None, description="The number of the Buyercontract", alias="sBuyercontractContract", json_schema_extra={"examples": ["12345"]})
     s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX", json_schema_extra={"examples": ["Revenue Property"]})
     e_inscription_step: FieldEInscriptionStep = Field(alias="eInscriptionStep")
     s_inscription_civicend: Annotated[str, Field(strict=True)] = Field(description="The civicend of the Inscription", alias="sInscriptionCivicend", json_schema_extra={"examples": ["630"]})
     s_inscription_mls: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The mls of the Inscription", alias="sInscriptionMLS", json_schema_extra={"examples": ["X00000"]})
+    s_inscription_contract: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The sale contract number", alias="sInscriptionContract", json_schema_extra={"examples": ["1542254"]})
     d_inscription_saleprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The saleprice of the Inscription", alias="dInscriptionSaleprice", json_schema_extra={"examples": ["200000.00"]})
     d_inscription_rentprice: Annotated[str, Field(min_length=4, strict=True, max_length=13)] = Field(description="The rentprice of the Inscription", alias="dInscriptionRentprice", json_schema_extra={"examples": ["1200.00"]})
     dt_inscription_date: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date of the Inscription", alias="dtInscriptionDate", json_schema_extra={"examples": ["2020-12-31"]})
@@ -60,7 +63,7 @@ class InscriptionnotauthenticatedListElement(BaseModel):
     fki_country_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="fkiCountryID", json_schema_extra={"examples": [1]})
     s_country_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Country in the language of the requester", alias="sCountryNameX", json_schema_extra={"examples": ["Canada"]})
     s_inscriptionnotauthenticated_offertopurchasenumber: Annotated[str, Field(strict=True)] = Field(description="The Offer to purchase number", alias="sInscriptionnotauthenticatedOffertopurchasenumber", json_schema_extra={"examples": ["PL32216"]})
-    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eInscriptionStep", "sInscriptionCivicend", "sInscriptionMLS", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionInspection", "bInscriptionIsactive", "bInscriptionArchived", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "sInscriptionnotauthenticatedOffertopurchasenumber"]
+    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "fkiBuyercontractID", "sBuyercontractContract", "sInscriptiontypeNameX", "eInscriptionStep", "sInscriptionCivicend", "sInscriptionMLS", "sInscriptionContract", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionInspection", "bInscriptionIsactive", "bInscriptionArchived", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "sInscriptionnotauthenticatedOffertopurchasenumber"]
 
     @field_validator('s_inscriptiontype_name_x')
     def s_inscriptiontype_name_x_validate_regular_expression(cls, value):
@@ -84,6 +87,19 @@ class InscriptionnotauthenticatedListElement(BaseModel):
 
     @field_validator('s_inscription_mls')
     def s_inscription_mls_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not isinstance(value, str):
+            value = str(value)
+
+        if not re.match(r"^.{0,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,20}$/")
+        return value
+
+    @field_validator('s_inscription_contract')
+    def s_inscription_contract_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
@@ -283,10 +299,13 @@ class InscriptionnotauthenticatedListElement(BaseModel):
             "pkiInscriptionID": obj.get("pkiInscriptionID"),
             "pkiInscriptionnotauthenticatedID": obj.get("pkiInscriptionnotauthenticatedID"),
             "fkiInscriptiontypeID": obj.get("fkiInscriptiontypeID"),
+            "fkiBuyercontractID": obj.get("fkiBuyercontractID"),
+            "sBuyercontractContract": obj.get("sBuyercontractContract"),
             "sInscriptiontypeNameX": obj.get("sInscriptiontypeNameX"),
             "eInscriptionStep": obj.get("eInscriptionStep"),
             "sInscriptionCivicend": obj.get("sInscriptionCivicend"),
             "sInscriptionMLS": obj.get("sInscriptionMLS"),
+            "sInscriptionContract": obj.get("sInscriptionContract"),
             "dInscriptionSaleprice": obj.get("dInscriptionSaleprice"),
             "dInscriptionRentprice": obj.get("dInscriptionRentprice"),
             "dtInscriptionDate": obj.get("dtInscriptionDate"),

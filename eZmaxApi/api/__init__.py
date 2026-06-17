@@ -1,6 +1,7 @@
 # flake8: noqa
 
 # import apis into api package
+from eZmaxApi.api.documentation_ezmaxpartner_api import DocumentationEzmaxpartnerApi
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi
 from eZmaxApi.api.global_ezmaxclient_api import GlobalEzmaxclientApi
 from eZmaxApi.api.global_ezmaxcustomer_api import GlobalEzmaxcustomerApi

@@ -20,17 +20,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from eZmaxApi.models.ezsignformfieldgroup_response_compound import EzsignformfieldgroupResponseCompound
+from eZmaxApi.models.ezsignsignature_response_compound import EzsignsignatureResponseCompound
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class UserImpersonateV1Request(BaseModel):
+class EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload(BaseModel):
     """
-    Request for POST /1/object/user/{pkiUserID}/impersonate
+    Payload for GET /1/object/ezsigndocument/{pkiEzsigndocumentID}/getActionableElementsForSigner
     """ # noqa: E501
-    i_expiration_minutes: Annotated[int, Field(le=180, strict=True, ge=1)] = Field(description="The number of minute before key is no longer active", alias="iExpirationMinutes")
-    __properties: ClassVar[List[str]] = ["iExpirationMinutes"]
+    a_obj_ezsignsignature: List[EzsignsignatureResponseCompound] = Field(alias="a_objEzsignsignature")
+    a_obj_ezsignformfieldgroup: List[EzsignformfieldgroupResponseCompound] = Field(alias="a_objEzsignformfieldgroup")
+    __properties: ClassVar[List[str]] = ["a_objEzsignsignature", "a_objEzsignformfieldgroup"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -50,7 +52,7 @@ class UserImpersonateV1Request(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a JSON string"""
+        """Create an instance of EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +73,25 @@ class UserImpersonateV1Request(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignature (list)
+        _items = []
+        if self.a_obj_ezsignsignature:
+            for _item_a_obj_ezsignsignature in self.a_obj_ezsignsignature:
+                if _item_a_obj_ezsignsignature:
+                    _items.append(_item_a_obj_ezsignsignature.to_dict())
+            _dict['a_objEzsignsignature'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfieldgroup (list)
+        _items = []
+        if self.a_obj_ezsignformfieldgroup:
+            for _item_a_obj_ezsignformfieldgroup in self.a_obj_ezsignformfieldgroup:
+                if _item_a_obj_ezsignformfieldgroup:
+                    _items.append(_item_a_obj_ezsignformfieldgroup.to_dict())
+            _dict['a_objEzsignformfieldgroup'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a dict"""
+        """Create an instance of EzsigndocumentGetActionableElementsForSignerV1ResponseMPayload from a dict"""
         if obj is None:
             return None
 
@@ -83,7 +99,8 @@ class UserImpersonateV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "iExpirationMinutes": obj.get("iExpirationMinutes")
+            "a_objEzsignsignature": [EzsignsignatureResponseCompound.from_dict(_item) for _item in obj["a_objEzsignsignature"]] if obj.get("a_objEzsignsignature") is not None else None,
+            "a_objEzsignformfieldgroup": [EzsignformfieldgroupResponseCompound.from_dict(_item) for _item in obj["a_objEzsignformfieldgroup"]] if obj.get("a_objEzsignformfieldgroup") is not None else None
         })
         return _obj
 

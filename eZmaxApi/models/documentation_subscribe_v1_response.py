@@ -18,19 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class UserImpersonateV1Request(BaseModel):
+class DocumentationSubscribeV1Response(BaseModel):
     """
-    Request for POST /1/object/user/{pkiUserID}/impersonate
+    Request for POST /1/module/ezmaxmaillinglist/subscribe
     """ # noqa: E501
-    i_expiration_minutes: Annotated[int, Field(le=180, strict=True, ge=1)] = Field(description="The number of minute before key is no longer active", alias="iExpirationMinutes")
-    __properties: ClassVar[List[str]] = ["iExpirationMinutes"]
+    s_external_id: StrictStr = Field(alias="sExternalID")
+    __properties: ClassVar[List[str]] = ["sExternalID"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -50,7 +49,7 @@ class UserImpersonateV1Request(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a JSON string"""
+        """Create an instance of DocumentationSubscribeV1Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +74,7 @@ class UserImpersonateV1Request(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UserImpersonateV1Request from a dict"""
+        """Create an instance of DocumentationSubscribeV1Response from a dict"""
         if obj is None:
             return None
 
@@ -83,7 +82,7 @@ class UserImpersonateV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "iExpirationMinutes": obj.get("iExpirationMinutes")
+            "sExternalID": obj.get("sExternalID")
         })
         return _obj
 
