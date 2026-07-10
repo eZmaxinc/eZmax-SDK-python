@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**inscriptionnotauthenticated_get_communicationsenders_v1**](ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_get_communicationsenders_v1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getCommunicationsenders | Retrieve Inscriptionnotauthenticated&#39;s Communicationsender
 [**inscriptionnotauthenticated_get_inscriptionnotauthenticatedconditions_v1**](ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_get_inscriptionnotauthenticatedconditions_v1) | **GET** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/getInscriptionnotauthenticatedconditions | Retrieve Inscriptionnotauthenticated conditions
 [**inscriptionnotauthenticated_get_list_v1**](ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_get_list_v1) | **GET** /1/object/inscriptionnotauthenticated/getList | Retrieve Inscriptionnotauthenticated list
+[**inscriptionnotauthenticated_get_object_v2**](ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_get_object_v2) | **GET** /2/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID} | Retrieve an existing Inscriptionnotauthenticated
 [**inscriptionnotauthenticated_import_into_edmv1**](ObjectInscriptionnotauthenticatedApi.md#inscriptionnotauthenticated_import_into_edmv1) | **POST** /1/object/inscriptionnotauthenticated/{pkiInscriptionnotauthenticatedID}/importIntoEDM | Import attachments into the Inscriptionnotauthenticated
 
 
@@ -587,6 +588,86 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **406** | The URL is valid, but one of the Accept header is not defined or invalid. For example, you set the header \&quot;Accept: application/json\&quot; but the function can only return \&quot;Content-type: image/png\&quot; |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inscriptionnotauthenticated_get_object_v2**
+> InscriptionnotauthenticatedGetObjectV2Response inscriptionnotauthenticated_get_object_v2(pki_inscriptionnotauthenticated_id)
+
+Retrieve an existing Inscriptionnotauthenticated
+
+
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.inscriptionnotauthenticated_get_object_v2_response import InscriptionnotauthenticatedGetObjectV2Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectInscriptionnotauthenticatedApi(api_client)
+    pki_inscriptionnotauthenticated_id = 56 # int | The unique ID of the Inscriptionnotauthenticated
+
+    try:
+        # Retrieve an existing Inscriptionnotauthenticated
+        api_response = api_instance.inscriptionnotauthenticated_get_object_v2(pki_inscriptionnotauthenticated_id)
+        print("The response of ObjectInscriptionnotauthenticatedApi->inscriptionnotauthenticated_get_object_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectInscriptionnotauthenticatedApi->inscriptionnotauthenticated_get_object_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_inscriptionnotauthenticated_id** | **int**| The unique ID of the Inscriptionnotauthenticated | 
+
+### Return type
+
+[**InscriptionnotauthenticatedGetObjectV2Response**](InscriptionnotauthenticatedGetObjectV2Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

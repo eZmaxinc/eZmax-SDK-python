@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **fki_ezsignfoldertype_id** | **int** | The unique ID of the Ezsignfoldertype. | [optional] 
 **s_ezsignfoldertype_name_x** | **str** | The name of the Ezsignfoldertype in the language of the requester | [optional] 
 **e_webhook_module** | [**FieldEWebhookModule**](FieldEWebhookModule.md) |  | 
+**e_webhook_ezmaxpartnerevent** | [**FieldEWebhookEzmaxpartnerevent**](FieldEWebhookEzmaxpartnerevent.md) |  | [optional] 
 **e_webhook_ezsignevent** | [**FieldEWebhookEzsignevent**](FieldEWebhookEzsignevent.md) |  | [optional] 
 **e_webhook_managementevent** | [**FieldEWebhookManagementevent**](FieldEWebhookManagementevent.md) |  | [optional] 
 **s_webhook_url** | **str** | The URL of the Webhook callback | 

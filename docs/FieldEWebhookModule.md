@@ -4,6 +4,8 @@ The module for the Webhook
 
 ## Enum
 
+* `EZMAXPARTNER` (value: `'Ezmaxpartner'`)
+
 * `EZSIGN` (value: `'Ezsign'`)
 
 * `MANAGEMENT` (value: `'Management'`)

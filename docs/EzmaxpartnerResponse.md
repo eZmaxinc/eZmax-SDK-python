@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **obj_ezmaxpartner_shortdescription** | [**MultilingualEzmaxpartnerShortdescription**](MultilingualEzmaxpartnerShortdescription.md) |  | 
 **obj_ezmaxpartner_url** | [**MultilingualEzmaxpartnerUrl**](MultilingualEzmaxpartnerUrl.md) |  | 
 **b_ezmaxpartner_isactive** | **bool** | Whether the Ezmaxpartner is active or not | [optional] 
+**obj_ezmaxpartner_logourl** | [**MultilingualEzmaxpartnerLogourl**](MultilingualEzmaxpartnerLogourl.md) |  | 
 
 ## Example
 
