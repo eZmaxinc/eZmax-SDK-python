@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
+from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent
 from eZmaxApi.models.webhookheader_request_compound import WebhookheaderRequestCompound
 from typing import Optional, Set
 from typing_extensions import Self
@@ -40,21 +41,19 @@ class WebhookRequestCompound(BaseModel):
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
+    e_webhook_realestateevent: Optional[FieldEWebhookRealestateevent] = Field(default=None, alias="eWebhookRealestateevent")
     s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl", json_schema_extra={"examples": ["https://www.example.com"]})
     s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed", json_schema_extra={"examples": ["email@example.com"]})
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive", json_schema_extra={"examples": [True]})
     b_webhook_issigned: Optional[StrictBool] = Field(default=None, description="Whether the requests will be signed or not", alias="bWebhookIssigned", json_schema_extra={"examples": [True]})
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation", json_schema_extra={"examples": [False]})
     a_obj_webhookheader: Optional[List[WebhookheaderRequestCompound]] = Field(default=None, alias="a_objWebhookheader")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "a_objWebhookheader"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "fkiEzsignfoldertypeID", "sWebhookDescription", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "eWebhookRealestateevent", "sWebhookUrl", "sWebhookEmailfailed", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "a_objWebhookheader"]
 
-    @field_validator('s_webhook_url')
+    @field_validator('s_webhook_url', mode="before")
     def s_webhook_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
@@ -123,6 +122,7 @@ class WebhookRequestCompound(BaseModel):
             "eWebhookModule": obj.get("eWebhookModule"),
             "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
             "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
+            "eWebhookRealestateevent": obj.get("eWebhookRealestateevent"),
             "sWebhookUrl": obj.get("sWebhookUrl"),
             "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
             "bWebhookIsactive": obj.get("bWebhookIsactive"),

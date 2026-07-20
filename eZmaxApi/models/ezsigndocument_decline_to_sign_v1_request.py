@@ -32,13 +32,10 @@ class EzsigndocumentDeclineToSignV1Request(BaseModel):
     s_reason: Annotated[str, Field(strict=True)] = Field(description="Reason for refusal", alias="sReason", json_schema_extra={"examples": ["Wrong document"]})
     __properties: ClassVar[List[str]] = ["sReason"]
 
-    @field_validator('s_reason')
+    @field_validator('s_reason', mode="before")
     def s_reason_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 

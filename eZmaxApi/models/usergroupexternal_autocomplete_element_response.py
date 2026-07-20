@@ -34,13 +34,10 @@ class UsergroupexternalAutocompleteElementResponse(BaseModel):
     b_usergroupexternal_isactive: StrictBool = Field(description="Whether the Usergroupexternal is active or not", alias="bUsergroupexternalIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalID", "sUsergroupexternalName", "bUsergroupexternalIsactive"]
 
-    @field_validator('s_usergroupexternal_name')
+    @field_validator('s_usergroupexternal_name', mode="before")
     def s_usergroupexternal_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,64}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,64}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 

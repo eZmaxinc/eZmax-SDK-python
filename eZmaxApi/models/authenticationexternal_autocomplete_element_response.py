@@ -34,13 +34,10 @@ class AuthenticationexternalAutocompleteElementResponse(BaseModel):
     b_authenticationexternal_isactive: StrictBool = Field(description="Whether the Authenticationexternal is active or not", alias="bAuthenticationexternalIsactive")
     __properties: ClassVar[List[str]] = ["pkiAuthenticationexternalID", "sAuthenticationexternalDescription", "bAuthenticationexternalIsactive"]
 
-    @field_validator('s_authenticationexternal_description')
+    @field_validator('s_authenticationexternal_description', mode="before")
     def s_authenticationexternal_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

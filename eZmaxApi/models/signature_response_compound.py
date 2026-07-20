@@ -35,29 +35,23 @@ class SignatureResponseCompound(BaseModel):
     s_signature_urlinitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The URL of the SVG file for the Initials", alias="sSignatureUrlinitials", json_schema_extra={"examples": ["https://www.example.com/signature.svg"]})
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "sSignatureUrl", "sSignatureUrlinitials"]
 
-    @field_validator('s_signature_url')
+    @field_validator('s_signature_url', mode="before")
     def s_signature_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
-    @field_validator('s_signature_urlinitials')
+    @field_validator('s_signature_urlinitials', mode="before")
     def s_signature_urlinitials_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

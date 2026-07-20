@@ -34,13 +34,10 @@ class EzsigntemplateglobalsignerResponse(BaseModel):
     s_ezsigntemplateglobalsigner_description: Annotated[str, Field(strict=True)] = Field(description="The description of the Ezsigntemplateglobalsigner", alias="sEzsigntemplateglobalsignerDescription", json_schema_extra={"examples": ["Customer"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalsignerID", "fkiEzsigntemplateglobalID", "sEzsigntemplateglobalsignerDescription"]
 
-    @field_validator('s_ezsigntemplateglobalsigner_description')
+    @field_validator('s_ezsigntemplateglobalsigner_description', mode="before")
     def s_ezsigntemplateglobalsigner_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
 

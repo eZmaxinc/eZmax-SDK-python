@@ -35,13 +35,10 @@ class CreditcardtypeAutocompleteElementResponse(BaseModel):
     e_creditcardtype_codename: FieldECreditcardtypeCodename = Field(alias="eCreditcardtypeCodename")
     __properties: ClassVar[List[str]] = ["sCreditcardtypeName", "pkiCreditcardtypeID", "eCreditcardtypeCodename"]
 
-    @field_validator('s_creditcardtype_name')
+    @field_validator('s_creditcardtype_name', mode="before")
     def s_creditcardtype_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,30}$/")
         return value
 

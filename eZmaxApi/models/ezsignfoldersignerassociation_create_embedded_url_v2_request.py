@@ -33,29 +33,23 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV2Request(BaseModel):
     s_iframe_origin: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This is used to fill the header frame ancestor to allow the application to embed the Ezsign signature page", alias="sIframeOrigin", json_schema_extra={"examples": ["https://www.example.com"]})
     __properties: ClassVar[List[str]] = ["sReturnUrl", "sIframeOrigin"]
 
-    @field_validator('s_return_url')
+    @field_validator('s_return_url', mode="before")
     def s_return_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
-    @field_validator('s_iframe_origin')
+    @field_validator('s_iframe_origin', mode="before")
     def s_iframe_origin_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[a-z0-9.-]+(:\d{1,5})?$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[a-z0-9.-]+(:\d{1,5})?$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[a-z0-9.-]+(:\d{1,5})?$/")
         return value
 

@@ -38,16 +38,13 @@ class PhoneResponseCompound(BaseModel):
     b_phone_international: Optional[StrictBool] = Field(default=None, description="Indicate the phone number is an international phone number.", alias="bPhoneInternational", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneE164", "sPhoneExtension", "bPhoneInternational"]
 
-    @field_validator('s_phone_e164')
+    @field_validator('s_phone_e164', mode="before")
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 

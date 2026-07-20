@@ -33,23 +33,17 @@ class CustomAttachmentPrepareFilesTransferRequest(BaseModel):
     s_attachment_md5: Annotated[str, Field(strict=True)] = Field(description="The MD5 of the Attachment", alias="sAttachmentMD5", json_schema_extra={"examples": ["2cb29026e8a93c930e71598579400db6"]})
     __properties: ClassVar[List[str]] = ["sAttachmentName", "sAttachmentMD5"]
 
-    @field_validator('s_attachment_name')
+    @field_validator('s_attachment_name', mode="before")
     def s_attachment_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 
-    @field_validator('s_attachment_md5')
+    @field_validator('s_attachment_md5', mode="before")
     def s_attachment_md5_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{32}$", value):
+        if isinstance(value, str) and not re.match(r"^.{32}$", value):
             raise ValueError(r"must validate the regular expression /^.{32}$/")
         return value
 

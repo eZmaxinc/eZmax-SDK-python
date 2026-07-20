@@ -35,23 +35,17 @@ class WebhookheaderResponseCompound(BaseModel):
     s_webhookheader_value: Annotated[str, Field(strict=True)] = Field(description="The Value of the Webhookheader", alias="sWebhookheaderValue", json_schema_extra={"examples": ["d75fca0e12b6c671e7f6d4df0cf59e4e"]})
     __properties: ClassVar[List[str]] = ["pkiWebhookheaderID", "fkiWebhookID", "sWebhookheaderName", "sWebhookheaderValue"]
 
-    @field_validator('s_webhookheader_name')
+    @field_validator('s_webhookheader_name', mode="before")
     def s_webhookheader_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\s)[^\s].*$", value):
+        if isinstance(value, str) and not re.match(r"^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\s)[^\s].*$", value):
             raise ValueError(r"must validate the regular expression /^(?!(?:e|E)(?:z|Z)(?:m|M)(?:a|A)(?:x|X))(?!(?:h|H)(?:o|O)(?:s|S)(?:t|T)$|(?:u|U)(?:s|S)(?:e|E)(?:r|R)-(?:a|A)(?:g|G)(?:e|E)(?:n|N)(?:t|T)$)(?!\s)[^\s].*$/")
         return value
 
-    @field_validator('s_webhookheader_value')
+    @field_validator('s_webhookheader_value', mode="before")
     def s_webhookheader_value_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,255}$/")
         return value
 

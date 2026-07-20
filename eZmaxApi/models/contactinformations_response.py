@@ -47,16 +47,13 @@ class ContactinformationsResponse(BaseModel):
     obj_website_default: Optional[WebsiteResponseCompound] = Field(default=None, alias="objWebsiteDefault")
     __properties: ClassVar[List[str]] = ["pkiContactinformationsID", "fkiAddressIDDefault", "fkiPhoneIDDefault", "fkiEmailIDDefault", "fkiWebsiteIDDefault", "eContactinformationsType", "sContactinformationsUrl", "objAddressDefault", "objPhoneDefault", "objEmailDefault", "objWebsiteDefault"]
 
-    @field_validator('s_contactinformations_url')
+    @field_validator('s_contactinformations_url', mode="before")
     def s_contactinformations_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
 

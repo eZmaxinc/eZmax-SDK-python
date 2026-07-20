@@ -41,16 +41,13 @@ class PhoneRequest(BaseModel):
     s_phone_e164: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sPhoneE164", json_schema_extra={"examples": ["+15149901516"]})
     __properties: ClassVar[List[str]] = ["pkiPhoneID", "fkiPhonetypeID", "ePhoneType", "sPhoneRegion", "sPhoneExchange", "sPhoneNumber", "sPhoneInternational", "sPhoneExtension", "sPhoneE164"]
 
-    @field_validator('s_phone_e164')
+    @field_validator('s_phone_e164', mode="before")
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 

@@ -49,13 +49,10 @@ class EzsigntemplateglobalResponseCompound(BaseModel):
     a_obj_ezsigntemplateglobalannotation: Optional[List[EzsigntemplateglobalannotationResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateglobalannotation")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalID", "fkiEzsigntemplateglobaldocumentID", "fkiModuleID", "sModuleNameX", "fkiLanguageID", "sLanguageNameX", "eEzsigntemplateglobalModule", "eEzsigntemplateglobalSupplier", "sEzsigntemplateglobalCode", "sEzsigntemplateglobalDescription", "objEzsigntemplateglobaldocument", "a_objEzsigntemplateglobalsigner", "a_objEzsigntemplateglobalannotation"]
 
-    @field_validator('s_ezsigntemplateglobal_code')
+    @field_validator('s_ezsigntemplateglobal_code', mode="before")
     def s_ezsigntemplateglobal_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,10}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,10}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,10}$/")
         return value
 

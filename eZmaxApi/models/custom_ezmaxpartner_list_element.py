@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from eZmaxApi.models.multilingual_ezmaxpartner_logourl import MultilingualEzmaxpartnerLogourl
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -36,65 +37,48 @@ class CustomEzmaxpartnerListElement(BaseModel):
     s_ezmaxpartner_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezmaxpartner in the language of the requester", alias="sEzmaxpartnerNameX", json_schema_extra={"examples": ["eZmax"]})
     s_ezmaxpartner_phone_e164_x: Annotated[str, Field(strict=True)] = Field(description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE164X", json_schema_extra={"examples": ["+15149901516"]})
     s_ezmaxpartner_url_x: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezmaxpartner website in the language of the requester", alias="sEzmaxpartnerUrlX", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
-    __properties: ClassVar[List[str]] = ["pkiEzmaxpartnerID", "sEzmaxpartnerAddressX", "sEzmaxpartnerEmailaddressX", "sEzmaxpartnerShortdescriptionX", "sEzmaxpartnerNameX", "sEzmaxpartnerPhoneE164X", "sEzmaxpartnerUrlX"]
+    obj_ezmaxpartner_logourl: MultilingualEzmaxpartnerLogourl = Field(alias="objEzmaxpartnerLogourl")
+    __properties: ClassVar[List[str]] = ["pkiEzmaxpartnerID", "sEzmaxpartnerAddressX", "sEzmaxpartnerEmailaddressX", "sEzmaxpartnerShortdescriptionX", "sEzmaxpartnerNameX", "sEzmaxpartnerPhoneE164X", "sEzmaxpartnerUrlX", "objEzmaxpartnerLogourl"]
 
-    @field_validator('s_ezmaxpartner_address_x')
+    @field_validator('s_ezmaxpartner_address_x', mode="before")
     def s_ezmaxpartner_address_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,200}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_emailaddress_x')
+    @field_validator('s_ezmaxpartner_emailaddress_x', mode="before")
     def s_ezmaxpartner_emailaddress_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_shortdescription_x')
+    @field_validator('s_ezmaxpartner_shortdescription_x', mode="before")
     def s_ezmaxpartner_shortdescription_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,256}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,256}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,256}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_name_x')
+    @field_validator('s_ezmaxpartner_name_x', mode="before")
     def s_ezmaxpartner_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_phone_e164_x')
+    @field_validator('s_ezmaxpartner_phone_e164_x', mode="before")
     def s_ezmaxpartner_phone_e164_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_url_x')
+    @field_validator('s_ezmaxpartner_url_x', mode="before")
     def s_ezmaxpartner_url_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
@@ -137,6 +121,9 @@ class CustomEzmaxpartnerListElement(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_ezmaxpartner_logourl
+        if self.obj_ezmaxpartner_logourl:
+            _dict['objEzmaxpartnerLogourl'] = self.obj_ezmaxpartner_logourl.to_dict()
         return _dict
 
     @classmethod
@@ -155,7 +142,8 @@ class CustomEzmaxpartnerListElement(BaseModel):
             "sEzmaxpartnerShortdescriptionX": obj.get("sEzmaxpartnerShortdescriptionX"),
             "sEzmaxpartnerNameX": obj.get("sEzmaxpartnerNameX"),
             "sEzmaxpartnerPhoneE164X": obj.get("sEzmaxpartnerPhoneE164X"),
-            "sEzmaxpartnerUrlX": obj.get("sEzmaxpartnerUrlX")
+            "sEzmaxpartnerUrlX": obj.get("sEzmaxpartnerUrlX"),
+            "objEzmaxpartnerLogourl": MultilingualEzmaxpartnerLogourl.from_dict(obj["objEzmaxpartnerLogourl"]) if obj.get("objEzmaxpartnerLogourl") is not None else None
         })
         return _obj
 

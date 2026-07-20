@@ -68,56 +68,41 @@ class EzsignfolderListElement(BaseModel):
     b_ezsignfolder_ismyown: Optional[StrictBool] = Field(default=None, description="Whether the Ezsignfolder is my own or not", alias="bEzsignfolderIsmyown", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiEzsignbulksendID", "sEzsignbulksendDescription", "fkiEzsignbulksendtransmissionID", "sEzsignbulksendtransmissionDescription", "fkiEzsigntemplatepublicID", "sEzsigntemplatepublicDescription", "eEzsignfolderSource", "eEzsignfoldertypePrivacylevel", "sEzsignfoldertypeNameX", "sEzsignfolderDescription", "eEzsignfolderStep", "eEzsignfolderCompletion", "dtCreatedDate", "dtEzsignfolderDelayedsenddate", "dtEzsignfolderSentdate", "dtEzsignfolderDuedate", "iEzsigndocument", "iEzsigndocumentEdm", "iEzsignsignature", "iEzsignsignatureSigned", "iEzsignformfieldgroup", "iEzsignformfieldgroupCompleted", "bEzsignformHasdependencies", "dEzsignfolderCompletedpercentage", "dEzsignfolderFormcompletedpercentage", "dEzsignfolderSignaturecompletedpercentage", "dtEzsignfolderClose", "dtEzsignfolderArchive", "dtEzsignfolderDispose", "bEzsignfolderSigner", "bEzsignfolderIsmyown"]
 
-    @field_validator('s_ezsigntemplatepublic_description')
+    @field_validator('s_ezsigntemplatepublic_description', mode="before")
     def s_ezsigntemplatepublic_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 
-    @field_validator('s_ezsignfolder_description')
+    @field_validator('s_ezsignfolder_description', mode="before")
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 
-    @field_validator('d_ezsignfolder_completedpercentage')
+    @field_validator('d_ezsignfolder_completedpercentage', mode="before")
     def d_ezsignfolder_completedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezsignfolder_formcompletedpercentage')
+    @field_validator('d_ezsignfolder_formcompletedpercentage', mode="before")
     def d_ezsignfolder_formcompletedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezsignfolder_signaturecompletedpercentage')
+    @field_validator('d_ezsignfolder_signaturecompletedpercentage', mode="before")
     def d_ezsignfolder_signaturecompletedpercentage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 

@@ -36,23 +36,17 @@ class EzsigntemplatepublicCreateEzsignfolderV1Request(BaseModel):
     a_obj_ezsignsigner: List[EzsignsignerRequestCompound] = Field(alias="a_objEzsignsigner")
     __properties: ClassVar[List[str]] = ["pksEzmaxcustomerCode", "sEzsigntemplatepublicReferenceid", "a_sEzsigntemplatesignerDescription", "a_objEzsignsigner"]
 
-    @field_validator('pks_ezmaxcustomer_code')
+    @field_validator('pks_ezmaxcustomer_code', mode="before")
     def pks_ezmaxcustomer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-z\d]{2,6}$", value):
+        if isinstance(value, str) and not re.match(r"^[a-z\d]{2,6}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z\d]{2,6}$/")
         return value
 
-    @field_validator('s_ezsigntemplatepublic_referenceid')
+    @field_validator('s_ezsigntemplatepublic_referenceid', mode="before")
     def s_ezsigntemplatepublic_referenceid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,36}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,36}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,36}$/")
         return value
 

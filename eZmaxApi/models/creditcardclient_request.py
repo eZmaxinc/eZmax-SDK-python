@@ -41,36 +41,27 @@ class CreditcardclientRequest(BaseModel):
     s_creditcardclient_cvv: Annotated[str, Field(strict=True)] = Field(description="The creditcard card CVV", alias="sCreditcardclientCVV")
     __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fksCreditcardtokenID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedezsign", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail", "sCreditcardclientCVV"]
 
-    @field_validator('fks_creditcardtoken_id')
+    @field_validator('fks_creditcardtoken_id', mode="before")
     def fks_creditcardtoken_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}?$", value):
+        if isinstance(value, str) and not re.match(r"^\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}?$", value):
             raise ValueError(r"must validate the regular expression /^\{?[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}?$/")
         return value
 
-    @field_validator('s_creditcardclient_description')
+    @field_validator('s_creditcardclient_description', mode="before")
     def s_creditcardclient_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_creditcardclient_cvv')
+    @field_validator('s_creditcardclient_cvv', mode="before")
     def s_creditcardclient_cvv_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{3,4}$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{3,4}$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{3,4}$/")
         return value
 

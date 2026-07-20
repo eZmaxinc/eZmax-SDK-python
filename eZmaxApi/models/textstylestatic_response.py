@@ -40,13 +40,10 @@ class TextstylestaticResponse(BaseModel):
     i_textstylestatic_size: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The Size for the Font of the Textstylestatic", alias="iTextstylestaticSize", json_schema_extra={"examples": [12]})
     __properties: ClassVar[List[str]] = ["pkiTextstylestaticID", "fkiFontID", "sFontName", "bTextstylestaticBold", "bTextstylestaticUnderline", "bTextstylestaticItalic", "bTextstylestaticStrikethrough", "iTextstylestaticFontcolor", "iTextstylestaticSize"]
 
-    @field_validator('s_font_name')
+    @field_validator('s_font_name', mode="before")
     def s_font_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

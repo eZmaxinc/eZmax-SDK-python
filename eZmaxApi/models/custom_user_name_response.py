@@ -35,29 +35,23 @@ class CustomUserNameResponse(BaseModel):
     s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle", json_schema_extra={"examples": ["Sales Representative"]})
     __properties: ClassVar[List[str]] = ["sContacttitleNameX", "sUserLastname", "sUserFirstname", "sUserJobtitle"]
 
-    @field_validator('s_contacttitle_name_x')
+    @field_validator('s_contacttitle_name_x', mode="before")
     def s_contacttitle_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,10}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,10}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,10}$/")
         return value
 
-    @field_validator('s_user_jobtitle')
+    @field_validator('s_user_jobtitle', mode="before")
     def s_user_jobtitle_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

@@ -44,49 +44,37 @@ class AddressResponseCompound(BaseModel):
     f_address_latitude: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Latitude of the Address", alias="fAddressLatitude", json_schema_extra={"examples": ["45.5019"]})
     __properties: ClassVar[List[str]] = ["pkiAddressID", "fkiAddresstypeID", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "sAddressZip", "fAddressLongitude", "fAddressLatitude"]
 
-    @field_validator('s_province_name_x')
+    @field_validator('s_province_name_x', mode="before")
     def s_province_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_country_name_x')
+    @field_validator('s_country_name_x', mode="before")
     def s_country_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
-    @field_validator('f_address_longitude')
+    @field_validator('f_address_longitude', mode="before")
     def f_address_longitude_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(-?)(180(\.0{1,15})?|((1[0-7]\d)|(\d{1,2}))(\.\d{1,15})?)$", value):
+        if isinstance(value, str) and not re.match(r"^(-?)(180(\.0{1,15})?|((1[0-7]\d)|(\d{1,2}))(\.\d{1,15})?)$", value):
             raise ValueError(r"must validate the regular expression /^(-?)(180(\.0{1,15})?|((1[0-7]\d)|(\d{1,2}))(\.\d{1,15})?)$/")
         return value
 
-    @field_validator('f_address_latitude')
+    @field_validator('f_address_latitude', mode="before")
     def f_address_latitude_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(-?)(90(\.0{1,15})?|([1-8]?\d(\.\d{1,15})?))$", value):
+        if isinstance(value, str) and not re.match(r"^(-?)(90(\.0{1,15})?|([1-8]?\d(\.\d{1,15})?))$", value):
             raise ValueError(r"must validate the regular expression /^(-?)(90(\.0{1,15})?|([1-8]?\d(\.\d{1,15})?))$/")
         return value
 

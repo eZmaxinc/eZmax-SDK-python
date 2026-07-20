@@ -37,42 +37,33 @@ class CommunicationexternalrecipientRequest(BaseModel):
     s_communicationexternalrecipient_name: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Communicationexternalrecipient", alias="sCommunicationexternalrecipientName", json_schema_extra={"examples": ["John Doe"]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationexternalrecipientID", "sEmailAddress", "sPhoneE164", "eCommunicationexternalrecipientType", "sCommunicationexternalrecipientName"]
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_phone_e164')
+    @field_validator('s_phone_e164', mode="before")
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @field_validator('s_communicationexternalrecipient_name')
+    @field_validator('s_communicationexternalrecipient_name', mode="before")
     def s_communicationexternalrecipient_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

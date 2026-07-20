@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_inscription_step import FieldEInscriptionStep
+from eZmaxApi.models.field_e_inscription_type import FieldEInscriptionType
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -33,10 +34,15 @@ class InscriptionListElement(BaseModel):
     pki_inscription_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscription.", alias="pkiInscriptionID", json_schema_extra={"examples": [17]})
     pki_inscriptionnotauthenticated_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionnotauthenticated.", alias="pkiInscriptionnotauthenticatedID", json_schema_extra={"examples": [24]})
     fki_inscriptiontype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptiontype", alias="fkiInscriptiontypeID", json_schema_extra={"examples": [51]})
+    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX", json_schema_extra={"examples": ["Revenue Property"]})
+    fki_inscriptionbuildingtype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionbuildingtype", alias="fkiInscriptionbuildingtypeID", json_schema_extra={"examples": [182]})
+    s_inscriptionbuildingtype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptionbuildingtype in the language of the requester", alias="sInscriptionbuildingtypeNameX", json_schema_extra={"examples": ["Semi-detached"]})
+    fki_inscriptioncategory_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Inscriptioncategory", alias="fkiInscriptioncategoryID", json_schema_extra={"examples": [185]})
+    s_inscriptioncategory_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptioncategory in the language of the requester", alias="sInscriptioncategoryNameX", json_schema_extra={"examples": ["Bungalow"]})
     fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID", json_schema_extra={"examples": [38]})
     s_buyercontract_contract: Optional[StrictStr] = Field(default=None, description="The number of the Buyercontract", alias="sBuyercontractContract", json_schema_extra={"examples": ["12345"]})
-    s_inscriptiontype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Inscriptiontype in the language of the requester", alias="sInscriptiontypeNameX", json_schema_extra={"examples": ["Revenue Property"]})
     e_inscription_step: FieldEInscriptionStep = Field(alias="eInscriptionStep")
+    e_inscription_type: FieldEInscriptionType = Field(alias="eInscriptionType")
     s_inscription_civicend: Annotated[str, Field(strict=True)] = Field(description="The civicend of the Inscription", alias="sInscriptionCivicend", json_schema_extra={"examples": ["630"]})
     s_inscription_mls: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The mls of the Inscription", alias="sInscriptionMLS", json_schema_extra={"examples": ["X00000"]})
     s_inscription_contract: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The sale contract number", alias="sInscriptionContract", json_schema_extra={"examples": ["1542254"]})
@@ -63,176 +69,149 @@ class InscriptionListElement(BaseModel):
     fki_country_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="fkiCountryID", json_schema_extra={"examples": [1]})
     s_country_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Country in the language of the requester", alias="sCountryNameX", json_schema_extra={"examples": ["Canada"]})
     i_inscriptionnotauthenticated_canceled: StrictInt = Field(description="The numbre of inscriptionnotauthenticated was canceled in this Inscription", alias="iInscriptionnotauthenticatedCanceled", json_schema_extra={"examples": [2]})
+    i_inscription_unit: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unit of the Inscription", alias="iInscriptionUnit", json_schema_extra={"examples": [247]})
     b_allowed_copyintoinscriptionedm: StrictBool = Field(description="Whether we are allowed to copy into the Inscription EDM", alias="bAllowedCopyintoinscriptionedm")
-    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "fkiBuyercontractID", "sBuyercontractContract", "sInscriptiontypeNameX", "eInscriptionStep", "sInscriptionCivicend", "sInscriptionMLS", "sInscriptionContract", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionIsactive", "bInscriptionArchived", "bInscriptionInspection", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "iInscriptionnotauthenticatedCanceled", "bAllowedCopyintoinscriptionedm"]
+    __properties: ClassVar[List[str]] = ["pkiInscriptionID", "pkiInscriptionnotauthenticatedID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "fkiInscriptionbuildingtypeID", "sInscriptionbuildingtypeNameX", "fkiInscriptioncategoryID", "sInscriptioncategoryNameX", "fkiBuyercontractID", "sBuyercontractContract", "eInscriptionStep", "eInscriptionType", "sInscriptionCivicend", "sInscriptionMLS", "sInscriptionContract", "dInscriptionSaleprice", "dInscriptionRentprice", "dtInscriptionDate", "dtInscriptionExpirationdate", "dtInscriptionNotarydate", "bInscriptionIsactive", "bInscriptionArchived", "bInscriptionInspection", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedIsactive", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "iInscriptionnotauthenticatedCanceled", "iInscriptionUnit", "bAllowedCopyintoinscriptionedm"]
 
-    @field_validator('s_inscriptiontype_name_x')
+    @field_validator('s_inscriptiontype_name_x', mode="before")
     def s_inscriptiontype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 
-    @field_validator('s_inscription_civicend')
+    @field_validator('s_inscriptionbuildingtype_name_x', mode="before")
+    def s_inscriptionbuildingtype_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,20}$/")
+        return value
+
+    @field_validator('s_inscriptioncategory_name_x', mode="before")
+    def s_inscriptioncategory_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,30}$/")
+        return value
+
+    @field_validator('s_inscription_civicend', mode="before")
     def s_inscription_civicend_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,6}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
 
-    @field_validator('s_inscription_mls')
+    @field_validator('s_inscription_mls', mode="before")
     def s_inscription_mls_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 
-    @field_validator('s_inscription_contract')
+    @field_validator('s_inscription_contract', mode="before")
     def s_inscription_contract_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 
-    @field_validator('d_inscription_saleprice')
+    @field_validator('d_inscription_saleprice', mode="before")
     def d_inscription_saleprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_inscription_rentprice')
+    @field_validator('d_inscription_rentprice', mode="before")
     def d_inscription_rentprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('dt_inscription_date')
+    @field_validator('dt_inscription_date', mode="before")
     def dt_inscription_date_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscription_expirationdate')
+    @field_validator('dt_inscription_expirationdate', mode="before")
     def dt_inscription_expirationdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscription_notarydate')
+    @field_validator('dt_inscription_notarydate', mode="before")
     def dt_inscription_notarydate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_notaryscheduledate')
+    @field_validator('dt_inscriptionnotauthenticated_notaryscheduledate', mode="before")
     def dt_inscriptionnotauthenticated_notaryscheduledate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_transactiondate')
+    @field_validator('dt_inscriptionnotauthenticated_transactiondate', mode="before")
     def dt_inscriptionnotauthenticated_transactiondate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real')
+    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real', mode="before")
     def dt_inscriptionnotauthenticated_transactiondate_real_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('s_province_name_x')
+    @field_validator('s_province_name_x', mode="before")
     def s_province_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_country_name_x')
+    @field_validator('s_country_name_x', mode="before")
     def s_country_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
@@ -290,10 +269,15 @@ class InscriptionListElement(BaseModel):
             "pkiInscriptionID": obj.get("pkiInscriptionID"),
             "pkiInscriptionnotauthenticatedID": obj.get("pkiInscriptionnotauthenticatedID"),
             "fkiInscriptiontypeID": obj.get("fkiInscriptiontypeID"),
+            "sInscriptiontypeNameX": obj.get("sInscriptiontypeNameX"),
+            "fkiInscriptionbuildingtypeID": obj.get("fkiInscriptionbuildingtypeID"),
+            "sInscriptionbuildingtypeNameX": obj.get("sInscriptionbuildingtypeNameX"),
+            "fkiInscriptioncategoryID": obj.get("fkiInscriptioncategoryID"),
+            "sInscriptioncategoryNameX": obj.get("sInscriptioncategoryNameX"),
             "fkiBuyercontractID": obj.get("fkiBuyercontractID"),
             "sBuyercontractContract": obj.get("sBuyercontractContract"),
-            "sInscriptiontypeNameX": obj.get("sInscriptiontypeNameX"),
             "eInscriptionStep": obj.get("eInscriptionStep"),
+            "eInscriptionType": obj.get("eInscriptionType"),
             "sInscriptionCivicend": obj.get("sInscriptionCivicend"),
             "sInscriptionMLS": obj.get("sInscriptionMLS"),
             "sInscriptionContract": obj.get("sInscriptionContract"),
@@ -320,6 +304,7 @@ class InscriptionListElement(BaseModel):
             "fkiCountryID": obj.get("fkiCountryID"),
             "sCountryNameX": obj.get("sCountryNameX"),
             "iInscriptionnotauthenticatedCanceled": obj.get("iInscriptionnotauthenticatedCanceled"),
+            "iInscriptionUnit": obj.get("iInscriptionUnit"),
             "bAllowedCopyintoinscriptionedm": obj.get("bAllowedCopyintoinscriptionedm")
         })
         return _obj

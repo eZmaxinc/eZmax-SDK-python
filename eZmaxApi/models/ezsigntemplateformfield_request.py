@@ -54,16 +54,13 @@ class EzsigntemplateformfieldRequest(BaseModel):
     obj_textstylestatic: Optional[TextstylestaticRequestCompound] = Field(default=None, alias="objTextstylestatic")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateformfieldID", "eEzsigntemplateformfieldPositioning", "iEzsigntemplatedocumentpagePagenumber", "sEzsigntemplateformfieldLabel", "sEzsigntemplateformfieldValue", "iEzsigntemplateformfieldX", "iEzsigntemplateformfieldY", "iEzsigntemplateformfieldWidth", "iEzsigntemplateformfieldHeight", "bEzsigntemplateformfieldAutocomplete", "bEzsigntemplateformfieldSelected", "eEzsigntemplateformfieldDependencyrequirement", "sEzsigntemplateformfieldPositioningpattern", "iEzsigntemplateformfieldPositioningoffsetx", "iEzsigntemplateformfieldPositioningoffsety", "eEzsigntemplateformfieldPositioningoccurence", "eEzsigntemplateformfieldHorizontalalignment", "objTextstylestatic"]
 
-    @field_validator('s_ezsigntemplateformfield_positioningpattern')
+    @field_validator('s_ezsigntemplateformfield_positioningpattern', mode="before")
     def s_ezsigntemplateformfield_positioningpattern_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 

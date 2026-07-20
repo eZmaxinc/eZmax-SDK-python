@@ -33,29 +33,23 @@ class MultilingualPaymenttermDescription(BaseModel):
     s_paymentterm_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Paymentterm in English", alias="sPaymenttermDescription2", json_schema_extra={"examples": ["Net 30 days"]})
     __properties: ClassVar[List[str]] = ["sPaymenttermDescription1", "sPaymenttermDescription2"]
 
-    @field_validator('s_paymentterm_description1')
+    @field_validator('s_paymentterm_description1', mode="before")
     def s_paymentterm_description1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,40}$/")
         return value
 
-    @field_validator('s_paymentterm_description2')
+    @field_validator('s_paymentterm_description2', mode="before")
     def s_paymentterm_description2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,40}$/")
         return value
 

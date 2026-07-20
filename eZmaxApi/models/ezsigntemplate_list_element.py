@@ -42,13 +42,10 @@ class EzsigntemplateListElement(BaseModel):
     e_ezsigntemplate_type: FieldEEzsigntemplateType = Field(alias="eEzsigntemplateType")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsignfoldertypeID", "fkiLanguageID", "sEzsigntemplateDescription", "iEzsigntemplatedocumentPagetotal", "iEzsigntemplateSignaturetotal", "iEzsigntemplateFormfieldtotal", "bEzsigntemplateIncomplete", "sEzsignfoldertypeNameX", "eEzsigntemplateType"]
 
-    @field_validator('s_ezsigntemplate_description')
+    @field_validator('s_ezsigntemplate_description', mode="before")
     def s_ezsigntemplate_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 

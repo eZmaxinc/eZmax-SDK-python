@@ -43,46 +43,34 @@ class ActivesessionListElement(BaseModel):
     s_activesession_ip: StrictStr = Field(description="Represent an IP address.", alias="sActivesessionIP", json_schema_extra={"examples": ["127.0.0.1"]})
     __properties: ClassVar[List[str]] = ["pkiActivesessionID", "fkiUserID", "fkiComputerID", "fkiCompanyID", "fkiDepartmentID", "sCompanyNameX", "sDepartmentNameX", "sActivesessionLoginname", "sComputerDescription", "dtActivesessionFirsthit", "dtActivesessionLasthit", "sActivesessionIP"]
 
-    @field_validator('s_activesession_loginname')
+    @field_validator('s_activesession_loginname', mode="before")
     def s_activesession_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,32}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,32}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,32}$/")
         return value
 
-    @field_validator('s_computer_description')
+    @field_validator('s_computer_description', mode="before")
     def s_computer_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('dt_activesession_firsthit')
+    @field_validator('dt_activesession_firsthit', mode="before")
     def dt_activesession_firsthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('dt_activesession_lasthit')
+    @field_validator('dt_activesession_lasthit', mode="before")
     def dt_activesession_lasthit_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 

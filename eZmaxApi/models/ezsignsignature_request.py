@@ -73,42 +73,33 @@ class EzsignsignatureRequest(BaseModel):
     b_ezsignsignature_creditcardcustomamount: Optional[StrictBool] = Field(default=None, description="Whether we can enter a custom amount while signing an Ezsignsignature 'Creditcard' or not", alias="bEzsignsignatureCreditcardcustomamount", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsignfoldersignerassociationID", "fkiPaymentgatewayID", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureWidth", "iEzsignsignatureHeight", "iEzsignsignatureStep", "eEzsignsignatureType", "eEzsignsignatureSignaturepad", "eEzsignsignatureSignaturepadrequired", "fkiEzsigndocumentID", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "fkiEzsignfoldersignerassociationIDValidation", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "eEzsignsignatureAttachmentnamesource", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureConsultationtrigger", "iEzsignsignatureValidationstep", "iEzsignsignatureMaxlength", "sEzsignsignatureDefaultvalue", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "sEzsignsignatureRegexp", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureCreditcardamountdescription", "dEzsignsignatureCreditcardamount", "bEzsignsignatureCreditcardcustomamount"]
 
-    @field_validator('s_ezsignsignature_regexp')
+    @field_validator('s_ezsignsignature_regexp', mode="before")
     def s_ezsignsignature_regexp_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\^.*\$$|^$", value):
+        if isinstance(value, str) and not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 
-    @field_validator('s_ezsignsignature_creditcardamountdescription')
+    @field_validator('s_ezsignsignature_creditcardamountdescription', mode="before")
     def s_ezsignsignature_creditcardamountdescription_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
 
-    @field_validator('d_ezsignsignature_creditcardamount')
+    @field_validator('d_ezsignsignature_creditcardamount', mode="before")
     def d_ezsignsignature_creditcardamount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{1,9}?\.[\d]{2}$/")
         return value
 

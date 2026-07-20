@@ -41,13 +41,10 @@ class PaymenttermResponseCompound(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiPaymenttermID", "sPaymenttermCode", "ePaymenttermType", "iPaymenttermDay", "objPaymenttermDescription", "bPaymenttermIsactive", "objAudit"]
 
-    @field_validator('s_paymentterm_code')
+    @field_validator('s_paymentterm_code', mode="before")
     def s_paymentterm_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[A-Z0-9]{1,4}$", value):
+        if isinstance(value, str) and not re.match(r"^[A-Z0-9]{1,4}$", value):
             raise ValueError(r"must validate the regular expression /^[A-Z0-9]{1,4}$/")
         return value
 

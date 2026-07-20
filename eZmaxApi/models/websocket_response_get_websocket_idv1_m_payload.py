@@ -32,13 +32,10 @@ class WebsocketResponseGetWebsocketIDV1MPayload(BaseModel):
     s_websocket_id: Annotated[str, Field(strict=True)] = Field(description="The Unique ID of the Websocket Connection", alias="sWebsocketID", json_schema_extra={"examples": ["G_omidyY4osCFEQ="]})
     __properties: ClassVar[List[str]] = ["sWebsocketID"]
 
-    @field_validator('s_websocket_id')
+    @field_validator('s_websocket_id', mode="before")
     def s_websocket_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-zA-Z0-9_-]{15}=$", value):
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]{15}=$", value):
             raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]{15}=$/")
         return value
 

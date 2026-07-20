@@ -43,39 +43,30 @@ class EzdoctemplatedocumentListElement(BaseModel):
     s_ezdoctemplatedocument_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezdoctemplatedocument in the language of the requester", alias="sEzdoctemplatedocumentNameX", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "fkiLanguageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatetypeID", "fkiEzdoctemplatefieldtypecategoryID", "sEzsignfoldertypeNameX", "sEzdoctemplatetypeDescriptionX", "sEzdoctemplatefieldtypecategoryDescriptionX", "eEzdoctemplatedocumentPrivacylevel", "bEzdoctemplatedocumentIsactive", "sEzdoctemplatedocumentNameX"]
 
-    @field_validator('s_ezdoctemplatetype_description_x')
+    @field_validator('s_ezdoctemplatetype_description_x', mode="before")
     def s_ezdoctemplatetype_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezdoctemplatefieldtypecategory_description_x')
+    @field_validator('s_ezdoctemplatefieldtypecategory_description_x', mode="before")
     def s_ezdoctemplatefieldtypecategory_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,55}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
         return value
 
-    @field_validator('s_ezdoctemplatedocument_name_x')
+    @field_validator('s_ezdoctemplatedocument_name_x', mode="before")
     def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

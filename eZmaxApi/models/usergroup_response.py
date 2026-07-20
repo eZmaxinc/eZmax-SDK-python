@@ -37,16 +37,13 @@ class UsergroupResponse(BaseModel):
     obj_email: Optional[EmailRequest] = Field(default=None, alias="objEmail")
     __properties: ClassVar[List[str]] = ["pkiUsergroupID", "objUsergroupName", "sUsergroupNameX", "objEmail"]
 
-    @field_validator('s_usergroup_name_x')
+    @field_validator('s_usergroup_name_x', mode="before")
     def s_usergroup_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

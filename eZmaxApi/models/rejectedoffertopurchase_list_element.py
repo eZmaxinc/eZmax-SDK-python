@@ -46,49 +46,37 @@ class RejectedoffertopurchaseListElement(BaseModel):
     b_rejectedoffertopurchase_linkedtoinscription: StrictBool = Field(description="Indicate if the Rejectedoffertopurchase is linked to an inscription", alias="bRejectedoffertopurchaseLinkedtoinscription", json_schema_extra={"examples": [False]})
     __properties: ClassVar[List[str]] = ["pkiRejectedoffertopurchaseID", "sRejectedoffertopurchaseNumber", "dtRejectedoffertopurchaseDate", "bRejectedoffertopurchaseIsactive", "dtCreatedDate", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX", "bRejectedoffertopurchaseLinkedtoinscription"]
 
-    @field_validator('s_rejectedoffertopurchase_number')
+    @field_validator('s_rejectedoffertopurchase_number', mode="before")
     def s_rejectedoffertopurchase_number_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,12}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,12}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,12}$/")
         return value
 
-    @field_validator('dt_rejectedoffertopurchase_date')
+    @field_validator('dt_rejectedoffertopurchase_date', mode="before")
     def dt_rejectedoffertopurchase_date_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('s_province_name_x')
+    @field_validator('s_province_name_x', mode="before")
     def s_province_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_country_name_x')
+    @field_validator('s_country_name_x', mode="before")
     def s_country_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 

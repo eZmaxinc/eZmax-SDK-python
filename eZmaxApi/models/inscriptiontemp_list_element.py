@@ -39,26 +39,20 @@ class InscriptiontempListElement(BaseModel):
     dt_modified_date: StrictStr = Field(description="The date and time at which the object was last modified", alias="dtModifiedDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptiontempID", "eInscriptiontempStatus", "sInscriptiontempMLS", "sInscriptiontempDescription", "bInscriptiontempIsactive", "dtCreatedDate", "dtModifiedDate"]
 
-    @field_validator('s_inscriptiontemp_mls')
+    @field_validator('s_inscriptiontemp_mls', mode="before")
     def s_inscriptiontemp_mls_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 
-    @field_validator('s_inscriptiontemp_description')
+    @field_validator('s_inscriptiontemp_description', mode="before")
     def s_inscriptiontemp_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 

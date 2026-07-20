@@ -23,7 +23,10 @@ from typing import Any, ClassVar, Dict, List
 from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword
+from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProviderConfigEtag
 from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter
+from eZmaxApi.models.scim_service_provider_config_patch import ScimServiceProviderConfigPatch
+from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -36,10 +39,10 @@ class ScimServiceProviderConfig(BaseModel):
     bulk: ScimServiceProviderConfigBulk
     change_password: ScimServiceProviderConfigChangePassword = Field(alias="changePassword")
     documentation_uri: StrictStr = Field(description="An HTTP-addressable URL pointing to the service provider's human-consumable help documentation", alias="documentationUri", json_schema_extra={"examples": ["https://github.com/eZmaxinc/eZmax-API"]})
-    etag: ScimServiceProviderConfigChangePassword
+    etag: ScimServiceProviderConfigEtag
     filter: ScimServiceProviderConfigFilter
-    patch: ScimServiceProviderConfigChangePassword
-    sort: ScimServiceProviderConfigChangePassword
+    patch: ScimServiceProviderConfigPatch
+    sort: ScimServiceProviderConfigSort
     __properties: ClassVar[List[str]] = ["authenticationSchemes", "bulk", "changePassword", "documentationUri", "etag", "filter", "patch", "sort"]
 
     model_config = ConfigDict(
@@ -122,10 +125,10 @@ class ScimServiceProviderConfig(BaseModel):
             "bulk": ScimServiceProviderConfigBulk.from_dict(obj["bulk"]) if obj.get("bulk") is not None else None,
             "changePassword": ScimServiceProviderConfigChangePassword.from_dict(obj["changePassword"]) if obj.get("changePassword") is not None else None,
             "documentationUri": obj.get("documentationUri"),
-            "etag": ScimServiceProviderConfigChangePassword.from_dict(obj["etag"]) if obj.get("etag") is not None else None,
+            "etag": ScimServiceProviderConfigEtag.from_dict(obj["etag"]) if obj.get("etag") is not None else None,
             "filter": ScimServiceProviderConfigFilter.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
-            "patch": ScimServiceProviderConfigChangePassword.from_dict(obj["patch"]) if obj.get("patch") is not None else None,
-            "sort": ScimServiceProviderConfigChangePassword.from_dict(obj["sort"]) if obj.get("sort") is not None else None
+            "patch": ScimServiceProviderConfigPatch.from_dict(obj["patch"]) if obj.get("patch") is not None else None,
+            "sort": ScimServiceProviderConfigSort.from_dict(obj["sort"]) if obj.get("sort") is not None else None
         })
         return _obj
 

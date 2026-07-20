@@ -52,16 +52,13 @@ class EzsignformfieldgroupRequest(BaseModel):
     e_ezsignformfieldgroup_textvalidation: Optional[EnumTextvalidation] = Field(default=None, alias="eEzsignformfieldgroupTextvalidation")
     __properties: ClassVar[List[str]] = ["pkiEzsignformfieldgroupID", "fkiEzsigndocumentID", "eEzsignformfieldgroupType", "eEzsignformfieldgroupSignerrequirement", "sEzsignformfieldgroupLabel", "iEzsignformfieldgroupStep", "sEzsignformfieldgroupDefaultvalue", "iEzsignformfieldgroupFilledmin", "iEzsignformfieldgroupFilledmax", "bEzsignformfieldgroupReadonly", "iEzsignformfieldgroupMaxlength", "bEzsignformfieldgroupEncrypted", "sEzsignformfieldgroupRegexp", "sEzsignformfieldgroupTextvalidationcustommessage", "tEzsignformfieldgroupTooltip", "eEzsignformfieldgroupTooltipposition", "eEzsignformfieldgroupTextvalidation"]
 
-    @field_validator('s_ezsignformfieldgroup_regexp')
+    @field_validator('s_ezsignformfieldgroup_regexp', mode="before")
     def s_ezsignformfieldgroup_regexp_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\^.*\$$|^$", value):
+        if isinstance(value, str) and not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 

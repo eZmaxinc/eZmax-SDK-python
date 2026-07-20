@@ -37,26 +37,20 @@ class AttachmentlogResponse(BaseModel):
     s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail", json_schema_extra={"examples": ["System"]})
     __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
 
-    @field_validator('dt_attachmentlog_datetime')
+    @field_validator('dt_attachmentlog_datetime', mode="before")
     def dt_attachmentlog_datetime_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('s_attachmentlog_detail')
+    @field_validator('s_attachmentlog_detail', mode="before")
     def s_attachmentlog_detail_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

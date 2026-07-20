@@ -35,13 +35,10 @@ class DiscussionmessageRequest(BaseModel):
     t_discussionmessage_content: Annotated[str, Field(strict=True)] = Field(description="The content of the Discussionmessage", alias="tDiscussionmessageContent", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipIDActionrequired", "tDiscussionmessageContent"]
 
-    @field_validator('t_discussionmessage_content')
+    @field_validator('t_discussionmessage_content', mode="before")
     def t_discussionmessage_content_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\s\S]{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
         return value
 

@@ -76,199 +76,142 @@ class InscriptionnotauthenticatedResponseCompound(BaseModel):
     b_inscriptionnotauthenticated_draft: StrictBool = Field(description="Whether the inscriptionnotauthenticated is a draft or not", alias="bInscriptionnotauthenticatedDraft", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedID", "fkiCompanyID", "sCompanyNameX", "fkiInscriptionID", "fkiDepartmentID", "sDepartmentNameX", "fkiFinancialinstitutionID", "sFinancialinstitutionNameX", "fkiBuyercontractID", "sBuyercontractContract", "fkiMortgagesupplierID", "sMortgagesupplierNameX", "fkiTaxassignmentID", "sTaxassignmentDescriptionX", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "dtInscriptionnotauthenticatedDepositdate", "eInscriptionnotauthenticatedType", "dInscriptionnotauthenticatedMortgageloan", "etInscriptionnotauthenticatedMortgagetype", "dInscriptionnotauthenticatedTransactionprice", "eInscriptionnotauthenticatedRemunerationtype", "dInscriptionnotauthenticatedRemuneration", "dInscriptionnotauthenticatedRemunerationsubtotal", "dInscriptionnotauthenticatedRemunerationtotal", "dtInscriptionnotauthenticatedCancellationdate", "dtInscriptionnotauthenticatedPossessiondate", "sInscriptionnotauthenticatedOffertopurchasenumber", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedFinancingscheduledate", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedMortgageisreferenced", "bInscriptionnotauthenticatedHomeowner", "tInscriptionnotauthenticatedConditions", "dtInscriptionnotauthenticatedConditiondeadlinedate", "iInscriptionnotauthenticatedOrder", "bInscriptionnotauthenticatedIsactive", "eInscriptionnotauthenticatedResidenceType", "tInscriptionnotauthenticatedChecklistnote", "dInscriptionnotauthenticatedSelleronlyretribution", "bInscriptionnotauthenticatedDraft"]
 
-    @field_validator('s_financialinstitution_name_x')
+    @field_validator('s_financialinstitution_name_x', mode="before")
     def s_financialinstitution_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_mortgagesupplier_name_x')
+    @field_validator('s_mortgagesupplier_name_x', mode="before")
     def s_mortgagesupplier_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_transactiondate')
+    @field_validator('dt_inscriptionnotauthenticated_transactiondate', mode="before")
     def dt_inscriptionnotauthenticated_transactiondate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real')
+    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real', mode="before")
     def dt_inscriptionnotauthenticated_transactiondate_real_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_depositdate')
+    @field_validator('dt_inscriptionnotauthenticated_depositdate', mode="before")
     def dt_inscriptionnotauthenticated_depositdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_mortgageloan')
+    @field_validator('d_inscriptionnotauthenticated_mortgageloan', mode="before")
     def d_inscriptionnotauthenticated_mortgageloan_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_transactionprice')
+    @field_validator('d_inscriptionnotauthenticated_transactionprice', mode="before")
     def d_inscriptionnotauthenticated_transactionprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_remuneration')
+    @field_validator('d_inscriptionnotauthenticated_remuneration', mode="before")
     def d_inscriptionnotauthenticated_remuneration_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_remunerationsubtotal')
+    @field_validator('d_inscriptionnotauthenticated_remunerationsubtotal', mode="before")
     def d_inscriptionnotauthenticated_remunerationsubtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_remunerationtotal')
+    @field_validator('d_inscriptionnotauthenticated_remunerationtotal', mode="before")
     def d_inscriptionnotauthenticated_remunerationtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_cancellationdate')
+    @field_validator('dt_inscriptionnotauthenticated_cancellationdate', mode="before")
     def dt_inscriptionnotauthenticated_cancellationdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_possessiondate')
+    @field_validator('dt_inscriptionnotauthenticated_possessiondate', mode="before")
     def dt_inscriptionnotauthenticated_possessiondate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('s_inscriptionnotauthenticated_offertopurchasenumber')
+    @field_validator('s_inscriptionnotauthenticated_offertopurchasenumber', mode="before")
     def s_inscriptionnotauthenticated_offertopurchasenumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_notaryscheduledate')
+    @field_validator('dt_inscriptionnotauthenticated_notaryscheduledate', mode="before")
     def dt_inscriptionnotauthenticated_notaryscheduledate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_financingscheduledate')
+    @field_validator('dt_inscriptionnotauthenticated_financingscheduledate', mode="before")
     def dt_inscriptionnotauthenticated_financingscheduledate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('t_inscriptionnotauthenticated_conditions')
+    @field_validator('t_inscriptionnotauthenticated_conditions', mode="before")
     def t_inscriptionnotauthenticated_conditions_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,16777215}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,16777215}$/")
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticated_conditiondeadlinedate')
+    @field_validator('dt_inscriptionnotauthenticated_conditiondeadlinedate', mode="before")
     def dt_inscriptionnotauthenticated_conditiondeadlinedate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('t_inscriptionnotauthenticated_checklistnote')
+    @field_validator('t_inscriptionnotauthenticated_checklistnote', mode="before")
     def t_inscriptionnotauthenticated_checklistnote_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,16777215}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,16777215}$/")
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    @field_validator('d_inscriptionnotauthenticated_selleronlyretribution')
+    @field_validator('d_inscriptionnotauthenticated_selleronlyretribution', mode="before")
     def d_inscriptionnotauthenticated_selleronlyretribution_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{3}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{3}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{3}$/")
         return value
 

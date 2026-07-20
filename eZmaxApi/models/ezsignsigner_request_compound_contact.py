@@ -40,62 +40,47 @@ class EzsignsignerRequestCompoundContact(BaseModel):
     s_phone_number_cell: Optional[StrictStr] = Field(default=None, alias="sPhoneNumberCell")
     __properties: ClassVar[List[str]] = ["sContactFirstname", "sContactLastname", "fkiLanguageID", "sEmailAddress", "sPhoneE164", "sPhoneExtension", "sPhoneE164Cell", "sPhoneNumber", "sPhoneNumberCell"]
 
-    @field_validator('s_contact_firstname')
+    @field_validator('s_contact_firstname', mode="before")
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_contact_lastname')
+    @field_validator('s_contact_lastname', mode="before")
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_phone_e164')
+    @field_validator('s_phone_e164', mode="before")
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @field_validator('s_phone_e164_cell')
+    @field_validator('s_phone_e164_cell', mode="before")
     def s_phone_e164_cell_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 

@@ -36,13 +36,10 @@ class EzsignsignatureattachmentResponse(BaseModel):
     s_download_url: StrictStr = Field(description="The Url to the requested document.  Url will expire after 3 hours.", alias="sDownloadUrl", json_schema_extra={"examples": ["http://www.example.com/document.pdf"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignsignatureattachmentID", "fkiEzsignsignatureID", "binEzsignsignatureattachmentMD5", "sEzsignsignatureattachmentName", "sDownloadUrl"]
 
-    @field_validator('s_ezsignsignatureattachment_name')
+    @field_validator('s_ezsignsignatureattachment_name', mode="before")
     def s_ezsignsignatureattachment_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

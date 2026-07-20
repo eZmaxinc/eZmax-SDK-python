@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
+from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -40,17 +41,15 @@ class WebhookListElement(BaseModel):
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
+    e_webhook_realestateevent: Optional[FieldEWebhookRealestateevent] = Field(default=None, alias="eWebhookRealestateevent")
     b_webhook_isactive: StrictBool = Field(description="Whether the Webhook is active or not", alias="bWebhookIsactive", json_schema_extra={"examples": [True]})
     b_webhook_issigned: StrictBool = Field(description="Whether the requests will be signed or not", alias="bWebhookIssigned", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "bWebhookIsactive", "bWebhookIssigned"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "sWebhookDescription", "sWebhookUrl", "sWebhookEvent", "sWebhookEmailfailed", "eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "eWebhookRealestateevent", "bWebhookIsactive", "bWebhookIssigned"]
 
-    @field_validator('s_webhook_url')
+    @field_validator('s_webhook_url', mode="before")
     def s_webhook_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
@@ -113,6 +112,7 @@ class WebhookListElement(BaseModel):
             "eWebhookModule": obj.get("eWebhookModule"),
             "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
             "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
+            "eWebhookRealestateevent": obj.get("eWebhookRealestateevent"),
             "bWebhookIsactive": obj.get("bWebhookIsactive"),
             "bWebhookIssigned": obj.get("bWebhookIssigned")
         })

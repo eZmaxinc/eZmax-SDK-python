@@ -41,13 +41,10 @@ class EzmaxinvoicingcommissionResponseCompound(BaseModel):
     obj_contact_name: Optional[CustomContactNameResponse] = Field(default=None, alias="objContactName")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcommissionID", "fkiEzmaxinvoicingsummaryglobalID", "fkiEzmaxpartnerID", "fkiEzmaxrepresentativeID", "dtEzmaxinvoicingcommissionStart", "dtEzmaxinvoicingcommissionEnd", "iEzmaxinvoicingcommissionDays", "dEzmaxinvoicingcommissionAmount", "objContactName"]
 
-    @field_validator('d_ezmaxinvoicingcommission_amount')
+    @field_validator('d_ezmaxinvoicingcommission_amount', mode="before")
     def d_ezmaxinvoicingcommission_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 

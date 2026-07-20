@@ -50,6 +50,7 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
     fki_paymentgateway_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Paymentgateway", alias="fkiPaymentgatewayID", json_schema_extra={"examples": [235]})
     b_ezsigntemplatesignature_handwritten: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplatesignature must be handwritten or not when eEzsigntemplatesignatureType = Signature.", alias="bEzsigntemplatesignatureHandwritten")
     b_ezsigntemplatesignature_reason: Optional[StrictBool] = Field(default=None, description="Whether the Ezsigntemplatesignature must include a reason or not when eEzsigntemplatesignatureType = Signature.", alias="bEzsigntemplatesignatureReason")
+    b_ezsigntemplatesignature_creditcardcustomamount: Optional[StrictBool] = Field(default=None, description="Whether we can enter a custom amount while signing an Ezsigntemplatesignature 'Creditcard' or not", alias="bEzsigntemplatesignatureCreditcardcustomamount", json_schema_extra={"examples": [False]})
     e_ezsigntemplatesignature_positioning: Optional[FieldEEzsigntemplatesignaturePositioning] = Field(default=None, alias="eEzsigntemplatesignaturePositioning")
     i_ezsigntemplatedocumentpage_pagenumber: Annotated[int, Field(strict=True, ge=1)] = Field(description="The page number in the Ezsigntemplatedocument", alias="iEzsigntemplatedocumentpagePagenumber", json_schema_extra={"examples": [1]})
     i_ezsigntemplatesignature_x: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The X coordinate (Horizontal) where to put the Ezsigntemplatesignature on the page.  Coordinate is calculated at 100dpi (dot per inch). So for example, if you want to put the Ezsigntemplatesignature 2 inches from the left border of the page, you would use \"200\" for the X coordinate.", alias="iEzsigntemplatesignatureX", json_schema_extra={"examples": [200]})
@@ -84,57 +85,45 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
     a_obj_ezsigntemplatesignaturecustomdate: Optional[List[EzsigntemplatesignaturecustomdateResponseCompound]] = Field(default=None, description="An array of custom date blocks that will be filled at the time of signature.  Can only be used if bEzsigntemplatesignatureCustomdate is true.  Use an empty array if you don't want to have a date at all.", alias="a_objEzsigntemplatesignaturecustomdate")
     a_obj_ezsigntemplateelementdependency: Optional[List[EzsigntemplateelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateelementdependency")
     a_obj_ezsigntemplatesignaturepaymentdetail: Optional[List[EzsigntemplatesignaturepaymentdetailResponseCompound]] = Field(default=None, alias="a_objEzsigntemplatesignaturepaymentdetail")
-    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "fkiPaymentgatewayID", "bEzsigntemplatesignatureHandwritten", "bEzsigntemplatesignatureReason", "eEzsigntemplatesignaturePositioning", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "eEzsigntemplatesignatureSignaturepad", "eEzsigntemplatesignatureSignaturepadrequired", "eEzsigntemplatesignatureConsultationtrigger", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureDefaultvalue", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "sEzsigntemplatesignatureTextvalidationcustommessage", "eEzsigntemplatesignatureDependencyrequirement", "sEzsigntemplatesignaturePositioningpattern", "iEzsigntemplatesignaturePositioningoffsetx", "iEzsigntemplatesignaturePositioningoffsety", "eEzsigntemplatesignaturePositioningoccurence", "sEzsigntemplatesignatureCreditcardamountdescription", "dEzsigntemplatesignatureCreditcardamount", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency", "a_objEzsigntemplatesignaturepaymentdetail"]
+    __properties: ClassVar[List[str]] = ["pkiEzsigntemplatesignatureID", "fkiEzsigntemplatedocumentID", "fkiEzsigntemplatesignerID", "fkiEzsigntemplatesignerIDValidation", "fkiPaymentgatewayID", "bEzsigntemplatesignatureHandwritten", "bEzsigntemplatesignatureReason", "bEzsigntemplatesignatureCreditcardcustomamount", "eEzsigntemplatesignaturePositioning", "iEzsigntemplatedocumentpagePagenumber", "iEzsigntemplatesignatureX", "iEzsigntemplatesignatureY", "iEzsigntemplatesignatureWidth", "iEzsigntemplatesignatureHeight", "iEzsigntemplatesignatureStep", "eEzsigntemplatesignatureType", "eEzsigntemplatesignatureSignaturepad", "eEzsigntemplatesignatureSignaturepadrequired", "eEzsigntemplatesignatureConsultationtrigger", "tEzsigntemplatesignatureTooltip", "eEzsigntemplatesignatureTooltipposition", "eEzsigntemplatesignatureFont", "iEzsigntemplatesignatureValidationstep", "sEzsigntemplatesignatureAttachmentdescription", "eEzsigntemplatesignatureAttachmentnamesource", "bEzsigntemplatesignatureRequired", "iEzsigntemplatesignatureMaxlength", "sEzsigntemplatesignatureDefaultvalue", "sEzsigntemplatesignatureRegexp", "eEzsigntemplatesignatureTextvalidation", "sEzsigntemplatesignatureTextvalidationcustommessage", "eEzsigntemplatesignatureDependencyrequirement", "sEzsigntemplatesignaturePositioningpattern", "iEzsigntemplatesignaturePositioningoffsetx", "iEzsigntemplatesignaturePositioningoffsety", "eEzsigntemplatesignaturePositioningoccurence", "sEzsigntemplatesignatureCreditcardamountdescription", "dEzsigntemplatesignatureCreditcardamount", "bEzsigntemplatesignatureCustomdate", "a_objEzsigntemplatesignaturecustomdate", "a_objEzsigntemplateelementdependency", "a_objEzsigntemplatesignaturepaymentdetail"]
 
-    @field_validator('s_ezsigntemplatesignature_regexp')
+    @field_validator('s_ezsigntemplatesignature_regexp', mode="before")
     def s_ezsigntemplatesignature_regexp_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\^.*\$$|^$", value):
+        if isinstance(value, str) and not re.match(r"^\^.*\$$|^$", value):
             raise ValueError(r"must validate the regular expression /^\^.*\$$|^$/")
         return value
 
-    @field_validator('s_ezsigntemplatesignature_positioningpattern')
+    @field_validator('s_ezsigntemplatesignature_positioningpattern', mode="before")
     def s_ezsigntemplatesignature_positioningpattern_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 
-    @field_validator('s_ezsigntemplatesignature_creditcardamountdescription')
+    @field_validator('s_ezsigntemplatesignature_creditcardamountdescription', mode="before")
     def s_ezsigntemplatesignature_creditcardamountdescription_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
 
-    @field_validator('d_ezsigntemplatesignature_creditcardamount')
+    @field_validator('d_ezsigntemplatesignature_creditcardamount', mode="before")
     def d_ezsigntemplatesignature_creditcardamount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
@@ -217,6 +206,7 @@ class EzsigntemplatesignatureResponseCompound(BaseModel):
             "fkiPaymentgatewayID": obj.get("fkiPaymentgatewayID"),
             "bEzsigntemplatesignatureHandwritten": obj.get("bEzsigntemplatesignatureHandwritten"),
             "bEzsigntemplatesignatureReason": obj.get("bEzsigntemplatesignatureReason"),
+            "bEzsigntemplatesignatureCreditcardcustomamount": obj.get("bEzsigntemplatesignatureCreditcardcustomamount"),
             "eEzsigntemplatesignaturePositioning": obj.get("eEzsigntemplatesignaturePositioning"),
             "iEzsigntemplatedocumentpagePagenumber": obj.get("iEzsigntemplatedocumentpagePagenumber"),
             "iEzsigntemplatesignatureX": obj.get("iEzsigntemplatesignatureX"),

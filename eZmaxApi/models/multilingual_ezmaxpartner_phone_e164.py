@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerPhoneE164(BaseModel):
     s_ezmaxpartner_phone_e1642: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="A phone number in E.164 Format", alias="sEzmaxpartnerPhoneE1642", json_schema_extra={"examples": ["+15149901516"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerPhoneE1641", "sEzmaxpartnerPhoneE1642"]
 
-    @field_validator('s_ezmaxpartner_phone_e1641')
+    @field_validator('s_ezmaxpartner_phone_e1641', mode="before")
     def s_ezmaxpartner_phone_e1641_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_phone_e1642')
+    @field_validator('s_ezmaxpartner_phone_e1642', mode="before")
     def s_ezmaxpartner_phone_e1642_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 

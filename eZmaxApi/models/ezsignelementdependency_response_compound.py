@@ -42,16 +42,13 @@ class EzsignelementdependencyResponseCompound(BaseModel):
     s_ezsignelementdependency_value: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The value of the Ezsignelementdependency", alias="sEzsignelementdependencyValue", json_schema_extra={"examples": ["Montreal"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignelementdependencyID", "fkiEzsignformfieldID", "fkiEzsignsignatureID", "fkiEzsignformfieldIDValidation", "fkiEzsignformfieldgroupIDValidation", "eEzsignelementdependencyValidation", "bEzsignelementdependencySelected", "eEzsignelementdependencyOperator", "sEzsignelementdependencyValue"]
 
-    @field_validator('s_ezsignelementdependency_value')
+    @field_validator('s_ezsignelementdependency_value', mode="before")
     def s_ezsignelementdependency_value_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

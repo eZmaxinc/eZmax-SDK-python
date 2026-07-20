@@ -33,13 +33,10 @@ class EzsignimportfolderResponse(BaseModel):
     s_ezsignimportfolder_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Ezsignimportfolder", alias="sEzsignimportfolderName", json_schema_extra={"examples": ["Promesse d'achat"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignimportfolderID", "sEzsignimportfolderName"]
 
-    @field_validator('s_ezsignimportfolder_name')
+    @field_validator('s_ezsignimportfolder_name', mode="before")
     def s_ezsignimportfolder_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,150}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,150}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,150}$/")
         return value
 

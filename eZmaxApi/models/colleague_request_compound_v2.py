@@ -47,29 +47,23 @@ class ColleagueRequestCompoundV2(BaseModel):
     e_colleague_realestateinprogress: FieldEColleagueRealestateinprogess = Field(alias="eColleagueRealestateinprogress")
     __properties: ClassVar[List[str]] = ["pkiColleagueID", "fkiUserID", "fkiUserIDColleague", "bColleagueEzsignemail", "bColleagueFinancial", "bColleagueUsecloneemail", "bColleagueAttachment", "bColleagueCanafe", "bColleaguePermission", "bColleagueRealestatecompleted", "dtColleagueFrom", "dtColleagueTo", "eColleagueEzsign", "eColleagueRealestateinprogress"]
 
-    @field_validator('dt_colleague_from')
+    @field_validator('dt_colleague_from', mode="before")
     def dt_colleague_from_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_colleague_to')
+    @field_validator('dt_colleague_to', mode="before")
     def dt_colleague_to_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

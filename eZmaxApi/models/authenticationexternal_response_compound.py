@@ -39,26 +39,20 @@ class AuthenticationexternalResponseCompound(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiAuthenticationexternalID", "sAuthenticationexternalDescription", "eAuthenticationexternalType", "bAuthenticationexternalConnected", "sAuthenticationexternalAuthorizationurl", "objAudit"]
 
-    @field_validator('s_authenticationexternal_description')
+    @field_validator('s_authenticationexternal_description', mode="before")
     def s_authenticationexternal_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_authenticationexternal_authorizationurl')
+    @field_validator('s_authenticationexternal_authorizationurl', mode="before")
     def s_authenticationexternal_authorizationurl_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

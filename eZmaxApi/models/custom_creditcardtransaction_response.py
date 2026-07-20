@@ -36,33 +36,24 @@ class CustomCreditcardtransactionResponse(BaseModel):
     s_creditcardtransaction_referencenumber: Annotated[str, Field(strict=True)] = Field(description="The reference number on the creditcard service for the Creditcardtransaction", alias="sCreditcardtransactionReferencenumber", json_schema_extra={"examples": ["651447854715478415"]})
     __properties: ClassVar[List[str]] = ["eCreditcardtypeCodename", "dCreditcardtransactionAmount", "sCreditcardtransactionPartiallydecryptednumber", "sCreditcardtransactionReferencenumber"]
 
-    @field_validator('d_creditcardtransaction_amount')
+    @field_validator('d_creditcardtransaction_amount', mode="before")
     def d_creditcardtransaction_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('s_creditcardtransaction_partiallydecryptednumber')
+    @field_validator('s_creditcardtransaction_partiallydecryptednumber', mode="before")
     def s_creditcardtransaction_partiallydecryptednumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(([X]{4}[ ]){3}(\d){4})|([X]{4}[ ][X]{6}[ ][X][\d]{4})$", value):
+        if isinstance(value, str) and not re.match(r"^(([X]{4}[ ]){3}(\d){4})|([X]{4}[ ][X]{6}[ ][X][\d]{4})$", value):
             raise ValueError(r"must validate the regular expression /^(([X]{4}[ ]){3}(\d){4})|([X]{4}[ ][X]{6}[ ][X][\d]{4})$/")
         return value
 
-    @field_validator('s_creditcardtransaction_referencenumber')
+    @field_validator('s_creditcardtransaction_referencenumber', mode="before")
     def s_creditcardtransaction_referencenumber_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\d]{18}$", value):
+        if isinstance(value, str) and not re.match(r"^[\d]{18}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{18}$/")
         return value
 

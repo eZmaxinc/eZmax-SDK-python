@@ -34,16 +34,13 @@ class EzsignfoldersignerassociationCreateEmbeddedUrlV1Request(BaseModel):
     b_is_iframe: Optional[StrictBool] = Field(default=None, description="Whether the url would be in an iFrame or not", alias="bIsIframe")
     __properties: ClassVar[List[str]] = ["sReturnUrl", "sIframedomain", "bIsIframe"]
 
-    @field_validator('s_return_url')
+    @field_validator('s_return_url', mode="before")
     def s_return_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

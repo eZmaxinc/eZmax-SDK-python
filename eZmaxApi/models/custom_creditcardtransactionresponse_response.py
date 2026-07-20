@@ -38,33 +38,24 @@ class CustomCreditcardtransactionresponseResponse(BaseModel):
     e_creditcardtransaction_cvdresult: Optional[FieldECreditcardtransactionCvdresult] = Field(default=None, alias="eCreditcardtransactionCvdresult")
     __properties: ClassVar[List[str]] = ["sCreditcardtransactionISOcode", "sCreditcardtransactionResponsecode", "sCreditcardtransactionResponseterminalmessage", "eCreditcardtransactionAvsresult", "eCreditcardtransactionCvdresult"]
 
-    @field_validator('s_creditcardtransaction_is_ocode')
+    @field_validator('s_creditcardtransaction_is_ocode', mode="before")
     def s_creditcardtransaction_is_ocode_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,2}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,2}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,2}$/")
         return value
 
-    @field_validator('s_creditcardtransaction_responsecode')
+    @field_validator('s_creditcardtransaction_responsecode', mode="before")
     def s_creditcardtransaction_responsecode_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,3}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,3}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,3}$/")
         return value
 
-    @field_validator('s_creditcardtransaction_responseterminalmessage')
+    @field_validator('s_creditcardtransaction_responseterminalmessage', mode="before")
     def s_creditcardtransaction_responseterminalmessage_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

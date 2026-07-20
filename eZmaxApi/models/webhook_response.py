@@ -26,6 +26,7 @@ from eZmaxApi.models.field_e_webhook_ezmaxpartnerevent import FieldEWebhookEzmax
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
+from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -43,6 +44,7 @@ class WebhookResponse(BaseModel):
     e_webhook_ezmaxpartnerevent: Optional[FieldEWebhookEzmaxpartnerevent] = Field(default=None, alias="eWebhookEzmaxpartnerevent")
     e_webhook_ezsignevent: Optional[FieldEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
+    e_webhook_realestateevent: Optional[FieldEWebhookRealestateevent] = Field(default=None, alias="eWebhookRealestateevent")
     s_webhook_url: Annotated[str, Field(strict=True)] = Field(description="The URL of the Webhook callback", alias="sWebhookUrl", json_schema_extra={"examples": ["https://www.example.com"]})
     s_webhook_emailfailed: StrictStr = Field(description="The email that will receive the Webhook in case all attempts fail", alias="sWebhookEmailfailed", json_schema_extra={"examples": ["email@example.com"]})
     s_webhook_apikey: Optional[StrictStr] = Field(default=None, description="The Apikey for the Webhook.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sWebhookApikey")
@@ -52,28 +54,22 @@ class WebhookResponse(BaseModel):
     b_webhook_skipsslvalidation: StrictBool = Field(description="Wheter the server's SSL certificate should be validated or not. Not recommended to skip for production use", alias="bWebhookSkipsslvalidation", json_schema_extra={"examples": [False]})
     s_authenticationexternal_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Authenticationexternal", alias="sAuthenticationexternalDescription", json_schema_extra={"examples": ["Authentification"]})
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzmaxpartnerevent", "eWebhookEzsignevent", "eWebhookManagementevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "sAuthenticationexternalDescription", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiWebhookID", "fkiAuthenticationexternalID", "sWebhookDescription", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "eWebhookModule", "eWebhookEzmaxpartnerevent", "eWebhookEzsignevent", "eWebhookManagementevent", "eWebhookRealestateevent", "sWebhookUrl", "sWebhookEmailfailed", "sWebhookApikey", "sWebhookSecret", "bWebhookIsactive", "bWebhookIssigned", "bWebhookSkipsslvalidation", "sAuthenticationexternalDescription", "objAudit"]
 
-    @field_validator('s_webhook_url')
+    @field_validator('s_webhook_url', mode="before")
     def s_webhook_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
-    @field_validator('s_authenticationexternal_description')
+    @field_validator('s_authenticationexternal_description', mode="before")
     def s_authenticationexternal_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
@@ -140,6 +136,7 @@ class WebhookResponse(BaseModel):
             "eWebhookEzmaxpartnerevent": obj.get("eWebhookEzmaxpartnerevent"),
             "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
             "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
+            "eWebhookRealestateevent": obj.get("eWebhookRealestateevent"),
             "sWebhookUrl": obj.get("sWebhookUrl"),
             "sWebhookEmailfailed": obj.get("sWebhookEmailfailed"),
             "sWebhookApikey": obj.get("sWebhookApikey"),

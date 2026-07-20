@@ -85,132 +85,96 @@ class CustomerResponse(BaseModel):
     importid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="IMPORTID")
     __properties: ClassVar[List[str]] = ["pkiCustomerID", "fkiCompanyID", "fkiCustomergroupID", "sCustomerName", "sCustomerNote", "fkiContactinformationsID", "fkiContactcontainerID", "fkiImageID", "fkiGlaccountcontainerID", "fkiLanguageID", "fkiDepartmentID", "fkiPaymentmethodID", "fkiElectronicfundstransferbankaccountID", "fkiElectronicfundstransferbankaccountIDDirectdebit", "fkiSendingmethodID", "fkiTaxassignmentID", "fkiAttendancestatusID", "fkiAgentIDVariableexpensechargeto", "fkiBrokerIDVariableexpensechargeto", "fkiCustomerIDVariableexpensechargeto", "fkiGlaccountcontainerIDVariableexpensechargeto", "fkiAgentIDSupplychargechargeto", "fkiBrokerIDSupplychargechargeto", "fkiCustomerIDSupplychargechargeto", "fkiGlaccountcontainerIDSupplychargechargeto", "fkiInvoicealternatelogoID", "fkiSynchronizationlinkserverID", "efkiUserID", "efksCustomerCode", "sCustomerCode", "dCustomerFulltimeequivalent", "iCustomerPhotocopiercode", "iCustomerLongdistancecode", "iCustomerTimewindowstart", "iCustomerTimewindowend", "dCustomerMinimumchargeableinterests", "dtCustomerBirthdate", "dtCustomerTransfer", "dtCustomerTransferappointment", "dtCustomerTransfersurvey", "bCustomerIsactive", "bCustomerVariableexpensefinanced", "bCustomerVariableexpensefinancedtaxes", "bCustomerSupplychargefinanced", "bCustomerSupplychargefinancedtaxes", "bCustomerAttendance", "eCustomerType", "eCustomerMarketingcorrespondence", "bCustomerBlackcopycarbon", "bCustomerUnsubscribeinfo", "tCustomerComment", "IMPORTID"]
 
-    @field_validator('s_customer_name')
+    @field_validator('s_customer_name', mode="before")
     def s_customer_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_customer_note')
+    @field_validator('s_customer_note', mode="before")
     def s_customer_note_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @field_validator('efks_customer_code')
+    @field_validator('efks_customer_code', mode="before")
     def efks_customer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,6}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
 
-    @field_validator('s_customer_code')
+    @field_validator('s_customer_code', mode="before")
     def s_customer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,6}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,6}$/")
         return value
 
-    @field_validator('d_customer_fulltimeequivalent')
+    @field_validator('d_customer_fulltimeequivalent', mode="before")
     def d_customer_fulltimeequivalent_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_customer_minimumchargeableinterests')
+    @field_validator('d_customer_minimumchargeableinterests', mode="before")
     def d_customer_minimumchargeableinterests_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('dt_customer_birthdate')
+    @field_validator('dt_customer_birthdate', mode="before")
     def dt_customer_birthdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_customer_transfer')
+    @field_validator('dt_customer_transfer', mode="before")
     def dt_customer_transfer_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('dt_customer_transferappointment')
+    @field_validator('dt_customer_transferappointment', mode="before")
     def dt_customer_transferappointment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('dt_customer_transfersurvey')
+    @field_validator('dt_customer_transfersurvey', mode="before")
     def dt_customer_transfersurvey_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('t_customer_comment')
+    @field_validator('t_customer_comment', mode="before")
     def t_customer_comment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,16777215}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,16777215}$/")
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    @field_validator('importid')
+    @field_validator('importid', mode="before")
     def importid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 

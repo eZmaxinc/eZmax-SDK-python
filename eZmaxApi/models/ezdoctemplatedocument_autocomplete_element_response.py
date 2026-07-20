@@ -34,13 +34,10 @@ class EzdoctemplatedocumentAutocompleteElementResponse(BaseModel):
     b_ezdoctemplatedocument_isactive: StrictBool = Field(description="Whether the ezdoctemplatedocument is active or not", alias="bEzdoctemplatedocumentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatedocumentID", "sEzdoctemplatedocumentNameX", "bEzdoctemplatedocumentIsactive"]
 
-    @field_validator('s_ezdoctemplatedocument_name_x')
+    @field_validator('s_ezdoctemplatedocument_name_x', mode="before")
     def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

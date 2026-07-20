@@ -30,6 +30,7 @@ class FieldEWebhookModule(str, Enum):
     EZMAXPARTNER = 'Ezmaxpartner'
     EZSIGN = 'Ezsign'
     MANAGEMENT = 'Management'
+    REALESTATE = 'Realestate'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

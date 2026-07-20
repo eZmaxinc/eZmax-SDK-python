@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerAddress(BaseModel):
     s_ezmaxpartner_address2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The complete address in a single line", alias="sEzmaxpartnerAddress2", json_schema_extra={"examples": ["2500 Daniel-Johnson Blvd., Suite 800 Laval, Quebec H7T 2P6"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerAddress1", "sEzmaxpartnerAddress2"]
 
-    @field_validator('s_ezmaxpartner_address1')
+    @field_validator('s_ezmaxpartner_address1', mode="before")
     def s_ezmaxpartner_address1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,200}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_address2')
+    @field_validator('s_ezmaxpartner_address2', mode="before")
     def s_ezmaxpartner_address2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,200}$/")
         return value
 

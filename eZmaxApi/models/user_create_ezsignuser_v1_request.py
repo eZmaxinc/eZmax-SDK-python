@@ -39,13 +39,10 @@ class UserCreateEzsignuserV1Request(BaseModel):
     s_phone_extension: Optional[StrictStr] = Field(default=None, description="The extension of the phone number.  The extension is the \"123\" section in this sample phone number: (514) 990-1516 x123.  It can also be used with international phone numbers", alias="sPhoneExtension", json_schema_extra={"examples": ["123"]})
     __properties: ClassVar[List[str]] = ["fkiLanguageID", "sUserFirstname", "sUserLastname", "sEmailAddress", "sPhoneRegion", "sPhoneExchange", "sPhoneNumber", "sPhoneExtension"]
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 

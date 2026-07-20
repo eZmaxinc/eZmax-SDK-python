@@ -38,23 +38,17 @@ class PaymenttermListElement(BaseModel):
     b_paymentterm_isactive: StrictBool = Field(description="Whether the Paymentterm is active or not", alias="bPaymenttermIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPaymenttermID", "sPaymenttermCode", "ePaymenttermType", "iPaymenttermDay", "sPaymenttermDescriptionX", "bPaymenttermIsactive"]
 
-    @field_validator('s_paymentterm_code')
+    @field_validator('s_paymentterm_code', mode="before")
     def s_paymentterm_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[A-Z0-9]{1,4}$", value):
+        if isinstance(value, str) and not re.match(r"^[A-Z0-9]{1,4}$", value):
             raise ValueError(r"must validate the regular expression /^[A-Z0-9]{1,4}$/")
         return value
 
-    @field_validator('s_paymentterm_description_x')
+    @field_validator('s_paymentterm_description_x', mode="before")
     def s_paymentterm_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,40}$/")
         return value
 

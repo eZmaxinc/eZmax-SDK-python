@@ -34,16 +34,13 @@ class InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Reque
     dt_inscriptionnotauthenticated_transactiondate_real: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The transactiondatereal of the Inscriptionnotauthenticated", alias="dtInscriptionnotauthenticatedTransactiondateReal", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["a_objInscriptionnotauthenticatedcondition", "dtInscriptionnotauthenticatedTransactiondateReal"]
 
-    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real')
+    @field_validator('dt_inscriptionnotauthenticated_transactiondate_real', mode="before")
     def dt_inscriptionnotauthenticated_transactiondate_real_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

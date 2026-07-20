@@ -44,33 +44,24 @@ class CreditcardmerchantResponse(BaseModel):
     s_creditcardmerchant_storeid: Annotated[str, Field(strict=True)] = Field(description="The storeid of the Creditcardmerchant", alias="sCreditcardmerchantStoreid", json_schema_extra={"examples": ["REPLACEME"]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardmerchantID", "fkiBankaccountID", "fkiLanguageID", "sLanguageNameX", "fkiCurrencyID", "sCurrencyDescriptionX", "sBankaccountBankname", "bCreditcardmerchantDenyvisa", "bCreditcardmerchantDenymastercard", "bCreditcardmerchantDenyamex", "bCreditcardmerchantIsactive", "sCreditcardmerchantDescription", "sCreditcardmerchantStoreid"]
 
-    @field_validator('s_currency_description_x')
+    @field_validator('s_currency_description_x', mode="before")
     def s_currency_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_creditcardmerchant_description')
+    @field_validator('s_creditcardmerchant_description', mode="before")
     def s_creditcardmerchant_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @field_validator('s_creditcardmerchant_storeid')
+    @field_validator('s_creditcardmerchant_storeid', mode="before")
     def s_creditcardmerchant_storeid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

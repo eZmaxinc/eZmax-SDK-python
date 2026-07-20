@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerUrl(BaseModel):
     s_ezmaxpartner_url2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url of the Ezmaxpartner website in english", alias="sEzmaxpartnerUrl2", json_schema_extra={"examples": ["http://www.website.com/avatar.jpg"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerUrl1", "sEzmaxpartnerUrl2"]
 
-    @field_validator('s_ezmaxpartner_url1')
+    @field_validator('s_ezmaxpartner_url1', mode="before")
     def s_ezmaxpartner_url1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
-    @field_validator('s_ezmaxpartner_url2')
+    @field_validator('s_ezmaxpartner_url2', mode="before")
     def s_ezmaxpartner_url2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

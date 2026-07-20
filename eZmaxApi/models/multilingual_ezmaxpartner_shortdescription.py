@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerShortdescription(BaseModel):
     s_ezmaxpartner_shortdescription2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The short description of the Ezmaxpartner in english", alias="sEzmaxpartnerShortdescription2", json_schema_extra={"examples": ["This is a software to e-sign documents"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerShortdescription1", "sEzmaxpartnerShortdescription2"]
 
-    @field_validator('s_ezmaxpartner_shortdescription1')
+    @field_validator('s_ezmaxpartner_shortdescription1', mode="before")
     def s_ezmaxpartner_shortdescription1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,256}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,256}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,256}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_shortdescription2')
+    @field_validator('s_ezmaxpartner_shortdescription2', mode="before")
     def s_ezmaxpartner_shortdescription2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,256}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,256}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,256}$/")
         return value
 

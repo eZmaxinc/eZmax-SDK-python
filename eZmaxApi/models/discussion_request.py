@@ -34,13 +34,10 @@ class DiscussionRequest(BaseModel):
     b_discussion_closed: Optional[StrictBool] = Field(default=None, description="Whether if it's an closed", alias="bDiscussionClosed", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed"]
 
-    @field_validator('s_discussion_description')
+    @field_validator('s_discussion_description', mode="before")
     def s_discussion_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

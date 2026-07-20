@@ -34,13 +34,10 @@ class InscriptionchecklistAutocompleteElementResponse(BaseModel):
     b_inscriptionchecklist_isactive: StrictBool = Field(description="Whether the Inscriptionchecklist is active or not", alias="bInscriptionchecklistIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionchecklistID", "sInscriptionchecklistelementNameX", "bInscriptionchecklistIsactive"]
 
-    @field_validator('s_inscriptionchecklistelement_name_x')
+    @field_validator('s_inscriptionchecklistelement_name_x', mode="before")
     def s_inscriptionchecklistelement_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,55}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
         return value
 

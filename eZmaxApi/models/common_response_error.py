@@ -35,13 +35,10 @@ class CommonResponseError(BaseModel):
     a_s_error_messagedetail: Optional[List[StrictStr]] = Field(default=None, description="More error message detail", alias="a_sErrorMessagedetail")
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail"]
 
-    @field_validator('s_error_message')
+    @field_validator('s_error_message', mode="before")
     def s_error_message_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,500}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,500}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,500}$/")
         return value
 

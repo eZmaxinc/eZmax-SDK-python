@@ -33,13 +33,10 @@ class ContacttitleAutocompleteElementResponse(BaseModel):
     s_contacttitle_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX", json_schema_extra={"examples": ["Sir"]})
     __properties: ClassVar[List[str]] = ["pkiContacttitleID", "sContacttitleNameX"]
 
-    @field_validator('s_contacttitle_name_x')
+    @field_validator('s_contacttitle_name_x', mode="before")
     def s_contacttitle_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,10}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,10}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,10}$/")
         return value
 

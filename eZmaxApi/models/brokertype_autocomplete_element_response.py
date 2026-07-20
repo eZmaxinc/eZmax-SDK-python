@@ -34,13 +34,10 @@ class BrokertypeAutocompleteElementResponse(BaseModel):
     b_brokertype_isactive: StrictBool = Field(description="Whether the Brokertype is active or not", alias="bBrokertypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrokertypeID", "sBrokertypeNameX", "bBrokertypeIsactive"]
 
-    @field_validator('s_brokertype_name_x')
+    @field_validator('s_brokertype_name_x', mode="before")
     def s_brokertype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 

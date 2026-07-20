@@ -19,7 +19,7 @@ __version__ = "1.3.2"
 
 # Define package exports
 __all__ = [
-    "DocumentationEzmaxpartnerApi",
+    "ExternalEzmaxpartnerApi",
     "GlobalCustomerApi",
     "GlobalEzmaxclientApi",
     "GlobalEzmaxcustomerApi",
@@ -1474,6 +1474,7 @@ __all__ = [
     "FieldEActivesessionRealestateinprogress",
     "FieldEActivesessionUsertype",
     "FieldEActivesessionWeekdaystart",
+    "FieldEAgentSchedule",
     "FieldEAttachmentDocumenttype",
     "FieldEAttachmentPrivacy",
     "FieldEAttachmentType",
@@ -1615,6 +1616,7 @@ __all__ = [
     "FieldEWebhookEzsignevent",
     "FieldEWebhookManagementevent",
     "FieldEWebhookModule",
+    "FieldEWebhookRealestateevent",
     "FieldEtInscriptionnotauthenticatedMortgagetype",
     "FieldPksEzmaxclientOs",
     "FontAutocompleteElementResponse",
@@ -1894,7 +1896,10 @@ __all__ = [
     "ScimServiceProviderConfig",
     "ScimServiceProviderConfigBulk",
     "ScimServiceProviderConfigChangePassword",
+    "ScimServiceProviderConfigEtag",
     "ScimServiceProviderConfigFilter",
+    "ScimServiceProviderConfigPatch",
+    "ScimServiceProviderConfigSort",
     "ScimUser",
     "ScimUserList",
     "SecretquestionAutocompleteElementResponse",
@@ -2178,6 +2183,10 @@ __all__ = [
     "WebhookGetObjectV2Response",
     "WebhookGetObjectV2ResponseMPayload",
     "WebhookListElement",
+    "WebhookRealestateInscriptionCreated",
+    "WebhookRealestateInscriptionModified",
+    "WebhookRealestateInscriptionnotauthenticatedCreated",
+    "WebhookRealestateInscriptionnotauthenticatedModified",
     "WebhookRegenerateApikeyV1Request",
     "WebhookRegenerateApikeyV1Response",
     "WebhookRegenerateApikeyV1ResponseMPayload",
@@ -2208,7 +2217,7 @@ __all__ = [
 ]
 
 # import apis into sdk package
-from eZmaxApi.api.documentation_ezmaxpartner_api import DocumentationEzmaxpartnerApi as DocumentationEzmaxpartnerApi
+from eZmaxApi.api.external_ezmaxpartner_api import ExternalEzmaxpartnerApi as ExternalEzmaxpartnerApi
 from eZmaxApi.api.global_customer_api import GlobalCustomerApi as GlobalCustomerApi
 from eZmaxApi.api.global_ezmaxclient_api import GlobalEzmaxclientApi as GlobalEzmaxclientApi
 from eZmaxApi.api.global_ezmaxcustomer_api import GlobalEzmaxcustomerApi as GlobalEzmaxcustomerApi
@@ -3667,6 +3676,7 @@ from eZmaxApi.models.field_e_activesession_origin import FieldEActivesessionOrig
 from eZmaxApi.models.field_e_activesession_realestateinprogress import FieldEActivesessionRealestateinprogress as FieldEActivesessionRealestateinprogress
 from eZmaxApi.models.field_e_activesession_usertype import FieldEActivesessionUsertype as FieldEActivesessionUsertype
 from eZmaxApi.models.field_e_activesession_weekdaystart import FieldEActivesessionWeekdaystart as FieldEActivesessionWeekdaystart
+from eZmaxApi.models.field_e_agent_schedule import FieldEAgentSchedule as FieldEAgentSchedule
 from eZmaxApi.models.field_e_attachment_documenttype import FieldEAttachmentDocumenttype as FieldEAttachmentDocumenttype
 from eZmaxApi.models.field_e_attachment_privacy import FieldEAttachmentPrivacy as FieldEAttachmentPrivacy
 from eZmaxApi.models.field_e_attachment_type import FieldEAttachmentType as FieldEAttachmentType
@@ -3808,6 +3818,7 @@ from eZmaxApi.models.field_e_webhook_ezmaxpartnerevent import FieldEWebhookEzmax
 from eZmaxApi.models.field_e_webhook_ezsignevent import FieldEWebhookEzsignevent as FieldEWebhookEzsignevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent as FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule as FieldEWebhookModule
+from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent as FieldEWebhookRealestateevent
 from eZmaxApi.models.field_et_inscriptionnotauthenticated_mortgagetype import FieldEtInscriptionnotauthenticatedMortgagetype as FieldEtInscriptionnotauthenticatedMortgagetype
 from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs as FieldPksEzmaxclientOs
 from eZmaxApi.models.font_autocomplete_element_response import FontAutocompleteElementResponse as FontAutocompleteElementResponse
@@ -4087,7 +4098,10 @@ from eZmaxApi.models.scim_group_member import ScimGroupMember as ScimGroupMember
 from eZmaxApi.models.scim_service_provider_config import ScimServiceProviderConfig as ScimServiceProviderConfig
 from eZmaxApi.models.scim_service_provider_config_bulk import ScimServiceProviderConfigBulk as ScimServiceProviderConfigBulk
 from eZmaxApi.models.scim_service_provider_config_change_password import ScimServiceProviderConfigChangePassword as ScimServiceProviderConfigChangePassword
+from eZmaxApi.models.scim_service_provider_config_etag import ScimServiceProviderConfigEtag as ScimServiceProviderConfigEtag
 from eZmaxApi.models.scim_service_provider_config_filter import ScimServiceProviderConfigFilter as ScimServiceProviderConfigFilter
+from eZmaxApi.models.scim_service_provider_config_patch import ScimServiceProviderConfigPatch as ScimServiceProviderConfigPatch
+from eZmaxApi.models.scim_service_provider_config_sort import ScimServiceProviderConfigSort as ScimServiceProviderConfigSort
 from eZmaxApi.models.scim_user import ScimUser as ScimUser
 from eZmaxApi.models.scim_user_list import ScimUserList as ScimUserList
 from eZmaxApi.models.secretquestion_autocomplete_element_response import SecretquestionAutocompleteElementResponse as SecretquestionAutocompleteElementResponse
@@ -4371,6 +4385,10 @@ from eZmaxApi.models.webhook_get_list_v1_response_m_payload import WebhookGetLis
 from eZmaxApi.models.webhook_get_object_v2_response import WebhookGetObjectV2Response as WebhookGetObjectV2Response
 from eZmaxApi.models.webhook_get_object_v2_response_m_payload import WebhookGetObjectV2ResponseMPayload as WebhookGetObjectV2ResponseMPayload
 from eZmaxApi.models.webhook_list_element import WebhookListElement as WebhookListElement
+from eZmaxApi.models.webhook_realestate_inscription_created import WebhookRealestateInscriptionCreated as WebhookRealestateInscriptionCreated
+from eZmaxApi.models.webhook_realestate_inscription_modified import WebhookRealestateInscriptionModified as WebhookRealestateInscriptionModified
+from eZmaxApi.models.webhook_realestate_inscriptionnotauthenticated_created import WebhookRealestateInscriptionnotauthenticatedCreated as WebhookRealestateInscriptionnotauthenticatedCreated
+from eZmaxApi.models.webhook_realestate_inscriptionnotauthenticated_modified import WebhookRealestateInscriptionnotauthenticatedModified as WebhookRealestateInscriptionnotauthenticatedModified
 from eZmaxApi.models.webhook_regenerate_apikey_v1_request import WebhookRegenerateApikeyV1Request as WebhookRegenerateApikeyV1Request
 from eZmaxApi.models.webhook_regenerate_apikey_v1_response import WebhookRegenerateApikeyV1Response as WebhookRegenerateApikeyV1Response
 from eZmaxApi.models.webhook_regenerate_apikey_v1_response_m_payload import WebhookRegenerateApikeyV1ResponseMPayload as WebhookRegenerateApikeyV1ResponseMPayload

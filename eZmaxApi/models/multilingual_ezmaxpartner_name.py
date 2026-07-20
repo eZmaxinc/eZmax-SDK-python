@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerName(BaseModel):
     s_ezmaxpartner_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Ezmaxpartner in english", alias="sEzmaxpartnerName2", json_schema_extra={"examples": ["eZmax"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerName1", "sEzmaxpartnerName2"]
 
-    @field_validator('s_ezmaxpartner_name1')
+    @field_validator('s_ezmaxpartner_name1', mode="before")
     def s_ezmaxpartner_name1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_name2')
+    @field_validator('s_ezmaxpartner_name2', mode="before")
     def s_ezmaxpartner_name2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

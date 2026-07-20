@@ -58,42 +58,33 @@ class EzsigndocumentResponse(BaseModel):
     i_ezsigndocument_ezsigndiscussiontotal: StrictInt = Field(description="The total number of Ezsigndiscussions", alias="iEzsigndocumentEzsigndiscussiontotal", json_schema_extra={"examples": [14]})
     __properties: ClassVar[List[str]] = ["pkiEzsigndocumentID", "fkiEzsignfolderID", "fkiEzsignfoldersignerassociationIDDeclinedtosign", "dtEzsigndocumentDuedate", "dtEzsignformCompleted", "fkiLanguageID", "sEzsigndocumentName", "eEzsigndocumentStep", "dtEzsigndocumentFirstsend", "dtEzsigndocumentLastsend", "iEzsigndocumentOrder", "iEzsigndocumentPagetotal", "iEzsigndocumentSignaturesigned", "iEzsigndocumentSignaturetotal", "iEzsigndocumentFormfieldtotal", "sEzsigndocumentMD5initial", "tEzsigndocumentDeclinedtosignreason", "sEzsigndocumentMD5signed", "bEzsigndocumentEzsignform", "bEzsigndocumentHassignedsignatures", "bEzsigndocumentSendtoged", "objAudit", "sEzsigndocumentExternalid", "iEzsigndocumentEzsignsignatureattachmenttotal", "iEzsigndocumentEzsigndiscussiontotal"]
 
-    @field_validator('s_ezsigndocument_md5initial')
+    @field_validator('s_ezsigndocument_md5initial', mode="before")
     def s_ezsigndocument_md5initial_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{32}$", value):
+        if isinstance(value, str) and not re.match(r"^.{32}$", value):
             raise ValueError(r"must validate the regular expression /^.{32}$/")
         return value
 
-    @field_validator('s_ezsigndocument_md5signed')
+    @field_validator('s_ezsigndocument_md5signed', mode="before")
     def s_ezsigndocument_md5signed_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{32}$", value):
+        if isinstance(value, str) and not re.match(r"^.{32}$", value):
             raise ValueError(r"must validate the regular expression /^.{32}$/")
         return value
 
-    @field_validator('s_ezsigndocument_externalid')
+    @field_validator('s_ezsigndocument_externalid', mode="before")
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,128}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 

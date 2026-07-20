@@ -74,16 +74,13 @@ class EzsigndocumentRequestCompound(BaseModel):
             raise ValueError("must be one of enum values ('Keep', 'Convert', 'Discard', 'Flatten')")
         return value
 
-    @field_validator('s_ezsigndocument_externalid')
+    @field_validator('s_ezsigndocument_externalid', mode="before")
     def s_ezsigndocument_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,128}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 

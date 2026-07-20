@@ -37,29 +37,23 @@ class SignatureRequestCompound(BaseModel):
     t_signature_svginitials: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The svg of the Initials", alias="tSignatureSvginitials", json_schema_extra={"examples": ["{\"$ref\":\"#/components/examples/Svg/value\"}"]})
     __properties: ClassVar[List[str]] = ["pkiSignatureID", "fkiFontID", "eSignaturePreference", "tSignatureSvg", "tSignatureSvginitials"]
 
-    @field_validator('t_signature_svg')
+    @field_validator('t_signature_svg', mode="before")
     def t_signature_svg_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{60,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{60,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{60,65535}$/")
         return value
 
-    @field_validator('t_signature_svginitials')
+    @field_validator('t_signature_svginitials', mode="before")
     def t_signature_svginitials_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{60,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{60,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{60,65535}$/")
         return value
 

@@ -42,23 +42,17 @@ class EzmaxinvoicingcontractResponseCompound(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingcontractID", "eEzmaxinvoicingcontractPaymenttype", "iEzmaxinvoicingcontractLength", "dtEzmaxinvoicingcontractStart", "dtEzmaxinvoicingcontractEnd", "dEzmaxinvoicingcontractLicense", "dEzmaxinvoicingcontract121qa", "bEzmaxinvoicingcontractEzsignallagents", "objAudit"]
 
-    @field_validator('d_ezmaxinvoicingcontract_license')
+    @field_validator('d_ezmaxinvoicingcontract_license', mode="before")
     def d_ezmaxinvoicingcontract_license_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezmaxinvoicingcontract121qa')
+    @field_validator('d_ezmaxinvoicingcontract121qa', mode="before")
     def d_ezmaxinvoicingcontract121qa_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 

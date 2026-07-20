@@ -32,13 +32,10 @@ class EzsigntemplatepublicResetUrlV1ResponseMPayload(BaseModel):
     s_ezsigntemplatepublic_url: Annotated[str, Field(strict=True)] = Field(description="The url of the Ezsigntemplatepublic  You can add these value as query parameters to prefill the corresponding role  |Parameter|Description| |-|-| |sEzsigntemplatesignerDescription|The role to fill| |sContactFirstname|The contact firstname| |sContactLastname|The contact lastname| |sEmailAddress|The contact email| |sPhoneE164|The contact phone number| |sPhoneE164Cell|The contact cell phone number|", alias="sEzsigntemplatepublicUrl", json_schema_extra={"examples": ["https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}"]})
     __properties: ClassVar[List[str]] = ["sEzsigntemplatepublicUrl"]
 
-    @field_validator('s_ezsigntemplatepublic_url')
+    @field_validator('s_ezsigntemplatepublic_url', mode="before")
     def s_ezsigntemplatepublic_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

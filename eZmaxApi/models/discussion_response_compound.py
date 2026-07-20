@@ -43,13 +43,10 @@ class DiscussionResponseCompound(BaseModel):
     a_obj_discussionmessage: List[DiscussionmessageResponseCompound] = Field(alias="a_objDiscussionmessage")
     __properties: ClassVar[List[str]] = ["pkiDiscussionID", "sDiscussionDescription", "bDiscussionClosed", "dtDiscussionLastread", "iDiscussionmessageCount", "iDiscussionmessageCountunread", "objDiscussionconfiguration", "a_objDiscussionmembership", "a_objDiscussionmessage"]
 
-    @field_validator('s_discussion_description')
+    @field_validator('s_discussion_description', mode="before")
     def s_discussion_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

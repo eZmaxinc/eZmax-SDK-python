@@ -34,23 +34,17 @@ class UsergroupexternalResponseCompound(BaseModel):
     s_usergroupexternal_id: Annotated[str, Field(strict=True)] = Field(description="The id of the Usergroupexternal", alias="sUsergroupexternalID", json_schema_extra={"examples": ["5140-1542"]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupexternalID", "sUsergroupexternalName", "sUsergroupexternalID"]
 
-    @field_validator('s_usergroupexternal_name')
+    @field_validator('s_usergroupexternal_name', mode="before")
     def s_usergroupexternal_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,64}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,64}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 
-    @field_validator('s_usergroupexternal_id')
+    @field_validator('s_usergroupexternal_id', mode="before")
     def s_usergroupexternal_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,64}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,64}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,64}$/")
         return value
 

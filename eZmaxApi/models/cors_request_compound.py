@@ -34,13 +34,10 @@ class CorsRequestCompound(BaseModel):
     s_cors_entryurl: Annotated[str, Field(strict=True)] = Field(description="The entryurl of the Cors", alias="sCorsEntryurl", json_schema_extra={"examples": ["https://www.example.com"]})
     __properties: ClassVar[List[str]] = ["pkiCorsID", "fkiApikeyID", "sCorsEntryurl"]
 
-    @field_validator('s_cors_entryurl')
+    @field_validator('s_cors_entryurl', mode="before")
     def s_cors_entryurl_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

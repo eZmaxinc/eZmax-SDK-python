@@ -33,23 +33,17 @@ class EzsigntemplatepublicGetEzsigntemplatepublicDetailsV1Request(BaseModel):
     s_ezsigntemplatepublic_referenceid: Annotated[str, Field(strict=True)] = Field(description="The referenceid of the Ezsigntemplatepublic", alias="sEzsigntemplatepublicReferenceid", json_schema_extra={"examples": ["6B29FC40-CA47-1067-B31D-00DD010662DA"]})
     __properties: ClassVar[List[str]] = ["pksEzmaxcustomerCode", "sEzsigntemplatepublicReferenceid"]
 
-    @field_validator('pks_ezmaxcustomer_code')
+    @field_validator('pks_ezmaxcustomer_code', mode="before")
     def pks_ezmaxcustomer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-z\d]{2,6}$", value):
+        if isinstance(value, str) and not re.match(r"^[a-z\d]{2,6}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z\d]{2,6}$/")
         return value
 
-    @field_validator('s_ezsigntemplatepublic_referenceid')
+    @field_validator('s_ezsigntemplatepublic_referenceid', mode="before")
     def s_ezsigntemplatepublic_referenceid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,36}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,36}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,36}$/")
         return value
 

@@ -41,43 +41,31 @@ class EzmaxinvoicingsummaryexternaldetailResponse(BaseModel):
     t_ezmaxproduct_help_x: StrictStr = Field(description="The help message of the Ezmaxproduct in the language of the requester", alias="tEzmaxproductHelpX", json_schema_extra={"examples": ["This is an exemple of help message"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingsummaryexternaldetailID", "fkiEzmaxinvoicingsummaryexternalID", "fkiEzmaxproductID", "sEzmaxproductDescriptionX", "dEzmaxinvoicingsummaryexternaldetailCountreal", "dEzmaxinvoicingsummaryexternaldetailSubtotal", "dEzmaxinvoicingsummaryexternaldetailRebate", "dEzmaxinvoicingsummaryexternaldetailTotal", "bEzmaxinvoicingsummaryexternaldetailAdjustment", "tEzmaxproductHelpX"]
 
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_countreal')
+    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_countreal', mode="before")
     def d_ezmaxinvoicingsummaryexternaldetail_countreal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,6}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,6}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_subtotal')
+    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_subtotal', mode="before")
     def d_ezmaxinvoicingsummaryexternaldetail_subtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_rebate')
+    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_rebate', mode="before")
     def d_ezmaxinvoicingsummaryexternaldetail_rebate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_total')
+    @field_validator('d_ezmaxinvoicingsummaryexternaldetail_total', mode="before")
     def d_ezmaxinvoicingsummaryexternaldetail_total_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 

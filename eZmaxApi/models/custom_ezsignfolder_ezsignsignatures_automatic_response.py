@@ -35,13 +35,10 @@ class CustomEzsignfolderEzsignsignaturesAutomaticResponse(BaseModel):
     a_obj_ezsigndocument: List[CustomEzsigndocumentEzsignsignaturesAutomaticResponse] = Field(alias="a_objEzsigndocument")
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "sEzsignfolderDescription", "a_objEzsigndocument"]
 
-    @field_validator('s_ezsignfolder_description')
+    @field_validator('s_ezsignfolder_description', mode="before")
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

@@ -43,13 +43,10 @@ class CustomCommunicationListElementResponse(BaseModel):
     s_communication_recipient: StrictStr = Field(description="The recipients' name of the Communication", alias="sCommunicationRecipient", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiCommunicationID", "dtCreatedDate", "eCommunicationDirection", "eCommunicationImportance", "eCommunicationType", "iCommunicationrecipientCount", "sCommunicationSubject", "sCommunicationSender", "sCommunicationRecipient"]
 
-    @field_validator('s_communication_subject')
+    @field_validator('s_communication_subject', mode="before")
     def s_communication_subject_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,200}$/")
         return value
 

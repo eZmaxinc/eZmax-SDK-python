@@ -39,13 +39,10 @@ class EzsignimportfolderListElement(BaseModel):
     e_ezsignimportfolder_status: Optional[ComputedEEzsignimportfolderStatus] = Field(default=None, alias="eEzsignimportfolderStatus")
     __properties: ClassVar[List[str]] = ["pkiEzsignimportfolderID", "sEzsignimportfolderName", "dtCreatedDate", "dtModifiedDate", "iTotalEzsignimportdocument", "iTotalEzsignimportdocumentNotImported", "eEzsignimportfolderStatus"]
 
-    @field_validator('s_ezsignimportfolder_name')
+    @field_validator('s_ezsignimportfolder_name', mode="before")
     def s_ezsignimportfolder_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,150}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,150}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,150}$/")
         return value
 

@@ -35,13 +35,10 @@ class CustomEzmaxpricingResponse(BaseModel):
     dt_ezmaxpricing_end: Optional[StrictStr] = Field(default=None, description="The end date of the Ezmaxpricing", alias="dtEzmaxpricingEnd", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxpricingID", "dEzmaxpricingRebateezsignallagents", "dtEzmaxpricingStart", "dtEzmaxpricingEnd"]
 
-    @field_validator('d_ezmaxpricing_rebateezsignallagents')
+    @field_validator('d_ezmaxpricing_rebateezsignallagents', mode="before")
     def d_ezmaxpricing_rebateezsignallagents_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 

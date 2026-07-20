@@ -36,23 +36,17 @@ class AgentAutocompleteElementResponse(BaseModel):
     b_agent_isactive: StrictBool = Field(description="Whether the Agent is active or not", alias="bAgentIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiDepartmentID", "sContactFirstname", "sContactLastname", "bAgentIsactive"]
 
-    @field_validator('s_contact_firstname')
+    @field_validator('s_contact_firstname', mode="before")
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_contact_lastname')
+    @field_validator('s_contact_lastname', mode="before")
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
 

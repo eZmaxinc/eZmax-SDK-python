@@ -42,69 +42,51 @@ class OtherincomeListElement(BaseModel):
     b_otherincome_isactive: StrictBool = Field(description="Whether the otherincome is active or not", alias="bOtherincomeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiOtherincomeID", "fkiOtherincometypeID", "sOtherincometypeDescriptionX", "sOtherincomeDescription", "eOtherincomeRemunerationtype", "dOtherincomeRemunerationsubtotal", "dOtherincomeRemunerationtaxes", "dOtherincomeRemunerationtotal", "dtOtherincomePaid", "bOtherincomeIsactive"]
 
-    @field_validator('s_otherincometype_description_x')
+    @field_validator('s_otherincometype_description_x', mode="before")
     def s_otherincometype_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
 
-    @field_validator('s_otherincome_description')
+    @field_validator('s_otherincome_description', mode="before")
     def s_otherincome_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(\n|.){0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^(\n|.){0,75}$", value):
             raise ValueError(r"must validate the regular expression /^(\n|.){0,75}$/")
         return value
 
-    @field_validator('d_otherincome_remunerationsubtotal')
+    @field_validator('d_otherincome_remunerationsubtotal', mode="before")
     def d_otherincome_remunerationsubtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_otherincome_remunerationtaxes')
+    @field_validator('d_otherincome_remunerationtaxes', mode="before")
     def d_otherincome_remunerationtaxes_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_otherincome_remunerationtotal')
+    @field_validator('d_otherincome_remunerationtotal', mode="before")
     def d_otherincome_remunerationtotal_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('dt_otherincome_paid')
+    @field_validator('dt_otherincome_paid', mode="before")
     def dt_otherincome_paid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

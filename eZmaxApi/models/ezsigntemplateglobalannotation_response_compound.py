@@ -49,33 +49,24 @@ class EzsigntemplateglobalannotationResponseCompound(BaseModel):
     s_ezsigntemplateglobalannotation_dropdownvalues: Annotated[str, Field(strict=True)] = Field(description="The dropdownvalues of the Ezsigntemplateglobalannotation", alias="sEzsigntemplateglobalannotationDropdownvalues", json_schema_extra={"examples": ["{\"Accepts\",\"Refuses\"}"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateglobalannotationID", "fkiTextstylestaticID", "objTextstylestatic", "eEzsigntemplateglobalannotationHorizontalalignment", "eEzsigntemplateglobalannotationVerticalalignment", "eEzsigntemplateglobalannotationType", "iEzsigntemplateglobalannotationX", "iEzsigntemplateglobalannotationY", "iEzsigntemplateglobalannotationWidth", "iEzsigntemplateglobalannotationHeight", "iEzsigntemplateglobaldocumentpagePagenumber", "sEzsigntemplateglobalannotationDescription", "sEzsigntemplateglobalannotationDefaulttext", "sEzsigntemplateglobalannotationDropdownvalues"]
 
-    @field_validator('s_ezsigntemplateglobalannotation_description')
+    @field_validator('s_ezsigntemplateglobalannotation_description', mode="before")
     def s_ezsigntemplateglobalannotation_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 
-    @field_validator('s_ezsigntemplateglobalannotation_defaulttext')
+    @field_validator('s_ezsigntemplateglobalannotation_defaulttext', mode="before")
     def s_ezsigntemplateglobalannotation_defaulttext_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    @field_validator('s_ezsigntemplateglobalannotation_dropdownvalues')
+    @field_validator('s_ezsigntemplateglobalannotation_dropdownvalues', mode="before")
     def s_ezsigntemplateglobalannotation_dropdownvalues_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 

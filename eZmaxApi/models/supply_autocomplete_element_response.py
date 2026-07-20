@@ -34,13 +34,10 @@ class SupplyAutocompleteElementResponse(BaseModel):
     b_supply_isactive: StrictBool = Field(description="Whether the supply is active or not", alias="bSupplyIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiSupplyID", "sSupplyDescriptionX", "bSupplyIsactive"]
 
-    @field_validator('s_supply_description_x')
+    @field_validator('s_supply_description_x', mode="before")
     def s_supply_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

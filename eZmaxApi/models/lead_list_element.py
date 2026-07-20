@@ -40,33 +40,24 @@ class LeadListElement(BaseModel):
     s_lead_contacts: Optional[StrictStr] = Field(default=None, description="The contacts' name of the Lead", alias="sLeadContacts", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiLeadID", "fkiLeadsourceID", "sLeadsourceNameX", "eLeadStatus", "dtLeadExpiration", "bLeadIsactive", "sLeadCode", "sLeadContacts"]
 
-    @field_validator('s_leadsource_name_x')
+    @field_validator('s_leadsource_name_x', mode="before")
     def s_leadsource_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @field_validator('dt_lead_expiration')
+    @field_validator('dt_lead_expiration', mode="before")
     def dt_lead_expiration_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('s_lead_code')
+    @field_validator('s_lead_code', mode="before")
     def s_lead_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

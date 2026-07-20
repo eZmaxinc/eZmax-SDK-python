@@ -35,23 +35,17 @@ class RealestateassociationAutocompleteElementResponse(BaseModel):
     b_realestateassociation_isactive: StrictBool = Field(description="Whether the Realestateassociation is active or not", alias="bRealestateassociationIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiRealestateassociationID", "sRealestateassociationNameX", "sRealestateassociationAcronymX", "bRealestateassociationIsactive"]
 
-    @field_validator('s_realestateassociation_name_x')
+    @field_validator('s_realestateassociation_name_x', mode="before")
     def s_realestateassociation_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,65}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,65}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,65}$/")
         return value
 
-    @field_validator('s_realestateassociation_acronym_x')
+    @field_validator('s_realestateassociation_acronym_x', mode="before")
     def s_realestateassociation_acronym_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,6}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,6}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,6}$/")
         return value
 

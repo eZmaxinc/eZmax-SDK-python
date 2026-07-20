@@ -40,26 +40,20 @@ class EzsignfolderRequestCompound(BaseModel):
     s_ezsignfolder_externalid: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="This field can be used to store an External ID from the client's system.  Anything can be stored in this field, it will never be evaluated by the eZmax system and will be returned AS-IS.  To store multiple values, consider using a JSON formatted structure, a URL encoded string, a CSV or any other custom format. ", alias="sEzsignfolderExternalid", json_schema_extra={"examples": ["{\"ID\": 1234, \"TAGS\": [\"tag1\", \"tag2\", \"tag3\"]}"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignfolderID", "fkiEzsignfoldertypeID", "fkiTimezoneID", "fkiEzsigntsarequirementID", "sEzsignfolderDescription", "tEzsignfolderNote", "eEzsignfolderSendreminderfrequency", "sEzsignfolderExternalid"]
 
-    @field_validator('s_ezsignfolder_description')
+    @field_validator('s_ezsignfolder_description', mode="before")
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 
-    @field_validator('s_ezsignfolder_externalid')
+    @field_validator('s_ezsignfolder_externalid', mode="before")
     def s_ezsignfolder_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,128}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
         return value
 

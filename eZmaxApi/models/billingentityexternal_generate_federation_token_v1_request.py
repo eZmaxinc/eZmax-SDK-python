@@ -32,13 +32,10 @@ class BillingentityexternalGenerateFederationTokenV1Request(BaseModel):
     fks_ezmaxcustomer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The Ezmaxcustomer code", alias="fksEzmaxcustomerCode", json_schema_extra={"examples": ["demo"]})
     __properties: ClassVar[List[str]] = ["fksEzmaxcustomerCode"]
 
-    @field_validator('fks_ezmaxcustomer_code')
+    @field_validator('fks_ezmaxcustomer_code', mode="before")
     def fks_ezmaxcustomer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-z\d]{2,6}$", value):
+        if isinstance(value, str) and not re.match(r"^[a-z\d]{2,6}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z\d]{2,6}$/")
         return value
 

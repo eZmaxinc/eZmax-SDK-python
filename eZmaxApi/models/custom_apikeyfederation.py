@@ -33,23 +33,17 @@ class CustomApikeyfederation(BaseModel):
     s_apikeyfederation_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikeyfederation", alias="sApikeyfederationSecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     __properties: ClassVar[List[str]] = ["sApikeyfederationKey", "sApikeyfederationSecret"]
 
-    @field_validator('s_apikeyfederation_key')
+    @field_validator('s_apikeyfederation_key', mode="before")
     def s_apikeyfederation_key_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,200}$/")
         return value
 
-    @field_validator('s_apikeyfederation_secret')
+    @field_validator('s_apikeyfederation_secret', mode="before")
     def s_apikeyfederation_secret_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9a-fA-F]{1,32}$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9a-fA-F]{1,32}$", value):
             raise ValueError(r"must validate the regular expression /^[0-9a-fA-F]{1,32}$/")
         return value
 

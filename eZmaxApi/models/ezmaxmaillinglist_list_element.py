@@ -35,23 +35,17 @@ class EzmaxmaillinglistListElement(BaseModel):
     b_ezmaxmaillinglist_subscribed: StrictBool = Field(description="Whether the user subscribed to this Ezmaxmaillinglistor not", alias="bEzmaxmaillinglistSubscribed", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzmaxmaillinglistID", "sEzmaxmaillinglistNameX", "sEzmaxmaillinglistDescriptionX", "bEzmaxmaillinglistSubscribed"]
 
-    @field_validator('s_ezmaxmaillinglist_name_x')
+    @field_validator('s_ezmaxmaillinglist_name_x', mode="before")
     def s_ezmaxmaillinglist_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezmaxmaillinglist_description_x')
+    @field_validator('s_ezmaxmaillinglist_description_x', mode="before")
     def s_ezmaxmaillinglist_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
 

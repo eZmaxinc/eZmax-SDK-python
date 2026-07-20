@@ -37,13 +37,10 @@ class EzsignsignaturepaymentdetailRequestCompound(BaseModel):
     e_ezsignsignaturepaymentdetail_taxable: FieldEEzsignsignaturepaymentdetailTaxable = Field(alias="eEzsignsignaturepaymentdetailTaxable")
     __properties: ClassVar[List[str]] = ["pkiEzsignsignaturepaymentdetailID", "fkiGlaccountcontainerID", "tEzsignsignaturepaymentdetailDescription", "dEzsignsignaturepaymentdetailAmount", "eEzsignsignaturepaymentdetailTaxable"]
 
-    @field_validator('d_ezsignsignaturepaymentdetail_amount')
+    @field_validator('d_ezsignsignaturepaymentdetail_amount', mode="before")
     def d_ezsignsignaturepaymentdetail_amount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 

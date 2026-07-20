@@ -34,13 +34,10 @@ class PdfalevelAutocompleteElementResponse(BaseModel):
     b_pdfalevel_isactive: StrictBool = Field(description="Whether the Pdfalevel is active or not", alias="bPdfalevelIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPdfalevelID", "sPdfalevelName", "bPdfalevelIsactive"]
 
-    @field_validator('s_pdfalevel_name')
+    @field_validator('s_pdfalevel_name', mode="before")
     def s_pdfalevel_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 

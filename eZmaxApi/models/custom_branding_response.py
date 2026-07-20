@@ -33,13 +33,10 @@ class CustomBrandingResponse(BaseModel):
     s_branding_logointerfaceurl: Annotated[str, Field(strict=True)] = Field(description="The url of the picture used as logo in the Branding", alias="sBrandingLogointerfaceurl", json_schema_extra={"examples": ["http://www.example.com/logo.jpg"]})
     __properties: ClassVar[List[str]] = ["iBrandingColor", "sBrandingLogointerfaceurl"]
 
-    @field_validator('s_branding_logointerfaceurl')
+    @field_validator('s_branding_logointerfaceurl', mode="before")
     def s_branding_logointerfaceurl_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^(https|http):\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^(https|http):\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

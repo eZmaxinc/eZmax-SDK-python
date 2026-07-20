@@ -36,26 +36,20 @@ class CommonResponseErrorSTemporaryFileUrl(BaseModel):
     s_temporary_file_url: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Temporary File Url of the document that was uploaded. That url can be reused instead of uploading the file again.", alias="sTemporaryFileUrl", json_schema_extra={"examples": ["https://www.example.com/document.pdf"]})
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "sTemporaryFileUrl"]
 
-    @field_validator('s_error_message')
+    @field_validator('s_error_message', mode="before")
     def s_error_message_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,500}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,500}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,500}$/")
         return value
 
-    @field_validator('s_temporary_file_url')
+    @field_validator('s_temporary_file_url', mode="before")
     def s_temporary_file_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

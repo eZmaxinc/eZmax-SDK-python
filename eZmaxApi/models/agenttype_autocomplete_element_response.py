@@ -34,13 +34,10 @@ class AgenttypeAutocompleteElementResponse(BaseModel):
     b_agenttype_isactive: StrictBool = Field(description="Whether the Agenttype is active or not", alias="bAgenttypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiAgenttypeID", "sAgenttypeNameX", "bAgenttypeIsactive"]
 
-    @field_validator('s_agenttype_name_x')
+    @field_validator('s_agenttype_name_x', mode="before")
     def s_agenttype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,35}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,35}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,35}$/")
         return value
 

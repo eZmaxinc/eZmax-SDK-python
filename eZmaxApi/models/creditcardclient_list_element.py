@@ -42,13 +42,10 @@ class CreditcardclientListElement(BaseModel):
     i_creditcarddetail_lastdigits: Annotated[int, Field(le=9999, strict=True, ge=0)] = Field(description="The last digits of the Creditcarddetail", alias="iCreditcarddetailLastdigits", json_schema_extra={"examples": [4242]})
     __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "fkiCreditcardtypeID", "bCreditcardclientrelationIsdefault", "bCreditcardclientLegacy", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "iCreditcarddetailLastdigits"]
 
-    @field_validator('s_creditcardclient_description')
+    @field_validator('s_creditcardclient_description', mode="before")
     def s_creditcardclient_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

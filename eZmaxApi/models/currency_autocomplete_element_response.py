@@ -34,13 +34,10 @@ class CurrencyAutocompleteElementResponse(BaseModel):
     b_currency_isactive: StrictBool = Field(description="Whether the Currency is active or not", alias="bCurrencyIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCurrencyID", "sCurrencyDescriptionX", "bCurrencyIsactive"]
 
-    @field_validator('s_currency_description_x')
+    @field_validator('s_currency_description_x', mode="before")
     def s_currency_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 

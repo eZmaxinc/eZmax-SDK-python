@@ -1,14 +1,14 @@
-# eZmaxApi.DocumentationEzmaxpartnerApi
+# eZmaxApi.ExternalEzmaxpartnerApi
 
 All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/rest*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**documentation_subscribe_v1**](DocumentationEzmaxpartnerApi.md#documentation_subscribe_v1) | **POST** /1/documentation/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**externalpartner_subscribe_v1**](ExternalEzmaxpartnerApi.md#externalpartner_subscribe_v1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
 
 
-# **documentation_subscribe_v1**
-> DocumentationSubscribeV1Response documentation_subscribe_v1(documentation_subscribe_v1_request)
+# **externalpartner_subscribe_v1**
+> DocumentationSubscribeV1Response externalpartner_subscribe_v1(documentation_subscribe_v1_request)
 
 Subscribe to an Ezmaxparnerproductstage
 
@@ -45,16 +45,16 @@ configuration.api_key['Authorization'] = os.environ["API_KEY"]
 # Enter a context with an instance of the API client
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = eZmaxApi.DocumentationEzmaxpartnerApi(api_client)
+    api_instance = eZmaxApi.ExternalEzmaxpartnerApi(api_client)
     documentation_subscribe_v1_request = eZmaxApi.DocumentationSubscribeV1Request() # DocumentationSubscribeV1Request | 
 
     try:
         # Subscribe to an Ezmaxparnerproductstage
-        api_response = api_instance.documentation_subscribe_v1(documentation_subscribe_v1_request)
-        print("The response of DocumentationEzmaxpartnerApi->documentation_subscribe_v1:\n")
+        api_response = api_instance.externalpartner_subscribe_v1(documentation_subscribe_v1_request)
+        print("The response of ExternalEzmaxpartnerApi->externalpartner_subscribe_v1:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DocumentationEzmaxpartnerApi->documentation_subscribe_v1: %s\n" % e)
+        print("Exception when calling ExternalEzmaxpartnerApi->externalpartner_subscribe_v1: %s\n" % e)
 ```
 
 

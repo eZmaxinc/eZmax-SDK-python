@@ -39,49 +39,37 @@ class InscriptionnotauthenticatedconditionResponse(BaseModel):
     t_inscriptionnotauthenticatedcondition_comment: Annotated[str, Field(strict=True)] = Field(description="The comment of the Inscriptionnotauthenticatedcondition", alias="tInscriptionnotauthenticatedconditionComment", json_schema_extra={"examples": ["Unreadable"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedconditionID", "fkiInscriptionnotauthenticatedconditiontypeID", "sInscriptionnotauthenticatedconditiontypeNameX", "fkiInscriptionnotauthenticatedID", "bInscriptionnotauthenticatedconditionFilled", "dtInscriptionnotauthenticatedconditionCompleted", "dtInscriptionnotauthenticatedconditionDue", "tInscriptionnotauthenticatedconditionComment"]
 
-    @field_validator('s_inscriptionnotauthenticatedconditiontype_name_x')
+    @field_validator('s_inscriptionnotauthenticatedconditiontype_name_x', mode="before")
     def s_inscriptionnotauthenticatedconditiontype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,100}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,100}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,100}$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticatedcondition_completed')
+    @field_validator('dt_inscriptionnotauthenticatedcondition_completed', mode="before")
     def dt_inscriptionnotauthenticatedcondition_completed_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_inscriptionnotauthenticatedcondition_due')
+    @field_validator('dt_inscriptionnotauthenticatedcondition_due', mode="before")
     def dt_inscriptionnotauthenticatedcondition_due_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('t_inscriptionnotauthenticatedcondition_comment')
+    @field_validator('t_inscriptionnotauthenticatedcondition_comment', mode="before")
     def t_inscriptionnotauthenticatedcondition_comment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 

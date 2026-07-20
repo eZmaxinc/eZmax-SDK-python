@@ -65,26 +65,20 @@ class UserRequest(BaseModel):
     b_user_ezsigntemplaterolegrouping: Optional[StrictBool] = Field(default=None, description="Whether we group or not the Ezsigntemplate roles", alias="bUserEzsigntemplaterolegrouping", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "fkiAssistantID", "fkiEmployeeID", "fkiCompanyIDDefault", "fkiDepartmentIDDefault", "fkiTimezoneID", "fkiLanguageID", "objEmail", "fkiBillingentityinternalID", "objPhoneHome", "objPhoneSMS", "fkiSecretquestionID", "sUserSecretresponse", "fkiModuleIDForm", "eUserType", "eUserLogintype", "sUserFirstname", "sUserLastname", "sUserLoginname", "sUserJobtitle", "eUserEzsignaccess", "bUserIsactive", "bUserValidatebyadministration", "bUserValidatebydirector", "bUserAttachmentautoverified", "bUserChangepassword", "bUserEzsigntemplaterolegrouping"]
 
-    @field_validator('s_user_loginname')
+    @field_validator('s_user_loginname', mode="before")
     def s_user_loginname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
+        if isinstance(value, str) and not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
-    @field_validator('s_user_jobtitle')
+    @field_validator('s_user_jobtitle', mode="before")
     def s_user_jobtitle_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

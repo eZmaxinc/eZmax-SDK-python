@@ -39,13 +39,10 @@ class CreditcardclientResponseCompound(BaseModel):
     obj_creditcarddetail: CreditcarddetailResponseCompound = Field(alias="objCreditcarddetail")
     __properties: ClassVar[List[str]] = ["pkiCreditcardclientID", "fkiCreditcarddetailID", "bCreditcardclientrelationIsdefault", "sCreditcardclientDescription", "bCreditcardclientAllowedcompanypayment", "bCreditcardclientAllowedtranquillit", "objCreditcarddetail"]
 
-    @field_validator('s_creditcardclient_description')
+    @field_validator('s_creditcardclient_description', mode="before")
     def s_creditcardclient_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

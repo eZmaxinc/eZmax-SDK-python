@@ -32,16 +32,13 @@ class EzsigntemplatepublicCreateEzsignfolderV1ResponseMPayload(BaseModel):
     s_ezsigntemplatepublic_signingurl: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The url to sign the Ezsignfolder created by the Ezsigntemplatepublic. Only used when fkiUserLogintypeID is **No validation** or **Sms only**", alias="sEzsigntemplatepublicSigningurl", json_schema_extra={"examples": ["https://prod.ezsignsigner.ca-central-1.ezmax.com/ezsigntemplatepublic/{sEzmaxcustomerCode}/{sEzsigntemplatepublicReferenceID}"]})
     __properties: ClassVar[List[str]] = ["sEzsigntemplatepublicSigningurl"]
 
-    @field_validator('s_ezsigntemplatepublic_signingurl')
+    @field_validator('s_ezsigntemplatepublic_signingurl', mode="before")
     def s_ezsigntemplatepublic_signingurl_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 

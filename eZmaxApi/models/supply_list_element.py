@@ -43,46 +43,34 @@ class SupplyListElement(BaseModel):
     s_variableexpense_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX", json_schema_extra={"examples": ["Équipements de bureau"]})
     __properties: ClassVar[List[str]] = ["pkiSupplyID", "fkiGlaccountID", "fkiGlaccountcontainerID", "fkiVariableexpenseID", "sSupplyCode", "sSupplyDescriptionX", "dSupplyUnitprice", "bSupplyIsactive", "bSupplyVariableprice", "sGlaccountDescriptionX", "sGlaccountcontainerLongdescriptionX", "sVariableexpenseDescriptionX"]
 
-    @field_validator('s_supply_code')
+    @field_validator('s_supply_code', mode="before")
     def s_supply_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,5}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,5}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,5}$/")
         return value
 
-    @field_validator('s_supply_description_x')
+    @field_validator('s_supply_description_x', mode="before")
     def s_supply_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('d_supply_unitprice')
+    @field_validator('d_supply_unitprice', mode="before")
     def d_supply_unitprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('s_variableexpense_description_x')
+    @field_validator('s_variableexpense_description_x', mode="before")
     def s_variableexpense_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 

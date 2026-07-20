@@ -33,23 +33,17 @@ class CustomEzsignformfielderrortestResponse(BaseModel):
     s_ezsignformfielderrortest_detail: Annotated[str, Field(strict=True)] = Field(description="The detail why the test failed", alias="sEzsignformfielderrortestDetail")
     __properties: ClassVar[List[str]] = ["sEzsignformfielderrortestName", "sEzsignformfielderrortestDetail"]
 
-    @field_validator('s_ezsignformfielderrortest_name')
+    @field_validator('s_ezsignformfielderrortest_name', mode="before")
     def s_ezsignformfielderrortest_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezsignformfielderrortest_detail')
+    @field_validator('s_ezsignformfielderrortest_detail', mode="before")
     def s_ezsignformfielderrortest_detail_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
 

@@ -33,13 +33,10 @@ class ModulegroupResponse(BaseModel):
     s_modulegroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Modulegroup in the language of the requester", alias="sModulegroupNameX", json_schema_extra={"examples": ["Management"]})
     __properties: ClassVar[List[str]] = ["pkiModulegroupID", "sModulegroupNameX"]
 
-    @field_validator('s_modulegroup_name_x')
+    @field_validator('s_modulegroup_name_x', mode="before")
     def s_modulegroup_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

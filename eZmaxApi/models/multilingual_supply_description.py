@@ -33,29 +33,23 @@ class MultilingualSupplyDescription(BaseModel):
     s_supply_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Supply in English", alias="sSupplyDescription2", json_schema_extra={"examples": ["Letter paper package"]})
     __properties: ClassVar[List[str]] = ["sSupplyDescription1", "sSupplyDescription2"]
 
-    @field_validator('s_supply_description1')
+    @field_validator('s_supply_description1', mode="before")
     def s_supply_description1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_supply_description2')
+    @field_validator('s_supply_description2', mode="before")
     def s_supply_description2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

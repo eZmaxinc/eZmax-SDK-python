@@ -46,42 +46,33 @@ class BrandingResponseV3(BaseModel):
     b_branding_isactive: StrictBool = Field(description="Whether the Branding is active or not", alias="bBrandingIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiBrandingID", "fkiDomainID", "sDomainName", "fkiEmailID", "objBrandingDescription", "sBrandingDescriptionX", "sBrandingName", "sEmailAddress", "eBrandingLogo", "eBrandingAlignlogo", "iBrandingColor", "bBrandingIsactive"]
 
-    @field_validator('s_domain_name')
+    @field_validator('s_domain_name', mode="before")
     def s_domain_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
+        if isinstance(value, str) and not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
             raise ValueError(r"must validate the regular expression /^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$/")
         return value
 
-    @field_validator('s_branding_name')
+    @field_validator('s_branding_name', mode="before")
     def s_branding_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,55}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
         return value
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 

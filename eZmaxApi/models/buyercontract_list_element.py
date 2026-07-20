@@ -46,56 +46,41 @@ class BuyercontractListElement(BaseModel):
     s_buyercontract_buyers: StrictStr = Field(description="The buyers' name of the Buyercontract", alias="sBuyercontractBuyers", json_schema_extra={"examples": ["Jane Doe"]})
     __properties: ClassVar[List[str]] = ["pkiBuyercontractID", "fkiInscriptiontypeID", "sInscriptiontypeNameX", "eBuyercontractStep", "dBuyercontractMinimumprice", "dBuyercontractMaximumprice", "eBuyercontractType", "sBuyercontractContract", "dtBuyercontractDate", "dtBuyercontractExpirationdate", "bBuyercontractIsactive", "sBuyercontractBrokers", "sBuyercontractBuyers"]
 
-    @field_validator('s_inscriptiontype_name_x')
+    @field_validator('s_inscriptiontype_name_x', mode="before")
     def s_inscriptiontype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,30}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,30}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,30}$/")
         return value
 
-    @field_validator('d_buyercontract_minimumprice')
+    @field_validator('d_buyercontract_minimumprice', mode="before")
     def d_buyercontract_minimumprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_buyercontract_maximumprice')
+    @field_validator('d_buyercontract_maximumprice', mode="before")
     def d_buyercontract_maximumprice_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,9}?\.[\d]{2}$/")
         return value
 
-    @field_validator('dt_buyercontract_date')
+    @field_validator('dt_buyercontract_date', mode="before")
     def dt_buyercontract_date_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_buyercontract_expirationdate')
+    @field_validator('dt_buyercontract_expirationdate', mode="before")
     def dt_buyercontract_expirationdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

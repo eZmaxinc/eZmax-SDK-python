@@ -37,26 +37,20 @@ class CustomEzsignimportdocumentResponse(BaseModel):
     s_ezsignfolder_description: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezsignfolder", alias="sEzsignfolderDescription", json_schema_extra={"examples": ["Test eZsign Folder"]})
     __properties: ClassVar[List[str]] = ["pkiEzsignimportdocumentID", "sEzsignimportdocumentName", "fkiEzsigntemplateglobalID", "sEzsigntemplateglobalDescription", "fkiEzsignfolderID", "sEzsignfolderDescription"]
 
-    @field_validator('s_ezsignimportdocument_name')
+    @field_validator('s_ezsignimportdocument_name', mode="before")
     def s_ezsignimportdocument_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,150}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,150}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,150}$/")
         return value
 
-    @field_validator('s_ezsignfolder_description')
+    @field_validator('s_ezsignfolder_description', mode="before")
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

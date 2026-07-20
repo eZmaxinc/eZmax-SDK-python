@@ -35,23 +35,17 @@ class CountryAutocompleteElementResponse(BaseModel):
     b_country_isactive: StrictBool = Field(description="Whether the Country is active or not", alias="bCountryIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiCountryID", "sCountryNameX", "sCountryShortname", "bCountryIsactive"]
 
-    @field_validator('s_country_name_x')
+    @field_validator('s_country_name_x', mode="before")
     def s_country_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
-    @field_validator('s_country_shortname')
+    @field_validator('s_country_shortname', mode="before")
     def s_country_shortname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,3}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,3}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,3}$/")
         return value
 

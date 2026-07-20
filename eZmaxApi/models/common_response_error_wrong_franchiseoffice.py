@@ -39,13 +39,10 @@ class CommonResponseErrorWrongFranchiseoffice(BaseModel):
     i_franchiseoffice_code: StrictStr = Field(description="The code of the Franchiseoffice", alias="iFranchiseofficeCode", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["sErrorMessage", "eErrorCode", "a_sErrorMessagedetail", "fkiFranchiseagenceID", "sFranchiseagenceName", "fkiFranchiseofficeID", "iFranchiseofficeCode"]
 
-    @field_validator('s_error_message')
+    @field_validator('s_error_message', mode="before")
     def s_error_message_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,500}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,500}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,500}$/")
         return value
 

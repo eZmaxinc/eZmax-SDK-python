@@ -34,13 +34,10 @@ class PhonetypeAutocompleteElementResponse(BaseModel):
     b_phonetype_isactive: StrictBool = Field(description="Whether the Phonetype is active or not", alias="bPhonetypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPhonetypeID", "sPhonetypeNameX", "bPhonetypeIsactive"]
 
-    @field_validator('s_phonetype_name_x')
+    @field_validator('s_phonetype_name_x', mode="before")
     def s_phonetype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 

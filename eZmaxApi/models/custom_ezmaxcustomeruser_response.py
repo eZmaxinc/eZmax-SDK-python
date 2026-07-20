@@ -41,23 +41,17 @@ class CustomEzmaxcustomeruserResponse(BaseModel):
     s_ezmaxcustomeruser_lastname: Annotated[str, Field(strict=True)] = Field(description="The First name of the Ezmaxcustomeruser", alias="sEzmaxcustomeruserLastname", json_schema_extra={"examples": ["John"]})
     __properties: ClassVar[List[str]] = ["objEzmaxcustomer", "fkiContacttitleID", "fkiLanguageID", "objEmail", "objPhone", "sEzmaxcustomeruserFirstname", "sEzmaxcustomeruserLastname"]
 
-    @field_validator('s_ezmaxcustomeruser_firstname')
+    @field_validator('s_ezmaxcustomeruser_firstname', mode="before")
     def s_ezmaxcustomeruser_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_ezmaxcustomeruser_lastname')
+    @field_validator('s_ezmaxcustomeruser_lastname', mode="before")
     def s_ezmaxcustomeruser_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 

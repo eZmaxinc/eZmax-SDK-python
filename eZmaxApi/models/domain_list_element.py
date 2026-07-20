@@ -33,13 +33,10 @@ class DomainListElement(BaseModel):
     s_domain_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Domain", alias="sDomainName", json_schema_extra={"examples": ["ezsign.ca"]})
     __properties: ClassVar[List[str]] = ["pkiDomainID", "sDomainName"]
 
-    @field_validator('s_domain_name')
+    @field_validator('s_domain_name', mode="before")
     def s_domain_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
+        if isinstance(value, str) and not re.match(r"^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$", value):
             raise ValueError(r"must validate the regular expression /^(?=.{4,75}$)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,63}$/")
         return value
 

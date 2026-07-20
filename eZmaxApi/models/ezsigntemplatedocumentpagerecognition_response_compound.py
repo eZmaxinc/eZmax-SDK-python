@@ -43,13 +43,10 @@ class EzsigntemplatedocumentpagerecognitionResponseCompound(BaseModel):
     t_ezsigntemplatedocumentpagerecognition_text: Annotated[str, Field(strict=True)] = Field(description="The text of the Ezsigntemplatedocumentpagerecognition", alias="tEzsigntemplatedocumentpagerecognitionText", json_schema_extra={"examples": ["Contract"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatedocumentpagerecognitionID", "fkiEzsigntemplatedocumentpageID", "eEzsigntemplatedocumentpagerecognitionOperator", "eEzsigntemplatedocumentpagerecognitionSection", "iEzsigntemplatedocumentpagerecognitionSimilarpercentage", "iEzsigntemplatedocumentpagerecognitionX", "iEzsigntemplatedocumentpagerecognitionY", "iEzsigntemplatedocumentpagerecognitionWidth", "iEzsigntemplatedocumentpagerecognitionHeight", "tEzsigntemplatedocumentpagerecognitionText"]
 
-    @field_validator('t_ezsigntemplatedocumentpagerecognition_text')
+    @field_validator('t_ezsigntemplatedocumentpagerecognition_text', mode="before")
     def t_ezsigntemplatedocumentpagerecognition_text_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[.\D\d]{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^[.\D\d]{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^[.\D\d]{0,65535}$/")
         return value
 

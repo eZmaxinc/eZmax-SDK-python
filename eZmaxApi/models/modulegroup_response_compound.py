@@ -35,13 +35,10 @@ class ModulegroupResponseCompound(BaseModel):
     a_obj_module: Optional[List[ModuleResponseCompound]] = Field(default=None, alias="a_objModule")
     __properties: ClassVar[List[str]] = ["pkiModulegroupID", "sModulegroupNameX", "a_objModule"]
 
-    @field_validator('s_modulegroup_name_x')
+    @field_validator('s_modulegroup_name_x', mode="before")
     def s_modulegroup_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

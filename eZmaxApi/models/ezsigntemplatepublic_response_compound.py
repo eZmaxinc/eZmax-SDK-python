@@ -53,63 +53,45 @@ class EzsigntemplatepublicResponseCompound(BaseModel):
     a_obj_ezsignfolderezsigntemplatepublic: List[CustomEzsignfolderezsigntemplatepublicResponse] = Field(alias="a_objEzsignfolderezsigntemplatepublic")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepublicID", "fkiEzsignfoldertypeID", "sEzsignfoldertypeNameX", "fkiUserlogintypeID", "sUserlogintypeDescriptionX", "fkiEzsigntemplateID", "fkiEzsigntemplatepackageID", "sEzsigntemplatepublicDescription", "sEzsigntemplatepublicReferenceid", "bEzsigntemplatepublicIsactive", "tEzsigntemplatepublicNote", "eEzsigntemplatepublicLimittype", "iEzsigntemplatepublicLimit", "iEzsigntemplatepublicLimitexceeded", "dtEzsigntemplatepublicLimitexceededsince", "sEzsigntemplatepublicUrl", "sEzsigntemplatepublicEzsigntemplatedescription", "objAudit", "a_objEzsignfolderezsigntemplatepublic"]
 
-    @field_validator('s_ezsigntemplatepublic_description')
+    @field_validator('s_ezsigntemplatepublic_description', mode="before")
     def s_ezsigntemplatepublic_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 
-    @field_validator('s_ezsigntemplatepublic_referenceid')
+    @field_validator('s_ezsigntemplatepublic_referenceid', mode="before")
     def s_ezsigntemplatepublic_referenceid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,36}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,36}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,36}$/")
         return value
 
-    @field_validator('t_ezsigntemplatepublic_note')
+    @field_validator('t_ezsigntemplatepublic_note', mode="before")
     def t_ezsigntemplatepublic_note_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 
-    @field_validator('dt_ezsigntemplatepublic_limitexceededsince')
+    @field_validator('dt_ezsigntemplatepublic_limitexceededsince', mode="before")
     def dt_ezsigntemplatepublic_limitexceededsince_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 
-    @field_validator('s_ezsigntemplatepublic_url')
+    @field_validator('s_ezsigntemplatepublic_url', mode="before")
     def s_ezsigntemplatepublic_url_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
+        if isinstance(value, str) and not re.match(r"^https:\/\/[^\s\/$.?#].[^\s]*$", value):
             raise ValueError(r"must validate the regular expression /^https:\/\/[^\s\/$.?#].[^\s]*$/")
         return value
 
-    @field_validator('s_ezsigntemplatepublic_ezsigntemplatedescription')
+    @field_validator('s_ezsigntemplatepublic_ezsigntemplatedescription', mode="before")
     def s_ezsigntemplatepublic_ezsigntemplatedescription_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,80}$/")
         return value
 

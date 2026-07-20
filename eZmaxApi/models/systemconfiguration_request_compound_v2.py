@@ -47,29 +47,23 @@ class SystemconfigurationRequestCompoundV2(BaseModel):
     i_systemconfiguration_ezsignreminderhoursend: Annotated[int, Field(le=23, strict=True, ge=0)] = Field(description="The hour we will send the eZsign reminders", alias="iSystemconfigurationEzsignreminderhoursend", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiSystemconfigurationID", "fkiBrandingID", "eSystemconfigurationNewexternaluseraction", "eSystemconfigurationLanguage1", "eSystemconfigurationLanguage2", "eSystemconfigurationEzsignofficeplan", "bSystemconfigurationEzsignpaidbyoffice", "bSystemconfigurationEzsignpersonnal", "bSystemconfigurationSspr", "dtSystemconfigurationReadonlyexpirationstart", "dtSystemconfigurationReadonlyexpirationend", "iSystemconfigurationEzsignreminderhoursend"]
 
-    @field_validator('dt_systemconfiguration_readonlyexpirationstart')
+    @field_validator('dt_systemconfiguration_readonlyexpirationstart', mode="before")
     def dt_systemconfiguration_readonlyexpirationstart_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_systemconfiguration_readonlyexpirationend')
+    @field_validator('dt_systemconfiguration_readonlyexpirationend', mode="before")
     def dt_systemconfiguration_readonlyexpirationend_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

@@ -54,39 +54,30 @@ class EzsigntemplateResponseCompound(BaseModel):
     a_obj_ezsigntemplateannotation: Optional[List[EzsigntemplateannotationResponseCompound]] = Field(default=None, alias="a_objEzsigntemplateannotation")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplateID", "fkiEzsigntemplatedocumentID", "fkiEzsignfoldertypeID", "fkiLanguageID", "fkiEzdoctemplatedocumentID", "sLanguageNameX", "sEzsigntemplateDescription", "sEzsigntemplateExternaldescription", "tEzsigntemplateComment", "sEzsigntemplateFilenamepattern", "bEzsigntemplateAdminonly", "sEzsignfoldertypeNameX", "objAudit", "bEzsigntemplateEditallowed", "eEzsigntemplateType", "objEzsigntemplatedocument", "a_objEzsigntemplatesigner", "a_objEzsigntemplateannotation"]
 
-    @field_validator('s_ezsigntemplate_description')
+    @field_validator('s_ezsigntemplate_description', mode="before")
     def s_ezsigntemplate_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 
-    @field_validator('s_ezsigntemplate_externaldescription')
+    @field_validator('s_ezsigntemplate_externaldescription', mode="before")
     def s_ezsigntemplate_externaldescription_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 
-    @field_validator('s_ezsigntemplate_filenamepattern')
+    @field_validator('s_ezsigntemplate_filenamepattern', mode="before")
     def s_ezsigntemplate_filenamepattern_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,50}$/")
         return value
 

@@ -42,36 +42,27 @@ class DiscussionmessageResponse(BaseModel):
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiDiscussionmessageID", "fkiDiscussionID", "fkiDiscussionmembershipID", "fkiDiscussionmembershipIDActionrequired", "eDiscussionmessageStatus", "tDiscussionmessageContent", "sDiscussionmessageCreatorname", "sDiscussionmessageActionrequiredname", "objAudit"]
 
-    @field_validator('t_discussionmessage_content')
+    @field_validator('t_discussionmessage_content', mode="before")
     def t_discussionmessage_content_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\s\S]{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
         return value
 
-    @field_validator('s_discussionmessage_creatorname')
+    @field_validator('s_discussionmessage_creatorname', mode="before")
     def s_discussionmessage_creatorname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 
-    @field_validator('s_discussionmessage_actionrequiredname')
+    @field_validator('s_discussionmessage_actionrequiredname', mode="before")
     def s_discussionmessage_actionrequiredname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

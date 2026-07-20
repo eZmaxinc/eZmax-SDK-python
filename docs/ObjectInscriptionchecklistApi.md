@@ -55,7 +55,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     fki_broker_id = 'fki_broker_id_example' # str | Specify which Broker we want to display. (optional)
     fki_otherincome_id = 'fki_otherincome_id_example' # str | Specify which Otherincome we want to display. (optional)
     fki_rejectedoffertopurchase_id = 'fki_rejectedoffertopurchase_id_example' # str | Specify which Rejectedoffertopurchase we want to display. (optional)
-    e_filter_active = Active # str | Specify which results we want to display. (optional) (default to Active)
+    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
  **fki_broker_id** | **str**| Specify which Broker we want to display. | [optional] 
  **fki_otherincome_id** | **str**| Specify which Otherincome we want to display. | [optional] 
  **fki_rejectedoffertopurchase_id** | **str**| Specify which Rejectedoffertopurchase we want to display. | [optional] 
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to Active]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 

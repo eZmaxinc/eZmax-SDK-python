@@ -35,29 +35,23 @@ class CustomEzsignfoldertransmissionSignerResponse(BaseModel):
     s_ezsignsignergroup_description_x: Optional[StrictStr] = Field(default=None, description="The Description of the Ezsignsignergroup in the language of the requester", alias="sEzsignsignergroupDescriptionX", json_schema_extra={"examples": ["HR"]})
     __properties: ClassVar[List[str]] = ["fkiUserID", "sContactFirstname", "sContactLastname", "sEzsignsignergroupDescriptionX"]
 
-    @field_validator('s_contact_firstname')
+    @field_validator('s_contact_firstname', mode="before")
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_contact_lastname')
+    @field_validator('s_contact_lastname', mode="before")
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
 

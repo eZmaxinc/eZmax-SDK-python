@@ -43,26 +43,20 @@ class EzsigntemplatepackageResponse(BaseModel):
     b_ezsigntemplatepackage_editallowed: StrictBool = Field(description="Whether the Ezsigntemplatepackage if allowed to edit or not", alias="bEzsigntemplatepackageEditallowed")
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackageID", "fkiEzsignfoldertypeID", "fkiEzdoctemplatedocumentID", "fkiLanguageID", "sEzdoctemplatedocumentNameX", "sLanguageNameX", "sEzsigntemplatepackageDescription", "bEzsigntemplatepackageAdminonly", "bEzsigntemplatepackageNeedvalidation", "bEzsigntemplatepackageIsactive", "sEzsignfoldertypeNameX", "bEzsigntemplatepackageEditallowed"]
 
-    @field_validator('s_ezdoctemplatedocument_name_x')
+    @field_validator('s_ezdoctemplatedocument_name_x', mode="before")
     def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezsigntemplatepackage_description')
+    @field_validator('s_ezsigntemplatepackage_description', mode="before")
     def s_ezsigntemplatepackage_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 

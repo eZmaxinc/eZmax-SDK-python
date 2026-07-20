@@ -43,29 +43,23 @@ class EzsigntemplatepackagesignerResponse(BaseModel):
     s_usergroup_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
     __properties: ClassVar[List[str]] = ["pkiEzsigntemplatepackagesignerID", "fkiEzsigntemplatepackageID", "fkiEzdoctemplatedocumentID", "fkiUserID", "fkiUsergroupID", "sEzdoctemplatedocumentNameX", "bEzsigntemplatepackagesignerReceivecopy", "eEzsigntemplatepackagesignerMapping", "sEzsigntemplatepackagesignerDescription", "sUserName", "sUsergroupNameX"]
 
-    @field_validator('s_ezdoctemplatedocument_name_x')
+    @field_validator('s_ezdoctemplatedocument_name_x', mode="before")
     def s_ezdoctemplatedocument_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_usergroup_name_x')
+    @field_validator('s_usergroup_name_x', mode="before")
     def s_usergroup_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

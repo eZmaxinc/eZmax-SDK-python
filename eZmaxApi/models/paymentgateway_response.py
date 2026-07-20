@@ -40,16 +40,13 @@ class PaymentgatewayResponse(BaseModel):
     obj_creditcardmerchant: Optional[CreditcardmerchantResponseCompound] = Field(default=None, alias="objCreditcardmerchant")
     __properties: ClassVar[List[str]] = ["pkiPaymentgatewayID", "fkiCreditcardmerchantID", "sCreditcardmerchantDescription", "ePaymentgatewayProcessor", "objPaymentgatewayDescription", "objCreditcardmerchant"]
 
-    @field_validator('s_creditcardmerchant_description')
+    @field_validator('s_creditcardmerchant_description', mode="before")
     def s_creditcardmerchant_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

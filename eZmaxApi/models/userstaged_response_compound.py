@@ -37,43 +37,31 @@ class UserstagedResponseCompound(BaseModel):
     s_userstaged_externalid: Annotated[str, Field(strict=True)] = Field(description="The externalid of the Userstaged", alias="sUserstagedExternalid", json_schema_extra={"examples": ["azuread_6b303ca8-9e34-4c21-9a53-0856342dec5e"]})
     __properties: ClassVar[List[str]] = ["pkiUserstagedID", "fkiEmailID", "sEmailAddress", "sUserstagedFirstname", "sUserstagedLastname", "sUserstagedExternalid"]
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_userstaged_firstname')
+    @field_validator('s_userstaged_firstname', mode="before")
     def s_userstaged_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,20}$/")
         return value
 
-    @field_validator('s_userstaged_lastname')
+    @field_validator('s_userstaged_lastname', mode="before")
     def s_userstaged_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 
-    @field_validator('s_userstaged_externalid')
+    @field_validator('s_userstaged_externalid', mode="before")
     def s_userstaged_externalid_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,60}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,60}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,60}$/")
         return value
 

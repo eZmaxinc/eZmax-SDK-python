@@ -33,13 +33,10 @@ class CustomInscriptionnotauthenticatedconditionRequest(BaseModel):
     dt_inscriptionnotauthenticatedcondition_completed: Annotated[str, Field(strict=True)] = Field(description="The date the Inscriptionnotauthenticatedcondition was completed", alias="dtInscriptionnotauthenticatedconditionCompleted", json_schema_extra={"examples": ["2020-12-31"]})
     __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedconditionID", "dtInscriptionnotauthenticatedconditionCompleted"]
 
-    @field_validator('dt_inscriptionnotauthenticatedcondition_completed')
+    @field_validator('dt_inscriptionnotauthenticatedcondition_completed', mode="before")
     def dt_inscriptionnotauthenticatedcondition_completed_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 

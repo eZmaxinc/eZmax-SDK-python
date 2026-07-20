@@ -35,13 +35,10 @@ class ScimGroup(BaseModel):
     members: Optional[List[ScimGroupMember]] = None
     __properties: ClassVar[List[str]] = ["id", "displayName", "members"]
 
-    @field_validator('display_name')
+    @field_validator('display_name', mode="before")
     def display_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

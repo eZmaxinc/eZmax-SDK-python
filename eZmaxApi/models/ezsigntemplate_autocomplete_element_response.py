@@ -36,13 +36,10 @@ class EzsigntemplateAutocompleteElementResponse(BaseModel):
     b_ezsigntemplate_isactive: StrictBool = Field(description="Whether the Ezsigntemplate is active or not", alias="bEzsigntemplateIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["eEzsignfoldertypePrivacylevel", "sEzsigntemplateDescription", "pkiEzsigntemplateID", "bEzsigntemplateIsactive"]
 
-    @field_validator('s_ezsigntemplate_description')
+    @field_validator('s_ezsigntemplate_description', mode="before")
     def s_ezsigntemplate_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,80}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,80}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,80}$/")
         return value
 

@@ -35,13 +35,10 @@ class UsergroupListElement(BaseModel):
     i_count_inactiveuser: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="Number of inactive users in group", alias="iCountInactiveuser", json_schema_extra={"examples": [15]})
     __properties: ClassVar[List[str]] = ["pkiUsergroupID", "sUsergroupNameX", "iCountUser", "iCountInactiveuser"]
 
-    @field_validator('s_usergroup_name_x')
+    @field_validator('s_usergroup_name_x', mode="before")
     def s_usergroup_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

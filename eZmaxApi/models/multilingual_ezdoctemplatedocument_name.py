@@ -33,29 +33,23 @@ class MultilingualEzdoctemplatedocumentName(BaseModel):
     s_ezdoctemplatedocument_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name2 of the Ezdoctemplatedocument", alias="sEzdoctemplatedocumentName2", json_schema_extra={"examples": ["Standard Contract"]})
     __properties: ClassVar[List[str]] = ["sEzdoctemplatedocumentName1", "sEzdoctemplatedocumentName2"]
 
-    @field_validator('s_ezdoctemplatedocument_name1')
+    @field_validator('s_ezdoctemplatedocument_name1', mode="before")
     def s_ezdoctemplatedocument_name1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezdoctemplatedocument_name2')
+    @field_validator('s_ezdoctemplatedocument_name2', mode="before")
     def s_ezdoctemplatedocument_name2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

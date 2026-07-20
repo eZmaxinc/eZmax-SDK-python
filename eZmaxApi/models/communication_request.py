@@ -44,16 +44,13 @@ class CommunicationRequest(BaseModel):
     b_communication_readreceipt: Optional[StrictBool] = Field(default=None, description="Whether we ask for a read receipt or not.", alias="bCommunicationReadreceipt")
     __properties: ClassVar[List[str]] = ["pkiCommunicationID", "eCommunicationImportance", "eCommunicationType", "objCommunicationsender", "sCommunicationSubject", "tCommunicationBody", "bCommunicationPrivate", "eCommunicationAttachmenttype", "iCommunicationAttachmentlinkexpiration", "bCommunicationReadreceipt"]
 
-    @field_validator('s_communication_subject')
+    @field_validator('s_communication_subject', mode="before")
     def s_communication_subject_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,200}$/")
         return value
 

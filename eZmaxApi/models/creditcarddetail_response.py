@@ -39,33 +39,24 @@ class CreditcarddetailResponse(BaseModel):
     s_creditcarddetail_zip: Annotated[str, Field(strict=True)] = Field(description="The zip of the Creditcarddetail", alias="sCreditcarddetailZip", json_schema_extra={"examples": ["H7T 2P6"]})
     __properties: ClassVar[List[str]] = ["pkiCreditcarddetailID", "fkiCreditcardtypeID", "iCreditcarddetailLastdigits", "iCreditcarddetailExpirationmonth", "iCreditcarddetailExpirationyear", "sCreditcarddetailCivic", "sCreditcarddetailStreet", "sCreditcarddetailZip"]
 
-    @field_validator('s_creditcarddetail_civic')
+    @field_validator('s_creditcarddetail_civic', mode="before")
     def s_creditcarddetail_civic_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\d]{1,8}$", value):
+        if isinstance(value, str) and not re.match(r"^[\d]{1,8}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{1,8}$/")
         return value
 
-    @field_validator('s_creditcarddetail_street')
+    @field_validator('s_creditcarddetail_street', mode="before")
     def s_creditcarddetail_street_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,19}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,19}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,19}$/")
         return value
 
-    @field_validator('s_creditcarddetail_zip')
+    @field_validator('s_creditcarddetail_zip', mode="before")
     def s_creditcarddetail_zip_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,9}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,9}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,9}$/")
         return value
 

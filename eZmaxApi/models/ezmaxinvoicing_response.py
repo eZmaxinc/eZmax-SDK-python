@@ -46,23 +46,17 @@ class EzmaxinvoicingResponse(BaseModel):
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiEzmaxinvoicingID", "fkiEzmaxinvoicingcontractID", "fkiEzmaxpricingID", "fkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescriptionX", "yyyymmEzmaxinvoicing", "iEzmaxinvoicingDays", "eEzmaxinvoicingPaymenttype", "dEzmaxinvoicingRebatepaymenttype", "iEzmaxinvoicingContractlength", "dEzmaxinvoicingRebatecontractlength", "bEzmaxinvoicingRebateEzsignallagents", "objAudit"]
 
-    @field_validator('d_ezmaxinvoicing_rebatepaymenttype')
+    @field_validator('d_ezmaxinvoicing_rebatepaymenttype', mode="before")
     def d_ezmaxinvoicing_rebatepaymenttype_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 
-    @field_validator('d_ezmaxinvoicing_rebatecontractlength')
+    @field_validator('d_ezmaxinvoicing_rebatecontractlength', mode="before")
     def d_ezmaxinvoicing_rebatecontractlength_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^-{0,1}[\d]{1,3}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^-{0,1}[\d]{1,3}?\.[\d]{2}$/")
         return value
 

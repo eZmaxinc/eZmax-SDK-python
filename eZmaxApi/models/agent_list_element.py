@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.field_e_agent_schedule import FieldEAgentSchedule
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -51,6 +52,7 @@ class AgentListElement(BaseModel):
     dt_agent_senioritydate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The seniority date of the Agent", alias="dtAgentSenioritydate", json_schema_extra={"examples": ["2020-12-31"]})
     dt_agent_sickleavestart: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The sick leave start date of the Agent", alias="dtAgentSickleavestart", json_schema_extra={"examples": ["2020-12-31"]})
     dt_agent_sickleaveend: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The sick leave end date of the Agent", alias="dtAgentSickleaveend", json_schema_extra={"examples": ["2020-12-31"]})
+    e_agent_schedule: FieldEAgentSchedule = Field(alias="eAgentSchedule")
     b_agent_tranquillit: StrictBool = Field(description="Whether if it's an tranquillit", alias="bAgentTranquillit", json_schema_extra={"examples": [True]})
     b_agent_residentiallicense: StrictBool = Field(description="Whether if it's an residentiallicense", alias="bAgentResidentiallicense", json_schema_extra={"examples": [True]})
     b_agent_commerciallicense: StrictBool = Field(description="Whether if it's an commerciallicense", alias="bAgentCommerciallicense", json_schema_extra={"examples": [True]})
@@ -72,237 +74,180 @@ class AgentListElement(BaseModel):
     s_province_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Province in the language of the requester", alias="sProvinceNameX", json_schema_extra={"examples": ["Quebec"]})
     fki_country_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="fkiCountryID", json_schema_extra={"examples": [1]})
     s_country_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Country in the language of the requester", alias="sCountryNameX", json_schema_extra={"examples": ["Canada"]})
-    __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiAgenttypeID", "sAgenttypeNameX", "fkiAgentincorporationID", "sAgentincorporationName", "fkiDepartmentID", "sDepartmentNameX", "fkiLanguageID", "sLanguageNameX", "sRealestateboardnumberNumber", "sAgentCode", "iAgentPhotocopiercode", "iAgentLongdistancecode", "iAgentBannernumber", "sAgentRealestateassociationlicense", "dtAgentHiredate", "dtAgentLeavedate", "dtAgentContractdate", "dtAgentTransferdate", "dtAgentSenioritydate", "dtAgentSickleavestart", "dtAgentSickleaveend", "bAgentTranquillit", "bAgentResidentiallicense", "bAgentCommerciallicense", "bAgentMortgagelicense", "bAgentPaidbyofficetranquillit", "dtAgentFintraccertification", "bAgentIsactive", "sContactFirstname", "sContactLastname", "dtContactBirthdate", "sEmailAddress", "sPhoneE164", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX"]
+    __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiAgenttypeID", "sAgenttypeNameX", "fkiAgentincorporationID", "sAgentincorporationName", "fkiDepartmentID", "sDepartmentNameX", "fkiLanguageID", "sLanguageNameX", "sRealestateboardnumberNumber", "sAgentCode", "iAgentPhotocopiercode", "iAgentLongdistancecode", "iAgentBannernumber", "sAgentRealestateassociationlicense", "dtAgentHiredate", "dtAgentLeavedate", "dtAgentContractdate", "dtAgentTransferdate", "dtAgentSenioritydate", "dtAgentSickleavestart", "dtAgentSickleaveend", "eAgentSchedule", "bAgentTranquillit", "bAgentResidentiallicense", "bAgentCommerciallicense", "bAgentMortgagelicense", "bAgentPaidbyofficetranquillit", "dtAgentFintraccertification", "bAgentIsactive", "sContactFirstname", "sContactLastname", "dtContactBirthdate", "sEmailAddress", "sPhoneE164", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX"]
 
-    @field_validator('s_agenttype_name_x')
+    @field_validator('s_agenttype_name_x', mode="before")
     def s_agenttype_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,35}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,35}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,35}$/")
         return value
 
-    @field_validator('s_agentincorporation_name')
+    @field_validator('s_agentincorporation_name', mode="before")
     def s_agentincorporation_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_realestateboardnumber_number')
+    @field_validator('s_realestateboardnumber_number', mode="before")
     def s_realestateboardnumber_number_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 
-    @field_validator('s_agent_code')
+    @field_validator('s_agent_code', mode="before")
     def s_agent_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,5}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,5}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,5}$/")
         return value
 
-    @field_validator('s_agent_realestateassociationlicense')
+    @field_validator('s_agent_realestateassociationlicense', mode="before")
     def s_agent_realestateassociationlicense_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 
-    @field_validator('dt_agent_hiredate')
+    @field_validator('dt_agent_hiredate', mode="before")
     def dt_agent_hiredate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_leavedate')
+    @field_validator('dt_agent_leavedate', mode="before")
     def dt_agent_leavedate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_contractdate')
+    @field_validator('dt_agent_contractdate', mode="before")
     def dt_agent_contractdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_transferdate')
+    @field_validator('dt_agent_transferdate', mode="before")
     def dt_agent_transferdate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_senioritydate')
+    @field_validator('dt_agent_senioritydate', mode="before")
     def dt_agent_senioritydate_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_sickleavestart')
+    @field_validator('dt_agent_sickleavestart', mode="before")
     def dt_agent_sickleavestart_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_sickleaveend')
+    @field_validator('dt_agent_sickleaveend', mode="before")
     def dt_agent_sickleaveend_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('dt_agent_fintraccertification')
+    @field_validator('dt_agent_fintraccertification', mode="before")
     def dt_agent_fintraccertification_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
-    @field_validator('s_contact_firstname')
+    @field_validator('s_contact_firstname', mode="before")
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_contact_lastname')
+    @field_validator('s_contact_lastname', mode="before")
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
 
-    @field_validator('s_email_address')
+    @field_validator('s_email_address', mode="before")
     def s_email_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_phone_e164')
+    @field_validator('s_phone_e164', mode="before")
     def s_phone_e164_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^\+[1-9]\d{1,14}$", value):
+        if isinstance(value, str) and not re.match(r"^\+[1-9]\d{1,14}$", value):
             raise ValueError(r"must validate the regular expression /^\+[1-9]\d{1,14}$/")
         return value
 
-    @field_validator('s_province_name_x')
+    @field_validator('s_province_name_x', mode="before")
     def s_province_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_country_name_x')
+    @field_validator('s_country_name_x', mode="before")
     def s_country_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
@@ -379,6 +324,7 @@ class AgentListElement(BaseModel):
             "dtAgentSenioritydate": obj.get("dtAgentSenioritydate"),
             "dtAgentSickleavestart": obj.get("dtAgentSickleavestart"),
             "dtAgentSickleaveend": obj.get("dtAgentSickleaveend"),
+            "eAgentSchedule": obj.get("eAgentSchedule"),
             "bAgentTranquillit": obj.get("bAgentTranquillit"),
             "bAgentResidentiallicense": obj.get("bAgentResidentiallicense"),
             "bAgentCommerciallicense": obj.get("bAgentCommerciallicense"),

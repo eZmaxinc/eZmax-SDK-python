@@ -32,16 +32,13 @@ class DiscussionUpdateDiscussionreadstatusV1Request(BaseModel):
     dt_discussionreadstatus_date: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The date of the last discussion message read", alias="dtDiscussionreadstatusDate", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["dtDiscussionreadstatusDate"]
 
-    @field_validator('dt_discussionreadstatus_date')
+    @field_validator('dt_discussionreadstatus_date', mode="before")
     def dt_discussionreadstatus_date_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 

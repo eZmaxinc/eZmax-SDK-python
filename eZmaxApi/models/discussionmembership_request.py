@@ -37,13 +37,10 @@ class DiscussionmembershipRequest(BaseModel):
     dt_discussionmembership_joined: Annotated[str, Field(strict=True)] = Field(description="The joined date of the Discussionmembership", alias="dtDiscussionmembershipJoined", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     __properties: ClassVar[List[str]] = ["pkiDiscussionmembershipID", "fkiDiscussionID", "fkiUserID", "fkiUsergroupID", "fkiModulesectionID", "dtDiscussionmembershipJoined"]
 
-    @field_validator('dt_discussionmembership_joined')
+    @field_validator('dt_discussionmembership_joined', mode="before")
     def dt_discussionmembership_joined_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$", value):
             raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/")
         return value
 

@@ -43,16 +43,13 @@ class EzsignsignatureSignV1Request(BaseModel):
     b_is_automatic: StrictBool = Field(description="Indicates if the Ezsignsignature was part of an automatic process or not.  This can only be true if eEzsignsignatureType is **Acknowledgement**, **City**, **Signature**, **Initials** or **Stamp**. ", alias="bIsAutomatic")
     __properties: ClassVar[List[str]] = ["fkiEzsignsigningreasonID", "fkiFontID", "dEzsignsignatureCreditcardamount", "sValue", "eAttachmentsConfirmationDecision", "sAttachmentsRefusalReason", "sSvg", "a_objFile", "objCreditcard", "bIsAutomatic"]
 
-    @field_validator('d_ezsignsignature_creditcardamount')
+    @field_validator('d_ezsignsignature_creditcardamount', mode="before")
     def d_ezsignsignature_creditcardamount_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
+        if isinstance(value, str) and not re.match(r"^[\d]{1,9}?\.[\d]{2}$", value):
             raise ValueError(r"must validate the regular expression /^[\d]{1,9}?\.[\d]{2}$/")
         return value
 
@@ -66,16 +63,13 @@ class EzsignsignatureSignV1Request(BaseModel):
             raise ValueError("must be one of enum values ('Accepted', 'Refused')")
         return value
 
-    @field_validator('s_svg')
+    @field_validator('s_svg', mode="before")
     def s_svg_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,65535}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
         return value
 

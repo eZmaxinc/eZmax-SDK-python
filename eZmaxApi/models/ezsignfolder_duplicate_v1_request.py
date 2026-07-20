@@ -36,13 +36,10 @@ class EzsignfolderDuplicateV1Request(BaseModel):
     t_ezsignfolder_note: Optional[StrictStr] = Field(default=None, description="Note about the Ezsignfolder", alias="tEzsignfolderNote", json_schema_extra={"examples": ["This is a note"]})
     __properties: ClassVar[List[str]] = ["sEzsignfolderDescription", "a_fkiEzsignfoldersignerassociationID", "a_objEzsigndocument", "tEzsignfolderNote"]
 
-    @field_validator('s_ezsignfolder_description')
+    @field_validator('s_ezsignfolder_description', mode="before")
     def s_ezsignfolder_description_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,75}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
         return value
 

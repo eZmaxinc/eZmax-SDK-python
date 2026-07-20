@@ -34,13 +34,10 @@ class OtherincometypeAutocompleteElementResponse(BaseModel):
     b_otherincometype_isactive: StrictBool = Field(description="Whether the Otherincometype is active or not", alias="bOtherincometypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiOtherincometypeID", "sOtherincometypeDescriptionX", "bOtherincometypeIsactive"]
 
-    @field_validator('s_otherincometype_description_x')
+    @field_validator('s_otherincometype_description_x', mode="before")
     def s_otherincometype_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,255}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,255}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,255}$/")
         return value
 

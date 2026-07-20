@@ -33,29 +33,23 @@ class MultilingualVariableexpenseDescription(BaseModel):
     s_variableexpense_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in English", alias="sVariableexpenseDescription2", json_schema_extra={"examples": ["Office equipment"]})
     __properties: ClassVar[List[str]] = ["sVariableexpenseDescription1", "sVariableexpenseDescription2"]
 
-    @field_validator('s_variableexpense_description1')
+    @field_validator('s_variableexpense_description1', mode="before")
     def s_variableexpense_description1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
-    @field_validator('s_variableexpense_description2')
+    @field_validator('s_variableexpense_description2', mode="before")
     def s_variableexpense_description2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 

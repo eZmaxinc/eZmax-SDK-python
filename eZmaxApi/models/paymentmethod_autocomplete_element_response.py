@@ -34,13 +34,10 @@ class PaymentmethodAutocompleteElementResponse(BaseModel):
     b_paymentmethod_isactive: StrictBool = Field(description="Whether the Paymentmethod is active or not", alias="bPaymentmethodIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiPaymentmethodID", "sPaymentmethodDescriptionX", "bPaymentmethodIsactive"]
 
-    @field_validator('s_paymentmethod_description_x')
+    @field_validator('s_paymentmethod_description_x', mode="before")
     def s_paymentmethod_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 

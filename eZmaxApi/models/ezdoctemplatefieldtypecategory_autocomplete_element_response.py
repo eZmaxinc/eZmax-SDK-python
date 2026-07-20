@@ -35,13 +35,10 @@ class EzdoctemplatefieldtypecategoryAutocompleteElementResponse(BaseModel):
     b_ezdoctemplatefieldtypecategory_isactive: StrictBool = Field(description="Whether the Ezdoctemplatefieldtypecategory is active or not", alias="bEzdoctemplatefieldtypecategoryIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiEzdoctemplatefieldtypecategoryID", "fkiEzdoctemplatetypeID", "sEzdoctemplatefieldtypecategoryDescriptionX", "bEzdoctemplatefieldtypecategoryIsactive"]
 
-    @field_validator('s_ezdoctemplatefieldtypecategory_description_x')
+    @field_validator('s_ezdoctemplatefieldtypecategory_description_x', mode="before")
     def s_ezdoctemplatefieldtypecategory_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,55}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,55}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,55}$/")
         return value
 

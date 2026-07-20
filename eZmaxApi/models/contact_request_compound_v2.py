@@ -44,49 +44,37 @@ class ContactRequestCompoundV2(BaseModel):
     obj_contactinformations: ContactinformationsRequestCompoundV2 = Field(alias="objContactinformations")
     __properties: ClassVar[List[str]] = ["fkiContacttitleID", "fkiLanguageID", "eContactType", "sContactFirstname", "sContactLastname", "sContactCompany", "dtContactBirthdate", "sContactOccupation", "tContactNote", "bContactIsactive", "objContactinformations"]
 
-    @field_validator('s_contact_firstname')
+    @field_validator('s_contact_firstname', mode="before")
     def s_contact_firstname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,20}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,20}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,20}$/")
         return value
 
-    @field_validator('s_contact_lastname')
+    @field_validator('s_contact_lastname', mode="before")
     def s_contact_lastname_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,25}$/")
         return value
 
-    @field_validator('s_contact_occupation')
+    @field_validator('s_contact_occupation', mode="before")
     def s_contact_occupation_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('t_contact_note')
+    @field_validator('t_contact_note', mode="before")
     def t_contact_note_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,32000}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,32000}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,32000}$/")
         return value
 

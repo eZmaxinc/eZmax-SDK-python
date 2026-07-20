@@ -57,94 +57,73 @@ class DocumentationSubscribeV1Request(BaseModel):
     obj_email: Optional[EmailRequestCompound] = Field(default=None, alias="objEmail")
     __properties: ClassVar[List[str]] = ["pksEzmaxcustomerCode", "sInfrastructureenvironmenttypeDescription", "sCompanyName1", "sCompanyName2", "fkiSystemconfigurationtypeID", "sSystemconfigurationtypeDescription1", "sSystemconfigurationtypeDescription2", "fkiEzmaxpartnerID", "sEzmaxpartnerName1", "sEzmaxpartnerName2", "fkiEzmaxpartnerproductID", "sEzmaxpartnerproductName1", "sEzmaxpartnerproductName2", "fkiEzmaxpartnerproductstageID", "sEzmaxpartnerproductstageCode", "sUserLoginName", "sUserFirstName", "sUserLastName", "fkiUserID", "fkiLanguageID", "objAddress", "objphone", "objEmail"]
 
-    @field_validator('pks_ezmaxcustomer_code')
+    @field_validator('pks_ezmaxcustomer_code', mode="before")
     def pks_ezmaxcustomer_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[a-z\d]{2,6}$", value):
+        if isinstance(value, str) and not re.match(r"^[a-z\d]{2,6}$", value):
             raise ValueError(r"must validate the regular expression /^[a-z\d]{2,6}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_name1')
+    @field_validator('s_ezmaxpartner_name1', mode="before")
     def s_ezmaxpartner_name1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_name2')
+    @field_validator('s_ezmaxpartner_name2', mode="before")
     def s_ezmaxpartner_name2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,50}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,50}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,50}$/")
         return value
 
-    @field_validator('s_ezmaxpartnerproduct_name1')
+    @field_validator('s_ezmaxpartnerproduct_name1', mode="before")
     def s_ezmaxpartnerproduct_name1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,35}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,35}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,35}$/")
         return value
 
-    @field_validator('s_ezmaxpartnerproduct_name2')
+    @field_validator('s_ezmaxpartnerproduct_name2', mode="before")
     def s_ezmaxpartnerproduct_name2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,35}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,35}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,35}$/")
         return value
 
-    @field_validator('s_ezmaxpartnerproductstage_code')
+    @field_validator('s_ezmaxpartnerproductstage_code', mode="before")
     def s_ezmaxpartnerproductstage_code_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,15}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
         return value
 
-    @field_validator('s_user_login_name')
+    @field_validator('s_user_login_name', mode="before")
     def s_user_login_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
+        if isinstance(value, str) and not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
             raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 

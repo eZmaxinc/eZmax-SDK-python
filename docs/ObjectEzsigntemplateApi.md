@@ -380,7 +380,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ObjectEzsigntemplateApi(api_client)
     s_selector = 's_selector_example' # str | The type of Ezsigntemplates to return
-    e_filter_active = Active # str | Specify which results we want to display. (optional) (default to Active)
+    e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
     fki_ezsignfoldertype_id = 56 # int | The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic (optional)
@@ -402,7 +402,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Ezsigntemplates to return | 
- **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to Active]
+ **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
  **fki_ezsignfoldertype_id** | **int**| The fkiEzsignfoldertypeID to use with the selector Ezsigntemplatepublic | [optional] 

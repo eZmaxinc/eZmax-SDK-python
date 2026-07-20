@@ -34,13 +34,10 @@ class LeadsourceAutocompleteElementResponse(BaseModel):
     b_leadsource_isactive: StrictBool = Field(description="Whether the Leadsource is active or not", alias="bLeadsourceIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiLeadsourceID", "sLeadsourceNameX", "bLeadsourceIsactive"]
 
-    @field_validator('s_leadsource_name_x')
+    @field_validator('s_leadsource_name_x', mode="before")
     def s_leadsource_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,25}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,25}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,25}$/")
         return value
 

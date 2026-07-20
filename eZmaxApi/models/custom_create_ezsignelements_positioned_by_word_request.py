@@ -35,13 +35,10 @@ class CustomCreateEzsignelementsPositionedByWordRequest(BaseModel):
     e_createezsignelementspositionedbyword_occurance: StrictStr = Field(description="The occurance in the search to add the ezsign element", alias="eCreateezsignelementspositionedbywordOccurance")
     __properties: ClassVar[List[str]] = ["sCreateezsignelementspositionedbywordPattern", "iCreateezsignelementspositionedbywordOffsetx", "iCreateezsignelementspositionedbywordOffsety", "eCreateezsignelementspositionedbywordOccurance"]
 
-    @field_validator('s_createezsignelementspositionedbyword_pattern')
+    @field_validator('s_createezsignelementspositionedbyword_pattern', mode="before")
     def s_createezsignelementspositionedbyword_pattern_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,35}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,35}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,35}$/")
         return value
 

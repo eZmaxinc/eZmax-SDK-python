@@ -33,29 +33,23 @@ class MultilingualEzmaxpartnerEmailaddress(BaseModel):
     s_ezmaxpartner_emailaddress2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email address.", alias="sEzmaxpartnerEmailaddress2", json_schema_extra={"examples": ["email@example.com"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerEmailaddress1", "sEzmaxpartnerEmailaddress2"]
 
-    @field_validator('s_ezmaxpartner_emailaddress1')
+    @field_validator('s_ezmaxpartner_emailaddress1', mode="before")
     def s_ezmaxpartner_emailaddress1_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 
-    @field_validator('s_ezmaxpartner_emailaddress2')
+    @field_validator('s_ezmaxpartner_emailaddress2', mode="before")
     def s_ezmaxpartner_emailaddress2_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if value is None:
             return value
 
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
+        if isinstance(value, str) and not re.match(r"^[\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$", value):
             raise ValueError(r"must validate the regular expression /^[\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20}$/")
         return value
 

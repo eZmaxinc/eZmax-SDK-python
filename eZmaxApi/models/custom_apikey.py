@@ -33,23 +33,17 @@ class CustomApikey(BaseModel):
     s_apikey_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikey", alias="sApikeySecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     __properties: ClassVar[List[str]] = ["sApikeyKey", "sApikeySecret"]
 
-    @field_validator('s_apikey_key')
+    @field_validator('s_apikey_key', mode="before")
     def s_apikey_key_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{1,200}$", value):
+        if isinstance(value, str) and not re.match(r"^.{1,200}$", value):
             raise ValueError(r"must validate the regular expression /^.{1,200}$/")
         return value
 
-    @field_validator('s_apikey_secret')
+    @field_validator('s_apikey_secret', mode="before")
     def s_apikey_secret_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^[0-9a-fA-F]{1,32}$", value):
+        if isinstance(value, str) and not re.match(r"^[0-9a-fA-F]{1,32}$", value):
             raise ValueError(r"must validate the regular expression /^[0-9a-fA-F]{1,32}$/")
         return value
 

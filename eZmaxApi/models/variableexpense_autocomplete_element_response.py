@@ -34,13 +34,10 @@ class VariableexpenseAutocompleteElementResponse(BaseModel):
     b_variableexpense_isactive: StrictBool = Field(description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sVariableexpenseDescriptionX", "pkiVariableexpenseID", "bVariableexpenseIsactive"]
 
-    @field_validator('s_variableexpense_description_x')
+    @field_validator('s_variableexpense_description_x', mode="before")
     def s_variableexpense_description_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not isinstance(value, str):
-            value = str(value)
-
-        if not re.match(r"^.{0,40}$", value):
+        if isinstance(value, str) and not re.match(r"^.{0,40}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,40}$/")
         return value
 
