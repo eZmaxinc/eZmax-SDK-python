@@ -421,8 +421,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumentationSubscribeV1Request.md
-docs/DocumentationSubscribeV1Response.md
 docs/DomainAutocompleteElementResponse.md
 docs/DomainCreateObjectV1Request.md
 docs/DomainCreateObjectV1Response.md
@@ -543,6 +541,8 @@ docs/EzmaxpartnerGetObjectV2Response.md
 docs/EzmaxpartnerGetObjectV2ResponseMPayload.md
 docs/EzmaxpartnerResponse.md
 docs/EzmaxpartnerResponseCompound.md
+docs/EzmaxpartnerSubscribeV1Request.md
+docs/EzmaxpartnerSubscribeV1Response.md
 docs/EzmaxproductAutocompleteElementResponse.md
 docs/EzmaxproductGetAutocompleteV2Response.md
 docs/EzmaxproductGetAutocompleteV2ResponseMPayload.md
@@ -2754,8 +2754,6 @@ eZmaxApi/models/discussionmessage_request_compound.py
 eZmaxApi/models/discussionmessage_request_patch.py
 eZmaxApi/models/discussionmessage_response.py
 eZmaxApi/models/discussionmessage_response_compound.py
-eZmaxApi/models/documentation_subscribe_v1_request.py
-eZmaxApi/models/documentation_subscribe_v1_response.py
 eZmaxApi/models/domain_autocomplete_element_response.py
 eZmaxApi/models/domain_create_object_v1_request.py
 eZmaxApi/models/domain_create_object_v1_response.py
@@ -2875,6 +2873,8 @@ eZmaxApi/models/ezmaxpartner_get_object_v2_response.py
 eZmaxApi/models/ezmaxpartner_get_object_v2_response_m_payload.py
 eZmaxApi/models/ezmaxpartner_response.py
 eZmaxApi/models/ezmaxpartner_response_compound.py
+eZmaxApi/models/ezmaxpartner_subscribe_v1_request.py
+eZmaxApi/models/ezmaxpartner_subscribe_v1_response.py
 eZmaxApi/models/ezmaxproduct_autocomplete_element_response.py
 eZmaxApi/models/ezmaxproduct_get_autocomplete_v2_response.py
 eZmaxApi/models/ezmaxproduct_get_autocomplete_v2_response_m_payload.py

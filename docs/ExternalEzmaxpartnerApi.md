@@ -4,11 +4,11 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**externalpartner_subscribe_v1**](ExternalEzmaxpartnerApi.md#externalpartner_subscribe_v1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**ezmaxpartner_subscribe_v1**](ExternalEzmaxpartnerApi.md#ezmaxpartner_subscribe_v1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
 
 
-# **externalpartner_subscribe_v1**
-> DocumentationSubscribeV1Response externalpartner_subscribe_v1(documentation_subscribe_v1_request)
+# **ezmaxpartner_subscribe_v1**
+> EzmaxpartnerSubscribeV1Response ezmaxpartner_subscribe_v1(ezmaxpartner_subscribe_v1_request)
 
 Subscribe to an Ezmaxparnerproductstage
 
@@ -20,8 +20,8 @@ Subscribe to an Ezmaxparnerproductstage
 
 ```python
 import eZmaxApi
-from eZmaxApi.models.documentation_subscribe_v1_request import DocumentationSubscribeV1Request
-from eZmaxApi.models.documentation_subscribe_v1_response import DocumentationSubscribeV1Response
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_request import EzmaxpartnerSubscribeV1Request
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_response import EzmaxpartnerSubscribeV1Response
 from eZmaxApi.rest import ApiException
 from pprint import pprint
 
@@ -46,15 +46,15 @@ configuration.api_key['Authorization'] = os.environ["API_KEY"]
 with eZmaxApi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = eZmaxApi.ExternalEzmaxpartnerApi(api_client)
-    documentation_subscribe_v1_request = eZmaxApi.DocumentationSubscribeV1Request() # DocumentationSubscribeV1Request | 
+    ezmaxpartner_subscribe_v1_request = eZmaxApi.EzmaxpartnerSubscribeV1Request() # EzmaxpartnerSubscribeV1Request | 
 
     try:
         # Subscribe to an Ezmaxparnerproductstage
-        api_response = api_instance.externalpartner_subscribe_v1(documentation_subscribe_v1_request)
-        print("The response of ExternalEzmaxpartnerApi->externalpartner_subscribe_v1:\n")
+        api_response = api_instance.ezmaxpartner_subscribe_v1(ezmaxpartner_subscribe_v1_request)
+        print("The response of ExternalEzmaxpartnerApi->ezmaxpartner_subscribe_v1:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ExternalEzmaxpartnerApi->externalpartner_subscribe_v1: %s\n" % e)
+        print("Exception when calling ExternalEzmaxpartnerApi->ezmaxpartner_subscribe_v1: %s\n" % e)
 ```
 
 
@@ -64,11 +64,11 @@ with eZmaxApi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentation_subscribe_v1_request** | [**DocumentationSubscribeV1Request**](DocumentationSubscribeV1Request.md)|  | 
+ **ezmaxpartner_subscribe_v1_request** | [**EzmaxpartnerSubscribeV1Request**](EzmaxpartnerSubscribeV1Request.md)|  | 
 
 ### Return type
 
-[**DocumentationSubscribeV1Response**](DocumentationSubscribeV1Response.md)
+[**EzmaxpartnerSubscribeV1Response**](EzmaxpartnerSubscribeV1Response.md)
 
 ### Authorization
 

@@ -585,8 +585,6 @@ __all__ = [
     "DiscussionmessageRequestPatch",
     "DiscussionmessageResponse",
     "DiscussionmessageResponseCompound",
-    "DocumentationSubscribeV1Request",
-    "DocumentationSubscribeV1Response",
     "DomainAutocompleteElementResponse",
     "DomainCreateObjectV1Request",
     "DomainCreateObjectV1Response",
@@ -706,6 +704,8 @@ __all__ = [
     "EzmaxpartnerGetObjectV2ResponseMPayload",
     "EzmaxpartnerResponse",
     "EzmaxpartnerResponseCompound",
+    "EzmaxpartnerSubscribeV1Request",
+    "EzmaxpartnerSubscribeV1Response",
     "EzmaxproductAutocompleteElementResponse",
     "EzmaxproductGetAutocompleteV2Response",
     "EzmaxproductGetAutocompleteV2ResponseMPayload",
@@ -2787,8 +2787,6 @@ from eZmaxApi.models.discussionmessage_request_compound import Discussionmessage
 from eZmaxApi.models.discussionmessage_request_patch import DiscussionmessageRequestPatch as DiscussionmessageRequestPatch
 from eZmaxApi.models.discussionmessage_response import DiscussionmessageResponse as DiscussionmessageResponse
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound as DiscussionmessageResponseCompound
-from eZmaxApi.models.documentation_subscribe_v1_request import DocumentationSubscribeV1Request as DocumentationSubscribeV1Request
-from eZmaxApi.models.documentation_subscribe_v1_response import DocumentationSubscribeV1Response as DocumentationSubscribeV1Response
 from eZmaxApi.models.domain_autocomplete_element_response import DomainAutocompleteElementResponse as DomainAutocompleteElementResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request as DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response as DomainCreateObjectV1Response
@@ -2908,6 +2906,8 @@ from eZmaxApi.models.ezmaxpartner_get_object_v2_response import EzmaxpartnerGetO
 from eZmaxApi.models.ezmaxpartner_get_object_v2_response_m_payload import EzmaxpartnerGetObjectV2ResponseMPayload as EzmaxpartnerGetObjectV2ResponseMPayload
 from eZmaxApi.models.ezmaxpartner_response import EzmaxpartnerResponse as EzmaxpartnerResponse
 from eZmaxApi.models.ezmaxpartner_response_compound import EzmaxpartnerResponseCompound as EzmaxpartnerResponseCompound
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_request import EzmaxpartnerSubscribeV1Request as EzmaxpartnerSubscribeV1Request
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_response import EzmaxpartnerSubscribeV1Response as EzmaxpartnerSubscribeV1Response
 from eZmaxApi.models.ezmaxproduct_autocomplete_element_response import EzmaxproductAutocompleteElementResponse as EzmaxproductAutocompleteElementResponse
 from eZmaxApi.models.ezmaxproduct_get_autocomplete_v2_response import EzmaxproductGetAutocompleteV2Response as EzmaxproductGetAutocompleteV2Response
 from eZmaxApi.models.ezmaxproduct_get_autocomplete_v2_response_m_payload import EzmaxproductGetAutocompleteV2ResponseMPayload as EzmaxproductGetAutocompleteV2ResponseMPayload

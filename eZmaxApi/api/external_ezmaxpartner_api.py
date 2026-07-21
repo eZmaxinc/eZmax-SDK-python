@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from eZmaxApi.models.documentation_subscribe_v1_request import DocumentationSubscribeV1Request
-from eZmaxApi.models.documentation_subscribe_v1_response import DocumentationSubscribeV1Response
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_request import EzmaxpartnerSubscribeV1Request
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_response import EzmaxpartnerSubscribeV1Response
 
 from eZmaxApi.api_client import ApiClient, RequestSerialized
 from eZmaxApi.api_response import ApiResponse
@@ -38,9 +38,9 @@ class ExternalEzmaxpartnerApi:
 
 
     @validate_call
-    def externalpartner_subscribe_v1(
+    def ezmaxpartner_subscribe_v1(
         self,
-        documentation_subscribe_v1_request: DocumentationSubscribeV1Request,
+        ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -53,13 +53,13 @@ class ExternalEzmaxpartnerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DocumentationSubscribeV1Response:
+    ) -> EzmaxpartnerSubscribeV1Response:
         """Subscribe to an Ezmaxparnerproductstage
 
         Subscribe to an Ezmaxparnerproductstage
 
-        :param documentation_subscribe_v1_request:  (required)
-        :type documentation_subscribe_v1_request: DocumentationSubscribeV1Request
+        :param ezmaxpartner_subscribe_v1_request:  (required)
+        :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -82,8 +82,8 @@ class ExternalEzmaxpartnerApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._externalpartner_subscribe_v1_serialize(
-            documentation_subscribe_v1_request=documentation_subscribe_v1_request,
+        _param = self._ezmaxpartner_subscribe_v1_serialize(
+            ezmaxpartner_subscribe_v1_request=ezmaxpartner_subscribe_v1_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -91,7 +91,7 @@ class ExternalEzmaxpartnerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DocumentationSubscribeV1Response",
+            '200': "EzmaxpartnerSubscribeV1Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -105,9 +105,9 @@ class ExternalEzmaxpartnerApi:
 
 
     @validate_call
-    def externalpartner_subscribe_v1_with_http_info(
+    def ezmaxpartner_subscribe_v1_with_http_info(
         self,
-        documentation_subscribe_v1_request: DocumentationSubscribeV1Request,
+        ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -120,13 +120,13 @@ class ExternalEzmaxpartnerApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DocumentationSubscribeV1Response]:
+    ) -> ApiResponse[EzmaxpartnerSubscribeV1Response]:
         """Subscribe to an Ezmaxparnerproductstage
 
         Subscribe to an Ezmaxparnerproductstage
 
-        :param documentation_subscribe_v1_request:  (required)
-        :type documentation_subscribe_v1_request: DocumentationSubscribeV1Request
+        :param ezmaxpartner_subscribe_v1_request:  (required)
+        :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -149,8 +149,8 @@ class ExternalEzmaxpartnerApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._externalpartner_subscribe_v1_serialize(
-            documentation_subscribe_v1_request=documentation_subscribe_v1_request,
+        _param = self._ezmaxpartner_subscribe_v1_serialize(
+            ezmaxpartner_subscribe_v1_request=ezmaxpartner_subscribe_v1_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -158,7 +158,7 @@ class ExternalEzmaxpartnerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DocumentationSubscribeV1Response",
+            '200': "EzmaxpartnerSubscribeV1Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -172,9 +172,9 @@ class ExternalEzmaxpartnerApi:
 
 
     @validate_call
-    def externalpartner_subscribe_v1_without_preload_content(
+    def ezmaxpartner_subscribe_v1_without_preload_content(
         self,
-        documentation_subscribe_v1_request: DocumentationSubscribeV1Request,
+        ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,8 +192,8 @@ class ExternalEzmaxpartnerApi:
 
         Subscribe to an Ezmaxparnerproductstage
 
-        :param documentation_subscribe_v1_request:  (required)
-        :type documentation_subscribe_v1_request: DocumentationSubscribeV1Request
+        :param ezmaxpartner_subscribe_v1_request:  (required)
+        :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -216,8 +216,8 @@ class ExternalEzmaxpartnerApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._externalpartner_subscribe_v1_serialize(
-            documentation_subscribe_v1_request=documentation_subscribe_v1_request,
+        _param = self._ezmaxpartner_subscribe_v1_serialize(
+            ezmaxpartner_subscribe_v1_request=ezmaxpartner_subscribe_v1_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -225,7 +225,7 @@ class ExternalEzmaxpartnerApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DocumentationSubscribeV1Response",
+            '200': "EzmaxpartnerSubscribeV1Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -234,9 +234,9 @@ class ExternalEzmaxpartnerApi:
         return response_data.response
 
 
-    def _externalpartner_subscribe_v1_serialize(
+    def _ezmaxpartner_subscribe_v1_serialize(
         self,
-        documentation_subscribe_v1_request,
+        ezmaxpartner_subscribe_v1_request,
         _request_auth,
         _content_type,
         _headers,
@@ -262,8 +262,8 @@ class ExternalEzmaxpartnerApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if documentation_subscribe_v1_request is not None:
-            _body_params = documentation_subscribe_v1_request
+        if ezmaxpartner_subscribe_v1_request is not None:
+            _body_params = ezmaxpartner_subscribe_v1_request
 
 
         # set the HTTP header `Accept`

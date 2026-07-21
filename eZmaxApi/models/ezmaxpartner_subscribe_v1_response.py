@@ -24,7 +24,7 @@ from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class DocumentationSubscribeV1Response(BaseModel):
+class EzmaxpartnerSubscribeV1Response(BaseModel):
     """
     Request for POST /1/module/ezmaxmaillinglist/subscribe
     """ # noqa: E501
@@ -49,7 +49,7 @@ class DocumentationSubscribeV1Response(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DocumentationSubscribeV1Response from a JSON string"""
+        """Create an instance of EzmaxpartnerSubscribeV1Response from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class DocumentationSubscribeV1Response(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DocumentationSubscribeV1Response from a dict"""
+        """Create an instance of EzmaxpartnerSubscribeV1Response from a dict"""
         if obj is None:
             return None
 

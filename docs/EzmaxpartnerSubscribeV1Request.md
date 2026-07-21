@@ -1,4 +1,4 @@
-# DocumentationSubscribeV1Request
+# EzmaxpartnerSubscribeV1Request
 
 Request for POST /1/webhookdocumentation/subscribe
 
@@ -33,19 +33,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from eZmaxApi.models.documentation_subscribe_v1_request import DocumentationSubscribeV1Request
+from eZmaxApi.models.ezmaxpartner_subscribe_v1_request import EzmaxpartnerSubscribeV1Request
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of DocumentationSubscribeV1Request from a JSON string
-documentation_subscribe_v1_request_instance = DocumentationSubscribeV1Request.from_json(json)
+# create an instance of EzmaxpartnerSubscribeV1Request from a JSON string
+ezmaxpartner_subscribe_v1_request_instance = EzmaxpartnerSubscribeV1Request.from_json(json)
 # print the JSON string representation of the object
-print(DocumentationSubscribeV1Request.to_json())
+print(EzmaxpartnerSubscribeV1Request.to_json())
 
 # convert the object into a dict
-documentation_subscribe_v1_request_dict = documentation_subscribe_v1_request_instance.to_dict()
-# create an instance of DocumentationSubscribeV1Request from a dict
-documentation_subscribe_v1_request_from_dict = DocumentationSubscribeV1Request.from_dict(documentation_subscribe_v1_request_dict)
+ezmaxpartner_subscribe_v1_request_dict = ezmaxpartner_subscribe_v1_request_instance.to_dict()
+# create an instance of EzmaxpartnerSubscribeV1Request from a dict
+ezmaxpartner_subscribe_v1_request_from_dict = EzmaxpartnerSubscribeV1Request.from_dict(ezmaxpartner_subscribe_v1_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
