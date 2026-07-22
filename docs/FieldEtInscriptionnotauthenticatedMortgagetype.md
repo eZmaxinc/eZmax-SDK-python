@@ -1,6 +1,6 @@
 # FieldEtInscriptionnotauthenticatedMortgagetype
 
-The mortgagetype of the Inscriptionnotauthenticated
+The type of mortgage of the Inscriptionnotauthenticated
 
 ## Enum
 

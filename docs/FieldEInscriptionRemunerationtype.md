@@ -1,6 +1,6 @@
 # FieldEInscriptionRemunerationtype
 
-The remunerationtype of the Inscription
+The type of remuneration of the Inscription
 
 ## Enum
 

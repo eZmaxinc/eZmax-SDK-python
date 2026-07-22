@@ -1,6 +1,6 @@
 # FieldEInscriptionnotauthenticatedRemunerationtype
 
-The remunerationtype of the Inscriptionnotauthenticated
+The type of remuneration of the Inscriptionnotauthenticated
 
 ## Enum
 
