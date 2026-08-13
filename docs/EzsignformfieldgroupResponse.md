@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **s_ezsignformfieldgroup_textvalidationcustommessage** | **str** | Description of validation rule. Show by signatory. | [optional] 
 **t_ezsignformfieldgroup_tooltip** | **str** | A tooltip that will be presented to Ezsignsigner about the Ezsignformfieldgroup | [optional] 
 **e_ezsignformfieldgroup_tooltipposition** | [**FieldEEzsignformfieldgroupTooltipposition**](FieldEEzsignformfieldgroupTooltipposition.md) |  | [optional] 
+**dt_ezsignformfieldgroup_completed** | **str** | The date the Ezsignformfieldgroup was completed. | [optional] 
 
 ## Example
 

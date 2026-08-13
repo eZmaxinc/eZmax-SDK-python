@@ -6,7 +6,7 @@ Request for POST /1/module/ezmaxmaillinglist/subscribe
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**s_external_id** | **str** |  | 
+**s_external_id** | **str** |  | [optional] 
 
 ## Example
 

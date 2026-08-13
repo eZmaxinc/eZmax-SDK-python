@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **a_obj_attempt** | [**List[AttemptResponseCompound]**](AttemptResponseCompound.md) | An array containing details of previous attempts that were made to deliver the message. The array is empty if it&#39;s the first attempt. | 
 **obj_ezmaxpartnerproduct** | [**CustomEzmaxpartnerproductSubscribe**](CustomEzmaxpartnerproductSubscribe.md) |  | 
 **s_external_id** | **str** |  | [optional] 
-**s_apikey_apikey** | **str** |  | [optional] 
-**s_apikey_secret** | **str** |  | [optional] 
+**s_apikey_apikey** | **str** |  | 
+**s_apikey_secret** | **str** |  | 
 
 ## Example
 

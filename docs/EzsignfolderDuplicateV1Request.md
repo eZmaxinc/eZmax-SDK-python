@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **a_fki_ezsignfoldersignerassociation_id** | **List[int]** |  | 
 **a_obj_ezsigndocument** | [**List[CustomEzsigndocumentDuplicateRequest]**](CustomEzsigndocumentDuplicateRequest.md) |  | 
 **t_ezsignfolder_note** | **str** | Note about the Ezsignfolder | [optional] 
+**b_keepenteredvalues** | **bool** | Whether we keep the entered values or not in the Ezsignform | [optional] [default to True]
 
 ## Example
 
