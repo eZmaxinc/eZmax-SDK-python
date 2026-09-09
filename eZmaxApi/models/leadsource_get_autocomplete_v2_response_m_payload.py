@@ -75,8 +75,7 @@ class LeadsourceGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_leadsource:
             for _item_a_obj_leadsource in self.a_obj_leadsource:
-                if _item_a_obj_leadsource:
-                    _items.append(_item_a_obj_leadsource.to_dict())
+                _items.append(_item_a_obj_leadsource.to_dict() if _item_a_obj_leadsource is not None else None)
             _dict['a_objLeadsource'] = _items
         return _dict
 

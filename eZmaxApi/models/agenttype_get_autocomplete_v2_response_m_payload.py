@@ -75,8 +75,7 @@ class AgenttypeGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_agenttype:
             for _item_a_obj_agenttype in self.a_obj_agenttype:
-                if _item_a_obj_agenttype:
-                    _items.append(_item_a_obj_agenttype.to_dict())
+                _items.append(_item_a_obj_agenttype.to_dict() if _item_a_obj_agenttype is not None else None)
             _dict['a_objAgenttype'] = _items
         return _dict
 

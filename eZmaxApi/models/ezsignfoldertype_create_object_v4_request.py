@@ -76,8 +76,7 @@ class EzsignfoldertypeCreateObjectV4Request(BaseModel):
         _items = []
         if self.a_obj_ezsignfoldertype:
             for _item_a_obj_ezsignfoldertype in self.a_obj_ezsignfoldertype:
-                if _item_a_obj_ezsignfoldertype:
-                    _items.append(_item_a_obj_ezsignfoldertype.to_dict())
+                _items.append(_item_a_obj_ezsignfoldertype.to_dict() if _item_a_obj_ezsignfoldertype is not None else None)
             _dict['a_objEzsignfoldertype'] = _items
         return _dict
 

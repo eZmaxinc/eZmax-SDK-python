@@ -75,8 +75,7 @@ class EzsignbulksendtransmissionGetFormsDataV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_forms_data_folder:
             for _item_a_obj_forms_data_folder in self.a_obj_forms_data_folder:
-                if _item_a_obj_forms_data_folder:
-                    _items.append(_item_a_obj_forms_data_folder.to_dict())
+                _items.append(_item_a_obj_forms_data_folder.to_dict() if _item_a_obj_forms_data_folder is not None else None)
             _dict['a_objFormsDataFolder'] = _items
         return _dict
 

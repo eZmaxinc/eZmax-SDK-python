@@ -33,7 +33,7 @@ class BrokerListElement(BaseModel):
     fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
     s_department_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
     fki_brokertype_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Brokertype", alias="fkiBrokertypeID", json_schema_extra={"examples": [1]})
-    s_brokertype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Brokertype in the language of the requester", alias="sBrokertypeNameX", json_schema_extra={"examples": ["Agence immobilière"]})
+    s_brokertype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Brokertype in the language of the requester", alias="sBrokertypeNameX", json_schema_extra={"examples": ["Agence immobiliÃ¨re"]})
     s_broker_code: Annotated[str, Field(strict=True)] = Field(description="The code of the Broker", alias="sBrokerCode", json_schema_extra={"examples": ["AAA"]})
     s_realestateboardnumber_number: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The number of the Realestateboardnumber", alias="sRealestateboardnumberNumber", json_schema_extra={"examples": ["A123456"]})
     i_agent_bannernumber: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, description="The bannernumber of the Agent", alias="iAgentBannernumber", json_schema_extra={"examples": [4228739532]})

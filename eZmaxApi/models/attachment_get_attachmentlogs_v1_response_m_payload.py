@@ -75,8 +75,7 @@ class AttachmentGetAttachmentlogsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_attachmentlog:
             for _item_a_obj_attachmentlog in self.a_obj_attachmentlog:
-                if _item_a_obj_attachmentlog:
-                    _items.append(_item_a_obj_attachmentlog.to_dict())
+                _items.append(_item_a_obj_attachmentlog.to_dict() if _item_a_obj_attachmentlog is not None else None)
             _dict['a_objAttachmentlog'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class CreditcardmerchantGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_creditcardmerchant:
             for _item_a_obj_creditcardmerchant in self.a_obj_creditcardmerchant:
-                if _item_a_obj_creditcardmerchant:
-                    _items.append(_item_a_obj_creditcardmerchant.to_dict())
+                _items.append(_item_a_obj_creditcardmerchant.to_dict() if _item_a_obj_creditcardmerchant is not None else None)
             _dict['a_objCreditcardmerchant'] = _items
         return _dict
 

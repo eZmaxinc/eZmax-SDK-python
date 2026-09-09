@@ -77,8 +77,7 @@ class EzsigntemplatepackageGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatepackage:
             for _item_a_obj_ezsigntemplatepackage in self.a_obj_ezsigntemplatepackage:
-                if _item_a_obj_ezsigntemplatepackage:
-                    _items.append(_item_a_obj_ezsigntemplatepackage.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatepackage.to_dict() if _item_a_obj_ezsigntemplatepackage is not None else None)
             _dict['a_objEzsigntemplatepackage'] = _items
         return _dict
 

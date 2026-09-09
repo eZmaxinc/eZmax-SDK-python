@@ -75,8 +75,7 @@ class UserGetUsergroupexternalsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_usergroupexternal:
             for _item_a_obj_usergroupexternal in self.a_obj_usergroupexternal:
-                if _item_a_obj_usergroupexternal:
-                    _items.append(_item_a_obj_usergroupexternal.to_dict())
+                _items.append(_item_a_obj_usergroupexternal.to_dict() if _item_a_obj_usergroupexternal is not None else None)
             _dict['a_objUsergroupexternal'] = _items
         return _dict
 

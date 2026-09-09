@@ -77,8 +77,7 @@ class WebhookGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_webhook:
             for _item_a_obj_webhook in self.a_obj_webhook:
-                if _item_a_obj_webhook:
-                    _items.append(_item_a_obj_webhook.to_dict())
+                _items.append(_item_a_obj_webhook.to_dict() if _item_a_obj_webhook is not None else None)
             _dict['a_objWebhook'] = _items
         return _dict
 

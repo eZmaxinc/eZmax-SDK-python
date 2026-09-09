@@ -75,8 +75,7 @@ class EzsigndocumentGetEzsignpagesV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsignpage:
             for _item_a_obj_ezsignpage in self.a_obj_ezsignpage:
-                if _item_a_obj_ezsignpage:
-                    _items.append(_item_a_obj_ezsignpage.to_dict())
+                _items.append(_item_a_obj_ezsignpage.to_dict() if _item_a_obj_ezsignpage is not None else None)
             _dict['a_objEzsignpage'] = _items
         return _dict
 

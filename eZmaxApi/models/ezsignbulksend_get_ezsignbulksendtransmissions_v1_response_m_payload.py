@@ -75,8 +75,7 @@ class EzsignbulksendGetEzsignbulksendtransmissionsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsignbulksendtransmission:
             for _item_a_obj_ezsignbulksendtransmission in self.a_obj_ezsignbulksendtransmission:
-                if _item_a_obj_ezsignbulksendtransmission:
-                    _items.append(_item_a_obj_ezsignbulksendtransmission.to_dict())
+                _items.append(_item_a_obj_ezsignbulksendtransmission.to_dict() if _item_a_obj_ezsignbulksendtransmission is not None else None)
             _dict['a_objEzsignbulksendtransmission'] = _items
         return _dict
 

@@ -137,8 +137,7 @@ class CustomWebhookResponse(BaseModel):
         _items = []
         if self.a_obj_webhookheader:
             for _item_a_obj_webhookheader in self.a_obj_webhookheader:
-                if _item_a_obj_webhookheader:
-                    _items.append(_item_a_obj_webhookheader.to_dict())
+                _items.append(_item_a_obj_webhookheader.to_dict() if _item_a_obj_webhookheader is not None else None)
             _dict['a_objWebhookheader'] = _items
         return _dict
 

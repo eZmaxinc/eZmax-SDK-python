@@ -77,8 +77,7 @@ class EmployeeGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_employee:
             for _item_a_obj_employee in self.a_obj_employee:
-                if _item_a_obj_employee:
-                    _items.append(_item_a_obj_employee.to_dict())
+                _items.append(_item_a_obj_employee.to_dict() if _item_a_obj_employee is not None else None)
             _dict['a_objEmployee'] = _items
         return _dict
 

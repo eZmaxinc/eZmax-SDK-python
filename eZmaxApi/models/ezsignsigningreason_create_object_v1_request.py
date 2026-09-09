@@ -76,8 +76,7 @@ class EzsignsigningreasonCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignsigningreason:
             for _item_a_obj_ezsignsigningreason in self.a_obj_ezsignsigningreason:
-                if _item_a_obj_ezsignsigningreason:
-                    _items.append(_item_a_obj_ezsignsigningreason.to_dict())
+                _items.append(_item_a_obj_ezsignsigningreason.to_dict() if _item_a_obj_ezsignsigningreason is not None else None)
             _dict['a_objEzsignsigningreason'] = _items
         return _dict
 

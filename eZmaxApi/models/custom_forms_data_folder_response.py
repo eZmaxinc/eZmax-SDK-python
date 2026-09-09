@@ -85,8 +85,7 @@ class CustomFormsDataFolderResponse(BaseModel):
         _items = []
         if self.a_obj_form_data_document:
             for _item_a_obj_form_data_document in self.a_obj_form_data_document:
-                if _item_a_obj_form_data_document:
-                    _items.append(_item_a_obj_form_data_document.to_dict())
+                _items.append(_item_a_obj_form_data_document.to_dict() if _item_a_obj_form_data_document is not None else None)
             _dict['a_objFormDataDocument'] = _items
         return _dict
 

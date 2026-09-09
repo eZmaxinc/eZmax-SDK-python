@@ -75,8 +75,7 @@ class UsergroupEditUsergroupdelegationsV1Request(BaseModel):
         _items = []
         if self.a_obj_usergroupdelegation:
             for _item_a_obj_usergroupdelegation in self.a_obj_usergroupdelegation:
-                if _item_a_obj_usergroupdelegation:
-                    _items.append(_item_a_obj_usergroupdelegation.to_dict())
+                _items.append(_item_a_obj_usergroupdelegation.to_dict() if _item_a_obj_usergroupdelegation is not None else None)
             _dict['a_objUsergroupdelegation'] = _items
         return _dict
 

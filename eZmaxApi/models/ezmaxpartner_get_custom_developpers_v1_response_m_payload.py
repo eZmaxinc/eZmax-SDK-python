@@ -75,8 +75,7 @@ class EzmaxpartnerGetCustomDeveloppersV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezmaxpartner:
             for _item_a_obj_ezmaxpartner in self.a_obj_ezmaxpartner:
-                if _item_a_obj_ezmaxpartner:
-                    _items.append(_item_a_obj_ezmaxpartner.to_dict())
+                _items.append(_item_a_obj_ezmaxpartner.to_dict() if _item_a_obj_ezmaxpartner is not None else None)
             _dict['a_objEzmaxpartner'] = _items
         return _dict
 

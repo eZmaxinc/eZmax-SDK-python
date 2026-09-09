@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **fki_inscriptiontype_id** | **int** | The unique ID of the Inscriptiontype | 
 **s_inscriptiontype_name_x** | **str** | The name of the Inscriptiontype in the language of the requester | 
 **e_buyercontract_step** | [**FieldEBuyercontractStep**](FieldEBuyercontractStep.md) |  | 
-**d_buyercontract_minimumprice** | **str** | The minimumprice of the Buyercontract | 
-**d_buyercontract_maximumprice** | **str** | The maximumprice of the Buyercontract | 
+**d_buyercontract_minimumprice** | **str** | The minimum price of the Buyercontract | 
+**d_buyercontract_maximumprice** | **str** | The maximum price of the Buyercontract | 
 **e_buyercontract_type** | [**FieldEBuyercontractType**](FieldEBuyercontractType.md) |  | 
 **s_buyercontract_contract** | **str** | The number of the Buyercontract | [optional] 
 **dt_buyercontract_date** | **str** | The date of the Buyercontract | 
-**dt_buyercontract_expirationdate** | **str** | The expirationdate of the Buyercontract | [optional] 
+**dt_buyercontract_expirationdate** | **str** | The expiration date of the Buyercontract | [optional] 
 **b_buyercontract_isactive** | **bool** | Whether the buyercontract is active or not | 
 **s_buyercontract_brokers** | **str** | The brokers&#39; name of the Buyercontract | 
 **s_buyercontract_buyers** | **str** | The buyers&#39; name of the Buyercontract | 

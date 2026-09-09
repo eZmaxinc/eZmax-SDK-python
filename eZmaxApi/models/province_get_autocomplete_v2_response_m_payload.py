@@ -75,8 +75,7 @@ class ProvinceGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_province:
             for _item_a_obj_province in self.a_obj_province:
-                if _item_a_obj_province:
-                    _items.append(_item_a_obj_province.to_dict())
+                _items.append(_item_a_obj_province.to_dict() if _item_a_obj_province is not None else None)
             _dict['a_objProvince'] = _items
         return _dict
 

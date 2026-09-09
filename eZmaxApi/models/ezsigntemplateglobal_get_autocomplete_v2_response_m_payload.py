@@ -75,8 +75,7 @@ class EzsigntemplateglobalGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplateglobal:
             for _item_a_obj_ezsigntemplateglobal in self.a_obj_ezsigntemplateglobal:
-                if _item_a_obj_ezsigntemplateglobal:
-                    _items.append(_item_a_obj_ezsigntemplateglobal.to_dict())
+                _items.append(_item_a_obj_ezsigntemplateglobal.to_dict() if _item_a_obj_ezsigntemplateglobal is not None else None)
             _dict['a_objEzsigntemplateglobal'] = _items
         return _dict
 

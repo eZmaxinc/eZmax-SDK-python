@@ -186,29 +186,25 @@ class EzsignfoldertypeResponseV4(BaseModel):
         _items = []
         if self.a_obj_userlogintype:
             for _item_a_obj_userlogintype in self.a_obj_userlogintype:
-                if _item_a_obj_userlogintype:
-                    _items.append(_item_a_obj_userlogintype.to_dict())
+                _items.append(_item_a_obj_userlogintype.to_dict() if _item_a_obj_userlogintype is not None else None)
             _dict['a_objUserlogintype'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_usergroup_all (list)
         _items = []
         if self.a_obj_usergroup_all:
             for _item_a_obj_usergroup_all in self.a_obj_usergroup_all:
-                if _item_a_obj_usergroup_all:
-                    _items.append(_item_a_obj_usergroup_all.to_dict())
+                _items.append(_item_a_obj_usergroup_all.to_dict() if _item_a_obj_usergroup_all is not None else None)
             _dict['a_objUsergroupAll'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_usergroup_restricted (list)
         _items = []
         if self.a_obj_usergroup_restricted:
             for _item_a_obj_usergroup_restricted in self.a_obj_usergroup_restricted:
-                if _item_a_obj_usergroup_restricted:
-                    _items.append(_item_a_obj_usergroup_restricted.to_dict())
+                _items.append(_item_a_obj_usergroup_restricted.to_dict() if _item_a_obj_usergroup_restricted is not None else None)
             _dict['a_objUsergroupRestricted'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_usergroup_template (list)
         _items = []
         if self.a_obj_usergroup_template:
             for _item_a_obj_usergroup_template in self.a_obj_usergroup_template:
-                if _item_a_obj_usergroup_template:
-                    _items.append(_item_a_obj_usergroup_template.to_dict())
+                _items.append(_item_a_obj_usergroup_template.to_dict() if _item_a_obj_usergroup_template is not None else None)
             _dict['a_objUsergroupTemplate'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:

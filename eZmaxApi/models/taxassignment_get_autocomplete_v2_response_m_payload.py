@@ -75,8 +75,7 @@ class TaxassignmentGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_taxassignment:
             for _item_a_obj_taxassignment in self.a_obj_taxassignment:
-                if _item_a_obj_taxassignment:
-                    _items.append(_item_a_obj_taxassignment.to_dict())
+                _items.append(_item_a_obj_taxassignment.to_dict() if _item_a_obj_taxassignment is not None else None)
             _dict['a_objTaxassignment'] = _items
         return _dict
 

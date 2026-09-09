@@ -75,8 +75,7 @@ class BrokertypeGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_brokertype:
             for _item_a_obj_brokertype in self.a_obj_brokertype:
-                if _item_a_obj_brokertype:
-                    _items.append(_item_a_obj_brokertype.to_dict())
+                _items.append(_item_a_obj_brokertype.to_dict() if _item_a_obj_brokertype is not None else None)
             _dict['a_objBrokertype'] = _items
         return _dict
 

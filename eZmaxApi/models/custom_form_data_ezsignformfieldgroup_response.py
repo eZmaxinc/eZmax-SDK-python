@@ -77,8 +77,7 @@ class CustomFormDataEzsignformfieldgroupResponse(BaseModel):
         _items = []
         if self.a_obj_ezsignformfield:
             for _item_a_obj_ezsignformfield in self.a_obj_ezsignformfield:
-                if _item_a_obj_ezsignformfield:
-                    _items.append(_item_a_obj_ezsignformfield.to_dict())
+                _items.append(_item_a_obj_ezsignformfield.to_dict() if _item_a_obj_ezsignformfield is not None else None)
             _dict['a_objEzsignformfield'] = _items
         return _dict
 

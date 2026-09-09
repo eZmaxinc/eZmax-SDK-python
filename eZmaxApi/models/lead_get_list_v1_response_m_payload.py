@@ -77,8 +77,7 @@ class LeadGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_lead:
             for _item_a_obj_lead in self.a_obj_lead:
-                if _item_a_obj_lead:
-                    _items.append(_item_a_obj_lead.to_dict())
+                _items.append(_item_a_obj_lead.to_dict() if _item_a_obj_lead is not None else None)
             _dict['a_objLead'] = _items
         return _dict
 

@@ -77,8 +77,7 @@ class RejectedoffertopurchaseGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_rejectedoffertopurchase:
             for _item_a_obj_rejectedoffertopurchase in self.a_obj_rejectedoffertopurchase:
-                if _item_a_obj_rejectedoffertopurchase:
-                    _items.append(_item_a_obj_rejectedoffertopurchase.to_dict())
+                _items.append(_item_a_obj_rejectedoffertopurchase.to_dict() if _item_a_obj_rejectedoffertopurchase is not None else None)
             _dict['a_objRejectedoffertopurchase'] = _items
         return _dict
 

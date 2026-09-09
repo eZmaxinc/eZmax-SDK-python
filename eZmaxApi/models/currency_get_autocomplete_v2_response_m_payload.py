@@ -75,8 +75,7 @@ class CurrencyGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_currency:
             for _item_a_obj_currency in self.a_obj_currency:
-                if _item_a_obj_currency:
-                    _items.append(_item_a_obj_currency.to_dict())
+                _items.append(_item_a_obj_currency.to_dict() if _item_a_obj_currency is not None else None)
             _dict['a_objCurrency'] = _items
         return _dict
 

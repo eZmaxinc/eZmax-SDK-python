@@ -75,8 +75,7 @@ class EzmaxinvoicingGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezmaxinvoicing:
             for _item_a_obj_ezmaxinvoicing in self.a_obj_ezmaxinvoicing:
-                if _item_a_obj_ezmaxinvoicing:
-                    _items.append(_item_a_obj_ezmaxinvoicing.to_dict())
+                _items.append(_item_a_obj_ezmaxinvoicing.to_dict() if _item_a_obj_ezmaxinvoicing is not None else None)
             _dict['a_objEzmaxinvoicing'] = _items
         return _dict
 

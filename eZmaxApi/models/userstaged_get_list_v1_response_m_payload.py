@@ -77,8 +77,7 @@ class UserstagedGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_userstaged:
             for _item_a_obj_userstaged in self.a_obj_userstaged:
-                if _item_a_obj_userstaged:
-                    _items.append(_item_a_obj_userstaged.to_dict())
+                _items.append(_item_a_obj_userstaged.to_dict() if _item_a_obj_userstaged is not None else None)
             _dict['a_objUserstaged'] = _items
         return _dict
 

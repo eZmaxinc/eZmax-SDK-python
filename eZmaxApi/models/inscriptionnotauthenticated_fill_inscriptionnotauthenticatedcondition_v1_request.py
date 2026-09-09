@@ -87,8 +87,7 @@ class InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Reque
         _items = []
         if self.a_obj_inscriptionnotauthenticatedcondition:
             for _item_a_obj_inscriptionnotauthenticatedcondition in self.a_obj_inscriptionnotauthenticatedcondition:
-                if _item_a_obj_inscriptionnotauthenticatedcondition:
-                    _items.append(_item_a_obj_inscriptionnotauthenticatedcondition.to_dict())
+                _items.append(_item_a_obj_inscriptionnotauthenticatedcondition.to_dict() if _item_a_obj_inscriptionnotauthenticatedcondition is not None else None)
             _dict['a_objInscriptionnotauthenticatedcondition'] = _items
         return _dict
 

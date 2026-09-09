@@ -111,22 +111,19 @@ class EzsignformfieldgroupRequestCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignformfieldgroupsigner:
             for _item_a_obj_ezsignformfieldgroupsigner in self.a_obj_ezsignformfieldgroupsigner:
-                if _item_a_obj_ezsignformfieldgroupsigner:
-                    _items.append(_item_a_obj_ezsignformfieldgroupsigner.to_dict())
+                _items.append(_item_a_obj_ezsignformfieldgroupsigner.to_dict() if _item_a_obj_ezsignformfieldgroupsigner is not None else None)
             _dict['a_objEzsignformfieldgroupsigner'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_dropdown_element (list)
         _items = []
         if self.a_obj_dropdown_element:
             for _item_a_obj_dropdown_element in self.a_obj_dropdown_element:
-                if _item_a_obj_dropdown_element:
-                    _items.append(_item_a_obj_dropdown_element.to_dict())
+                _items.append(_item_a_obj_dropdown_element.to_dict() if _item_a_obj_dropdown_element is not None else None)
             _dict['a_objDropdownElement'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignformfield (list)
         _items = []
         if self.a_obj_ezsignformfield:
             for _item_a_obj_ezsignformfield in self.a_obj_ezsignformfield:
-                if _item_a_obj_ezsignformfield:
-                    _items.append(_item_a_obj_ezsignformfield.to_dict())
+                _items.append(_item_a_obj_ezsignformfield.to_dict() if _item_a_obj_ezsignformfield is not None else None)
             _dict['a_objEzsignformfield'] = _items
         return _dict
 

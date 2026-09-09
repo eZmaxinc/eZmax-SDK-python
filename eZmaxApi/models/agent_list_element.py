@@ -45,8 +45,9 @@ class AgentListElement(BaseModel):
     i_agent_longdistancecode: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The longdistancecode of the Agent", alias="iAgentLongdistancecode", json_schema_extra={"examples": [6436057]})
     i_agent_bannernumber: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The bannernumber of the Agent", alias="iAgentBannernumber", json_schema_extra={"examples": [4228739532]})
     s_agent_realestateassociationlicense: Annotated[str, Field(strict=True)] = Field(description="The realestateassociationlicense of the Agent", alias="sAgentRealestateassociationlicense", json_schema_extra={"examples": ["A0000"]})
-    dt_agent_hiredate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hiredate of the Agent", alias="dtAgentHiredate", json_schema_extra={"examples": ["2020-12-31"]})
-    dt_agent_leavedate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The leavedate of the Agent", alias="dtAgentLeavedate", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_agent_permitexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The expiration date of permit of the Agent", alias="dtAgentPermitexpiration", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_agent_hiredate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The hire date of the Agent", alias="dtAgentHiredate", json_schema_extra={"examples": ["2020-12-31"]})
+    dt_agent_leavedate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The leave date of the Agent", alias="dtAgentLeavedate", json_schema_extra={"examples": ["2020-12-31"]})
     dt_agent_contractdate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The contract date of the Agent", alias="dtAgentContractdate", json_schema_extra={"examples": ["2020-12-31"]})
     dt_agent_transferdate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The transfer date of the Agent", alias="dtAgentTransferdate", json_schema_extra={"examples": ["2020-12-31"]})
     dt_agent_senioritydate: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The seniority date of the Agent", alias="dtAgentSenioritydate", json_schema_extra={"examples": ["2020-12-31"]})
@@ -74,7 +75,7 @@ class AgentListElement(BaseModel):
     s_province_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Province in the language of the requester", alias="sProvinceNameX", json_schema_extra={"examples": ["Quebec"]})
     fki_country_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Country.  Here are some common values (Complete list must be retrieved from API):  |Value|Description| |-|-| |1|Canada| |2|United-States|", alias="fkiCountryID", json_schema_extra={"examples": [1]})
     s_country_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Country in the language of the requester", alias="sCountryNameX", json_schema_extra={"examples": ["Canada"]})
-    __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiAgenttypeID", "sAgenttypeNameX", "fkiAgentincorporationID", "sAgentincorporationName", "fkiDepartmentID", "sDepartmentNameX", "fkiLanguageID", "sLanguageNameX", "sRealestateboardnumberNumber", "sAgentCode", "iAgentPhotocopiercode", "iAgentLongdistancecode", "iAgentBannernumber", "sAgentRealestateassociationlicense", "dtAgentHiredate", "dtAgentLeavedate", "dtAgentContractdate", "dtAgentTransferdate", "dtAgentSenioritydate", "dtAgentSickleavestart", "dtAgentSickleaveend", "eAgentSchedule", "bAgentTranquillit", "bAgentResidentiallicense", "bAgentCommerciallicense", "bAgentMortgagelicense", "bAgentPaidbyofficetranquillit", "dtAgentFintraccertification", "bAgentIsactive", "sContactFirstname", "sContactLastname", "dtContactBirthdate", "sEmailAddress", "sPhoneE164", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX"]
+    __properties: ClassVar[List[str]] = ["pkiAgentID", "fkiAgenttypeID", "sAgenttypeNameX", "fkiAgentincorporationID", "sAgentincorporationName", "fkiDepartmentID", "sDepartmentNameX", "fkiLanguageID", "sLanguageNameX", "sRealestateboardnumberNumber", "sAgentCode", "iAgentPhotocopiercode", "iAgentLongdistancecode", "iAgentBannernumber", "sAgentRealestateassociationlicense", "dtAgentPermitexpiration", "dtAgentHiredate", "dtAgentLeavedate", "dtAgentContractdate", "dtAgentTransferdate", "dtAgentSenioritydate", "dtAgentSickleavestart", "dtAgentSickleaveend", "eAgentSchedule", "bAgentTranquillit", "bAgentResidentiallicense", "bAgentCommerciallicense", "bAgentMortgagelicense", "bAgentPaidbyofficetranquillit", "dtAgentFintraccertification", "bAgentIsactive", "sContactFirstname", "sContactLastname", "dtContactBirthdate", "sEmailAddress", "sPhoneE164", "sAddressCivic", "sAddressStreet", "sAddressSuite", "sAddressCity", "sAddressZip", "fkiProvinceID", "sProvinceNameX", "fkiCountryID", "sCountryNameX"]
 
     @field_validator('s_agenttype_name_x', mode="before")
     def s_agenttype_name_x_validate_regular_expression(cls, value):
@@ -115,6 +116,16 @@ class AgentListElement(BaseModel):
         """Validates the regular expression"""
         if isinstance(value, str) and not re.match(r"^.{0,15}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,15}$/")
+        return value
+
+    @field_validator('dt_agent_permitexpiration', mode="before")
+    def dt_agent_permitexpiration_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/")
         return value
 
     @field_validator('dt_agent_hiredate', mode="before")
@@ -317,6 +328,7 @@ class AgentListElement(BaseModel):
             "iAgentLongdistancecode": obj.get("iAgentLongdistancecode"),
             "iAgentBannernumber": obj.get("iAgentBannernumber"),
             "sAgentRealestateassociationlicense": obj.get("sAgentRealestateassociationlicense"),
+            "dtAgentPermitexpiration": obj.get("dtAgentPermitexpiration"),
             "dtAgentHiredate": obj.get("dtAgentHiredate"),
             "dtAgentLeavedate": obj.get("dtAgentLeavedate"),
             "dtAgentContractdate": obj.get("dtAgentContractdate"),

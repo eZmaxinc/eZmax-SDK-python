@@ -77,8 +77,7 @@ class EzsigndocumentCreateElementV3Response(BaseModel):
         _items = []
         if self.a_obj_matchingtemplate:
             for _item_a_obj_matchingtemplate in self.a_obj_matchingtemplate:
-                if _item_a_obj_matchingtemplate:
-                    _items.append(_item_a_obj_matchingtemplate.to_dict())
+                _items.append(_item_a_obj_matchingtemplate.to_dict() if _item_a_obj_matchingtemplate is not None else None)
             _dict['a_objMatchingtemplate'] = _items
         return _dict
 

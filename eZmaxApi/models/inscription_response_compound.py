@@ -277,8 +277,8 @@ class InscriptionResponseCompound(BaseModel):
     @field_validator('t_inscription_cadastre', mode="before")
     def t_inscription_cadastre_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^(\n|.){0,65535}$", value):
-            raise ValueError(r"must validate the regular expression /^(\n|.){0,65535}$/")
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
         return value
 
     @field_validator('t_inscription_checklistnote', mode="before")

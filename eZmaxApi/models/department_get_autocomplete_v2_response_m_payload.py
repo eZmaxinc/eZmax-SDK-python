@@ -75,8 +75,7 @@ class DepartmentGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_department:
             for _item_a_obj_department in self.a_obj_department:
-                if _item_a_obj_department:
-                    _items.append(_item_a_obj_department.to_dict())
+                _items.append(_item_a_obj_department.to_dict() if _item_a_obj_department is not None else None)
             _dict['a_objDepartment'] = _items
         return _dict
 

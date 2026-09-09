@@ -174,8 +174,7 @@ class EzmaxinvoicingsummaryglobalResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezmaxinvoicingcommission:
             for _item_a_obj_ezmaxinvoicingcommission in self.a_obj_ezmaxinvoicingcommission:
-                if _item_a_obj_ezmaxinvoicingcommission:
-                    _items.append(_item_a_obj_ezmaxinvoicingcommission.to_dict())
+                _items.append(_item_a_obj_ezmaxinvoicingcommission.to_dict() if _item_a_obj_ezmaxinvoicingcommission is not None else None)
             _dict['a_objEzmaxinvoicingcommission'] = _items
         return _dict
 

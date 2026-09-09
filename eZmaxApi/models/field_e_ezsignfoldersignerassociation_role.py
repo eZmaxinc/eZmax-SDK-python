@@ -28,6 +28,7 @@ class FieldEEzsignfoldersignerassociationRole(str, Enum):
     allowed enum values
     """
     CC = 'CC'
+    CCDELETED = 'CCDeleted'
     SIGNER = 'Signer'
     SIGNERANDCC = 'SignerAndCC'
 

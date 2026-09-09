@@ -80,22 +80,19 @@ class CommonReportgroup(BaseModel):
         _items = []
         if self.a_obj_report:
             for _item_a_obj_report in self.a_obj_report:
-                if _item_a_obj_report:
-                    _items.append(_item_a_obj_report.to_dict())
+                _items.append(_item_a_obj_report.to_dict() if _item_a_obj_report is not None else None)
             _dict['a_objReport'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportcellstyle_custom (list)
         _items = []
         if self.a_obj_reportcellstyle_custom:
             for _item_a_obj_reportcellstyle_custom in self.a_obj_reportcellstyle_custom:
-                if _item_a_obj_reportcellstyle_custom:
-                    _items.append(_item_a_obj_reportcellstyle_custom.to_dict())
+                _items.append(_item_a_obj_reportcellstyle_custom.to_dict() if _item_a_obj_reportcellstyle_custom is not None else None)
             _dict['a_objReportcellstyleCustom'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_reportgroup_parameter (list)
         _items = []
         if self.a_obj_reportgroup_parameter:
             for _item_a_obj_reportgroup_parameter in self.a_obj_reportgroup_parameter:
-                if _item_a_obj_reportgroup_parameter:
-                    _items.append(_item_a_obj_reportgroup_parameter.to_dict())
+                _items.append(_item_a_obj_reportgroup_parameter.to_dict() if _item_a_obj_reportgroup_parameter is not None else None)
             _dict['a_objReportgroupParameter'] = _items
         return _dict
 

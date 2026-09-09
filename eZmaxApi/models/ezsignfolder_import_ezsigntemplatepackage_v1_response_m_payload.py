@@ -75,8 +75,7 @@ class EzsignfolderImportEzsigntemplatepackageV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigndocument:
             for _item_a_obj_ezsigndocument in self.a_obj_ezsigndocument:
-                if _item_a_obj_ezsigndocument:
-                    _items.append(_item_a_obj_ezsigndocument.to_dict())
+                _items.append(_item_a_obj_ezsigndocument.to_dict() if _item_a_obj_ezsigndocument is not None else None)
             _dict['a_objEzsigndocument'] = _items
         return _dict
 

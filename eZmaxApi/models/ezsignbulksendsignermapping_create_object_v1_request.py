@@ -76,8 +76,7 @@ class EzsignbulksendsignermappingCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignbulksendsignermapping:
             for _item_a_obj_ezsignbulksendsignermapping in self.a_obj_ezsignbulksendsignermapping:
-                if _item_a_obj_ezsignbulksendsignermapping:
-                    _items.append(_item_a_obj_ezsignbulksendsignermapping.to_dict())
+                _items.append(_item_a_obj_ezsignbulksendsignermapping.to_dict() if _item_a_obj_ezsignbulksendsignermapping is not None else None)
             _dict['a_objEzsignbulksendsignermapping'] = _items
         return _dict
 

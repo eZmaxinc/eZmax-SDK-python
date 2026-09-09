@@ -78,8 +78,7 @@ class CustomEzsigndocumentGetEzsignannotationsResponse(BaseModel):
         _items = []
         if self.a_obj_ezsignannotation:
             for _item_a_obj_ezsignannotation in self.a_obj_ezsignannotation:
-                if _item_a_obj_ezsignannotation:
-                    _items.append(_item_a_obj_ezsignannotation.to_dict())
+                _items.append(_item_a_obj_ezsignannotation.to_dict() if _item_a_obj_ezsignannotation is not None else None)
             _dict['a_objEzsignannotation'] = _items
         return _dict
 

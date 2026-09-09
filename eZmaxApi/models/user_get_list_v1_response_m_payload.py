@@ -77,8 +77,7 @@ class UserGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_user:
             for _item_a_obj_user in self.a_obj_user:
-                if _item_a_obj_user:
-                    _items.append(_item_a_obj_user.to_dict())
+                _items.append(_item_a_obj_user.to_dict() if _item_a_obj_user is not None else None)
             _dict['a_objUser'] = _items
         return _dict
 

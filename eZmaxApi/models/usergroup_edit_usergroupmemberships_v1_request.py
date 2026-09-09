@@ -75,8 +75,7 @@ class UsergroupEditUsergroupmembershipsV1Request(BaseModel):
         _items = []
         if self.a_obj_usergroupmembership:
             for _item_a_obj_usergroupmembership in self.a_obj_usergroupmembership:
-                if _item_a_obj_usergroupmembership:
-                    _items.append(_item_a_obj_usergroupmembership.to_dict())
+                _items.append(_item_a_obj_usergroupmembership.to_dict() if _item_a_obj_usergroupmembership is not None else None)
             _dict['a_objUsergroupmembership'] = _items
         return _dict
 

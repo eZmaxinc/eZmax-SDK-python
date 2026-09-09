@@ -82,8 +82,7 @@ class CommonReportsubsection(BaseModel):
         _items = []
         if self.a_obj_reportcolumn:
             for _item_a_obj_reportcolumn in self.a_obj_reportcolumn:
-                if _item_a_obj_reportcolumn:
-                    _items.append(_item_a_obj_reportcolumn.to_dict())
+                _items.append(_item_a_obj_reportcolumn.to_dict() if _item_a_obj_reportcolumn is not None else None)
             _dict['a_objReportcolumn'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_reportsubsectionpart_header
         if self.obj_reportsubsectionpart_header:

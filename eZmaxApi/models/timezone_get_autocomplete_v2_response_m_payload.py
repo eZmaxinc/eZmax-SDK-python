@@ -75,8 +75,7 @@ class TimezoneGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_timezone:
             for _item_a_obj_timezone in self.a_obj_timezone:
-                if _item_a_obj_timezone:
-                    _items.append(_item_a_obj_timezone.to_dict())
+                _items.append(_item_a_obj_timezone.to_dict() if _item_a_obj_timezone is not None else None)
             _dict['a_objTimezone'] = _items
         return _dict
 

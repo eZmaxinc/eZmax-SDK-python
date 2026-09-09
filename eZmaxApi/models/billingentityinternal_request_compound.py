@@ -82,8 +82,7 @@ class BillingentityinternalRequestCompound(BaseModel):
         _items = []
         if self.a_obj_billingentityinternalproduct:
             for _item_a_obj_billingentityinternalproduct in self.a_obj_billingentityinternalproduct:
-                if _item_a_obj_billingentityinternalproduct:
-                    _items.append(_item_a_obj_billingentityinternalproduct.to_dict())
+                _items.append(_item_a_obj_billingentityinternalproduct.to_dict() if _item_a_obj_billingentityinternalproduct is not None else None)
             _dict['a_objBillingentityinternalproduct'] = _items
         return _dict
 

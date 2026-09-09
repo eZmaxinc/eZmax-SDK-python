@@ -79,8 +79,7 @@ class CommonReportrow(BaseModel):
         _items = []
         if self.a_obj_reportcell:
             for _item_a_obj_reportcell in self.a_obj_reportcell:
-                if _item_a_obj_reportcell:
-                    _items.append(_item_a_obj_reportcell.to_dict())
+                _items.append(_item_a_obj_reportcell.to_dict() if _item_a_obj_reportcell is not None else None)
             _dict['a_objReportcell'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_reportcellstyle_custom
         if self.obj_reportcellstyle_custom:

@@ -75,8 +75,7 @@ class ApikeyEditPermissionsV1Request(BaseModel):
         _items = []
         if self.a_obj_permission:
             for _item_a_obj_permission in self.a_obj_permission:
-                if _item_a_obj_permission:
-                    _items.append(_item_a_obj_permission.to_dict())
+                _items.append(_item_a_obj_permission.to_dict() if _item_a_obj_permission is not None else None)
             _dict['a_objPermission'] = _items
         return _dict
 

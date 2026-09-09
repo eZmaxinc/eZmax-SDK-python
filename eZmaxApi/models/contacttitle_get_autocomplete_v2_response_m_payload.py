@@ -75,8 +75,7 @@ class ContacttitleGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_contacttitle:
             for _item_a_obj_contacttitle in self.a_obj_contacttitle:
-                if _item_a_obj_contacttitle:
-                    _items.append(_item_a_obj_contacttitle.to_dict())
+                _items.append(_item_a_obj_contacttitle.to_dict() if _item_a_obj_contacttitle is not None else None)
             _dict['a_objContacttitle'] = _items
         return _dict
 

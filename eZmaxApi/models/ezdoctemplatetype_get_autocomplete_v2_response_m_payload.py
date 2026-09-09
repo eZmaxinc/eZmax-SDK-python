@@ -75,8 +75,7 @@ class EzdoctemplatetypeGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezdoctemplatetype:
             for _item_a_obj_ezdoctemplatetype in self.a_obj_ezdoctemplatetype:
-                if _item_a_obj_ezdoctemplatetype:
-                    _items.append(_item_a_obj_ezdoctemplatetype.to_dict())
+                _items.append(_item_a_obj_ezdoctemplatetype.to_dict() if _item_a_obj_ezdoctemplatetype is not None else None)
             _dict['a_objEzdoctemplatetype'] = _items
         return _dict
 

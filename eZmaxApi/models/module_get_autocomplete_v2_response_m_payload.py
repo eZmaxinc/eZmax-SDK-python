@@ -75,8 +75,7 @@ class ModuleGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_module:
             for _item_a_obj_module in self.a_obj_module:
-                if _item_a_obj_module:
-                    _items.append(_item_a_obj_module.to_dict())
+                _items.append(_item_a_obj_module.to_dict() if _item_a_obj_module is not None else None)
             _dict['a_objModule'] = _items
         return _dict
 

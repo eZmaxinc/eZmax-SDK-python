@@ -75,8 +75,7 @@ class BrandingGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_branding:
             for _item_a_obj_branding in self.a_obj_branding:
-                if _item_a_obj_branding:
-                    _items.append(_item_a_obj_branding.to_dict())
+                _items.append(_item_a_obj_branding.to_dict() if _item_a_obj_branding is not None else None)
             _dict['a_objBranding'] = _items
         return _dict
 

@@ -107,15 +107,13 @@ class EzsigntemplatepackageResponseCompoundV3(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatepackagesigner:
             for _item_a_obj_ezsigntemplatepackagesigner in self.a_obj_ezsigntemplatepackagesigner:
-                if _item_a_obj_ezsigntemplatepackagesigner:
-                    _items.append(_item_a_obj_ezsigntemplatepackagesigner.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatepackagesigner.to_dict() if _item_a_obj_ezsigntemplatepackagesigner is not None else None)
             _dict['a_objEzsigntemplatepackagesigner'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatepackagemembership (list)
         _items = []
         if self.a_obj_ezsigntemplatepackagemembership:
             for _item_a_obj_ezsigntemplatepackagemembership in self.a_obj_ezsigntemplatepackagemembership:
-                if _item_a_obj_ezsigntemplatepackagemembership:
-                    _items.append(_item_a_obj_ezsigntemplatepackagemembership.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatepackagemembership.to_dict() if _item_a_obj_ezsigntemplatepackagemembership is not None else None)
             _dict['a_objEzsigntemplatepackagemembership'] = _items
         return _dict
 

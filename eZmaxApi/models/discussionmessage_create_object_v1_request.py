@@ -76,8 +76,7 @@ class DiscussionmessageCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_discussionmessage:
             for _item_a_obj_discussionmessage in self.a_obj_discussionmessage:
-                if _item_a_obj_discussionmessage:
-                    _items.append(_item_a_obj_discussionmessage.to_dict())
+                _items.append(_item_a_obj_discussionmessage.to_dict() if _item_a_obj_discussionmessage is not None else None)
             _dict['a_objDiscussionmessage'] = _items
         return _dict
 

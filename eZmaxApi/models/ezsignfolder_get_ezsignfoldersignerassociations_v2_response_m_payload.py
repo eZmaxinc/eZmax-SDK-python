@@ -75,8 +75,7 @@ class EzsignfolderGetEzsignfoldersignerassociationsV2ResponseMPayload(BaseModel)
         _items = []
         if self.a_obj_ezsignfoldersignerassociation:
             for _item_a_obj_ezsignfoldersignerassociation in self.a_obj_ezsignfoldersignerassociation:
-                if _item_a_obj_ezsignfoldersignerassociation:
-                    _items.append(_item_a_obj_ezsignfoldersignerassociation.to_dict())
+                _items.append(_item_a_obj_ezsignfoldersignerassociation.to_dict() if _item_a_obj_ezsignfoldersignerassociation is not None else None)
             _dict['a_objEzsignfoldersignerassociation'] = _items
         return _dict
 

@@ -76,8 +76,7 @@ class CreditcardclientCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_creditcardclient:
             for _item_a_obj_creditcardclient in self.a_obj_creditcardclient:
-                if _item_a_obj_creditcardclient:
-                    _items.append(_item_a_obj_creditcardclient.to_dict())
+                _items.append(_item_a_obj_creditcardclient.to_dict() if _item_a_obj_creditcardclient is not None else None)
             _dict['a_objCreditcardclient'] = _items
         return _dict
 

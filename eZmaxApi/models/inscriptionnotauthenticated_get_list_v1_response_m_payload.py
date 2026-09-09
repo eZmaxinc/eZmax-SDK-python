@@ -77,8 +77,7 @@ class InscriptionnotauthenticatedGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_inscriptionnotauthenticated:
             for _item_a_obj_inscriptionnotauthenticated in self.a_obj_inscriptionnotauthenticated:
-                if _item_a_obj_inscriptionnotauthenticated:
-                    _items.append(_item_a_obj_inscriptionnotauthenticated.to_dict())
+                _items.append(_item_a_obj_inscriptionnotauthenticated.to_dict() if _item_a_obj_inscriptionnotauthenticated is not None else None)
             _dict['a_objInscriptionnotauthenticated'] = _items
         return _dict
 

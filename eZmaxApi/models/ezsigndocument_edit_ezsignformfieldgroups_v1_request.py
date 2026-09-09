@@ -75,8 +75,7 @@ class EzsigndocumentEditEzsignformfieldgroupsV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignformfieldgroup:
             for _item_a_obj_ezsignformfieldgroup in self.a_obj_ezsignformfieldgroup:
-                if _item_a_obj_ezsignformfieldgroup:
-                    _items.append(_item_a_obj_ezsignformfieldgroup.to_dict())
+                _items.append(_item_a_obj_ezsignformfieldgroup.to_dict() if _item_a_obj_ezsignformfieldgroup is not None else None)
             _dict['a_objEzsignformfieldgroup'] = _items
         return _dict
 

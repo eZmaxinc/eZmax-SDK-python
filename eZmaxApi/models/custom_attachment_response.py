@@ -105,15 +105,15 @@ class CustomAttachmentResponse(BaseModel):
     @field_validator('s_attachment_name', mode="before")
     def s_attachment_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        if isinstance(value, str) and not re.match(r"^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$", value):
+            raise ValueError(r"must validate the regular expression /^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$/")
         return value
 
     @field_validator('s_attachment_md5', mode="before")
     def s_attachment_md5_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^.{32}$", value):
-            raise ValueError(r"must validate the regular expression /^.{32}$/")
+        if isinstance(value, str) and not re.match(r"^[a-f0-9]{32}$", value):
+            raise ValueError(r"must validate the regular expression /^[a-f0-9]{32}$/")
         return value
 
     @field_validator('t_attachment_rejectioncomment', mode="before")
@@ -178,15 +178,13 @@ class CustomAttachmentResponse(BaseModel):
         _items = []
         if self.a_obj_attachment_attachment:
             for _item_a_obj_attachment_attachment in self.a_obj_attachment_attachment:
-                if _item_a_obj_attachment_attachment:
-                    _items.append(_item_a_obj_attachment_attachment.to_dict())
+                _items.append(_item_a_obj_attachment_attachment.to_dict() if _item_a_obj_attachment_attachment is not None else None)
             _dict['a_objAttachmentAttachment'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_attachment_version (list)
         _items = []
         if self.a_obj_attachment_version:
             for _item_a_obj_attachment_version in self.a_obj_attachment_version:
-                if _item_a_obj_attachment_version:
-                    _items.append(_item_a_obj_attachment_version.to_dict())
+                _items.append(_item_a_obj_attachment_version.to_dict() if _item_a_obj_attachment_version is not None else None)
             _dict['a_objAttachmentVersion'] = _items
         return _dict
 

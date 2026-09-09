@@ -75,8 +75,7 @@ class EzsigntemplatedocumentGetEzsigntemplateannotationsV1ResponseMPayload(BaseM
         _items = []
         if self.a_obj_ezsigntemplateannotation:
             for _item_a_obj_ezsigntemplateannotation in self.a_obj_ezsigntemplateannotation:
-                if _item_a_obj_ezsigntemplateannotation:
-                    _items.append(_item_a_obj_ezsigntemplateannotation.to_dict())
+                _items.append(_item_a_obj_ezsigntemplateannotation.to_dict() if _item_a_obj_ezsigntemplateannotation is not None else None)
             _dict['a_objEzsigntemplateannotation'] = _items
         return _dict
 

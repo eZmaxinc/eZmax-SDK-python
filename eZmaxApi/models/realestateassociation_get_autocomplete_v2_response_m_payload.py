@@ -75,8 +75,7 @@ class RealestateassociationGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_realestateassociation:
             for _item_a_obj_realestateassociation in self.a_obj_realestateassociation:
-                if _item_a_obj_realestateassociation:
-                    _items.append(_item_a_obj_realestateassociation.to_dict())
+                _items.append(_item_a_obj_realestateassociation.to_dict() if _item_a_obj_realestateassociation is not None else None)
             _dict['a_objRealestateassociation'] = _items
         return _dict
 

@@ -76,8 +76,7 @@ class EzsigntemplatepackagesignermembershipCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatepackagesignermembership:
             for _item_a_obj_ezsigntemplatepackagesignermembership in self.a_obj_ezsigntemplatepackagesignermembership:
-                if _item_a_obj_ezsigntemplatepackagesignermembership:
-                    _items.append(_item_a_obj_ezsigntemplatepackagesignermembership.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatepackagesignermembership.to_dict() if _item_a_obj_ezsigntemplatepackagesignermembership is not None else None)
             _dict['a_objEzsigntemplatepackagesignermembership'] = _items
         return _dict
 

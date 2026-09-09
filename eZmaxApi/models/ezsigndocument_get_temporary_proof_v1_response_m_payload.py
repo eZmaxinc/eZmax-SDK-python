@@ -75,8 +75,7 @@ class EzsigndocumentGetTemporaryProofV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigndocumentlog:
             for _item_a_obj_ezsigndocumentlog in self.a_obj_ezsigndocumentlog:
-                if _item_a_obj_ezsigndocumentlog:
-                    _items.append(_item_a_obj_ezsigndocumentlog.to_dict())
+                _items.append(_item_a_obj_ezsigndocumentlog.to_dict() if _item_a_obj_ezsigndocumentlog is not None else None)
             _dict['a_objEzsigndocumentlog'] = _items
         return _dict
 

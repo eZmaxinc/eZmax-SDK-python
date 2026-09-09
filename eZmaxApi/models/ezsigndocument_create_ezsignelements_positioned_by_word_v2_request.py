@@ -77,15 +77,13 @@ class EzsigndocumentCreateEzsignelementsPositionedByWordV2Request(BaseModel):
         _items = []
         if self.a_obj_ezsignformfieldgroup:
             for _item_a_obj_ezsignformfieldgroup in self.a_obj_ezsignformfieldgroup:
-                if _item_a_obj_ezsignformfieldgroup:
-                    _items.append(_item_a_obj_ezsignformfieldgroup.to_dict())
+                _items.append(_item_a_obj_ezsignformfieldgroup.to_dict() if _item_a_obj_ezsignformfieldgroup is not None else None)
             _dict['a_objEzsignformfieldgroup'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignsignature (list)
         _items = []
         if self.a_obj_ezsignsignature:
             for _item_a_obj_ezsignsignature in self.a_obj_ezsignsignature:
-                if _item_a_obj_ezsignsignature:
-                    _items.append(_item_a_obj_ezsignsignature.to_dict())
+                _items.append(_item_a_obj_ezsignsignature.to_dict() if _item_a_obj_ezsignsignature is not None else None)
             _dict['a_objEzsignsignature'] = _items
         return _dict
 

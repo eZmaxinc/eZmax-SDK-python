@@ -75,8 +75,7 @@ class CustomerGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_customer:
             for _item_a_obj_customer in self.a_obj_customer:
-                if _item_a_obj_customer:
-                    _items.append(_item_a_obj_customer.to_dict())
+                _items.append(_item_a_obj_customer.to_dict() if _item_a_obj_customer is not None else None)
             _dict['a_objCustomer'] = _items
         return _dict
 

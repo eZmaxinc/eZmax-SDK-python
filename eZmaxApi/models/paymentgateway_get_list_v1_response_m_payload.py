@@ -77,8 +77,7 @@ class PaymentgatewayGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_paymentgateway:
             for _item_a_obj_paymentgateway in self.a_obj_paymentgateway:
-                if _item_a_obj_paymentgateway:
-                    _items.append(_item_a_obj_paymentgateway.to_dict())
+                _items.append(_item_a_obj_paymentgateway.to_dict() if _item_a_obj_paymentgateway is not None else None)
             _dict['a_objPaymentgateway'] = _items
         return _dict
 

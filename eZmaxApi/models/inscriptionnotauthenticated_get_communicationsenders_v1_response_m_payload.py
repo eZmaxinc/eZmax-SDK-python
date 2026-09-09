@@ -75,8 +75,7 @@ class InscriptionnotauthenticatedGetCommunicationsendersV1ResponseMPayload(BaseM
         _items = []
         if self.a_obj_communicationsenders:
             for _item_a_obj_communicationsenders in self.a_obj_communicationsenders:
-                if _item_a_obj_communicationsenders:
-                    _items.append(_item_a_obj_communicationsenders.to_dict())
+                _items.append(_item_a_obj_communicationsenders.to_dict() if _item_a_obj_communicationsenders is not None else None)
             _dict['a_objCommunicationsenders'] = _items
         return _dict
 

@@ -81,8 +81,7 @@ class EzmaxinvoicingsummaryexternalResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryexternaldetail:
             for _item_a_obj_ezmaxinvoicingsummaryexternaldetail in self.a_obj_ezmaxinvoicingsummaryexternaldetail:
-                if _item_a_obj_ezmaxinvoicingsummaryexternaldetail:
-                    _items.append(_item_a_obj_ezmaxinvoicingsummaryexternaldetail.to_dict())
+                _items.append(_item_a_obj_ezmaxinvoicingsummaryexternaldetail.to_dict() if _item_a_obj_ezmaxinvoicingsummaryexternaldetail is not None else None)
             _dict['a_objEzmaxinvoicingsummaryexternaldetail'] = _items
         return _dict
 

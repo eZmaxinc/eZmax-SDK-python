@@ -79,8 +79,7 @@ class ScimUserList(BaseModel):
         _items = []
         if self.resources:
             for _item_resources in self.resources:
-                if _item_resources:
-                    _items.append(_item_resources.to_dict())
+                _items.append(_item_resources.to_dict() if _item_resources is not None else None)
             _dict['Resources'] = _items
         return _dict
 

@@ -100,15 +100,15 @@ class AttachmentResponse(BaseModel):
     @field_validator('s_attachment_name', mode="before")
     def s_attachment_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,75}$/")
+        if isinstance(value, str) and not re.match(r"^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$", value):
+            raise ValueError(r"must validate the regular expression /^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$/")
         return value
 
     @field_validator('s_attachment_md5', mode="before")
     def s_attachment_md5_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^.{32}$", value):
-            raise ValueError(r"must validate the regular expression /^.{32}$/")
+        if isinstance(value, str) and not re.match(r"^[a-f0-9]{32}$", value):
+            raise ValueError(r"must validate the regular expression /^[a-f0-9]{32}$/")
         return value
 
     @field_validator('t_attachment_rejectioncomment', mode="before")

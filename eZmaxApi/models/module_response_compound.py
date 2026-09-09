@@ -82,8 +82,7 @@ class ModuleResponseCompound(BaseModel):
         _items = []
         if self.a_obj_modulesection:
             for _item_a_obj_modulesection in self.a_obj_modulesection:
-                if _item_a_obj_modulesection:
-                    _items.append(_item_a_obj_modulesection.to_dict())
+                _items.append(_item_a_obj_modulesection.to_dict() if _item_a_obj_modulesection is not None else None)
             _dict['a_objModulesection'] = _items
         return _dict
 

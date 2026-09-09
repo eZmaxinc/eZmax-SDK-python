@@ -75,8 +75,7 @@ class EmailtypeGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_emailtype:
             for _item_a_obj_emailtype in self.a_obj_emailtype:
-                if _item_a_obj_emailtype:
-                    _items.append(_item_a_obj_emailtype.to_dict())
+                _items.append(_item_a_obj_emailtype.to_dict() if _item_a_obj_emailtype is not None else None)
             _dict['a_objEmailtype'] = _items
         return _dict
 

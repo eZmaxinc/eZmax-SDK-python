@@ -90,8 +90,7 @@ class CustomEzsignfoldertransmissionResponse(BaseModel):
         _items = []
         if self.a_obj_ezsignfoldertransmission_signer:
             for _item_a_obj_ezsignfoldertransmission_signer in self.a_obj_ezsignfoldertransmission_signer:
-                if _item_a_obj_ezsignfoldertransmission_signer:
-                    _items.append(_item_a_obj_ezsignfoldertransmission_signer.to_dict())
+                _items.append(_item_a_obj_ezsignfoldertransmission_signer.to_dict() if _item_a_obj_ezsignfoldertransmission_signer is not None else None)
             _dict['a_objEzsignfoldertransmissionSigner'] = _items
         return _dict
 

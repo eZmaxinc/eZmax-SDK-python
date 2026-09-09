@@ -93,8 +93,7 @@ class FranchisereferalincomeRequestCompound(BaseModel):
         _items = []
         if self.a_obj_contact:
             for _item_a_obj_contact in self.a_obj_contact:
-                if _item_a_obj_contact:
-                    _items.append(_item_a_obj_contact.to_dict())
+                _items.append(_item_a_obj_contact.to_dict() if _item_a_obj_contact is not None else None)
             _dict['a_objContact'] = _items
         return _dict
 

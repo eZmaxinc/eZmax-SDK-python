@@ -33,6 +33,8 @@ class UserListElement(BaseModel):
     A User List Element
     """ # noqa: E501
     pki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="pkiUserID", json_schema_extra={"examples": [70]})
+    fki_agent_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Agent.", alias="fkiAgentID", json_schema_extra={"examples": [1]})
+    fki_broker_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Broker.", alias="fkiBrokerID", json_schema_extra={"examples": [26]})
     s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
     s_user_loginname: Annotated[str, Field(strict=True)] = Field(description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
@@ -44,7 +46,7 @@ class UserListElement(BaseModel):
     dt_user_ezsignprepaidexpiration: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The eZsign prepaid expiration date", alias="dtUserEzsignprepaidexpiration", json_schema_extra={"examples": ["2020-12-31"]})
     s_email_address: Annotated[str, Field(strict=True)] = Field(description="The email address.", alias="sEmailAddress", json_schema_extra={"examples": ["email@example.com"]})
     s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle", json_schema_extra={"examples": ["Sales Representative"]})
-    __properties: ClassVar[List[str]] = ["pkiUserID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "bUserSuspended", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
+    __properties: ClassVar[List[str]] = ["pkiUserID", "fkiAgentID", "fkiBrokerID", "sUserFirstname", "sUserLastname", "sUserLoginname", "bUserIsactive", "bUserSuspended", "eUserType", "eUserOrigin", "eUserEzsignaccess", "dtUserEzsignprepaidexpiration", "sEmailAddress", "sUserJobtitle"]
 
     @field_validator('s_user_loginname', mode="before")
     def s_user_loginname_validate_regular_expression(cls, value):
@@ -132,6 +134,8 @@ class UserListElement(BaseModel):
 
         _obj = cls.model_validate({
             "pkiUserID": obj.get("pkiUserID"),
+            "fkiAgentID": obj.get("fkiAgentID"),
+            "fkiBrokerID": obj.get("fkiBrokerID"),
             "sUserFirstname": obj.get("sUserFirstname"),
             "sUserLastname": obj.get("sUserLastname"),
             "sUserLoginname": obj.get("sUserLoginname"),

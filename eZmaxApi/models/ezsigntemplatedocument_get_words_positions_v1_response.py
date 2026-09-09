@@ -85,8 +85,7 @@ class EzsigntemplatedocumentGetWordsPositionsV1Response(BaseModel):
         _items = []
         if self.m_payload:
             for _item_m_payload in self.m_payload:
-                if _item_m_payload:
-                    _items.append(_item_m_payload.to_dict())
+                _items.append(_item_m_payload.to_dict() if _item_m_payload is not None else None)
             _dict['mPayload'] = _items
         return _dict
 

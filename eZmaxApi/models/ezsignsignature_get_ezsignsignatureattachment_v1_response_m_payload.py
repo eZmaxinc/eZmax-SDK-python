@@ -75,8 +75,7 @@ class EzsignsignatureGetEzsignsignatureattachmentV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsignsignatureattachment:
             for _item_a_obj_ezsignsignatureattachment in self.a_obj_ezsignsignatureattachment:
-                if _item_a_obj_ezsignsignatureattachment:
-                    _items.append(_item_a_obj_ezsignsignatureattachment.to_dict())
+                _items.append(_item_a_obj_ezsignsignatureattachment.to_dict() if _item_a_obj_ezsignsignatureattachment is not None else None)
             _dict['a_objEzsignsignatureattachment'] = _items
         return _dict
 

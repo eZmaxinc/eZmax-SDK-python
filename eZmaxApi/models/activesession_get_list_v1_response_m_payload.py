@@ -77,8 +77,7 @@ class ActivesessionGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_activesession:
             for _item_a_obj_activesession in self.a_obj_activesession:
-                if _item_a_obj_activesession:
-                    _items.append(_item_a_obj_activesession.to_dict())
+                _items.append(_item_a_obj_activesession.to_dict() if _item_a_obj_activesession is not None else None)
             _dict['a_objActivesession'] = _items
         return _dict
 

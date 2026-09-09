@@ -75,8 +75,7 @@ class PaymentmethodGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_paymentmethod:
             for _item_a_obj_paymentmethod in self.a_obj_paymentmethod:
-                if _item_a_obj_paymentmethod:
-                    _items.append(_item_a_obj_paymentmethod.to_dict())
+                _items.append(_item_a_obj_paymentmethod.to_dict() if _item_a_obj_paymentmethod is not None else None)
             _dict['a_objPaymentmethod'] = _items
         return _dict
 

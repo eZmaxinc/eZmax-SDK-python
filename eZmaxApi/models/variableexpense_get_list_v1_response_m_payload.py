@@ -77,8 +77,7 @@ class VariableexpenseGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_variableexpense:
             for _item_a_obj_variableexpense in self.a_obj_variableexpense:
-                if _item_a_obj_variableexpense:
-                    _items.append(_item_a_obj_variableexpense.to_dict())
+                _items.append(_item_a_obj_variableexpense.to_dict() if _item_a_obj_variableexpense is not None else None)
             _dict['a_objVariableexpense'] = _items
         return _dict
 

@@ -78,8 +78,7 @@ class ScimUser(BaseModel):
         _items = []
         if self.emails:
             for _item_emails in self.emails:
-                if _item_emails:
-                    _items.append(_item_emails.to_dict())
+                _items.append(_item_emails.to_dict() if _item_emails is not None else None)
             _dict['emails'] = _items
         return _dict
 

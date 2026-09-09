@@ -77,8 +77,7 @@ class SupplierGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_supplier:
             for _item_a_obj_supplier in self.a_obj_supplier:
-                if _item_a_obj_supplier:
-                    _items.append(_item_a_obj_supplier.to_dict())
+                _items.append(_item_a_obj_supplier.to_dict() if _item_a_obj_supplier is not None else None)
             _dict['a_objSupplier'] = _items
         return _dict
 

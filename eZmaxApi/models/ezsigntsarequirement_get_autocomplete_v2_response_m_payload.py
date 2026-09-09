@@ -75,8 +75,7 @@ class EzsigntsarequirementGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigntsarequirement:
             for _item_a_obj_ezsigntsarequirement in self.a_obj_ezsigntsarequirement:
-                if _item_a_obj_ezsigntsarequirement:
-                    _items.append(_item_a_obj_ezsigntsarequirement.to_dict())
+                _items.append(_item_a_obj_ezsigntsarequirement.to_dict() if _item_a_obj_ezsigntsarequirement is not None else None)
             _dict['a_objEzsigntsarequirement'] = _items
         return _dict
 

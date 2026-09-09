@@ -77,8 +77,7 @@ class CustomEzsigndocumentRequest(BaseModel):
         _items = []
         if self.a_obj_ezsigndocumentdependency:
             for _item_a_obj_ezsigndocumentdependency in self.a_obj_ezsigndocumentdependency:
-                if _item_a_obj_ezsigndocumentdependency:
-                    _items.append(_item_a_obj_ezsigndocumentdependency.to_dict())
+                _items.append(_item_a_obj_ezsigndocumentdependency.to_dict() if _item_a_obj_ezsigndocumentdependency is not None else None)
             _dict['a_objEzsigndocumentdependency'] = _items
         return _dict
 

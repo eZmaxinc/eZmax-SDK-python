@@ -170,22 +170,19 @@ class EzsigntemplatesignatureRequestCompound(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatesignaturecustomdate:
             for _item_a_obj_ezsigntemplatesignaturecustomdate in self.a_obj_ezsigntemplatesignaturecustomdate:
-                if _item_a_obj_ezsigntemplatesignaturecustomdate:
-                    _items.append(_item_a_obj_ezsigntemplatesignaturecustomdate.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatesignaturecustomdate.to_dict() if _item_a_obj_ezsigntemplatesignaturecustomdate is not None else None)
             _dict['a_objEzsigntemplatesignaturecustomdate'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplateelementdependency (list)
         _items = []
         if self.a_obj_ezsigntemplateelementdependency:
             for _item_a_obj_ezsigntemplateelementdependency in self.a_obj_ezsigntemplateelementdependency:
-                if _item_a_obj_ezsigntemplateelementdependency:
-                    _items.append(_item_a_obj_ezsigntemplateelementdependency.to_dict())
+                _items.append(_item_a_obj_ezsigntemplateelementdependency.to_dict() if _item_a_obj_ezsigntemplateelementdependency is not None else None)
             _dict['a_objEzsigntemplateelementdependency'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsigntemplatesignaturepaymentdetail (list)
         _items = []
         if self.a_obj_ezsigntemplatesignaturepaymentdetail:
             for _item_a_obj_ezsigntemplatesignaturepaymentdetail in self.a_obj_ezsigntemplatesignaturepaymentdetail:
-                if _item_a_obj_ezsigntemplatesignaturepaymentdetail:
-                    _items.append(_item_a_obj_ezsigntemplatesignaturepaymentdetail.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatesignaturepaymentdetail.to_dict() if _item_a_obj_ezsigntemplatesignaturepaymentdetail is not None else None)
             _dict['a_objEzsigntemplatesignaturepaymentdetail'] = _items
         return _dict
 

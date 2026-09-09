@@ -221,8 +221,7 @@ class EzsignsignatureResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignsignaturecustomdate:
             for _item_a_obj_ezsignsignaturecustomdate in self.a_obj_ezsignsignaturecustomdate:
-                if _item_a_obj_ezsignsignaturecustomdate:
-                    _items.append(_item_a_obj_ezsignsignaturecustomdate.to_dict())
+                _items.append(_item_a_obj_ezsignsignaturecustomdate.to_dict() if _item_a_obj_ezsignsignaturecustomdate is not None else None)
             _dict['a_objEzsignsignaturecustomdate'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_creditcardtransaction
         if self.obj_creditcardtransaction:
@@ -231,8 +230,7 @@ class EzsignsignatureResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignelementdependency:
             for _item_a_obj_ezsignelementdependency in self.a_obj_ezsignelementdependency:
-                if _item_a_obj_ezsignelementdependency:
-                    _items.append(_item_a_obj_ezsignelementdependency.to_dict())
+                _items.append(_item_a_obj_ezsignelementdependency.to_dict() if _item_a_obj_ezsignelementdependency is not None else None)
             _dict['a_objEzsignelementdependency'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_timezone
         if self.obj_timezone:
@@ -241,8 +239,7 @@ class EzsignsignatureResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignsignaturepaymentdetail:
             for _item_a_obj_ezsignsignaturepaymentdetail in self.a_obj_ezsignsignaturepaymentdetail:
-                if _item_a_obj_ezsignsignaturepaymentdetail:
-                    _items.append(_item_a_obj_ezsignsignaturepaymentdetail.to_dict())
+                _items.append(_item_a_obj_ezsignsignaturepaymentdetail.to_dict() if _item_a_obj_ezsignsignaturepaymentdetail is not None else None)
             _dict['a_objEzsignsignaturepaymentdetail'] = _items
         return _dict
 

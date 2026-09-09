@@ -85,8 +85,7 @@ class CustomNotificationsubsectiongetnotificationtestsResponse(BaseModel):
         _items = []
         if self.a_obj_notificationtest:
             for _item_a_obj_notificationtest in self.a_obj_notificationtest:
-                if _item_a_obj_notificationtest:
-                    _items.append(_item_a_obj_notificationtest.to_dict())
+                _items.append(_item_a_obj_notificationtest.to_dict() if _item_a_obj_notificationtest is not None else None)
             _dict['a_objNotificationtest'] = _items
         return _dict
 

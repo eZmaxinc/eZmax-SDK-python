@@ -75,8 +75,7 @@ class InscriptionchecklistGetAutocompleteV3ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_inscriptionchecklist:
             for _item_a_obj_inscriptionchecklist in self.a_obj_inscriptionchecklist:
-                if _item_a_obj_inscriptionchecklist:
-                    _items.append(_item_a_obj_inscriptionchecklist.to_dict())
+                _items.append(_item_a_obj_inscriptionchecklist.to_dict() if _item_a_obj_inscriptionchecklist is not None else None)
             _dict['a_objInscriptionchecklist'] = _items
         return _dict
 

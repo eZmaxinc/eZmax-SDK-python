@@ -77,8 +77,7 @@ class AgentGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_agent:
             for _item_a_obj_agent in self.a_obj_agent:
-                if _item_a_obj_agent:
-                    _items.append(_item_a_obj_agent.to_dict())
+                _items.append(_item_a_obj_agent.to_dict() if _item_a_obj_agent is not None else None)
             _dict['a_objAgent'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class EzsigntemplatedocumentGetEzsigntemplatesignaturesV2ResponseMPayload(BaseMo
         _items = []
         if self.a_obj_ezsigntemplatesignature:
             for _item_a_obj_ezsigntemplatesignature in self.a_obj_ezsigntemplatesignature:
-                if _item_a_obj_ezsigntemplatesignature:
-                    _items.append(_item_a_obj_ezsigntemplatesignature.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatesignature.to_dict() if _item_a_obj_ezsigntemplatesignature is not None else None)
             _dict['a_objEzsigntemplatesignature'] = _items
         return _dict
 

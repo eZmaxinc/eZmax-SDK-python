@@ -27,6 +27,8 @@ class FieldEWebhookRealestateevent(str, Enum):
     """
     allowed enum values
     """
+    BUYERCONTRACTCREATED = 'BuyercontractCreated'
+    BUYERCONTRACTMODIFIED = 'BuyercontractModified'
     INSCRIPTIONCREATED = 'InscriptionCreated'
     INSCRIPTIONMODIFIED = 'InscriptionModified'
     INSCRIPTIONNOTAUTHENTICATEDCREATED = 'InscriptionnotauthenticatedCreated'

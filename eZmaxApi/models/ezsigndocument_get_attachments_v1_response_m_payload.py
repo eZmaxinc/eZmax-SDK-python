@@ -75,8 +75,7 @@ class EzsigndocumentGetAttachmentsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_attachmentdocumenttype:
             for _item_a_obj_attachmentdocumenttype in self.a_obj_attachmentdocumenttype:
-                if _item_a_obj_attachmentdocumenttype:
-                    _items.append(_item_a_obj_attachmentdocumenttype.to_dict())
+                _items.append(_item_a_obj_attachmentdocumenttype.to_dict() if _item_a_obj_attachmentdocumenttype is not None else None)
             _dict['a_objAttachmentdocumenttype'] = _items
         return _dict
 

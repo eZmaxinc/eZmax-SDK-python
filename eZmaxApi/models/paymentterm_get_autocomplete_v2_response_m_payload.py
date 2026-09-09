@@ -75,8 +75,7 @@ class PaymenttermGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_paymentterm:
             for _item_a_obj_paymentterm in self.a_obj_paymentterm:
-                if _item_a_obj_paymentterm:
-                    _items.append(_item_a_obj_paymentterm.to_dict())
+                _items.append(_item_a_obj_paymentterm.to_dict() if _item_a_obj_paymentterm is not None else None)
             _dict['a_objPaymentterm'] = _items
         return _dict
 

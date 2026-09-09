@@ -75,8 +75,7 @@ class UserEditColleaguesV2Request(BaseModel):
         _items = []
         if self.a_obj_colleague:
             for _item_a_obj_colleague in self.a_obj_colleague:
-                if _item_a_obj_colleague:
-                    _items.append(_item_a_obj_colleague.to_dict())
+                _items.append(_item_a_obj_colleague.to_dict() if _item_a_obj_colleague is not None else None)
             _dict['a_objColleague'] = _items
         return _dict
 

@@ -77,8 +77,7 @@ class ClonehistoryGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_clonehistory:
             for _item_a_obj_clonehistory in self.a_obj_clonehistory:
-                if _item_a_obj_clonehistory:
-                    _items.append(_item_a_obj_clonehistory.to_dict())
+                _items.append(_item_a_obj_clonehistory.to_dict() if _item_a_obj_clonehistory is not None else None)
             _dict['a_objClonehistory'] = _items
         return _dict
 

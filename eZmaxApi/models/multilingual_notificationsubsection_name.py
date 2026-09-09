@@ -28,7 +28,7 @@ class MultilingualNotificationsubsectionName(BaseModel):
     """
     Name of the Notificationsubsection
     """ # noqa: E501
-    s_notificationsubsection_name1: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsubsection in French", alias="sNotificationsubsectionName1", json_schema_extra={"examples": ["Signature électronique"]})
+    s_notificationsubsection_name1: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsubsection in French", alias="sNotificationsubsectionName1", json_schema_extra={"examples": ["Signature Ã©lectronique"]})
     s_notificationsubsection_name2: Optional[StrictStr] = Field(default=None, description="The name of the Notificationsubsection in English", alias="sNotificationsubsectionName2", json_schema_extra={"examples": ["Electronic signature"]})
     __properties: ClassVar[List[str]] = ["sNotificationsubsectionName1", "sNotificationsubsectionName2"]
 

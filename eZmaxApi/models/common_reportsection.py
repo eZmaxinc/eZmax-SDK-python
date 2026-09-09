@@ -79,8 +79,7 @@ class CommonReportsection(BaseModel):
         _items = []
         if self.a_obj_reportsubsection:
             for _item_a_obj_reportsubsection in self.a_obj_reportsubsection:
-                if _item_a_obj_reportsubsection:
-                    _items.append(_item_a_obj_reportsubsection.to_dict())
+                _items.append(_item_a_obj_reportsubsection.to_dict() if _item_a_obj_reportsubsection is not None else None)
             _dict['a_objReportsubsection'] = _items
         return _dict
 

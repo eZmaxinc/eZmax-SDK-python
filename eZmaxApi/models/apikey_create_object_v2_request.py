@@ -76,8 +76,7 @@ class ApikeyCreateObjectV2Request(BaseModel):
         _items = []
         if self.a_obj_apikey:
             for _item_a_obj_apikey in self.a_obj_apikey:
-                if _item_a_obj_apikey:
-                    _items.append(_item_a_obj_apikey.to_dict())
+                _items.append(_item_a_obj_apikey.to_dict() if _item_a_obj_apikey is not None else None)
             _dict['a_objApikey'] = _items
         return _dict
 

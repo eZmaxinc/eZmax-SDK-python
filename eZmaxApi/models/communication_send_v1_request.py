@@ -76,8 +76,7 @@ class CommunicationSendV1Request(BaseModel):
         _items = []
         if self.a_obj_communication:
             for _item_a_obj_communication in self.a_obj_communication:
-                if _item_a_obj_communication:
-                    _items.append(_item_a_obj_communication.to_dict())
+                _items.append(_item_a_obj_communication.to_dict() if _item_a_obj_communication is not None else None)
             _dict['a_objCommunication'] = _items
         return _dict
 

@@ -76,8 +76,7 @@ class EzsignsignergroupCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignsignergroup:
             for _item_a_obj_ezsignsignergroup in self.a_obj_ezsignsignergroup:
-                if _item_a_obj_ezsignsignergroup:
-                    _items.append(_item_a_obj_ezsignsignergroup.to_dict())
+                _items.append(_item_a_obj_ezsignsignergroup.to_dict() if _item_a_obj_ezsignsignergroup is not None else None)
             _dict['a_objEzsignsignergroup'] = _items
         return _dict
 

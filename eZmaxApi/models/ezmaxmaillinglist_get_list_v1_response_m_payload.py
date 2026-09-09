@@ -77,8 +77,7 @@ class EzmaxmaillinglistGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezmaxmaillinglist:
             for _item_a_obj_ezmaxmaillinglist in self.a_obj_ezmaxmaillinglist:
-                if _item_a_obj_ezmaxmaillinglist:
-                    _items.append(_item_a_obj_ezmaxmaillinglist.to_dict())
+                _items.append(_item_a_obj_ezmaxmaillinglist.to_dict() if _item_a_obj_ezmaxmaillinglist is not None else None)
             _dict['a_objEzmaxmaillinglist'] = _items
         return _dict
 

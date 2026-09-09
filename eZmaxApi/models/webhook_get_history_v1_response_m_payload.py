@@ -75,8 +75,7 @@ class WebhookGetHistoryV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_webhooklog:
             for _item_a_obj_webhooklog in self.a_obj_webhooklog:
-                if _item_a_obj_webhooklog:
-                    _items.append(_item_a_obj_webhooklog.to_dict())
+                _items.append(_item_a_obj_webhooklog.to_dict() if _item_a_obj_webhooklog is not None else None)
             _dict['a_objWebhooklog'] = _items
         return _dict
 

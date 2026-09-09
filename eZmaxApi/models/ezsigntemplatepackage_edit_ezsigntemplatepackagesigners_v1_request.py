@@ -75,8 +75,7 @@ class EzsigntemplatepackageEditEzsigntemplatepackagesignersV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatepackagesigner:
             for _item_a_obj_ezsigntemplatepackagesigner in self.a_obj_ezsigntemplatepackagesigner:
-                if _item_a_obj_ezsigntemplatepackagesigner:
-                    _items.append(_item_a_obj_ezsigntemplatepackagesigner.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatepackagesigner.to_dict() if _item_a_obj_ezsigntemplatepackagesigner is not None else None)
             _dict['a_objEzsigntemplatepackagesigner'] = _items
         return _dict
 

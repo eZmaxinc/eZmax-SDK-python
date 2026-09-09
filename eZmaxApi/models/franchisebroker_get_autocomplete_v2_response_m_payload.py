@@ -75,8 +75,7 @@ class FranchisebrokerGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_franchisebroker:
             for _item_a_obj_franchisebroker in self.a_obj_franchisebroker:
-                if _item_a_obj_franchisebroker:
-                    _items.append(_item_a_obj_franchisebroker.to_dict())
+                _items.append(_item_a_obj_franchisebroker.to_dict() if _item_a_obj_franchisebroker is not None else None)
             _dict['a_objFranchisebroker'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class PeriodGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_period:
             for _item_a_obj_period in self.a_obj_period:
-                if _item_a_obj_period:
-                    _items.append(_item_a_obj_period.to_dict())
+                _items.append(_item_a_obj_period.to_dict() if _item_a_obj_period is not None else None)
             _dict['a_objPeriod'] = _items
         return _dict
 

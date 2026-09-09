@@ -29,7 +29,7 @@ class MultilingualBillingentityinternalDescription(BaseModel):
     """
     The description of the Billingentityinternal
     """ # noqa: E501
-    s_billingentityinternal_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Billingentityinternal in French", alias="sBillingentityinternalDescription1", json_schema_extra={"examples": ["Défaut"]})
+    s_billingentityinternal_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Billingentityinternal in French", alias="sBillingentityinternalDescription1", json_schema_extra={"examples": ["DÃ©faut"]})
     s_billingentityinternal_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Billingentityinternal in English", alias="sBillingentityinternalDescription2", json_schema_extra={"examples": ["Default"]})
     __properties: ClassVar[List[str]] = ["sBillingentityinternalDescription1", "sBillingentityinternalDescription2"]
 

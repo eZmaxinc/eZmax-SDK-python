@@ -76,8 +76,7 @@ class EzsigntemplateformfieldgroupCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplateformfieldgroup:
             for _item_a_obj_ezsigntemplateformfieldgroup in self.a_obj_ezsigntemplateformfieldgroup:
-                if _item_a_obj_ezsigntemplateformfieldgroup:
-                    _items.append(_item_a_obj_ezsigntemplateformfieldgroup.to_dict())
+                _items.append(_item_a_obj_ezsigntemplateformfieldgroup.to_dict() if _item_a_obj_ezsigntemplateformfieldgroup is not None else None)
             _dict['a_objEzsigntemplateformfieldgroup'] = _items
         return _dict
 

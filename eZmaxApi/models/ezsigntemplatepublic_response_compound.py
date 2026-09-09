@@ -141,8 +141,7 @@ class EzsigntemplatepublicResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignfolderezsigntemplatepublic:
             for _item_a_obj_ezsignfolderezsigntemplatepublic in self.a_obj_ezsignfolderezsigntemplatepublic:
-                if _item_a_obj_ezsignfolderezsigntemplatepublic:
-                    _items.append(_item_a_obj_ezsignfolderezsigntemplatepublic.to_dict())
+                _items.append(_item_a_obj_ezsignfolderezsigntemplatepublic.to_dict() if _item_a_obj_ezsignfolderezsigntemplatepublic is not None else None)
             _dict['a_objEzsignfolderezsigntemplatepublic'] = _items
         return _dict
 

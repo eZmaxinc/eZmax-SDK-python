@@ -75,8 +75,7 @@ class RealestateboardGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_realestateboard:
             for _item_a_obj_realestateboard in self.a_obj_realestateboard:
-                if _item_a_obj_realestateboard:
-                    _items.append(_item_a_obj_realestateboard.to_dict())
+                _items.append(_item_a_obj_realestateboard.to_dict() if _item_a_obj_realestateboard is not None else None)
             _dict['a_objRealestateboard'] = _items
         return _dict
 

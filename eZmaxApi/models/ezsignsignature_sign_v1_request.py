@@ -116,8 +116,7 @@ class EzsignsignatureSignV1Request(BaseModel):
         _items = []
         if self.a_obj_file:
             for _item_a_obj_file in self.a_obj_file:
-                if _item_a_obj_file:
-                    _items.append(_item_a_obj_file.to_dict())
+                _items.append(_item_a_obj_file.to_dict() if _item_a_obj_file is not None else None)
             _dict['a_objFile'] = _items
         # override the default output from pydantic by calling `to_dict()` of obj_creditcard
         if self.obj_creditcard:

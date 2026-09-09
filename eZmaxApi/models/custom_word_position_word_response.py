@@ -76,8 +76,7 @@ class CustomWordPositionWordResponse(BaseModel):
         _items = []
         if self.a_obj_word_position_occurence:
             for _item_a_obj_word_position_occurence in self.a_obj_word_position_occurence:
-                if _item_a_obj_word_position_occurence:
-                    _items.append(_item_a_obj_word_position_occurence.to_dict())
+                _items.append(_item_a_obj_word_position_occurence.to_dict() if _item_a_obj_word_position_occurence is not None else None)
             _dict['a_objWordPositionOccurence'] = _items
         return _dict
 

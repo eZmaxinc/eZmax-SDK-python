@@ -76,15 +76,13 @@ class UserGetColleaguesV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_colleague:
             for _item_a_obj_colleague in self.a_obj_colleague:
-                if _item_a_obj_colleague:
-                    _items.append(_item_a_obj_colleague.to_dict())
+                _items.append(_item_a_obj_colleague.to_dict() if _item_a_obj_colleague is not None else None)
             _dict['a_objColleague'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_colleague_clonable (list)
         _items = []
         if self.a_obj_colleague_clonable:
             for _item_a_obj_colleague_clonable in self.a_obj_colleague_clonable:
-                if _item_a_obj_colleague_clonable:
-                    _items.append(_item_a_obj_colleague_clonable.to_dict())
+                _items.append(_item_a_obj_colleague_clonable.to_dict() if _item_a_obj_colleague_clonable is not None else None)
             _dict['a_objColleagueClonable'] = _items
         return _dict
 

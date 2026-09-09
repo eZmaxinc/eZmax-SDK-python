@@ -96,8 +96,7 @@ class EzsignformfieldResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignelementdependency:
             for _item_a_obj_ezsignelementdependency in self.a_obj_ezsignelementdependency:
-                if _item_a_obj_ezsignelementdependency:
-                    _items.append(_item_a_obj_ezsignelementdependency.to_dict())
+                _items.append(_item_a_obj_ezsignelementdependency.to_dict() if _item_a_obj_ezsignelementdependency is not None else None)
             _dict['a_objEzsignelementdependency'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class InfrastructureregionGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_infrastructureregion:
             for _item_a_obj_infrastructureregion in self.a_obj_infrastructureregion:
-                if _item_a_obj_infrastructureregion:
-                    _items.append(_item_a_obj_infrastructureregion.to_dict())
+                _items.append(_item_a_obj_infrastructureregion.to_dict() if _item_a_obj_infrastructureregion is not None else None)
             _dict['a_objInfrastructureregion'] = _items
         return _dict
 

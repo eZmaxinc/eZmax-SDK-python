@@ -77,8 +77,7 @@ class InscriptiontempGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_inscriptiontemp:
             for _item_a_obj_inscriptiontemp in self.a_obj_inscriptiontemp:
-                if _item_a_obj_inscriptiontemp:
-                    _items.append(_item_a_obj_inscriptiontemp.to_dict())
+                _items.append(_item_a_obj_inscriptiontemp.to_dict() if _item_a_obj_inscriptiontemp is not None else None)
             _dict['a_objInscriptiontemp'] = _items
         return _dict
 

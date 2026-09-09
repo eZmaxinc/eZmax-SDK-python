@@ -75,8 +75,7 @@ class PhonetypeGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_phonetype:
             for _item_a_obj_phonetype in self.a_obj_phonetype:
-                if _item_a_obj_phonetype:
-                    _items.append(_item_a_obj_phonetype.to_dict())
+                _items.append(_item_a_obj_phonetype.to_dict() if _item_a_obj_phonetype is not None else None)
             _dict['a_objPhonetype'] = _items
         return _dict
 

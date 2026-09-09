@@ -31,7 +31,7 @@ class EzsigntemplateelementdependencyResponseCompound(BaseModel):
     """
     An Ezsigntemplateelementdependency Object and children to create a complete structure
     """ # noqa: E501
-    pki_ezsigntemplateelementdependency_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateelementdependency", alias="pkiEzsigntemplateelementdependencyID", json_schema_extra={"examples": [314]})
+    pki_ezsigntemplateelementdependency_id: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplateelementdependency", alias="pkiEzsigntemplateelementdependencyID", json_schema_extra={"examples": [314]})
     fki_ezsigntemplateformfield_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldID", json_schema_extra={"examples": [71]})
     fki_ezsigntemplatesignature_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesignature", alias="fkiEzsigntemplatesignatureID", json_schema_extra={"examples": [99]})
     fki_ezsigntemplateformfield_id_validation: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplateformfield", alias="fkiEzsigntemplateformfieldIDValidation", json_schema_extra={"examples": [71]})

@@ -75,8 +75,7 @@ class NotificationsectionGetNotificationtestsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_notificationsubsection:
             for _item_a_obj_notificationsubsection in self.a_obj_notificationsubsection:
-                if _item_a_obj_notificationsubsection:
-                    _items.append(_item_a_obj_notificationsubsection.to_dict())
+                _items.append(_item_a_obj_notificationsubsection.to_dict() if _item_a_obj_notificationsubsection is not None else None)
             _dict['a_objNotificationsubsection'] = _items
         return _dict
 

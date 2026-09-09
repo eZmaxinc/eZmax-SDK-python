@@ -75,8 +75,7 @@ class BillingentityexternalGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_billingentityexternal:
             for _item_a_obj_billingentityexternal in self.a_obj_billingentityexternal:
-                if _item_a_obj_billingentityexternal:
-                    _items.append(_item_a_obj_billingentityexternal.to_dict())
+                _items.append(_item_a_obj_billingentityexternal.to_dict() if _item_a_obj_billingentityexternal is not None else None)
             _dict['a_objBillingentityexternal'] = _items
         return _dict
 

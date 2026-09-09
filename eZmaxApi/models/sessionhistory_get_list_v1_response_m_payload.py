@@ -77,8 +77,7 @@ class SessionhistoryGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_sessionhistory:
             for _item_a_obj_sessionhistory in self.a_obj_sessionhistory:
-                if _item_a_obj_sessionhistory:
-                    _items.append(_item_a_obj_sessionhistory.to_dict())
+                _items.append(_item_a_obj_sessionhistory.to_dict() if _item_a_obj_sessionhistory is not None else None)
             _dict['a_objSessionhistory'] = _items
         return _dict
 

@@ -29,7 +29,7 @@ from pydantic_core import to_jsonable_python
 
 class ElectronicfundstransferGetCommunicationsendersV1Response(BaseModel):
     """
-    Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationrecipients
+    Response for GET /1/object/electronicfundstransfer/{pkiElectronicfundstransferID}/getCommunicationsenders
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")

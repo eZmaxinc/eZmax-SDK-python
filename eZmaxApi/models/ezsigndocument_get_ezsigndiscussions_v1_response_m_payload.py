@@ -75,8 +75,7 @@ class EzsigndocumentGetEzsigndiscussionsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsigndiscussion:
             for _item_a_obj_ezsigndiscussion in self.a_obj_ezsigndiscussion:
-                if _item_a_obj_ezsigndiscussion:
-                    _items.append(_item_a_obj_ezsigndiscussion.to_dict())
+                _items.append(_item_a_obj_ezsigndiscussion.to_dict() if _item_a_obj_ezsigndiscussion is not None else None)
             _dict['a_objEzsigndiscussion'] = _items
         return _dict
 

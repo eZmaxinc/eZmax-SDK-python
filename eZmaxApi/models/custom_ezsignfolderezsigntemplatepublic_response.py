@@ -90,8 +90,7 @@ class CustomEzsignfolderezsigntemplatepublicResponse(BaseModel):
         _items = []
         if self.a_obj_ezsignfolderezsigntemplatepublic_signer:
             for _item_a_obj_ezsignfolderezsigntemplatepublic_signer in self.a_obj_ezsignfolderezsigntemplatepublic_signer:
-                if _item_a_obj_ezsignfolderezsigntemplatepublic_signer:
-                    _items.append(_item_a_obj_ezsignfolderezsigntemplatepublic_signer.to_dict())
+                _items.append(_item_a_obj_ezsignfolderezsigntemplatepublic_signer.to_dict() if _item_a_obj_ezsignfolderezsigntemplatepublic_signer is not None else None)
             _dict['a_objEzsignfolderezsigntemplatepublicSigner'] = _items
         return _dict
 

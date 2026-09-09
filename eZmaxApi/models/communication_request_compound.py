@@ -118,29 +118,25 @@ class CommunicationRequestCompound(BaseModel):
         _items = []
         if self.a_obj_communicationattachment:
             for _item_a_obj_communicationattachment in self.a_obj_communicationattachment:
-                if _item_a_obj_communicationattachment:
-                    _items.append(_item_a_obj_communicationattachment.to_dict())
+                _items.append(_item_a_obj_communicationattachment.to_dict() if _item_a_obj_communicationattachment is not None else None)
             _dict['a_objCommunicationattachment'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_communicationrecipient (list)
         _items = []
         if self.a_obj_communicationrecipient:
             for _item_a_obj_communicationrecipient in self.a_obj_communicationrecipient:
-                if _item_a_obj_communicationrecipient:
-                    _items.append(_item_a_obj_communicationrecipient.to_dict())
+                _items.append(_item_a_obj_communicationrecipient.to_dict() if _item_a_obj_communicationrecipient is not None else None)
             _dict['a_objCommunicationrecipient'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_communicationreference (list)
         _items = []
         if self.a_obj_communicationreference:
             for _item_a_obj_communicationreference in self.a_obj_communicationreference:
-                if _item_a_obj_communicationreference:
-                    _items.append(_item_a_obj_communicationreference.to_dict())
+                _items.append(_item_a_obj_communicationreference.to_dict() if _item_a_obj_communicationreference is not None else None)
             _dict['a_objCommunicationreference'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_communicationexternalrecipient (list)
         _items = []
         if self.a_obj_communicationexternalrecipient:
             for _item_a_obj_communicationexternalrecipient in self.a_obj_communicationexternalrecipient:
-                if _item_a_obj_communicationexternalrecipient:
-                    _items.append(_item_a_obj_communicationexternalrecipient.to_dict())
+                _items.append(_item_a_obj_communicationexternalrecipient.to_dict() if _item_a_obj_communicationexternalrecipient is not None else None)
             _dict['a_objCommunicationexternalrecipient'] = _items
         return _dict
 

@@ -88,8 +88,7 @@ class ScimServiceProviderConfig(BaseModel):
         _items = []
         if self.authentication_schemes:
             for _item_authentication_schemes in self.authentication_schemes:
-                if _item_authentication_schemes:
-                    _items.append(_item_authentication_schemes.to_dict())
+                _items.append(_item_authentication_schemes.to_dict() if _item_authentication_schemes is not None else None)
             _dict['authenticationSchemes'] = _items
         # override the default output from pydantic by calling `to_dict()` of bulk
         if self.bulk:

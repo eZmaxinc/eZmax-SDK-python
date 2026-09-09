@@ -87,8 +87,7 @@ class CommonResponseErrorEzsignformValidation(BaseModel):
         _items = []
         if self.a_obj_ezsignformfielderror:
             for _item_a_obj_ezsignformfielderror in self.a_obj_ezsignformfielderror:
-                if _item_a_obj_ezsignformfielderror:
-                    _items.append(_item_a_obj_ezsignformfielderror.to_dict())
+                _items.append(_item_a_obj_ezsignformfielderror.to_dict() if _item_a_obj_ezsignformfielderror is not None else None)
             _dict['a_objEzsignformfielderror'] = _items
         return _dict
 

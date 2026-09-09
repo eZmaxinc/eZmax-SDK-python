@@ -33,7 +33,7 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
     """ # noqa: E501
     pki_ezmaxinvoicingsummaryinternal_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicingsummaryinternal", alias="pkiEzmaxinvoicingsummaryinternalID", json_schema_extra={"examples": [57]})
     obj_ezmaxinvoicingsummaryinternal_description: MultilingualEzmaxinvoicingsummaryinternalDescription = Field(alias="objEzmaxinvoicingsummaryinternalDescription")
-    s_ezmaxinvoicingsummaryinternal_description_x: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The Ezmaxinvoicingsummaryinternal description in the language of the requester", alias="sEzmaxinvoicingsummaryinternalDescriptionX", json_schema_extra={"examples": ["Défaut"]})
+    s_ezmaxinvoicingsummaryinternal_description_x: Annotated[str, Field(strict=True, max_length=70)] = Field(description="The Ezmaxinvoicingsummaryinternal description in the language of the requester", alias="sEzmaxinvoicingsummaryinternalDescriptionX", json_schema_extra={"examples": ["DÃ©faut"]})
     fki_ezmaxinvoicing_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezmaxinvoicing", alias="fkiEzmaxinvoicingID", json_schema_extra={"examples": [28]})
     fki_billingentityinternal_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Billingentityinternal.", alias="fkiBillingentityinternalID", json_schema_extra={"examples": [1]})
     s_billingentityinternal_description_x: StrictStr = Field(description="The description of the Billingentityinternal in the language of the requester", alias="sBillingentityinternalDescriptionX", json_schema_extra={"examples": ["Default"]})
@@ -86,8 +86,7 @@ class EzmaxinvoicingsummaryinternalResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezmaxinvoicingsummaryinternaldetail:
             for _item_a_obj_ezmaxinvoicingsummaryinternaldetail in self.a_obj_ezmaxinvoicingsummaryinternaldetail:
-                if _item_a_obj_ezmaxinvoicingsummaryinternaldetail:
-                    _items.append(_item_a_obj_ezmaxinvoicingsummaryinternaldetail.to_dict())
+                _items.append(_item_a_obj_ezmaxinvoicingsummaryinternaldetail.to_dict() if _item_a_obj_ezmaxinvoicingsummaryinternaldetail is not None else None)
             _dict['a_objEzmaxinvoicingsummaryinternaldetail'] = _items
         return _dict
 

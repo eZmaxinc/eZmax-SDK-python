@@ -85,8 +85,7 @@ class EzsigntemplatedocumentEditObjectV1Response(BaseModel):
         _items = []
         if self.a_obj_warning:
             for _item_a_obj_warning in self.a_obj_warning:
-                if _item_a_obj_warning:
-                    _items.append(_item_a_obj_warning.to_dict())
+                _items.append(_item_a_obj_warning.to_dict() if _item_a_obj_warning is not None else None)
             _dict['a_objWarning'] = _items
         return _dict
 

@@ -80,8 +80,7 @@ class CustomEzsignfoldersignerassociationstatusResponseV3(BaseModel):
         _items = []
         if self.a_obj_ezsignsignaturestatus:
             for _item_a_obj_ezsignsignaturestatus in self.a_obj_ezsignsignaturestatus:
-                if _item_a_obj_ezsignsignaturestatus:
-                    _items.append(_item_a_obj_ezsignsignaturestatus.to_dict())
+                _items.append(_item_a_obj_ezsignsignaturestatus.to_dict() if _item_a_obj_ezsignsignaturestatus is not None else None)
             _dict['a_objEzsignsignaturestatus'] = _items
         return _dict
 

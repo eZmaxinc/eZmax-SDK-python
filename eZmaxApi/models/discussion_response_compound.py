@@ -96,15 +96,13 @@ class DiscussionResponseCompound(BaseModel):
         _items = []
         if self.a_obj_discussionmembership:
             for _item_a_obj_discussionmembership in self.a_obj_discussionmembership:
-                if _item_a_obj_discussionmembership:
-                    _items.append(_item_a_obj_discussionmembership.to_dict())
+                _items.append(_item_a_obj_discussionmembership.to_dict() if _item_a_obj_discussionmembership is not None else None)
             _dict['a_objDiscussionmembership'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_discussionmessage (list)
         _items = []
         if self.a_obj_discussionmessage:
             for _item_a_obj_discussionmessage in self.a_obj_discussionmessage:
-                if _item_a_obj_discussionmessage:
-                    _items.append(_item_a_obj_discussionmessage.to_dict())
+                _items.append(_item_a_obj_discussionmessage.to_dict() if _item_a_obj_discussionmessage is not None else None)
             _dict['a_objDiscussionmessage'] = _items
         return _dict
 

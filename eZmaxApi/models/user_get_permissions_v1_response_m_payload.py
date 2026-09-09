@@ -75,8 +75,7 @@ class UserGetPermissionsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_modulegroup:
             for _item_a_obj_modulegroup in self.a_obj_modulegroup:
-                if _item_a_obj_modulegroup:
-                    _items.append(_item_a_obj_modulegroup.to_dict())
+                _items.append(_item_a_obj_modulegroup.to_dict() if _item_a_obj_modulegroup is not None else None)
             _dict['a_objModulegroup'] = _items
         return _dict
 

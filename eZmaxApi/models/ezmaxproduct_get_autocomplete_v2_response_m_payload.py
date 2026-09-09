@@ -75,8 +75,7 @@ class EzmaxproductGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezmaxproduct:
             for _item_a_obj_ezmaxproduct in self.a_obj_ezmaxproduct:
-                if _item_a_obj_ezmaxproduct:
-                    _items.append(_item_a_obj_ezmaxproduct.to_dict())
+                _items.append(_item_a_obj_ezmaxproduct.to_dict() if _item_a_obj_ezmaxproduct is not None else None)
             _dict['a_objEzmaxproduct'] = _items
         return _dict
 

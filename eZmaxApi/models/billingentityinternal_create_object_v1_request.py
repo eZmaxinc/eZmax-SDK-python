@@ -76,8 +76,7 @@ class BillingentityinternalCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_billingentityinternal:
             for _item_a_obj_billingentityinternal in self.a_obj_billingentityinternal:
-                if _item_a_obj_billingentityinternal:
-                    _items.append(_item_a_obj_billingentityinternal.to_dict())
+                _items.append(_item_a_obj_billingentityinternal.to_dict() if _item_a_obj_billingentityinternal is not None else None)
             _dict['a_objBillingentityinternal'] = _items
         return _dict
 

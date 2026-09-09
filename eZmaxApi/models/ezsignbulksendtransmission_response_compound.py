@@ -85,8 +85,7 @@ class EzsignbulksendtransmissionResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignfoldertransmission:
             for _item_a_obj_ezsignfoldertransmission in self.a_obj_ezsignfoldertransmission:
-                if _item_a_obj_ezsignfoldertransmission:
-                    _items.append(_item_a_obj_ezsignfoldertransmission.to_dict())
+                _items.append(_item_a_obj_ezsignfoldertransmission.to_dict() if _item_a_obj_ezsignfoldertransmission is not None else None)
             _dict['a_objEzsignfoldertransmission'] = _items
         return _dict
 

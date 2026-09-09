@@ -75,8 +75,7 @@ class EzsignsignergroupEditEzsignsignergroupmembershipsV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignsignergroupmembership:
             for _item_a_obj_ezsignsignergroupmembership in self.a_obj_ezsignsignergroupmembership:
-                if _item_a_obj_ezsignsignergroupmembership:
-                    _items.append(_item_a_obj_ezsignsignergroupmembership.to_dict())
+                _items.append(_item_a_obj_ezsignsignergroupmembership.to_dict() if _item_a_obj_ezsignsignergroupmembership is not None else None)
             _dict['a_objEzsignsignergroupmembership'] = _items
         return _dict
 

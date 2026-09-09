@@ -75,8 +75,7 @@ class EzsigndocumentPrefillEzsignformV1Request(BaseModel):
         _items = []
         if self.a_obj_prefillezsignformvalue:
             for _item_a_obj_prefillezsignformvalue in self.a_obj_prefillezsignformvalue:
-                if _item_a_obj_prefillezsignformvalue:
-                    _items.append(_item_a_obj_prefillezsignformvalue.to_dict())
+                _items.append(_item_a_obj_prefillezsignformvalue.to_dict() if _item_a_obj_prefillezsignformvalue is not None else None)
             _dict['a_objPrefillezsignformvalue'] = _items
         return _dict
 

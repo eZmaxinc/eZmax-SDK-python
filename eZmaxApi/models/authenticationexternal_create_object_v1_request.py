@@ -76,8 +76,7 @@ class AuthenticationexternalCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_authenticationexternal:
             for _item_a_obj_authenticationexternal in self.a_obj_authenticationexternal:
-                if _item_a_obj_authenticationexternal:
-                    _items.append(_item_a_obj_authenticationexternal.to_dict())
+                _items.append(_item_a_obj_authenticationexternal.to_dict() if _item_a_obj_authenticationexternal is not None else None)
             _dict['a_objAuthenticationexternal'] = _items
         return _dict
 

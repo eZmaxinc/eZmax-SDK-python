@@ -77,8 +77,7 @@ class EzsignimportfolderGetListV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsignimportfolder:
             for _item_a_obj_ezsignimportfolder in self.a_obj_ezsignimportfolder:
-                if _item_a_obj_ezsignimportfolder:
-                    _items.append(_item_a_obj_ezsignimportfolder.to_dict())
+                _items.append(_item_a_obj_ezsignimportfolder.to_dict() if _item_a_obj_ezsignimportfolder is not None else None)
             _dict['a_objEzsignimportfolder'] = _items
         return _dict
 

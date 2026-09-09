@@ -32,7 +32,7 @@ class VariableexpenseListElement(BaseModel):
     """ # noqa: E501
     pki_variableexpense_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Variableexpense", alias="pkiVariableexpenseID", json_schema_extra={"examples": [2]})
     s_variableexpense_code: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The code of the Variableexpense", alias="sVariableexpenseCode", json_schema_extra={"examples": ["EQBUR"]})
-    s_variableexpense_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX", json_schema_extra={"examples": ["Équipements de bureau"]})
+    s_variableexpense_description_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Variableexpense in the language of the requester", alias="sVariableexpenseDescriptionX", json_schema_extra={"examples": ["Ã‰quipements de bureau"]})
     e_variableexpense_taxable: Optional[FieldEVariableexpenseTaxable] = Field(default=None, alias="eVariableexpenseTaxable")
     b_variableexpense_isactive: Optional[StrictBool] = Field(default=None, description="Whether the variableexpense is active or not", alias="bVariableexpenseIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiVariableexpenseID", "sVariableexpenseCode", "sVariableexpenseDescriptionX", "eVariableexpenseTaxable", "bVariableexpenseIsactive"]

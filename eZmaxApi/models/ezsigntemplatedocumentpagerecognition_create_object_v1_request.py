@@ -76,8 +76,7 @@ class EzsigntemplatedocumentpagerecognitionCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatedocumentpagerecognition:
             for _item_a_obj_ezsigntemplatedocumentpagerecognition in self.a_obj_ezsigntemplatedocumentpagerecognition:
-                if _item_a_obj_ezsigntemplatedocumentpagerecognition:
-                    _items.append(_item_a_obj_ezsigntemplatedocumentpagerecognition.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatedocumentpagerecognition.to_dict() if _item_a_obj_ezsigntemplatedocumentpagerecognition is not None else None)
             _dict['a_objEzsigntemplatedocumentpagerecognition'] = _items
         return _dict
 

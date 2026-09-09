@@ -94,15 +94,13 @@ class EzsignbulksendResponseCompound(BaseModel):
         _items = []
         if self.a_obj_ezsignbulksenddocumentmapping:
             for _item_a_obj_ezsignbulksenddocumentmapping in self.a_obj_ezsignbulksenddocumentmapping:
-                if _item_a_obj_ezsignbulksenddocumentmapping:
-                    _items.append(_item_a_obj_ezsignbulksenddocumentmapping.to_dict())
+                _items.append(_item_a_obj_ezsignbulksenddocumentmapping.to_dict() if _item_a_obj_ezsignbulksenddocumentmapping is not None else None)
             _dict['a_objEzsignbulksenddocumentmapping'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in a_obj_ezsignbulksendsignermapping (list)
         _items = []
         if self.a_obj_ezsignbulksendsignermapping:
             for _item_a_obj_ezsignbulksendsignermapping in self.a_obj_ezsignbulksendsignermapping:
-                if _item_a_obj_ezsignbulksendsignermapping:
-                    _items.append(_item_a_obj_ezsignbulksendsignermapping.to_dict())
+                _items.append(_item_a_obj_ezsignbulksendsignermapping.to_dict() if _item_a_obj_ezsignbulksendsignermapping is not None else None)
             _dict['a_objEzsignbulksendsignermapping'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class LanguageGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_language:
             for _item_a_obj_language in self.a_obj_language:
-                if _item_a_obj_language:
-                    _items.append(_item_a_obj_language.to_dict())
+                _items.append(_item_a_obj_language.to_dict() if _item_a_obj_language is not None else None)
             _dict['a_objLanguage'] = _items
         return _dict
 

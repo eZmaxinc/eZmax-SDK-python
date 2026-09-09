@@ -27,6 +27,7 @@ __all__ = [
     "ModuleReportApi",
     "ModuleUserApi",
     "ObjectActivesessionApi",
+    "ObjectAdjustmentApi",
     "ObjectAgentApi",
     "ObjectAgenttypeApi",
     "ObjectApikeyApi",
@@ -40,6 +41,7 @@ __all__ = [
     "ObjectBrokertypeApi",
     "ObjectBuyercontractApi",
     "ObjectClonehistoryApi",
+    "ObjectCommissionadvanceApi",
     "ObjectCommunicationApi",
     "ObjectCompanyApi",
     "ObjectContacttitleApi",
@@ -51,6 +53,9 @@ __all__ = [
     "ObjectCurrencyApi",
     "ObjectCustomerApi",
     "ObjectDepartmentApi",
+    "ObjectDepositApi",
+    "ObjectDeposittransitchequeApi",
+    "ObjectDisclosureApi",
     "ObjectDiscussionApi",
     "ObjectDiscussionmembershipApi",
     "ObjectDiscussionmessageApi",
@@ -102,6 +107,7 @@ __all__ = [
     "ObjectEzsigntemplatesignerApi",
     "ObjectEzsigntsarequirementApi",
     "ObjectEzsignuserApi",
+    "ObjectFolderApi",
     "ObjectFontApi",
     "ObjectFranchisebrokerApi",
     "ObjectFranchiseofficeApi",
@@ -120,21 +126,27 @@ __all__ = [
     "ObjectLeadsourceApi",
     "ObjectModuleApi",
     "ObjectModulegroupApi",
+    "ObjectNotaryApi",
     "ObjectNotificationsectionApi",
     "ObjectNotificationtestApi",
+    "ObjectOfficetaxreportApi",
     "ObjectOtherincomeApi",
     "ObjectOtherincometypeApi",
     "ObjectPaymentgatewayApi",
     "ObjectPaymentmethodApi",
+    "ObjectPaymentpreparationApi",
     "ObjectPaymenttermApi",
     "ObjectPdfalevelApi",
     "ObjectPeriodApi",
     "ObjectPermissionApi",
     "ObjectPhonetypeApi",
     "ObjectProvinceApi",
+    "ObjectPurchaseApi",
     "ObjectRealestateassociationApi",
     "ObjectRealestateboardApi",
+    "ObjectReconciliationApi",
     "ObjectRejectedoffertopurchaseApi",
+    "ObjectSalaryApi",
     "ObjectSecretquestionApi",
     "ObjectSessionhistoryApi",
     "ObjectSignatureApi",
@@ -186,7 +198,24 @@ __all__ = [
     "AddressRequestCompound",
     "AddressResponse",
     "AddressResponseCompound",
+    "AdjustmentBatchDownloadV1Request",
+    "AdjustmentGetAttachmentsV1Response",
+    "AdjustmentGetAttachmentsV1ResponseMPayload",
+    "AdjustmentGetCommunicationCountV1Response",
+    "AdjustmentGetCommunicationCountV1ResponseMPayload",
+    "AdjustmentGetCommunicationListV1Response",
+    "AdjustmentGetCommunicationListV1ResponseMPayload",
+    "AdjustmentGetCommunicationrecipientsV1Response",
+    "AdjustmentGetCommunicationrecipientsV1ResponseMPayload",
+    "AdjustmentGetCommunicationsendersV1Response",
+    "AdjustmentGetCommunicationsendersV1ResponseMPayload",
+    "AdjustmentImportIntoEDMV1Request",
+    "AdjustmentImportIntoEDMV1Response",
+    "AdjustmentImportIntoEDMV1ResponseMPayload",
     "AgentAutocompleteElementResponse",
+    "AgentBatchDownloadV1Request",
+    "AgentGetAttachmentsV1Response",
+    "AgentGetAttachmentsV1ResponseMPayload",
     "AgentGetAutocompleteV2Response",
     "AgentGetAutocompleteV2ResponseMPayload",
     "AgentGetListV1Response",
@@ -229,6 +258,9 @@ __all__ = [
     "ApikeyResponseCompound",
     "AttachmentGetAttachmentlogsV1Response",
     "AttachmentGetAttachmentlogsV1ResponseMPayload",
+    "AttachmentRenameV1Request",
+    "AttachmentRenameV1Response",
+    "AttachmentRenameV1ResponseMPayload",
     "AttachmentResponse",
     "AttachmentResponseCompound",
     "AttachmentlogResponse",
@@ -255,8 +287,14 @@ __all__ = [
     "AuthenticationexternalResponse",
     "AuthenticationexternalResponseCompound",
     "BankaccountAutocompleteElementResponse",
+    "BankaccountBatchDownloadV1Request",
+    "BankaccountGetAttachmentsV1Response",
+    "BankaccountGetAttachmentsV1ResponseMPayload",
     "BankaccountGetAutocompleteV2Response",
     "BankaccountGetAutocompleteV2ResponseMPayload",
+    "BankaccountImportIntoEDMV1Request",
+    "BankaccountImportIntoEDMV1Response",
+    "BankaccountImportIntoEDMV1ResponseMPayload",
     "BillingentityexternalAutocompleteElementResponse",
     "BillingentityexternalGenerateFederationTokenV1Request",
     "BillingentityexternalGenerateFederationTokenV1Response",
@@ -302,6 +340,9 @@ __all__ = [
     "BrandingResponseCompoundV3",
     "BrandingResponseV3",
     "BrokerAutocompleteElementResponse",
+    "BrokerBatchDownloadV1Request",
+    "BrokerGetAttachmentsV1Response",
+    "BrokerGetAttachmentsV1ResponseMPayload",
     "BrokerGetAutocompleteV2Response",
     "BrokerGetAutocompleteV2ResponseMPayload",
     "BrokerGetListV1Response",
@@ -313,6 +354,9 @@ __all__ = [
     "BrokertypeAutocompleteElementResponse",
     "BrokertypeGetAutocompleteV2Response",
     "BrokertypeGetAutocompleteV2ResponseMPayload",
+    "BuyercontractBatchDownloadV1Request",
+    "BuyercontractGetAttachmentsV1Response",
+    "BuyercontractGetAttachmentsV1ResponseMPayload",
     "BuyercontractGetCommunicationCountV1Response",
     "BuyercontractGetCommunicationCountV1ResponseMPayload",
     "BuyercontractGetCommunicationListV1Response",
@@ -327,6 +371,7 @@ __all__ = [
     "BuyercontractImportIntoEDMV1Response",
     "BuyercontractImportIntoEDMV1ResponseMPayload",
     "BuyercontractListElement",
+    "BuyercontractResponse",
     "ClonehistoryGetListV1Response",
     "ClonehistoryGetListV1ResponseMPayload",
     "ClonehistoryListElement",
@@ -334,6 +379,12 @@ __all__ = [
     "ColleagueRequestV2",
     "ColleagueResponseCompoundV2",
     "ColleagueResponseV2",
+    "CommissionadvanceBatchDownloadV1Request",
+    "CommissionadvanceGetAttachmentsV1Response",
+    "CommissionadvanceGetAttachmentsV1ResponseMPayload",
+    "CommissionadvanceImportIntoEDMV1Request",
+    "CommissionadvanceImportIntoEDMV1Response",
+    "CommissionadvanceImportIntoEDMV1ResponseMPayload",
     "CommonAudit",
     "CommonAuditdetail",
     "CommonFile",
@@ -537,6 +588,9 @@ __all__ = [
     "CustomWordPositionOccurenceResponse",
     "CustomWordPositionWordResponse",
     "CustomerAutocompleteElementResponse",
+    "CustomerBatchDownloadV1Request",
+    "CustomerGetAttachmentsV1Response",
+    "CustomerGetAttachmentsV1ResponseMPayload",
     "CustomerGetAutocompleteV2Response",
     "CustomerGetAutocompleteV2ResponseMPayload",
     "CustomerGetObjectV2Response",
@@ -549,6 +603,24 @@ __all__ = [
     "DepartmentAutocompleteElementResponse",
     "DepartmentGetAutocompleteV2Response",
     "DepartmentGetAutocompleteV2ResponseMPayload",
+    "DepositBatchDownloadV1Request",
+    "DepositGetAttachmentsV1Response",
+    "DepositGetAttachmentsV1ResponseMPayload",
+    "DepositImportIntoEDMV1Request",
+    "DepositImportIntoEDMV1Response",
+    "DepositImportIntoEDMV1ResponseMPayload",
+    "DeposittransitchequeBatchDownloadV1Request",
+    "DeposittransitchequeGetAttachmentsV1Response",
+    "DeposittransitchequeGetAttachmentsV1ResponseMPayload",
+    "DeposittransitchequeImportIntoEDMV1Request",
+    "DeposittransitchequeImportIntoEDMV1Response",
+    "DeposittransitchequeImportIntoEDMV1ResponseMPayload",
+    "DisclosureBatchDownloadV1Request",
+    "DisclosureGetAttachmentsV1Response",
+    "DisclosureGetAttachmentsV1ResponseMPayload",
+    "DisclosureImportIntoEDMV1Request",
+    "DisclosureImportIntoEDMV1Response",
+    "DisclosureImportIntoEDMV1ResponseMPayload",
     "DiscussionChatV1200Response",
     "DiscussionChatV1Request",
     "DiscussionCreateObjectV1Request",
@@ -601,6 +673,9 @@ __all__ = [
     "DomainRequestCompound",
     "DomainResponse",
     "DomainResponseCompound",
+    "ElectronicfundstransferBatchDownloadV1Request",
+    "ElectronicfundstransferGetAttachmentsV1Response",
+    "ElectronicfundstransferGetAttachmentsV1ResponseMPayload",
     "ElectronicfundstransferGetCommunicationCountV1Response",
     "ElectronicfundstransferGetCommunicationCountV1ResponseMPayload",
     "ElectronicfundstransferGetCommunicationListV1Response",
@@ -619,6 +694,9 @@ __all__ = [
     "EmailtypeAutocompleteElementResponse",
     "EmailtypeGetAutocompleteV2Response",
     "EmailtypeGetAutocompleteV2ResponseMPayload",
+    "EmployeeBatchDownloadV1Request",
+    "EmployeeGetAttachmentsV1Response",
+    "EmployeeGetAttachmentsV1ResponseMPayload",
     "EmployeeGetListV1Response",
     "EmployeeGetListV1ResponseMPayload",
     "EmployeeImportIntoEDMV1Request",
@@ -631,6 +709,9 @@ __all__ = [
     "EnumReportdataType",
     "EnumTextvalidation",
     "EnumVerticalalignment",
+    "ExternalbrokerBatchDownloadV1Request",
+    "ExternalbrokerGetAttachmentsV1Response",
+    "ExternalbrokerGetAttachmentsV1ResponseMPayload",
     "ExternalbrokerImportIntoEDMV1Request",
     "ExternalbrokerImportIntoEDMV1Response",
     "ExternalbrokerImportIntoEDMV1ResponseMPayload",
@@ -1535,6 +1616,7 @@ __all__ = [
     "FieldEAuthenticationexternalType",
     "FieldEBrandingAlignlogo",
     "FieldEBrandingLogo",
+    "FieldEBuyercontractRemunerationtype",
     "FieldEBuyercontractStep",
     "FieldEBuyercontractType",
     "FieldEColleagueEzsign",
@@ -1674,6 +1756,12 @@ __all__ = [
     "FieldEWebhookRealestateevent",
     "FieldEtInscriptionnotauthenticatedMortgagetype",
     "FieldPksEzmaxclientOs",
+    "FolderBatchDownloadV1Request",
+    "FolderGetAttachmentsV1Response",
+    "FolderGetAttachmentsV1ResponseMPayload",
+    "FolderImportIntoEDMV1Request",
+    "FolderImportIntoEDMV1Response",
+    "FolderImportIntoEDMV1ResponseMPayload",
     "FontAutocompleteElementResponse",
     "FontGetAutocompleteV2Response",
     "FontGetAutocompleteV2ResponseMPayload",
@@ -1701,6 +1789,7 @@ __all__ = [
     "InfrastructureregionAutocompleteElementResponse",
     "InfrastructureregionGetAutocompleteV2Response",
     "InfrastructureregionGetAutocompleteV2ResponseMPayload",
+    "InscriptionBatchDownloadV1Request",
     "InscriptionGetAttachmentsV1Response",
     "InscriptionGetAttachmentsV1ResponseMPayload",
     "InscriptionGetCommunicationCountV1Response",
@@ -1729,8 +1818,11 @@ __all__ = [
     "InscriptionchecklistAutocompleteElementResponse",
     "InscriptionchecklistGetAutocompleteV3Response",
     "InscriptionchecklistGetAutocompleteV3ResponseMPayload",
+    "InscriptionnotauthenticatedBatchDownloadV1Request",
     "InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request",
     "InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response",
+    "InscriptionnotauthenticatedGetAttachmentsV1Response",
+    "InscriptionnotauthenticatedGetAttachmentsV1ResponseMPayload",
     "InscriptionnotauthenticatedGetCommunicationCountV1Response",
     "InscriptionnotauthenticatedGetCommunicationCountV1ResponseMPayload",
     "InscriptionnotauthenticatedGetCommunicationListV1Response",
@@ -1753,6 +1845,9 @@ __all__ = [
     "InscriptionnotauthenticatedResponseCompound",
     "InscriptionnotauthenticatedconditionResponse",
     "InscriptionnotauthenticatedconditionResponseCompound",
+    "InscriptiontempBatchDownloadV1Request",
+    "InscriptiontempGetAttachmentsV1Response",
+    "InscriptiontempGetAttachmentsV1ResponseMPayload",
     "InscriptiontempGetCommunicationCountV1Response",
     "InscriptiontempGetCommunicationCountV1ResponseMPayload",
     "InscriptiontempGetCommunicationListV1Response",
@@ -1770,6 +1865,7 @@ __all__ = [
     "InscriptiontypeAutocompleteElementResponse",
     "InscriptiontypeGetAutocompleteV2Response",
     "InscriptiontypeGetAutocompleteV2ResponseMPayload",
+    "InvoiceBatchDownloadV1Request",
     "InvoiceGetAttachmentsV1Response",
     "InvoiceGetAttachmentsV1ResponseMPayload",
     "InvoiceGetCommunicationCountV1Response",
@@ -1786,6 +1882,9 @@ __all__ = [
     "LanguageAutocompleteElementResponse",
     "LanguageGetAutocompleteV2Response",
     "LanguageGetAutocompleteV2ResponseMPayload",
+    "LeadBatchDownloadV1Request",
+    "LeadGetAttachmentsV1Response",
+    "LeadGetAttachmentsV1ResponseMPayload",
     "LeadGetListV1Response",
     "LeadGetListV1ResponseMPayload",
     "LeadImportIntoEDMV1Request",
@@ -1835,12 +1934,27 @@ __all__ = [
     "MultilingualUserlogintypeDescription",
     "MultilingualVariableexpenseDescription",
     "MultilingualVersionhistoryDetail",
+    "NotaryBatchDownloadV1Request",
+    "NotaryGetAttachmentsV1Response",
+    "NotaryGetAttachmentsV1ResponseMPayload",
+    "NotaryImportIntoEDMV1Request",
+    "NotaryImportIntoEDMV1Response",
+    "NotaryImportIntoEDMV1ResponseMPayload",
     "NotificationsectionGetNotificationtestsV1Response",
     "NotificationsectionGetNotificationtestsV1ResponseMPayload",
     "NotificationsubsectionResponse",
     "NotificationtestGetElementsV2Response",
     "NotificationtestGetElementsV2ResponseMPayload",
     "NotificationtestResponse",
+    "OfficetaxreportBatchDownloadV1Request",
+    "OfficetaxreportGetAttachmentsV1Response",
+    "OfficetaxreportGetAttachmentsV1ResponseMPayload",
+    "OfficetaxreportImportIntoEDMV1Request",
+    "OfficetaxreportImportIntoEDMV1Response",
+    "OfficetaxreportImportIntoEDMV1ResponseMPayload",
+    "OtherincomeBatchDownloadV1Request",
+    "OtherincomeGetAttachmentsV1Response",
+    "OtherincomeGetAttachmentsV1ResponseMPayload",
     "OtherincomeGetCommunicationCountV1Response",
     "OtherincomeGetCommunicationCountV1ResponseMPayload",
     "OtherincomeGetCommunicationListV1Response",
@@ -1878,6 +1992,12 @@ __all__ = [
     "PaymentmethodAutocompleteElementResponse",
     "PaymentmethodGetAutocompleteV2Response",
     "PaymentmethodGetAutocompleteV2ResponseMPayload",
+    "PaymentpreparationBatchDownloadV1Request",
+    "PaymentpreparationGetAttachmentsV1Response",
+    "PaymentpreparationGetAttachmentsV1ResponseMPayload",
+    "PaymentpreparationImportIntoEDMV1Request",
+    "PaymentpreparationImportIntoEDMV1Response",
+    "PaymentpreparationImportIntoEDMV1ResponseMPayload",
     "PaymenttermAutocompleteElementResponse",
     "PaymenttermCreateObjectV1Request",
     "PaymenttermCreateObjectV1Response",
@@ -1925,12 +2045,27 @@ __all__ = [
     "ProvinceAutocompleteElementResponse",
     "ProvinceGetAutocompleteV2Response",
     "ProvinceGetAutocompleteV2ResponseMPayload",
+    "PurchaseBatchDownloadV1Request",
+    "PurchaseGetAttachmentsV1Response",
+    "PurchaseGetAttachmentsV1ResponseMPayload",
+    "PurchaseImportIntoEDMV1Request",
+    "PurchaseImportIntoEDMV1Response",
+    "PurchaseImportIntoEDMV1ResponseMPayload",
     "RealestateassociationAutocompleteElementResponse",
     "RealestateassociationGetAutocompleteV2Response",
     "RealestateassociationGetAutocompleteV2ResponseMPayload",
     "RealestateboardAutocompleteElementResponse",
     "RealestateboardGetAutocompleteV2Response",
     "RealestateboardGetAutocompleteV2ResponseMPayload",
+    "ReconciliationBatchDownloadV1Request",
+    "ReconciliationGetAttachmentsV1Response",
+    "ReconciliationGetAttachmentsV1ResponseMPayload",
+    "ReconciliationImportIntoEDMV1Request",
+    "ReconciliationImportIntoEDMV1Response",
+    "ReconciliationImportIntoEDMV1ResponseMPayload",
+    "RejectedoffertopurchaseBatchDownloadV1Request",
+    "RejectedoffertopurchaseGetAttachmentsV1Response",
+    "RejectedoffertopurchaseGetAttachmentsV1ResponseMPayload",
     "RejectedoffertopurchaseGetCommunicationCountV1Response",
     "RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload",
     "RejectedoffertopurchaseGetCommunicationListV1Response",
@@ -1945,6 +2080,12 @@ __all__ = [
     "RejectedoffertopurchaseImportIntoEDMV1Response",
     "RejectedoffertopurchaseImportIntoEDMV1ResponseMPayload",
     "RejectedoffertopurchaseListElement",
+    "SalaryBatchDownloadV1Request",
+    "SalaryGetAttachmentsV1Response",
+    "SalaryGetAttachmentsV1ResponseMPayload",
+    "SalaryImportIntoEDMV1Request",
+    "SalaryImportIntoEDMV1Response",
+    "SalaryImportIntoEDMV1ResponseMPayload",
     "ScimAuthenticationScheme",
     "ScimEmail",
     "ScimGroup",
@@ -1990,6 +2131,9 @@ __all__ = [
     "SubnetRequestCompound",
     "SubnetResponse",
     "SubnetResponseCompound",
+    "SupplierBatchDownloadV1Request",
+    "SupplierGetAttachmentsV1Response",
+    "SupplierGetAttachmentsV1ResponseMPayload",
     "SupplierGetListV1Response",
     "SupplierGetListV1ResponseMPayload",
     "SupplierImportIntoEDMV1Request",
@@ -2239,6 +2383,8 @@ __all__ = [
     "WebhookGetObjectV2Response",
     "WebhookGetObjectV2ResponseMPayload",
     "WebhookListElement",
+    "WebhookRealestateBuyercontractCreated",
+    "WebhookRealestateBuyercontractModified",
     "WebhookRealestateInscriptionCreated",
     "WebhookRealestateInscriptionModified",
     "WebhookRealestateInscriptionnotauthenticatedCreated",
@@ -2281,6 +2427,7 @@ from eZmaxApi.api.module_ezmaxmaillinglist_api import ModuleEzmaxmaillinglistApi
 from eZmaxApi.api.module_report_api import ModuleReportApi as ModuleReportApi
 from eZmaxApi.api.module_user_api import ModuleUserApi as ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi as ObjectActivesessionApi
+from eZmaxApi.api.object_adjustment_api import ObjectAdjustmentApi as ObjectAdjustmentApi
 from eZmaxApi.api.object_agent_api import ObjectAgentApi as ObjectAgentApi
 from eZmaxApi.api.object_agenttype_api import ObjectAgenttypeApi as ObjectAgenttypeApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi as ObjectApikeyApi
@@ -2294,6 +2441,7 @@ from eZmaxApi.api.object_broker_api import ObjectBrokerApi as ObjectBrokerApi
 from eZmaxApi.api.object_brokertype_api import ObjectBrokertypeApi as ObjectBrokertypeApi
 from eZmaxApi.api.object_buyercontract_api import ObjectBuyercontractApi as ObjectBuyercontractApi
 from eZmaxApi.api.object_clonehistory_api import ObjectClonehistoryApi as ObjectClonehistoryApi
+from eZmaxApi.api.object_commissionadvance_api import ObjectCommissionadvanceApi as ObjectCommissionadvanceApi
 from eZmaxApi.api.object_communication_api import ObjectCommunicationApi as ObjectCommunicationApi
 from eZmaxApi.api.object_company_api import ObjectCompanyApi as ObjectCompanyApi
 from eZmaxApi.api.object_contacttitle_api import ObjectContacttitleApi as ObjectContacttitleApi
@@ -2305,6 +2453,9 @@ from eZmaxApi.api.object_creditcardtype_api import ObjectCreditcardtypeApi as Ob
 from eZmaxApi.api.object_currency_api import ObjectCurrencyApi as ObjectCurrencyApi
 from eZmaxApi.api.object_customer_api import ObjectCustomerApi as ObjectCustomerApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi as ObjectDepartmentApi
+from eZmaxApi.api.object_deposit_api import ObjectDepositApi as ObjectDepositApi
+from eZmaxApi.api.object_deposittransitcheque_api import ObjectDeposittransitchequeApi as ObjectDeposittransitchequeApi
+from eZmaxApi.api.object_disclosure_api import ObjectDisclosureApi as ObjectDisclosureApi
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi as ObjectDiscussionApi
 from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembershipApi as ObjectDiscussionmembershipApi
 from eZmaxApi.api.object_discussionmessage_api import ObjectDiscussionmessageApi as ObjectDiscussionmessageApi
@@ -2356,6 +2507,7 @@ from eZmaxApi.api.object_ezsigntemplatesignature_api import ObjectEzsigntemplate
 from eZmaxApi.api.object_ezsigntemplatesigner_api import ObjectEzsigntemplatesignerApi as ObjectEzsigntemplatesignerApi
 from eZmaxApi.api.object_ezsigntsarequirement_api import ObjectEzsigntsarequirementApi as ObjectEzsigntsarequirementApi
 from eZmaxApi.api.object_ezsignuser_api import ObjectEzsignuserApi as ObjectEzsignuserApi
+from eZmaxApi.api.object_folder_api import ObjectFolderApi as ObjectFolderApi
 from eZmaxApi.api.object_font_api import ObjectFontApi as ObjectFontApi
 from eZmaxApi.api.object_franchisebroker_api import ObjectFranchisebrokerApi as ObjectFranchisebrokerApi
 from eZmaxApi.api.object_franchiseoffice_api import ObjectFranchiseofficeApi as ObjectFranchiseofficeApi
@@ -2374,21 +2526,27 @@ from eZmaxApi.api.object_lead_api import ObjectLeadApi as ObjectLeadApi
 from eZmaxApi.api.object_leadsource_api import ObjectLeadsourceApi as ObjectLeadsourceApi
 from eZmaxApi.api.object_module_api import ObjectModuleApi as ObjectModuleApi
 from eZmaxApi.api.object_modulegroup_api import ObjectModulegroupApi as ObjectModulegroupApi
+from eZmaxApi.api.object_notary_api import ObjectNotaryApi as ObjectNotaryApi
 from eZmaxApi.api.object_notificationsection_api import ObjectNotificationsectionApi as ObjectNotificationsectionApi
 from eZmaxApi.api.object_notificationtest_api import ObjectNotificationtestApi as ObjectNotificationtestApi
+from eZmaxApi.api.object_officetaxreport_api import ObjectOfficetaxreportApi as ObjectOfficetaxreportApi
 from eZmaxApi.api.object_otherincome_api import ObjectOtherincomeApi as ObjectOtherincomeApi
 from eZmaxApi.api.object_otherincometype_api import ObjectOtherincometypeApi as ObjectOtherincometypeApi
 from eZmaxApi.api.object_paymentgateway_api import ObjectPaymentgatewayApi as ObjectPaymentgatewayApi
 from eZmaxApi.api.object_paymentmethod_api import ObjectPaymentmethodApi as ObjectPaymentmethodApi
+from eZmaxApi.api.object_paymentpreparation_api import ObjectPaymentpreparationApi as ObjectPaymentpreparationApi
 from eZmaxApi.api.object_paymentterm_api import ObjectPaymenttermApi as ObjectPaymenttermApi
 from eZmaxApi.api.object_pdfalevel_api import ObjectPdfalevelApi as ObjectPdfalevelApi
 from eZmaxApi.api.object_period_api import ObjectPeriodApi as ObjectPeriodApi
 from eZmaxApi.api.object_permission_api import ObjectPermissionApi as ObjectPermissionApi
 from eZmaxApi.api.object_phonetype_api import ObjectPhonetypeApi as ObjectPhonetypeApi
 from eZmaxApi.api.object_province_api import ObjectProvinceApi as ObjectProvinceApi
+from eZmaxApi.api.object_purchase_api import ObjectPurchaseApi as ObjectPurchaseApi
 from eZmaxApi.api.object_realestateassociation_api import ObjectRealestateassociationApi as ObjectRealestateassociationApi
 from eZmaxApi.api.object_realestateboard_api import ObjectRealestateboardApi as ObjectRealestateboardApi
+from eZmaxApi.api.object_reconciliation_api import ObjectReconciliationApi as ObjectReconciliationApi
 from eZmaxApi.api.object_rejectedoffertopurchase_api import ObjectRejectedoffertopurchaseApi as ObjectRejectedoffertopurchaseApi
+from eZmaxApi.api.object_salary_api import ObjectSalaryApi as ObjectSalaryApi
 from eZmaxApi.api.object_secretquestion_api import ObjectSecretquestionApi as ObjectSecretquestionApi
 from eZmaxApi.api.object_sessionhistory_api import ObjectSessionhistoryApi as ObjectSessionhistoryApi
 from eZmaxApi.api.object_signature_api import ObjectSignatureApi as ObjectSignatureApi
@@ -2444,7 +2602,24 @@ from eZmaxApi.models.address_request import AddressRequest as AddressRequest
 from eZmaxApi.models.address_request_compound import AddressRequestCompound as AddressRequestCompound
 from eZmaxApi.models.address_response import AddressResponse as AddressResponse
 from eZmaxApi.models.address_response_compound import AddressResponseCompound as AddressResponseCompound
+from eZmaxApi.models.adjustment_batch_download_v1_request import AdjustmentBatchDownloadV1Request as AdjustmentBatchDownloadV1Request
+from eZmaxApi.models.adjustment_get_attachments_v1_response import AdjustmentGetAttachmentsV1Response as AdjustmentGetAttachmentsV1Response
+from eZmaxApi.models.adjustment_get_attachments_v1_response_m_payload import AdjustmentGetAttachmentsV1ResponseMPayload as AdjustmentGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.adjustment_get_communication_count_v1_response import AdjustmentGetCommunicationCountV1Response as AdjustmentGetCommunicationCountV1Response
+from eZmaxApi.models.adjustment_get_communication_count_v1_response_m_payload import AdjustmentGetCommunicationCountV1ResponseMPayload as AdjustmentGetCommunicationCountV1ResponseMPayload
+from eZmaxApi.models.adjustment_get_communication_list_v1_response import AdjustmentGetCommunicationListV1Response as AdjustmentGetCommunicationListV1Response
+from eZmaxApi.models.adjustment_get_communication_list_v1_response_m_payload import AdjustmentGetCommunicationListV1ResponseMPayload as AdjustmentGetCommunicationListV1ResponseMPayload
+from eZmaxApi.models.adjustment_get_communicationrecipients_v1_response import AdjustmentGetCommunicationrecipientsV1Response as AdjustmentGetCommunicationrecipientsV1Response
+from eZmaxApi.models.adjustment_get_communicationrecipients_v1_response_m_payload import AdjustmentGetCommunicationrecipientsV1ResponseMPayload as AdjustmentGetCommunicationrecipientsV1ResponseMPayload
+from eZmaxApi.models.adjustment_get_communicationsenders_v1_response import AdjustmentGetCommunicationsendersV1Response as AdjustmentGetCommunicationsendersV1Response
+from eZmaxApi.models.adjustment_get_communicationsenders_v1_response_m_payload import AdjustmentGetCommunicationsendersV1ResponseMPayload as AdjustmentGetCommunicationsendersV1ResponseMPayload
+from eZmaxApi.models.adjustment_import_into_edmv1_request import AdjustmentImportIntoEDMV1Request as AdjustmentImportIntoEDMV1Request
+from eZmaxApi.models.adjustment_import_into_edmv1_response import AdjustmentImportIntoEDMV1Response as AdjustmentImportIntoEDMV1Response
+from eZmaxApi.models.adjustment_import_into_edmv1_response_m_payload import AdjustmentImportIntoEDMV1ResponseMPayload as AdjustmentImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.agent_autocomplete_element_response import AgentAutocompleteElementResponse as AgentAutocompleteElementResponse
+from eZmaxApi.models.agent_batch_download_v1_request import AgentBatchDownloadV1Request as AgentBatchDownloadV1Request
+from eZmaxApi.models.agent_get_attachments_v1_response import AgentGetAttachmentsV1Response as AgentGetAttachmentsV1Response
+from eZmaxApi.models.agent_get_attachments_v1_response_m_payload import AgentGetAttachmentsV1ResponseMPayload as AgentGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.agent_get_autocomplete_v2_response import AgentGetAutocompleteV2Response as AgentGetAutocompleteV2Response
 from eZmaxApi.models.agent_get_autocomplete_v2_response_m_payload import AgentGetAutocompleteV2ResponseMPayload as AgentGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.agent_get_list_v1_response import AgentGetListV1Response as AgentGetListV1Response
@@ -2487,6 +2662,9 @@ from eZmaxApi.models.apikey_response import ApikeyResponse as ApikeyResponse
 from eZmaxApi.models.apikey_response_compound import ApikeyResponseCompound as ApikeyResponseCompound
 from eZmaxApi.models.attachment_get_attachmentlogs_v1_response import AttachmentGetAttachmentlogsV1Response as AttachmentGetAttachmentlogsV1Response
 from eZmaxApi.models.attachment_get_attachmentlogs_v1_response_m_payload import AttachmentGetAttachmentlogsV1ResponseMPayload as AttachmentGetAttachmentlogsV1ResponseMPayload
+from eZmaxApi.models.attachment_rename_v1_request import AttachmentRenameV1Request as AttachmentRenameV1Request
+from eZmaxApi.models.attachment_rename_v1_response import AttachmentRenameV1Response as AttachmentRenameV1Response
+from eZmaxApi.models.attachment_rename_v1_response_m_payload import AttachmentRenameV1ResponseMPayload as AttachmentRenameV1ResponseMPayload
 from eZmaxApi.models.attachment_response import AttachmentResponse as AttachmentResponse
 from eZmaxApi.models.attachment_response_compound import AttachmentResponseCompound as AttachmentResponseCompound
 from eZmaxApi.models.attachmentlog_response import AttachmentlogResponse as AttachmentlogResponse
@@ -2513,8 +2691,14 @@ from eZmaxApi.models.authenticationexternal_reset_authorization_v1_response impo
 from eZmaxApi.models.authenticationexternal_response import AuthenticationexternalResponse as AuthenticationexternalResponse
 from eZmaxApi.models.authenticationexternal_response_compound import AuthenticationexternalResponseCompound as AuthenticationexternalResponseCompound
 from eZmaxApi.models.bankaccount_autocomplete_element_response import BankaccountAutocompleteElementResponse as BankaccountAutocompleteElementResponse
+from eZmaxApi.models.bankaccount_batch_download_v1_request import BankaccountBatchDownloadV1Request as BankaccountBatchDownloadV1Request
+from eZmaxApi.models.bankaccount_get_attachments_v1_response import BankaccountGetAttachmentsV1Response as BankaccountGetAttachmentsV1Response
+from eZmaxApi.models.bankaccount_get_attachments_v1_response_m_payload import BankaccountGetAttachmentsV1ResponseMPayload as BankaccountGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.bankaccount_get_autocomplete_v2_response import BankaccountGetAutocompleteV2Response as BankaccountGetAutocompleteV2Response
 from eZmaxApi.models.bankaccount_get_autocomplete_v2_response_m_payload import BankaccountGetAutocompleteV2ResponseMPayload as BankaccountGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.bankaccount_import_into_edmv1_request import BankaccountImportIntoEDMV1Request as BankaccountImportIntoEDMV1Request
+from eZmaxApi.models.bankaccount_import_into_edmv1_response import BankaccountImportIntoEDMV1Response as BankaccountImportIntoEDMV1Response
+from eZmaxApi.models.bankaccount_import_into_edmv1_response_m_payload import BankaccountImportIntoEDMV1ResponseMPayload as BankaccountImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.billingentityexternal_autocomplete_element_response import BillingentityexternalAutocompleteElementResponse as BillingentityexternalAutocompleteElementResponse
 from eZmaxApi.models.billingentityexternal_generate_federation_token_v1_request import BillingentityexternalGenerateFederationTokenV1Request as BillingentityexternalGenerateFederationTokenV1Request
 from eZmaxApi.models.billingentityexternal_generate_federation_token_v1_response import BillingentityexternalGenerateFederationTokenV1Response as BillingentityexternalGenerateFederationTokenV1Response
@@ -2560,6 +2744,9 @@ from eZmaxApi.models.branding_request_v2 import BrandingRequestV2 as BrandingReq
 from eZmaxApi.models.branding_response_compound_v3 import BrandingResponseCompoundV3 as BrandingResponseCompoundV3
 from eZmaxApi.models.branding_response_v3 import BrandingResponseV3 as BrandingResponseV3
 from eZmaxApi.models.broker_autocomplete_element_response import BrokerAutocompleteElementResponse as BrokerAutocompleteElementResponse
+from eZmaxApi.models.broker_batch_download_v1_request import BrokerBatchDownloadV1Request as BrokerBatchDownloadV1Request
+from eZmaxApi.models.broker_get_attachments_v1_response import BrokerGetAttachmentsV1Response as BrokerGetAttachmentsV1Response
+from eZmaxApi.models.broker_get_attachments_v1_response_m_payload import BrokerGetAttachmentsV1ResponseMPayload as BrokerGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.broker_get_autocomplete_v2_response import BrokerGetAutocompleteV2Response as BrokerGetAutocompleteV2Response
 from eZmaxApi.models.broker_get_autocomplete_v2_response_m_payload import BrokerGetAutocompleteV2ResponseMPayload as BrokerGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.broker_get_list_v1_response import BrokerGetListV1Response as BrokerGetListV1Response
@@ -2571,6 +2758,9 @@ from eZmaxApi.models.broker_list_element import BrokerListElement as BrokerListE
 from eZmaxApi.models.brokertype_autocomplete_element_response import BrokertypeAutocompleteElementResponse as BrokertypeAutocompleteElementResponse
 from eZmaxApi.models.brokertype_get_autocomplete_v2_response import BrokertypeGetAutocompleteV2Response as BrokertypeGetAutocompleteV2Response
 from eZmaxApi.models.brokertype_get_autocomplete_v2_response_m_payload import BrokertypeGetAutocompleteV2ResponseMPayload as BrokertypeGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.buyercontract_batch_download_v1_request import BuyercontractBatchDownloadV1Request as BuyercontractBatchDownloadV1Request
+from eZmaxApi.models.buyercontract_get_attachments_v1_response import BuyercontractGetAttachmentsV1Response as BuyercontractGetAttachmentsV1Response
+from eZmaxApi.models.buyercontract_get_attachments_v1_response_m_payload import BuyercontractGetAttachmentsV1ResponseMPayload as BuyercontractGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.buyercontract_get_communication_count_v1_response import BuyercontractGetCommunicationCountV1Response as BuyercontractGetCommunicationCountV1Response
 from eZmaxApi.models.buyercontract_get_communication_count_v1_response_m_payload import BuyercontractGetCommunicationCountV1ResponseMPayload as BuyercontractGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.buyercontract_get_communication_list_v1_response import BuyercontractGetCommunicationListV1Response as BuyercontractGetCommunicationListV1Response
@@ -2585,6 +2775,7 @@ from eZmaxApi.models.buyercontract_import_into_edmv1_request import Buyercontrac
 from eZmaxApi.models.buyercontract_import_into_edmv1_response import BuyercontractImportIntoEDMV1Response as BuyercontractImportIntoEDMV1Response
 from eZmaxApi.models.buyercontract_import_into_edmv1_response_m_payload import BuyercontractImportIntoEDMV1ResponseMPayload as BuyercontractImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.buyercontract_list_element import BuyercontractListElement as BuyercontractListElement
+from eZmaxApi.models.buyercontract_response import BuyercontractResponse as BuyercontractResponse
 from eZmaxApi.models.clonehistory_get_list_v1_response import ClonehistoryGetListV1Response as ClonehistoryGetListV1Response
 from eZmaxApi.models.clonehistory_get_list_v1_response_m_payload import ClonehistoryGetListV1ResponseMPayload as ClonehistoryGetListV1ResponseMPayload
 from eZmaxApi.models.clonehistory_list_element import ClonehistoryListElement as ClonehistoryListElement
@@ -2592,6 +2783,12 @@ from eZmaxApi.models.colleague_request_compound_v2 import ColleagueRequestCompou
 from eZmaxApi.models.colleague_request_v2 import ColleagueRequestV2 as ColleagueRequestV2
 from eZmaxApi.models.colleague_response_compound_v2 import ColleagueResponseCompoundV2 as ColleagueResponseCompoundV2
 from eZmaxApi.models.colleague_response_v2 import ColleagueResponseV2 as ColleagueResponseV2
+from eZmaxApi.models.commissionadvance_batch_download_v1_request import CommissionadvanceBatchDownloadV1Request as CommissionadvanceBatchDownloadV1Request
+from eZmaxApi.models.commissionadvance_get_attachments_v1_response import CommissionadvanceGetAttachmentsV1Response as CommissionadvanceGetAttachmentsV1Response
+from eZmaxApi.models.commissionadvance_get_attachments_v1_response_m_payload import CommissionadvanceGetAttachmentsV1ResponseMPayload as CommissionadvanceGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.commissionadvance_import_into_edmv1_request import CommissionadvanceImportIntoEDMV1Request as CommissionadvanceImportIntoEDMV1Request
+from eZmaxApi.models.commissionadvance_import_into_edmv1_response import CommissionadvanceImportIntoEDMV1Response as CommissionadvanceImportIntoEDMV1Response
+from eZmaxApi.models.commissionadvance_import_into_edmv1_response_m_payload import CommissionadvanceImportIntoEDMV1ResponseMPayload as CommissionadvanceImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.common_audit import CommonAudit as CommonAudit
 from eZmaxApi.models.common_auditdetail import CommonAuditdetail as CommonAuditdetail
 from eZmaxApi.models.common_file import CommonFile as CommonFile
@@ -2795,6 +2992,9 @@ from eZmaxApi.models.custom_webhooklog_response import CustomWebhooklogResponse 
 from eZmaxApi.models.custom_word_position_occurence_response import CustomWordPositionOccurenceResponse as CustomWordPositionOccurenceResponse
 from eZmaxApi.models.custom_word_position_word_response import CustomWordPositionWordResponse as CustomWordPositionWordResponse
 from eZmaxApi.models.customer_autocomplete_element_response import CustomerAutocompleteElementResponse as CustomerAutocompleteElementResponse
+from eZmaxApi.models.customer_batch_download_v1_request import CustomerBatchDownloadV1Request as CustomerBatchDownloadV1Request
+from eZmaxApi.models.customer_get_attachments_v1_response import CustomerGetAttachmentsV1Response as CustomerGetAttachmentsV1Response
+from eZmaxApi.models.customer_get_attachments_v1_response_m_payload import CustomerGetAttachmentsV1ResponseMPayload as CustomerGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.customer_get_autocomplete_v2_response import CustomerGetAutocompleteV2Response as CustomerGetAutocompleteV2Response
 from eZmaxApi.models.customer_get_autocomplete_v2_response_m_payload import CustomerGetAutocompleteV2ResponseMPayload as CustomerGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.customer_get_object_v2_response import CustomerGetObjectV2Response as CustomerGetObjectV2Response
@@ -2807,6 +3007,24 @@ from eZmaxApi.models.customer_response_compound import CustomerResponseCompound 
 from eZmaxApi.models.department_autocomplete_element_response import DepartmentAutocompleteElementResponse as DepartmentAutocompleteElementResponse
 from eZmaxApi.models.department_get_autocomplete_v2_response import DepartmentGetAutocompleteV2Response as DepartmentGetAutocompleteV2Response
 from eZmaxApi.models.department_get_autocomplete_v2_response_m_payload import DepartmentGetAutocompleteV2ResponseMPayload as DepartmentGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.deposit_batch_download_v1_request import DepositBatchDownloadV1Request as DepositBatchDownloadV1Request
+from eZmaxApi.models.deposit_get_attachments_v1_response import DepositGetAttachmentsV1Response as DepositGetAttachmentsV1Response
+from eZmaxApi.models.deposit_get_attachments_v1_response_m_payload import DepositGetAttachmentsV1ResponseMPayload as DepositGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.deposit_import_into_edmv1_request import DepositImportIntoEDMV1Request as DepositImportIntoEDMV1Request
+from eZmaxApi.models.deposit_import_into_edmv1_response import DepositImportIntoEDMV1Response as DepositImportIntoEDMV1Response
+from eZmaxApi.models.deposit_import_into_edmv1_response_m_payload import DepositImportIntoEDMV1ResponseMPayload as DepositImportIntoEDMV1ResponseMPayload
+from eZmaxApi.models.deposittransitcheque_batch_download_v1_request import DeposittransitchequeBatchDownloadV1Request as DeposittransitchequeBatchDownloadV1Request
+from eZmaxApi.models.deposittransitcheque_get_attachments_v1_response import DeposittransitchequeGetAttachmentsV1Response as DeposittransitchequeGetAttachmentsV1Response
+from eZmaxApi.models.deposittransitcheque_get_attachments_v1_response_m_payload import DeposittransitchequeGetAttachmentsV1ResponseMPayload as DeposittransitchequeGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.deposittransitcheque_import_into_edmv1_request import DeposittransitchequeImportIntoEDMV1Request as DeposittransitchequeImportIntoEDMV1Request
+from eZmaxApi.models.deposittransitcheque_import_into_edmv1_response import DeposittransitchequeImportIntoEDMV1Response as DeposittransitchequeImportIntoEDMV1Response
+from eZmaxApi.models.deposittransitcheque_import_into_edmv1_response_m_payload import DeposittransitchequeImportIntoEDMV1ResponseMPayload as DeposittransitchequeImportIntoEDMV1ResponseMPayload
+from eZmaxApi.models.disclosure_batch_download_v1_request import DisclosureBatchDownloadV1Request as DisclosureBatchDownloadV1Request
+from eZmaxApi.models.disclosure_get_attachments_v1_response import DisclosureGetAttachmentsV1Response as DisclosureGetAttachmentsV1Response
+from eZmaxApi.models.disclosure_get_attachments_v1_response_m_payload import DisclosureGetAttachmentsV1ResponseMPayload as DisclosureGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.disclosure_import_into_edmv1_request import DisclosureImportIntoEDMV1Request as DisclosureImportIntoEDMV1Request
+from eZmaxApi.models.disclosure_import_into_edmv1_response import DisclosureImportIntoEDMV1Response as DisclosureImportIntoEDMV1Response
+from eZmaxApi.models.disclosure_import_into_edmv1_response_m_payload import DisclosureImportIntoEDMV1ResponseMPayload as DisclosureImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.discussion_chat_v1200_response import DiscussionChatV1200Response as DiscussionChatV1200Response
 from eZmaxApi.models.discussion_chat_v1_request import DiscussionChatV1Request as DiscussionChatV1Request
 from eZmaxApi.models.discussion_create_object_v1_request import DiscussionCreateObjectV1Request as DiscussionCreateObjectV1Request
@@ -2859,6 +3077,9 @@ from eZmaxApi.models.domain_request import DomainRequest as DomainRequest
 from eZmaxApi.models.domain_request_compound import DomainRequestCompound as DomainRequestCompound
 from eZmaxApi.models.domain_response import DomainResponse as DomainResponse
 from eZmaxApi.models.domain_response_compound import DomainResponseCompound as DomainResponseCompound
+from eZmaxApi.models.electronicfundstransfer_batch_download_v1_request import ElectronicfundstransferBatchDownloadV1Request as ElectronicfundstransferBatchDownloadV1Request
+from eZmaxApi.models.electronicfundstransfer_get_attachments_v1_response import ElectronicfundstransferGetAttachmentsV1Response as ElectronicfundstransferGetAttachmentsV1Response
+from eZmaxApi.models.electronicfundstransfer_get_attachments_v1_response_m_payload import ElectronicfundstransferGetAttachmentsV1ResponseMPayload as ElectronicfundstransferGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.electronicfundstransfer_get_communication_count_v1_response import ElectronicfundstransferGetCommunicationCountV1Response as ElectronicfundstransferGetCommunicationCountV1Response
 from eZmaxApi.models.electronicfundstransfer_get_communication_count_v1_response_m_payload import ElectronicfundstransferGetCommunicationCountV1ResponseMPayload as ElectronicfundstransferGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.electronicfundstransfer_get_communication_list_v1_response import ElectronicfundstransferGetCommunicationListV1Response as ElectronicfundstransferGetCommunicationListV1Response
@@ -2877,6 +3098,9 @@ from eZmaxApi.models.email_response_compound import EmailResponseCompound as Ema
 from eZmaxApi.models.emailtype_autocomplete_element_response import EmailtypeAutocompleteElementResponse as EmailtypeAutocompleteElementResponse
 from eZmaxApi.models.emailtype_get_autocomplete_v2_response import EmailtypeGetAutocompleteV2Response as EmailtypeGetAutocompleteV2Response
 from eZmaxApi.models.emailtype_get_autocomplete_v2_response_m_payload import EmailtypeGetAutocompleteV2ResponseMPayload as EmailtypeGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.employee_batch_download_v1_request import EmployeeBatchDownloadV1Request as EmployeeBatchDownloadV1Request
+from eZmaxApi.models.employee_get_attachments_v1_response import EmployeeGetAttachmentsV1Response as EmployeeGetAttachmentsV1Response
+from eZmaxApi.models.employee_get_attachments_v1_response_m_payload import EmployeeGetAttachmentsV1ResponseMPayload as EmployeeGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.employee_get_list_v1_response import EmployeeGetListV1Response as EmployeeGetListV1Response
 from eZmaxApi.models.employee_get_list_v1_response_m_payload import EmployeeGetListV1ResponseMPayload as EmployeeGetListV1ResponseMPayload
 from eZmaxApi.models.employee_import_into_edmv1_request import EmployeeImportIntoEDMV1Request as EmployeeImportIntoEDMV1Request
@@ -2889,6 +3113,9 @@ from eZmaxApi.models.enum_horizontalalignment import EnumHorizontalalignment as 
 from eZmaxApi.models.enum_reportdata_type import EnumReportdataType as EnumReportdataType
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation as EnumTextvalidation
 from eZmaxApi.models.enum_verticalalignment import EnumVerticalalignment as EnumVerticalalignment
+from eZmaxApi.models.externalbroker_batch_download_v1_request import ExternalbrokerBatchDownloadV1Request as ExternalbrokerBatchDownloadV1Request
+from eZmaxApi.models.externalbroker_get_attachments_v1_response import ExternalbrokerGetAttachmentsV1Response as ExternalbrokerGetAttachmentsV1Response
+from eZmaxApi.models.externalbroker_get_attachments_v1_response_m_payload import ExternalbrokerGetAttachmentsV1ResponseMPayload as ExternalbrokerGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.externalbroker_import_into_edmv1_request import ExternalbrokerImportIntoEDMV1Request as ExternalbrokerImportIntoEDMV1Request
 from eZmaxApi.models.externalbroker_import_into_edmv1_response import ExternalbrokerImportIntoEDMV1Response as ExternalbrokerImportIntoEDMV1Response
 from eZmaxApi.models.externalbroker_import_into_edmv1_response_m_payload import ExternalbrokerImportIntoEDMV1ResponseMPayload as ExternalbrokerImportIntoEDMV1ResponseMPayload
@@ -3793,6 +4020,7 @@ from eZmaxApi.models.field_e_attachmentlog_type import FieldEAttachmentlogType a
 from eZmaxApi.models.field_e_authenticationexternal_type import FieldEAuthenticationexternalType as FieldEAuthenticationexternalType
 from eZmaxApi.models.field_e_branding_alignlogo import FieldEBrandingAlignlogo as FieldEBrandingAlignlogo
 from eZmaxApi.models.field_e_branding_logo import FieldEBrandingLogo as FieldEBrandingLogo
+from eZmaxApi.models.field_e_buyercontract_remunerationtype import FieldEBuyercontractRemunerationtype as FieldEBuyercontractRemunerationtype
 from eZmaxApi.models.field_e_buyercontract_step import FieldEBuyercontractStep as FieldEBuyercontractStep
 from eZmaxApi.models.field_e_buyercontract_type import FieldEBuyercontractType as FieldEBuyercontractType
 from eZmaxApi.models.field_e_colleague_ezsign import FieldEColleagueEzsign as FieldEColleagueEzsign
@@ -3932,6 +4160,12 @@ from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule as FieldE
 from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent as FieldEWebhookRealestateevent
 from eZmaxApi.models.field_et_inscriptionnotauthenticated_mortgagetype import FieldEtInscriptionnotauthenticatedMortgagetype as FieldEtInscriptionnotauthenticatedMortgagetype
 from eZmaxApi.models.field_pks_ezmaxclient_os import FieldPksEzmaxclientOs as FieldPksEzmaxclientOs
+from eZmaxApi.models.folder_batch_download_v1_request import FolderBatchDownloadV1Request as FolderBatchDownloadV1Request
+from eZmaxApi.models.folder_get_attachments_v1_response import FolderGetAttachmentsV1Response as FolderGetAttachmentsV1Response
+from eZmaxApi.models.folder_get_attachments_v1_response_m_payload import FolderGetAttachmentsV1ResponseMPayload as FolderGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.folder_import_into_edmv1_request import FolderImportIntoEDMV1Request as FolderImportIntoEDMV1Request
+from eZmaxApi.models.folder_import_into_edmv1_response import FolderImportIntoEDMV1Response as FolderImportIntoEDMV1Response
+from eZmaxApi.models.folder_import_into_edmv1_response_m_payload import FolderImportIntoEDMV1ResponseMPayload as FolderImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.font_autocomplete_element_response import FontAutocompleteElementResponse as FontAutocompleteElementResponse
 from eZmaxApi.models.font_get_autocomplete_v2_response import FontGetAutocompleteV2Response as FontGetAutocompleteV2Response
 from eZmaxApi.models.font_get_autocomplete_v2_response_m_payload import FontGetAutocompleteV2ResponseMPayload as FontGetAutocompleteV2ResponseMPayload
@@ -3959,6 +4193,7 @@ from eZmaxApi.models.header_accept_language import HeaderAcceptLanguage as Heade
 from eZmaxApi.models.infrastructureregion_autocomplete_element_response import InfrastructureregionAutocompleteElementResponse as InfrastructureregionAutocompleteElementResponse
 from eZmaxApi.models.infrastructureregion_get_autocomplete_v2_response import InfrastructureregionGetAutocompleteV2Response as InfrastructureregionGetAutocompleteV2Response
 from eZmaxApi.models.infrastructureregion_get_autocomplete_v2_response_m_payload import InfrastructureregionGetAutocompleteV2ResponseMPayload as InfrastructureregionGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.inscription_batch_download_v1_request import InscriptionBatchDownloadV1Request as InscriptionBatchDownloadV1Request
 from eZmaxApi.models.inscription_get_attachments_v1_response import InscriptionGetAttachmentsV1Response as InscriptionGetAttachmentsV1Response
 from eZmaxApi.models.inscription_get_attachments_v1_response_m_payload import InscriptionGetAttachmentsV1ResponseMPayload as InscriptionGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.inscription_get_communication_count_v1_response import InscriptionGetCommunicationCountV1Response as InscriptionGetCommunicationCountV1Response
@@ -3987,8 +4222,11 @@ from eZmaxApi.models.inscription_response_compound import InscriptionResponseCom
 from eZmaxApi.models.inscriptionchecklist_autocomplete_element_response import InscriptionchecklistAutocompleteElementResponse as InscriptionchecklistAutocompleteElementResponse
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response import InscriptionchecklistGetAutocompleteV3Response as InscriptionchecklistGetAutocompleteV3Response
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response_m_payload import InscriptionchecklistGetAutocompleteV3ResponseMPayload as InscriptionchecklistGetAutocompleteV3ResponseMPayload
+from eZmaxApi.models.inscriptionnotauthenticated_batch_download_v1_request import InscriptionnotauthenticatedBatchDownloadV1Request as InscriptionnotauthenticatedBatchDownloadV1Request
 from eZmaxApi.models.inscriptionnotauthenticated_fill_inscriptionnotauthenticatedcondition_v1_request import InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request as InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Request
 from eZmaxApi.models.inscriptionnotauthenticated_fill_inscriptionnotauthenticatedcondition_v1_response import InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response as InscriptionnotauthenticatedFillInscriptionnotauthenticatedconditionV1Response
+from eZmaxApi.models.inscriptionnotauthenticated_get_attachments_v1_response import InscriptionnotauthenticatedGetAttachmentsV1Response as InscriptionnotauthenticatedGetAttachmentsV1Response
+from eZmaxApi.models.inscriptionnotauthenticated_get_attachments_v1_response_m_payload import InscriptionnotauthenticatedGetAttachmentsV1ResponseMPayload as InscriptionnotauthenticatedGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.inscriptionnotauthenticated_get_communication_count_v1_response import InscriptionnotauthenticatedGetCommunicationCountV1Response as InscriptionnotauthenticatedGetCommunicationCountV1Response
 from eZmaxApi.models.inscriptionnotauthenticated_get_communication_count_v1_response_m_payload import InscriptionnotauthenticatedGetCommunicationCountV1ResponseMPayload as InscriptionnotauthenticatedGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.inscriptionnotauthenticated_get_communication_list_v1_response import InscriptionnotauthenticatedGetCommunicationListV1Response as InscriptionnotauthenticatedGetCommunicationListV1Response
@@ -4011,6 +4249,9 @@ from eZmaxApi.models.inscriptionnotauthenticated_response import Inscriptionnota
 from eZmaxApi.models.inscriptionnotauthenticated_response_compound import InscriptionnotauthenticatedResponseCompound as InscriptionnotauthenticatedResponseCompound
 from eZmaxApi.models.inscriptionnotauthenticatedcondition_response import InscriptionnotauthenticatedconditionResponse as InscriptionnotauthenticatedconditionResponse
 from eZmaxApi.models.inscriptionnotauthenticatedcondition_response_compound import InscriptionnotauthenticatedconditionResponseCompound as InscriptionnotauthenticatedconditionResponseCompound
+from eZmaxApi.models.inscriptiontemp_batch_download_v1_request import InscriptiontempBatchDownloadV1Request as InscriptiontempBatchDownloadV1Request
+from eZmaxApi.models.inscriptiontemp_get_attachments_v1_response import InscriptiontempGetAttachmentsV1Response as InscriptiontempGetAttachmentsV1Response
+from eZmaxApi.models.inscriptiontemp_get_attachments_v1_response_m_payload import InscriptiontempGetAttachmentsV1ResponseMPayload as InscriptiontempGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.inscriptiontemp_get_communication_count_v1_response import InscriptiontempGetCommunicationCountV1Response as InscriptiontempGetCommunicationCountV1Response
 from eZmaxApi.models.inscriptiontemp_get_communication_count_v1_response_m_payload import InscriptiontempGetCommunicationCountV1ResponseMPayload as InscriptiontempGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.inscriptiontemp_get_communication_list_v1_response import InscriptiontempGetCommunicationListV1Response as InscriptiontempGetCommunicationListV1Response
@@ -4028,6 +4269,7 @@ from eZmaxApi.models.inscriptiontemp_list_element import InscriptiontempListElem
 from eZmaxApi.models.inscriptiontype_autocomplete_element_response import InscriptiontypeAutocompleteElementResponse as InscriptiontypeAutocompleteElementResponse
 from eZmaxApi.models.inscriptiontype_get_autocomplete_v2_response import InscriptiontypeGetAutocompleteV2Response as InscriptiontypeGetAutocompleteV2Response
 from eZmaxApi.models.inscriptiontype_get_autocomplete_v2_response_m_payload import InscriptiontypeGetAutocompleteV2ResponseMPayload as InscriptiontypeGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.invoice_batch_download_v1_request import InvoiceBatchDownloadV1Request as InvoiceBatchDownloadV1Request
 from eZmaxApi.models.invoice_get_attachments_v1_response import InvoiceGetAttachmentsV1Response as InvoiceGetAttachmentsV1Response
 from eZmaxApi.models.invoice_get_attachments_v1_response_m_payload import InvoiceGetAttachmentsV1ResponseMPayload as InvoiceGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.invoice_get_communication_count_v1_response import InvoiceGetCommunicationCountV1Response as InvoiceGetCommunicationCountV1Response
@@ -4044,6 +4286,9 @@ from eZmaxApi.models.invoice_import_into_edmv1_response_m_payload import Invoice
 from eZmaxApi.models.language_autocomplete_element_response import LanguageAutocompleteElementResponse as LanguageAutocompleteElementResponse
 from eZmaxApi.models.language_get_autocomplete_v2_response import LanguageGetAutocompleteV2Response as LanguageGetAutocompleteV2Response
 from eZmaxApi.models.language_get_autocomplete_v2_response_m_payload import LanguageGetAutocompleteV2ResponseMPayload as LanguageGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.lead_batch_download_v1_request import LeadBatchDownloadV1Request as LeadBatchDownloadV1Request
+from eZmaxApi.models.lead_get_attachments_v1_response import LeadGetAttachmentsV1Response as LeadGetAttachmentsV1Response
+from eZmaxApi.models.lead_get_attachments_v1_response_m_payload import LeadGetAttachmentsV1ResponseMPayload as LeadGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.lead_get_list_v1_response import LeadGetListV1Response as LeadGetListV1Response
 from eZmaxApi.models.lead_get_list_v1_response_m_payload import LeadGetListV1ResponseMPayload as LeadGetListV1ResponseMPayload
 from eZmaxApi.models.lead_import_into_edmv1_request import LeadImportIntoEDMV1Request as LeadImportIntoEDMV1Request
@@ -4093,12 +4338,27 @@ from eZmaxApi.models.multilingual_usergroup_name import MultilingualUsergroupNam
 from eZmaxApi.models.multilingual_userlogintype_description import MultilingualUserlogintypeDescription as MultilingualUserlogintypeDescription
 from eZmaxApi.models.multilingual_variableexpense_description import MultilingualVariableexpenseDescription as MultilingualVariableexpenseDescription
 from eZmaxApi.models.multilingual_versionhistory_detail import MultilingualVersionhistoryDetail as MultilingualVersionhistoryDetail
+from eZmaxApi.models.notary_batch_download_v1_request import NotaryBatchDownloadV1Request as NotaryBatchDownloadV1Request
+from eZmaxApi.models.notary_get_attachments_v1_response import NotaryGetAttachmentsV1Response as NotaryGetAttachmentsV1Response
+from eZmaxApi.models.notary_get_attachments_v1_response_m_payload import NotaryGetAttachmentsV1ResponseMPayload as NotaryGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.notary_import_into_edmv1_request import NotaryImportIntoEDMV1Request as NotaryImportIntoEDMV1Request
+from eZmaxApi.models.notary_import_into_edmv1_response import NotaryImportIntoEDMV1Response as NotaryImportIntoEDMV1Response
+from eZmaxApi.models.notary_import_into_edmv1_response_m_payload import NotaryImportIntoEDMV1ResponseMPayload as NotaryImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.notificationsection_get_notificationtests_v1_response import NotificationsectionGetNotificationtestsV1Response as NotificationsectionGetNotificationtestsV1Response
 from eZmaxApi.models.notificationsection_get_notificationtests_v1_response_m_payload import NotificationsectionGetNotificationtestsV1ResponseMPayload as NotificationsectionGetNotificationtestsV1ResponseMPayload
 from eZmaxApi.models.notificationsubsection_response import NotificationsubsectionResponse as NotificationsubsectionResponse
 from eZmaxApi.models.notificationtest_get_elements_v2_response import NotificationtestGetElementsV2Response as NotificationtestGetElementsV2Response
 from eZmaxApi.models.notificationtest_get_elements_v2_response_m_payload import NotificationtestGetElementsV2ResponseMPayload as NotificationtestGetElementsV2ResponseMPayload
 from eZmaxApi.models.notificationtest_response import NotificationtestResponse as NotificationtestResponse
+from eZmaxApi.models.officetaxreport_batch_download_v1_request import OfficetaxreportBatchDownloadV1Request as OfficetaxreportBatchDownloadV1Request
+from eZmaxApi.models.officetaxreport_get_attachments_v1_response import OfficetaxreportGetAttachmentsV1Response as OfficetaxreportGetAttachmentsV1Response
+from eZmaxApi.models.officetaxreport_get_attachments_v1_response_m_payload import OfficetaxreportGetAttachmentsV1ResponseMPayload as OfficetaxreportGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.officetaxreport_import_into_edmv1_request import OfficetaxreportImportIntoEDMV1Request as OfficetaxreportImportIntoEDMV1Request
+from eZmaxApi.models.officetaxreport_import_into_edmv1_response import OfficetaxreportImportIntoEDMV1Response as OfficetaxreportImportIntoEDMV1Response
+from eZmaxApi.models.officetaxreport_import_into_edmv1_response_m_payload import OfficetaxreportImportIntoEDMV1ResponseMPayload as OfficetaxreportImportIntoEDMV1ResponseMPayload
+from eZmaxApi.models.otherincome_batch_download_v1_request import OtherincomeBatchDownloadV1Request as OtherincomeBatchDownloadV1Request
+from eZmaxApi.models.otherincome_get_attachments_v1_response import OtherincomeGetAttachmentsV1Response as OtherincomeGetAttachmentsV1Response
+from eZmaxApi.models.otherincome_get_attachments_v1_response_m_payload import OtherincomeGetAttachmentsV1ResponseMPayload as OtherincomeGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.otherincome_get_communication_count_v1_response import OtherincomeGetCommunicationCountV1Response as OtherincomeGetCommunicationCountV1Response
 from eZmaxApi.models.otherincome_get_communication_count_v1_response_m_payload import OtherincomeGetCommunicationCountV1ResponseMPayload as OtherincomeGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.otherincome_get_communication_list_v1_response import OtherincomeGetCommunicationListV1Response as OtherincomeGetCommunicationListV1Response
@@ -4136,6 +4396,12 @@ from eZmaxApi.models.paymentgateway_response_compound import PaymentgatewayRespo
 from eZmaxApi.models.paymentmethod_autocomplete_element_response import PaymentmethodAutocompleteElementResponse as PaymentmethodAutocompleteElementResponse
 from eZmaxApi.models.paymentmethod_get_autocomplete_v2_response import PaymentmethodGetAutocompleteV2Response as PaymentmethodGetAutocompleteV2Response
 from eZmaxApi.models.paymentmethod_get_autocomplete_v2_response_m_payload import PaymentmethodGetAutocompleteV2ResponseMPayload as PaymentmethodGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.paymentpreparation_batch_download_v1_request import PaymentpreparationBatchDownloadV1Request as PaymentpreparationBatchDownloadV1Request
+from eZmaxApi.models.paymentpreparation_get_attachments_v1_response import PaymentpreparationGetAttachmentsV1Response as PaymentpreparationGetAttachmentsV1Response
+from eZmaxApi.models.paymentpreparation_get_attachments_v1_response_m_payload import PaymentpreparationGetAttachmentsV1ResponseMPayload as PaymentpreparationGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.paymentpreparation_import_into_edmv1_request import PaymentpreparationImportIntoEDMV1Request as PaymentpreparationImportIntoEDMV1Request
+from eZmaxApi.models.paymentpreparation_import_into_edmv1_response import PaymentpreparationImportIntoEDMV1Response as PaymentpreparationImportIntoEDMV1Response
+from eZmaxApi.models.paymentpreparation_import_into_edmv1_response_m_payload import PaymentpreparationImportIntoEDMV1ResponseMPayload as PaymentpreparationImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.paymentterm_autocomplete_element_response import PaymenttermAutocompleteElementResponse as PaymenttermAutocompleteElementResponse
 from eZmaxApi.models.paymentterm_create_object_v1_request import PaymenttermCreateObjectV1Request as PaymenttermCreateObjectV1Request
 from eZmaxApi.models.paymentterm_create_object_v1_response import PaymenttermCreateObjectV1Response as PaymenttermCreateObjectV1Response
@@ -4183,12 +4449,27 @@ from eZmaxApi.models.phonetype_get_autocomplete_v2_response_m_payload import Pho
 from eZmaxApi.models.province_autocomplete_element_response import ProvinceAutocompleteElementResponse as ProvinceAutocompleteElementResponse
 from eZmaxApi.models.province_get_autocomplete_v2_response import ProvinceGetAutocompleteV2Response as ProvinceGetAutocompleteV2Response
 from eZmaxApi.models.province_get_autocomplete_v2_response_m_payload import ProvinceGetAutocompleteV2ResponseMPayload as ProvinceGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.purchase_batch_download_v1_request import PurchaseBatchDownloadV1Request as PurchaseBatchDownloadV1Request
+from eZmaxApi.models.purchase_get_attachments_v1_response import PurchaseGetAttachmentsV1Response as PurchaseGetAttachmentsV1Response
+from eZmaxApi.models.purchase_get_attachments_v1_response_m_payload import PurchaseGetAttachmentsV1ResponseMPayload as PurchaseGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.purchase_import_into_edmv1_request import PurchaseImportIntoEDMV1Request as PurchaseImportIntoEDMV1Request
+from eZmaxApi.models.purchase_import_into_edmv1_response import PurchaseImportIntoEDMV1Response as PurchaseImportIntoEDMV1Response
+from eZmaxApi.models.purchase_import_into_edmv1_response_m_payload import PurchaseImportIntoEDMV1ResponseMPayload as PurchaseImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.realestateassociation_autocomplete_element_response import RealestateassociationAutocompleteElementResponse as RealestateassociationAutocompleteElementResponse
 from eZmaxApi.models.realestateassociation_get_autocomplete_v2_response import RealestateassociationGetAutocompleteV2Response as RealestateassociationGetAutocompleteV2Response
 from eZmaxApi.models.realestateassociation_get_autocomplete_v2_response_m_payload import RealestateassociationGetAutocompleteV2ResponseMPayload as RealestateassociationGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.realestateboard_autocomplete_element_response import RealestateboardAutocompleteElementResponse as RealestateboardAutocompleteElementResponse
 from eZmaxApi.models.realestateboard_get_autocomplete_v2_response import RealestateboardGetAutocompleteV2Response as RealestateboardGetAutocompleteV2Response
 from eZmaxApi.models.realestateboard_get_autocomplete_v2_response_m_payload import RealestateboardGetAutocompleteV2ResponseMPayload as RealestateboardGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.reconciliation_batch_download_v1_request import ReconciliationBatchDownloadV1Request as ReconciliationBatchDownloadV1Request
+from eZmaxApi.models.reconciliation_get_attachments_v1_response import ReconciliationGetAttachmentsV1Response as ReconciliationGetAttachmentsV1Response
+from eZmaxApi.models.reconciliation_get_attachments_v1_response_m_payload import ReconciliationGetAttachmentsV1ResponseMPayload as ReconciliationGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.reconciliation_import_into_edmv1_request import ReconciliationImportIntoEDMV1Request as ReconciliationImportIntoEDMV1Request
+from eZmaxApi.models.reconciliation_import_into_edmv1_response import ReconciliationImportIntoEDMV1Response as ReconciliationImportIntoEDMV1Response
+from eZmaxApi.models.reconciliation_import_into_edmv1_response_m_payload import ReconciliationImportIntoEDMV1ResponseMPayload as ReconciliationImportIntoEDMV1ResponseMPayload
+from eZmaxApi.models.rejectedoffertopurchase_batch_download_v1_request import RejectedoffertopurchaseBatchDownloadV1Request as RejectedoffertopurchaseBatchDownloadV1Request
+from eZmaxApi.models.rejectedoffertopurchase_get_attachments_v1_response import RejectedoffertopurchaseGetAttachmentsV1Response as RejectedoffertopurchaseGetAttachmentsV1Response
+from eZmaxApi.models.rejectedoffertopurchase_get_attachments_v1_response_m_payload import RejectedoffertopurchaseGetAttachmentsV1ResponseMPayload as RejectedoffertopurchaseGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_count_v1_response import RejectedoffertopurchaseGetCommunicationCountV1Response as RejectedoffertopurchaseGetCommunicationCountV1Response
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_count_v1_response_m_payload import RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload as RejectedoffertopurchaseGetCommunicationCountV1ResponseMPayload
 from eZmaxApi.models.rejectedoffertopurchase_get_communication_list_v1_response import RejectedoffertopurchaseGetCommunicationListV1Response as RejectedoffertopurchaseGetCommunicationListV1Response
@@ -4203,6 +4484,12 @@ from eZmaxApi.models.rejectedoffertopurchase_import_into_edmv1_request import Re
 from eZmaxApi.models.rejectedoffertopurchase_import_into_edmv1_response import RejectedoffertopurchaseImportIntoEDMV1Response as RejectedoffertopurchaseImportIntoEDMV1Response
 from eZmaxApi.models.rejectedoffertopurchase_import_into_edmv1_response_m_payload import RejectedoffertopurchaseImportIntoEDMV1ResponseMPayload as RejectedoffertopurchaseImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.rejectedoffertopurchase_list_element import RejectedoffertopurchaseListElement as RejectedoffertopurchaseListElement
+from eZmaxApi.models.salary_batch_download_v1_request import SalaryBatchDownloadV1Request as SalaryBatchDownloadV1Request
+from eZmaxApi.models.salary_get_attachments_v1_response import SalaryGetAttachmentsV1Response as SalaryGetAttachmentsV1Response
+from eZmaxApi.models.salary_get_attachments_v1_response_m_payload import SalaryGetAttachmentsV1ResponseMPayload as SalaryGetAttachmentsV1ResponseMPayload
+from eZmaxApi.models.salary_import_into_edmv1_request import SalaryImportIntoEDMV1Request as SalaryImportIntoEDMV1Request
+from eZmaxApi.models.salary_import_into_edmv1_response import SalaryImportIntoEDMV1Response as SalaryImportIntoEDMV1Response
+from eZmaxApi.models.salary_import_into_edmv1_response_m_payload import SalaryImportIntoEDMV1ResponseMPayload as SalaryImportIntoEDMV1ResponseMPayload
 from eZmaxApi.models.scim_authentication_scheme import ScimAuthenticationScheme as ScimAuthenticationScheme
 from eZmaxApi.models.scim_email import ScimEmail as ScimEmail
 from eZmaxApi.models.scim_group import ScimGroup as ScimGroup
@@ -4248,6 +4535,9 @@ from eZmaxApi.models.subnet_request import SubnetRequest as SubnetRequest
 from eZmaxApi.models.subnet_request_compound import SubnetRequestCompound as SubnetRequestCompound
 from eZmaxApi.models.subnet_response import SubnetResponse as SubnetResponse
 from eZmaxApi.models.subnet_response_compound import SubnetResponseCompound as SubnetResponseCompound
+from eZmaxApi.models.supplier_batch_download_v1_request import SupplierBatchDownloadV1Request as SupplierBatchDownloadV1Request
+from eZmaxApi.models.supplier_get_attachments_v1_response import SupplierGetAttachmentsV1Response as SupplierGetAttachmentsV1Response
+from eZmaxApi.models.supplier_get_attachments_v1_response_m_payload import SupplierGetAttachmentsV1ResponseMPayload as SupplierGetAttachmentsV1ResponseMPayload
 from eZmaxApi.models.supplier_get_list_v1_response import SupplierGetListV1Response as SupplierGetListV1Response
 from eZmaxApi.models.supplier_get_list_v1_response_m_payload import SupplierGetListV1ResponseMPayload as SupplierGetListV1ResponseMPayload
 from eZmaxApi.models.supplier_import_into_edmv1_request import SupplierImportIntoEDMV1Request as SupplierImportIntoEDMV1Request
@@ -4497,6 +4787,8 @@ from eZmaxApi.models.webhook_get_list_v1_response_m_payload import WebhookGetLis
 from eZmaxApi.models.webhook_get_object_v2_response import WebhookGetObjectV2Response as WebhookGetObjectV2Response
 from eZmaxApi.models.webhook_get_object_v2_response_m_payload import WebhookGetObjectV2ResponseMPayload as WebhookGetObjectV2ResponseMPayload
 from eZmaxApi.models.webhook_list_element import WebhookListElement as WebhookListElement
+from eZmaxApi.models.webhook_realestate_buyercontract_created import WebhookRealestateBuyercontractCreated as WebhookRealestateBuyercontractCreated
+from eZmaxApi.models.webhook_realestate_buyercontract_modified import WebhookRealestateBuyercontractModified as WebhookRealestateBuyercontractModified
 from eZmaxApi.models.webhook_realestate_inscription_created import WebhookRealestateInscriptionCreated as WebhookRealestateInscriptionCreated
 from eZmaxApi.models.webhook_realestate_inscription_modified import WebhookRealestateInscriptionModified as WebhookRealestateInscriptionModified
 from eZmaxApi.models.webhook_realestate_inscriptionnotauthenticated_created import WebhookRealestateInscriptionnotauthenticatedCreated as WebhookRealestateInscriptionnotauthenticatedCreated

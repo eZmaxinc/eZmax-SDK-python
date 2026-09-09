@@ -76,8 +76,7 @@ class EzsigntemplatedocumentCreateObjectV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsigntemplatedocument:
             for _item_a_obj_ezsigntemplatedocument in self.a_obj_ezsigntemplatedocument:
-                if _item_a_obj_ezsigntemplatedocument:
-                    _items.append(_item_a_obj_ezsigntemplatedocument.to_dict())
+                _items.append(_item_a_obj_ezsigntemplatedocument.to_dict() if _item_a_obj_ezsigntemplatedocument is not None else None)
             _dict['a_objEzsigntemplatedocument'] = _items
         return _dict
 

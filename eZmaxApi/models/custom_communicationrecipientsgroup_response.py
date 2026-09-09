@@ -76,8 +76,7 @@ class CustomCommunicationrecipientsgroupResponse(BaseModel):
         _items = []
         if self.a_obj_communicationrecipientsrecipient:
             for _item_a_obj_communicationrecipientsrecipient in self.a_obj_communicationrecipientsrecipient:
-                if _item_a_obj_communicationrecipientsrecipient:
-                    _items.append(_item_a_obj_communicationrecipientsrecipient.to_dict())
+                _items.append(_item_a_obj_communicationrecipientsrecipient.to_dict() if _item_a_obj_communicationrecipientsrecipient is not None else None)
             _dict['a_objCommunicationrecipientsrecipient'] = _items
         return _dict
 

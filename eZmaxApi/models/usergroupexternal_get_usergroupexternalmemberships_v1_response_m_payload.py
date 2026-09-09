@@ -75,8 +75,7 @@ class UsergroupexternalGetUsergroupexternalmembershipsV1ResponseMPayload(BaseMod
         _items = []
         if self.a_obj_usergroupexternalmembership:
             for _item_a_obj_usergroupexternalmembership in self.a_obj_usergroupexternalmembership:
-                if _item_a_obj_usergroupexternalmembership:
-                    _items.append(_item_a_obj_usergroupexternalmembership.to_dict())
+                _items.append(_item_a_obj_usergroupexternalmembership.to_dict() if _item_a_obj_usergroupexternalmembership is not None else None)
             _dict['a_objUsergroupexternalmembership'] = _items
         return _dict
 

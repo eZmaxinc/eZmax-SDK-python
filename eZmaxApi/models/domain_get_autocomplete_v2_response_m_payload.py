@@ -75,8 +75,7 @@ class DomainGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_domain:
             for _item_a_obj_domain in self.a_obj_domain:
-                if _item_a_obj_domain:
-                    _items.append(_item_a_obj_domain.to_dict())
+                _items.append(_item_a_obj_domain.to_dict() if _item_a_obj_domain is not None else None)
             _dict['a_objDomain'] = _items
         return _dict
 

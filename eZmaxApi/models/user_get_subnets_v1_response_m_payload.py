@@ -75,8 +75,7 @@ class UserGetSubnetsV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_subnet:
             for _item_a_obj_subnet in self.a_obj_subnet:
-                if _item_a_obj_subnet:
-                    _items.append(_item_a_obj_subnet.to_dict())
+                _items.append(_item_a_obj_subnet.to_dict() if _item_a_obj_subnet is not None else None)
             _dict['a_objSubnet'] = _items
         return _dict
 

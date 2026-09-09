@@ -75,8 +75,7 @@ class EzdoctemplatefieldtypecategoryGetAutocompleteV2ResponseMPayload(BaseModel)
         _items = []
         if self.a_obj_ezdoctemplatefieldtypecategory:
             for _item_a_obj_ezdoctemplatefieldtypecategory in self.a_obj_ezdoctemplatefieldtypecategory:
-                if _item_a_obj_ezdoctemplatefieldtypecategory:
-                    _items.append(_item_a_obj_ezdoctemplatefieldtypecategory.to_dict())
+                _items.append(_item_a_obj_ezdoctemplatefieldtypecategory.to_dict() if _item_a_obj_ezdoctemplatefieldtypecategory is not None else None)
             _dict['a_objEzdoctemplatefieldtypecategory'] = _items
         return _dict
 

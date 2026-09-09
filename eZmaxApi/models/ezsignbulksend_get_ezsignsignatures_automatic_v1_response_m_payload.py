@@ -77,8 +77,7 @@ class EzsignbulksendGetEzsignsignaturesAutomaticV1ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_ezsignfolder:
             for _item_a_obj_ezsignfolder in self.a_obj_ezsignfolder:
-                if _item_a_obj_ezsignfolder:
-                    _items.append(_item_a_obj_ezsignfolder.to_dict())
+                _items.append(_item_a_obj_ezsignfolder.to_dict() if _item_a_obj_ezsignfolder is not None else None)
             _dict['a_objEzsignfolder'] = _items
         return _dict
 

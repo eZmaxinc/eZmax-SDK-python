@@ -75,8 +75,7 @@ class EzsigndocumentEditEzsignsignaturesV1Request(BaseModel):
         _items = []
         if self.a_obj_ezsignsignature:
             for _item_a_obj_ezsignsignature in self.a_obj_ezsignsignature:
-                if _item_a_obj_ezsignsignature:
-                    _items.append(_item_a_obj_ezsignsignature.to_dict())
+                _items.append(_item_a_obj_ezsignsignature.to_dict() if _item_a_obj_ezsignsignature is not None else None)
             _dict['a_objEzsignsignature'] = _items
         return _dict
 

@@ -75,8 +75,7 @@ class RejectedoffertopurchaseGetCommunicationrecipientsV1ResponseMPayload(BaseMo
         _items = []
         if self.a_obj_communicationrecipientsgroup:
             for _item_a_obj_communicationrecipientsgroup in self.a_obj_communicationrecipientsgroup:
-                if _item_a_obj_communicationrecipientsgroup:
-                    _items.append(_item_a_obj_communicationrecipientsgroup.to_dict())
+                _items.append(_item_a_obj_communicationrecipientsgroup.to_dict() if _item_a_obj_communicationrecipientsgroup is not None else None)
             _dict['a_objCommunicationrecipientsgroup'] = _items
         return _dict
 

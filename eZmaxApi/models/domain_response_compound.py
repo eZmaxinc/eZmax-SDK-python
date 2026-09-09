@@ -93,8 +93,7 @@ class DomainResponseCompound(BaseModel):
         _items = []
         if self.a_obj_dnsrecord:
             for _item_a_obj_dnsrecord in self.a_obj_dnsrecord:
-                if _item_a_obj_dnsrecord:
-                    _items.append(_item_a_obj_dnsrecord.to_dict())
+                _items.append(_item_a_obj_dnsrecord.to_dict() if _item_a_obj_dnsrecord is not None else None)
             _dict['a_objDnsrecord'] = _items
         return _dict
 

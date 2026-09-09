@@ -75,8 +75,7 @@ class FontGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_font:
             for _item_a_obj_font in self.a_obj_font:
-                if _item_a_obj_font:
-                    _items.append(_item_a_obj_font.to_dict())
+                _items.append(_item_a_obj_font.to_dict() if _item_a_obj_font is not None else None)
             _dict['a_objFont'] = _items
         return _dict
 

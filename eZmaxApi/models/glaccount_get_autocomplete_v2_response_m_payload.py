@@ -75,8 +75,7 @@ class GlaccountGetAutocompleteV2ResponseMPayload(BaseModel):
         _items = []
         if self.a_obj_glaccount:
             for _item_a_obj_glaccount in self.a_obj_glaccount:
-                if _item_a_obj_glaccount:
-                    _items.append(_item_a_obj_glaccount.to_dict())
+                _items.append(_item_a_obj_glaccount.to_dict() if _item_a_obj_glaccount is not None else None)
             _dict['a_objGlaccount'] = _items
         return _dict
 
