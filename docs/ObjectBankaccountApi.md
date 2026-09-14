@@ -7,6 +7,10 @@ Method | HTTP request | Description
 [**bankaccount_batch_download_v1**](ObjectBankaccountApi.md#bankaccount_batch_download_v1) | **POST** /1/object/bankaccount/{pkiBankaccountID}/batchDownload | Download multiples attachments from a Bankaccount
 [**bankaccount_get_attachments_v1**](ObjectBankaccountApi.md#bankaccount_get_attachments_v1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getAttachments | Retrieve Bankaccount&#39;s attachments
 [**bankaccount_get_autocomplete_v2**](ObjectBankaccountApi.md#bankaccount_get_autocomplete_v2) | **GET** /2/object/bankaccount/getAutocomplete/{sSelector} | Retrieve Bankaccounts and IDs
+[**bankaccount_get_communication_count_v1**](ObjectBankaccountApi.md#bankaccount_get_communication_count_v1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationCount | Retrieve Communication count
+[**bankaccount_get_communication_list_v1**](ObjectBankaccountApi.md#bankaccount_get_communication_list_v1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationList | Retrieve Communication list
+[**bankaccount_get_communicationrecipients_v1**](ObjectBankaccountApi.md#bankaccount_get_communicationrecipients_v1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationrecipients | Retrieve Communication recipients
+[**bankaccount_get_communicationsenders_v1**](ObjectBankaccountApi.md#bankaccount_get_communicationsenders_v1) | **GET** /1/object/bankaccount/{pkiBankaccountID}/getCommunicationsenders | Retrieve Communication senders
 [**bankaccount_import_into_edmv1**](ObjectBankaccountApi.md#bankaccount_import_into_edmv1) | **POST** /1/object/bankaccount/{pkiBankaccountID}/importIntoEDM | Import attachments into the Bankaccount
 
 
@@ -253,6 +257,318 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bankaccount_get_communication_count_v1**
+> BankaccountGetCommunicationCountV1Response bankaccount_get_communication_count_v1(pki_bankaccount_id)
+
+Retrieve Communication count
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.bankaccount_get_communication_count_v1_response import BankaccountGetCommunicationCountV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectBankaccountApi(api_client)
+    pki_bankaccount_id = 56 # int | 
+
+    try:
+        # Retrieve Communication count
+        api_response = api_instance.bankaccount_get_communication_count_v1(pki_bankaccount_id)
+        print("The response of ObjectBankaccountApi->bankaccount_get_communication_count_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectBankaccountApi->bankaccount_get_communication_count_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_bankaccount_id** | **int**|  | 
+
+### Return type
+
+[**BankaccountGetCommunicationCountV1Response**](BankaccountGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bankaccount_get_communication_list_v1**
+> BankaccountGetCommunicationListV1Response bankaccount_get_communication_list_v1(pki_bankaccount_id)
+
+Retrieve Communication list
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.bankaccount_get_communication_list_v1_response import BankaccountGetCommunicationListV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectBankaccountApi(api_client)
+    pki_bankaccount_id = 56 # int | 
+
+    try:
+        # Retrieve Communication list
+        api_response = api_instance.bankaccount_get_communication_list_v1(pki_bankaccount_id)
+        print("The response of ObjectBankaccountApi->bankaccount_get_communication_list_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectBankaccountApi->bankaccount_get_communication_list_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_bankaccount_id** | **int**|  | 
+
+### Return type
+
+[**BankaccountGetCommunicationListV1Response**](BankaccountGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bankaccount_get_communicationrecipients_v1**
+> BankaccountGetCommunicationrecipientsV1Response bankaccount_get_communicationrecipients_v1(pki_bankaccount_id)
+
+Retrieve Communication recipients
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.bankaccount_get_communicationrecipients_v1_response import BankaccountGetCommunicationrecipientsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectBankaccountApi(api_client)
+    pki_bankaccount_id = 56 # int | 
+
+    try:
+        # Retrieve Communication recipients
+        api_response = api_instance.bankaccount_get_communicationrecipients_v1(pki_bankaccount_id)
+        print("The response of ObjectBankaccountApi->bankaccount_get_communicationrecipients_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectBankaccountApi->bankaccount_get_communicationrecipients_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_bankaccount_id** | **int**|  | 
+
+### Return type
+
+[**BankaccountGetCommunicationrecipientsV1Response**](BankaccountGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bankaccount_get_communicationsenders_v1**
+> BankaccountGetCommunicationsendersV1Response bankaccount_get_communicationsenders_v1(pki_bankaccount_id)
+
+Retrieve Communication senders
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.bankaccount_get_communicationsenders_v1_response import BankaccountGetCommunicationsendersV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectBankaccountApi(api_client)
+    pki_bankaccount_id = 56 # int | 
+
+    try:
+        # Retrieve Communication senders
+        api_response = api_instance.bankaccount_get_communicationsenders_v1(pki_bankaccount_id)
+        print("The response of ObjectBankaccountApi->bankaccount_get_communicationsenders_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectBankaccountApi->bankaccount_get_communicationsenders_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_bankaccount_id** | **int**|  | 
+
+### Return type
+
+[**BankaccountGetCommunicationsendersV1Response**](BankaccountGetCommunicationsendersV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

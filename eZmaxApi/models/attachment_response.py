@@ -83,6 +83,7 @@ class AttachmentResponse(BaseModel):
     fki_ezsigndocument_id_reference: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigndocument", alias="fkiEzsigndocumentIDReference", json_schema_extra={"examples": [97]})
     e_attachment_documenttype: FieldEAttachmentDocumenttype = Field(alias="eAttachmentDocumenttype")
     s_attachment_name: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachment", alias="sAttachmentName", json_schema_extra={"examples": ["Document.pdf"]})
+    s_attachment_category: Annotated[str, Field(strict=True)] = Field(description="The attachment category", alias="sAttachmentCategory", json_schema_extra={"examples": ["Inscription"]})
     e_attachment_privacy: FieldEAttachmentPrivacy = Field(alias="eAttachmentPrivacy")
     fki_user_id_specific: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDSpecific", json_schema_extra={"examples": [70]})
     e_attachment_type: FieldEAttachmentType = Field(alias="eAttachmentType")
@@ -95,13 +96,20 @@ class AttachmentResponse(BaseModel):
     t_attachment_rejectioncomment: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The rejectioncomment of the Attachment", alias="tAttachmentRejectioncomment", json_schema_extra={"examples": ["Unreadable"]})
     fki_user_id_owner: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDOwner", json_schema_extra={"examples": [70]})
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiInscriptionchecklistID", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiInscriptionchecklistID", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
 
     @field_validator('s_attachment_name', mode="before")
     def s_attachment_name_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if isinstance(value, str) and not re.match(r"^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$", value):
             raise ValueError(r"must validate the regular expression /^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{1,75}$/")
+        return value
+
+    @field_validator('s_attachment_category', mode="before")
+    def s_attachment_category_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{0,75}$", value):
+            raise ValueError(r"must validate the regular expression /^(?!\.{1,2}$)(?!.*[ .]$)(?!(?:CON|PRN|AUX|NUL|COM(?:[1-9]|[¹²³])|LPT(?:[1-9]|[¹²³]))(?:\.|$))[^\x00-\x1F<>:\"\/\\\\|?*]{0,75}$/")
         return value
 
     @field_validator('s_attachment_md5', mode="before")
@@ -224,6 +232,7 @@ class AttachmentResponse(BaseModel):
             "fkiEzsigndocumentIDReference": obj.get("fkiEzsigndocumentIDReference"),
             "eAttachmentDocumenttype": obj.get("eAttachmentDocumenttype"),
             "sAttachmentName": obj.get("sAttachmentName"),
+            "sAttachmentCategory": obj.get("sAttachmentCategory"),
             "eAttachmentPrivacy": obj.get("eAttachmentPrivacy"),
             "fkiUserIDSpecific": obj.get("fkiUserIDSpecific"),
             "eAttachmentType": obj.get("eAttachmentType"),

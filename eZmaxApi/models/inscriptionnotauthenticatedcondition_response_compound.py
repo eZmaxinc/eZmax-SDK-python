@@ -69,8 +69,8 @@ class InscriptionnotauthenticatedconditionResponseCompound(BaseModel):
     @field_validator('t_inscriptionnotauthenticatedcondition_comment', mode="before")
     def t_inscriptionnotauthenticatedcondition_comment_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
-            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
         return value
 
     model_config = ConfigDict(
