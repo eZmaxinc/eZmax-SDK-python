@@ -75,7 +75,8 @@ class AttachmentResponse(BaseModel):
     fki_supplier_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Supplier.", alias="fkiSupplierID", json_schema_extra={"examples": [1]})
     fki_tranqcontract_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Tranqcontract", alias="fkiTranqcontractID", json_schema_extra={"examples": [39]})
     fki_template_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Template", alias="fkiTemplateID", json_schema_extra={"examples": [232]})
-    fki_inscriptionchecklist_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionchecklist", alias="fkiInscriptionchecklistID", json_schema_extra={"examples": [191]})
+    fki_documenttypechecklist_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Documenttypechecklist", alias="fkiDocumenttypechecklistID", json_schema_extra={"examples": [191]})
+    s_documenttype_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Documenttype in the language of the requester", alias="sDocumenttypeNameX", json_schema_extra={"examples": ["Loan deed"]})
     fki_folder_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Folder", alias="fkiFolderID", json_schema_extra={"examples": [81]})
     fki_rejectedoffertopurchase_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Rejectedoffertopurchase", alias="fkiRejectedoffertopurchaseID", json_schema_extra={"examples": [532]})
     fki_disclosure_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Disclosure", alias="fkiDisclosureID", json_schema_extra={"examples": [51]})
@@ -96,7 +97,17 @@ class AttachmentResponse(BaseModel):
     t_attachment_rejectioncomment: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The rejectioncomment of the Attachment", alias="tAttachmentRejectioncomment", json_schema_extra={"examples": ["Unreadable"]})
     fki_user_id_owner: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDOwner", json_schema_extra={"examples": [70]})
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiInscriptionchecklistID", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiDocumenttypechecklistID", "sDocumenttypeNameX", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
+
+    @field_validator('s_documenttype_name_x', mode="before")
+    def s_documenttype_name_x_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^.{0,55}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,55}$/")
+        return value
 
     @field_validator('s_attachment_name', mode="before")
     def s_attachment_name_validate_regular_expression(cls, value):
@@ -224,7 +235,8 @@ class AttachmentResponse(BaseModel):
             "fkiSupplierID": obj.get("fkiSupplierID"),
             "fkiTranqcontractID": obj.get("fkiTranqcontractID"),
             "fkiTemplateID": obj.get("fkiTemplateID"),
-            "fkiInscriptionchecklistID": obj.get("fkiInscriptionchecklistID"),
+            "fkiDocumenttypechecklistID": obj.get("fkiDocumenttypechecklistID"),
+            "sDocumenttypeNameX": obj.get("sDocumenttypeNameX"),
             "fkiFolderID": obj.get("fkiFolderID"),
             "fkiRejectedoffertopurchaseID": obj.get("fkiRejectedoffertopurchaseID"),
             "fkiDisclosureID": obj.get("fkiDisclosureID"),

@@ -14,6 +14,7 @@ from eZmaxApi.api.object_agent_api import ObjectAgentApi
 from eZmaxApi.api.object_agenttype_api import ObjectAgenttypeApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
 from eZmaxApi.api.object_attachment_api import ObjectAttachmentApi
+from eZmaxApi.api.object_attachmentrejectreason_api import ObjectAttachmentrejectreasonApi
 from eZmaxApi.api.object_authenticationexternal_api import ObjectAuthenticationexternalApi
 from eZmaxApi.api.object_bankaccount_api import ObjectBankaccountApi
 from eZmaxApi.api.object_billingentityexternal_api import ObjectBillingentityexternalApi

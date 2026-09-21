@@ -32,8 +32,9 @@ class CustomUserNameResponse(BaseModel):
     s_contacttitle_name_x: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the Contacttitle in the language of the requester", alias="sContacttitleNameX", json_schema_extra={"examples": ["Sir"]})
     s_user_lastname: StrictStr = Field(description="The last name of the user", alias="sUserLastname", json_schema_extra={"examples": ["Doe"]})
     s_user_firstname: StrictStr = Field(description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})
+    s_user_loginname: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The login name of the User.", alias="sUserLoginname", json_schema_extra={"examples": ["JohnDoe"]})
     s_user_jobtitle: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The job title of the user", alias="sUserJobtitle", json_schema_extra={"examples": ["Sales Representative"]})
-    __properties: ClassVar[List[str]] = ["sContacttitleNameX", "sUserLastname", "sUserFirstname", "sUserJobtitle"]
+    __properties: ClassVar[List[str]] = ["sContacttitleNameX", "sUserLastname", "sUserFirstname", "sUserLoginname", "sUserJobtitle"]
 
     @field_validator('s_contacttitle_name_x', mode="before")
     def s_contacttitle_name_x_validate_regular_expression(cls, value):
@@ -43,6 +44,16 @@ class CustomUserNameResponse(BaseModel):
 
         if isinstance(value, str) and not re.match(r"^.{0,10}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,10}$/")
+        return value
+
+    @field_validator('s_user_loginname', mode="before")
+    def s_user_loginname_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^(?:([\w.%+\-!#$%&\'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$", value):
+            raise ValueError(r"must validate the regular expression /^(?:([\w.%+\-!#$%&'*+\/=?^`{|}~]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,20})|([a-zA-Z0-9]){1,32})$/")
         return value
 
     @field_validator('s_user_jobtitle', mode="before")
@@ -109,6 +120,7 @@ class CustomUserNameResponse(BaseModel):
             "sContacttitleNameX": obj.get("sContacttitleNameX"),
             "sUserLastname": obj.get("sUserLastname"),
             "sUserFirstname": obj.get("sUserFirstname"),
+            "sUserLoginname": obj.get("sUserLoginname"),
             "sUserJobtitle": obj.get("sUserJobtitle")
         })
         return _obj

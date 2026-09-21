@@ -5,11 +5,13 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachment_delete_v1**](ObjectAttachmentApi.md#attachment_delete_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/delete | Delete an existing attachment
+[**attachment_document_type_v1**](ObjectAttachmentApi.md#attachment_document_type_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/documentType | Change attachment document type
 [**attachment_download_v1**](ObjectAttachmentApi.md#attachment_download_v1) | **GET** /1/object/attachment/{pkiAttachmentID}/download | Retrieve the content
 [**attachment_get_attachmentlogs_v1**](ObjectAttachmentApi.md#attachment_get_attachmentlogs_v1) | **GET** /1/object/attachment/{pkiAttachmentID}/getAttachmentlogs | Retrieve the Attachmentlogs
+[**attachment_privacy_v1**](ObjectAttachmentApi.md#attachment_privacy_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/privacy | Change the attachment privacy
 [**attachment_rename_v1**](ObjectAttachmentApi.md#attachment_rename_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/rename | Rename an attachment
 [**attachment_restore_v1**](ObjectAttachmentApi.md#attachment_restore_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/restore | Restore a deleted attachment
-[**attachment_validate_v1**](ObjectAttachmentApi.md#attachment_validate_v1) | **PATCH** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
+[**attachment_validate_v1**](ObjectAttachmentApi.md#attachment_validate_v1) | **POST** /1/object/attachment/{pkiAttachmentID}/validate | Validate an existing attachment
 
 
 # **attachment_delete_v1**
@@ -75,6 +77,91 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentDeleteV1Response**](AttachmentDeleteV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**403** | The request is not allowed to be executed. Look for detail about the error in the body. |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attachment_document_type_v1**
+> AttachmentDocumentTypeV1Response attachment_document_type_v1(pki_attachment_id, attachment_document_type_v1_request)
+
+Change attachment document type
+
+The endpoint allows to change the checklist document type for an attachment.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.attachment_document_type_v1_request import AttachmentDocumentTypeV1Request
+from eZmaxApi.models.attachment_document_type_v1_response import AttachmentDocumentTypeV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectAttachmentApi(api_client)
+    pki_attachment_id = 56 # int | 
+    attachment_document_type_v1_request = eZmaxApi.AttachmentDocumentTypeV1Request() # AttachmentDocumentTypeV1Request | 
+
+    try:
+        # Change attachment document type
+        api_response = api_instance.attachment_document_type_v1(pki_attachment_id, attachment_document_type_v1_request)
+        print("The response of ObjectAttachmentApi->attachment_document_type_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectAttachmentApi->attachment_document_type_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_attachment_id** | **int**|  | 
+ **attachment_document_type_v1_request** | [**AttachmentDocumentTypeV1Request**](AttachmentDocumentTypeV1Request.md)|  | 
+
+### Return type
+
+[**AttachmentDocumentTypeV1Response**](AttachmentDocumentTypeV1Response.md)
 
 ### Authorization
 
@@ -257,6 +344,91 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful response |  -  |
 **404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **attachment_privacy_v1**
+> AttachmentPrivacyV1Response attachment_privacy_v1(pki_attachment_id, attachment_privacy_v1_request)
+
+Change the attachment privacy
+
+The endpoint allows to change an attachment's access privacy.
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.attachment_privacy_v1_request import AttachmentPrivacyV1Request
+from eZmaxApi.models.attachment_privacy_v1_response import AttachmentPrivacyV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectAttachmentApi(api_client)
+    pki_attachment_id = 56 # int | 
+    attachment_privacy_v1_request = eZmaxApi.AttachmentPrivacyV1Request() # AttachmentPrivacyV1Request | 
+
+    try:
+        # Change the attachment privacy
+        api_response = api_instance.attachment_privacy_v1(pki_attachment_id, attachment_privacy_v1_request)
+        print("The response of ObjectAttachmentApi->attachment_privacy_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectAttachmentApi->attachment_privacy_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_attachment_id** | **int**|  | 
+ **attachment_privacy_v1_request** | [**AttachmentPrivacyV1Request**](AttachmentPrivacyV1Request.md)|  | 
+
+### Return type
+
+[**AttachmentPrivacyV1Response**](AttachmentPrivacyV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**403** | The request is not allowed to be executed. Look for detail about the error in the body. |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+**422** | The request was syntactically valid but failed because of an interdependance condition. Look for detail about the error in the body. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -27,7 +27,7 @@ from pydantic_core import to_jsonable_python
 
 class AttachmentValidateV1ResponseMPayload(BaseModel):
     """
-    Response for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+    Response for POST /1/object/attachment/{pkiAttachmentID}/validate
     """ # noqa: E501
     pki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="pkiAttachmentID", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["pkiAttachmentID"]

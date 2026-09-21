@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.custom_user_name_response import CustomUserNameResponse
 from eZmaxApi.models.field_e_attachmentlog_type import FieldEAttachmentlogType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,10 +33,11 @@ class AttachmentlogResponse(BaseModel):
     """ # noqa: E501
     fki_attachment_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Attachment.", alias="fkiAttachmentID", json_schema_extra={"examples": [1]})
     fki_user_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
+    obj_user: CustomUserNameResponse = Field(alias="objUser")
     dt_attachmentlog_datetime: Annotated[str, Field(strict=True)] = Field(description="The created date", alias="dtAttachmentlogDatetime", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     e_attachmentlog_type: FieldEAttachmentlogType = Field(alias="eAttachmentlogType")
     s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail", json_schema_extra={"examples": ["System"]})
-    __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
+    __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "objUser", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
 
     @field_validator('dt_attachmentlog_datetime', mode="before")
     def dt_attachmentlog_datetime_validate_regular_expression(cls, value):
@@ -93,6 +95,9 @@ class AttachmentlogResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_user
+        if self.obj_user:
+            _dict['objUser'] = self.obj_user.to_dict()
         return _dict
 
     @classmethod
@@ -107,6 +112,7 @@ class AttachmentlogResponse(BaseModel):
         _obj = cls.model_validate({
             "fkiAttachmentID": obj.get("fkiAttachmentID"),
             "fkiUserID": obj.get("fkiUserID"),
+            "objUser": CustomUserNameResponse.from_dict(obj["objUser"]) if obj.get("objUser") is not None else None,
             "dtAttachmentlogDatetime": obj.get("dtAttachmentlogDatetime"),
             "eAttachmentlogType": obj.get("eAttachmentlogType"),
             "sAttachmentlogDetail": obj.get("sAttachmentlogDetail")

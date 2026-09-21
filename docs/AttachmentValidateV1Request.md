@@ -1,12 +1,17 @@
 # AttachmentValidateV1Request
 
-Request for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+Request for POST /1/object/attachment/{pkiAttachmentID}/validate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**fki_attachmentrejectreason_id** | **int** | The unique ID of the Attachmentrejectreason | [optional] 
 **e_attachment_verified** | [**FieldEAttachmentVerified**](FieldEAttachmentVerified.md) |  | 
+**t_attachment_rejectioncomment** | **str** | The rejectioncomment of the Attachment | [optional] 
+**a_s_notification_email_address** | **List[str]** | A list of email addresses to send a rejection notification to. | [optional] 
+**t_notification_message** | **str** | The email body to send to the notification recipients. | [optional] 
+**b_notification_include_attachment** | **bool** | Should a copy of the attachment be included in the email. | [optional] 
 
 ## Example
 

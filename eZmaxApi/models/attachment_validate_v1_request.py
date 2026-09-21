@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from eZmaxApi.models.field_e_attachment_verified import FieldEAttachmentVerified
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,10 +28,35 @@ from pydantic_core import to_jsonable_python
 
 class AttachmentValidateV1Request(BaseModel):
     """
-    Request for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+    Request for POST /1/object/attachment/{pkiAttachmentID}/validate
     """ # noqa: E501
+    fki_attachmentrejectreason_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Attachmentrejectreason", alias="fkiAttachmentrejectreasonID", json_schema_extra={"examples": [41]})
     e_attachment_verified: FieldEAttachmentVerified = Field(alias="eAttachmentVerified")
-    __properties: ClassVar[List[str]] = ["eAttachmentVerified"]
+    t_attachment_rejectioncomment: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The rejectioncomment of the Attachment", alias="tAttachmentRejectioncomment", json_schema_extra={"examples": ["Unreadable"]})
+    a_s_notification_email_address: Optional[List[Annotated[str, Field(strict=True)]]] = Field(default=None, description="A list of email addresses to send a rejection notification to.", alias="a_sNotificationEmailAddress")
+    t_notification_message: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The email body to send to the notification recipients.", alias="tNotificationMessage", json_schema_extra={"examples": ["The attached document was rejected."]})
+    b_notification_include_attachment: Optional[StrictBool] = Field(default=None, description="Should a copy of the attachment be included in the email.", alias="bNotificationIncludeAttachment", json_schema_extra={"examples": [False]})
+    __properties: ClassVar[List[str]] = ["fkiAttachmentrejectreasonID", "eAttachmentVerified", "tAttachmentRejectioncomment", "a_sNotificationEmailAddress", "tNotificationMessage", "bNotificationIncludeAttachment"]
+
+    @field_validator('t_attachment_rejectioncomment', mode="before")
+    def t_attachment_rejectioncomment_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^.{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^.{0,65535}$/")
+        return value
+
+    @field_validator('t_notification_message', mode="before")
+    def t_notification_message_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -83,7 +109,12 @@ class AttachmentValidateV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "eAttachmentVerified": obj.get("eAttachmentVerified")
+            "fkiAttachmentrejectreasonID": obj.get("fkiAttachmentrejectreasonID"),
+            "eAttachmentVerified": obj.get("eAttachmentVerified"),
+            "tAttachmentRejectioncomment": obj.get("tAttachmentRejectioncomment"),
+            "a_sNotificationEmailAddress": obj.get("a_sNotificationEmailAddress"),
+            "tNotificationMessage": obj.get("tNotificationMessage"),
+            "bNotificationIncludeAttachment": obj.get("bNotificationIncludeAttachment")
         })
         return _obj
 

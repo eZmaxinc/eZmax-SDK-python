@@ -29,7 +29,7 @@ from pydantic_core import to_jsonable_python
 
 class AttachmentValidateV1Response(BaseModel):
     """
-    Response for PATCH /1/object/attachment/{pkiAttachmentID}/validate
+    Response for POST /1/object/attachment/{pkiAttachmentID}/validate
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")

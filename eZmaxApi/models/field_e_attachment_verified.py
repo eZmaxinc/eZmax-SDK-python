@@ -30,6 +30,7 @@ class FieldEAttachmentVerified(str, Enum):
     NO = 'No'
     YES = 'Yes'
     REJECTED = 'Rejected'
+    PENDING = 'Pending'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
