@@ -248,18 +248,18 @@ class ApiClient:
             url += "?" + url_query
 
         _api_key = self.configuration.api_key.get('Authorization')
-            if _api_key:
-                import json
-                _secret = self.configuration.get_secret()
-                _body_str = json.dumps(body) if body else ""
-                _sig_headers = RequestSignature.get_headers_v1(
-                    authorization=_api_key,
-                    secret=_secret,
-                    method=method,
-                    url=url,
-                    body=_body_str or "",
-                )
-                header_params.update(_sig_headers)
+        if _api_key:
+            import json
+            _secret = self.configuration.get_secret()
+            _body_str = json.dumps(body) if body else ""
+            _sig_headers = RequestSignature.get_headers_v1(
+                authorization=_api_key,
+                secret=_secret,
+                method=method,
+                url=url,
+                body=_body_str or "",
+            )
+            header_params.update(_sig_headers)
 
         return method, url, header_params, body, post_params
 
