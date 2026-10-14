@@ -222,6 +222,7 @@ conf = eZmaxApi.Configuration(
         server_operation_variables: Optional[Dict[int, ServerVariablesT]]=None,
         ignore_operation_servers: bool=False,
         ssl_ca_cert: Optional[str]=None,
+        secret: Optional[str]="",
         retries: Optional[Union[int, urllib3.util.retry.Retry]] = None,
         ca_cert_data: Optional[Union[str, bytes]] = None,
         cert_file: Optional[str]=None,
@@ -265,6 +266,7 @@ conf = eZmaxApi.Configuration(
         self.api_key = {}
         if api_key:
             self.api_key = api_key
+            self.secret = secret
         """dict to store API key(s)
         """
         self.api_key_prefix = {}
@@ -730,6 +732,16 @@ conf = eZmaxApi.Configuration(
         """Fix base path."""
         self._base_path = value
         self.server_index = None
+
+    def get_secret(self) -> str:
+        """Gets the secret key"""
+        return self.secret
+
+    def set_secret(self, value: str):
+        """Sets the secret key"""
+        self.secret = value
+
+
         if self._proxy_from_env:
             # the scheme-specific proxy depends on the host, which is
             # commonly assigned after construction

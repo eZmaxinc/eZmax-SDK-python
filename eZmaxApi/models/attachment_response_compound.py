@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
+from eZmaxApi.models.custom_user_name_response import CustomUserNameResponse
 from eZmaxApi.models.field_e_attachment_documenttype import FieldEAttachmentDocumenttype
 from eZmaxApi.models.field_e_attachment_privacy import FieldEAttachmentPrivacy
 from eZmaxApi.models.field_e_attachment_type import FieldEAttachmentType
@@ -87,6 +88,7 @@ class AttachmentResponseCompound(BaseModel):
     s_attachment_category: Annotated[str, Field(strict=True)] = Field(description="The attachment category", alias="sAttachmentCategory", json_schema_extra={"examples": ["Inscription"]})
     e_attachment_privacy: FieldEAttachmentPrivacy = Field(alias="eAttachmentPrivacy")
     fki_user_id_specific: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDSpecific", json_schema_extra={"examples": [70]})
+    obj_user_specific: Optional[CustomUserNameResponse] = Field(default=None, alias="objUserSpecific")
     e_attachment_type: FieldEAttachmentType = Field(alias="eAttachmentType")
     i_attachment_size: Annotated[int, Field(le=4294967295, strict=True, ge=0)] = Field(description="The size of the Attachment", alias="iAttachmentSize", json_schema_extra={"examples": [277465200]})
     i_attachment_ed_mmoduleflag: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The edmmoduleflag of the Attachment", alias="iAttachmentEDMmoduleflag", json_schema_extra={"examples": [65]})
@@ -97,7 +99,7 @@ class AttachmentResponseCompound(BaseModel):
     t_attachment_rejectioncomment: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The rejectioncomment of the Attachment", alias="tAttachmentRejectioncomment", json_schema_extra={"examples": ["Unreadable"]})
     fki_user_id_owner: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserIDOwner", json_schema_extra={"examples": [70]})
     obj_audit: Optional[CommonAudit] = Field(default=None, alias="objAudit")
-    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiDocumenttypechecklistID", "sDocumenttypeNameX", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
+    __properties: ClassVar[List[str]] = ["pkiAttachmentID", "fkiComputerID", "fkiAdjustmentID", "fkiAgentID", "fkiBankaccountID", "fkiBrokerID", "fkiCommissionadvanceID", "fkiCommunicationID", "fkiCustomerID", "fkiCustomertemplateID", "fkiDepositID", "fkiDeposittransitchequeID", "fkiElectronicfundstransferID", "fkiEmployeeID", "fkiExternalbrokerID", "fkiEzcomadvanceserverID", "fkiEzcomcompanyID", "fkiEzsigndocumentID", "fkiGhacqcontractID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInscriptionnotauthenticatedID", "fkiInvoiceID", "fkiBuyercontractID", "fkiFranchisebrokerID", "fkiFranchiseagenceID", "fkiFranchiseofficeID", "fkiFranchisefranchiseID", "fkiFranchisecomplaintID", "fkiLeadID", "fkiMarketingprogramID", "fkiMarketingfollowID", "fkiNotaryID", "fkiOfficetaxreportID", "fkiOtherincomeID", "fkiPaymentpreparationID", "fkiPurchaseID", "fkiSalaryID", "fkiSupplierID", "fkiTranqcontractID", "fkiTemplateID", "fkiDocumenttypechecklistID", "sDocumenttypeNameX", "fkiFolderID", "fkiRejectedoffertopurchaseID", "fkiDisclosureID", "fkiReconciliationID", "fkiEzsigndocumentIDReference", "eAttachmentDocumenttype", "sAttachmentName", "sAttachmentCategory", "eAttachmentPrivacy", "fkiUserIDSpecific", "objUserSpecific", "eAttachmentType", "iAttachmentSize", "iAttachmentEDMmoduleflag", "sAttachmentMD5", "bAttachmentDeleted", "bAttachmentValid", "eAttachmentVerified", "tAttachmentRejectioncomment", "fkiUserIDOwner", "objAudit"]
 
     @field_validator('s_documenttype_name_x', mode="before")
     def s_documenttype_name_x_validate_regular_expression(cls, value):
@@ -179,6 +181,9 @@ class AttachmentResponseCompound(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_user_specific
+        if self.obj_user_specific:
+            _dict['objUserSpecific'] = self.obj_user_specific.to_dict()
         # override the default output from pydantic by calling `to_dict()` of obj_audit
         if self.obj_audit:
             _dict['objAudit'] = self.obj_audit.to_dict()
@@ -247,6 +252,7 @@ class AttachmentResponseCompound(BaseModel):
             "sAttachmentCategory": obj.get("sAttachmentCategory"),
             "eAttachmentPrivacy": obj.get("eAttachmentPrivacy"),
             "fkiUserIDSpecific": obj.get("fkiUserIDSpecific"),
+            "objUserSpecific": CustomUserNameResponse.from_dict(obj["objUserSpecific"]) if obj.get("objUserSpecific") is not None else None,
             "eAttachmentType": obj.get("eAttachmentType"),
             "iAttachmentSize": obj.get("iAttachmentSize"),
             "iAttachmentEDMmoduleflag": obj.get("iAttachmentEDMmoduleflag"),

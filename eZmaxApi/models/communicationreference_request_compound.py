@@ -33,12 +33,13 @@ class CommunicationreferenceRequestCompound(BaseModel):
     fki_buyercontract_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Buyercontract", alias="fkiBuyercontractID", json_schema_extra={"examples": [38]})
     fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
     fki_inscription_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscription.", alias="fkiInscriptionID", json_schema_extra={"examples": [17]})
+    fki_inscriptionnotauthenticated_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Inscriptionnotauthenticated.", alias="fkiInscriptionnotauthenticatedID", json_schema_extra={"examples": [24]})
     fki_inscriptiontemp_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Inscriptiontemp", alias="fkiInscriptiontempID", json_schema_extra={"examples": [2445]})
     fki_invoice_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Invoice.", alias="fkiInvoiceID", json_schema_extra={"examples": [1]})
     fki_otherincome_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Otherincome", alias="fkiOtherincomeID", json_schema_extra={"examples": [142]})
     fki_electronicfundstransfer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Electronicfundstransfer", alias="fkiElectronicfundstransferID", json_schema_extra={"examples": [1262]})
     fki_rejectedoffertopurchase_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Rejectedoffertopurchase", alias="fkiRejectedoffertopurchaseID", json_schema_extra={"examples": [532]})
-    __properties: ClassVar[List[str]] = ["pkiCommunicationreferenceID", "fkiBuyercontractID", "fkiEzsignfolderID", "fkiInscriptionID", "fkiInscriptiontempID", "fkiInvoiceID", "fkiOtherincomeID", "fkiElectronicfundstransferID", "fkiRejectedoffertopurchaseID"]
+    __properties: ClassVar[List[str]] = ["pkiCommunicationreferenceID", "fkiBuyercontractID", "fkiEzsignfolderID", "fkiInscriptionID", "fkiInscriptionnotauthenticatedID", "fkiInscriptiontempID", "fkiInvoiceID", "fkiOtherincomeID", "fkiElectronicfundstransferID", "fkiRejectedoffertopurchaseID"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -95,6 +96,7 @@ class CommunicationreferenceRequestCompound(BaseModel):
             "fkiBuyercontractID": obj.get("fkiBuyercontractID"),
             "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),
             "fkiInscriptionID": obj.get("fkiInscriptionID"),
+            "fkiInscriptionnotauthenticatedID": obj.get("fkiInscriptionnotauthenticatedID"),
             "fkiInscriptiontempID": obj.get("fkiInscriptiontempID"),
             "fkiInvoiceID": obj.get("fkiInvoiceID"),
             "fkiOtherincomeID": obj.get("fkiOtherincomeID"),

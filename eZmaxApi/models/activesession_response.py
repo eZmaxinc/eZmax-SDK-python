@@ -40,7 +40,9 @@ class ActivesessionResponse(BaseModel):
     e_activesession_origin: FieldEActivesessionOrigin = Field(alias="eActivesessionOrigin")
     e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(alias="eActivesessionWeekdaystart")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    fki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyID", json_schema_extra={"examples": [1]})
     s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX", json_schema_extra={"examples": ["Acme inc."]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
     s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
     b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug", json_schema_extra={"examples": [False]})
     b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin", json_schema_extra={"examples": [False]})
@@ -55,7 +57,7 @@ class ActivesessionResponse(BaseModel):
     pks_customer_code: Annotated[str, Field(min_length=2, strict=True, max_length=6)] = Field(description="The customer code assigned to your account", alias="pksCustomerCode", json_schema_extra={"examples": ["demo"]})
     fki_systemconfigurationtype_id: Annotated[int, Field(strict=True, ge=1)] = Field(description="The unique ID of the Systemconfigurationtype", alias="fkiSystemconfigurationtypeID", json_schema_extra={"examples": [28]})
     fki_signature_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Signature", alias="fkiSignatureID", json_schema_extra={"examples": [12]})
-    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID"]
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "fkiCompanyID", "sCompanyNameX", "fkiDepartmentID", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -112,7 +114,9 @@ class ActivesessionResponse(BaseModel):
             "eActivesessionOrigin": obj.get("eActivesessionOrigin"),
             "eActivesessionWeekdaystart": obj.get("eActivesessionWeekdaystart"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
+            "fkiCompanyID": obj.get("fkiCompanyID"),
             "sCompanyNameX": obj.get("sCompanyNameX"),
+            "fkiDepartmentID": obj.get("fkiDepartmentID"),
             "sDepartmentNameX": obj.get("sDepartmentNameX"),
             "bActivesessionDebug": obj.get("bActivesessionDebug"),
             "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),

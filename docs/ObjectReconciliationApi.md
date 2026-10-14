@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**reconciliation_batch_download_v1**](ObjectReconciliationApi.md#reconciliation_batch_download_v1) | **POST** /1/object/reconciliation/{pkiReconciliationID}/batchDownload | Download multiples attachments from a Reconciliation
 [**reconciliation_get_attachments_v1**](ObjectReconciliationApi.md#reconciliation_get_attachments_v1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getAttachments | Retrieve Reconciliation&#39;s attachments
+[**reconciliation_get_communication_count_v1**](ObjectReconciliationApi.md#reconciliation_get_communication_count_v1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationCount | Retrieve Communication count
+[**reconciliation_get_communication_list_v1**](ObjectReconciliationApi.md#reconciliation_get_communication_list_v1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationList | Retrieve Communication list
+[**reconciliation_get_communicationrecipients_v1**](ObjectReconciliationApi.md#reconciliation_get_communicationrecipients_v1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationrecipients | Retrieve Communication recipients
+[**reconciliation_get_communicationsenders_v1**](ObjectReconciliationApi.md#reconciliation_get_communicationsenders_v1) | **GET** /1/object/reconciliation/{pkiReconciliationID}/getCommunicationsenders | Retrieve Communication senders
 [**reconciliation_import_into_edmv1**](ObjectReconciliationApi.md#reconciliation_import_into_edmv1) | **POST** /1/object/reconciliation/{pkiReconciliationID}/importIntoEDM | Import attachments into the Reconciliation
 
 
@@ -150,6 +154,318 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReconciliationGetAttachmentsV1Response**](ReconciliationGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reconciliation_get_communication_count_v1**
+> ReconciliationGetCommunicationCountV1Response reconciliation_get_communication_count_v1(pki_reconciliation_id)
+
+Retrieve Communication count
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.reconciliation_get_communication_count_v1_response import ReconciliationGetCommunicationCountV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectReconciliationApi(api_client)
+    pki_reconciliation_id = 56 # int | 
+
+    try:
+        # Retrieve Communication count
+        api_response = api_instance.reconciliation_get_communication_count_v1(pki_reconciliation_id)
+        print("The response of ObjectReconciliationApi->reconciliation_get_communication_count_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectReconciliationApi->reconciliation_get_communication_count_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_reconciliation_id** | **int**|  | 
+
+### Return type
+
+[**ReconciliationGetCommunicationCountV1Response**](ReconciliationGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reconciliation_get_communication_list_v1**
+> ReconciliationGetCommunicationListV1Response reconciliation_get_communication_list_v1(pki_reconciliation_id)
+
+Retrieve Communication list
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.reconciliation_get_communication_list_v1_response import ReconciliationGetCommunicationListV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectReconciliationApi(api_client)
+    pki_reconciliation_id = 56 # int | 
+
+    try:
+        # Retrieve Communication list
+        api_response = api_instance.reconciliation_get_communication_list_v1(pki_reconciliation_id)
+        print("The response of ObjectReconciliationApi->reconciliation_get_communication_list_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectReconciliationApi->reconciliation_get_communication_list_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_reconciliation_id** | **int**|  | 
+
+### Return type
+
+[**ReconciliationGetCommunicationListV1Response**](ReconciliationGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reconciliation_get_communicationrecipients_v1**
+> ReconciliationGetCommunicationrecipientsV1Response reconciliation_get_communicationrecipients_v1(pki_reconciliation_id)
+
+Retrieve Communication recipients
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.reconciliation_get_communicationrecipients_v1_response import ReconciliationGetCommunicationrecipientsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectReconciliationApi(api_client)
+    pki_reconciliation_id = 56 # int | 
+
+    try:
+        # Retrieve Communication recipients
+        api_response = api_instance.reconciliation_get_communicationrecipients_v1(pki_reconciliation_id)
+        print("The response of ObjectReconciliationApi->reconciliation_get_communicationrecipients_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectReconciliationApi->reconciliation_get_communicationrecipients_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_reconciliation_id** | **int**|  | 
+
+### Return type
+
+[**ReconciliationGetCommunicationrecipientsV1Response**](ReconciliationGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reconciliation_get_communicationsenders_v1**
+> ReconciliationGetCommunicationsendersV1Response reconciliation_get_communicationsenders_v1(pki_reconciliation_id)
+
+Retrieve Communication senders
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.reconciliation_get_communicationsenders_v1_response import ReconciliationGetCommunicationsendersV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectReconciliationApi(api_client)
+    pki_reconciliation_id = 56 # int | 
+
+    try:
+        # Retrieve Communication senders
+        api_response = api_instance.reconciliation_get_communicationsenders_v1(pki_reconciliation_id)
+        print("The response of ObjectReconciliationApi->reconciliation_get_communicationsenders_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectReconciliationApi->reconciliation_get_communicationsenders_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_reconciliation_id** | **int**|  | 
+
+### Return type
+
+[**ReconciliationGetCommunicationsendersV1Response**](ReconciliationGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

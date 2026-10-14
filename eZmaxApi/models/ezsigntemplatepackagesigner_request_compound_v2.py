@@ -35,7 +35,7 @@ class EzsigntemplatepackagesignerRequestCompoundV2(BaseModel):
     fki_ezsigntemplatepackage_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplatepackage", alias="fkiEzsigntemplatepackageID", json_schema_extra={"examples": [99]})
     fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
     fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
     e_ezsigntemplatepackagesigner_role: Optional[FieldEEzsigntemplatepackagesignerRole] = Field(default=None, alias="eEzsigntemplatepackagesignerRole")
     e_ezsigntemplatepackagesigner_mapping: Optional[FieldEEzsigntemplatepackagesignerMapping] = Field(default=FieldEEzsigntemplatepackagesignerMapping.MANUAL, alias="eEzsigntemplatepackagesignerMapping")
     s_ezsigntemplatepackagesigner_description: StrictStr = Field(description="The description of the Ezsigntemplatepackagesigner", alias="sEzsigntemplatepackagesignerDescription", json_schema_extra={"examples": ["Customer"]})

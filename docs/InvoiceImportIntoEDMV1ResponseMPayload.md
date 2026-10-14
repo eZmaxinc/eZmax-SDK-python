@@ -6,7 +6,7 @@ Payload for POST /1/object/invoice/{pkiInvoiceID}/importIntoEDM
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_pki_attachment_id** | **List[int]** |  | 
+**a_obj_attachment** | [**List[CustomAttachmentImportIntoEDMResponse]**](CustomAttachmentImportIntoEDMResponse.md) |  | 
 
 ## Example
 

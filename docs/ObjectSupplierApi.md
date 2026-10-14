@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**supplier_batch_download_v1**](ObjectSupplierApi.md#supplier_batch_download_v1) | **POST** /1/object/supplier/{pkiSupplierID}/batchDownload | Download multiples attachments from a Supplier
 [**supplier_get_attachments_v1**](ObjectSupplierApi.md#supplier_get_attachments_v1) | **GET** /1/object/supplier/{pkiSupplierID}/getAttachments | Retrieve Supplier&#39;s attachments
+[**supplier_get_communication_count_v1**](ObjectSupplierApi.md#supplier_get_communication_count_v1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationCount | Retrieve Communication count
+[**supplier_get_communication_list_v1**](ObjectSupplierApi.md#supplier_get_communication_list_v1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationList | Retrieve Communication list
+[**supplier_get_communicationrecipients_v1**](ObjectSupplierApi.md#supplier_get_communicationrecipients_v1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationrecipients | Retrieve Communication recipients
+[**supplier_get_communicationsenders_v1**](ObjectSupplierApi.md#supplier_get_communicationsenders_v1) | **GET** /1/object/supplier/{pkiSupplierID}/getCommunicationsenders | Retrieve Communication senders
 [**supplier_get_list_v1**](ObjectSupplierApi.md#supplier_get_list_v1) | **GET** /1/object/supplier/getList | Retrieve Supplier list
 [**supplier_import_into_edmv1**](ObjectSupplierApi.md#supplier_import_into_edmv1) | **POST** /1/object/supplier/{pkiSupplierID}/importIntoEDM | Import attachments into the Supplier
 
@@ -149,6 +153,318 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SupplierGetAttachmentsV1Response**](SupplierGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplier_get_communication_count_v1**
+> SupplierGetCommunicationCountV1Response supplier_get_communication_count_v1(pki_supplier_id)
+
+Retrieve Communication count
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.supplier_get_communication_count_v1_response import SupplierGetCommunicationCountV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSupplierApi(api_client)
+    pki_supplier_id = 56 # int | 
+
+    try:
+        # Retrieve Communication count
+        api_response = api_instance.supplier_get_communication_count_v1(pki_supplier_id)
+        print("The response of ObjectSupplierApi->supplier_get_communication_count_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSupplierApi->supplier_get_communication_count_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_supplier_id** | **int**|  | 
+
+### Return type
+
+[**SupplierGetCommunicationCountV1Response**](SupplierGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplier_get_communication_list_v1**
+> SupplierGetCommunicationListV1Response supplier_get_communication_list_v1(pki_supplier_id)
+
+Retrieve Communication list
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.supplier_get_communication_list_v1_response import SupplierGetCommunicationListV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSupplierApi(api_client)
+    pki_supplier_id = 56 # int | 
+
+    try:
+        # Retrieve Communication list
+        api_response = api_instance.supplier_get_communication_list_v1(pki_supplier_id)
+        print("The response of ObjectSupplierApi->supplier_get_communication_list_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSupplierApi->supplier_get_communication_list_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_supplier_id** | **int**|  | 
+
+### Return type
+
+[**SupplierGetCommunicationListV1Response**](SupplierGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplier_get_communicationrecipients_v1**
+> SupplierGetCommunicationrecipientsV1Response supplier_get_communicationrecipients_v1(pki_supplier_id)
+
+Retrieve Communication recipients
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.supplier_get_communicationrecipients_v1_response import SupplierGetCommunicationrecipientsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSupplierApi(api_client)
+    pki_supplier_id = 56 # int | 
+
+    try:
+        # Retrieve Communication recipients
+        api_response = api_instance.supplier_get_communicationrecipients_v1(pki_supplier_id)
+        print("The response of ObjectSupplierApi->supplier_get_communicationrecipients_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSupplierApi->supplier_get_communicationrecipients_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_supplier_id** | **int**|  | 
+
+### Return type
+
+[**SupplierGetCommunicationrecipientsV1Response**](SupplierGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **supplier_get_communicationsenders_v1**
+> SupplierGetCommunicationsendersV1Response supplier_get_communicationsenders_v1(pki_supplier_id)
+
+Retrieve Communication senders
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.supplier_get_communicationsenders_v1_response import SupplierGetCommunicationsendersV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSupplierApi(api_client)
+    pki_supplier_id = 56 # int | 
+
+    try:
+        # Retrieve Communication senders
+        api_response = api_instance.supplier_get_communicationsenders_v1(pki_supplier_id)
+        print("The response of ObjectSupplierApi->supplier_get_communicationsenders_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSupplierApi->supplier_get_communicationsenders_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_supplier_id** | **int**|  | 
+
+### Return type
+
+[**SupplierGetCommunicationsendersV1Response**](SupplierGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **user_get_autocomplete_v2**
-> UserGetAutocompleteV2Response user_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+> UserGetAutocompleteV2Response user_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, fki_attachment_id=fki_attachment_id, s_query=s_query, accept_language=accept_language)
 
 Retrieve Users and IDs
 
@@ -555,12 +555,13 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     api_instance = eZmaxApi.ObjectUserApi(api_client)
     s_selector = 's_selector_example' # str | The type of Users to return
     e_filter_active = 'Active' # str | Specify which results we want to display. (optional) (default to 'Active')
+    fki_attachment_id = 'fki_attachment_id_example' # str | Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. (optional)
     s_query = 's_query_example' # str | Allow to filter the returned results (optional)
     accept_language = eZmaxApi.HeaderAcceptLanguage() # HeaderAcceptLanguage |  (optional)
 
     try:
         # Retrieve Users and IDs
-        api_response = api_instance.user_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, s_query=s_query, accept_language=accept_language)
+        api_response = api_instance.user_get_autocomplete_v2(s_selector, e_filter_active=e_filter_active, fki_attachment_id=fki_attachment_id, s_query=s_query, accept_language=accept_language)
         print("The response of ObjectUserApi->user_get_autocomplete_v2:\n")
         pprint(api_response)
     except Exception as e:
@@ -576,6 +577,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **s_selector** | **str**| The type of Users to return | 
  **e_filter_active** | **str**| Specify which results we want to display. | [optional] [default to &#39;Active&#39;]
+ **fki_attachment_id** | **str**| Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser. | [optional] 
  **s_query** | **str**| Allow to filter the returned results | [optional] 
  **accept_language** | [**HeaderAcceptLanguage**](.md)|  | [optional] 
 

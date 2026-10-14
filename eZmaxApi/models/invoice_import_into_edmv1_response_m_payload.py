@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
+from eZmaxApi.models.custom_attachment_import_into_edm_response import CustomAttachmentImportIntoEDMResponse
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +29,8 @@ class InvoiceImportIntoEDMV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/invoice/{pkiInvoiceID}/importIntoEDM
     """ # noqa: E501
-    a_pki_attachment_id: List[Annotated[int, Field(strict=True, ge=0)]] = Field(alias="a_pkiAttachmentID")
-    __properties: ClassVar[List[str]] = ["a_pkiAttachmentID"]
+    a_obj_attachment: List[CustomAttachmentImportIntoEDMResponse] = Field(alias="a_objAttachment")
+    __properties: ClassVar[List[str]] = ["a_objAttachment"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -71,6 +71,12 @@ class InvoiceImportIntoEDMV1ResponseMPayload(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in a_obj_attachment (list)
+        _items = []
+        if self.a_obj_attachment:
+            for _item_a_obj_attachment in self.a_obj_attachment:
+                _items.append(_item_a_obj_attachment.to_dict() if _item_a_obj_attachment is not None else None)
+            _dict['a_objAttachment'] = _items
         return _dict
 
     @classmethod
@@ -83,7 +89,7 @@ class InvoiceImportIntoEDMV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_pkiAttachmentID": obj.get("a_pkiAttachmentID")
+            "a_objAttachment": [CustomAttachmentImportIntoEDMResponse.from_dict(_item) for _item in obj["a_objAttachment"]] if obj.get("a_objAttachment") is not None else None
         })
         return _obj
 

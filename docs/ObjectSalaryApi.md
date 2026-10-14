@@ -6,6 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**salary_batch_download_v1**](ObjectSalaryApi.md#salary_batch_download_v1) | **POST** /1/object/salary/{pkiSalaryID}/batchDownload | Download multiples attachments from a Reconciliation
 [**salary_get_attachments_v1**](ObjectSalaryApi.md#salary_get_attachments_v1) | **GET** /1/object/salary/{pkiSalaryID}/getAttachments | Retrieve Salary&#39;s attachments
+[**salary_get_communication_count_v1**](ObjectSalaryApi.md#salary_get_communication_count_v1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationCount | Retrieve Communication count
+[**salary_get_communication_list_v1**](ObjectSalaryApi.md#salary_get_communication_list_v1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationList | Retrieve Communication list
+[**salary_get_communicationrecipients_v1**](ObjectSalaryApi.md#salary_get_communicationrecipients_v1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationrecipients | Retrieve Communication recipients
+[**salary_get_communicationsenders_v1**](ObjectSalaryApi.md#salary_get_communicationsenders_v1) | **GET** /1/object/salary/{pkiSalaryID}/getCommunicationsenders | Retrieve Communication senders
 [**salary_get_list_v1**](ObjectSalaryApi.md#salary_get_list_v1) | **GET** /1/object/salary/getList | Retrieve Salary list
 [**salary_import_into_edmv1**](ObjectSalaryApi.md#salary_import_into_edmv1) | **POST** /1/object/salary/{pkiSalaryID}/importIntoEDM | Import attachments into the Salary
 
@@ -151,6 +155,318 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SalaryGetAttachmentsV1Response**](SalaryGetAttachmentsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **salary_get_communication_count_v1**
+> SalaryGetCommunicationCountV1Response salary_get_communication_count_v1(pki_salary_id)
+
+Retrieve Communication count
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.salary_get_communication_count_v1_response import SalaryGetCommunicationCountV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSalaryApi(api_client)
+    pki_salary_id = 56 # int | 
+
+    try:
+        # Retrieve Communication count
+        api_response = api_instance.salary_get_communication_count_v1(pki_salary_id)
+        print("The response of ObjectSalaryApi->salary_get_communication_count_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSalaryApi->salary_get_communication_count_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_salary_id** | **int**|  | 
+
+### Return type
+
+[**SalaryGetCommunicationCountV1Response**](SalaryGetCommunicationCountV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **salary_get_communication_list_v1**
+> SalaryGetCommunicationListV1Response salary_get_communication_list_v1(pki_salary_id)
+
+Retrieve Communication list
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.salary_get_communication_list_v1_response import SalaryGetCommunicationListV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSalaryApi(api_client)
+    pki_salary_id = 56 # int | 
+
+    try:
+        # Retrieve Communication list
+        api_response = api_instance.salary_get_communication_list_v1(pki_salary_id)
+        print("The response of ObjectSalaryApi->salary_get_communication_list_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSalaryApi->salary_get_communication_list_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_salary_id** | **int**|  | 
+
+### Return type
+
+[**SalaryGetCommunicationListV1Response**](SalaryGetCommunicationListV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **salary_get_communicationrecipients_v1**
+> SalaryGetCommunicationrecipientsV1Response salary_get_communicationrecipients_v1(pki_salary_id)
+
+Retrieve Communication recipients
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.salary_get_communicationrecipients_v1_response import SalaryGetCommunicationrecipientsV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSalaryApi(api_client)
+    pki_salary_id = 56 # int | 
+
+    try:
+        # Retrieve Communication recipients
+        api_response = api_instance.salary_get_communicationrecipients_v1(pki_salary_id)
+        print("The response of ObjectSalaryApi->salary_get_communicationrecipients_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSalaryApi->salary_get_communicationrecipients_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_salary_id** | **int**|  | 
+
+### Return type
+
+[**SalaryGetCommunicationrecipientsV1Response**](SalaryGetCommunicationrecipientsV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **salary_get_communicationsenders_v1**
+> SalaryGetCommunicationsendersV1Response salary_get_communicationsenders_v1(pki_salary_id)
+
+Retrieve Communication senders
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.salary_get_communicationsenders_v1_response import SalaryGetCommunicationsendersV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectSalaryApi(api_client)
+    pki_salary_id = 56 # int | 
+
+    try:
+        # Retrieve Communication senders
+        api_response = api_instance.salary_get_communicationsenders_v1(pki_salary_id)
+        print("The response of ObjectSalaryApi->salary_get_communicationsenders_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectSalaryApi->salary_get_communicationsenders_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_salary_id** | **int**|  | 
+
+### Return type
+
+[**SalaryGetCommunicationsendersV1Response**](SalaryGetCommunicationsendersV1Response.md)
 
 ### Authorization
 

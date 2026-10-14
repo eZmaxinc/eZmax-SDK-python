@@ -30,7 +30,7 @@ class UsergroupAutocompleteElementResponse(BaseModel):
     A Usergroup AutocompleteElement Response
     """ # noqa: E501
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
-    pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID", json_schema_extra={"examples": [2]})
+    pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID", json_schema_extra={"examples": [2]})
     b_usergroup_isactive: StrictBool = Field(description="Whether the Usergroup is active or not", alias="bUsergroupIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["sUsergroupNameX", "pkiUsergroupID", "bUsergroupIsactive"]
 

@@ -30,7 +30,7 @@ class UsergroupmembershipResponseCompound(BaseModel):
     A Usergroupmembership Object
     """ # noqa: E501
     pki_usergroupmembership_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroupmembership", alias="pkiUsergroupmembershipID", json_schema_extra={"examples": [21]})
-    fki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
     fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     fki_usergroupexternal_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroupexternal", alias="fkiUsergroupexternalID", json_schema_extra={"examples": [16]})
     s_user_firstname: Optional[StrictStr] = Field(default=None, description="The first name of the user", alias="sUserFirstname", json_schema_extra={"examples": ["John"]})

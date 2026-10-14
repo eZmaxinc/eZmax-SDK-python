@@ -59,6 +59,7 @@ Name | Type | Description | Notes
 **s_attachment_category** | **str** | The attachment category | 
 **e_attachment_privacy** | [**FieldEAttachmentPrivacy**](FieldEAttachmentPrivacy.md) |  | 
 **fki_user_id_specific** | **int** | The unique ID of the User | [optional] 
+**obj_user_specific** | [**CustomUserNameResponse**](CustomUserNameResponse.md) |  | [optional] 
 **e_attachment_type** | [**FieldEAttachmentType**](FieldEAttachmentType.md) |  | 
 **i_attachment_size** | **int** | The size of the Attachment | 
 **i_attachment_ed_mmoduleflag** | **int** | The edmmoduleflag of the Attachment | [optional] 

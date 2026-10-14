@@ -10,6 +10,7 @@ from eZmaxApi.api.module_report_api import ModuleReportApi
 from eZmaxApi.api.module_user_api import ModuleUserApi
 from eZmaxApi.api.object_activesession_api import ObjectActivesessionApi
 from eZmaxApi.api.object_adjustment_api import ObjectAdjustmentApi
+from eZmaxApi.api.object_adjustmentreminder_api import ObjectAdjustmentreminderApi
 from eZmaxApi.api.object_agent_api import ObjectAgentApi
 from eZmaxApi.api.object_agenttype_api import ObjectAgenttypeApi
 from eZmaxApi.api.object_apikey_api import ObjectApikeyApi
@@ -44,6 +45,7 @@ from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembers
 from eZmaxApi.api.object_discussionmessage_api import ObjectDiscussionmessageApi
 from eZmaxApi.api.object_domain_api import ObjectDomainApi
 from eZmaxApi.api.object_electronicfundstransfer_api import ObjectElectronicfundstransferApi
+from eZmaxApi.api.object_electronicfundstransfertransaction_api import ObjectElectronicfundstransfertransactionApi
 from eZmaxApi.api.object_emailtype_api import ObjectEmailtypeApi
 from eZmaxApi.api.object_employee_api import ObjectEmployeeApi
 from eZmaxApi.api.object_externalbroker_api import ObjectExternalbrokerApi

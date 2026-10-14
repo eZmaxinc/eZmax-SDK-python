@@ -332,7 +332,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_object_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_object_v1_request: UsergroupEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -405,7 +405,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_object_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_object_v1_request: UsergroupEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -478,7 +478,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_object_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_object_v1_request: UsergroupEditObjectV1Request,
         _request_timeout: Union[
             None,
@@ -627,7 +627,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_permissions_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_permissions_v1_request: UsergroupEditPermissionsV1Request,
         _request_timeout: Union[
             None,
@@ -700,7 +700,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_permissions_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_permissions_v1_request: UsergroupEditPermissionsV1Request,
         _request_timeout: Union[
             None,
@@ -773,7 +773,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_permissions_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_permissions_v1_request: UsergroupEditPermissionsV1Request,
         _request_timeout: Union[
             None,
@@ -922,7 +922,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupdelegations_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupdelegations_v1_request: UsergroupEditUsergroupdelegationsV1Request,
         _request_timeout: Union[
             None,
@@ -995,7 +995,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupdelegations_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupdelegations_v1_request: UsergroupEditUsergroupdelegationsV1Request,
         _request_timeout: Union[
             None,
@@ -1068,7 +1068,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupdelegations_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupdelegations_v1_request: UsergroupEditUsergroupdelegationsV1Request,
         _request_timeout: Union[
             None,
@@ -1217,7 +1217,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupmemberships_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupmemberships_v1_request: UsergroupEditUsergroupmembershipsV1Request,
         _request_timeout: Union[
             None,
@@ -1290,7 +1290,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupmemberships_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupmemberships_v1_request: UsergroupEditUsergroupmembershipsV1Request,
         _request_timeout: Union[
             None,
@@ -1363,7 +1363,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_edit_usergroupmemberships_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         usergroup_edit_usergroupmemberships_v1_request: UsergroupEditUsergroupmembershipsV1Request,
         _request_timeout: Union[
             None,
@@ -2155,7 +2155,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_object_v2(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2223,7 +2223,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_object_v2_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2291,7 +2291,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_object_v2_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2419,7 +2419,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_permissions_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2486,7 +2486,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_permissions_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2553,7 +2553,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_permissions_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2680,7 +2680,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupdelegations_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2747,7 +2747,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupdelegations_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2814,7 +2814,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupdelegations_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2941,7 +2941,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupmemberships_v1(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3008,7 +3008,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupmemberships_v1_with_http_info(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3075,7 +3075,7 @@ class ObjectUsergroupApi:
     @validate_call
     def usergroup_get_usergroupmemberships_v1_without_preload_content(
         self,
-        pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)],
+        pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],

@@ -33,7 +33,7 @@ class EzsigntemplatesignerRequestCompound(BaseModel):
     pki_ezsigntemplatesigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsigntemplatesigner", alias="pkiEzsigntemplatesignerID", json_schema_extra={"examples": [9]})
     fki_ezsigntemplate_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Ezsigntemplate", alias="fkiEzsigntemplateID", json_schema_extra={"examples": [36]})
     fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
-    fki_usergroup_id: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
+    fki_usergroup_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Usergroup", alias="fkiUsergroupID", json_schema_extra={"examples": [2]})
     fki_ezdoctemplatedocument_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezdoctemplatedocument", alias="fkiEzdoctemplatedocumentID", json_schema_extra={"examples": [95]})
     b_ezsigntemplatesigner_receivecopy: Optional[StrictBool] = Field(default=None, description="If this flag is true. The signatory will receive a copy of every signed Ezsigndocument even if it ain't required to sign the document.", alias="bEzsigntemplatesignerReceivecopy")
     e_ezsigntemplatesigner_mapping: Optional[FieldEEzsigntemplatesignerMapping] = Field(default=None, alias="eEzsigntemplatesignerMapping")

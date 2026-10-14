@@ -1765,6 +1765,7 @@ class ObjectUserApi:
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Users to return")],
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        fki_attachment_id: Annotated[Optional[StrictStr], Field(description="Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
         _request_timeout: Union[
@@ -1788,6 +1789,8 @@ class ObjectUserApi:
         :type s_selector: str
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
+        :param fki_attachment_id: Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.
+        :type fki_attachment_id: str
         :param s_query: Allow to filter the returned results
         :type s_query: str
         :param accept_language:
@@ -1817,6 +1820,7 @@ class ObjectUserApi:
         _param = self._user_get_autocomplete_v2_serialize(
             s_selector=s_selector,
             e_filter_active=e_filter_active,
+            fki_attachment_id=fki_attachment_id,
             s_query=s_query,
             accept_language=accept_language,
             _request_auth=_request_auth,
@@ -1844,6 +1848,7 @@ class ObjectUserApi:
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Users to return")],
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        fki_attachment_id: Annotated[Optional[StrictStr], Field(description="Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
         _request_timeout: Union[
@@ -1867,6 +1872,8 @@ class ObjectUserApi:
         :type s_selector: str
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
+        :param fki_attachment_id: Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.
+        :type fki_attachment_id: str
         :param s_query: Allow to filter the returned results
         :type s_query: str
         :param accept_language:
@@ -1896,6 +1903,7 @@ class ObjectUserApi:
         _param = self._user_get_autocomplete_v2_serialize(
             s_selector=s_selector,
             e_filter_active=e_filter_active,
+            fki_attachment_id=fki_attachment_id,
             s_query=s_query,
             accept_language=accept_language,
             _request_auth=_request_auth,
@@ -1923,6 +1931,7 @@ class ObjectUserApi:
         self,
         s_selector: Annotated[StrictStr, Field(description="The type of Users to return")],
         e_filter_active: Annotated[Optional[StrictStr], Field(description="Specify which results we want to display.")] = None,
+        fki_attachment_id: Annotated[Optional[StrictStr], Field(description="Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.")] = None,
         s_query: Annotated[Optional[StrictStr], Field(description="Allow to filter the returned results")] = None,
         accept_language: Optional[HeaderAcceptLanguage] = None,
         _request_timeout: Union[
@@ -1946,6 +1955,8 @@ class ObjectUserApi:
         :type s_selector: str
         :param e_filter_active: Specify which results we want to display.
         :type e_filter_active: str
+        :param fki_attachment_id: Specify for which fkiAttachmentID we want to find users for. Only used when sSelector is AttachmentSpecificUser.
+        :type fki_attachment_id: str
         :param s_query: Allow to filter the returned results
         :type s_query: str
         :param accept_language:
@@ -1975,6 +1986,7 @@ class ObjectUserApi:
         _param = self._user_get_autocomplete_v2_serialize(
             s_selector=s_selector,
             e_filter_active=e_filter_active,
+            fki_attachment_id=fki_attachment_id,
             s_query=s_query,
             accept_language=accept_language,
             _request_auth=_request_auth,
@@ -1997,6 +2009,7 @@ class ObjectUserApi:
         self,
         s_selector,
         e_filter_active,
+        fki_attachment_id,
         s_query,
         accept_language,
         _request_auth,
@@ -2026,6 +2039,10 @@ class ObjectUserApi:
         if e_filter_active is not None:
             
             _query_params.append(('eFilterActive', e_filter_active))
+            
+        if fki_attachment_id is not None:
+            
+            _query_params.append(('fkiAttachmentID', fki_attachment_id))
             
         if s_query is not None:
             

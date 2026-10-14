@@ -27,6 +27,7 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
+from eZmaxApi.api.request_signature import RequestSignature
 from eZmaxApi.configuration import Configuration
 from eZmaxApi.api_response import ApiResponse, T as ApiResponseT
 import eZmaxApi.models
@@ -245,6 +246,20 @@ class ApiClient:
                 collection_formats
             )
             url += "?" + url_query
+
+        _api_key = self.configuration.api_key.get('Authorization')
+            if _api_key:
+                import json
+                _secret = self.configuration.get_secret()
+                _body_str = json.dumps(body) if body else ""
+                _sig_headers = RequestSignature.get_headers_v1(
+                    authorization=_api_key,
+                    secret=_secret,
+                    method=method,
+                    url=url,
+                    body=_body_str or "",
+                )
+                header_params.update(_sig_headers)
 
         return method, url, header_params, body, post_params
 
@@ -520,6 +535,13 @@ class ApiClient:
                 new_params.append((k, v))
         return new_params
 
+    def explode_query_object(self, name, obj):
+        """form style, explode: one query parameter per entry, keyed by the property name; a list repeats the name, None is left out"""
+        obj = self.sanitize_for_serialization(obj)
+        if not isinstance(obj, dict):
+            obj = {name: obj}
+        return [(k, item) for k, v in obj.items() for item in (v if isinstance(v, (list, tuple)) else [v]) if item is not None]
+
     def parameters_to_url_query(self, params, collection_formats):
         """Get parameters as list of tuples, formatting collections.
 
@@ -538,11 +560,12 @@ class ApiClient:
             if isinstance(v, dict):
                 v = json.dumps(v)
 
-            if k in collection_formats:
+            # a collection format applies only to a list; an exploded entry may share a declared array parameter's name
+            if k in collection_formats and isinstance(v, (list, tuple)):
                 collection_format = collection_formats[k]
                 if collection_format == 'multi':
                     new_params.extend(
-                        (k, quote(str(value).lower() if isinstance(value, bool) else str(value)))
+                        (quote(str(k)), quote(str(value).lower() if isinstance(value, bool) else str(value)))
                         for value in v
                     )
                 else:
@@ -555,12 +578,13 @@ class ApiClient:
                     else:  # csv is the default
                         delimiter = ','
                     new_params.append(
-                        (k, delimiter.join(
+                        (quote(str(k)), delimiter.join(
                             quote(str(value).lower() if isinstance(value, bool) else str(value))
                             for value in v))
                     )
             else:
-                new_params.append((k, quote(str(v))))
+                # names are quoted too: an exploded object's names are runtime data
+                new_params.append((quote(str(k)), quote(str(v))))
 
         return "&".join(["=".join(map(str, item)) for item in new_params])
 

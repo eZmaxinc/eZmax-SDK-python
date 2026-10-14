@@ -29,7 +29,7 @@ class UsergroupListElement(BaseModel):
     """
     A Usergroup List Element
     """ # noqa: E501
-    pki_usergroup_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID", json_schema_extra={"examples": [2]})
+    pki_usergroup_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Usergroup", alias="pkiUsergroupID", json_schema_extra={"examples": [2]})
     s_usergroup_name_x: Annotated[str, Field(strict=True)] = Field(description="The Name of the Usergroup in the language of the requester", alias="sUsergroupNameX", json_schema_extra={"examples": ["Administration"]})
     i_count_user: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="Number of users in group", alias="iCountUser", json_schema_extra={"examples": [15]})
     i_count_inactiveuser: Annotated[int, Field(le=16777215, strict=True, ge=0)] = Field(description="Number of inactive users in group", alias="iCountInactiveuser", json_schema_extra={"examples": [15]})

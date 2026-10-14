@@ -45,7 +45,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     e_activesession_origin: FieldEActivesessionOrigin = Field(alias="eActivesessionOrigin")
     e_activesession_weekdaystart: FieldEActivesessionWeekdaystart = Field(alias="eActivesessionWeekdaystart")
     fki_language_id: Annotated[int, Field(le=2, strict=True, ge=1)] = Field(description="The unique ID of the Language.  Valid values:  |Value|Description| |-|-| |1|French| |2|English|", alias="fkiLanguageID", json_schema_extra={"examples": [2]})
+    fki_company_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Company", alias="fkiCompanyID", json_schema_extra={"examples": [1]})
     s_company_name_x: StrictStr = Field(description="The Name of the Company in the language of the requester", alias="sCompanyNameX", json_schema_extra={"examples": ["Acme inc."]})
+    fki_department_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
     s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
     b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug", json_schema_extra={"examples": [False]})
     b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin", json_schema_extra={"examples": [False]})
@@ -75,7 +77,7 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
     obj_apikey: Optional[ActivesessionResponseCompoundApikey] = Field(default=None, alias="objApikey")
     a_e_module_internalname: List[StrictStr] = Field(description="An Array of Registered modules.  These are the modules that are Licensed to be used by the User or the API Key.", alias="a_eModuleInternalname")
     b_activesession_maillinglistrequest: Optional[StrictBool] = Field(default=None, description="If you need to ask which mailing lists this user wants to subscribe to", alias="bActivesessionMaillinglistrequest", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "sCompanyNameX", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "fkiEzsignuserID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "bUserEzsigntrial", "bUserEzsigntemplaterolegrouping", "dtUserEzsignprepaidexpiration", "dtUserNpsrequest", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname", "bActivesessionMaillinglistrequest"]
+    __properties: ClassVar[List[str]] = ["eActivesessionUsertype", "eActivesessionOrigin", "eActivesessionWeekdaystart", "fkiLanguageID", "fkiCompanyID", "sCompanyNameX", "fkiDepartmentID", "sDepartmentNameX", "bActivesessionDebug", "bActivesessionIssuperadmin", "bActivesessionAttachment", "bActivesessionCanafe", "bActivesessionFinancial", "bActivesessionRealestatecompleted", "eActivesessionEzsign", "eActivesessionEzsignaccess", "eActivesessionEzsignprepaid", "eActivesessionRealestateinprogress", "pksCustomerCode", "fkiSystemconfigurationtypeID", "fkiSignatureID", "fkiEzsignuserID", "bSystemconfigurationEzsignpaidbyoffice", "eSystemconfigurationEzsignofficeplan", "eUserEzsignaccess", "eUserEzsignprepaid", "bUserEzsigntrial", "bUserEzsigntemplaterolegrouping", "dtUserEzsignprepaidexpiration", "dtUserNpsrequest", "a_pkiPermissionID", "objUserReal", "objUserCloned", "objApikey", "a_eModuleInternalname", "bActivesessionMaillinglistrequest"]
 
     @field_validator('dt_user_ezsignprepaidexpiration', mode="before")
     def dt_user_ezsignprepaidexpiration_validate_regular_expression(cls, value):
@@ -161,7 +163,9 @@ class ActivesessionGetCurrentV1ResponseMPayload(BaseModel):
             "eActivesessionOrigin": obj.get("eActivesessionOrigin"),
             "eActivesessionWeekdaystart": obj.get("eActivesessionWeekdaystart"),
             "fkiLanguageID": obj.get("fkiLanguageID"),
+            "fkiCompanyID": obj.get("fkiCompanyID"),
             "sCompanyNameX": obj.get("sCompanyNameX"),
+            "fkiDepartmentID": obj.get("fkiDepartmentID"),
             "sDepartmentNameX": obj.get("sDepartmentNameX"),
             "bActivesessionDebug": obj.get("bActivesessionDebug"),
             "bActivesessionIssuperadmin": obj.get("bActivesessionIssuperadmin"),

@@ -29,7 +29,7 @@ class UsergroupCreateObjectV1ResponseMPayload(BaseModel):
     """
     Payload for POST /1/object/usergroup
     """ # noqa: E501
-    a_pki_usergroup_id: List[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(description="An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.", alias="a_pkiUsergroupID")
+    a_pki_usergroup_id: List[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(description="An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.", alias="a_pkiUsergroupID")
     __properties: ClassVar[List[str]] = ["a_pkiUsergroupID"]
 
     model_config = ConfigDict(
