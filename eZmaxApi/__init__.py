@@ -61,6 +61,8 @@ __all__ = [
     "ObjectDiscussionApi",
     "ObjectDiscussionmembershipApi",
     "ObjectDiscussionmessageApi",
+    "ObjectDocumenttypeApi",
+    "ObjectDocumenttypechecklistApi",
     "ObjectDomainApi",
     "ObjectElectronicfundstransferApi",
     "ObjectElectronicfundstransfertransactionApi",
@@ -759,6 +761,39 @@ __all__ = [
     "DiscussionmessageRequestPatch",
     "DiscussionmessageResponse",
     "DiscussionmessageResponseCompound",
+    "DocumenttypeAutocompleteElementResponse",
+    "DocumenttypeCreateObjectV1Request",
+    "DocumenttypeCreateObjectV1Response",
+    "DocumenttypeCreateObjectV1ResponseMPayload",
+    "DocumenttypeDeleteObjectV1Response",
+    "DocumenttypeEditObjectV1Request",
+    "DocumenttypeEditObjectV1Response",
+    "DocumenttypeGetAutocompleteV2Response",
+    "DocumenttypeGetAutocompleteV2ResponseMPayload",
+    "DocumenttypeGetListV1Response",
+    "DocumenttypeGetListV1ResponseMPayload",
+    "DocumenttypeGetObjectV2Response",
+    "DocumenttypeGetObjectV2ResponseMPayload",
+    "DocumenttypeListElement",
+    "DocumenttypeRequest",
+    "DocumenttypeRequestCompound",
+    "DocumenttypeResponse",
+    "DocumenttypeResponseCompound",
+    "DocumenttypechecklistCreateObjectV1Request",
+    "DocumenttypechecklistCreateObjectV1Response",
+    "DocumenttypechecklistCreateObjectV1ResponseMPayload",
+    "DocumenttypechecklistDeleteObjectV1Response",
+    "DocumenttypechecklistEditObjectV1Request",
+    "DocumenttypechecklistEditObjectV1Response",
+    "DocumenttypechecklistGetListV1Response",
+    "DocumenttypechecklistGetListV1ResponseMPayload",
+    "DocumenttypechecklistGetObjectV2Response",
+    "DocumenttypechecklistGetObjectV2ResponseMPayload",
+    "DocumenttypechecklistListElement",
+    "DocumenttypechecklistRequest",
+    "DocumenttypechecklistRequestCompound",
+    "DocumenttypechecklistResponse",
+    "DocumenttypechecklistResponseCompound",
     "DomainAutocompleteElementResponse",
     "DomainCreateObjectV1Request",
     "DomainCreateObjectV1Response",
@@ -1761,6 +1796,14 @@ __all__ = [
     "FieldEDisclosureInteresttype",
     "FieldEDiscussionRobot",
     "FieldEDiscussionmessageStatus",
+    "FieldEDocumenttypeEzcom",
+    "FieldEDocumenttypePrivacydefault",
+    "FieldEDocumenttypeRepossession",
+    "FieldEDocumenttypeSalebyowner",
+    "FieldEDocumenttypeSaledisplaybyrole",
+    "FieldEDocumenttypeStatusdefault",
+    "FieldEDocumenttypeTransactiontype",
+    "FieldEDocumenttypechecklistStatus",
     "FieldEErrorCode",
     "FieldEEzdoctemplatedocumentPrivacylevel",
     "FieldEEzmaxinvoicingPaymenttype",
@@ -2055,6 +2098,7 @@ __all__ = [
     "MultilingualApikeyDescription",
     "MultilingualBillingentityinternalDescription",
     "MultilingualBrandingDescription",
+    "MultilingualDocumenttypeName",
     "MultilingualEzdoctemplatedocumentName",
     "MultilingualEzmaxcustomerCompany",
     "MultilingualEzmaxcustomerNote",
@@ -2676,6 +2720,8 @@ from eZmaxApi.api.object_disclosure_api import ObjectDisclosureApi as ObjectDisc
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi as ObjectDiscussionApi
 from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembershipApi as ObjectDiscussionmembershipApi
 from eZmaxApi.api.object_discussionmessage_api import ObjectDiscussionmessageApi as ObjectDiscussionmessageApi
+from eZmaxApi.api.object_documenttype_api import ObjectDocumenttypeApi as ObjectDocumenttypeApi
+from eZmaxApi.api.object_documenttypechecklist_api import ObjectDocumenttypechecklistApi as ObjectDocumenttypechecklistApi
 from eZmaxApi.api.object_domain_api import ObjectDomainApi as ObjectDomainApi
 from eZmaxApi.api.object_electronicfundstransfer_api import ObjectElectronicfundstransferApi as ObjectElectronicfundstransferApi
 from eZmaxApi.api.object_electronicfundstransfertransaction_api import ObjectElectronicfundstransfertransactionApi as ObjectElectronicfundstransfertransactionApi
@@ -3378,6 +3424,39 @@ from eZmaxApi.models.discussionmessage_request_compound import Discussionmessage
 from eZmaxApi.models.discussionmessage_request_patch import DiscussionmessageRequestPatch as DiscussionmessageRequestPatch
 from eZmaxApi.models.discussionmessage_response import DiscussionmessageResponse as DiscussionmessageResponse
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound as DiscussionmessageResponseCompound
+from eZmaxApi.models.documenttype_autocomplete_element_response import DocumenttypeAutocompleteElementResponse as DocumenttypeAutocompleteElementResponse
+from eZmaxApi.models.documenttype_create_object_v1_request import DocumenttypeCreateObjectV1Request as DocumenttypeCreateObjectV1Request
+from eZmaxApi.models.documenttype_create_object_v1_response import DocumenttypeCreateObjectV1Response as DocumenttypeCreateObjectV1Response
+from eZmaxApi.models.documenttype_create_object_v1_response_m_payload import DocumenttypeCreateObjectV1ResponseMPayload as DocumenttypeCreateObjectV1ResponseMPayload
+from eZmaxApi.models.documenttype_delete_object_v1_response import DocumenttypeDeleteObjectV1Response as DocumenttypeDeleteObjectV1Response
+from eZmaxApi.models.documenttype_edit_object_v1_request import DocumenttypeEditObjectV1Request as DocumenttypeEditObjectV1Request
+from eZmaxApi.models.documenttype_edit_object_v1_response import DocumenttypeEditObjectV1Response as DocumenttypeEditObjectV1Response
+from eZmaxApi.models.documenttype_get_autocomplete_v2_response import DocumenttypeGetAutocompleteV2Response as DocumenttypeGetAutocompleteV2Response
+from eZmaxApi.models.documenttype_get_autocomplete_v2_response_m_payload import DocumenttypeGetAutocompleteV2ResponseMPayload as DocumenttypeGetAutocompleteV2ResponseMPayload
+from eZmaxApi.models.documenttype_get_list_v1_response import DocumenttypeGetListV1Response as DocumenttypeGetListV1Response
+from eZmaxApi.models.documenttype_get_list_v1_response_m_payload import DocumenttypeGetListV1ResponseMPayload as DocumenttypeGetListV1ResponseMPayload
+from eZmaxApi.models.documenttype_get_object_v2_response import DocumenttypeGetObjectV2Response as DocumenttypeGetObjectV2Response
+from eZmaxApi.models.documenttype_get_object_v2_response_m_payload import DocumenttypeGetObjectV2ResponseMPayload as DocumenttypeGetObjectV2ResponseMPayload
+from eZmaxApi.models.documenttype_list_element import DocumenttypeListElement as DocumenttypeListElement
+from eZmaxApi.models.documenttype_request import DocumenttypeRequest as DocumenttypeRequest
+from eZmaxApi.models.documenttype_request_compound import DocumenttypeRequestCompound as DocumenttypeRequestCompound
+from eZmaxApi.models.documenttype_response import DocumenttypeResponse as DocumenttypeResponse
+from eZmaxApi.models.documenttype_response_compound import DocumenttypeResponseCompound as DocumenttypeResponseCompound
+from eZmaxApi.models.documenttypechecklist_create_object_v1_request import DocumenttypechecklistCreateObjectV1Request as DocumenttypechecklistCreateObjectV1Request
+from eZmaxApi.models.documenttypechecklist_create_object_v1_response import DocumenttypechecklistCreateObjectV1Response as DocumenttypechecklistCreateObjectV1Response
+from eZmaxApi.models.documenttypechecklist_create_object_v1_response_m_payload import DocumenttypechecklistCreateObjectV1ResponseMPayload as DocumenttypechecklistCreateObjectV1ResponseMPayload
+from eZmaxApi.models.documenttypechecklist_delete_object_v1_response import DocumenttypechecklistDeleteObjectV1Response as DocumenttypechecklistDeleteObjectV1Response
+from eZmaxApi.models.documenttypechecklist_edit_object_v1_request import DocumenttypechecklistEditObjectV1Request as DocumenttypechecklistEditObjectV1Request
+from eZmaxApi.models.documenttypechecklist_edit_object_v1_response import DocumenttypechecklistEditObjectV1Response as DocumenttypechecklistEditObjectV1Response
+from eZmaxApi.models.documenttypechecklist_get_list_v1_response import DocumenttypechecklistGetListV1Response as DocumenttypechecklistGetListV1Response
+from eZmaxApi.models.documenttypechecklist_get_list_v1_response_m_payload import DocumenttypechecklistGetListV1ResponseMPayload as DocumenttypechecklistGetListV1ResponseMPayload
+from eZmaxApi.models.documenttypechecklist_get_object_v2_response import DocumenttypechecklistGetObjectV2Response as DocumenttypechecklistGetObjectV2Response
+from eZmaxApi.models.documenttypechecklist_get_object_v2_response_m_payload import DocumenttypechecklistGetObjectV2ResponseMPayload as DocumenttypechecklistGetObjectV2ResponseMPayload
+from eZmaxApi.models.documenttypechecklist_list_element import DocumenttypechecklistListElement as DocumenttypechecklistListElement
+from eZmaxApi.models.documenttypechecklist_request import DocumenttypechecklistRequest as DocumenttypechecklistRequest
+from eZmaxApi.models.documenttypechecklist_request_compound import DocumenttypechecklistRequestCompound as DocumenttypechecklistRequestCompound
+from eZmaxApi.models.documenttypechecklist_response import DocumenttypechecklistResponse as DocumenttypechecklistResponse
+from eZmaxApi.models.documenttypechecklist_response_compound import DocumenttypechecklistResponseCompound as DocumenttypechecklistResponseCompound
 from eZmaxApi.models.domain_autocomplete_element_response import DomainAutocompleteElementResponse as DomainAutocompleteElementResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request as DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response as DomainCreateObjectV1Response
@@ -4380,6 +4459,14 @@ from eZmaxApi.models.field_e_customer_type import FieldECustomerType as FieldECu
 from eZmaxApi.models.field_e_disclosure_interesttype import FieldEDisclosureInteresttype as FieldEDisclosureInteresttype
 from eZmaxApi.models.field_e_discussion_robot import FieldEDiscussionRobot as FieldEDiscussionRobot
 from eZmaxApi.models.field_e_discussionmessage_status import FieldEDiscussionmessageStatus as FieldEDiscussionmessageStatus
+from eZmaxApi.models.field_e_documenttype_ezcom import FieldEDocumenttypeEzcom as FieldEDocumenttypeEzcom
+from eZmaxApi.models.field_e_documenttype_privacydefault import FieldEDocumenttypePrivacydefault as FieldEDocumenttypePrivacydefault
+from eZmaxApi.models.field_e_documenttype_repossession import FieldEDocumenttypeRepossession as FieldEDocumenttypeRepossession
+from eZmaxApi.models.field_e_documenttype_salebyowner import FieldEDocumenttypeSalebyowner as FieldEDocumenttypeSalebyowner
+from eZmaxApi.models.field_e_documenttype_saledisplaybyrole import FieldEDocumenttypeSaledisplaybyrole as FieldEDocumenttypeSaledisplaybyrole
+from eZmaxApi.models.field_e_documenttype_statusdefault import FieldEDocumenttypeStatusdefault as FieldEDocumenttypeStatusdefault
+from eZmaxApi.models.field_e_documenttype_transactiontype import FieldEDocumenttypeTransactiontype as FieldEDocumenttypeTransactiontype
+from eZmaxApi.models.field_e_documenttypechecklist_status import FieldEDocumenttypechecklistStatus as FieldEDocumenttypechecklistStatus
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode as FieldEErrorCode
 from eZmaxApi.models.field_e_ezdoctemplatedocument_privacylevel import FieldEEzdoctemplatedocumentPrivacylevel as FieldEEzdoctemplatedocumentPrivacylevel
 from eZmaxApi.models.field_e_ezmaxinvoicing_paymenttype import FieldEEzmaxinvoicingPaymenttype as FieldEEzmaxinvoicingPaymenttype
@@ -4674,6 +4761,7 @@ from eZmaxApi.models.modulesection_response_compound import ModulesectionRespons
 from eZmaxApi.models.multilingual_apikey_description import MultilingualApikeyDescription as MultilingualApikeyDescription
 from eZmaxApi.models.multilingual_billingentityinternal_description import MultilingualBillingentityinternalDescription as MultilingualBillingentityinternalDescription
 from eZmaxApi.models.multilingual_branding_description import MultilingualBrandingDescription as MultilingualBrandingDescription
+from eZmaxApi.models.multilingual_documenttype_name import MultilingualDocumenttypeName as MultilingualDocumenttypeName
 from eZmaxApi.models.multilingual_ezdoctemplatedocument_name import MultilingualEzdoctemplatedocumentName as MultilingualEzdoctemplatedocumentName
 from eZmaxApi.models.multilingual_ezmaxcustomer_company import MultilingualEzmaxcustomerCompany as MultilingualEzmaxcustomerCompany
 from eZmaxApi.models.multilingual_ezmaxcustomer_note import MultilingualEzmaxcustomerNote as MultilingualEzmaxcustomerNote

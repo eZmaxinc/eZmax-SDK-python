@@ -1,0 +1,13 @@
+# FieldEDocumenttypeStatusdefault
+
+The statusdefault of the Documenttype
+
+## Enum
+
+* `NOT_REQUIRED` (value: `'Not required'`)
+
+* `REQUIRED` (value: `'Required'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
