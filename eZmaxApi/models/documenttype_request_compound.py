@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.computed_e_documenttype_step import ComputedEDocumenttypeStep
 from eZmaxApi.models.field_e_documenttype_ezcom import FieldEDocumenttypeEzcom
 from eZmaxApi.models.field_e_documenttype_privacydefault import FieldEDocumenttypePrivacydefault
 from eZmaxApi.models.field_e_documenttype_repossession import FieldEDocumenttypeRepossession
@@ -39,6 +40,7 @@ class DocumenttypeRequestCompound(BaseModel):
     """ # noqa: E501
     pki_documenttype_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Documenttype", alias="pkiDocumenttypeID", json_schema_extra={"examples": [172]})
     obj_documenttype_name: MultilingualDocumenttypeName = Field(alias="objDocumenttypeName")
+    e_documenttype_step: ComputedEDocumenttypeStep = Field(alias="eDocumenttypeStep")
     s_documenttype_defaultfilename: Annotated[str, Field(strict=True)] = Field(description="The defaultfilename of the Documenttype", alias="sDocumenttypeDefaultfilename", json_schema_extra={"examples": ["invoice.pdf"]})
     b_documenttype_showagent: StrictBool = Field(description="Whether if it's an showagent", alias="bDocumenttypeShowagent", json_schema_extra={"examples": [True]})
     b_documenttype_isactive: StrictBool = Field(description="Whether the documenttype is active or not", alias="bDocumenttypeIsactive", json_schema_extra={"examples": [True]})
@@ -53,14 +55,15 @@ class DocumenttypeRequestCompound(BaseModel):
     b_documenttype_foreclosedsale: StrictBool = Field(description="Whether if it's an foreclosedsale", alias="bDocumenttypeForeclosedsale", json_schema_extra={"examples": [True]})
     b_documenttype_commercialfunding: StrictBool = Field(description="Whether if it's an commercialfunding", alias="bDocumenttypeCommercialfunding", json_schema_extra={"examples": [True]})
     b_documenttype_canafe: StrictBool = Field(description="Whether if it's an canafe", alias="bDocumenttypeCanafe", json_schema_extra={"examples": [True]})
-    e_documenttype_ezcom: FieldEDocumenttypeEzcom = Field(alias="eDocumenttypeEzcom")
+    e_documenttype_ezcom: Optional[FieldEDocumenttypeEzcom] = Field(default=None, alias="eDocumenttypeEzcom")
     e_documenttype_privacydefault: FieldEDocumenttypePrivacydefault = Field(alias="eDocumenttypePrivacydefault")
     e_documenttype_statusdefault: FieldEDocumenttypeStatusdefault = Field(alias="eDocumenttypeStatusdefault")
     e_documenttype_salebyowner: FieldEDocumenttypeSalebyowner = Field(alias="eDocumenttypeSalebyowner")
     e_documenttype_saledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole = Field(alias="eDocumenttypeSaledisplaybyrole")
     e_documenttype_transactiontype: FieldEDocumenttypeTransactiontype = Field(alias="eDocumenttypeTransactiontype")
     e_documenttype_repossession: FieldEDocumenttypeRepossession = Field(alias="eDocumenttypeRepossession")
-    __properties: ClassVar[List[str]] = ["pkiDocumenttypeID", "objDocumenttypeName", "sDocumenttypeDefaultfilename", "bDocumenttypeShowagent", "bDocumenttypeIsactive", "bDocumenttypeIsrequired", "bDocumenttypeSale", "bDocumenttypeRental", "bDocumenttypeReference", "bDocumenttypeMortgagereference", "bDocumenttypeEvaluation", "bDocumenttypeConsultation", "bDocumenttypeOtherservices", "bDocumenttypeForeclosedsale", "bDocumenttypeCommercialfunding", "bDocumenttypeCanafe", "eDocumenttypeEzcom", "eDocumenttypePrivacydefault", "eDocumenttypeStatusdefault", "eDocumenttypeSalebyowner", "eDocumenttypeSaledisplaybyrole", "eDocumenttypeTransactiontype", "eDocumenttypeRepossession"]
+    a_fki_inscriptiontype_id: List[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(alias="a_fkiInscriptiontypeID")
+    __properties: ClassVar[List[str]] = ["pkiDocumenttypeID", "objDocumenttypeName", "eDocumenttypeStep", "sDocumenttypeDefaultfilename", "bDocumenttypeShowagent", "bDocumenttypeIsactive", "bDocumenttypeIsrequired", "bDocumenttypeSale", "bDocumenttypeRental", "bDocumenttypeReference", "bDocumenttypeMortgagereference", "bDocumenttypeEvaluation", "bDocumenttypeConsultation", "bDocumenttypeOtherservices", "bDocumenttypeForeclosedsale", "bDocumenttypeCommercialfunding", "bDocumenttypeCanafe", "eDocumenttypeEzcom", "eDocumenttypePrivacydefault", "eDocumenttypeStatusdefault", "eDocumenttypeSalebyowner", "eDocumenttypeSaledisplaybyrole", "eDocumenttypeTransactiontype", "eDocumenttypeRepossession", "a_fkiInscriptiontypeID"]
 
     @field_validator('s_documenttype_defaultfilename', mode="before")
     def s_documenttype_defaultfilename_validate_regular_expression(cls, value):
@@ -125,6 +128,7 @@ class DocumenttypeRequestCompound(BaseModel):
         _obj = cls.model_validate({
             "pkiDocumenttypeID": obj.get("pkiDocumenttypeID"),
             "objDocumenttypeName": MultilingualDocumenttypeName.from_dict(obj["objDocumenttypeName"]) if obj.get("objDocumenttypeName") is not None else None,
+            "eDocumenttypeStep": obj.get("eDocumenttypeStep"),
             "sDocumenttypeDefaultfilename": obj.get("sDocumenttypeDefaultfilename"),
             "bDocumenttypeShowagent": obj.get("bDocumenttypeShowagent"),
             "bDocumenttypeIsactive": obj.get("bDocumenttypeIsactive"),
@@ -145,7 +149,8 @@ class DocumenttypeRequestCompound(BaseModel):
             "eDocumenttypeSalebyowner": obj.get("eDocumenttypeSalebyowner"),
             "eDocumenttypeSaledisplaybyrole": obj.get("eDocumenttypeSaledisplaybyrole"),
             "eDocumenttypeTransactiontype": obj.get("eDocumenttypeTransactiontype"),
-            "eDocumenttypeRepossession": obj.get("eDocumenttypeRepossession")
+            "eDocumenttypeRepossession": obj.get("eDocumenttypeRepossession"),
+            "a_fkiInscriptiontypeID": obj.get("a_fkiInscriptiontypeID")
         })
         return _obj
 

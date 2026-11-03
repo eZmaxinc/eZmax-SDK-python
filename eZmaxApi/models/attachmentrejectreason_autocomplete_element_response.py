@@ -30,12 +30,12 @@ class AttachmentrejectreasonAutocompleteElementResponse(BaseModel):
     A Attachmentrejectreason AutocompleteElement Response
     """ # noqa: E501
     pki_attachmentrejectreason_id: Annotated[int, Field(le=255, strict=True, ge=0)] = Field(description="The unique ID of the Attachmentrejectreason", alias="pkiAttachmentrejectreasonID", json_schema_extra={"examples": [41]})
-    s_attachmentrejectreasonname_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachmentrejectreason in the language of the requester", alias="sAttachmentrejectreasonnameX", json_schema_extra={"examples": ["Wrong Document"]})
+    s_attachmentrejectreason_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Attachmentrejectreason in the language of the requester", alias="sAttachmentrejectreasonNameX", json_schema_extra={"examples": ["Wrong Document"]})
     b_attachmentrejectreason_isactive: StrictBool = Field(description="Whether the Attachmentrejectreason is active or not", alias="bAttachmentrejectreasonIsactive", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["pkiAttachmentrejectreasonID", "sAttachmentrejectreasonnameX", "bAttachmentrejectreasonIsactive"]
+    __properties: ClassVar[List[str]] = ["pkiAttachmentrejectreasonID", "sAttachmentrejectreasonNameX", "bAttachmentrejectreasonIsactive"]
 
-    @field_validator('s_attachmentrejectreasonname_x', mode="before")
-    def s_attachmentrejectreasonname_x_validate_regular_expression(cls, value):
+    @field_validator('s_attachmentrejectreason_name_x', mode="before")
+    def s_attachmentrejectreason_name_x_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if isinstance(value, str) and not re.match(r"^.{0,75}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,75}$/")
@@ -93,7 +93,7 @@ class AttachmentrejectreasonAutocompleteElementResponse(BaseModel):
 
         _obj = cls.model_validate({
             "pkiAttachmentrejectreasonID": obj.get("pkiAttachmentrejectreasonID"),
-            "sAttachmentrejectreasonnameX": obj.get("sAttachmentrejectreasonnameX"),
+            "sAttachmentrejectreasonNameX": obj.get("sAttachmentrejectreasonNameX"),
             "bAttachmentrejectreasonIsactive": obj.get("bAttachmentrejectreasonIsactive")
         })
         return _obj

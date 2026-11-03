@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_e_webhook_ezsignevent import CustomEWebhookEzsignevent
+from eZmaxApi.models.field_e_webhook_ezmaxpartnerevent import FieldEWebhookEzmaxpartnerevent
 from eZmaxApi.models.field_e_webhook_managementevent import FieldEWebhookManagementevent
 from eZmaxApi.models.field_e_webhook_module import FieldEWebhookModule
 from eZmaxApi.models.field_e_webhook_realestateevent import FieldEWebhookRealestateevent
@@ -35,6 +36,7 @@ class WebhookSendWebhookV1Request(BaseModel):
     """ # noqa: E501
     e_webhook_module: FieldEWebhookModule = Field(alias="eWebhookModule")
     e_webhook_ezsignevent: Optional[CustomEWebhookEzsignevent] = Field(default=None, alias="eWebhookEzsignevent")
+    e_webhook_ezmaxpartnerevent: Optional[FieldEWebhookEzmaxpartnerevent] = Field(default=None, alias="eWebhookEzmaxpartnerevent")
     e_webhook_managementevent: Optional[FieldEWebhookManagementevent] = Field(default=None, alias="eWebhookManagementevent")
     e_webhook_realestateevent: Optional[FieldEWebhookRealestateevent] = Field(default=None, alias="eWebhookRealestateevent")
     fki_ezsignfolder_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignfolder", alias="fkiEzsignfolderID", json_schema_extra={"examples": [33]})
@@ -42,7 +44,7 @@ class WebhookSendWebhookV1Request(BaseModel):
     fki_ezsignsigner_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Ezsignsigner", alias="fkiEzsignsignerID", json_schema_extra={"examples": [89]})
     fki_user_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the User", alias="fkiUserID", json_schema_extra={"examples": [70]})
     fki_userstaged_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=1)]] = Field(default=None, description="The unique ID of the Userstaged", alias="fkiUserstagedID", json_schema_extra={"examples": [90]})
-    __properties: ClassVar[List[str]] = ["eWebhookModule", "eWebhookEzsignevent", "eWebhookManagementevent", "eWebhookRealestateevent", "fkiEzsignfolderID", "fkiEzsigndocumentID", "fkiEzsignsignerID", "fkiUserID", "fkiUserstagedID"]
+    __properties: ClassVar[List[str]] = ["eWebhookModule", "eWebhookEzsignevent", "eWebhookEzmaxpartnerevent", "eWebhookManagementevent", "eWebhookRealestateevent", "fkiEzsignfolderID", "fkiEzsigndocumentID", "fkiEzsignsignerID", "fkiUserID", "fkiUserstagedID"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -97,6 +99,7 @@ class WebhookSendWebhookV1Request(BaseModel):
         _obj = cls.model_validate({
             "eWebhookModule": obj.get("eWebhookModule"),
             "eWebhookEzsignevent": obj.get("eWebhookEzsignevent"),
+            "eWebhookEzmaxpartnerevent": obj.get("eWebhookEzmaxpartnerevent"),
             "eWebhookManagementevent": obj.get("eWebhookManagementevent"),
             "eWebhookRealestateevent": obj.get("eWebhookRealestateevent"),
             "fkiEzsignfolderID": obj.get("fkiEzsignfolderID"),

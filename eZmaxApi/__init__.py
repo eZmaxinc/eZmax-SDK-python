@@ -277,14 +277,8 @@ __all__ = [
     "ApikeyResponseCompound",
     "AttachmentDeleteV1Response",
     "AttachmentDeleteV1ResponseMPayload",
-    "AttachmentDocumentTypeV1Request",
-    "AttachmentDocumentTypeV1Response",
-    "AttachmentDocumentTypeV1ResponseMPayload",
     "AttachmentGetAttachmentlogsV1Response",
     "AttachmentGetAttachmentlogsV1ResponseMPayload",
-    "AttachmentPrivacyV1Request",
-    "AttachmentPrivacyV1Response",
-    "AttachmentPrivacyV1ResponseMPayload",
     "AttachmentRenameV1Request",
     "AttachmentRenameV1Response",
     "AttachmentRenameV1ResponseMPayload",
@@ -293,6 +287,12 @@ __all__ = [
     "AttachmentRestoreV1Request",
     "AttachmentRestoreV1Response",
     "AttachmentRestoreV1ResponseMPayload",
+    "AttachmentSetDocumentTypeV1Request",
+    "AttachmentSetDocumentTypeV1Response",
+    "AttachmentSetDocumentTypeV1ResponseMPayload",
+    "AttachmentSetPrivacyV1Request",
+    "AttachmentSetPrivacyV1Response",
+    "AttachmentSetPrivacyV1ResponseMPayload",
     "AttachmentValidateV1Request",
     "AttachmentValidateV1Response",
     "AttachmentValidateV1ResponseMPayload",
@@ -498,6 +498,7 @@ __all__ = [
     "CompanyGetAutocompleteV2Response",
     "CompanyGetAutocompleteV2ResponseMPayload",
     "ComputedECommunicationDirection",
+    "ComputedEDocumenttypeStep",
     "ComputedEEzsigndocumentSteptype",
     "ComputedEEzsignfolderAccess",
     "ComputedEEzsignimportfolderStatus",
@@ -639,6 +640,7 @@ __all__ = [
     "CustomFormDataSignerResponse",
     "CustomFormsDataFolderResponse",
     "CustomImportEzsigntemplatepackageRelationRequest",
+    "CustomInscription",
     "CustomInscriptionnotauthenticatedconditionRequest",
     "CustomNotificationsubsectiongetnotificationtestsResponse",
     "CustomNotificationtestgetelementsResponse",
@@ -765,7 +767,6 @@ __all__ = [
     "DocumenttypeCreateObjectV1Request",
     "DocumenttypeCreateObjectV1Response",
     "DocumenttypeCreateObjectV1ResponseMPayload",
-    "DocumenttypeDeleteObjectV1Response",
     "DocumenttypeEditObjectV1Request",
     "DocumenttypeEditObjectV1Response",
     "DocumenttypeGetAutocompleteV2Response",
@@ -779,21 +780,10 @@ __all__ = [
     "DocumenttypeRequestCompound",
     "DocumenttypeResponse",
     "DocumenttypeResponseCompound",
-    "DocumenttypechecklistCreateObjectV1Request",
-    "DocumenttypechecklistCreateObjectV1Response",
-    "DocumenttypechecklistCreateObjectV1ResponseMPayload",
     "DocumenttypechecklistDeleteObjectV1Response",
-    "DocumenttypechecklistEditObjectV1Request",
-    "DocumenttypechecklistEditObjectV1Response",
-    "DocumenttypechecklistGetListV1Response",
-    "DocumenttypechecklistGetListV1ResponseMPayload",
-    "DocumenttypechecklistGetObjectV2Response",
-    "DocumenttypechecklistGetObjectV2ResponseMPayload",
-    "DocumenttypechecklistListElement",
-    "DocumenttypechecklistRequest",
-    "DocumenttypechecklistRequestCompound",
-    "DocumenttypechecklistResponse",
-    "DocumenttypechecklistResponseCompound",
+    "DocumenttypechecklistPatchObjectV1Request",
+    "DocumenttypechecklistPatchObjectV1Response",
+    "DocumenttypechecklistRequestPatch",
     "DomainAutocompleteElementResponse",
     "DomainCreateObjectV1Request",
     "DomainCreateObjectV1Response",
@@ -1994,6 +1984,7 @@ __all__ = [
     "InscriptionPrepareFilesTransferV1ResponseMPayload",
     "InscriptionResponse",
     "InscriptionResponseCompound",
+    "InscriptionSynchronizationDocumenttypeV1Response",
     "InscriptionchecklistAutocompleteElementResponse",
     "InscriptionchecklistGetAutocompleteV3Response",
     "InscriptionchecklistGetAutocompleteV3ResponseMPayload",
@@ -2940,14 +2931,8 @@ from eZmaxApi.models.apikey_response import ApikeyResponse as ApikeyResponse
 from eZmaxApi.models.apikey_response_compound import ApikeyResponseCompound as ApikeyResponseCompound
 from eZmaxApi.models.attachment_delete_v1_response import AttachmentDeleteV1Response as AttachmentDeleteV1Response
 from eZmaxApi.models.attachment_delete_v1_response_m_payload import AttachmentDeleteV1ResponseMPayload as AttachmentDeleteV1ResponseMPayload
-from eZmaxApi.models.attachment_document_type_v1_request import AttachmentDocumentTypeV1Request as AttachmentDocumentTypeV1Request
-from eZmaxApi.models.attachment_document_type_v1_response import AttachmentDocumentTypeV1Response as AttachmentDocumentTypeV1Response
-from eZmaxApi.models.attachment_document_type_v1_response_m_payload import AttachmentDocumentTypeV1ResponseMPayload as AttachmentDocumentTypeV1ResponseMPayload
 from eZmaxApi.models.attachment_get_attachmentlogs_v1_response import AttachmentGetAttachmentlogsV1Response as AttachmentGetAttachmentlogsV1Response
 from eZmaxApi.models.attachment_get_attachmentlogs_v1_response_m_payload import AttachmentGetAttachmentlogsV1ResponseMPayload as AttachmentGetAttachmentlogsV1ResponseMPayload
-from eZmaxApi.models.attachment_privacy_v1_request import AttachmentPrivacyV1Request as AttachmentPrivacyV1Request
-from eZmaxApi.models.attachment_privacy_v1_response import AttachmentPrivacyV1Response as AttachmentPrivacyV1Response
-from eZmaxApi.models.attachment_privacy_v1_response_m_payload import AttachmentPrivacyV1ResponseMPayload as AttachmentPrivacyV1ResponseMPayload
 from eZmaxApi.models.attachment_rename_v1_request import AttachmentRenameV1Request as AttachmentRenameV1Request
 from eZmaxApi.models.attachment_rename_v1_response import AttachmentRenameV1Response as AttachmentRenameV1Response
 from eZmaxApi.models.attachment_rename_v1_response_m_payload import AttachmentRenameV1ResponseMPayload as AttachmentRenameV1ResponseMPayload
@@ -2956,6 +2941,12 @@ from eZmaxApi.models.attachment_response_compound import AttachmentResponseCompo
 from eZmaxApi.models.attachment_restore_v1_request import AttachmentRestoreV1Request as AttachmentRestoreV1Request
 from eZmaxApi.models.attachment_restore_v1_response import AttachmentRestoreV1Response as AttachmentRestoreV1Response
 from eZmaxApi.models.attachment_restore_v1_response_m_payload import AttachmentRestoreV1ResponseMPayload as AttachmentRestoreV1ResponseMPayload
+from eZmaxApi.models.attachment_set_document_type_v1_request import AttachmentSetDocumentTypeV1Request as AttachmentSetDocumentTypeV1Request
+from eZmaxApi.models.attachment_set_document_type_v1_response import AttachmentSetDocumentTypeV1Response as AttachmentSetDocumentTypeV1Response
+from eZmaxApi.models.attachment_set_document_type_v1_response_m_payload import AttachmentSetDocumentTypeV1ResponseMPayload as AttachmentSetDocumentTypeV1ResponseMPayload
+from eZmaxApi.models.attachment_set_privacy_v1_request import AttachmentSetPrivacyV1Request as AttachmentSetPrivacyV1Request
+from eZmaxApi.models.attachment_set_privacy_v1_response import AttachmentSetPrivacyV1Response as AttachmentSetPrivacyV1Response
+from eZmaxApi.models.attachment_set_privacy_v1_response_m_payload import AttachmentSetPrivacyV1ResponseMPayload as AttachmentSetPrivacyV1ResponseMPayload
 from eZmaxApi.models.attachment_validate_v1_request import AttachmentValidateV1Request as AttachmentValidateV1Request
 from eZmaxApi.models.attachment_validate_v1_response import AttachmentValidateV1Response as AttachmentValidateV1Response
 from eZmaxApi.models.attachment_validate_v1_response_m_payload import AttachmentValidateV1ResponseMPayload as AttachmentValidateV1ResponseMPayload
@@ -3161,6 +3152,7 @@ from eZmaxApi.models.company_autocomplete_element_response import CompanyAutocom
 from eZmaxApi.models.company_get_autocomplete_v2_response import CompanyGetAutocompleteV2Response as CompanyGetAutocompleteV2Response
 from eZmaxApi.models.company_get_autocomplete_v2_response_m_payload import CompanyGetAutocompleteV2ResponseMPayload as CompanyGetAutocompleteV2ResponseMPayload
 from eZmaxApi.models.computed_e_communication_direction import ComputedECommunicationDirection as ComputedECommunicationDirection
+from eZmaxApi.models.computed_e_documenttype_step import ComputedEDocumenttypeStep as ComputedEDocumenttypeStep
 from eZmaxApi.models.computed_e_ezsigndocument_steptype import ComputedEEzsigndocumentSteptype as ComputedEEzsigndocumentSteptype
 from eZmaxApi.models.computed_e_ezsignfolder_access import ComputedEEzsignfolderAccess as ComputedEEzsignfolderAccess
 from eZmaxApi.models.computed_e_ezsignimportfolder_status import ComputedEEzsignimportfolderStatus as ComputedEEzsignimportfolderStatus
@@ -3302,6 +3294,7 @@ from eZmaxApi.models.custom_form_data_ezsignformfieldgroup_response import Custo
 from eZmaxApi.models.custom_form_data_signer_response import CustomFormDataSignerResponse as CustomFormDataSignerResponse
 from eZmaxApi.models.custom_forms_data_folder_response import CustomFormsDataFolderResponse as CustomFormsDataFolderResponse
 from eZmaxApi.models.custom_import_ezsigntemplatepackage_relation_request import CustomImportEzsigntemplatepackageRelationRequest as CustomImportEzsigntemplatepackageRelationRequest
+from eZmaxApi.models.custom_inscription import CustomInscription as CustomInscription
 from eZmaxApi.models.custom_inscriptionnotauthenticatedcondition_request import CustomInscriptionnotauthenticatedconditionRequest as CustomInscriptionnotauthenticatedconditionRequest
 from eZmaxApi.models.custom_notificationsubsectiongetnotificationtests_response import CustomNotificationsubsectiongetnotificationtestsResponse as CustomNotificationsubsectiongetnotificationtestsResponse
 from eZmaxApi.models.custom_notificationtestgetelements_response import CustomNotificationtestgetelementsResponse as CustomNotificationtestgetelementsResponse
@@ -3428,7 +3421,6 @@ from eZmaxApi.models.documenttype_autocomplete_element_response import Documentt
 from eZmaxApi.models.documenttype_create_object_v1_request import DocumenttypeCreateObjectV1Request as DocumenttypeCreateObjectV1Request
 from eZmaxApi.models.documenttype_create_object_v1_response import DocumenttypeCreateObjectV1Response as DocumenttypeCreateObjectV1Response
 from eZmaxApi.models.documenttype_create_object_v1_response_m_payload import DocumenttypeCreateObjectV1ResponseMPayload as DocumenttypeCreateObjectV1ResponseMPayload
-from eZmaxApi.models.documenttype_delete_object_v1_response import DocumenttypeDeleteObjectV1Response as DocumenttypeDeleteObjectV1Response
 from eZmaxApi.models.documenttype_edit_object_v1_request import DocumenttypeEditObjectV1Request as DocumenttypeEditObjectV1Request
 from eZmaxApi.models.documenttype_edit_object_v1_response import DocumenttypeEditObjectV1Response as DocumenttypeEditObjectV1Response
 from eZmaxApi.models.documenttype_get_autocomplete_v2_response import DocumenttypeGetAutocompleteV2Response as DocumenttypeGetAutocompleteV2Response
@@ -3442,21 +3434,10 @@ from eZmaxApi.models.documenttype_request import DocumenttypeRequest as Document
 from eZmaxApi.models.documenttype_request_compound import DocumenttypeRequestCompound as DocumenttypeRequestCompound
 from eZmaxApi.models.documenttype_response import DocumenttypeResponse as DocumenttypeResponse
 from eZmaxApi.models.documenttype_response_compound import DocumenttypeResponseCompound as DocumenttypeResponseCompound
-from eZmaxApi.models.documenttypechecklist_create_object_v1_request import DocumenttypechecklistCreateObjectV1Request as DocumenttypechecklistCreateObjectV1Request
-from eZmaxApi.models.documenttypechecklist_create_object_v1_response import DocumenttypechecklistCreateObjectV1Response as DocumenttypechecklistCreateObjectV1Response
-from eZmaxApi.models.documenttypechecklist_create_object_v1_response_m_payload import DocumenttypechecklistCreateObjectV1ResponseMPayload as DocumenttypechecklistCreateObjectV1ResponseMPayload
 from eZmaxApi.models.documenttypechecklist_delete_object_v1_response import DocumenttypechecklistDeleteObjectV1Response as DocumenttypechecklistDeleteObjectV1Response
-from eZmaxApi.models.documenttypechecklist_edit_object_v1_request import DocumenttypechecklistEditObjectV1Request as DocumenttypechecklistEditObjectV1Request
-from eZmaxApi.models.documenttypechecklist_edit_object_v1_response import DocumenttypechecklistEditObjectV1Response as DocumenttypechecklistEditObjectV1Response
-from eZmaxApi.models.documenttypechecklist_get_list_v1_response import DocumenttypechecklistGetListV1Response as DocumenttypechecklistGetListV1Response
-from eZmaxApi.models.documenttypechecklist_get_list_v1_response_m_payload import DocumenttypechecklistGetListV1ResponseMPayload as DocumenttypechecklistGetListV1ResponseMPayload
-from eZmaxApi.models.documenttypechecklist_get_object_v2_response import DocumenttypechecklistGetObjectV2Response as DocumenttypechecklistGetObjectV2Response
-from eZmaxApi.models.documenttypechecklist_get_object_v2_response_m_payload import DocumenttypechecklistGetObjectV2ResponseMPayload as DocumenttypechecklistGetObjectV2ResponseMPayload
-from eZmaxApi.models.documenttypechecklist_list_element import DocumenttypechecklistListElement as DocumenttypechecklistListElement
-from eZmaxApi.models.documenttypechecklist_request import DocumenttypechecklistRequest as DocumenttypechecklistRequest
-from eZmaxApi.models.documenttypechecklist_request_compound import DocumenttypechecklistRequestCompound as DocumenttypechecklistRequestCompound
-from eZmaxApi.models.documenttypechecklist_response import DocumenttypechecklistResponse as DocumenttypechecklistResponse
-from eZmaxApi.models.documenttypechecklist_response_compound import DocumenttypechecklistResponseCompound as DocumenttypechecklistResponseCompound
+from eZmaxApi.models.documenttypechecklist_patch_object_v1_request import DocumenttypechecklistPatchObjectV1Request as DocumenttypechecklistPatchObjectV1Request
+from eZmaxApi.models.documenttypechecklist_patch_object_v1_response import DocumenttypechecklistPatchObjectV1Response as DocumenttypechecklistPatchObjectV1Response
+from eZmaxApi.models.documenttypechecklist_request_patch import DocumenttypechecklistRequestPatch as DocumenttypechecklistRequestPatch
 from eZmaxApi.models.domain_autocomplete_element_response import DomainAutocompleteElementResponse as DomainAutocompleteElementResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request as DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response as DomainCreateObjectV1Response
@@ -4657,6 +4638,7 @@ from eZmaxApi.models.inscription_prepare_files_transfer_v1_response import Inscr
 from eZmaxApi.models.inscription_prepare_files_transfer_v1_response_m_payload import InscriptionPrepareFilesTransferV1ResponseMPayload as InscriptionPrepareFilesTransferV1ResponseMPayload
 from eZmaxApi.models.inscription_response import InscriptionResponse as InscriptionResponse
 from eZmaxApi.models.inscription_response_compound import InscriptionResponseCompound as InscriptionResponseCompound
+from eZmaxApi.models.inscription_synchronization_documenttype_v1_response import InscriptionSynchronizationDocumenttypeV1Response as InscriptionSynchronizationDocumenttypeV1Response
 from eZmaxApi.models.inscriptionchecklist_autocomplete_element_response import InscriptionchecklistAutocompleteElementResponse as InscriptionchecklistAutocompleteElementResponse
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response import InscriptionchecklistGetAutocompleteV3Response as InscriptionchecklistGetAutocompleteV3Response
 from eZmaxApi.models.inscriptionchecklist_get_autocomplete_v3_response_m_payload import InscriptionchecklistGetAutocompleteV3ResponseMPayload as InscriptionchecklistGetAutocompleteV3ResponseMPayload

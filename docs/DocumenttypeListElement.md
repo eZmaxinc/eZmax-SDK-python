@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **b_documenttype_foreclosedsale** | **bool** | Whether if it&#39;s an foreclosedsale | 
 **b_documenttype_commercialfunding** | **bool** | Whether if it&#39;s an commercialfunding | 
 **b_documenttype_canafe** | **bool** | Whether if it&#39;s an canafe | 
-**e_documenttype_ezcom** | [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | 
+**e_documenttype_ezcom** | [**FieldEDocumenttypeEzcom**](FieldEDocumenttypeEzcom.md) |  | [optional] 
 **e_documenttype_privacydefault** | [**FieldEDocumenttypePrivacydefault**](FieldEDocumenttypePrivacydefault.md) |  | 
 **e_documenttype_statusdefault** | [**FieldEDocumenttypeStatusdefault**](FieldEDocumenttypeStatusdefault.md) |  | 
 **e_documenttype_salebyowner** | [**FieldEDocumenttypeSalebyowner**](FieldEDocumenttypeSalebyowner.md) |  | 

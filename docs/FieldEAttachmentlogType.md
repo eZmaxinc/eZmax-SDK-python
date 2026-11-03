@@ -42,6 +42,8 @@ The Type for the Attachmentlog
 
 * `OPENFROMEMAIL` (value: `'OpenFromEmail'`)
 
+* `PENDING` (value: `'Pending'`)
+
 * `PURGED` (value: `'Purged'`)
 
 * `REJECT` (value: `'Reject'`)

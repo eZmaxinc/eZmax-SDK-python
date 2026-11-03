@@ -46,6 +46,7 @@ class FieldEAttachmentlogType(str, Enum):
     IMPORTEDFROMPROSPECTS = 'ImportedFromProspects'
     MOVE = 'Move'
     OPENFROMEMAIL = 'OpenFromEmail'
+    PENDING = 'Pending'
     PURGED = 'Purged'
     REJECT = 'Reject'
     RENAME = 'Rename'

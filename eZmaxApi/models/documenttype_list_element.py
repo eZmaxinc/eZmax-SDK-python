@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.field_e_documenttype_ezcom import FieldEDocumenttypeEzcom
 from eZmaxApi.models.field_e_documenttype_privacydefault import FieldEDocumenttypePrivacydefault
@@ -52,7 +52,7 @@ class DocumenttypeListElement(BaseModel):
     b_documenttype_foreclosedsale: StrictBool = Field(description="Whether if it's an foreclosedsale", alias="bDocumenttypeForeclosedsale", json_schema_extra={"examples": [True]})
     b_documenttype_commercialfunding: StrictBool = Field(description="Whether if it's an commercialfunding", alias="bDocumenttypeCommercialfunding", json_schema_extra={"examples": [True]})
     b_documenttype_canafe: StrictBool = Field(description="Whether if it's an canafe", alias="bDocumenttypeCanafe", json_schema_extra={"examples": [True]})
-    e_documenttype_ezcom: FieldEDocumenttypeEzcom = Field(alias="eDocumenttypeEzcom")
+    e_documenttype_ezcom: Optional[FieldEDocumenttypeEzcom] = Field(default=None, alias="eDocumenttypeEzcom")
     e_documenttype_privacydefault: FieldEDocumenttypePrivacydefault = Field(alias="eDocumenttypePrivacydefault")
     e_documenttype_statusdefault: FieldEDocumenttypeStatusdefault = Field(alias="eDocumenttypeStatusdefault")
     e_documenttype_salebyowner: FieldEDocumenttypeSalebyowner = Field(alias="eDocumenttypeSalebyowner")

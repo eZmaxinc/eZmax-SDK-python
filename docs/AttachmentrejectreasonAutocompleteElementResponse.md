@@ -7,7 +7,7 @@ A Attachmentrejectreason AutocompleteElement Response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_attachmentrejectreason_id** | **int** | The unique ID of the Attachmentrejectreason | 
-**s_attachmentrejectreasonname_x** | **str** | The name of the Attachmentrejectreason in the language of the requester | 
+**s_attachmentrejectreason_name_x** | **str** | The name of the Attachmentrejectreason in the language of the requester | 
 **b_attachmentrejectreason_isactive** | **bool** | Whether the Attachmentrejectreason is active or not | 
 
 ## Example

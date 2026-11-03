@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_documenttype_id** | **int** | The unique ID of the Documenttype | 
 **obj_documenttype_name** | [**MultilingualDocumenttypeName**](MultilingualDocumenttypeName.md) |  | 
+**e_documenttype_step** | [**ComputedEDocumenttypeStep**](ComputedEDocumenttypeStep.md) |  | 
 **s_documenttype_defaultfilename** | **str** | The defaultfilename of the Documenttype | 
 **b_documenttype_showagent** | **bool** | Whether if it&#39;s an showagent | 
 **b_documenttype_isactive** | **bool** | Whether the documenttype is active or not | 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **e_documenttype_saledisplaybyrole** | [**FieldEDocumenttypeSaledisplaybyrole**](FieldEDocumenttypeSaledisplaybyrole.md) |  | [optional] 
 **e_documenttype_transactiontype** | [**FieldEDocumenttypeTransactiontype**](FieldEDocumenttypeTransactiontype.md) |  | [optional] 
 **e_documenttype_repossession** | [**FieldEDocumenttypeRepossession**](FieldEDocumenttypeRepossession.md) |  | [optional] 
+**a_fki_inscriptiontype_id** | **List[int]** |  | 
 
 ## Example
 

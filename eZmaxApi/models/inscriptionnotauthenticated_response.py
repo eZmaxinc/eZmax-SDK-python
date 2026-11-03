@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from eZmaxApi.models.custom_inscription import CustomInscription
 from eZmaxApi.models.field_e_inscriptionnotauthenticated_remunerationtype import FieldEInscriptionnotauthenticatedRemunerationtype
 from eZmaxApi.models.field_e_inscriptionnotauthenticated_residence_type import FieldEInscriptionnotauthenticatedResidenceType
 from eZmaxApi.models.field_e_inscriptionnotauthenticated_type import FieldEInscriptionnotauthenticatedType
@@ -35,6 +36,7 @@ class InscriptionnotauthenticatedResponse(BaseModel):
     """ # noqa: E501
     pki_inscriptionnotauthenticated_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscriptionnotauthenticated.", alias="pkiInscriptionnotauthenticatedID", json_schema_extra={"examples": [24]})
     fki_inscription_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The unique ID of the Inscription.", alias="fkiInscriptionID", json_schema_extra={"examples": [17]})
+    obj_inscription: CustomInscription = Field(alias="objInscription")
     fki_department_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Department", alias="fkiDepartmentID", json_schema_extra={"examples": [21]})
     s_department_name_x: Optional[StrictStr] = Field(default=None, description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
     fki_financialinstitution_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Financialinstitution", alias="fkiFinancialinstitutionID", json_schema_extra={"examples": [211]})
@@ -72,7 +74,7 @@ class InscriptionnotauthenticatedResponse(BaseModel):
     t_inscriptionnotauthenticated_checklistnote: Annotated[str, Field(strict=True)] = Field(description="The checklist note of the Inscriptionnotauthenticated", alias="tInscriptionnotauthenticatedChecklistnote", json_schema_extra={"examples": ["Include original signatures"]})
     d_inscriptionnotauthenticated_selleronlyretribution: Annotated[str, Field(min_length=5, strict=True, max_length=8)] = Field(description="The amount retribution for the seller only of the Inscriptionnotauthenticated", alias="dInscriptionnotauthenticatedSelleronlyretribution", json_schema_extra={"examples": ["500.140"]})
     b_inscriptionnotauthenticated_draft: StrictBool = Field(description="Whether the Inscriptionnotauthenticated is a draft or not", alias="bInscriptionnotauthenticatedDraft", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedID", "fkiInscriptionID", "fkiDepartmentID", "sDepartmentNameX", "fkiFinancialinstitutionID", "sFinancialinstitutionNameX", "fkiBuyercontractID", "sBuyercontractContract", "fkiMortgagesupplierID", "sMortgagesupplierNameX", "fkiTaxassignmentID", "sTaxassignmentDescriptionX", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "dtInscriptionnotauthenticatedDepositdate", "eInscriptionnotauthenticatedType", "dInscriptionnotauthenticatedMortgageloan", "etInscriptionnotauthenticatedMortgagetype", "dInscriptionnotauthenticatedTransactionprice", "eInscriptionnotauthenticatedRemunerationtype", "dInscriptionnotauthenticatedRemuneration", "dInscriptionnotauthenticatedRemunerationsubtotal", "dInscriptionnotauthenticatedRemunerationtotal", "dtInscriptionnotauthenticatedCancellationdate", "dtInscriptionnotauthenticatedPossessiondate", "sInscriptionnotauthenticatedOffertopurchasenumber", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedFinancingscheduledate", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedMortgageisreferenced", "bInscriptionnotauthenticatedHomeowner", "tInscriptionnotauthenticatedConditions", "dtInscriptionnotauthenticatedConditiondeadlinedate", "iInscriptionnotauthenticatedOrder", "bInscriptionnotauthenticatedIsactive", "eInscriptionnotauthenticatedResidenceType", "tInscriptionnotauthenticatedChecklistnote", "dInscriptionnotauthenticatedSelleronlyretribution", "bInscriptionnotauthenticatedDraft"]
+    __properties: ClassVar[List[str]] = ["pkiInscriptionnotauthenticatedID", "fkiInscriptionID", "objInscription", "fkiDepartmentID", "sDepartmentNameX", "fkiFinancialinstitutionID", "sFinancialinstitutionNameX", "fkiBuyercontractID", "sBuyercontractContract", "fkiMortgagesupplierID", "sMortgagesupplierNameX", "fkiTaxassignmentID", "sTaxassignmentDescriptionX", "dtInscriptionnotauthenticatedTransactiondate", "dtInscriptionnotauthenticatedTransactiondateReal", "dtInscriptionnotauthenticatedDepositdate", "eInscriptionnotauthenticatedType", "dInscriptionnotauthenticatedMortgageloan", "etInscriptionnotauthenticatedMortgagetype", "dInscriptionnotauthenticatedTransactionprice", "eInscriptionnotauthenticatedRemunerationtype", "dInscriptionnotauthenticatedRemuneration", "dInscriptionnotauthenticatedRemunerationsubtotal", "dInscriptionnotauthenticatedRemunerationtotal", "dtInscriptionnotauthenticatedCancellationdate", "dtInscriptionnotauthenticatedPossessiondate", "sInscriptionnotauthenticatedOffertopurchasenumber", "dtInscriptionnotauthenticatedNotaryscheduledate", "dtInscriptionnotauthenticatedFinancingscheduledate", "bInscriptionnotauthenticatedConditional", "bInscriptionnotauthenticatedMortgageisreferenced", "bInscriptionnotauthenticatedHomeowner", "tInscriptionnotauthenticatedConditions", "dtInscriptionnotauthenticatedConditiondeadlinedate", "iInscriptionnotauthenticatedOrder", "bInscriptionnotauthenticatedIsactive", "eInscriptionnotauthenticatedResidenceType", "tInscriptionnotauthenticatedChecklistnote", "dInscriptionnotauthenticatedSelleronlyretribution", "bInscriptionnotauthenticatedDraft"]
 
     @field_validator('s_financialinstitution_name_x', mode="before")
     def s_financialinstitution_name_x_validate_regular_expression(cls, value):
@@ -276,6 +278,9 @@ class InscriptionnotauthenticatedResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of obj_inscription
+        if self.obj_inscription:
+            _dict['objInscription'] = self.obj_inscription.to_dict()
         return _dict
 
     @classmethod
@@ -290,6 +295,7 @@ class InscriptionnotauthenticatedResponse(BaseModel):
         _obj = cls.model_validate({
             "pkiInscriptionnotauthenticatedID": obj.get("pkiInscriptionnotauthenticatedID"),
             "fkiInscriptionID": obj.get("fkiInscriptionID"),
+            "objInscription": CustomInscription.from_dict(obj["objInscription"]) if obj.get("objInscription") is not None else None,
             "fkiDepartmentID": obj.get("fkiDepartmentID"),
             "sDepartmentNameX": obj.get("sDepartmentNameX"),
             "fkiFinancialinstitutionID": obj.get("fkiFinancialinstitutionID"),
