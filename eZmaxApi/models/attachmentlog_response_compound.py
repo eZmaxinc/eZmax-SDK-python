@@ -52,8 +52,8 @@ class AttachmentlogResponseCompound(BaseModel):
         if value is None:
             return value
 
-        if isinstance(value, str) and not re.match(r"[\s\S]{0,65535}$", value):
-            raise ValueError(r"must validate the regular expression /[\s\S]{0,65535}$/")
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
         return value
 
     model_config = ConfigDict(

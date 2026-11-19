@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse
+from eZmaxApi.models.custom_creditcardmerchant_response import CustomCreditcardmerchantResponse
 from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse
 from eZmaxApi.models.custom_timezone_with_code_response import CustomTimezoneWithCodeResponse
 from eZmaxApi.models.enum_textvalidation import EnumTextvalidation
@@ -97,7 +98,8 @@ class EzsignsignatureResponseCompound(BaseModel):
     a_obj_ezsignelementdependency: Optional[List[EzsignelementdependencyResponseCompound]] = Field(default=None, alias="a_objEzsignelementdependency")
     obj_timezone: Optional[CustomTimezoneWithCodeResponse] = Field(default=None, alias="objTimezone")
     a_obj_ezsignsignaturepaymentdetail: Optional[List[EzsignsignaturepaymentdetailResponseCompound]] = Field(default=None, alias="a_objEzsignsignaturepaymentdetail")
-    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "fkiPaymentgatewayID", "sCurrencyDescriptionX", "dEzsignsignatureCreditcardamount", "sEzsignsignatureCreditcardamountdescription", "bEzsignsignatureCreditcardcustomamount", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "eEzsignsignatureSignaturepad", "eEzsignsignatureSignaturepadrequired", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "dtEzsignsignatureDateInFolderTimezone", "sEzsignsignergroupDescriptionX", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency", "objTimezone", "a_objEzsignsignaturepaymentdetail"]
+    obj_creditcardmerchant: Optional[CustomCreditcardmerchantResponse] = Field(default=None, alias="objCreditcardmerchant")
+    __properties: ClassVar[List[str]] = ["pkiEzsignsignatureID", "fkiEzsigndocumentID", "fkiEzsignfoldersignerassociationID", "fkiEzsignsigningreasonID", "fkiFontID", "fkiPaymentgatewayID", "sCurrencyDescriptionX", "dEzsignsignatureCreditcardamount", "sEzsignsignatureCreditcardamountdescription", "bEzsignsignatureCreditcardcustomamount", "sEzsignsigningreasonDescriptionX", "iEzsignpagePagenumber", "iEzsignsignatureX", "iEzsignsignatureY", "iEzsignsignatureHeight", "iEzsignsignatureWidth", "iEzsignsignatureStep", "iEzsignsignatureStepadjusted", "eEzsignsignatureType", "eEzsignsignatureSignaturepad", "eEzsignsignatureSignaturepadrequired", "tEzsignsignatureTooltip", "eEzsignsignatureTooltipposition", "eEzsignsignatureFont", "iEzsignsignatureValidationstep", "sEzsignsignatureAttachmentdescription", "eEzsignsignatureAttachmentnamesource", "eEzsignsignatureConsultationtrigger", "bEzsignsignatureHandwritten", "bEzsignsignatureReason", "bEzsignsignatureRequired", "fkiEzsignfoldersignerassociationIDValidation", "dtEzsignsignatureDate", "iEzsignsignatureattachmentCount", "sEzsignsignatureDescription", "iEzsignsignatureMaxlength", "eEzsignsignatureTextvalidation", "sEzsignsignatureTextvalidationcustommessage", "eEzsignsignatureDependencyrequirement", "sEzsignsignatureDefaultvalue", "sEzsignsignatureRegexp", "objContactName", "objContactNameDelegation", "objSignature", "dtEzsignsignatureDateInFolderTimezone", "sEzsignsignergroupDescriptionX", "bEzsignsignatureCustomdate", "a_objEzsignsignaturecustomdate", "objCreditcardtransaction", "a_objEzsignelementdependency", "objTimezone", "a_objEzsignsignaturepaymentdetail", "objCreditcardmerchant"]
 
     @field_validator('s_currency_description_x', mode="before")
     def s_currency_description_x_validate_regular_expression(cls, value):
@@ -241,6 +243,9 @@ class EzsignsignatureResponseCompound(BaseModel):
             for _item_a_obj_ezsignsignaturepaymentdetail in self.a_obj_ezsignsignaturepaymentdetail:
                 _items.append(_item_a_obj_ezsignsignaturepaymentdetail.to_dict() if _item_a_obj_ezsignsignaturepaymentdetail is not None else None)
             _dict['a_objEzsignsignaturepaymentdetail'] = _items
+        # override the default output from pydantic by calling `to_dict()` of obj_creditcardmerchant
+        if self.obj_creditcardmerchant:
+            _dict['objCreditcardmerchant'] = self.obj_creditcardmerchant.to_dict()
         return _dict
 
     @classmethod
@@ -304,7 +309,8 @@ class EzsignsignatureResponseCompound(BaseModel):
             "objCreditcardtransaction": CustomCreditcardtransactionResponse.from_dict(obj["objCreditcardtransaction"]) if obj.get("objCreditcardtransaction") is not None else None,
             "a_objEzsignelementdependency": [EzsignelementdependencyResponseCompound.from_dict(_item) for _item in obj["a_objEzsignelementdependency"]] if obj.get("a_objEzsignelementdependency") is not None else None,
             "objTimezone": CustomTimezoneWithCodeResponse.from_dict(obj["objTimezone"]) if obj.get("objTimezone") is not None else None,
-            "a_objEzsignsignaturepaymentdetail": [EzsignsignaturepaymentdetailResponseCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturepaymentdetail"]] if obj.get("a_objEzsignsignaturepaymentdetail") is not None else None
+            "a_objEzsignsignaturepaymentdetail": [EzsignsignaturepaymentdetailResponseCompound.from_dict(_item) for _item in obj["a_objEzsignsignaturepaymentdetail"]] if obj.get("a_objEzsignsignaturepaymentdetail") is not None else None,
+            "objCreditcardmerchant": CustomCreditcardmerchantResponse.from_dict(obj["objCreditcardmerchant"]) if obj.get("objCreditcardmerchant") is not None else None
         })
         return _obj
 

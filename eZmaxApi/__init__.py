@@ -592,6 +592,7 @@ __all__ = [
     "CustomContactNameResponse",
     "CustomCreateEzsignelementsPositionedByWordRequest",
     "CustomCreditcardRequest",
+    "CustomCreditcardmerchantResponse",
     "CustomCreditcardtransactionResponse",
     "CustomCreditcardtransactionresponseResponse",
     "CustomDiscussionconfigurationResponse",
@@ -3246,6 +3247,7 @@ from eZmaxApi.models.custom_communicationsender_response import CustomCommunicat
 from eZmaxApi.models.custom_contact_name_response import CustomContactNameResponse as CustomContactNameResponse
 from eZmaxApi.models.custom_create_ezsignelements_positioned_by_word_request import CustomCreateEzsignelementsPositionedByWordRequest as CustomCreateEzsignelementsPositionedByWordRequest
 from eZmaxApi.models.custom_creditcard_request import CustomCreditcardRequest as CustomCreditcardRequest
+from eZmaxApi.models.custom_creditcardmerchant_response import CustomCreditcardmerchantResponse as CustomCreditcardmerchantResponse
 from eZmaxApi.models.custom_creditcardtransaction_response import CustomCreditcardtransactionResponse as CustomCreditcardtransactionResponse
 from eZmaxApi.models.custom_creditcardtransactionresponse_response import CustomCreditcardtransactionresponseResponse as CustomCreditcardtransactionresponseResponse
 from eZmaxApi.models.custom_discussionconfiguration_response import CustomDiscussionconfigurationResponse as CustomDiscussionconfigurationResponse

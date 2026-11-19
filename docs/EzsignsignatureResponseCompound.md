@@ -58,6 +58,7 @@ Name | Type | Description | Notes
 **a_obj_ezsignelementdependency** | [**List[EzsignelementdependencyResponseCompound]**](EzsignelementdependencyResponseCompound.md) |  | [optional] 
 **obj_timezone** | [**CustomTimezoneWithCodeResponse**](CustomTimezoneWithCodeResponse.md) |  | [optional] 
 **a_obj_ezsignsignaturepaymentdetail** | [**List[EzsignsignaturepaymentdetailResponseCompound]**](EzsignsignaturepaymentdetailResponseCompound.md) |  | [optional] 
+**obj_creditcardmerchant** | [**CustomCreditcardmerchantResponse**](CustomCreditcardmerchantResponse.md) |  | [optional] 
 
 ## Example
 

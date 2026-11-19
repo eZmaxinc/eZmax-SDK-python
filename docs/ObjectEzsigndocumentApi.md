@@ -3826,7 +3826,7 @@ Using this endpoint, you can unsend the Ezsigndocument and make it modifiable ag
 
 Signatories will receive an email informing them the signature process was aborted and they might receive a new invitation to sign.
 
-âš ï¸ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
+⚠ Warning: Any signature previously made by signatories on this Ezsigndocumentswill be lost.
 
 ### Example
 

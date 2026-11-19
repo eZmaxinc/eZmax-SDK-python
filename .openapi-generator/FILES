@@ -411,6 +411,7 @@ docs/CustomCommunicationsenderResponse.md
 docs/CustomContactNameResponse.md
 docs/CustomCreateEzsignelementsPositionedByWordRequest.md
 docs/CustomCreditcardRequest.md
+docs/CustomCreditcardmerchantResponse.md
 docs/CustomCreditcardtransactionResponse.md
 docs/CustomCreditcardtransactionresponseResponse.md
 docs/CustomDiscussionconfigurationResponse.md
@@ -3214,6 +3215,7 @@ eZmaxApi/models/custom_communicationsender_response.py
 eZmaxApi/models/custom_contact_name_response.py
 eZmaxApi/models/custom_create_ezsignelements_positioned_by_word_request.py
 eZmaxApi/models/custom_creditcard_request.py
+eZmaxApi/models/custom_creditcardmerchant_response.py
 eZmaxApi/models/custom_creditcardtransaction_response.py
 eZmaxApi/models/custom_creditcardtransactionresponse_response.py
 eZmaxApi/models/custom_discussionconfiguration_response.py

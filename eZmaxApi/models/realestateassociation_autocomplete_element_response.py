@@ -30,7 +30,7 @@ class RealestateassociationAutocompleteElementResponse(BaseModel):
     A Realestateassociation AutocompleteElement Response
     """ # noqa: E501
     pki_realestateassociation_id: Annotated[int, Field(le=255, strict=True, ge=1)] = Field(description="The unique ID of the Realestateassociation", alias="pkiRealestateassociationID", json_schema_extra={"examples": [16]})
-    s_realestateassociation_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Realestateassociation", alias="sRealestateassociationNameX", json_schema_extra={"examples": ["Organisme d’autoréglementation du courtage immobilier du Québec"]})
+    s_realestateassociation_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Realestateassociation", alias="sRealestateassociationNameX", json_schema_extra={"examples": ["Organisme d‧autoréglementation du courtage immobilier du Québec"]})
     s_realestateassociation_acronym_x: Annotated[str, Field(strict=True)] = Field(description="The Acronym of the Realestateassociation in the language of the requester", alias="sRealestateassociationAcronymX", json_schema_extra={"examples": ["OACIQ"]})
     b_realestateassociation_isactive: StrictBool = Field(description="Whether the Realestateassociation is active or not", alias="bRealestateassociationIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiRealestateassociationID", "sRealestateassociationNameX", "sRealestateassociationAcronymX", "bRealestateassociationIsactive"]

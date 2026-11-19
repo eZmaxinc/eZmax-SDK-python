@@ -638,6 +638,27 @@ conf = eZmaxApi.Configuration(
                     }
             },
             {
+                'url': "https://{sInfrastructureenvironmenttypeDescription}.payment.{sInfrastructureregionCode}.ezmax.com/rest",
+                'description': "",
+                'variables': {
+                    'sInfrastructureenvironmenttypeDescription': {
+                        'description': "The environment on on which to call the API. Should always be \"prod\" unless instructed otherwise by support.",
+                        'default_value': "prod",
+                        'enum_values': [
+                            "prod",
+                            "dev"
+                        ]
+                        },
+                    'sInfrastructureregionCode': {
+                        'description': "The region where your services are hosted.",
+                        'default_value': "ca-central-1",
+                        'enum_values': [
+                            "ca-central-1"
+                        ]
+                        }
+                    }
+            },
+            {
                 'url': "https://{sInfrastructureenvironmenttypeDescription}.api.global.ezmax.com",
                 'description': "The server endpoint where to send your global API requests.",
                 'variables': {
@@ -674,6 +695,10 @@ conf = eZmaxApi.Configuration(
                         ]
                         }
                     }
+            },
+            {
+                'url': "https://www.example.com",
+                'description': "This is an example of an external server.",
             }
         ]
 
