@@ -59,6 +59,7 @@ from eZmaxApi.api.object_ezmaxcustomeruser_api import ObjectEzmaxcustomeruserApi
 from eZmaxApi.api.object_ezmaxinvoicing_api import ObjectEzmaxinvoicingApi
 from eZmaxApi.api.object_ezmaxmaillinglist_api import ObjectEzmaxmaillinglistApi
 from eZmaxApi.api.object_ezmaxpartner_api import ObjectEzmaxpartnerApi
+from eZmaxApi.api.object_ezmaxpartnerproductstage_api import ObjectEzmaxpartnerproductstageApi
 from eZmaxApi.api.object_ezmaxproduct_api import ObjectEzmaxproductApi
 from eZmaxApi.api.object_ezsignannotation_api import ObjectEzsignannotationApi
 from eZmaxApi.api.object_ezsignbulksend_api import ObjectEzsignbulksendApi

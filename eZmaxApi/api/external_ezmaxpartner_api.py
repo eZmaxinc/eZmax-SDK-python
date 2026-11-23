@@ -92,6 +92,8 @@ class ExternalEzmaxpartnerApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzmaxpartnerSubscribeV1Response",
+            '403': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -159,6 +161,8 @@ class ExternalEzmaxpartnerApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzmaxpartnerSubscribeV1Response",
+            '403': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -226,6 +230,8 @@ class ExternalEzmaxpartnerApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EzmaxpartnerSubscribeV1Response",
+            '403': "CommonResponseError",
+            '422': "CommonResponseError",
         }
         response_data = self.api_client.call_api(
             *_param,

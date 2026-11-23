@@ -36,8 +36,8 @@ class WebhookEzmaxpartnerproductSubscribe(BaseModel):
     a_obj_attempt: List[AttemptResponseCompound] = Field(description="An array containing details of previous attempts that were made to deliver the message. The array is empty if it's the first attempt.", alias="a_objAttempt")
     obj_ezmaxpartnerproduct: CustomEzmaxpartnerproductSubscribe = Field(alias="objEzmaxpartnerproduct")
     s_external_id: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, alias="sExternalID")
-    s_apikey_apikey: StrictStr = Field(alias="sApikeyApikey")
-    s_apikey_secret: StrictStr = Field(alias="sApikeySecret")
+    s_apikey_apikey: StrictStr = Field(description="The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sApikeyApikey")
+    s_apikey_secret: Annotated[str, Field(strict=True)] = Field(description="The secret of the Apikey", alias="sApikeySecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     __properties: ClassVar[List[str]] = ["objWebhook", "a_objAttempt", "objEzmaxpartnerproduct", "sExternalID", "sApikeyApikey", "sApikeySecret"]
 
     @field_validator('s_external_id', mode="before")
@@ -48,6 +48,13 @@ class WebhookEzmaxpartnerproductSubscribe(BaseModel):
 
         if isinstance(value, str) and not re.match(r"^.{0,128}$", value):
             raise ValueError(r"must validate the regular expression /^.{0,128}$/")
+        return value
+
+    @field_validator('s_apikey_secret', mode="before")
+    def s_apikey_secret_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^[0-9a-fA-F]{1,32}$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9a-fA-F]{1,32}$/")
         return value
 
     model_config = ConfigDict(

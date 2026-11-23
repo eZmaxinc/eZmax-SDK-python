@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from eZmaxApi.models.common_audit import CommonAudit
@@ -38,11 +38,21 @@ class ApikeyResponse(BaseModel):
     obj_apikey_description: MultilingualApikeyDescription = Field(alias="objApikeyDescription")
     obj_contact_name: CustomContactNameResponse = Field(alias="objContactName")
     s_apikey_apikey: Optional[StrictStr] = Field(default=None, description="The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sApikeyApikey")
-    s_apikey_secret: Optional[StrictStr] = Field(default=None, description="The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey.", alias="sApikeySecret")
+    s_apikey_secret: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The secret of the Apikey", alias="sApikeySecret", json_schema_extra={"examples": ["f514d7a0008a9f6dee03e60734624d04"]})
     b_apikey_isactive: StrictBool = Field(description="Whether the apikey is active or not", alias="bApikeyIsactive", json_schema_extra={"examples": [True]})
     b_apikey_issigned: Optional[StrictBool] = Field(default=None, description="Whether the apikey is signed or not", alias="bApikeyIssigned", json_schema_extra={"examples": [True]})
     obj_audit: CommonAudit = Field(alias="objAudit")
     __properties: ClassVar[List[str]] = ["pkiApikeyID", "fkiUserID", "fkiEzmaxpartnerproductstageID", "objApikeyDescription", "objContactName", "sApikeyApikey", "sApikeySecret", "bApikeyIsactive", "bApikeyIssigned", "objAudit"]
+
+    @field_validator('s_apikey_secret', mode="before")
+    def s_apikey_secret_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[0-9a-fA-F]{1,32}$", value):
+            raise ValueError(r"must validate the regular expression /^[0-9a-fA-F]{1,32}$/")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

@@ -18,8 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,9 +29,29 @@ class MultilingualEzmaxpartnerDescription(BaseModel):
     """
     Description of the Ezmaxpartner
     """ # noqa: E501
-    s_ezmaxpartner_description1: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in french", alias="sEzmaxpartnerDescription1", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
-    s_ezmaxpartner_description2: Optional[StrictStr] = Field(default=None, description="The description of the Ezmaxpartner in english", alias="sEzmaxpartnerDescription2", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
+    s_ezmaxpartner_description1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezmaxpartner in french", alias="sEzmaxpartnerDescription1", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
+    s_ezmaxpartner_description2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The description of the Ezmaxpartner in english", alias="sEzmaxpartnerDescription2", json_schema_extra={"examples": ["The name of the hospital in which you were born"]})
     __properties: ClassVar[List[str]] = ["sEzmaxpartnerDescription1", "sEzmaxpartnerDescription2"]
+
+    @field_validator('s_ezmaxpartner_description1', mode="before")
+    def s_ezmaxpartner_description1_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
+        return value
+
+    @field_validator('s_ezmaxpartner_description2', mode="before")
+    def s_ezmaxpartner_description2_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,

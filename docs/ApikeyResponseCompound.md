@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **obj_apikey_description** | [**MultilingualApikeyDescription**](MultilingualApikeyDescription.md) |  | 
 **obj_contact_name** | [**CustomContactNameResponse**](CustomContactNameResponse.md) |  | 
 **s_apikey_apikey** | **str** | The Apikey for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
-**s_apikey_secret** | **str** | The Secret for the API key.  This will be hidden if we are not creating or regenerating the Apikey. | [optional] 
+**s_apikey_secret** | **str** | The secret of the Apikey | [optional] 
 **b_apikey_isactive** | **bool** | Whether the apikey is active or not | 
 **b_apikey_issigned** | **bool** | Whether the apikey is signed or not | [optional] 
 **obj_audit** | [**CommonAudit**](CommonAudit.md) |  | 
