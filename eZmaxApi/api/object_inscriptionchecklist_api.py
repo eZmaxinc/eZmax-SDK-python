@@ -68,7 +68,7 @@ class ObjectInscriptionchecklistApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> InscriptionchecklistGetAutocompleteV3Response:
-        """Retrieve Inscriptionchecklists and IDs
+        """(Deprecated) Retrieve Inscriptionchecklists and IDs
 
         Get the list of Inscriptionchecklist to be used in a dropdown or autocomplete control.
 
@@ -117,6 +117,7 @@ class ObjectInscriptionchecklistApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /3/object/inscriptionchecklist/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
         _param = self._inscriptionchecklist_get_autocomplete_v3_serialize(
             s_selector=s_selector,
@@ -179,7 +180,7 @@ class ObjectInscriptionchecklistApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[InscriptionchecklistGetAutocompleteV3Response]:
-        """Retrieve Inscriptionchecklists and IDs
+        """(Deprecated) Retrieve Inscriptionchecklists and IDs
 
         Get the list of Inscriptionchecklist to be used in a dropdown or autocomplete control.
 
@@ -228,6 +229,7 @@ class ObjectInscriptionchecklistApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /3/object/inscriptionchecklist/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
         _param = self._inscriptionchecklist_get_autocomplete_v3_serialize(
             s_selector=s_selector,
@@ -290,7 +292,7 @@ class ObjectInscriptionchecklistApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Retrieve Inscriptionchecklists and IDs
+        """(Deprecated) Retrieve Inscriptionchecklists and IDs
 
         Get the list of Inscriptionchecklist to be used in a dropdown or autocomplete control.
 
@@ -339,6 +341,7 @@ class ObjectInscriptionchecklistApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /3/object/inscriptionchecklist/getAutocomplete/{sSelector} is deprecated.", DeprecationWarning)
 
         _param = self._inscriptionchecklist_get_autocomplete_v3_serialize(
             s_selector=s_selector,
