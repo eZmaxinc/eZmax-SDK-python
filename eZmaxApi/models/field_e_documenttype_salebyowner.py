@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeSalebyowner(str, Enum):
     """
-    The salebyowner of the Documenttype
+    Whether the document type applies to sale by owner transactions
     """
 
     """

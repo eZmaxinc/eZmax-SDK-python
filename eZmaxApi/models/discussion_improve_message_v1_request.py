@@ -19,9 +19,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from eZmaxApi.models.field_e_discussion_robot import FieldEDiscussionRobot
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,10 +29,8 @@ class DiscussionImproveMessageV1Request(BaseModel):
     """
     Request for POST /1/object/discussion/improveMessage
     """ # noqa: E501
-    fki_discussion_id: Optional[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(default=None, description="The unique ID of the Discussion", alias="fkiDiscussionID", json_schema_extra={"examples": [125]})
-    e_discussion_robot: FieldEDiscussionRobot = Field(alias="eDiscussionRobot")
     t_discussion_message: Annotated[str, Field(strict=True)] = Field(description="The Message of the Discussion", alias="tDiscussionMessage", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
-    __properties: ClassVar[List[str]] = ["fkiDiscussionID", "eDiscussionRobot", "tDiscussionMessage"]
+    __properties: ClassVar[List[str]] = ["tDiscussionMessage"]
 
     @field_validator('t_discussion_message', mode="before")
     def t_discussion_message_validate_regular_expression(cls, value):
@@ -93,8 +90,6 @@ class DiscussionImproveMessageV1Request(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fkiDiscussionID": obj.get("fkiDiscussionID"),
-            "eDiscussionRobot": obj.get("eDiscussionRobot"),
             "tDiscussionMessage": obj.get("tDiscussionMessage")
         })
         return _obj

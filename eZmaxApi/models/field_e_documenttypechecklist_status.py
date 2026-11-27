@@ -31,6 +31,7 @@ class FieldEDocumenttypechecklistStatus(str, Enum):
     REQUIRED = 'Required'
     FILED = 'Filed'
     JUSTIFIED = 'Justified'
+    MANDATORY = 'Mandatory'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

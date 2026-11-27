@@ -30,7 +30,7 @@ class DocumenttypeAutocompleteElementResponse(BaseModel):
     A Documenttype AutocompleteElement Response
     """ # noqa: E501
     pki_documenttype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Documenttype", alias="pkiDocumenttypeID", json_schema_extra={"examples": [172]})
-    s_documenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Documenttype in the language of the requester", alias="sDocumenttypeNameX", json_schema_extra={"examples": ["Loan deed"]})
+    s_documenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the document type in the requester's language", alias="sDocumenttypeNameX", json_schema_extra={"examples": ["Loan deed"]})
     b_documenttype_isactive: StrictBool = Field(description="Whether the documenttype is active or not", alias="bDocumenttypeIsactive", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["pkiDocumenttypeID", "sDocumenttypeNameX", "bDocumenttypeIsactive"]
 

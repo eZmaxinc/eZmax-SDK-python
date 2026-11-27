@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **fki_inscriptionnotauthenticatedconditiontype_id** | **int** | The unique ID of the Inscriptionnotauthenticatedconditiontype | 
 **s_inscriptionnotauthenticatedconditiontype_name_x** | **str** | The name of the Inscriptionnotauthenticatedconditiontype in the language of the requester | 
 **fki_inscriptionnotauthenticated_id** | **int** | The unique ID of the Inscriptionnotauthenticated. | 
-**b_inscriptionnotauthenticatedcondition_filled** | **bool** | Can access attachment when we clone a user | 
+**b_inscriptionnotauthenticatedcondition_filled** | **bool** | Whether the user can access attachments when their session is cloned | 
 **dt_inscriptionnotauthenticatedcondition_completed** | **str** | The date the Inscriptionnotauthenticatedcondition was completed | [optional] 
 **dt_inscriptionnotauthenticatedcondition_due** | **str** | The date the Inscriptionnotauthenticatedcondition is due | [optional] 
 **t_inscriptionnotauthenticatedcondition_comment** | **str** | The comment of the Inscriptionnotauthenticatedcondition | 

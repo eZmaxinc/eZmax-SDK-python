@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **obj_user** | [**CustomUserNameResponse**](CustomUserNameResponse.md) |  | 
 **dt_attachmentlog_datetime** | **str** | The created date | 
 **e_attachmentlog_type** | [**FieldEAttachmentlogType**](FieldEAttachmentlogType.md) |  | 
-**s_attachmentlog_detail** | **str** | The additionnal detail | [optional] 
+**s_attachmentlog_detail** | **str** | The additional detail for the Attachmentlog | [optional] 
 
 ## Example
 

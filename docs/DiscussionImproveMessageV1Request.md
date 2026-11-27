@@ -6,8 +6,6 @@ Request for POST /1/object/discussion/improveMessage
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fki_discussion_id** | **int** | The unique ID of the Discussion | [optional] 
-**e_discussion_robot** | [**FieldEDiscussionRobot**](FieldEDiscussionRobot.md) |  | 
 **t_discussion_message** | **str** | The Message of the Discussion | 
 
 ## Example

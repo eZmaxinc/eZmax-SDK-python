@@ -37,21 +37,20 @@ class DocumenttypeListElement(BaseModel):
     A Documenttype List Element
     """ # noqa: E501
     pki_documenttype_id: Annotated[int, Field(le=65535, strict=True, ge=0)] = Field(description="The unique ID of the Documenttype", alias="pkiDocumenttypeID", json_schema_extra={"examples": [172]})
-    s_documenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the Documenttype in the language of the requester", alias="sDocumenttypeNameX", json_schema_extra={"examples": ["Loan deed"]})
-    s_documenttype_defaultfilename: Annotated[str, Field(strict=True)] = Field(description="The defaultfilename of the Documenttype", alias="sDocumenttypeDefaultfilename", json_schema_extra={"examples": ["invoice.pdf"]})
-    b_documenttype_showagent: StrictBool = Field(description="Whether if it's an showagent", alias="bDocumenttypeShowagent", json_schema_extra={"examples": [True]})
+    s_documenttype_name_x: Annotated[str, Field(strict=True)] = Field(description="The name of the document type in the requester's language", alias="sDocumenttypeNameX", json_schema_extra={"examples": ["Loan deed"]})
+    s_documenttype_defaultfilename: Annotated[str, Field(strict=True)] = Field(description="The default filename for the document type", alias="sDocumenttypeDefaultfilename", json_schema_extra={"examples": ["invoice.pdf"]})
+    b_documenttype_showagent: StrictBool = Field(description="Whether the document type should be shown to the agent", alias="bDocumenttypeShowagent", json_schema_extra={"examples": [True]})
     b_documenttype_isactive: StrictBool = Field(description="Whether the documenttype is active or not", alias="bDocumenttypeIsactive", json_schema_extra={"examples": [True]})
-    b_documenttype_isrequired: StrictBool = Field(description="Whether if it's an isrequired", alias="bDocumenttypeIsrequired", json_schema_extra={"examples": [True]})
-    b_documenttype_sale: StrictBool = Field(description="Whether if it's an sale", alias="bDocumenttypeSale", json_schema_extra={"examples": [True]})
-    b_documenttype_rental: StrictBool = Field(description="Whether if it's an rental", alias="bDocumenttypeRental", json_schema_extra={"examples": [True]})
-    b_documenttype_reference: StrictBool = Field(description="Whether if it's an reference", alias="bDocumenttypeReference", json_schema_extra={"examples": [True]})
-    b_documenttype_mortgagereference: StrictBool = Field(description="Whether if it's an mortgagereference", alias="bDocumenttypeMortgagereference", json_schema_extra={"examples": [True]})
-    b_documenttype_evaluation: StrictBool = Field(description="Whether if it's an evaluation", alias="bDocumenttypeEvaluation", json_schema_extra={"examples": [True]})
-    b_documenttype_consultation: StrictBool = Field(description="Whether if it's an consultation", alias="bDocumenttypeConsultation", json_schema_extra={"examples": [True]})
-    b_documenttype_otherservices: StrictBool = Field(description="Whether if it's an otherservices", alias="bDocumenttypeOtherservices", json_schema_extra={"examples": [True]})
-    b_documenttype_foreclosedsale: StrictBool = Field(description="Whether if it's an foreclosedsale", alias="bDocumenttypeForeclosedsale", json_schema_extra={"examples": [True]})
-    b_documenttype_commercialfunding: StrictBool = Field(description="Whether if it's an commercialfunding", alias="bDocumenttypeCommercialfunding", json_schema_extra={"examples": [True]})
-    b_documenttype_canafe: StrictBool = Field(description="Whether if it's an canafe", alias="bDocumenttypeCanafe", json_schema_extra={"examples": [True]})
+    b_documenttype_sale: StrictBool = Field(description="Whether the document type applies to sale transactions", alias="bDocumenttypeSale", json_schema_extra={"examples": [True]})
+    b_documenttype_rental: StrictBool = Field(description="Whether the document type applies to rental transactions", alias="bDocumenttypeRental", json_schema_extra={"examples": [True]})
+    b_documenttype_reference: StrictBool = Field(description="Whether the document type is a reference document", alias="bDocumenttypeReference", json_schema_extra={"examples": [True]})
+    b_documenttype_mortgagereference: StrictBool = Field(description="Whether the document type is a mortgage reference", alias="bDocumenttypeMortgagereference", json_schema_extra={"examples": [True]})
+    b_documenttype_evaluation: StrictBool = Field(description="Whether the document type applies to evaluation transactions", alias="bDocumenttypeEvaluation", json_schema_extra={"examples": [True]})
+    b_documenttype_consultation: StrictBool = Field(description="Whether the document type applies to consultation transactions", alias="bDocumenttypeConsultation", json_schema_extra={"examples": [True]})
+    b_documenttype_otherservices: StrictBool = Field(description="Whether the document type applies to other services", alias="bDocumenttypeOtherservices", json_schema_extra={"examples": [True]})
+    b_documenttype_foreclosedsale: StrictBool = Field(description="Whether the document type applies to foreclosed sale transactions", alias="bDocumenttypeForeclosedsale", json_schema_extra={"examples": [True]})
+    b_documenttype_commercialfunding: StrictBool = Field(description="Whether the document type applies to commercial funding transactions", alias="bDocumenttypeCommercialfunding", json_schema_extra={"examples": [True]})
+    b_documenttype_canafe: StrictBool = Field(description="Whether the document type applies to Canafe transactions", alias="bDocumenttypeCanafe", json_schema_extra={"examples": [True]})
     e_documenttype_ezcom: Optional[FieldEDocumenttypeEzcom] = Field(default=None, alias="eDocumenttypeEzcom")
     e_documenttype_privacydefault: FieldEDocumenttypePrivacydefault = Field(alias="eDocumenttypePrivacydefault")
     e_documenttype_statusdefault: FieldEDocumenttypeStatusdefault = Field(alias="eDocumenttypeStatusdefault")
@@ -59,7 +58,7 @@ class DocumenttypeListElement(BaseModel):
     e_documenttype_saledisplaybyrole: FieldEDocumenttypeSaledisplaybyrole = Field(alias="eDocumenttypeSaledisplaybyrole")
     e_documenttype_transactiontype: FieldEDocumenttypeTransactiontype = Field(alias="eDocumenttypeTransactiontype")
     e_documenttype_repossession: FieldEDocumenttypeRepossession = Field(alias="eDocumenttypeRepossession")
-    __properties: ClassVar[List[str]] = ["pkiDocumenttypeID", "sDocumenttypeNameX", "sDocumenttypeDefaultfilename", "bDocumenttypeShowagent", "bDocumenttypeIsactive", "bDocumenttypeIsrequired", "bDocumenttypeSale", "bDocumenttypeRental", "bDocumenttypeReference", "bDocumenttypeMortgagereference", "bDocumenttypeEvaluation", "bDocumenttypeConsultation", "bDocumenttypeOtherservices", "bDocumenttypeForeclosedsale", "bDocumenttypeCommercialfunding", "bDocumenttypeCanafe", "eDocumenttypeEzcom", "eDocumenttypePrivacydefault", "eDocumenttypeStatusdefault", "eDocumenttypeSalebyowner", "eDocumenttypeSaledisplaybyrole", "eDocumenttypeTransactiontype", "eDocumenttypeRepossession"]
+    __properties: ClassVar[List[str]] = ["pkiDocumenttypeID", "sDocumenttypeNameX", "sDocumenttypeDefaultfilename", "bDocumenttypeShowagent", "bDocumenttypeIsactive", "bDocumenttypeSale", "bDocumenttypeRental", "bDocumenttypeReference", "bDocumenttypeMortgagereference", "bDocumenttypeEvaluation", "bDocumenttypeConsultation", "bDocumenttypeOtherservices", "bDocumenttypeForeclosedsale", "bDocumenttypeCommercialfunding", "bDocumenttypeCanafe", "eDocumenttypeEzcom", "eDocumenttypePrivacydefault", "eDocumenttypeStatusdefault", "eDocumenttypeSalebyowner", "eDocumenttypeSaledisplaybyrole", "eDocumenttypeTransactiontype", "eDocumenttypeRepossession"]
 
     @field_validator('s_documenttype_name_x', mode="before")
     def s_documenttype_name_x_validate_regular_expression(cls, value):
@@ -131,7 +130,6 @@ class DocumenttypeListElement(BaseModel):
             "sDocumenttypeDefaultfilename": obj.get("sDocumenttypeDefaultfilename"),
             "bDocumenttypeShowagent": obj.get("bDocumenttypeShowagent"),
             "bDocumenttypeIsactive": obj.get("bDocumenttypeIsactive"),
-            "bDocumenttypeIsrequired": obj.get("bDocumenttypeIsrequired"),
             "bDocumenttypeSale": obj.get("bDocumenttypeSale"),
             "bDocumenttypeRental": obj.get("bDocumenttypeRental"),
             "bDocumenttypeReference": obj.get("bDocumenttypeReference"),

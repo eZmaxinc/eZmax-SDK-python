@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -27,10 +27,17 @@ from pydantic_core import to_jsonable_python
 
 class DiscussionImproveMessageV1ResponseMPayload(BaseModel):
     """
-    Payload for POST /1/object/discussion
+    Payload for POST /1/object/discussion/improveMessage
     """ # noqa: E501
-    a_pki_discussion_id: List[Annotated[int, Field(le=16777215, strict=True, ge=0)]] = Field(description="An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request.", alias="a_pkiDiscussionID")
-    __properties: ClassVar[List[str]] = ["a_pkiDiscussionID"]
+    t_discussion_message: Annotated[str, Field(strict=True)] = Field(description="The Message of the Discussion", alias="tDiscussionMessage", json_schema_extra={"examples": ["Hello, this is an example of content in a message"]})
+    __properties: ClassVar[List[str]] = ["tDiscussionMessage"]
+
+    @field_validator('t_discussion_message', mode="before")
+    def t_discussion_message_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^[\s\S]{0,65535}$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]{0,65535}$/")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -83,7 +90,7 @@ class DiscussionImproveMessageV1ResponseMPayload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "a_pkiDiscussionID": obj.get("a_pkiDiscussionID")
+            "tDiscussionMessage": obj.get("tDiscussionMessage")
         })
         return _obj
 

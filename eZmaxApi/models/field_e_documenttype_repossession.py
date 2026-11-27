@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeRepossession(str, Enum):
     """
-    The repossession of the Documenttype
+    Whether the document type applies to repossession transactions
     """
 
     """

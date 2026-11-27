@@ -6,8 +6,8 @@ The name1 of the Documenttype
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**s_documenttype_name1** | **str** | The name1 of the Documenttype | [optional] 
-**s_documenttype_name2** | **str** | The name2 of the Documenttype | [optional] 
+**s_documenttype_name1** | **str** | The name of the document type in French | [optional] 
+**s_documenttype_name2** | **str** | The name of the document type in English | [optional] 
 
 ## Example
 

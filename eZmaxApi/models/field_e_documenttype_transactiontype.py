@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeTransactiontype(str, Enum):
     """
-    The transactiontype of the Documenttype
+    The transaction type for which the document is applicable
     """
 
     """

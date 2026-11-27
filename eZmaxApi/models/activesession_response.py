@@ -46,7 +46,7 @@ class ActivesessionResponse(BaseModel):
     s_department_name_x: StrictStr = Field(description="The Name of the Department in the language of the requester", alias="sDepartmentNameX", json_schema_extra={"examples": ["Head Office"]})
     b_activesession_debug: StrictBool = Field(description="Whether the active session is in debug or not", alias="bActivesessionDebug", json_schema_extra={"examples": [False]})
     b_activesession_issuperadmin: StrictBool = Field(description="Whether the active session is superadmin or not", alias="bActivesessionIssuperadmin", json_schema_extra={"examples": [False]})
-    b_activesession_attachment: Optional[StrictBool] = Field(default=None, description="Can access attachment when we clone a user", alias="bActivesessionAttachment", json_schema_extra={"examples": [False]})
+    b_activesession_attachment: Optional[StrictBool] = Field(default=None, description="Whether the user can access attachments when their session is cloned", alias="bActivesessionAttachment", json_schema_extra={"examples": [False]})
     b_activesession_canafe: Optional[StrictBool] = Field(default=None, description="Can access canafe when we clone a user", alias="bActivesessionCanafe", json_schema_extra={"examples": [False]})
     b_activesession_financial: Optional[StrictBool] = Field(default=None, description="Can access financial element when we clone a user", alias="bActivesessionFinancial", json_schema_extra={"examples": [False]})
     b_activesession_realestatecompleted: Optional[StrictBool] = Field(default=None, description="Can access closed realestate folders when we clone a user", alias="bActivesessionRealestatecompleted", json_schema_extra={"examples": [False]})

@@ -7,7 +7,7 @@ A Documenttype AutocompleteElement Response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pki_documenttype_id** | **int** | The unique ID of the Documenttype | 
-**s_documenttype_name_x** | **str** | The name of the Documenttype in the language of the requester | 
+**s_documenttype_name_x** | **str** | The name of the document type in the requester&#39;s language | 
 **b_documenttype_isactive** | **bool** | Whether the documenttype is active or not | 
 
 ## Example

@@ -1,6 +1,6 @@
 # DiscussionImproveMessageV1Response
 
-Response for POST /1/object/discussion
+Response for POST /1/object/discussion/improveMessage
 
 ## Properties
 

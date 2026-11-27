@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **s_department_name_x** | **str** | The Name of the Department in the language of the requester | 
 **b_activesession_debug** | **bool** | Whether the active session is in debug or not | 
 **b_activesession_issuperadmin** | **bool** | Whether the active session is superadmin or not | 
-**b_activesession_attachment** | **bool** | Can access attachment when we clone a user | [optional] 
+**b_activesession_attachment** | **bool** | Whether the user can access attachments when their session is cloned | [optional] 
 **b_activesession_canafe** | **bool** | Can access canafe when we clone a user | [optional] 
 **b_activesession_financial** | **bool** | Can access financial element when we clone a user | [optional] 
 **b_activesession_realestatecompleted** | **bool** | Can access closed realestate folders when we clone a user | [optional] 

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Delete an existing attachment
 
-Te endpoint allows to delete an attachment.
+The endpoint allows to delete an attachment.
 
 ### Example
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 Restore a deleted attachment
 
-The endpoints allows to restore a previously deleted attachment.
+The endpoint allows to restore a previously deleted attachment.
 
 ### Example
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 Change attachment document type
 
-The endpoint allows to change the checklist document type for an attachment.
+The endpoint allows to change the document type for an attachment.
 
 ### Example
 

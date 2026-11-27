@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeEzcom(str, Enum):
     """
-    The ezcom of the Documenttype
+    The ezcom document type category
     """
 
     """

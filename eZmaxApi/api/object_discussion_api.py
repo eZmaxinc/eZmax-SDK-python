@@ -1144,7 +1144,7 @@ class ObjectDiscussionApi:
     ) -> DiscussionImproveMessageV1Response:
         """Improve a message using the AI
 
-        Improve a message using the AI.
+        The endpoint allows to improve a discussion message using the AI.
 
         :param discussion_improve_message_v1_request: (required)
         :type discussion_improve_message_v1_request: DiscussionImproveMessageV1Request
@@ -1212,7 +1212,7 @@ class ObjectDiscussionApi:
     ) -> ApiResponse[DiscussionImproveMessageV1Response]:
         """Improve a message using the AI
 
-        Improve a message using the AI.
+        The endpoint allows to improve a discussion message using the AI.
 
         :param discussion_improve_message_v1_request: (required)
         :type discussion_improve_message_v1_request: DiscussionImproveMessageV1Request
@@ -1280,7 +1280,7 @@ class ObjectDiscussionApi:
     ) -> RESTResponseType:
         """Improve a message using the AI
 
-        Improve a message using the AI.
+        The endpoint allows to improve a discussion message using the AI.
 
         :param discussion_improve_message_v1_request: (required)
         :type discussion_improve_message_v1_request: DiscussionImproveMessageV1Request

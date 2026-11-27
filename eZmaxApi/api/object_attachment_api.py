@@ -70,7 +70,7 @@ class ObjectAttachmentApi:
     ) -> AttachmentDeleteV1Response:
         """Delete an existing attachment
 
-        Te endpoint allows to delete an attachment.
+        The endpoint allows to delete an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -144,7 +144,7 @@ class ObjectAttachmentApi:
     ) -> ApiResponse[AttachmentDeleteV1Response]:
         """Delete an existing attachment
 
-        Te endpoint allows to delete an attachment.
+        The endpoint allows to delete an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -218,7 +218,7 @@ class ObjectAttachmentApi:
     ) -> RESTResponseType:
         """Delete an existing attachment
 
-        Te endpoint allows to delete an attachment.
+        The endpoint allows to delete an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1198,7 +1198,7 @@ class ObjectAttachmentApi:
     ) -> AttachmentRestoreV1Response:
         """Restore a deleted attachment
 
-        The endpoints allows to restore a previously deleted attachment.
+        The endpoint allows to restore a previously deleted attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1273,7 +1273,7 @@ class ObjectAttachmentApi:
     ) -> ApiResponse[AttachmentRestoreV1Response]:
         """Restore a deleted attachment
 
-        The endpoints allows to restore a previously deleted attachment.
+        The endpoint allows to restore a previously deleted attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1348,7 +1348,7 @@ class ObjectAttachmentApi:
     ) -> RESTResponseType:
         """Restore a deleted attachment
 
-        The endpoints allows to restore a previously deleted attachment.
+        The endpoint allows to restore a previously deleted attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1499,7 +1499,7 @@ class ObjectAttachmentApi:
     ) -> AttachmentSetDocumentTypeV1Response:
         """Change attachment document type
 
-        The endpoint allows to change the checklist document type for an attachment.
+        The endpoint allows to change the document type for an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1573,7 +1573,7 @@ class ObjectAttachmentApi:
     ) -> ApiResponse[AttachmentSetDocumentTypeV1Response]:
         """Change attachment document type
 
-        The endpoint allows to change the checklist document type for an attachment.
+        The endpoint allows to change the document type for an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int
@@ -1647,7 +1647,7 @@ class ObjectAttachmentApi:
     ) -> RESTResponseType:
         """Change attachment document type
 
-        The endpoint allows to change the checklist document type for an attachment.
+        The endpoint allows to change the document type for an attachment.
 
         :param pki_attachment_id: (required)
         :type pki_attachment_id: int

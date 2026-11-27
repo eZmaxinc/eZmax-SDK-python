@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypePrivacydefault(str, Enum):
     """
-    The privacydefault of the Documenttype
+    The default privacy setting for the document type
     """
 
     """

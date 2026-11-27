@@ -29,7 +29,7 @@ from pydantic_core import to_jsonable_python
 
 class DiscussionImproveMessageV1Response(BaseModel):
     """
-    Response for POST /1/object/discussion
+    Response for POST /1/object/discussion/improveMessage
     """ # noqa: E501
     obj_debug_payload: CommonResponseObjDebugPayload = Field(alias="objDebugPayload")
     obj_debug: Optional[CommonResponseObjDebug] = Field(default=None, alias="objDebug")

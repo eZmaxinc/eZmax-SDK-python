@@ -36,7 +36,7 @@ class AttachmentlogResponseCompound(BaseModel):
     obj_user: CustomUserNameResponse = Field(alias="objUser")
     dt_attachmentlog_datetime: Annotated[str, Field(strict=True)] = Field(description="The created date", alias="dtAttachmentlogDatetime", json_schema_extra={"examples": ["2020-12-31 23:59:59"]})
     e_attachmentlog_type: FieldEAttachmentlogType = Field(alias="eAttachmentlogType")
-    s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additionnal detail", alias="sAttachmentlogDetail", json_schema_extra={"examples": ["System"]})
+    s_attachmentlog_detail: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The additional detail for the Attachmentlog", alias="sAttachmentlogDetail", json_schema_extra={"examples": ["System"]})
     __properties: ClassVar[List[str]] = ["fkiAttachmentID", "fkiUserID", "objUser", "dtAttachmentlogDatetime", "eAttachmentlogType", "sAttachmentlogDetail"]
 
     @field_validator('dt_attachmentlog_datetime', mode="before")

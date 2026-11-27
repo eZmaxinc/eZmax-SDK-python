@@ -1,6 +1,6 @@
 # FieldEAttachmentVerified
 
-The verified of the Attachment
+The verification status of the Attachment
 
 ## Enum
 

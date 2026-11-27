@@ -1,12 +1,12 @@
 # DiscussionImproveMessageV1ResponseMPayload
 
-Payload for POST /1/object/discussion
+Payload for POST /1/object/discussion/improveMessage
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a_pki_discussion_id** | **List[int]** | An array of unique IDs representing the object that were requested to be created.  They are returned in the same order as the array containing the objects to be created that was sent in the request. | 
+**t_discussion_message** | **str** | The Message of the Discussion | 
 
 ## Example
 

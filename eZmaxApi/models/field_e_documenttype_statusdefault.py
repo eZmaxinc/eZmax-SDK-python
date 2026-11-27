@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeStatusdefault(str, Enum):
     """
-    The statusdefault of the Documenttype
+    The default status requirement for the document type
     """
 
     """
@@ -29,6 +29,7 @@ class FieldEDocumenttypeStatusdefault(str, Enum):
     """
     NOT_REQUIRED = 'Not required'
     REQUIRED = 'Required'
+    MANDATORY = 'Mandatory'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

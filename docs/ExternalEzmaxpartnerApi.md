@@ -4,15 +4,15 @@ All URIs are relative to *https://prod.api.appcluster01.ca-central-1.ezmax.com/r
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ezmaxpartner_subscribe_v1**](ExternalEzmaxpartnerApi.md#ezmaxpartner_subscribe_v1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxparnerproductstage
+[**ezmaxpartner_subscribe_v1**](ExternalEzmaxpartnerApi.md#ezmaxpartner_subscribe_v1) | **POST** /1/external/ezmaxpartner/subscribe | Subscribe to an Ezmaxpartnerproductstage
 
 
 # **ezmaxpartner_subscribe_v1**
 > EzmaxpartnerSubscribeV1Response ezmaxpartner_subscribe_v1(ezmaxpartner_subscribe_v1_request)
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
-Subscribe to an Ezmaxparnerproductstage
+Subscribe to an Ezmaxpartnerproductstage
 
 ### Example
 
@@ -49,7 +49,7 @@ with eZmaxApi.ApiClient(configuration) as api_client:
     ezmaxpartner_subscribe_v1_request = eZmaxApi.EzmaxpartnerSubscribeV1Request() # EzmaxpartnerSubscribeV1Request | 
 
     try:
-        # Subscribe to an Ezmaxparnerproductstage
+        # Subscribe to an Ezmaxpartnerproductstage
         api_response = api_instance.ezmaxpartner_subscribe_v1(ezmaxpartner_subscribe_v1_request)
         print("The response of ExternalEzmaxpartnerApi->ezmaxpartner_subscribe_v1:\n")
         pprint(api_response)

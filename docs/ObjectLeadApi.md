@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**lead_get_communication_list_v1**](ObjectLeadApi.md#lead_get_communication_list_v1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationList | Retrieve Communication list
 [**lead_get_communicationrecipients_v1**](ObjectLeadApi.md#lead_get_communicationrecipients_v1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationrecipients | Retrieve Communication recipients
 [**lead_get_communicationsenders_v1**](ObjectLeadApi.md#lead_get_communicationsenders_v1) | **GET** /1/object/lead/{pkiLeadID}/getCommunicationsenders | Retrieve Communication senders
+[**lead_get_documenttypechecklist_v1**](ObjectLeadApi.md#lead_get_documenttypechecklist_v1) | **GET** /1/object/lead/{pkiLeadID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**lead_get_list_v1**](ObjectLeadApi.md#lead_get_list_v1) | **GET** /1/object/lead/getList | Retrieve Lead list
 [**lead_import_into_edmv1**](ObjectLeadApi.md#lead_import_into_edmv1) | **POST** /1/object/lead/{pkiLeadID}/importIntoEDM | Import attachments into the Lead
+[**lead_sync_documenttypechecklist_v1**](ObjectLeadApi.md#lead_sync_documenttypechecklist_v1) | **POST** /1/object/lead/{pkiLeadID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **lead_batch_download_v1**
@@ -484,6 +486,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **lead_get_documenttypechecklist_v1**
+> LeadGetDocumenttypechecklistV1Response lead_get_documenttypechecklist_v1(pki_lead_id)
+
+Retrieve Document type checklist
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.lead_get_documenttypechecklist_v1_response import LeadGetDocumenttypechecklistV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectLeadApi(api_client)
+    pki_lead_id = 56 # int | 
+
+    try:
+        # Retrieve Document type checklist
+        api_response = api_instance.lead_get_documenttypechecklist_v1(pki_lead_id)
+        print("The response of ObjectLeadApi->lead_get_documenttypechecklist_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectLeadApi->lead_get_documenttypechecklist_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_lead_id** | **int**|  | 
+
+### Return type
+
+[**LeadGetDocumenttypechecklistV1Response**](LeadGetDocumenttypechecklistV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **lead_get_list_v1**
 > LeadGetListV1Response lead_get_list_v1(e_order_by=e_order_by, i_row_max=i_row_max, i_row_offset=i_row_offset, accept_language=accept_language, s_filter=s_filter)
 
@@ -641,6 +721,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LeadImportIntoEDMV1Response**](LeadImportIntoEDMV1Response.md)
+
+### Authorization
+
+[Authorization](../README.md#Authorization)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **lead_sync_documenttypechecklist_v1**
+> LeadSyncDocumenttypechecklistV1Response lead_sync_documenttypechecklist_v1(pki_lead_id, body=body)
+
+Synchronize Document type checklist
+
+### Example
+
+* Api Key Authentication (Authorization):
+
+```python
+import eZmaxApi
+from eZmaxApi.models.lead_sync_documenttypechecklist_v1_response import LeadSyncDocumenttypechecklistV1Response
+from eZmaxApi.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
+# See configuration.py for a list of all supported configuration parameters.
+configuration = eZmaxApi.Configuration(
+    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Authorization
+configuration.api_key['Authorization'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with eZmaxApi.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = eZmaxApi.ObjectLeadApi(api_client)
+    pki_lead_id = 56 # int | 
+    body = None # object |  (optional)
+
+    try:
+        # Synchronize Document type checklist
+        api_response = api_instance.lead_sync_documenttypechecklist_v1(pki_lead_id, body=body)
+        print("The response of ObjectLeadApi->lead_sync_documenttypechecklist_v1:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ObjectLeadApi->lead_sync_documenttypechecklist_v1: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pki_lead_id** | **int**|  | 
+ **body** | **object**|  | [optional] 
+
+### Return type
+
+[**LeadSyncDocumenttypechecklistV1Response**](LeadSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

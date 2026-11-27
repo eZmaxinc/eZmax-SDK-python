@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEDocumenttypeSaledisplaybyrole(str, Enum):
     """
-    The saledisplaybyrole of the Documenttype
+    The role that determines document display in sale transactions
     """
 
     """

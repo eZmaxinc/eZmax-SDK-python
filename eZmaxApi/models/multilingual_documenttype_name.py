@@ -29,8 +29,8 @@ class MultilingualDocumenttypeName(BaseModel):
     """
     The name1 of the Documenttype
     """ # noqa: E501
-    s_documenttype_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name1 of the Documenttype", alias="sDocumenttypeName1", json_schema_extra={"examples": ["Facture"]})
-    s_documenttype_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name2 of the Documenttype", alias="sDocumenttypeName2", json_schema_extra={"examples": ["Invoice"]})
+    s_documenttype_name1: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the document type in French", alias="sDocumenttypeName1", json_schema_extra={"examples": ["Facture"]})
+    s_documenttype_name2: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="The name of the document type in English", alias="sDocumenttypeName2", json_schema_extra={"examples": ["Invoice"]})
     __properties: ClassVar[List[str]] = ["sDocumenttypeName1", "sDocumenttypeName2"]
 
     @field_validator('s_documenttype_name1', mode="before")

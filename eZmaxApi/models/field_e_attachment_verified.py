@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class FieldEAttachmentVerified(str, Enum):
     """
-    The verified of the Attachment
+    The verification status of the Attachment
     """
 
     """

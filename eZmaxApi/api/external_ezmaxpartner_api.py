@@ -54,9 +54,9 @@ class ExternalEzmaxpartnerApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> EzmaxpartnerSubscribeV1Response:
-        """Subscribe to an Ezmaxparnerproductstage
+        """Subscribe to an Ezmaxpartnerproductstage
 
-        Subscribe to an Ezmaxparnerproductstage
+        Subscribe to an Ezmaxpartnerproductstage
 
         :param ezmaxpartner_subscribe_v1_request:  (required)
         :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
@@ -123,9 +123,9 @@ class ExternalEzmaxpartnerApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[EzmaxpartnerSubscribeV1Response]:
-        """Subscribe to an Ezmaxparnerproductstage
+        """Subscribe to an Ezmaxpartnerproductstage
 
-        Subscribe to an Ezmaxparnerproductstage
+        Subscribe to an Ezmaxpartnerproductstage
 
         :param ezmaxpartner_subscribe_v1_request:  (required)
         :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
@@ -192,9 +192,9 @@ class ExternalEzmaxpartnerApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Subscribe to an Ezmaxparnerproductstage
+        """Subscribe to an Ezmaxpartnerproductstage
 
-        Subscribe to an Ezmaxparnerproductstage
+        Subscribe to an Ezmaxpartnerproductstage
 
         :param ezmaxpartner_subscribe_v1_request:  (required)
         :type ezmaxpartner_subscribe_v1_request: EzmaxpartnerSubscribeV1Request
