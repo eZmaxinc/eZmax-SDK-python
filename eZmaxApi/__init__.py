@@ -61,7 +61,6 @@ __all__ = [
     "ObjectDiscussionApi",
     "ObjectDiscussionmembershipApi",
     "ObjectDiscussionmessageApi",
-    "ObjectDocumenttypechecklistApi",
     "ObjectDomainApi",
     "ObjectElectronicfundstransferApi",
     "ObjectElectronicfundstransfertransactionApi",
@@ -763,9 +762,6 @@ __all__ = [
     "DiscussionmessageRequestPatch",
     "DiscussionmessageResponse",
     "DiscussionmessageResponseCompound",
-    "DocumenttypechecklistPatchObjectV1Request",
-    "DocumenttypechecklistPatchObjectV1Response",
-    "DocumenttypechecklistRequestPatch",
     "DomainAutocompleteElementResponse",
     "DomainCreateObjectV1Request",
     "DomainCreateObjectV1Response",
@@ -1784,7 +1780,6 @@ __all__ = [
     "FieldEDisclosureInteresttype",
     "FieldEDiscussionRobot",
     "FieldEDiscussionmessageStatus",
-    "FieldEDocumenttypechecklistStatus",
     "FieldEErrorCode",
     "FieldEEzdoctemplatedocumentPrivacylevel",
     "FieldEEzmaxinvoicingPaymenttype",
@@ -2707,7 +2702,6 @@ from eZmaxApi.api.object_disclosure_api import ObjectDisclosureApi as ObjectDisc
 from eZmaxApi.api.object_discussion_api import ObjectDiscussionApi as ObjectDiscussionApi
 from eZmaxApi.api.object_discussionmembership_api import ObjectDiscussionmembershipApi as ObjectDiscussionmembershipApi
 from eZmaxApi.api.object_discussionmessage_api import ObjectDiscussionmessageApi as ObjectDiscussionmessageApi
-from eZmaxApi.api.object_documenttypechecklist_api import ObjectDocumenttypechecklistApi as ObjectDocumenttypechecklistApi
 from eZmaxApi.api.object_domain_api import ObjectDomainApi as ObjectDomainApi
 from eZmaxApi.api.object_electronicfundstransfer_api import ObjectElectronicfundstransferApi as ObjectElectronicfundstransferApi
 from eZmaxApi.api.object_electronicfundstransfertransaction_api import ObjectElectronicfundstransfertransactionApi as ObjectElectronicfundstransfertransactionApi
@@ -3413,9 +3407,6 @@ from eZmaxApi.models.discussionmessage_request_compound import Discussionmessage
 from eZmaxApi.models.discussionmessage_request_patch import DiscussionmessageRequestPatch as DiscussionmessageRequestPatch
 from eZmaxApi.models.discussionmessage_response import DiscussionmessageResponse as DiscussionmessageResponse
 from eZmaxApi.models.discussionmessage_response_compound import DiscussionmessageResponseCompound as DiscussionmessageResponseCompound
-from eZmaxApi.models.documenttypechecklist_patch_object_v1_request import DocumenttypechecklistPatchObjectV1Request as DocumenttypechecklistPatchObjectV1Request
-from eZmaxApi.models.documenttypechecklist_patch_object_v1_response import DocumenttypechecklistPatchObjectV1Response as DocumenttypechecklistPatchObjectV1Response
-from eZmaxApi.models.documenttypechecklist_request_patch import DocumenttypechecklistRequestPatch as DocumenttypechecklistRequestPatch
 from eZmaxApi.models.domain_autocomplete_element_response import DomainAutocompleteElementResponse as DomainAutocompleteElementResponse
 from eZmaxApi.models.domain_create_object_v1_request import DomainCreateObjectV1Request as DomainCreateObjectV1Request
 from eZmaxApi.models.domain_create_object_v1_response import DomainCreateObjectV1Response as DomainCreateObjectV1Response
@@ -4434,7 +4425,6 @@ from eZmaxApi.models.field_e_customer_type import FieldECustomerType as FieldECu
 from eZmaxApi.models.field_e_disclosure_interesttype import FieldEDisclosureInteresttype as FieldEDisclosureInteresttype
 from eZmaxApi.models.field_e_discussion_robot import FieldEDiscussionRobot as FieldEDiscussionRobot
 from eZmaxApi.models.field_e_discussionmessage_status import FieldEDiscussionmessageStatus as FieldEDiscussionmessageStatus
-from eZmaxApi.models.field_e_documenttypechecklist_status import FieldEDocumenttypechecklistStatus as FieldEDocumenttypechecklistStatus
 from eZmaxApi.models.field_e_error_code import FieldEErrorCode as FieldEErrorCode
 from eZmaxApi.models.field_e_ezdoctemplatedocument_privacylevel import FieldEEzdoctemplatedocumentPrivacylevel as FieldEEzdoctemplatedocumentPrivacylevel
 from eZmaxApi.models.field_e_ezmaxinvoicing_paymenttype import FieldEEzmaxinvoicingPaymenttype as FieldEEzmaxinvoicingPaymenttype

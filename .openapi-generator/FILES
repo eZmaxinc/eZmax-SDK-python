@@ -582,9 +582,6 @@ docs/DiscussionmessageRequestCompound.md
 docs/DiscussionmessageRequestPatch.md
 docs/DiscussionmessageResponse.md
 docs/DiscussionmessageResponseCompound.md
-docs/DocumenttypechecklistPatchObjectV1Request.md
-docs/DocumenttypechecklistPatchObjectV1Response.md
-docs/DocumenttypechecklistRequestPatch.md
 docs/DomainAutocompleteElementResponse.md
 docs/DomainCreateObjectV1Request.md
 docs/DomainCreateObjectV1Response.md
@@ -1604,7 +1601,6 @@ docs/FieldECustomerType.md
 docs/FieldEDisclosureInteresttype.md
 docs/FieldEDiscussionRobot.md
 docs/FieldEDiscussionmessageStatus.md
-docs/FieldEDocumenttypechecklistStatus.md
 docs/FieldEErrorCode.md
 docs/FieldEEzdoctemplatedocumentPrivacylevel.md
 docs/FieldEEzmaxinvoicingPaymenttype.md
@@ -1996,7 +1992,6 @@ docs/ObjectDisclosureApi.md
 docs/ObjectDiscussionApi.md
 docs/ObjectDiscussionmembershipApi.md
 docs/ObjectDiscussionmessageApi.md
-docs/ObjectDocumenttypechecklistApi.md
 docs/ObjectDomainApi.md
 docs/ObjectElectronicfundstransferApi.md
 docs/ObjectElectronicfundstransfertransactionApi.md
@@ -2682,7 +2677,6 @@ eZmaxApi/api/object_disclosure_api.py
 eZmaxApi/api/object_discussion_api.py
 eZmaxApi/api/object_discussionmembership_api.py
 eZmaxApi/api/object_discussionmessage_api.py
-eZmaxApi/api/object_documenttypechecklist_api.py
 eZmaxApi/api/object_domain_api.py
 eZmaxApi/api/object_electronicfundstransfer_api.py
 eZmaxApi/api/object_electronicfundstransfertransaction_api.py
@@ -3381,9 +3375,6 @@ eZmaxApi/models/discussionmessage_request_compound.py
 eZmaxApi/models/discussionmessage_request_patch.py
 eZmaxApi/models/discussionmessage_response.py
 eZmaxApi/models/discussionmessage_response_compound.py
-eZmaxApi/models/documenttypechecklist_patch_object_v1_request.py
-eZmaxApi/models/documenttypechecklist_patch_object_v1_response.py
-eZmaxApi/models/documenttypechecklist_request_patch.py
 eZmaxApi/models/domain_autocomplete_element_response.py
 eZmaxApi/models/domain_create_object_v1_request.py
 eZmaxApi/models/domain_create_object_v1_response.py
@@ -4402,7 +4393,6 @@ eZmaxApi/models/field_e_customer_type.py
 eZmaxApi/models/field_e_disclosure_interesttype.py
 eZmaxApi/models/field_e_discussion_robot.py
 eZmaxApi/models/field_e_discussionmessage_status.py
-eZmaxApi/models/field_e_documenttypechecklist_status.py
 eZmaxApi/models/field_e_error_code.py
 eZmaxApi/models/field_e_ezdoctemplatedocument_privacylevel.py
 eZmaxApi/models/field_e_ezmaxinvoicing_paymenttype.py
