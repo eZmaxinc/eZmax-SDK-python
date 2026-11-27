@@ -36,7 +36,6 @@ from eZmaxApi.api.object_creditcardmerchant_api import ObjectCreditcardmerchantA
 from eZmaxApi.api.object_creditcardtype_api import ObjectCreditcardtypeApi
 from eZmaxApi.api.object_currency_api import ObjectCurrencyApi
 from eZmaxApi.api.object_customer_api import ObjectCustomerApi
-from eZmaxApi.api.object_customertemplate_api import ObjectCustomertemplateApi
 from eZmaxApi.api.object_department_api import ObjectDepartmentApi
 from eZmaxApi.api.object_deposit_api import ObjectDepositApi
 from eZmaxApi.api.object_deposittransitcheque_api import ObjectDeposittransitchequeApi

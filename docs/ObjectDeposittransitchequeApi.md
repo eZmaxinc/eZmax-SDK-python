@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**deposittransitcheque_get_communication_list_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_get_communication_list_v1) | **GET** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationList | Retrieve Communication list
 [**deposittransitcheque_get_communicationrecipients_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_get_communicationrecipients_v1) | **GET** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationrecipients | Retrieve Communication recipients
 [**deposittransitcheque_get_communicationsenders_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_get_communicationsenders_v1) | **GET** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getCommunicationsenders | Retrieve Communication senders
-[**deposittransitcheque_get_documenttypechecklist_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_get_documenttypechecklist_v1) | **GET** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**deposittransitcheque_get_list_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_get_list_v1) | **GET** /1/object/deposittransitcheque/getList | Retrieve Deposittransitcheque list
 [**deposittransitcheque_import_into_edmv1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_import_into_edmv1) | **POST** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/importIntoEDM | Import attachments into the Deposittransitcheque
-[**deposittransitcheque_sync_documenttypechecklist_v1**](ObjectDeposittransitchequeApi.md#deposittransitcheque_sync_documenttypechecklist_v1) | **POST** /1/object/deposittransitcheque/{pkiDeposittransitchequeID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **deposittransitcheque_batch_download_v1**
@@ -488,84 +486,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deposittransitcheque_get_documenttypechecklist_v1**
-> DeposittransitchequeGetDocumenttypechecklistV1Response deposittransitcheque_get_documenttypechecklist_v1(pki_deposittransitcheque_id)
-
-Retrieve Document type checklist
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import eZmaxApi
-from eZmaxApi.models.deposittransitcheque_get_documenttypechecklist_v1_response import DeposittransitchequeGetDocumenttypechecklistV1Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectDeposittransitchequeApi(api_client)
-    pki_deposittransitcheque_id = 56 # int | 
-
-    try:
-        # Retrieve Document type checklist
-        api_response = api_instance.deposittransitcheque_get_documenttypechecklist_v1(pki_deposittransitcheque_id)
-        print("The response of ObjectDeposittransitchequeApi->deposittransitcheque_get_documenttypechecklist_v1:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectDeposittransitchequeApi->deposittransitcheque_get_documenttypechecklist_v1: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_deposittransitcheque_id** | **int**|  | 
-
-### Return type
-
-[**DeposittransitchequeGetDocumenttypechecklistV1Response**](DeposittransitchequeGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deposittransitcheque_get_list_v1**
 > DeposittransitchequeGetListV1Response deposittransitcheque_get_list_v1(e_order_by=e_order_by, i_row_max=i_row_max, i_row_offset=i_row_offset, accept_language=accept_language, s_filter=s_filter)
 
@@ -717,86 +637,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeposittransitchequeImportIntoEDMV1Response**](DeposittransitchequeImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deposittransitcheque_sync_documenttypechecklist_v1**
-> DeposittransitchequeSyncDocumenttypechecklistV1Response deposittransitcheque_sync_documenttypechecklist_v1(pki_deposittransitcheque_id, body=body)
-
-Synchronize Document type checklist
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import eZmaxApi
-from eZmaxApi.models.deposittransitcheque_sync_documenttypechecklist_v1_response import DeposittransitchequeSyncDocumenttypechecklistV1Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectDeposittransitchequeApi(api_client)
-    pki_deposittransitcheque_id = 56 # int | 
-    body = None # object |  (optional)
-
-    try:
-        # Synchronize Document type checklist
-        api_response = api_instance.deposittransitcheque_sync_documenttypechecklist_v1(pki_deposittransitcheque_id, body=body)
-        print("The response of ObjectDeposittransitchequeApi->deposittransitcheque_sync_documenttypechecklist_v1:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectDeposittransitchequeApi->deposittransitcheque_sync_documenttypechecklist_v1: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_deposittransitcheque_id** | **int**|  | 
- **body** | **object**|  | [optional] 
-
-### Return type
-
-[**DeposittransitchequeSyncDocumenttypechecklistV1Response**](DeposittransitchequeSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 

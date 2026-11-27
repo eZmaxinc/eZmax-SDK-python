@@ -10,10 +10,8 @@ Method | HTTP request | Description
 [**rejectedoffertopurchase_get_communication_list_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_get_communication_list_v1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationList | Retrieve Communication list
 [**rejectedoffertopurchase_get_communicationrecipients_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_get_communicationrecipients_v1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationrecipients | Retrieve Rejectedoffertopurchase&#39;s Communicationrecipient
 [**rejectedoffertopurchase_get_communicationsenders_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_get_communicationsenders_v1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getCommunicationsenders | Retrieve Rejectedoffertopurchase&#39;s Communicationsender
-[**rejectedoffertopurchase_get_documenttypechecklist_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_get_documenttypechecklist_v1) | **GET** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/getDocumenttypechecklist | Retrieve Document type checklist
 [**rejectedoffertopurchase_get_list_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_get_list_v1) | **GET** /1/object/rejectedoffertopurchase/getList | Retrieve Rejectedoffertopurchase list
 [**rejectedoffertopurchase_import_into_edmv1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_import_into_edmv1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/importIntoEDM | Import attachments into the Rejectedoffertopurchase
-[**rejectedoffertopurchase_sync_documenttypechecklist_v1**](ObjectRejectedoffertopurchaseApi.md#rejectedoffertopurchase_sync_documenttypechecklist_v1) | **POST** /1/object/rejectedoffertopurchase/{pkiRejectedoffertopurchaseID}/syncDocumenttypechecklist | Synchronize Document type checklist
 
 
 # **rejectedoffertopurchase_batch_download_v1**
@@ -494,84 +492,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **rejectedoffertopurchase_get_documenttypechecklist_v1**
-> RejectedoffertopurchaseGetDocumenttypechecklistV1Response rejectedoffertopurchase_get_documenttypechecklist_v1(pki_rejectedoffertopurchase_id)
-
-Retrieve Document type checklist
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import eZmaxApi
-from eZmaxApi.models.rejectedoffertopurchase_get_documenttypechecklist_v1_response import RejectedoffertopurchaseGetDocumenttypechecklistV1Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectRejectedoffertopurchaseApi(api_client)
-    pki_rejectedoffertopurchase_id = 56 # int | 
-
-    try:
-        # Retrieve Document type checklist
-        api_response = api_instance.rejectedoffertopurchase_get_documenttypechecklist_v1(pki_rejectedoffertopurchase_id)
-        print("The response of ObjectRejectedoffertopurchaseApi->rejectedoffertopurchase_get_documenttypechecklist_v1:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectRejectedoffertopurchaseApi->rejectedoffertopurchase_get_documenttypechecklist_v1: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_rejectedoffertopurchase_id** | **int**|  | 
-
-### Return type
-
-[**RejectedoffertopurchaseGetDocumenttypechecklistV1Response**](RejectedoffertopurchaseGetDocumenttypechecklistV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **rejectedoffertopurchase_get_list_v1**
 > RejectedoffertopurchaseGetListV1Response rejectedoffertopurchase_get_list_v1(e_order_by=e_order_by, i_row_max=i_row_max, i_row_offset=i_row_offset, accept_language=accept_language, s_filter=s_filter)
 
@@ -725,86 +645,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RejectedoffertopurchaseImportIntoEDMV1Response**](RejectedoffertopurchaseImportIntoEDMV1Response.md)
-
-### Authorization
-
-[Authorization](../README.md#Authorization)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful response |  -  |
-**404** | The request failed. The element on which you were trying to work does not exists. Look for detail about the error in the body. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rejectedoffertopurchase_sync_documenttypechecklist_v1**
-> RejectedoffertopurchaseSyncDocumenttypechecklistV1Response rejectedoffertopurchase_sync_documenttypechecklist_v1(pki_rejectedoffertopurchase_id, body=body)
-
-Synchronize Document type checklist
-
-### Example
-
-* Api Key Authentication (Authorization):
-
-```python
-import eZmaxApi
-from eZmaxApi.models.rejectedoffertopurchase_sync_documenttypechecklist_v1_response import RejectedoffertopurchaseSyncDocumenttypechecklistV1Response
-from eZmaxApi.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://prod.api.appcluster01.ca-central-1.ezmax.com/rest
-# See configuration.py for a list of all supported configuration parameters.
-configuration = eZmaxApi.Configuration(
-    host = "https://prod.api.appcluster01.ca-central-1.ezmax.com/rest"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Authorization
-configuration.api_key['Authorization'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with eZmaxApi.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = eZmaxApi.ObjectRejectedoffertopurchaseApi(api_client)
-    pki_rejectedoffertopurchase_id = 56 # int | 
-    body = None # object |  (optional)
-
-    try:
-        # Synchronize Document type checklist
-        api_response = api_instance.rejectedoffertopurchase_sync_documenttypechecklist_v1(pki_rejectedoffertopurchase_id, body=body)
-        print("The response of ObjectRejectedoffertopurchaseApi->rejectedoffertopurchase_sync_documenttypechecklist_v1:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ObjectRejectedoffertopurchaseApi->rejectedoffertopurchase_sync_documenttypechecklist_v1: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pki_rejectedoffertopurchase_id** | **int**|  | 
- **body** | **object**|  | [optional] 
-
-### Return type
-
-[**RejectedoffertopurchaseSyncDocumenttypechecklistV1Response**](RejectedoffertopurchaseSyncDocumenttypechecklistV1Response.md)
 
 ### Authorization
 
